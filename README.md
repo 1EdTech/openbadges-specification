@@ -1,4 +1,4 @@
-# Open Badges Specification
+# Open Badges Specifications
 
 A repository for the main Open Badges specifications.
 
