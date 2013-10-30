@@ -1,6 +1,6 @@
-# Open Badges Specification(s)
+# Open Badges Specification
 
-A repository for the openbadges specifications.
+A repository for the main Open Badges specifications.
 
 * [Assertion](/assertion.md): Main specification for the badge data. If you want to understand how badges are made and verified, this is the place to look.
 
