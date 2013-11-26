@@ -22,16 +22,16 @@ Fields marked **in bold letters** are mandatory.
 
 #### BadgeAssertion
 
-Property | Expected Type | Description
---------|------------|-----------
-**uid** | Text | Unique Identifier for the badge. This is expected to be **locally** unique on a per-origin basis, not globally unique.
-**recipient** | [IdentityObject](#identity-object) | The recipient of the achievement.
-**badge** | URL | URL that describes the type of badge being awarded. The endpoint should be a [BadgeClass](#badge-class)
-**verify** | [VerificationObject](#verification-object) | Data to help a third party verify this assertion.
-**issuedOn** | [DateTime](#date-time) | Date that the achievement was awarded.
-image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing this user's achievement. This must be a PNG image, and if possible, the image should be prepared via the [Baking specification](https://github.com/mozilla/openbadges/wiki/Badge-Baking).
-evidence | URL | URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.
-expires | [DateTime](#date-time) | If the achievment has some notion of expiry, this indicates when a badge should no longer be considered valid.
+| Property | Expected Type | Description |
+|----------|---------------|-------------|
+| **uid** | Text | Unique Identifier for the badge. This is expected to be **locally** unique on a per-origin basis, not globally unique. |
+| **recipient** | [IdentityObject](#identity-object) | The recipient of the achievement. |
+| **badge** | URL | URL that describes the type of badge being awarded. The endpoint should be a [BadgeClass](#badge-class) |
+| **verify** | [VerificationObject](#verification-object) | Data to help a third party verify this assertion. |
+| **issuedOn** | [DateTime](#date-time) | Date that the achievement was awarded. |
+| image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing this user's achievement. This must be a PNG image, and if possible, the image should be prepared via the [Baking specification](https://github.com/mozilla/openbadges/wiki/Badge-Baking). |
+| evidence | URL | URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. |
+| expires | [DateTime](#date-time) | If the achievment has some notion of expiry, this indicates when a badge should no longer be considered valid. |
 
 
 #### <a id="identity-object"></a>IdentityObject
