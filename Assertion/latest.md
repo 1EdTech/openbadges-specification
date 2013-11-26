@@ -23,7 +23,7 @@ Fields marked **in bold letters** are mandatory.
 #### BadgeAssertion
 
 | Property | Expected Type | Description |
-|----------|---------------|-------------|
+| -------- | ------------- | ----------- |
 | **uid** | Text | Unique Identifier for the badge. This is expected to be **locally** unique on a per-origin basis, not globally unique. |
 | **recipient** | [IdentityObject](#identity-object) | The recipient of the achievement. |
 | **badge** | URL | URL that describes the type of badge being awarded. The endpoint should be a [BadgeClass](#badge-class) |
