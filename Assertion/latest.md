@@ -25,21 +25,21 @@ Fields marked **in bold letters** are mandatory.
 | Property | Expected Type | Description |
 | -------- | ------------- | ----------- |
 | **uid** | Text | Unique Identifier for the badge. This is expected to be **locally** unique on a per-origin basis, not globally unique. |
-| **recipient** | [IdentityObject](#identity-object) | The recipient of the achievement. |
+| **recipient** | [IdentityObject](#identityobject) | The recipient of the achievement. |
 | **badge** | URL | URL that describes the type of badge being awarded. The endpoint should be a [BadgeClass](#badgeclass) |
-| **verify** | [VerificationObject](#verification-object) | Data to help a third party verify this assertion. |
-| **issuedOn** | [DateTime](#date-time) | Date that the achievement was awarded. |
+| **verify** | [VerificationObject](#verificationobject) | Data to help a third party verify this assertion. |
+| **issuedOn** | [DateTime](#datetime) | Date that the achievement was awarded. |
 | image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing this user's achievement. This must be a PNG image, and if possible, the image should be prepared via the [Baking specification](https://github.com/mozilla/openbadges/wiki/Badge-Baking). |
 | evidence | URL | URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. |
-| expires | [DateTime](#date-time) | If the achievment has some notion of expiry, this indicates when a badge should no longer be considered valid. |
+| expires | [DateTime](#datetime) | If the achievment has some notion of expiry, this indicates when a badge should no longer be considered valid. |
 
 
 #### <a id="identity-object"></a>IdentityObject
 
 Property | Expected Type | Description
 --------|------------|-----------
-**identity** | [IdentityHash](#identity-hash) or Text | Either the hash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information, it is strongly recommended that an IdentityHash be used.
-**type** | [IdentityType](#identity-type) | The type of identity.
+**identity** | [IdentityHash](#identityhash) or Text | Either the hash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information, it is strongly recommended that an IdentityHash be used.
+**type** | [IdentityType](#identitytype) | The type of identity.
 **hashed** | Boolean | Whether or not the `id` value is hashed.
 salt | Text | If the recipient is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.
 
@@ -61,8 +61,8 @@ Property | Expected Type | Description
 **description** | Text | A short description of the achievement.
 **image** | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing the achievement.
 **criteria** | URL | URL of the criteria for earning the achievement. If the badge represents an educational achievement, consider marking up this up with [LRMI](http://www.lrmi.net/)
-**issuer** | URL | URL of the organization that issued the badge. Endpoint should be an [IssuerOrganization](#issuer-organization)
-alignment | Array of [AlignmentObject](#alignment-object)s | List of objects describing which educational standards this badge aligns to, if any.
+**issuer** | URL | URL of the organization that issued the badge. Endpoint should be an [IssuerOrganization](#issuerorganization)
+alignment | Array of [AlignmentObject](#alignmentobject)s | List of objects describing which educational standards this badge aligns to, if any.
 tags | Array of Text | List of tags that describe the type of achievement.
 
 
@@ -259,8 +259,8 @@ resource that returns a 200 OK.
   * `salt` (optional): must be **text**
 * `image` (optional): must be a valid **URL** or **Data URL**.
 * `evidence` (optional): must be a valid **URL**
-* `issuedOn` (optional): must be a valid [**DateTime**](#date-time)
-* `expires` (optional): must be a valid [**DateTime**](#date-time)
+* `issuedOn` (optional): must be a valid [**DateTime**](#datetime)
+* `expires` (optional): must be a valid [**DateTime**](#datetime)
 * `verify`: must be an object
   * `type`: must be either "hosted" or "signed"
   * `url`: must be a **URL**
