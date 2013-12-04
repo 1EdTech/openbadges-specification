@@ -26,7 +26,7 @@ Fields marked **in bold letters** are mandatory.
 | -------- | ------------- | ----------- |
 | **uid** | Text | Unique Identifier for the badge. This is expected to be **locally** unique on a per-origin basis, not globally unique. |
 | **recipient** | [IdentityObject](#identity-object) | The recipient of the achievement. |
-| **badge** | URL | URL that describes the type of badge being awarded. The endpoint should be a [BadgeClass](#badge-class) |
+| **badge** | URL | URL that describes the type of badge being awarded. The endpoint should be a [BadgeClass](#badgeclass) |
 | **verify** | [VerificationObject](#verification-object) | Data to help a third party verify this assertion. |
 | **issuedOn** | [DateTime](#date-time) | Date that the achievement was awarded. |
 | image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing this user's achievement. This must be a PNG image, and if possible, the image should be prepared via the [Baking specification](https://github.com/mozilla/openbadges/wiki/Badge-Baking). |
