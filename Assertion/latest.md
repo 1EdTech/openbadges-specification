@@ -11,7 +11,7 @@ A hosted assertion is a file containing a well-formatted badge assertion in JSON
 
 ### Signed
 
-A signed badge is in the form of a [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html). Signed badges use the Backpack javascript [issuer API](https://github.com/mozilla/openbadges/wiki/Issuer-API) to pass a signature rather than a URL. The JSON representation of the badge assertion should be used as the JWS payload.
+A signed badge is in the form of a [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html). Signed badges use the Backpack javascript [issuer API](https://github.com/mozilla/openbadges/blob/development/docs/apis/issuer_api.md) to pass a signature rather than a URL. The JSON representation of the badge assertion should be used as the JWS payload.
 
 ## Assertion Specification
 
@@ -28,18 +28,18 @@ Fields marked **in bold letters** are mandatory.
 | **recipient** | [IdentityObject](#identityobject) | The recipient of the achievement. |
 | **badge** | URL | URL that describes the type of badge being awarded. The endpoint should be a [BadgeClass](#badgeclass) |
 | **verify** | [VerificationObject](#verificationobject) | Data to help a third party verify this assertion. |
-| **issuedOn** | [DateTime](#datetime) | Date that the achievement was awarded. |
+| **issuedOn** | [DateTime](#primitives) | Date that the achievement was awarded. |
 | image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing this user's achievement. This must be a PNG image, and if possible, the image should be prepared via the [Baking specification](https://github.com/mozilla/openbadges-specification/blob/master/Badge-Baking/latest.md). |
 | evidence | URL | URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. |
-| expires | [DateTime](#datetime) | If the achievment has some notion of expiry, this indicates when a badge should no longer be considered valid. |
+| expires | [DateTime](#primitives) | If the achievment has some notion of expiry, this indicates when a badge should no longer be considered valid. |
 
 
 #### <a id="identity-object"></a>IdentityObject
 
 Property | Expected Type | Description
 --------|------------|-----------
-**identity** | [IdentityHash](#identityhash) or Text | Either the hash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information, it is strongly recommended that an IdentityHash be used.
-**type** | [IdentityType](#identitytype) | The type of identity.
+**identity** | [IdentityHash](#primitives) or Text | Either the hash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information, it is strongly recommended that an IdentityHash be used.
+**type** | [IdentityType](#primitives) | The type of identity.
 **hashed** | Boolean | Whether or not the `id` value is hashed.
 salt | Text | If the recipient is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.
 
@@ -62,8 +62,17 @@ Property | Expected Type | Description
 **image** | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing the achievement.
 **criteria** | URL | URL of the criteria for earning the achievement. If the badge represents an educational achievement, consider marking up this up with [LRMI](http://www.lrmi.net/)
 **issuer** | URL | URL of the organization that issued the badge. Endpoint should be an [IssuerOrganization](#issuerorganization)
-alignment | Array of [AlignmentObject](#alignmentobject)s | List of objects describing which educational standards this badge aligns to, if any.
+alignment | Array of [AlignmentObjects](#alignmentobject) | List of objects describing which educational standards this badge aligns to, if any.
 tags | Array of Text | List of tags that describe the type of achievement.
+
+
+#### <a id="alignment-object"></a>AlignmentObject
+
+Property | Expected Type | Description
+--------|------------|-----------
+**name** | Text | Name of the alignment.
+**url** | URL | URL linking to the official description of the standard.
+description | Text | Short description of the standard
 
 
 #### <a id="issuer-organization"></a>IssuerOrganization
@@ -76,15 +85,6 @@ description | Text | A short description of the institution
 image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the institution
 email | Text | Contact address for someone at the organization.
 revocationList | URL |  URL of the Badge Revocation List. The endpoint should be a JSON representation of an object where the keys are the **uid** a revoked badge assertion, and the values are the reason for revocation. This is only necessary for signed badges.
-
-
-#### <a id="alignment-object"></a>AlignmentObject
-
-Property | Expected Type | Description
---------|------------|-----------
-**name** | Text | Name of the alignment.
-**url** | URL | URL linking to the official description of the standard.
-description | Text | Short description of the standard
 
 
 ### <a id="additional-properties"></a>Additional Properties
@@ -259,8 +259,8 @@ resource that returns a 200 OK.
   * `salt` (optional): must be **text**
 * `image` (optional): must be a valid **URL** or **Data URL**.
 * `evidence` (optional): must be a valid **URL**
-* `issuedOn` (optional): must be a valid [**DateTime**](#datetime)
-* `expires` (optional): must be a valid [**DateTime**](#datetime)
+* `issuedOn` (optional): must be a valid [**DateTime**](#primitives)
+* `expires` (optional): must be a valid [**DateTime**](#primitives)
 * `verify`: must be an object
   * `type`: must be either "hosted" or "signed"
   * `url`: must be a **URL**
