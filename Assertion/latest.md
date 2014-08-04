@@ -1,19 +1,26 @@
 # Assertion
 
-Assertions are representations of an awarded badge, used to share information about badges that you've earned with the Backpack. With the 1.0 release of the OBI, there are two types of assertions: hosted and signed. For information regarding the spec prior to the latest release including instructions regarding backwards compatibility see the [spec changes](https://github.com/mozilla/openbadges/wiki/Assertion-Specification-Changes).
+An assertion is a representation of an awarded badge. Assertions are used to share information about earned badges, for example via backpacks. An assertion includes information about:
 
+* who earned the badge
+* what the badge represents
+* who issued the badge
 
-## Assertion Types
+There are two types of assertion: [hosted](#hosted) and [signed](#signed).
 
-### Hosted
+## Hosted
 
-A hosted assertion is a file containing a well-formatted badge assertion in JSON served with the content-type `application/json`. This should live at a stable URL on your server (for example, [https://example.org/beths-robotics-badge.json](https://example.org/beths-robotics-badge.json)) -- it is the source of truth for the badge and any future verification attempt will hit that URL to make sure the badge exists and was issued by you.
+A hosted assertion is a file containing a well-formed badge assertion in JSON, served with the content-type `application/json`. This should live at a stable URL on the issuer server (for example, [https://example.org/beths-robotics-badge.json](https://example.org/beths-robotics-badge.json)) - it is the source of truth for the badge and any future verification attempt will hit that URL to make sure the badge exists and was awarded by the issuer.
 
-### Signed
+## Signed
 
-A signed badge is in the form of a [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html). Signed badges use the Backpack javascript [issuer API](https://github.com/mozilla/openbadges/blob/development/docs/apis/issuer_api.md) to pass a signature rather than a URL. The JSON representation of the badge assertion should be used as the JWS payload.
+A signed assertion is in the form of a [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html). The JSON representation of the badge assertion should be used as the JWS payload.
+
+Both hosted and signed assertions can be passed to the Backpack [issuer API](https://github.com/mozilla/openbadges/blob/development/docs/apis/issuer_api.md) to push badges to the earner's Mozilla Backpack. _Signed badges pass a signature rather than a URL._
 
 ## Assertion Specification
+
+Each assertion includes information about the badge award, the badge itself and the issuer who awarded it. This is implemented via the _badge assertion_, _badge class_ and _issuer organization_. See below for a more detailed overview of the structures involved.
 
 ### Structures
 
@@ -29,7 +36,7 @@ Fields marked **in bold letters** are mandatory.
 | **badge** | URL | URL that describes the type of badge being awarded. The endpoint should be a [BadgeClass](#badgeclass) |
 | **verify** | [VerificationObject](#verificationobject) | Data to help a third party verify this assertion. |
 | **issuedOn** | [DateTime](#primitives) | Date that the achievement was awarded. |
-| image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing this user's achievement. This must be a PNG image, and if possible, the image should be prepared via the [Baking specification](https://github.com/mozilla/openbadges-specification/blob/master/Badge-Baking/latest.md). |
+| image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing this achievement. This must be a PNG image, and if possible, the image should be prepared via the [Baking specification](https://github.com/mozilla/openbadges-specification/blob/master/Badge-Baking/latest.md). |
 | evidence | URL | URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. |
 | expires | [DateTime](#primitives) | If the achievment has some notion of expiry, this indicates when a badge should no longer be considered valid. |
 
@@ -116,10 +123,9 @@ standardizing can be sent to
 
 ## JSON Examples
 
-There are three JSON files necessary to create a valid assertion:
+Three JSON files are necessary to create a valid assertion:
 
-* _Badge Assertion:_ contains information regarding a specific badge that was awarded to a user
-https://example.org/beths-robotics-badge.json
+* _Badge Assertion:_ contains information regarding a specific badge that was awarded to a user, e.g. `https://example.org/beths-robotics-badge.json`:
 ```json
 {
   "uid": "f2c20",
@@ -140,7 +146,7 @@ https://example.org/beths-robotics-badge.json
 }
 ```
 
-* _Badge Class:_ contains information about a badge and what it means https://example.org/robotics-badge.json
+* _Badge Class:_ contains information about a badge and what it represents, e.g. `https://example.org/robotics-badge.json`:
 ```json
 {
   "name": "Awesome Robotics Badge",
@@ -162,7 +168,7 @@ https://example.org/beths-robotics-badge.json
 }
 ```
 
-* Issuer Organization: contains information about who issued a badge https://example.org/organization.json
+* _Issuer Organization:_ contains information about who issued a badge, e.g. `https://example.org/organization.json`:
 ```json
 {
   "name": "An Example Badge Issuer",
@@ -173,7 +179,7 @@ https://example.org/beths-robotics-badge.json
 }
 ```
 
-Signed badges can also create a Revocation list, also represented as JSON, which defines badges that have been revoked and their reason of revocation. https://example.org/revoked.json
+Signed badges can optionally be accompanied by a __Revocation list__ (also represented in JSON), which defines badges that have been revoked, e.g. `https://example.org/revoked.json`:
 
 ```json
 {
@@ -183,21 +189,23 @@ Signed badges can also create a Revocation list, also represented as JSON, which
 }
 ```
 
+The `uid` for each revoked badge is listed together with the reason for revocation. Displayers are expected to check the revocation list before displaying a badge.
 
-# <a id="implementation"></a> Implementation
+## <a id="implementation"></a> Implementation
 
-## Hosted Badges
+### Implementing Hosted Badges
 
 The badge assertion should live at a publicly accessible URL (for
-example, https://example.org/beths-robotics-badge.json). Make sure that you are properly [setting the content-type](#setting-content-type) to `application/json`.
+example, `https://example.org/beths-robotics-badge.json`). As an issuer, you should make sure you are properly [setting the content-type](#setting-content-type) to `application/json`.
 
-### Revoking
-To mark a hosted assertion as revoked, respond with an HTTP Status of
+#### Revoking
+
+To mark a hosted assertion as revoked, issuers should respond with an HTTP Status of
 `410 Gone` and a body of `{"revoked": true}`.
 
-## Signed Badges
+### Signed Badges
 
-A signed badge is in the form of a
+A signed badge assertion should be represented as a
 [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html):
 
 ```
@@ -222,7 +230,7 @@ The public key corresponding to the private key used to the sign the
 badge should be publicly accessible and specified in the `verify.url`
 property of the badge assertion.
 
-### Revoking
+#### Revoking
 
 To mark a badge as revoked, add an entry to the resource pointed at by
 the IssuerOrganization `revocationList` URL with the **uid** of the
@@ -250,6 +258,8 @@ resource that returns a 200 OK.
 
 ### Structural Validity
 
+The following overview indicates the requirements for a badge assertion to be considered structurally valid:
+
 * `badge`: must be a valid **URL**. An HTTP GET request MUST BE
   performed on the URL to ensure eventual 200 OK status.
 * `recipient`: must be an object
@@ -265,7 +275,9 @@ resource that returns a 200 OK.
   * `type`: must be either "hosted" or "signed"
   * `url`: must be a **URL**
 
-### Signed Assertion
+#### Signed Assertion
+
+To verify a signed badge assertion:
 
 1. Unpack the JWS payload. This will be a JSON string representation of
 the badge assertion.
@@ -275,7 +287,7 @@ fails, assertion MUST be treated as invalid.
 
 3. Assert structural validity.
 
-4. Extract the `verify.url` property from the JSON object. If their is no
+4. Extract the `verify.url` property from the JSON object. If there is no
 `verify.url` property, or the `verify.url` property does not contain a valid
 URL, assertion MUST be treated as invalid.
 
@@ -291,7 +303,9 @@ ensure the `uid` of the badge does not appear in the list.
 
 8. If the above steps pass, assertion MAY BE treated as valid.
 
-### Hosted Assertion
+#### Hosted Assertion
+
+To verify a hosted badge assertion:
 
 1. Perform an HTTP GET request on the `verify.url`. If the HTTP Status
 is not eventually 200 OK, assertion MUST BE treated as invalid.
@@ -346,4 +360,11 @@ types {
 ```
 
 ## Assertion Validator
+
+Assertions can be checked for validity using the validator, via the Web interface:
+
 [http://validator.openbadges.org/](http://validator.openbadges.org/)
+
+..or programmatically:
+
+[https://github.com/mozilla/openbadges-validator/])(https://github.com/mozilla/openbadges-validator/)
