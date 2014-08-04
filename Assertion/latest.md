@@ -16,7 +16,7 @@ A hosted assertion is a file containing a well-formed badge assertion in JSON, s
 
 A signed assertion is in the form of a [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html). The JSON representation of the badge assertion should be used as the JWS payload.
 
-Both hosted and signed assertions can be passed to the Backpack [issuer API](https://github.com/mozilla/openbadges/blob/development/docs/apis/issuer_api.md) to push badges to the earner's Mozilla Backpack. _Signed badges pass a signature rather than a URL._
+Both hosted and signed assertions can be passed to the Backpack [Issuer API](https://github.com/mozilla/openbadges/blob/development/docs/apis/issuer_api.md) to push badges to the earner's Mozilla Backpack. _Signed badges can be pushed by passing a signature rather than a URL._
 
 ## Assertion Specification
 
@@ -198,12 +198,12 @@ The `uid` for each revoked badge is listed together with the reason for revocati
 The badge assertion should live at a publicly accessible URL (for
 example, `https://example.org/beths-robotics-badge.json`). As an issuer, you should make sure you are properly [setting the content-type](#setting-content-type) to `application/json`.
 
-#### Revoking
+#### Revoking Hosted Badges
 
 To mark a hosted assertion as revoked, issuers should respond with an HTTP Status of
 `410 Gone` and a body of `{"revoked": true}`.
 
-### Signed Badges
+### Implementing Signed Badges
 
 A signed badge assertion should be represented as a
 [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html):
@@ -230,7 +230,7 @@ The public key corresponding to the private key used to the sign the
 badge should be publicly accessible and specified in the `verify.url`
 property of the badge assertion.
 
-#### Revoking
+#### Revoking Signed Badges
 
 To mark a badge as revoked, add an entry to the resource pointed at by
 the IssuerOrganization `revocationList` URL with the **uid** of the
@@ -310,7 +310,7 @@ To verify a hosted badge assertion:
 1. Perform an HTTP GET request on the `verify.url`. If the HTTP Status
 is not eventually 200 OK, assertion MUST BE treated as invalid.
 
-2. Assert structural validity
+2. Assert structural validity.
 
 
 ## <a id="setting-content-type"></a>Setting Content-Type
@@ -367,4 +367,4 @@ Assertions can be checked for validity using the validator, via the Web interfac
 
 ..or programmatically:
 
-[https://github.com/mozilla/openbadges-validator/])(https://github.com/mozilla/openbadges-validator/)
+[https://github.com/mozilla/openbadges-validator/](https://github.com/mozilla/openbadges-validator/)
