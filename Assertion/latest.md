@@ -26,6 +26,9 @@ Each assertion includes information about the badge award, the badge itself and 
 
 Fields marked **in bold letters** are mandatory.
 
+### Assertion Data 
+
+_The assertion describes a particular badge awarded to a particular earner._
 
 #### BadgeAssertion
 
@@ -58,7 +61,9 @@ Fields marked **in bold letters** are mandatory.
 |**type** | **required** | VerificationType | The type of verification method.|
 |**url** | **required** | URL | If the type is "hosted", this should be a URL pointing to the assertion on the issuer's server. If the type is "signed", this should be a link to the issuer's public key.|
 
+### Badge Class Data
 
+_The badge class describes what the badge represents._
 
 #### <a id="badge-class"></a>BadgeClass
 
@@ -83,6 +88,9 @@ _AlignmentObject is optional - fields below are required **if** it is included i
 |**url** | **required** | URL | URL linking to the official description of the standard.|
 |description | _optional_ | Text | Short description of the standard.|
 
+### Issuer Data
+
+_The Issuer Organization describes who issued the badge._
 
 #### <a id="issuer-organization"></a>IssuerOrganization
 
