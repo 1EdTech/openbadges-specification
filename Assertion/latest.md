@@ -29,69 +29,71 @@ Fields marked **in bold letters** are mandatory.
 
 #### BadgeAssertion
 
-| Property | Expected Type | Description |
-| -------- | ------------- | ----------- |
-| **uid** | Text | Unique Identifier for the badge. This is expected to be **locally** unique on a per-origin basis, not globally unique. |
-| **recipient** | [IdentityObject](#identityobject) | The recipient of the achievement. |
-| **badge** | URL | URL that describes the type of badge being awarded. The endpoint should be a [BadgeClass](#badgeclass) |
-| **verify** | [VerificationObject](#verificationobject) | Data to help a third party verify this assertion. |
-| **issuedOn** | [DateTime](#primitives) | Date that the achievement was awarded. |
-| image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing this achievement. This must be a PNG image, and if possible, the image should be prepared via the [Baking specification](https://github.com/mozilla/openbadges-specification/blob/master/Badge-Baking/latest.md). |
-| evidence | URL | URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. |
-| expires | [DateTime](#primitives) | If the achievment has some notion of expiry, this indicates when a badge should no longer be considered valid. |
+| Property | Status | Expected Type | Description |
+| -------- | -------- | ------------- | ----------- |
+| **uid** | **required** | Text | Unique Identifier for the badge. This is expected to be **locally** unique on a per-origin basis, not globally unique. |
+| **recipient** | **required** | [IdentityObject](#identityobject) | The recipient of the achievement. |
+| **badge** | **required** | URL | URL that describes the type of badge being awarded. The endpoint should be a [BadgeClass](#badgeclass) |
+| **verify** | **required** | [VerificationObject](#verificationobject) | Data to help a third party verify this assertion. |
+| **issuedOn** | **required** | [DateTime](#primitives) | Date that the achievement was awarded. |
+| image | _optional_ | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing this achievement. This must be a PNG image, and if possible, the image should be prepared via the [Baking specification](https://github.com/mozilla/openbadges-specification/blob/master/Badge-Baking/latest.md). |
+| evidence | _optional_ | URL | URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. |
+| expires | _optional_ | [DateTime](#primitives) | If the achievment has some notion of expiry, this indicates when a badge should no longer be considered valid. |
 
 
 #### <a id="identity-object"></a>IdentityObject
 
-Property | Expected Type | Description
---------|------------|-----------
-**identity** | [IdentityHash](#primitives) or Text | Either the hash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information, it is strongly recommended that an IdentityHash be used.
-**type** | [IdentityType](#primitives) | The type of identity.
-**hashed** | Boolean | Whether or not the `id` value is hashed.
-salt | Text | If the recipient is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.
+| Property | Status | Expected Type | Description |
+|--------|--------|------------|-----------|
+|**identity** | **required** | [IdentityHash](#primitives) or Text | Either the hash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information, it is strongly recommended that an IdentityHash be used.|
+|**type** | **required** | [IdentityType](#primitives) | The type of identity.|
+|**hashed** | **required** | Boolean | Whether or not the `id` value is hashed.|
+|salt | _optional_ | Text | If the recipient is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.|
 
 
 #### <a id="verification-object"></a>VerificationObject
 
-Property | Expected Type | Description
---------|------------|-----------
-**type** | VerificationType | The type of verification method.
-**url** | URL | If the type is "hosted", this should be a URL pointing to the assertion on the issuer's server. If the type is "signed", this should be a link to the issuer's public key.
+| Property | Status | Expected Type | Description |
+|--------|--------|------------|-----------|
+|**type** | **required** | VerificationType | The type of verification method.|
+|**url** | **required** | URL | If the type is "hosted", this should be a URL pointing to the assertion on the issuer's server. If the type is "signed", this should be a link to the issuer's public key.|
 
 
 
 #### <a id="badge-class"></a>BadgeClass
 
-Property | Expected Type | Description
---------|------------|-----------
-**name** | Text | The name of the achievement.
-**description** | Text | A short description of the achievement.
-**image** | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing the achievement.
-**criteria** | URL | URL of the criteria for earning the achievement. If the badge represents an educational achievement, consider marking up this up with [LRMI](http://www.lrmi.net/)
-**issuer** | URL | URL of the organization that issued the badge. Endpoint should be an [IssuerOrganization](#issuerorganization)
-alignment | Array of [AlignmentObjects](#alignmentobject) | List of objects describing which educational standards this badge aligns to, if any.
-tags | Array of Text | List of tags that describe the type of achievement.
+| Property | Status | Expected Type | Description |
+|--------|--------|------------|-----------|
+|**name** | **required** | Text | The name of the achievement.|
+|**description** | **required** | Text | A short description of the achievement.|
+|**image** | **required** | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing the achievement.|
+|**criteria** | **required** | URL | URL of the criteria for earning the achievement. If the badge represents an educational achievement, consider marking up this up with [LRMI](http://www.lrmi.net/)|
+|**issuer** | **required** | URL | URL of the organization that issued the badge. Endpoint should be an [IssuerOrganization](#issuerorganization)|
+|alignment | _optional_ | Array of [AlignmentObjects](#alignmentobject) | List of objects describing which educational standards this badge aligns to, if any.|
+|tags | _optional_ | Array of Text | List of tags that describe the type of achievement.|
 
 
-#### <a id="alignment-object"></a>AlignmentObject
+#### <a id="alignment-object"></a>AlignmentObject 
 
-Property | Expected Type | Description
---------|------------|-----------
-**name** | Text | Name of the alignment.
-**url** | URL | URL linking to the official description of the standard.
-description | Text | Short description of the standard
+_AlignmentObject is optional - fields below are required **if** it is included in the BadgeClass._
+
+| Property | Status | Expected Type | Description|
+|--------|--------|------------|-----------|
+|**name** | **required** | Text | Name of the alignment.|
+|**url** | **required** | URL | URL linking to the official description of the standard.|
+|description | _optional_ | Text | Short description of the standard.|
 
 
 #### <a id="issuer-organization"></a>IssuerOrganization
 
-Property | Expected Type | Description
---------|------------|-----------
-**name** | Text | The name of the issuing organization.
-**url** | URL | URL of the institution
-description | Text | A short description of the institution
-image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the institution
-email | Text | Contact address for someone at the organization.
-revocationList | URL |  URL of the Badge Revocation List. The endpoint should be a JSON representation of an object where the keys are the **uid** a revoked badge assertion, and the values are the reason for revocation. This is only necessary for signed badges.
+| Property | Status | Expected Type | Description |
+|--------|--------|------------|-----------|
+|**name** | **required** | Text | The name of the issuing organization.|
+|**url** | **required** | URL | URL of the institution.|
+|description | _optional_ | Text | A short description of the institution.|
+|image | _optional_ | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the institution.|
+|email | _optional_ | Text | Contact address for someone at the organization.|
+|revocationList | _optional_ | URL |  URL of the Badge Revocation List. The endpoint should be a JSON representation of an object where the keys are the **uid** a revoked badge assertion, and the values are the reason for revocation. This is only necessary for signed badges.|
 
 
 ### <a id="additional-properties"></a>Additional Properties
