@@ -1,4 +1,52 @@
-# Assertion
+# Open Badges Assertion Specification
+
+## Status of This Document
+
+## Abstract
+
+## Table of Contents
+
+## Introduction
+
+## Conventions Used in This Document
+
+> The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
+
+## Intended Audience
+
+## Terminology
+
+## Concepts
+
+## Data Model
+
+### Badge Assertion
+
+### Badge Class
+
+### Issuer Organization
+
+#### Summary Tables
+
+(see http://tools.ietf.org/html/rfc2360#section-3.2)
+
+#### Examples
+
+## Issuer Implementations
+
+(considerations)
+
+## Displayer Implementations
+
+(considerations)
+
+## History
+
+(explanation of decisions)
+
+## References
+
+---
 
 An assertion is a representation of an awarded badge. Assertions are used to share information about earned badges, for example via backpacks. An assertion includes information about:
 
