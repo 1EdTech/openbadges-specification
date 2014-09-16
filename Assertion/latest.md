@@ -2,14 +2,39 @@
 
 ## Status of This Document
 
-* _depends on track for ietf ie standards/ experimental etc http://tools.ietf.org/html/rfc2223#section-5_
-* _alternative w3c example http://www.w3.org/TR/json-ld/ - overview of document history, participants etc_
+<!--depends on track for ietf ie standards/ experimental etc http://tools.ietf.org/html/rfc2223#section-5
+alternative w3c example http://www.w3.org/TR/json-ld/ - overview of document history, participants etc-->
 
 ## Abstract
+
+The Open Badge Infrastructure (OBI) is a set of software tools and specifications for implementing Open Badge applications. The OBI provides a framework for creating, issuing and displaying Open Badges. The Open Badges Assertion Specification defines the structure of an awarded Open Badge. An Open Badges Assertion uses JSON-structured data to describe a specific badge issued to a specific earner. The Assertion content facilitates communicating and verifying the achievement that the badge represents.
 
 ## Table of Contents
 
 ## Introduction
+
+The Open Badge Infrastructure Assertion specification aims to describe each awarded badge in a way that is open, meaningful and verifiable. An Open Badge Assertion should include all of the information required to understand the award. Each assertion should define these core aspects of a badge award:
+
+* who earned the badge
+* what the badge represents
+* who issued the badge
+
+This typically includes descriptive information about the achievement, an image and the date of issue. Additionally, an assertion should include the following information to aid client implementations:
+
+* criteria for earning the badge
+* verification details for the earner identity and badge award
+
+The Assertion specification defines a series of required and optional data fields to fulfill the above aims. Assertions may also include optional information such as evidence, educational standards alignment details and an expiry date.
+
+The purpose of the Assertion specification is to provide a reference for all implementers of Open Badge systems. This primarily means badge issuers and displayers.
+
+___Proposals are currently under discussion regarding extending the Assertion structure and representing objects inline - see these threads:___
+
+* https://github.com/mozilla/openbadges-discussion/issues/20
+* https://github.com/mozilla/openbadges-specification/issues/5
+
+<!--explain motivation, applicability - this specification is intended to provide... to be used by... explain what obi spec is http://tools.ietf.org/html/rfc2223#section-7
+purpose, intended function, how it fits into context-->
 
 ## Conventions Used in This Document
 
@@ -17,7 +42,105 @@
 
 ## Intended Audience
 
+This document is intended for the following audiences:
+
+* implementers of badge issuing applications
+* implementers of badge displaying applications
+* individuals and organizations involved in the Open Badge ecosystem
+
+The primary audience is expected to be software developers, however the specification may also be relevant to designers, administrators and managers associated with Open Badge systems.
+
+The Open Badges Assertion specification relies on JSON syntax, some knowledge of which is required - see [RFC 4627](http://www.ietf.org/rfc/rfc4627.txt) and [JSON.org](http://www.json.org/).
+
 ## Terminology
+
+The Open Badges Assertion specification uses the following terms as defined:
+
+### Assertion
+
+A JSON-structured representation of a badge awarded to an earner. An Assertion describes the badge [earner](#earner), what the badge represents and the [issuer](#issuer). The data items within an Assertion include: a unique ID; the earner (recipient) identity; details of the [badge class](#badge-class) (what the award represents); verification data; the date the badge was issued. Assertions can additionally include a range of optional data items and can be [hosted](#hosted-badge) or [signed](#signed-badge).
+
+### Assessment
+
+In some badging systems, earner [evidence](#evidence) is assessed as part of the awarding decision. In such cases, details of the evidence can be included in the Assertion.
+
+### Award
+
+In the Open Badges ecosystem, the terms "issue" and "award" are synonymous. To award a badge is to [issue](#issue) it - this involves the badge [issuer](#issuer) creating an Assertion to describe the award.
+
+### Badge
+
+In the context of the OBI, a badge is loosely described as a digital representation of a skill, learning achievement or experience. A badge is represented in digital contexts as an image and some metadata. For the badge to exist within the OBI, this metadata must conform to the Assertion specification.
+
+### Badge Class
+
+The badge class forms part of an Open Badge Assertion. The badge class describes the badge name, what it represents, the criteria for earning it, the image used to display it, the issuing organization and optionally educational standards it aligns to. A badge class should typically be hosted in a JSON file at a stable URL, with a link to this file included in the badge Assertion for each award of the badge. The badge class file should include a link to the [issuer organization](#issuer-organization).
+
+### Bake, Baking, Baked Badge
+
+A baked badge is a badge image file with the data for an Assertion embedded into it. The image may be a PNG or SVG file. Baking badges makes them more portable, allowing earners to communicate and display them wherever they choose. Software can extract the Assertion from a baked badge to provide access to the metadata describing the award.
+
+### Criteria
+
+A definition of the requirements for earning a badge. The criteria for a badge are included in the [badge class](#badge-class) as a URL.
+
+### Displayer
+
+A badge displayer presents information about public badge awards in a digital context. Badge earners can add their awarded badges to public collections, which displayer implementations can query, typically presenting the information about the badge award alongside its image. Badge displayers need an understanding of the Assertion structure in order to extract and display the relevant data. Badge displayers should [verify](#verify-verification) Assertions prior to displaying them to ensure that a particular badge was in fact awarded to the earner claiming it.
+
+### Earner
+
+An earner is someone who has been awarded one or more Open Badges. Depending on the badging system, the earner may apply for a badge, supplying supporting evidence. When an issuer awards a badge, they build information about the earner identity into a new badge Assertion.
+
+### Evidence
+
+A badge Assertion may include a URL representing evidence for the badge award. Depending on the badging system, the earner may have submitted this evidence as part of an application process. Typically, the issuer would compared the evidence to the badge [criteria](#criteria) in order to make an awarding decision.
+
+### Hosted Badge
+
+A hosted badge is one whose Assertion data is represented using the badge image and three JSON files hosted at stable locations. The component parts of a hosted badge are: the [assertion](#assertion); the [badge class](#badge-class); the [issuer organization](#issuer-organization). The badge Assertion includes a [verification](#verify-verification) field in which either a hosted or [signed](#signed-badge) type is specified.
+
+### Issue
+
+Issuing is the act of awarding a badge to an earner. Typically badge [issuers](#issuer) create badges and decide who to award them to. In order to issue a badge within the OBI, an issuer must create a badge [Assertion](#assertion), which may be [hosted](#hosted-badge) or [signed](#signed-badge).
+
+### Issuer
+
+An issuer is a person or organization (or department within an organization) who/ which awards Open Badges to earners. Typically the issuer is responsible for designing and creating the badge as well as awarding it. The issuer may choose to implement various optional processes in a badging system, such as [assessment](#assessment).
+
+### Issuer Organization
+
+The issuer organization is the part of an Open Badge Assertion in which the badge issuer is described. The issuer organization must be included in the [badge class](#badge-class) by URL. The URL must return a JSON representation of the issuer, in which fields specify the issuer name and URL, as well as other optional descriptive fields. Typically the issuer organization data will be used to [verify](#verify-verification) awarded badges.
+
+### Metadata
+
+In the OBI, metadata is information about badges, badge awards and badge issuers. OBI metadata is defined in JSON as part of the Assertion specification.
+
+### Open Badge Infrastructure (OBI)
+
+The OBI is a set of software tools and specifications to support Open Badge systems. These tools provide a framework for issuing, displaying and earning Open Badges within an open ecosystem.
+
+### Revoke
+
+Badge issuers can revoke badges they awarded to earners. In such cases, the [issuer organization](#issuer-organization) should include a list of signed badges that have been revoked, and/or provide a revocation response to requests at the original badge assertion URL. Badge displayers should not display revoked badges and should check revocation status during [verification](#verify-verification).
+
+### Signed Badge
+
+A signed badge has its Assertion data included in a JSON Web Signature (JWS). Typically a signed badge still uses hosted JSON files for the [badge class](#badge-class) and [issuer organization](#issuer-organization), but the [assertion](#assertion) JSON is itself packaged as a signature. The badge Assertion includes a [verification](#verify-verification) field in which either a hosted or [signed](#signed-badge) type is specified.
+
+### Validate, Validation, Validator
+
+Validation is the act of checking a badge assertion for structural validity. This includes verifying well-formedness and correctness of data types, as well as ensuring that any resources linked within the assertion are available.
+
+### Verify, Verification
+
+Verification is the act of checking that a badge was awarded by the issuer to the earner. Badge displayers should carry out verification on badges before displaying them. Badge issuers should include the information necessary for this verification to be implemented. Verification must be tailored to whether a badge assertion is [signed](#signed-badge) or [hosted](#hosted-badge).
+
+<!-- 
+* _internet terms http://tools.ietf.org/html/rfc1983_
+* _concise sections and more detailed sections http://tools.ietf.org/html/rfc2360#section-2.4_
+* _concise sections could be badge assertion, badge class etc (brief but with some description), summary tables (v concise), then more detail in implementation sections - primitive types?_
+-->
 
 ## Concepts
 
@@ -31,21 +154,29 @@
 
 #### Summary Tables
 
-(see http://tools.ietf.org/html/rfc2360#section-3.2)
+<!--see http://tools.ietf.org/html/rfc2360#section-3.2 for status codes etc-->
 
 #### Examples
 
+## Assertion Types
+
+<!--hosted and signed-->
+
+## Additional Properties
+
 ## Issuer Implementations
 
-(considerations)
+<!--considerations, includes revocation, setting content type-->
 
 ## Displayer Implementations
 
-(considerations)
+<!--considerations, includes verification-->
+
+## Validation
 
 ## History
 
-(explanation of decisions)
+<!--explain working groups etc, in particular explain contentious decisions, "why" as well as "how"-->
 
 ## References
 
