@@ -2,6 +2,9 @@
 
 ## Status of This Document
 
+* _depends on track for ietf ie standards/ experimental etc http://tools.ietf.org/html/rfc2223#section-5_
+* _alternative w3c example http://www.w3.org/TR/json-ld/ - overview of document history, participants etc_
+
 ## Abstract
 
 ## Table of Contents
