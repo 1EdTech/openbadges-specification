@@ -68,6 +68,10 @@ In some badging systems, earner [evidence](#evidence) is assessed as part of the
 
 In the Open Badges ecosystem, the terms "issue" and "award" are synonymous. To award a badge is to [issue](#issue) it - this involves the badge [issuer](#issuer) creating an Assertion to describe the award.
 
+### Backpack
+
+A Backpack is a software tool through which [earners](#earner) can collect Open Badges they have been awarded. Typically a Backpack allows the earner to control visibility of their badges. [Displayers](#displayer) may connect to Backpacks to retrieve the data about badges associated with an earner.
+
 ### Badge
 
 In the context of the OBI, a badge is loosely described as a digital representation of a skill, learning achievement or experience. A badge is represented in digital contexts as an image and some metadata. For the badge to exist within the OBI, this metadata must conform to the Assertion specification.
@@ -143,6 +147,18 @@ Verification is the act of checking that a badge was awarded by the issuer to th
 -->
 
 ## Concepts
+
+Adopting the OBI involves understanding a range of concepts which refer to real-world objects and activities, but which have specific meanings within the Open Badges ecosystem.
+
+An Open Badge is a digital representation of a skill or achievement, which is communicated using JSON data structures. In terms of implementation, there are two types of badge: generic badges which are "earnable" and badges which have actually been awarded to earners. The generic badge is defined using a Badge Class, while an awarded badge is defined using a Badge Assertion. In this sense, the generic badge can be conceptualized as the template for the awarded badges. This connection is present in the implementation of an awarded badge by including a link to the Badge Class in the Badge Assertion.
+
+People who are awarded Open Badges are referred to as Earners. Earners may be awarded badges directly, or through assessment processes involving submission of evidence - the nature of the issuing process is determined by the Issuer.
+
+The people and organizations who award Open Badges are referred to as Issuers. Issuing is the technical act of awarding a badge, the implementation of which is creating a Badge Assertion.
+
+Displayers of Open Badges are implementers of systems in which awarded badges are presented in digital contexts. Displayers therefore deal with the data in Badge Assertions, which is created by Issuers. Prior to display, Open Badges can be collected using software tools - these may be referred to as Backpacks. Displayers may retrieve the data describing an earner's badges from a Backpack. The earner should have full control over which badges are publicly visible.
+
+For Open Badges to comprise valuable representations of achievement, they must facilitate verification processes. Issuers should include the information necessary for this verification, while Displayers should use it to check that a badge was awarded by an Issuer, to an Earner. 
 
 ## Data Model
 
