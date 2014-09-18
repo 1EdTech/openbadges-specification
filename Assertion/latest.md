@@ -264,7 +264,7 @@ URL of any evidence that the Earner met the requirements for the badge.
 
 A date from which the achievement represented by the badge should be considered invalid.
 
-##### IdentityObject
+##### Identity Object
 
 Defines the identity of the Earner awarded this badge.
 
@@ -340,7 +340,7 @@ A Badge Class __must__ include:
 A Badge Class __may__ include:
 
 * [`alignment`](#badge-class-alignment)
-* ['tags`](#badge-class-tags)
+* [`tags`](#badge-class-tags)
 
 The data types and purpose of these properties are as follows.
 
@@ -374,11 +374,91 @@ _If the badge represents an educational achievement, issuers should consider mar
 URL of the [Issuer Organization](#issuer-organization) for the badge.
 
 <a name="badge-class-alignment"></a>
+* `alignment : <[`[`AlignmentObject`](#alignment-object)`]>` _optional_
+
+Array of objects describing any educational standards the badge aligns to.
 
 <a name="badge-class-tags"></a>
+* `tags : <[text]>` _optional_
+
+Array of text tags describing the type of skill, activity or achievement the badge represents.
+
+##### Alignment Object
+
+Describes an education standard that the badge aligns to.
+
+Badge Class does not require AlignmentObjects - where present, AlignmentObject __must__ include:
+
+* [`name`](#alignment-object-name)
+* [`url`](#alignment-object-url)
+
+AlignmentObject __may__ include:
+
+* [`description`](#alignment-object-description)
+
+The data types and purpose of these properties are as follows.
+
+<a name="alignment-object-name"></a>
+* `name : <text>` __required__
+
+Name of the standard aligned to.
+
+<a name="alignment-object-url"></a>
+* `url : <url>` __required__
+
+URL for the official description of the standard aligned to.
+
+<a name="alignment-object-description"></a>
+* `description : <text>` _optional_
+
+Short description of the standard the badge aligns to.
 
 <a name="issuer-organization"></a>
 ### Issuer Organization
+
+An Issuer Organization is a JSON file describing an Issuer of Open Badges.
+
+#### Properties
+
+An Issuer Organization __must__ include:
+* [`name`](#issuer-organization-name)
+* [`url`](#issuer-organization-url)
+
+An Issuer Organization __may__ include:
+
+* [`description`](#issuer-organization-description)
+* [`image`](#issuer-organization-image)
+* [`email`](#issuer-organization-email)
+* [`revocationList`](#issuer-organization-revocationlist)
+
+The data types and purpose of these properties are as follows.
+
+<a name="issuer-organization-name"></a>
+* `name : <text>` __required__
+
+The name of the issuing organization.
+
+<a name="issuer-organization-url"></a>
+* `url : <url>` __required__
+
+URL of the issuing organization.
+
+<a name="issuer-organization-description"></a>
+* `description : <text>` _optional_
+
+Short description of the issuing organization.
+
+<a name="issuer-organization-image"></a>
+* `image : <url>` _optional_
+
+URL or DataURL for an image representing the issuing organization.
+
+<a name="issuer-organization-revocationlist"></a>
+* `revocationList : <url>` _optional_
+
+URL for list of revoked badges - _only for signed badges_.
+
+___The revocationList endpoint should be a JSON representation of an object where the keys are the uids for revoked badge assertions and the values are the reason for revocation.___
 
 #### Summary Tables
 
