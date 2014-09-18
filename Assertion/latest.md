@@ -231,35 +231,28 @@ Unique Identifier for the badge assertion. This should be locally unique on a pe
 Definition of Earner identity.
 
 <a name="assertion-badge"></a>
-* `badge : <url>` __required__
-
+* `badge : <url>` __required__<br/>
 URL of the [Badge Class](#badge-class) describing the badge awarded.
 
 <a name="assertion-verify"></a>
-* `verify : `[`VerificationObject`](#verification-object) __required__
-
+* `verify : `[`VerificationObject`](#verification-object) __required__<br/>
 Data to aid badge verification.
 
 <a name="assertion-issued-on"></a>
-* `issuedOn : <DateTime>` __required__
-
+* `issuedOn : <DateTime>` __required__<br/>
 Either an ISO 8601 date or a standard 10-digit Unix timestamp indicating the date of the badge award.
 
 <a name="assertion-image"></a>
-* `image : <url>` _optional_
-
-URL or DataURL for the badge image. This must be a PNG or SVG image, and should have the assertion data baked into it.
-
+* `image : <url>` _optional_<br/>
+URL or DataURL for the badge image. This must be a PNG or SVG image, and should have the assertion data baked into it.<br/>
 _The Badge Assertion image is distinct from the Badge Class image, which is the same for all awards of a badge - the Badge Assertion image may be baked in which case it is unique to the Badge Assertion._
 
 <a name="assertion-evidence"></a>
-* `evidence : <url>` _optional_
-
+* `evidence : <url>` _optional_<br/>
 URL of any evidence that the Earner met the requirements for the badge.
 
 <a name="assertion-expires"></a>
-* `expires : <DateTime>` _optional_
-
+* `expires : <DateTime>` _optional_<br/>
 A date from which the achievement represented by the badge should be considered invalid.
 
 ##### Identity Object
@@ -279,23 +272,19 @@ IdentityObject __may__ contain:
 The data types and purpose of these properties are as follows.
 
 <a name="identity-object-identity"></a>
-* `identity : <text>` __required__
-
+* `identity : <text>` __required__<br/>
 Plain text or hash of identity value. If it's possible that the plain text transmission and storage of the identity value would leak personally identifiable information, an hash should be used. Hash string should be preceded by a dollar sign (`$`) and the algorithm used to generate the hash.
 
 <a name="identity-object-type"></a>
-* `type : <text>` __required__
-
+* `type : <text>` __required__<br/>
 The type of identity value - __currently only "email" is supported__.
 
 <a name="identity-object-hashed"></a>
-* `hashed : <boolean>` __required__
-
+* `hashed : <boolean>` __required__<br/>
 Boolean indicator of whether or not the [`identity`](#identity-object-identity) value is hashed.
 
 <a name="identity-object-salt"></a>
-* `salt : <text>` _optional_
-
+* `salt : <text>` _optional_<br/>
 Hashed [`identity`](#identity-object-identity) values may be salted. If the recipient is [hashed](#identity-object-hashed), `salt` should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.
 
 ##### Verification Object
@@ -310,15 +299,12 @@ VerificationObject __must__ include:
 The data types and purpose of these properties are as follows.
 
 <a name="verification-object-type"></a>
-* `type : <text>` __required__
-
+* `type : <text>` __required__<br/>
 The type of verification - __must__ be either "hosted" or "signed".
 
 <a name="verification-object-url"></a>
-* `url : <url>` __required__
-
-For "hosted" [type](#verification-object-type) - the URL of the [Badge Assertion](#badge-assertion) JSON. 
-    
+* `url : <url>` __required__<br/>
+For "hosted" [type](#verification-object-type) - the URL of the [Badge Assertion](#badge-assertion) JSON.<br/>
 For "signed" [type](#verification-object-type) - the URL of the Issuer's public key (corresponding to the private key used to sign the assertion data).
 
 <a name="badge-class"></a>
@@ -343,42 +329,33 @@ A Badge Class __may__ include:
 The data types and purpose of these properties are as follows.
 
 <a name="badge-class-name"></a>
-* `name : <text>` __required__
-
+* `name : <text>` __required__<br/>
 Name of the badge.
 
 <a name="badge-class-description"></a>
-* `description : <text>` __required__
-
+* `description : <text>` __required__<br/>
 Short description of the badge achievement.
 
 <a name="badge-class-image"></a>
-* `image : <url>` __required__
-
-URL or DataURL of the image for the badge.
-
+* `image : <url>` __required__<br/>
+URL or DataURL of the image for the badge.<br/>
 _The Badge Class `image` is the generic image used to represent all awards of the badge as opposed to a baked badge image with a particular Badge Assertion embedded into it - this may be included in a Badge Assertion [`image`](#assertion-image) field._
 
 <a name="badge-class-criteria"></a>
-* `criteria : <url>` __required__
-
-URL of the criteria for earning the badge. 
-
+* `criteria : <url>` __required__<br/>
+URL of the criteria for earning the badge.<br/>
 _If the badge represents an educational achievement, issuers should consider marking up this up with LRMI._
 
 <a name="badge-class-issuer"></a>
-* `issuer : <url>` __required__
-
+* `issuer : <url>` __required__<br/>
 URL of the [Issuer Organization](#issuer-organization) for the badge.
 
 <a name="badge-class-alignment"></a>
-* `alignment : <[`[`AlignmentObject`](#alignment-object)`]>` _optional_
-
+* `alignment : <[`[`AlignmentObject`](#alignment-object)`]>` _optional_<br/>
 Array of objects describing any educational standards the badge aligns to.
 
 <a name="badge-class-tags"></a>
-* `tags : <[text]>` _optional_
-
+* `tags : <[text]>` _optional_<br/>
 Array of text tags describing the type of skill, activity or achievement the badge represents.
 
 ##### Alignment Object
@@ -397,18 +374,15 @@ AlignmentObject __may__ include:
 The data types and purpose of these properties are as follows.
 
 <a name="alignment-object-name"></a>
-* `name : <text>` __required__
-
+* `name : <text>` __required__<br/>
 Name of the standard aligned to.
 
 <a name="alignment-object-url"></a>
-* `url : <url>` __required__
-
+* `url : <url>` __required__<br/>
 URL for the official description of the standard aligned to.
 
 <a name="alignment-object-description"></a>
-* `description : <text>` _optional_
-
+* `description : <text>` _optional_<br/>
 Short description of the standard the badge aligns to.
 
 <a name="issuer-organization"></a>
@@ -432,31 +406,25 @@ An Issuer Organization __may__ include:
 The data types and purpose of these properties are as follows.
 
 <a name="issuer-organization-name"></a>
-* `name : <text>` __required__
-
+* `name : <text>` __required__<br/>
 The name of the issuing organization.
 
 <a name="issuer-organization-url"></a>
-* `url : <url>` __required__
-
+* `url : <url>` __required__<br/>
 URL of the issuing organization.
 
 <a name="issuer-organization-description"></a>
-* `description : <text>` _optional_
-
+* `description : <text>` _optional_<br/>
 Short description of the issuing organization.
 
 <a name="issuer-organization-image"></a>
-* `image : <url>` _optional_
-
+* `image : <url>` _optional_<br/>
 URL or DataURL for an image representing the issuing organization.
 
 <a name="issuer-organization-revocationlist"></a>
-* `revocationList : <url>` _optional_
-
-URL for list of revoked badges - _only for signed badges_.
-
-___The revocationList endpoint should be a JSON representation of an object where the keys are the uids for revoked badge assertions and the values are the reason for revocation.___
+* `revocationList : <url>` _optional_<br/>
+URL for list of revoked badges - _only for signed badges_.<br/>
+_The revocationList endpoint should be a JSON representation of an object where the keys are the uids for revoked badge assertions and the values are the reason for revocation._
 
 #### Summary Tables
 
