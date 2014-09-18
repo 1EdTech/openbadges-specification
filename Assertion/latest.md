@@ -57,106 +57,107 @@ The Open Badges Assertion specification relies on JSON syntax, some knowledge of
 The Open Badges Assertion specification uses the following terms as defined:
 
 <a name="term-badge-assertion"><a>
-### Badge Assertion
+__Badge Assertion__
 
 A JSON-structured representation of a badge awarded to an earner. An Assertion describes the badge [earner](#term-earner), what the badge represents and the [issuer](#term-issuer). The data items within an Assertion include: a unique ID; the earner (recipient) identity; details of the [badge class](#term-badge-class) (what the award represents); verification data; the date the badge was issued. Assertions can additionally include a range of optional data items and can be [hosted](#term-hosted-badge) or [signed](#term-signed-badge).
 
 <a name="term-assessment"></a>
-### Assessment
+__Assessment__
 
 In some badging systems, earner [evidence](#term-evidence) is assessed as part of the awarding decision. In such cases, details of the evidence can be included in the Assertion.
 
 <a name="term-award"></a>
-### Award
+__Award__
 
 In the Open Badges ecosystem, the terms "issue" and "award" are synonymous. To award a badge is to [issue](#term-issue) it - this involves the badge [issuer](#term-issuer) creating an Assertion to describe the award.
 
 <a name="term-backpack"></a>
-### Backpack
+__Backpack__
 
 A Backpack is a software tool through which [earners](#term-earner) can collect Open Badges they have been awarded. Typically a Backpack allows the earner to control visibility of their badges. [Displayers](#term-displayer) may connect to Backpacks to retrieve the data about badges associated with an earner.
 
 <a name="term-badge"></a>
-### Badge
+__Badge__
 
 In the context of the OBI, a badge is loosely described as a digital representation of a skill, learning achievement or experience. A badge is represented in digital contexts as an image and some metadata. For the badge to exist within the OBI, this metadata must conform to the Assertion specification.
 
 <a name="term-badge-class"></a>
-### Badge Class
+__Badge Class__
 
 The badge class forms part of an Open Badge Assertion. The badge class describes the badge name, what it represents, the criteria for earning it, the image used to display it, the issuing organization and optionally educational standards it aligns to. A badge class should typically be hosted in a JSON file at a stable URL, with a link to this file included in the badge Assertion for each award of the badge. The badge class file should include a link to the [issuer organization](#term-issuer-organization).
 
 <a name="term-bake"></a>
-### Bake, Baking, Baked Badge
+__Bake, Baking, Baked Badge__
 
 A baked badge is a badge image file with the data for an Assertion embedded into it. The image may be a PNG or SVG file. Baking badges makes them more portable, allowing earners to communicate and display them wherever they choose. Software can extract the Assertion from a baked badge to provide access to the metadata describing the award.
 
 <a name="term-criteria"></a>
-### Criteria
+__Criteria__
 
 A definition of the requirements for earning a badge. The criteria for a badge are included in the [badge class](#term-badge-class) as a URL.
 
 <a name="term-displayer"></a>
-### Displayer
+__Displayer__
 
 A badge displayer presents information about public badge awards in a digital context. Badge earners can add their awarded badges to public collections, which displayer implementations can query, typically presenting the information about the badge award alongside its image. Badge displayers need an understanding of the Assertion structure in order to extract and display the relevant data. Badge displayers should [verify](#term-verify) Assertions prior to displaying them to ensure that a particular badge was in fact awarded to the earner claiming it.
 
 <a name="term-earner"></a>
-### Earner
+__Earner__
 
 An earner is someone who has been awarded one or more Open Badges. Depending on the badging system, the earner may apply for a badge, supplying supporting evidence. When an issuer awards a badge, they build information about the earner identity into a new badge Assertion.
 
 <a name="term-evidence"></a>
-### Evidence
+__Evidence__
 
 A badge Assertion may include a URL representing evidence for the badge award. Depending on the badging system, the earner may have submitted this evidence as part of an application process. Typically, the issuer would compared the evidence to the badge [criteria](#term-criteria) in order to make an awarding decision.
 
 <a name="term-hosted-badge"></a>
-### Hosted Badge
+__Hosted Badge__
 
 A hosted badge is one whose Assertion data is represented using the badge image and three JSON files hosted at stable locations. The component parts of a hosted badge are: the [assertion](#term-badge-assertion); the [badge class](#term-badge-class); the [issuer organization](#term-issuer-organization). The badge Assertion includes a [verification](#term-verify) field in which either a hosted or [signed](#term-signed-badge) type is specified.
 
 <a name="term-issue"></a>
-### Issue
+__Issue__
 
 Issuing is the act of awarding a badge to an earner. Typically badge [issuers](#term-issuer) create badges and decide who to award them to. In order to issue a badge within the OBI, an issuer must create a [Badge Assertion](#term-badge-assertion), which may be [hosted](#term-hosted-badge) or [signed](#term-signed-badge).
 
 <a name="term-issuer"></a>
-### Issuer
+__Issuer__
 
 An issuer is a person or organization (or department within an organization) who/ which awards Open Badges to earners. Typically the issuer is responsible for designing and creating the badge as well as awarding it. The issuer may choose to implement various optional processes in a badging system, such as [assessment](#term-assessment).
 
 <a name="term-issuer-organization"></a>
-### Issuer Organization
+__Issuer Organization__
 
 The issuer organization is the part of an Open Badge Assertion in which the badge issuer is described. The issuer organization must be included in the [badge class](#term-badge-class) by URL. The URL must return a JSON representation of the issuer, in which fields specify the issuer name and URL, as well as other optional descriptive properties. Typically the issuer organization data will be used to [verify](#term-verify) awarded badges.
 
 <a name="term-metadata"></a>
-### Metadata
+__Metadata__
 
 In the OBI, metadata is information about badges, badge awards and badge issuers. OBI metadata is defined in JSON as part of the Assertion specification.
 
-### Open Badge Infrastructure (OBI)
+<a name="term-obi"></a>
+__Open Badge Infrastructure (OBI)__
 
 The OBI is a set of software tools and specifications to support Open Badge systems. These tools provide a framework for issuing, displaying and earning Open Badges within an open ecosystem.
 
 <a name="term-revoke"></a>
-### Revoke
+__Revoke__
 
 Badge issuers can revoke badges they awarded to earners. In such cases, the [issuer organization](#term-issuer-organization) should include a list of signed badges that have been revoked, and/or provide a revocation response to requests at the original badge assertion URL. Badge displayers should not display revoked badges and should check revocation status during [verification](#term-verify).
 
 <a name="term-signed-badge"></a>
-### Signed Badge
+__Signed Badge__
 
 A signed badge has its Assertion data included in a JSON Web Signature (JWS). Typically a signed badge still uses hosted JSON files for the [badge class](#term-badge-class) and [issuer organization](#term-issuer-organization), but the [badge assertion](#term-badge-assertion) JSON is itself packaged as a signature. The badge Assertion includes a [verification](#term-verify) field in which either a hosted or [signed](#term-signed-badge) type is specified.
 
 <a name="term-validate"></a>
-### Validate, Validation, Validator
+__Validate, Validation, Validator__
 
 Validation is the act of checking a badge assertion for structural validity. This includes verifying well-formedness and correctness of data types, as well as ensuring that any resources linked within the assertion are available.
 
 <a name="term-verify"></a>
-### Verify, Verification
+__Verify, Verification__
 
 Verification is the act of checking that a badge was awarded by the issuer to the earner. Badge displayers should carry out verification on badges before displaying them. Badge issuers should include the information necessary for this verification to be implemented. Verification must be tailored to whether a badge assertion is [signed](#term-signed-badge) or [hosted](#term-hosted-badge).
 
