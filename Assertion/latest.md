@@ -223,13 +223,11 @@ A Badge Assertion __may__ include:
 The data types and purpose of these properties are as follows.
 
 <a name="assertion-uid"></a>
-* `uid : <text>` __required__
-
+* `uid : <text>` __required__<br/>
 Unique Identifier for the badge assertion. This should be locally unique on a per-origin basis, not globally unique. Badge Issuers should use a unique `uid` value for each Badge Assertion they create (each badge award).
 
 <a name="assertion-recipient"></a>
-* `recipient : `[`IdentityObject`](#identity-object) __required__
-
+* `recipient : `[`IdentityObject`](#identity-object) __required__<br/>
 Definition of Earner identity.
 
 <a name="assertion-badge"></a>
