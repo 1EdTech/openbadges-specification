@@ -207,49 +207,175 @@ A Badge Assertion is a JSON file or JSON Web Signature (JWS) describing an Open 
 
 #### Properties
 
-A Badge Assertion may include the following required and optional properties:
+A Badge Assertion __must__ include:
+* [`uid`](#assertion-uid)
+* [`recipient`](#assertion-recipient)
+* [`badge`](#assertion-badge)
+* [`verify`](#assertion-verify)
+* [`issuedOn`](#assertion-issued-on)
 
-<a name="uid"></a>
-* `uid : "<text>"` __required__
+A Badge Assertion __may__ include:
+
+* [`image`](#assertion-image)
+* ['evidence`](#assertion-evidence)
+* [`expires`](#assertion-expires)
+
+The data types and purpose of these properties are as follows.
+
+<a name="assertion-uid"></a>
+* `uid : <text>` __required__
 
 Unique Identifier for the badge assertion. This should be locally unique on a per-origin basis, not globally unique. Badge Issuers should use a unique `uid` value for each Badge Assertion they create (each badge award).
 
-<a name="recipient"></a>
+<a name="assertion-recipient"></a>
 * `recipient : `[`IdentityObject`](#identity-object) __required__
 
 Definition of Earner identity.
 
 <a name="assertion-badge"></a>
-* `badge : "<url>"` __required__
+* `badge : <url>` __required__
 
 URL of the [Badge Class](#badge-class) describing the badge awarded.
 
-##### `IdentityObject`
+<a name="assertion-verify"></a>
+* `verify : `[`VerificationObject`](#verification-object) __required__
 
-Defines the identity of the Earner awarded this badge using the following properties:
+Data to aid badge verification.
 
-<a name="identity"></a>
-* `identity : "<text>"` __required__
+<a name="assertion-issued-on"></a>
+* `issuedOn : <DateTime>` __required__
+
+Either an ISO 8601 date or a standard 10-digit Unix timestamp indicating the date of the badge award.
+
+<a name="assertion-image"></a>
+* `image : <url>` _optional_
+
+URL or DataURL for the badge image. This must be a PNG or SVG image, and should have the assertion data baked into it.
+
+_The Badge Assertion image is distinct from the Badge Class image, which is the same for all awards of a badge - the Badge Assertion image may be baked in which case it is unique to the Badge Assertion._
+
+<a name="assertion-evidence"></a>
+* `evidence : <url>` _optional_
+
+URL of any evidence that the Earner met the requirements for the badge.
+
+<a name="assertion-expires"></a>
+* `expires : <DateTime>` _optional_
+
+A date from which the achievement represented by the badge should be considered invalid.
+
+##### IdentityObject
+
+Defines the identity of the Earner awarded this badge.
+
+IdentityObject __must__ contain:
+
+* [`identity`](#identity-object-identity)
+* [`type`](#identity-object-type)
+* [`hashed`](#identity-object-hashed)
+
+IdentityObject __may__ contain:
+
+* [`salt`](#identity-object-salt)
+
+The data types and purpose of these properties are as follows.
+
+<a name="identity-object-identity"></a>
+* `identity : <text>` __required__
 
 Plain text or hash of identity value. If it's possible that the plain text transmission and storage of the identity value would leak personally identifiable information, an hash should be used. Hash string should be preceded by a dollar sign (`$`) and the algorithm used to generate the hash.
 
-<a name="identity-type"></a>
-* `type : "<text>"` __required__
+<a name="identity-object-type"></a>
+* `type : <text>` __required__
 
 The type of identity value - __currently only "email" is supported__.
 
-<a name="hashed"></a>
-* `hashed : "<boolean>"` __required__
+<a name="identity-object-hashed"></a>
+* `hashed : <boolean>` __required__
 
-Boolean indicator of whether or not the `identity` value is hashed.
+Boolean indicator of whether or not the [`identity`](#identity-object-identity) value is hashed.
 
-<a name="salt"></a>
-* `salt : "<text>"` _optional_
+<a name="identity-object-salt"></a>
+* `salt : <text>` _optional_
 
-Hashed `identity` values may be salted. If the recipient is hashed, `salt` should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.
+Hashed [`identity`](#identity-object-identity) values may be salted. If the recipient is [hashed](#identity-object-hashed), `salt` should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.
+
+##### Verification Object
+
+Defines the data required to carry out verification on this badge award.
+
+VerificationObject __must__ include:
+
+* [`type`](#verification-object-type)
+* [`url`](#verification-object-url)
+
+The data types and purpose of these properties are as follows.
+
+<a name="verification-object-type"></a>
+* `type : <text>` __required__
+
+The type of verification - __must__ be either "hosted" or "signed".
+
+<a name="verification-object-url"></a>
+* `url : <url>` __required__
+
+For "hosted" [type](#verification-object-type) - the URL of the [Badge Assertion](#badge-assertion) JSON. 
+    
+For "signed" [type](#verification-object-type) - the URL of the Issuer's public key (corresponding to the private key used to sign the assertion data).
 
 <a name="badge-class"></a>
 ### Badge Class
+
+A Badge Class is a JSON file describing an Open Badge representing a skill, learning experience or achievement.
+
+#### Properties
+
+A Badge Class __must__ include:
+* [`name`](#badge-class-name)
+* [`description`](#badge-class-description)
+* [`image`](#badge-class-image)
+* [`criteria`](#badge-class-criteria)
+* [`issuer`](#badge-class-issuer)
+
+A Badge Class __may__ include:
+
+* [`alignment`](#badge-class-alignment)
+* ['tags`](#badge-class-tags)
+
+The data types and purpose of these properties are as follows.
+
+<a name="badge-class-name"></a>
+* `name : <text>` __required__
+
+Name of the badge.
+
+<a name="badge-class-description"></a>
+* `description : <text>` __required__
+
+Short description of the badge achievement.
+
+<a name="badge-class-image"></a>
+* `image : <url>` __required__
+
+URL or DataURL of the image for the badge.
+
+_The Badge Class `image` is the generic image used to represent all awards of the badge as opposed to a baked badge image with a particular Badge Assertion embedded into it - this may be included in a Badge Assertion [`image`](#assertion-image) field._
+
+<a name="badge-class-criteria"></a>
+* `criteria : <url>` __required__
+
+URL of the criteria for earning the badge. 
+
+_If the badge represents an educational achievement, issuers should consider marking up this up with LRMI._
+
+<a name="badge-class-issuer"></a>
+* `issuer : <url>` __required__
+
+URL of the [Issuer Organization](#issuer-organization) for the badge.
+
+<a name="badge-class-alignment"></a>
+
+<a name="badge-class-tags"></a>
 
 <a name="issuer-organization"></a>
 ### Issuer Organization
