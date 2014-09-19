@@ -217,7 +217,7 @@ A Badge Assertion __must__ include:
 A Badge Assertion __may__ include:
 
 * [`image`](#assertion-image)
-* ['evidence`](#assertion-evidence)
+* [`evidence`](#assertion-evidence)
 * [`expires`](#assertion-expires)
 
 The data types and purpose of these properties are as follows.
@@ -249,7 +249,8 @@ _The Badge Assertion image is distinct from the Badge Class image, which is the 
 
 <a name="assertion-evidence"></a>
 * `evidence : <url>` _optional_<br/>
-URL of any evidence that the Earner met the requirements for the badge.
+URL of any evidence that the Earner met the requirements for the badge.<br/>
+_May be a page linking out to other pages if linking directly to the evidence is infeasible._
 
 <a name="assertion-expires"></a>
 * `expires : <DateTime>` _optional_<br/>
@@ -269,15 +270,15 @@ IdentityObject __may__ contain:
 
 * [`salt`](#identity-object-salt)
 
-The data types and purpose of these properties are as follows.
+The purpose and data type for each of these properties follow.
 
 <a name="identity-object-identity"></a>
 * `identity : <text>` __required__<br/>
-Plain text or hash of identity value. If it's possible that the plain text transmission and storage of the identity value would leak personally identifiable information, an hash should be used. Hash string should be preceded by a dollar sign (`$`) and the algorithm used to generate the hash.
+Plain text or hash of identity value. If it's possible that the plain text transmission and storage of the identity value would leak personally identifiable information, a hash should be used. The hash string should be preceded by the algorithm used to generate the hash (e.g. `sha256`) and a dollar sign (`$`).
 
 <a name="identity-object-type"></a>
 * `type : <text>` __required__<br/>
-The type of identity value - __currently only "email" is supported__.
+The type of identity value - _currently_ __must__ _be "email"_.
 
 <a name="identity-object-hashed"></a>
 * `hashed : <boolean>` __required__<br/>
@@ -296,11 +297,11 @@ VerificationObject __must__ include:
 * [`type`](#verification-object-type)
 * [`url`](#verification-object-url)
 
-The data types and purpose of these properties are as follows.
+The purpose and data type for each of these properties follow.
 
 <a name="verification-object-type"></a>
 * `type : <text>` __required__<br/>
-The type of verification - __must__ be either "hosted" or "signed".
+The type of verification - __must__ _be either "hosted" or "signed"_.
 
 <a name="verification-object-url"></a>
 * `url : <url>` __required__<br/>
@@ -326,7 +327,7 @@ A Badge Class __may__ include:
 * [`alignment`](#badge-class-alignment)
 * [`tags`](#badge-class-tags)
 
-The data types and purpose of these properties are as follows.
+The purpose and data type for each of these properties follow.
 
 <a name="badge-class-name"></a>
 * `name : <text>` __required__<br/>
@@ -371,7 +372,7 @@ AlignmentObject __may__ include:
 
 * [`description`](#alignment-object-description)
 
-The data types and purpose of these properties are as follows.
+The purpose and data type for each of these properties follow.
 
 <a name="alignment-object-name"></a>
 * `name : <text>` __required__<br/>
@@ -403,7 +404,7 @@ An Issuer Organization __may__ include:
 * [`email`](#issuer-organization-email)
 * [`revocationList`](#issuer-organization-revocationlist)
 
-The data types and purpose of these properties are as follows.
+The purpose and data type for each of these properties follow.
 
 <a name="issuer-organization-name"></a>
 * `name : <text>` __required__<br/>
@@ -420,6 +421,10 @@ Short description of the issuing organization.
 <a name="issuer-organization-image"></a>
 * `image : <url>` _optional_<br/>
 URL or DataURL for an image representing the issuing organization.
+
+<a name="issuer-organization-email"></a>
+* `email : <text>` _optional_<br/>
+Contact email address for somone at the organization.
 
 <a name="issuer-organization-revocationlist"></a>
 * `revocationList : <url>` _optional_<br/>
