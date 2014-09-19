@@ -435,6 +435,90 @@ _The revocationList endpoint should be a JSON representation of an object where 
 
 <!--see http://tools.ietf.org/html/rfc2360#section-3.2 for status codes etc-->
 
+<a name="summary-badge-assertion"></a>
+__Badge Assertion__
+
+> M - Mandatory<br/>
+> O - Optional
+
+| Property | Status | Type |
+|:---------|:----------|:----------|
+| [`uid`](#assertion-uid) | M | text |
+| [`recipient`](#assertion-recipient) | M | [IdentityObject](#summary-identity-object) |
+| [`badge`](#assertion-badge) | M | url |
+| [`verify`](#assertion-verify) | M | [VerificationObject](#summary-verification-object) |
+| [`issuedOn`](#assertion-issuedon) | M | DateTime |
+| [`image`](#assertion-image) | O | url |
+| [`evidence`](#assertion-evidence) | O | url |
+| [`expires`](#assertion-expires) | O | DateTime |
+
+<a name="summary-identity-object"></a>
+__IdentityObject__
+
+> M - Mandatory<br/>
+> O - Optional
+
+| Property | Status | Type |
+|:---------|:----------|:----------|
+| [`identity`](#identity-object-identity) | M | text |
+| [`type`](#identity-object-type) | M | text |
+| [`hashed`](#identity-object-hashed) | M | boolean |
+| [`salt`](#identity-object-salt) | O | text |
+
+<a name="summary-verification-object"></a>
+__VerificationObject__
+
+> M - Mandatory<br/>
+> O - Optional
+
+| Property | Status | Type |
+|:---------|:----------|:----------|
+| [`type`](#verification-object-type) | M | text |
+| [`url`](#verification-object-url) | M | url |
+
+<a name="summary-badge-class"></a>
+__Badge Class__
+
+> M - Mandatory<br/>
+> O - Optional
+
+| Property | Status | Type |
+|:---------|:----------|:----------|
+| [`name`](#badge-class-name) | M | text |
+| [`description`](#badge-class-description) | M | text |
+| [`image`](#badge-class-image) | M | url |
+| [`criteria`](#badge-class-criteria) | M | url |
+| [`issuer`](#badge-class-issuer) | M | url |
+| [`alignment`](#badge-class-alignment) | O | `[`[AlignmentObject](#summary-alignment-object)`]` array |
+| [`tags`](#badge-class-tags) | O | `[`text`]` array |
+
+<a name="summary-alignment-object"></a>
+__AlignmentObject__
+
+> M - Mandatory<br/>
+> O - Optional
+
+| Property | Status | Type |
+|:---------|:----------|:----------|
+| [`name`](#alignment-object-name) | M | text |
+| [`url`](#alignment-object-url) | M | url |
+| [`description`](#alignment-object-description) | O | text |
+
+<a name="summary-issuer-organization"></a>
+__Issuer Organization__
+
+> M - Mandatory<br/>
+> O - Optional
+
+| Property | Status | Type |
+|:---------|:----------|:----------|
+| [`name`](#issuer-organization-name) | M | text |
+| [`url`](#issuer-organization-url) | M | url |
+| [`description`](#issuer-organization-description) | O | text |
+| [`image`](#issuer-organization-image) | O | url |
+| [`email`](#issuer-organization-email) | O | text |
+| [`revocationList`](#issuer-organization-revocationlist) | O | url |
+
 #### Examples
 
 ## Assertion Types
@@ -460,6 +544,8 @@ _The revocationList endpoint should be a JSON representation of an object where 
 ## References
 
 ---
+
+_Older version of document below (redraft in progress)_
 
 An assertion is a representation of an awarded badge. Assertions are used to share information about earned badges, for example via backpacks. An assertion includes information about:
 
