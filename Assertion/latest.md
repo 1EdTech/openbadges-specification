@@ -171,23 +171,23 @@ Verification is the act of checking that a badge was awarded by the issuer to th
 
 Adopting the OBI involves understanding a range of concepts which refer to existing and well-known real-world objects and activities, but which have specific meanings within the Open Badges ecosystem.
 
-An Open Badge is a digital representation of a skill or achievement, communicated via an image plus JSON data structures. In terms of implementation, there are two types of badge: generic badges which are "earnable" and badges which have actually been awarded to earners. The generic badge is defined using a Badge Class, while an awarded badge is defined using a Badge Assertion. In this sense, a generic badge can be conceptualized as the template for awarded badges. This connection is implementated by including a link to a Badge Class in each Badge Assertion.
+An Open Badge is a digital representation of a skill or achievement, communicated via an image plus JSON data structures. In terms of implementation, there are two types of badge: generic badges which are "earnable" and badges which have actually been awarded to earners. The generic badge is defined using a __Badge Class__, while an awarded badge is defined using a __Badge Assertion__. In this sense, a generic badge can be conceptualized as the template for awarded badges. This connection is implementated by including a link to a __Badge Class__ in each __Badge Assertion__.
 
-People who are awarded Open Badges are referred to as Earners. Earners may be awarded badges directly, or through assessment processes involving submission of evidence - the nature of the issuing process is determined by the Issuer.
+People who are awarded Open Badges are referred to as __Earners__. __Earners__ may be awarded badges directly, or through assessment processes involving submission of evidence - the nature of the issuing process is determined by the Issuer.
 
-The people and organizations who award Open Badges are referred to as Issuers. Issuing is the technical act of awarding a badge, the implementation of which is creating a Badge Assertion.
+The people and organizations who award Open Badges are referred to as __Issuers__. Issuing is the technical act of awarding a badge, the implementation of which is creating a __Badge Assertion__.
 
-Displayers of Open Badges are implementers of systems in which awarded badges are presented in digital contexts. Displayers therefore deal with the data in Badge Assertions, which is created by Issuers. Prior to display, Open Badges can be collected using software tools - some of these referred to as Backpacks. Displayers may retrieve the data describing an Earner's badges from a Backpack. The Earner should have full control over which badges are publicly visible.
+__Displayers__ of Open Badges are implementers of systems in which awarded badges are presented in digital contexts. __Displayers__ therefore deal with the data in __Badge Assertions__, which is created by __Issuers__. Prior to display, Open Badges can be collected using software tools - some of these referred to as __Backpacks__. __Displayers__ may retrieve the data describing an __Earner's__ badges from a __Backpack__. The __Earner__ should have full control over which badges are publicly visible.
 
-For Open Badges to comprise valuable representations of achievement, they must facilitate verification processes. Issuers should include the information necessary for this verification, while Displayers should use it to check that a badge was awarded by an Issuer, to an Earner. 
+For Open Badges to comprise valuable representations of achievement, they must facilitate verification processes. __Issuers__ should include the information necessary for this verification, while __Displayers__ should use it to check that a badge was awarded by an __Issuer__, to an __Earner__. 
 
 ## Data Model
 
 Open Badges define their structures in JSON. Three JSON files make up an awarded badge: 
 
-* Badge Assertion
-* Badge Class
-* Issuer Organization
+* [Badge Assertion](#badge-assertion)
+* [Badge Class](#badge-class)
+* [Issuer Organization](#issuer-organization)
 
 These three include JSON objects, arrays and values. The Badge Assertion includes a field for the URL of the Badge Class, while the Badge Class includes a link to the Issuer Organization.
 
