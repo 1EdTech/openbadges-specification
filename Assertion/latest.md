@@ -521,11 +521,119 @@ __Issuer Organization__
 
 #### Examples
 
+The three main elements of a badge are: Badge Assertion; Badge Class; Issuer Organization.
+
+The [Badge Assertion](#badge-assertion) may be represented within a hosted JSON file or a JSON Web Signature (JWS). A Badge Assertion describes a badge awarded to an earner:
+
+```json
+{
+	"uid": "a1b2c3d4e5f6g7",
+	"recipient": {
+	"type": "email",
+		"hashed": true,
+		"salt": "deadsea",
+		"identity": "sha256$c7ef86405ba71b85acd8e2e95166c4b111448089f2e1599f42fe1bba46e865c5"
+	},
+	"image": "https://example.org/beths-robot-badge.png",
+	"evidence": "https://example.org/beths-robot-work.html",
+	"issuedOn": 1359217910,
+	"badge": "https://example.org/robotics-badge.json",
+	"verify": {
+		"type": "hosted",
+		"url": "https://example.org/beths-robotics-badge.json"
+	}
+}
+```
+
+The Badge Assertion links to a [Badge Class](#badge-class) in its `badge` field. This should be a hosted JSON file describing the badge awarded:
+
+```json
+{
+	"name": "Awesome Robotics Badge",
+	"description": "For doing awesome things with robots that people think is pretty great.",
+	"image": "https://example.org/robotics-badge.png",
+	"criteria": "https://example.org/robotics-badge.html",
+	"tags": ["robots", "awesome"],
+	"issuer": "https://example.org/organization.json",
+	"alignment": [
+	{ 
+		"name": "CCSS.ELA-Literacy.RST.11-12.3",
+		"url": "http://www.corestandards.org/ELA-Literacy/RST/11-12/3",
+		"description": "Follow precisely a complex multistep procedure when carrying out experiments, taking measurements, or performing technical tasks; analyze the specific results based on explanations in the text."
+	},
+	{ 
+		"name": "CCSS.ELA-Literacy.RST.11-12.9",
+		"url": "http://www.corestandards.org/ELA-Literacy/RST/11-12/9",
+		"description": " Synthesize information from a range of sources (e.g., texts, experiments, simulations) into a coherent understanding of a process, phenomenon, or concept, resolving conflicting information when possible."
+	}
+	]
+}
+```
+
+The Badge Class includes a link to the [Issuer Organization](#issuer-organization), which describes the issuer of the badge:
+
+```json
+{
+	"name": "amazing Badge Issuer",
+	"image": "https://example.org/logo.png",
+	"url": "https://example.org",
+	"email": "admin@example.org",
+	"revocationList": "https://example.org/revoked.json"
+}
+```
+
+Issuers using signed badges __may__ define a revocation list JSON file in which previously awarded badges can be revoked (included in the `revocationList` field in the Issuer Organization):
+
+```json
+{
+ "qp8g1s": "Issued in error",
+ "2i9016k": "Issued in error",
+ "1av09le": "Honor code violation"
+}
+```
+
 ## Assertion Types
 
-<!--hosted and signed-->
+There are two types of Open Badge: Hosted and Signed. In both cases, the assertion involves three sets of JSON: the Badge Assertion; the Badge Class; the Issuer Organization. The difference between hosted and signed badges relates specifically to the Badge Assertion.
+
+In a hosted badge, the Badge Assertion, Badge Class and Issuer Organization are all stored in hosted files, with the three files linked as follows:
+
+* Badge Assertion `badge` field includes the URL of the Badge Class
+* Badge Class `issuer` field includes the URL of the Issuer Organization
+
+In a signed badge, these links remain the same, but the Badge Assertion is not stored in a hosted JSON file - it is packaged in a JSON Web Signature (JWS). This may be prepared programmatically within the Issuer system whenever a badge is awarded to an Earner.
+
+The Badge Assertion `verify` `type` field should indicate whether a badge is signed or hosted.
+
+### Signed Open Badge Structure
+
+The structure of the JWS comprising a signed Open Badge is as follows:
+
+```
+<encoded JWS header>.<encoded JWS payload>.<encoded JWS signature>
+```
+
+The JSON representation of the badge assertion should be used as the JWS payload. An RSA-SHA256 algorithm should be used for signing.
+
+Example (line breaks for display purposes):
+
+```
+eyJhbGciOiJSUzI1NiJ9
+.
+eyJ1aWQiOiJhYmMtMTIzNCIsInJlY2lwaWVudCI6eyJ0eXBlIjoiZW1haWwiLCJoYXNoZWQiOnRydWUsInNhbHQiOiJkZWFkc2VhIiwiaWQiOiJzaGEyNTYkYzdlZjg2NDA1YmE3MWI4NWFjZDhlMmU5NTE2NmM0YjExMTQ0ODA4OWYyZTE1OTlmNDJmZTFiYmE0NmU4NjVjNSJ9LCJpbWFnZSI6Imh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3QtYmFkZ2UucG5nIiwiZXZpZGVuY2UiOiJodHRwczovL2V4YW1wbGUub3JnL2JldGhzLXJvYm90LXdvcmsuaHRtbCIsImlzc3VlZE9uIjoxMzU5MjE3OTEwLCJiYWRnZSI6Imh0dHBzOi8vZXhhbXBsZS5vcmcvcm9ib3RpY3MtYmFkZ2UuanNvbiIsInZlcmlmeSI6eyJ0eXBlIjoic2lnbmVkIiwidXJsIjoiaHR0cHM6Ly9leGFtcGxlLm9yZy9wdWJsaWNLZXkucGVtIn19
+.
+Liv4CLviFH20_6RciUWf-jrUvMAecxT4KZ_gLHAeT_chrsCvBEE1uwgtwiarIs9acFfMi0FJzrGye6mhdHf3Kjv_6P7BsG3RPkYgK6-5i9uZv4QAIlvfNclWAoWUt4j0_Kip2ftzzWwc5old01nJRtudZHxo5eGosSPlztGRE9G_g_cTj32tz3fG92E2azPmbt7026G91rq80Mi-9c4bZm2EgrcwNBjO0p1mbKYXLIAAkOMuJZ_8S4Go8S0Sg3xC6ZCn03zWuXCP6bdY_jJx2BpmvqC3H55xWIU8p5c9RxI8YifPMmJq8ZQhjld0pl-L8kHolJx7KGfTjQSegANUPg
+```
+
+The URL of the public key corresponding to the private key used for signing should be included in the Badge Assertion `verify` `url` field. This allows badge Displayers to verify that a signed badge is legitimate.
 
 ## Additional Properties
+
+Additional properties may be included in Open Badges providing they don't clash with the specified properties. **Processors should preserve all properties when rehosting or retransmitting**.
+
+Any additional properties __should__ be namespaced to avoid clashing with future properties. For example, if the issuer at **example.org** wants to add a `foo` property to the assertion, the property name should be `example.org:foo`. This will help prevent unforseen errors should an `foo` property be defined in a later version of the specification.
+
+Discussions regarding extensions to the Open Badge structures can be found here: https://github.com/mozilla/openbadges-discussion/issues/20
 
 ## Issuer Implementations
 
