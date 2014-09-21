@@ -11,6 +11,27 @@ The Open Badge Infrastructure (OBI) is a set of software tools and specification
 
 ## Table of Contents
 
+* [Introduction](#introduction)
+* [Conventions Used in this Document](#conventions-used-in-this-document)
+* [Intended Audience](#intended-audience)
+* [Terminology](#terminology)
+* [Concepts](#concepts)
+* [Data Model](#data-model)
+	* [Badge Assertion](#badge-assertion)
+	* [Badge Class](#badge-class)
+	* [Issuer Organization](#issuer-organization)
+	* [Summary Tables](#summary-tables)
+	* [Examples](#examples)
+* [Assertion Types](#assertion-types)
+	* [Signed Open Badge Structure](#signed-open-badge-structure)
+* [Additional Properties](#additional-properties)
+* [Issuer Implementations](#issuer-implementations)
+	* [Badge Revocation](#badge-revocation)
+* [Displayer Implementations](#displayer-implementations)
+* [Validation](#validation)
+* [History](#history)
+* [References](#references)
+
 ## Introduction
 
 The Open Badge Infrastructure Assertion specification aims to describe each awarded badge in a way that is open, meaningful and verifiable. An Open Badge Assertion should include all of the information required to understand the award. Each assertion should define these core aspects of a badge award:
@@ -431,7 +452,7 @@ Contact email address for somone at the organization.
 URL for list of revoked badges - _only for signed badges_.<br/>
 _The revocationList endpoint should be a JSON representation of an object where the keys are the uids for revoked badge assertions and the values are the reason for revocation._
 
-#### Summary Tables
+### Summary Tables
 
 <!--see http://tools.ietf.org/html/rfc2360#section-3.2 for status codes etc-->
 
@@ -519,7 +540,7 @@ __Issuer Organization__
 | [`email`](#issuer-organization-email) | O | text |
 | [`revocationList`](#issuer-organization-revocationlist) | O | url |
 
-#### Examples
+### Examples
 
 The three main elements of a badge are: Badge Assertion; Badge Class; Issuer Organization.
 
