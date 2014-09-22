@@ -135,17 +135,17 @@ A definition of the requirements for earning a badge. The criteria for a badge _
 <a name="term-displayer"></a>
 __Displayer__
 
-A badge Displayer presents information about public badge awards in a digital context. Badge [Earners](#term-earner) can add their awarded badges to public collections, which Displayer implementations can query, typically presenting the information about the badge award alongside its image. Badge Displayers need an understanding of the Assertion structure in order to extract and display the relevant data. Badge Displayers __should__ [verify](#term-verify) Assertions prior to displaying them to ensure that a particular badge was in fact awarded to the Earner claiming it.
+A badge Displayer presents information about public badge awards in a digital context. Badge [Earners](#term-earner) can add their awarded badges to public collections, which Displayer implementations can query, typically presenting the information about the badge award alongside its image. Badge Displayers require an understanding of the Assertion structure in order to extract and display the relevant data within their applications. Badge Displayers __should__ [verify](#term-verify) Assertions prior to displaying them to ensure that a particular badge was in fact awarded to the Earner claiming it.
 
 <a name="term-earner"></a>
 __Earner__
 
-An Earner is someone who has been awarded one or more Open Badges. Depending on the badging system, the Earner may apply for a badge, supplying supporting evidence. When an Issuer awards a badge, they build information about the Earner identity into a new Badge Assertion.
+An Earner is someone who has been awarded one or more Open Badges. Depending on the badging system, the Earner may apply for a badge, supplying supporting evidence. When an [Issuer](#term-issuer) awards a badge, they build information about the Earner identity into a new [Badge Assertion](#term-badge-assertion), which links to information about what the badge represents.
 
 <a name="term-evidence"></a>
 __Evidence__
 
-A Badge Assertion __may__ include a URL representing evidence for the badge award. Depending on the badging system, the Earner may have submitted this evidence as part of an application process. Typically, the Issuer would compared the evidence to the badge [criteria](#term-criteria) in order to make an awarding decision.
+A [Badge Assertion](#term-badge-assertion) __may__ include a URL representing evidence for the badge award. Depending on the badging system, the [Earner](#term-earner) may have submitted this evidence as part of an application process. Typically, the [Issuer](#term-issuer) compares the evidence to the badge [criteria](#term-criteria) in order to make an awarding decision.
 
 <a name="term-hosted-badge"></a>
 __Hosted Badge__
@@ -155,22 +155,22 @@ A ___hosted___ badge is one whose Assertion data is represented using the badge 
 <a name="term-issue"></a>
 __Issue__
 
-Issuing is the act of awarding a badge to an Earner. Typically badge [Issuers](#term-issuer) create badges and decide who to award them to. In order to issue a badge within the OBI, an Issuer __must__ create a [Badge Assertion](#term-badge-assertion), which __may__ be [___hosted___](#term-hosted-badge) or [___signed___](#term-signed-badge).
+Issuing is the act of awarding a badge to an [Earner](#term-earner). Badge [Issuers](#term-issuer) create badges and decide who to award them to. In order to issue a badge within the OBI, an Issuer __must__ create a [Badge Assertion](#term-badge-assertion), which __may__ be [___hosted___](#term-hosted-badge) or [___signed___](#term-signed-badge).
 
 <a name="term-issuer"></a>
 __Issuer__
 
-An Issuer is a person or organization (or department within an organization) who/ which awards Open Badges to Earners. Typically the Issuer is responsible for designing and creating the badge as well as awarding it. The Issuer may choose to implement various optional processes in a badging system, such as [assessment](#term-assessment).
+An Issuer is a person or organization (or department within an organization) who awards Open Badges to [Earners](#term-earner). Typically the Issuer is responsible for designing and creating the badge as well as awarding it. The Issuer may choose to implement various optional processes in a badging system, such as [assessment](#term-assessment).
 
 <a name="term-issuer-organization"></a>
 __Issuer Organization__
 
-The Issuer Organization is the part of an Open Badge Assertion in which the badge Issuer is described. The Issuer Organization __must__ be included in the [Badge Class](#term-badge-class) by URL. The URL __must__ return a JSON representation of the Issuer, in which fields specify the Issuer name and URL, as well as other optional descriptive properties. Typically the Issuer Organization data will be used to [verify](#term-verify) awarded badges.
+The Issuer Organization is the part of an Open Badge Assertion in which the badge [Issuer](#term-issuer) is described. The Issuer Organization __must__ be included in the [Badge Class](#term-badge-class) by URL. The file includes a JSON representation of the Issuer, in which fields specify the Issuer name and URL, as well as other optional descriptive properties. Typically the Issuer Organization data is used to [verify](#term-verify) awarded badges.
 
 <a name="term-metadata"></a>
 __Metadata__
 
-In the OBI, metadata is information about badges, badge awards and badge Issuers. OBI metadata is defined in JSON as part of the Assertion specification.
+In the OBI, metadata is information about badges, badge awards and badge Issuers. OBI metadata is defined in JSON as part of the Assertion specification. The Assertion metadata structures are designed for interoperability.
 
 <a name="term-obi"></a>
 __Open Badge Infrastructure (OBI)__
@@ -180,41 +180,39 @@ The OBI is a set of software tools and specifications to support Open Badge syst
 <a name="term-revoke"></a>
 __Revoke__
 
-Badge Issuers can revoke badges they awarded to Earners. In such cases, the [Issuer Organization](#term-issuer-organization) __should__ include a list of ___signed___ badges that have been revoked, and/or provide a revocation response to requests at the original Badge Assertion URL. Badge Displayers __should not__ display revoked badges and should check revocation status during [verification](#term-verify).
+Badge [Issuers](#term-issuer) can revoke badges they awarded to [Earners](#term-earner). In such cases, the [Issuer Organization](#term-issuer-organization) __should__ include a link to a list of ___signed___ badges that have been revoked, and requests for __hosted__ badge URLs that have been revoked __should__ return a revocation response. Badge Displayers __should not__ display revoked badges and should check revocation status during [verification](#term-verify).
 
 <a name="term-signed-badge"></a>
 __Signed Badge__
 
-A ___signed___ badge has its Assertion data included in a JSON Web Signature (JWS). Typically a ___signed___ badge still uses hosted JSON files for the [Badge Class](#term-badge-class) and [Issuer Organization](#term-issuer-organization), but the [Badge Assertion](#term-badge-assertion) JSON is itself packaged as a signature. The Badge Assertion includes a [verification](#term-verify) field in which either a ___hosted___ or [___signed___](#term-signed-badge) type is specified.
+A ___signed___ badge has its Assertion data included in a JSON Web Signature (JWS). Typically a ___signed___ badge still uses hosted JSON files for the [Badge Class](#term-badge-class) and [Issuer Organization](#term-issuer-organization), but the [Badge Assertion](#term-badge-assertion) JSON is itself packaged as a signature. The Badge Assertion includes a [verification](#term-verify) field in which either a [___hosted___](#term-hosted) or ___signed___ type is specified.
 
 <a name="term-validate"></a>
 __Validate, Validation, Validator__
 
-Validation is the act of checking a Badge Assertion for structural validity. This includes verifying well-formedness and correctness of data types, as well as ensuring that any resources linked within the assertion are available.
+Validation is the act of checking a [Badge Assertion](#term-badge-assertion) for structural validity. This includes verifying well-formedness and correctness of data types, as well as ensuring that any linked resources are available.
 
 <a name="term-verify"></a>
 __Verify, Verification__
 
-Verification is the act of checking that a badge was awarded by the Issuer to the Earner. Badge Displayers __should__ carry out verification on badges before displaying them. Badge Issuers __should__ include the information necessary for this verification to be implemented. Verification should be tailored to whether a Badge Assertion is [___signed___](#term-signed-badge) or [___hosted___](#term-hosted-badge).
+Verification is the act of checking that a badge was awarded by the [Issuer](#term-issuer) to the [Earner](#term-earner). Badge [Displayers](#term-displayer) __should__ carry out verification on badges before displaying them. Badge Issuers __should__ include the information necessary for this verification to be implemented in [Badge Assertions](#term-badge-assertion). Verification is tailored to whether a Badge Assertion is [___signed___](#term-signed-badge) or [___hosted___](#term-hosted-badge).
 
 ## Data Model
 
-Open Badges define their structures in JSON. Three JSON files make up an awarded badge: 
+The structure of an Open Badge is defined in JSON. Three JSON excerpts make up an awarded badge: 
 
 * [Badge Assertion](#badge-assertion)
 * [Badge Class](#badge-class)
 * [Issuer Organization](#issuer-organization)
 
-These three include JSON objects, arrays and values. The Badge Assertion includes a field for the URL of the Badge Class, while the Badge Class includes a link to the Issuer Organization.
+These include JSON objects, arrays and values. The Badge Assertion includes a field for the URL of the Badge Class, with the Badge Class including a link to the Issuer Organization.
 
 * A Badge Assertion can be associated with one Badge Class.
 * A Badge Class can be associated with one or more Badge Assertions.
 * A Badge Class can be associated with one Issuer Organization
 * An Issuer Organization can be associated with one or more Badge Classes.
 
-As is outlined in the below sections, the values in the Open Badges JSON files include primitive types such as text string, boolean, DateTime and URL, as well as objects and arrays including nested values.
-
-_Proposals to extend the JSON structures are currently under discussion: https://github.com/mozilla/openbadges-discussion/issues/20_
+As is outlined in the below sections, the values in the Open Badges JSON files include types such as text string, boolean, DateTime and URL, as well as objects and arrays within nested structures.
 
 <a name="badge-assertion"></a>
 ### Badge Assertion
@@ -236,11 +234,11 @@ A Badge Assertion __may__ include:
 * [`evidence`](#assertion-evidence)
 * [`expires`](#assertion-expires)
 
-The data types and purpose of these properties are as follows.
+The data type and purpose of each property is as follows.
 
 <a name="assertion-uid"></a>
 * `uid : <text>` __required__<br/>
-Unique Identifier for the badge assertion. This __should__ be locally unique on a per-origin basis, not globally unique. Badge Issuers should use a unique `uid` value for each Badge Assertion they create (each badge award).
+Unique Identifier for the Badge Assertion. This __should__ be locally unique on a per-origin basis, not globally unique. Badge Issuers should use a unique `uid` value for each Badge Assertion they create (each badge award).
 
 <a name="assertion-recipient"></a>
 * `recipient : `[`IdentityObject`](#identity-object) __required__<br/>
@@ -265,7 +263,7 @@ _The Badge Assertion image is distinct from the Badge Class image, which is the 
 
 <a name="assertion-evidence"></a>
 * `evidence : <url>` _optional_<br/>
-URL of any evidence that the Earner met the requirements for the badge.<br/>
+URL of evidence supporting the award.<br/>
 _May be a page linking out to other pages if linking directly to the evidence is infeasible._
 
 <a name="assertion-expires"></a>
@@ -286,7 +284,7 @@ IdentityObject __may__ contain:
 
 * [`salt`](#identity-object-salt)
 
-The purpose and data type for each of these properties follow.
+The data type and purpose of each property is as follows.
 
 <a name="identity-object-identity"></a>
 * `identity : <text>` __required__<br/>
@@ -313,7 +311,7 @@ VerificationObject __must__ include:
 * [`type`](#verification-object-type)
 * [`url`](#verification-object-url)
 
-The purpose and data type for each of these properties follow.
+The data type and purpose of each property is as follows.
 
 <a name="verification-object-type"></a>
 * `type : <text>` __required__<br/>
@@ -343,7 +341,7 @@ A Badge Class __may__ include:
 * [`alignment`](#badge-class-alignment)
 * [`tags`](#badge-class-tags)
 
-The purpose and data type for each of these properties follow.
+The data type and purpose of each property is as follows.
 
 <a name="badge-class-name"></a>
 * `name : <text>` __required__<br/>
@@ -356,7 +354,7 @@ Short description of the badge achievement.
 <a name="badge-class-image"></a>
 * `image : <url>` __required__<br/>
 URL or DataURL of the image for the badge.<br/>
-_The Badge Class `image` is the generic image used to represent all awards of the badge as opposed to a baked badge image with a particular Badge Assertion embedded into it - this may be included in a Badge Assertion [`image`](#assertion-image) field._
+_The Badge Class `image` is the generic image used to represent all awards of the badge, as opposed to a baked badge image with a particular Badge Assertion embedded into it - this may be included in a Badge Assertion [`image`](#assertion-image) field._
 
 <a name="badge-class-criteria"></a>
 * `criteria : <url>` __required__<br/>
@@ -377,7 +375,7 @@ Array of text tags describing the type of skill, activity or achievement the bad
 
 ##### Alignment Object
 
-Describes an education standard that the badge aligns to.
+Describes an educational standard that the badge aligns to.
 
 Badge Class does not require AlignmentObjects - where present, AlignmentObject __must__ include:
 
@@ -388,7 +386,7 @@ AlignmentObject __may__ include:
 
 * [`description`](#alignment-object-description)
 
-The purpose and data type for each of these properties follow.
+The data type and purpose of each property is as follows.
 
 <a name="alignment-object-name"></a>
 * `name : <text>` __required__<br/>
@@ -420,7 +418,7 @@ An Issuer Organization __may__ include:
 * [`email`](#issuer-organization-email)
 * [`revocationList`](#issuer-organization-revocationlist)
 
-The purpose and data type for each of these properties follow.
+The data type and purpose of each property is as follows.
 
 <a name="issuer-organization-name"></a>
 * `name : <text>` __required__<br/>
@@ -440,11 +438,11 @@ URL or DataURL for an image representing the issuing organization.
 
 <a name="issuer-organization-email"></a>
 * `email : <text>` _optional_<br/>
-Contact email address for somone at the organization.
+Contact email address for someone at the organization.
 
 <a name="issuer-organization-revocationlist"></a>
 * `revocationList : <url>` _optional_<br/>
-URL for list of revoked badges - _only for signed badges_.<br/>
+URL for list of revoked badges - ___only for signed badges___.<br/>
 _The revocationList endpoint should be a JSON representation of an object where the keys are the uids for revoked assertions and the values are the reason for revocation._
 
 ### Summary Tables
@@ -539,7 +537,7 @@ __Issuer Organization__
 
 The three main elements of a badge are: Badge Assertion; Badge Class; Issuer Organization.
 
-The [Badge Assertion](#badge-assertion) __may__ be represented within a hosted JSON file or a JSON Web Signature (JWS). A Badge Assertion describes a badge awarded to an Earner:
+The [Badge Assertion](#badge-assertion) __must__ be represented within either a hosted JSON file or a JSON Web Signature (JWS). A Badge Assertion describes a badge awarded to an Earner:
 
 ```json
 {
@@ -561,7 +559,7 @@ The [Badge Assertion](#badge-assertion) __may__ be represented within a hosted J
 }
 ```
 
-The Badge Assertion links to a [Badge Class](#badge-class) in its `badge` field. This __must__ be a hosted JSON file describing the badge awarded:
+The Badge Assertion links to a [Badge Class](#badge-class) in its `badge` field. The Badge Class __must__ be a hosted JSON file describing the badge awarded:
 
 ```json
 {
@@ -586,7 +584,7 @@ The Badge Assertion links to a [Badge Class](#badge-class) in its `badge` field.
 }
 ```
 
-The Badge Class includes a link to the [Issuer Organization](#issuer-organization), which describes the issuer of the badge:
+The Badge Class includes a link to the [Issuer Organization](#issuer-organization) in the `issuer` field - this describes the issuer of the badge:
 
 ```json
 {
@@ -610,14 +608,14 @@ Issuers using ___signed___ badges __may__ define a revocation list JSON file in 
 
 ## Assertion Types
 
-There are two types of Open Badge: ___hosted___ and ___signed___. In both cases, the assertion involves three sets of JSON: the Badge Assertion; the Badge Class; the Issuer Organization. The difference between ___hosted___ and ___signed___ badges relates specifically to the Badge Assertion.
+There are two types of Open Badge: ___hosted___ and ___signed___. In both cases, the Assertion involves three excerpts of JSON: the Badge Assertion; the Badge Class; the Issuer Organization. The difference between ___hosted___ and ___signed___ badges relates specifically to the Badge Assertion.
 
 In a ___hosted___ badge, the Badge Assertion, Badge Class and Issuer Organization are all stored in hosted files, with the three files linked as follows:
 
 * Badge Assertion `badge` field includes the URL of the Badge Class
 * Badge Class `issuer` field includes the URL of the Issuer Organization
 
-In a ___signed___ badge, these links remain the same, but the Badge Assertion is not stored in a hosted JSON file - it is packaged in a JSON Web Signature (JWS). This may be prepared programmatically within the Issuer system whenever a badge is awarded to an Earner.
+In a ___signed___ badge, these links remain the same, but the Badge Assertion is not stored in a hosted JSON file - it is packaged in a JSON Web Signature (JWS). This __may__ be prepared programmatically within the Issuer system whenever a badge is awarded to an Earner.
 
 The Badge Assertion `verify` `type` field __must__ indicate whether a badge is ___signed___ or ___hosted___.
 
@@ -645,7 +643,7 @@ The URL of the public key corresponding to the private key used for signing __mu
 
 ## Additional Properties
 
-Additional properties __may__ be included in Open Badges providing they don't clash with the specified properties. **Processors should preserve all properties when rehosting or retransmitting**.
+Additional properties __may__ be included in Open Badges providing they don't clash with the specified properties. ***Processors should preserve all properties when rehosting or retransmitting***.
 
 Any additional properties __should__ be namespaced to avoid clashing with future properties. For example, if the issuer at **example.org** wants to add a `foo` property to the assertion, the property name __should__ be `example.org:foo`. This will help prevent unforseen errors should a `foo` property be defined in a later version of the specification.
 
@@ -657,13 +655,13 @@ Typically a badge Issuer is responsible for creating the three parts of an Open 
 
 The Issuer __must__ host JSON resources at publicly accessible stable locations, with the content-type set to `application/json`. Any resources linked from the Open Badge JSON files __should__ also be at stable URLs.
 
-Where ___signed___ badges are used, the Issuer __must__ also host the public key corresponding to the private key they use for signing at a stable URL. 
+Where ___signed___ badges are used, the Issuer __must__ also host the public key (corresponding to the private key used for signing) at a stable URL. 
 
 ### Badge Revocation
 
 To revoke ___hosted___ badges, Issuers __should__ respond to requests on the revoked Badge Assertions with an HTTP Status of `410 Gone` and a body of `{ "revoked":true }`.
 
-To revoke ___signed___ badges, the Issuer __should__ host a revocation list JSON file indicating the badges they have revoked, with the Badge Assertion `uid`s as keys and the reason for revocation as values. The revocation list JSON URL __should__ be included in the Issuer Organization `revocatonList` field.
+To revoke ___signed___ badges, the Issuer __should__ host a revocation list JSON file indicating the badges they have revoked, with the Badge Assertion `uid` as keys and the reason for revocation as values. The revocation list JSON URL __should__ be included in the Issuer Organization `revocationList` field.
 
 ## Displayer Implementations
 
@@ -671,7 +669,7 @@ Open Badge Displayers __should__ carry out verification steps prior to presentin
 
 To verify a ___hosted___ badge, Displayers __should__:
 
-1. Perform an HTTP GET request on the `verify.url` from the Badge Assertion. If the HTTP Status is not eventually 200 OK, assertion __must__ treated as invalid.
+1. Perform an HTTP GET request on the `verify.url` from the Badge Assertion. If the HTTP Status is not eventually 200 OK, the assertion __must__ treated as invalid.
 
 2. [Assert structural validity](#assert-structural-validity).
 
@@ -685,13 +683,13 @@ To verify a ___signed___ badge, Displayers __should__:
 
 4. Extract the `verify.url` property from the Badge Assertion JSON object. If there is no `verify.url` property, or the `verify.url` property does not contain a valid URL, the badge __must__ be treated as invalid.
 
-5. Perform an HTTP GET request on `verify.url` and store public key. If the HTTP status is not 200 OK (either directly or through 3xx redirects), the badge __must__ be treated as invalid.
+5. Perform an HTTP GET request on `verify.url` and store the public key. If the HTTP status is not 200 OK (either directly or through 3xx redirects), the badge __must__ be treated as invalid.
 
 6. With the public key, perform a JWS verification on the JWS object. If the verification fails, the badge __must__ be treated as invalid.
 
 7. Retrieve the revocation list from the Issuer Organization URL and ensure the `uid` of the badge does not appear in the list.
 
-8. If the above steps pass, assertion __may__ be treated as valid.
+8. If the above steps pass, the assertion __may__ be treated as valid.
 
 <a name="assert-structural-validity"></a>
 To assert structural validity, Displayers __should__ ensure the following badge properties:
