@@ -4,20 +4,20 @@
 
 ___To follow___
 
-<!--depends on track for ietf ie standards/ experimental etc http://tools.ietf.org/html/rfc2223#section-5
+<!--depends on track for ietf http://tools.ietf.org/html/rfc2223#section-5
 alternative w3c example http://www.w3.org/TR/json-ld/ - overview of document history, participants etc-->
 
 ## Abstract
 
-The Open Badge Infrastructure (OBI) is a set of software tools and specifications for implementing Open Badge applications. The OBI provides a framework for creating, issuing and displaying Open Badges. The Open Badges Assertion Specification defines the structure of an awarded Open Badge. An Open Badges Assertion uses JSON-structured data to describe a specific badge issued to a specific Earner. The Assertion content facilitates communicating and verifying the achievement that the badge represents.
+The Open Badge Infrastructure (OBI) is a set of software tools and specifications for implementing Open Badge applications. The OBI provides a framework for creating, issuing and displaying Open Badges. The Open Badges Assertion Specification defines the structure of an awarded Open Badge. An Open Badge Assertion uses JSON-structured data to describe a specific badge issued to a specific Earner. The Assertion content facilitates communicating and verifying the achievement that the badge represents.
 
 ## Table of Contents
 
 * [Introduction](#introduction)
 * [Conventions Used in this Document](#conventions-used-in-this-document)
 * [Intended Audience](#intended-audience)
-* [Terminology](#terminology)
 * [Concepts](#concepts)
+* [Terminology](#terminology)
 * [Data Model](#data-model)
 	* [Badge Assertion](#badge-assertion)
 	* [Badge Class](#badge-class)
@@ -36,18 +36,18 @@ The Open Badge Infrastructure (OBI) is a set of software tools and specification
 
 ## Introduction
 
-The Open Badge Infrastructure Assertion specification aims to describe each awarded badge in a way that is open, meaningful and verifiable. An Open Badge Assertion should include all of the information required to understand the award. Each assertion should define these core aspects of a badge award:
+The Open Badge Infrastructure Assertion specification aims to describe the structure of each awarded badge in a way that is open, meaningful and verifiable. An Open Badge Assertion should include all of the information required to understand the award. Each assertion should define these core aspects of a badge award:
 
 * who earned the badge
 * what the badge represents
 * who issued the badge
 
-This typically includes descriptive information about the achievement, an image and the date of issue. Additionally, an assertion should include the following information to aid client implementations:
+This typically comprises descriptive information about the achievement, an image and the date of issue. Additionally, an assertion should include the following information to aid client implementations:
 
 * criteria for earning the badge
 * verification details for the Earner identity and badge award
 
-The Assertion specification defines a series of required and optional properties to fulfill the above aims. Assertions may also include optional information such as evidence, educational standards alignment details and an expiry date.
+The Assertion specification defines a series of required and optional properties to fulfill the above aims. Assertions may include optional information such as evidence, educational standards alignment details and expiry dates.
 
 The purpose of the Assertion specification is to provide a reference for all implementers of Open Badge systems. This primarily means badge Issuers and Displayers.
 
@@ -56,12 +56,11 @@ ___Proposals are currently under discussion regarding extending the Assertion st
 * https://github.com/mozilla/openbadges-discussion/issues/20
 * https://github.com/mozilla/openbadges-specification/issues/5
 
-<!--explain motivation, applicability - this specification is intended to provide... to be used by... explain what obi spec is http://tools.ietf.org/html/rfc2223#section-7
-purpose, intended function, how it fits into context-->
-
 ## Conventions Used in This Document
 
 > The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
+
+<!-- https://www.ietf.org/rfc/rfc2119.txt -->
 
 ## Intended Audience
 
@@ -75,6 +74,20 @@ The primary audience is expected to be software developers, however the specific
 
 The Open Badges Assertion specification relies on JSON syntax, some knowledge of which is required - see [RFC 4627](http://www.ietf.org/rfc/rfc4627.txt) and [JSON.org](http://www.json.org/).
 
+## Concepts
+
+Adopting the OBI involves understanding a range of concepts which refer to well-known real-world objects and activities, but which have specific meanings within the Open Badges ecosystem.
+
+An Open Badge is a digital representation of a skill or achievement, communicated via an image plus JSON data structures. In terms of implementation, there are two types of badge: generic badges which are "earnable" and badges which have actually been awarded to Earners. The generic badge is defined using a ___Badge Class___, while an awarded badge is defined using a ___Badge Assertion___. In this sense, a generic badge can be conceptualized as the template for awarded badges. This connection is implemented by linking each ___Badge Assertion___ to a ___Badge Class___.
+
+People who are awarded Open Badges are referred to as ___Earners___. ___Earners___ may be awarded badges directly, or through assessment processes involving submission of evidence - the nature of the issuing process is determined by the ___Issuer___.
+
+The people and organizations who award Open Badges are referred to as ___Issuers___. Issuing is the technical act of awarding a badge, the implementation of which is creating a ___Badge Assertion___.
+
+___Displayers___ of Open Badges are implementers of systems in which awarded badges are presented in digital contexts. ___Displayers___ therefore deal with the data in ___Badge Assertions___, which is created by ___Issuers___. Prior to display, Open Badges can be collected using software tools, some of which are referred to as ___Backpacks___. ___Displayers___ may retrieve the data describing an ___Earner's___ badges from a ___Backpack___. The ___Earner___ should have full control over which badges are publicly visible.
+
+For Open Badges to comprise valuable representations of achievement, they must facilitate verification processes. ___Issuers___ are responsible for including the information necessary for this verification, while ___Displayers___ are responsible for using it to check that a badge was awarded by an ___Issuer___, to an ___Earner___. 
+
 ## Terminology
 
 The Open Badges Assertion specification uses the following terms as defined:
@@ -87,17 +100,17 @@ A JSON-structured representation of a badge awarded to an Earner. An Assertion d
 <a name="term-assessment"></a>
 __Assessment__
 
-In some badging systems, Earner [evidence](#term-evidence) is assessed as part of the awarding decision. In such cases, details of the evidence can be included in the Badge Assertion.
+In some badging systems, Earner [evidence](#term-evidence) is assessed as part of the awarding decision. In such cases, details of the evidence can be included in the [Badge Assertion](#term-badge-assertion).
 
 <a name="term-award"></a>
 __Award__
 
-In the Open Badges ecosystem, the terms "issue" and "award" are synonymous. To award a badge is to [issue](#term-issue) it - this involves the badge [Issuer](#term-issuer) creating a Badge Assertion to describe the award.
+In the Open Badges ecosystem, the terms "issue" and "award" are synonymous. To award a badge is to [issue](#term-issue) it - this involves the badge [Issuer](#term-issuer) creating a [Badge Assertion](#term-badge-assertion) to describe the award.
 
 <a name="term-backpack"></a>
 __Backpack__
 
-A Backpack is a software tool through which [Earners](#term-earner) can collect Open Badges they have been awarded. Typically a Backpack allows the Earner to control visibility of their badges. [Displayers](#term-displayer) may connect to Backpacks to retrieve the data about badges associated with an Earner.
+A Backpack is a software tool through which [Earners](#term-earner) can collect Open Badges they have been awarded. Typically a Backpack allows the Earner to control visibility of their badges. [Displayers](#term-displayer) can connect to Backpacks to retrieve the data about badges associated with an Earner.
 
 <a name="term-badge"></a>
 __Badge__
@@ -107,22 +120,22 @@ In the context of the OBI, a badge is loosely described as a digital representat
 <a name="term-badge-class"></a>
 __Badge Class__
 
-The Badge Class forms part of an Open Badge Assertion. The Badge Class describes the badge name, what it represents, the criteria for earning it, the image used to display it, the issuing organization and optionally educational standards it aligns to. A Badge Class should typically be hosted in a JSON file at a stable URL, with a link to this file included in the Badge Assertion for each award of the badge. The Badge Class file __should__ include a link to the [Issuer Organization](#term-issuer-organization).
+The Badge Class forms part of an Open Badge Assertion. The Badge Class describes the badge name, what it represents, the criteria for earning it, the image used to display it, the issuing organization and optionally educational standards it aligns to. A Badge Class should typically be hosted in a JSON file at a stable URL, with a link to this file included in the [Badge Assertion](#term-badge-assertion) for each award of the badge described. The Badge Class file __must__ include a link to the [Issuer Organization](#term-issuer-organization).
 
 <a name="term-bake"></a>
 __Bake, Baking, Baked Badge__
 
-A baked badge is a badge image file with the data for an Assertion embedded into it. The image __may__ be a PNG or SVG file. Baking badges makes them more portable, allowing Earners to communicate and display them wherever they choose. Software can extract the Assertion from a baked badge to provide access to the metadata describing the award.
+A baked badge is a badge image file with the data for an Assertion embedded into it. The image __must__ be either a PNG or SVG file. Baked badges are more portable, allowing [Earners](#term-earner) to communicate and display them wherever they choose. Software can extract the Assertion data from a baked badge to access the metadata describing the award.
 
 <a name="term-criteria"></a>
 __Criteria__
 
-A definition of the requirements for earning a badge. The criteria for a badge are included in the [Badge Class](#term-badge-class) as a URL.
+A definition of the requirements for earning a badge. The criteria for a badge __must__ be included in the [Badge Class](#term-badge-class) as a URL.
 
 <a name="term-displayer"></a>
 __Displayer__
 
-A badge Displayer presents information about public badge awards in a digital context. Badge Earners can add their awarded badges to public collections, which Displayer implementations can query, typically presenting the information about the badge award alongside its image. Badge Displayers need an understanding of the Assertion structure in order to extract and display the relevant data. Badge Displayers __should__ [verify](#term-verify) Assertions prior to displaying them to ensure that a particular badge was in fact awarded to the Earner claiming it.
+A badge Displayer presents information about public badge awards in a digital context. Badge [Earners](#term-earner) can add their awarded badges to public collections, which Displayer implementations can query, typically presenting the information about the badge award alongside its image. Badge Displayers need an understanding of the Assertion structure in order to extract and display the relevant data. Badge Displayers __should__ [verify](#term-verify) Assertions prior to displaying them to ensure that a particular badge was in fact awarded to the Earner claiming it.
 
 <a name="term-earner"></a>
 __Earner__
@@ -183,26 +196,6 @@ Validation is the act of checking a Badge Assertion for structural validity. Thi
 __Verify, Verification__
 
 Verification is the act of checking that a badge was awarded by the Issuer to the Earner. Badge Displayers __should__ carry out verification on badges before displaying them. Badge Issuers __should__ include the information necessary for this verification to be implemented. Verification should be tailored to whether a Badge Assertion is [___signed___](#term-signed-badge) or [___hosted___](#term-hosted-badge).
-
-<!-- 
-* _internet terms http://tools.ietf.org/html/rfc1983_
-* _concise sections and more detailed sections http://tools.ietf.org/html/rfc2360#section-2.4_
-* _concise sections could be badge assertion, badge class etc (brief but with some description), summary tables (v concise), then more detail in implementation sections - primitive types?_
--->
-
-## Concepts
-
-Adopting the OBI involves understanding a range of concepts which refer to existing and well-known real-world objects and activities, but which have specific meanings within the Open Badges ecosystem.
-
-An Open Badge is a digital representation of a skill or achievement, communicated via an image plus JSON data structures. In terms of implementation, there are two types of badge: generic badges which are "earnable" and badges which have actually been awarded to Earners. The generic badge is defined using a __Badge Class__, while an awarded badge is defined using a __Badge Assertion__. In this sense, a generic badge can be conceptualized as the template for awarded badges. This connection is implemented by including a link to a __Badge Class__ in each __Badge Assertion__.
-
-People who are awarded Open Badges are referred to as __Earners__. __Earners__ may be awarded badges directly, or through assessment processes involving submission of evidence - the nature of the issuing process is determined by the Issuer.
-
-The people and organizations who award Open Badges are referred to as __Issuers__. Issuing is the technical act of awarding a badge, the implementation of which is creating a __Badge Assertion__.
-
-__Displayers__ of Open Badges are implementers of systems in which awarded badges are presented in digital contexts. __Displayers__ therefore deal with the data in __Badge Assertions__, which is created by __Issuers__. Prior to display, Open Badges can be collected using software tools - some of these referred to as __Backpacks__. __Displayers__ may retrieve the data describing an __Earner's__ badges from a __Backpack__. The __Earner__ __should__ have full control over which badges are publicly visible.
-
-For Open Badges to comprise valuable representations of achievement, they must facilitate verification processes. __Issuers__ __should__ include the information necessary for this verification, while __Displayers__ __should__ use it to check that a badge was awarded by an __Issuer__, to an __Earner__. 
 
 ## Data Model
 
@@ -672,8 +665,6 @@ To revoke ___hosted___ badges, Issuers __should__ respond to requests on the rev
 
 To revoke ___signed___ badges, the Issuer __should__ host a revocation list JSON file indicating the badges they have revoked, with the Badge Assertion `uid`s as keys and the reason for revocation as values. The revocation list JSON URL __should__ be included in the Issuer Organization `revocatonList` field.
 
-<!--setting content type examples move to sep doc?-->
-
 ## Displayer Implementations
 
 Open Badge Displayers __should__ carry out verification steps prior to presenting awarded badges for output in digital contexts.
@@ -735,7 +726,8 @@ https://github.com/mozilla/openbadges-validator/
 
 ___To follow___
 
-<!--explain working groups etc, in particular explain contentious decisions, "why" as well as "how"-->
+<!--explain working groups etc, in particular explain contentious decisions, "why" as well as "how"
+http://tools.ietf.org/html/rfc2360#section-2.7-->
 
 ## References
 
