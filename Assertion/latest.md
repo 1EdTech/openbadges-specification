@@ -353,7 +353,7 @@ Short description of the badge achievement.
 
 <a name="badge-class-image"></a>
 * `image : <url>` __required__<br/>
-URL or DataURL of the image for the badge.<br/>
+URL or DataURL of the image for the badge. The linked image __must__ be a square PNG or SVG, with minimum dimensions of 90px and maximum file size of 256kb.<br/>
 _The Badge Class `image` is the generic image used to represent all awards of the badge, as opposed to a baked badge image with a particular Badge Assertion embedded into it - this may be included in a Badge Assertion [`image`](#assertion-image) field._
 
 <a name="badge-class-criteria"></a>
@@ -707,6 +707,8 @@ To assert structural validity, Displayers __should__ ensure the following badge 
 * `verify`: __must__ be an object
 	* `type`: __must__ be either "hosted" or "signed"
 	* `url`: __must__ be a ***URL***
+
+Displayers may __optionally__ verify that a badge award does not exceed any expiry date included in the Badge Assertion `expires` field.
 
 ## Validation
 
