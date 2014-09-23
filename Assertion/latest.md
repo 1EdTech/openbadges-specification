@@ -120,7 +120,7 @@ In the context of the OBI, a badge is loosely described as a digital representat
 <a name="term-badge-class"></a>
 __Badge Class__
 
-The Badge Class forms part of an Open Badge Assertion. The Badge Class describes the badge name, what it represents, the criteria for earning it, the image used to display it, the issuing organization and optionally educational standards it aligns to. A Badge Class should typically be hosted in a JSON file at a stable URL, with a link to this file included in the [Badge Assertion](#term-badge-assertion) for each award of the badge described. The Badge Class file __must__ include a link to the [Issuer Organization](#term-issuer-organization).
+The Badge Class forms part of an Open Badge Assertion. The Badge Class describes the badge name, what it represents, the criteria for earning it, the image used to display it, the issuing organization and optionally educational standards it aligns to. A Badge Class will typically be hosted in a JSON file at a stable URL, with a link to this file included in the [Badge Assertion](#term-badge-assertion) for each award of the badge described. The Badge Class file __must__ include a link to the [Issuer Organization](#term-issuer-organization).
 
 <a name="term-bake"></a>
 __Bake, Baking, Baked Badge__
@@ -180,7 +180,7 @@ The OBI is a set of software tools and specifications to support Open Badge syst
 <a name="term-revoke"></a>
 __Revoke__
 
-Badge [Issuers](#term-issuer) can revoke badges they awarded to [Earners](#term-earner). In such cases, the [Issuer Organization](#term-issuer-organization) __should__ include a link to a list of ___signed___ badges that have been revoked, and requests for __hosted__ badge URLs that have been revoked __should__ return a revocation response. Badge Displayers __should not__ display revoked badges and should check revocation status during [verification](#term-verify).
+Badge [Issuers](#term-issuer) can revoke badges they awarded to [Earners](#term-earner). In such cases, the [Issuer Organization](#term-issuer-organization) __should__ include a link to a list of ___signed___ badges that have been revoked, and requests for __hosted__ badge URLs that have been revoked __should__ return a revocation response. Badge Displayers __should not__ display revoked badges and __should__ check revocation status during [verification](#term-verify).
 
 <a name="term-signed-badge"></a>
 __Signed Badge__
@@ -238,7 +238,7 @@ The data type and purpose of each property is as follows.
 
 <a name="assertion-uid"></a>
 * `uid : <text>` __required__<br/>
-Unique Identifier for the Badge Assertion. This __should__ be locally unique on a per-origin basis, not globally unique. Badge Issuers should use a unique `uid` value for each Badge Assertion they create (each badge award).
+Unique Identifier for the Badge Assertion. This __should__ be locally unique on a per-origin basis, not globally unique. Badge Issuers __should__ use a unique `uid` value for each Badge Assertion they create (each badge award).
 
 <a name="assertion-recipient"></a>
 * `recipient : `[`IdentityObject`](#identity-object) __required__<br/>
@@ -288,7 +288,7 @@ The data type and purpose of each property is as follows.
 
 <a name="identity-object-identity"></a>
 * `identity : <text>` __required__<br/>
-Plain text or hash of identity value. If it's possible that the plain text transmission and storage of the identity value would leak personally identifiable information, a hash __should__ be used. The hash string __should__ be preceded by the algorithm used to generate the hash (e.g. `sha256`) and a dollar sign (`$`).
+Plain text or hash of identity value. If it's possible that the plain text transmission and storage of the identity value would leak personally identifiable information, it is __recommended__ that a hash be used. The hash string __should__ be preceded by the algorithm used to generate the hash (e.g. `sha256`) and a dollar sign (`$`).
 
 <a name="identity-object-type"></a>
 * `type : <text>` __required__<br/>
@@ -627,7 +627,7 @@ The structure of the JWS comprising a ___signed___ Open Badge is as follows:
 <encoded JWS header>.<encoded JWS payload>.<encoded JWS signature>
 ```
 
-The JSON representation of the Badge Assertion __must__ be used as the JWS payload. An RSA-SHA256 algorithm __should__ be used for signing.
+The JSON representation of the Badge Assertion __must__ be used as the JWS payload. An RSA-SHA256 algorithm is __recommended__ for signing.
 
 Example (line breaks for display purposes):
 
