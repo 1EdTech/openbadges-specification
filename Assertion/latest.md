@@ -700,13 +700,15 @@ To assert structural validity, Displayers __should__ ensure the following badge 
 	* `identity`: __must__ be ***text***
 	* `hashed` (_optional_): __must__ be ***boolean***
 	* `salt` (_optional_): __must__ be ***text***
-	* `image` (_optional_): __must__ be a valid ***URL*** or ***Data URL***
+* `image` (_optional_): __must__ be a valid ***URL*** or ***Data URL***
 * `evidence` (_optional_): __must__ be a valid ***URL***
 * `issuedOn` (_optional_): __must__ be a valid ***DateTime***
 * `expires` (_optional_): __must__ be a valid ***DateTime***
 * `verify`: __must__ be an object
 	* `type`: __must__ be either "hosted" or "signed"
 	* `url`: __must__ be a ***URL***
+
+Displayers __should__ also check that the recipient email address matches the address of the person claiming the badge. This may involve hashing the claimed email (using the `salt` value from the `recipient` object if supplied) and comparing it to the `identity` field in the `recipient` object.
 
 Displayers may __optionally__ verify that a badge award does not exceed any expiry date included in the Badge Assertion `expires` field.
 
