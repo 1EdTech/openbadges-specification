@@ -712,6 +712,8 @@ Displayers __should__ also check that the recipient email address matches the ad
 
 Displayers may __optionally__ verify that a badge award does not exceed any expiry date included in the Badge Assertion `expires` field.
 
+It is strongly __recommended__ that a display implementation show the `verify.url` from a Badge Assertion, with the origin (protocol, hostname, port if non-default) highlighted.
+
 ## Validation
 
 While verification relates primarily to ensuring that a badge was awarded to an Earner by an Issuer, validation involves checking that the structures and linked resources within a badge are valid.
