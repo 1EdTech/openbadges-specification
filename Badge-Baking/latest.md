@@ -89,4 +89,5 @@ To extract the assertion data from a baked SVG bage, implementors __should__:
  * The rest of the SVG data can safely be discarded.
 
 ___If the element has no body___: the `verify` attribute will contain the signature of the badge.
+
 ___If the element has a body___: it will contain the JSON representation of the badge assertion.
