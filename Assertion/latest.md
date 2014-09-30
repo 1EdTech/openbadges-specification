@@ -651,17 +651,17 @@ Discussions regarding extensions to the Open Badge structures can be found here:
 
 ## Issuer Implementations
 
-Typically a badge Issuer is responsible for creating the three parts of an Open Badge, as well as deciding who to award badges to. The Issuer __may__ use a single Issuer Organization file for all of the badges they issue. Each Issuer Organization may be included in the `issuer` field for multiple Badge Classes. In turn, each Badge Class may be included in the `badge` field for multiple Badge Assertions.
+Typically a badge Issuer is responsible for creating the three parts of an Open Badge, as well as deciding who to award badges to. The Issuer __may__ use a single Issuer Organization file for all of the badges they issue. Each Issuer Organization URL may therefore be included in the `issuer` field for multiple Badge Classes. In turn, each Badge Class URL may be included in the `badge` field for multiple Badge Assertions.
 
-The Issuer __must__ host JSON resources at publicly accessible stable locations, with the content-type set to `application/json`. Any resources linked from the Open Badge JSON files __should__ also be at stable URLs.
+The Issuer __must__ host JSON resources at publicly accessible stable locations, with the content-type set to `application/json`. Any resources linked from the Open Badge JSON files __should__ also be at stable URLs. If linked resources are not available, a badge will be considered invalid.
 
-Where ___signed___ badges are used, the Issuer __must__ also host the public key (corresponding to the private key used for signing) at a stable URL. 
+Where ___signed___ badges are used, the Issuer __must__ also host the public key (corresponding to the private key used for signing) at a stable URL. This URL __must__ be included in the `verify.url` field of the Badge Assertion.
 
 ### Badge Revocation
 
 To revoke ___hosted___ badges, Issuers __should__ respond to requests on the revoked Badge Assertions with an HTTP Status of `410 Gone` and a body of `{ "revoked":true }`.
 
-To revoke ___signed___ badges, the Issuer __should__ host a revocation list JSON file indicating the badges they have revoked, with the Badge Assertion `uid` as keys and the reason for revocation as values. The revocation list JSON URL __should__ be included in the Issuer Organization `revocationList` field.
+To revoke ___signed___ badges, the Issuer __should__ host a revocation list JSON file indicating the badges they have revoked, with each revoked Badge Assertion `uid` as keys and the reasons for revocation as values. The revocation list JSON URL __should__ be included in the Issuer Organization `revocationList` field.
 
 ## Displayer Implementations
 
@@ -694,19 +694,19 @@ To verify a ___signed___ badge, Displayers __should__:
 <a name="assert-structural-validity"></a>
 To assert structural validity, Displayers __should__ ensure the following badge properties:
 
-* `badge`: __must__ be a valid **URL**. An HTTP GET request __must__ be performed on the URL to ensure eventual 200 OK status.
-* `recipient`: __must__ be an object
-	* `type`: __must__ be a valid type (currently only "email" is supported)
-	* `identity`: __must__ be ***text***
-	* `hashed` (_optional_): __must__ be ***boolean***
-	* `salt` (_optional_): __must__ be ***text***
-* `image` (_optional_): __must__ be a valid ***URL*** or ***Data URL***
-* `evidence` (_optional_): __must__ be a valid ***URL***
-* `issuedOn` (_optional_): __must__ be a valid ***DateTime***
-* `expires` (_optional_): __must__ be a valid ***DateTime***
-* `verify`: __must__ be an object
-	* `type`: __must__ be either "hosted" or "signed"
-	* `url`: __must__ be a ***URL***
+* `badge`: __Must__ be a valid **URL**. _An HTTP GET request must be performed on the URL to ensure eventual 200 OK status._
+* `recipient`: __Must__ be an object
+	* `type`: __Must__ be a valid type (currently only "email" is supported)
+	* `identity`: __Must__ be ***text***
+	* `hashed` (_optional_): __Must__ be ***boolean***
+	* `salt` (_optional_): __Must__ be ***text***
+* `image` (_optional_): __Must__ be a valid ***URL*** or ***Data URL***
+* `evidence` (_optional_): __Must__ be a valid ***URL***
+* `issuedOn` (_optional_): __Must__ be a valid ***DateTime***
+* `expires` (_optional_): __Must__ be a valid ***DateTime***
+* `verify`: __Must__ be an object
+	* `type`: __Must__ be either "hosted" or "signed"
+	* `url`: __Must__ be a ***URL***
 
 Displayers __should__ also check that the recipient email address matches the address of the person claiming the badge. This may involve hashing the claimed email (using the `salt` value from the `recipient` object if supplied) and comparing it to the `identity` field in the `recipient` object.
 
