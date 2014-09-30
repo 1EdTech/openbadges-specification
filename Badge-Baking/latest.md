@@ -1,8 +1,10 @@
 # Badge Baking
 
-In Open Badges we use structures called [assertions](../assertion.md). An assertion is a collection of data that can be used to prove whether a not a person who says they got a badge earned it (i.e. that the badge issuer issued the badge to this particular earner).
+The metadata describing an Open Badge awarded to an earner is an [assertion](../Assertion/latest.md). A baked badge is a badge image with the assertion data embedded into it. The assertion for a badge can be used to verify its authenticity - to prove whether or not it was awarded by the issuer to the earner claiming it.
 
-Badge Baking is the process of taking an assertion and embedding it into the badge image, so that when a user displays a badge on a page, software that is OpenBadges-aware can automatically extract that assertion data and perform the checks necessary to see if a person legitimately earned the badge (this is _badge verification_). Baking the data into the badge image makes it more portable, allowing the earner to display it wherever they choose.
+Badge Baking is the process of taking an assertion and embedding it into the badge image. When a user displays a baked badge on a page, software can extract that assertion data - then perform verification checks on it. Baking the data into the badge image makes it more portable, allowing the earner to display it wherever they choose.
+
+Baked badges are either [PNGs](#pngs) or [SVGs](#svgs). This document outlines the technical implementation for baked badges of both types.
 
 ## Technical Details
 
@@ -10,9 +12,11 @@ Badge Baking is the process of taking an assertion and embedding it into the bad
 
 #### Baking
 
-An <a href="http://www.w3.org/TR/PNG/#11iTXt">`iTXt` chunk</a> should be inserted into the PNG with **keyword** `openbadges`. The **text** can either be a signed badge assertion or the raw JSON for the Open Badges assertion data. Compression **MUST NOT** be used. At the moment, *language tag* and *translated keyword* have no semantics related to badge baking.
+An <a href="http://www.w3.org/TR/PNG/#11iTXt">`iTXt` chunk</a> __must__ be inserted into the PNG with the ___keyword___ `openbadges`. The text __must__ either be a ___signed badge assertion (JWS)___ or the ___raw JSON for the Open Badges assertion data___. Compression __must not__ be used. 
 
-An example of creating a chunk (assuming an iTXt constructor):
+At the moment, _language tag_ and _translated keyword_ have no semantics related to badge baking.
+
+An example of creating a chunk (assuming an `iTXt` constructor) follows:
 
 ```js
 var chunk = new iTXt({
@@ -25,23 +29,28 @@ var chunk = new iTXt({
 })
 ```
 
-An iTXt chunk with the keyword `openbadges` **MUST NOT** appear in a PNG more than once. When baking a badge that already contains Open Badges data, the implementor may choose whether to pass the user an error or overwrite the existing chunk.
+* An `iTXt` chunk with the keyword `openbadges` __must not appear in a PNG more than once__. 
+* When baking a badge that already contains Open Badges data, the implementor may choose whether to _pass the user an error or overwrite the existing chunk_.
 
 #### Extracting
 
-To extract the assertion data from a baked badge, parse the PNG datastream until the first <a href="http://www.w3.org/TR/PNG/#11iTXt">`iTXt` chunk</a> is found with the keyword `openbadges`. The rest of the stream can be safely discarded. The text portion of the iTXt will either be the JSON representation of an Open Badges assertion or a signature.
+To extract the assertion data from a baked badge, implementors __should__ parse the PNG datastream until the ___first___ <a href="http://www.w3.org/TR/PNG/#11iTXt">`iTXt` chunk</a> is found with the keyword `openbadges`. The rest of the stream can be safely discarded. The text portion of the `iTXt` will either be the JSON representation of an Open Badges assertion or a JSON Web Signature.
 
 ### SVGs
 
 #### Baking 
 
-To create a baked badge using an SVG image, first add an `xmlns:openbadges` attribute to the `<svg>` tag with the value "http://openbadges.org". Directly after the `<svg>` tag, add an `<openbadges:assertion>` tag with a `verify` attribute. The value of `verify` should either be a signed Open Badges assertion **or** the URL from the `verify.url` field in the badge assertion.
+To create a baked badge using an SVG image, implementors should:
 
-__If a signature is being baked__: no tag body is necessary and the tag should be self-closing.
+* Add an `xmlns:openbadges` attribute to the opening `<svg>` tag with the value `http://openbadges.org`. 
+* Directly after the opening `<svg>` tag (as the `svg` element's first child), add an `<openbadges:assertion>` element with a `verify` attribute. 
+ * The value of `verify` __must__ either be a ___signed Open Badges assertion (JWS)___ __or__ the ___URL of the hosted badge assertion___ (from the `verify.url` field in the badge assertion).
 
-__If a JSON assertion is being baked__: the JSON should go into the body of the tag, wrapped in `<![CDATA[...]]>`.
+__If a JSON Web Signature is being baked__: no tag body is necessary and the tag should be self-closing.
 
-An example of a well-baked SVG with a hosted assertion:
+__If a JSON assertion is being baked__: the JSON should go into the body of the tag, wrapped in `<![CDATA[...]]>` tags.
+
+An example of a well-baked SVG with a hosted assertion follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -71,10 +80,13 @@ An example of a well-baked SVG with a hosted assertion:
 </svg>
 ```
 
-There **MUST** be only one `<openbadges:assertion>` tag in an SVG. When baking a badge that already contains Open Badges data, the implementor may choose whether to pass the user an error or overwrite the existing tag.
+There __must__ be ___only one___ `<openbadges:assertion>` element in a baked SVG. When baking a badge that already contains Open Badges data, the implementor __may__ choose whether to _pass the user an error or overwrite the existing element_.
 
 #### Extracting
 
-To extract the assertion data from a baked SVG bage, parse the SVG until you reach the first `<openbadges:assertion>` tag. The rest of the SVG data can safely be discarded.
+To extract the assertion data from a baked SVG bage, implementors __should__:
+* Parse the SVG until the ___first___ `<openbadges:assertion>` tag is reached. 
+ * The rest of the SVG data can safely be discarded.
 
-If the tag has no body, the `verify` attribute will contain the signature of the badge - if there is a body, it will contain the JSON representation of the badge assertion.
+___If the element has no body___: the `verify` attribute will contain the signature of the badge.
+___If the element has a body___: it will contain the JSON representation of the badge assertion.
