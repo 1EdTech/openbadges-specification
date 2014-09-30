@@ -23,7 +23,7 @@ Baked badges are either [PNGs](#png-badges) or [SVGs](#svg-badges). This documen
 
 ## Conventions Used in this Document
 
-> The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
+> The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 ## Intended Audience
 
@@ -211,4 +211,4 @@ To extract the assertion data from a baked SVG bage, implementors __should__:
 The data within the `<openbadges:assertion>` element will either be in the body or in an attribute, depending on whether the badge is signed or hosted.
 
 * ___If the element has no body___: the `verify` attribute will contain the signature of the badge.
-* ___If the element has a body___: it will contain the JSON representation of the badge assertion.
+* ___If the element has a body___: it should contain the JSON representation of the badge assertion.
