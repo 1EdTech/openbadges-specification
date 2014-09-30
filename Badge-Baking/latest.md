@@ -57,7 +57,7 @@ The Open Badges Baking specification uses the following terms as defined:
 <a name="term-badge-assertion"><a>
 __Badge Assertion__
 
-A JSON-structured representation of a badge awarded to an Earner. An Assertion describes the badge [Earner](#term-earner), what the badge represents and the [Issuer](#term-issuer). The data items within an Assertion include: a unique ID; the Earner (recipient) identity; details of the Badge Class (what the award represents); verification data; the date the badge was issued. Assertions can additionally include a range of optional data items and can be [___hosted___](#term-hosted-badge) or [___signed___](#term-signed-badge).
+A JSON-structured representation of a badge awarded to an Earner. An Assertion describes the badge [Earner](#term-earner), what the badge represents and the [Issuer](#term-issuer). Assertions can be [___hosted___](#term-hosted-badge) or [___signed___](#term-signed-badge).
 
 <a name="term-award"></a>
 __Award__
@@ -77,17 +77,17 @@ A baked badge is a badge image file with the data for an [Assertion](#term-badge
 <a name="term-displayer"></a>
 __Displayer__
 
-A badge Displayer presents information about public badge awards in a digital context. Badge [Earners](#term-earner) can add their awarded badges to public collections, which Displayer implementations can query, typically presenting the information about the badge award alongside its image. Badge Displayers require an understanding of the Assertion structure and Baking process in order to extract and display the relevant data within their applications. Badge Displayers __should__ [verify](#term-verify) Assertions prior to displaying them to ensure that a particular badge was in fact awarded to the Earner claiming it.
+A badge Displayer presents information about public badge awards in a digital context. Badge [Earners](#term-earner) can add their awarded badges to public collections, which Displayer implementations can query, typically presenting the information about the badge award alongside its image. Badge Displayers require an understanding of the [Assertion](#term-badge-assertion) structure and Baking process in order to extract and display the relevant data within their applications. Badge Displayers __should__ [verify](#term-verify) Assertions prior to displaying them to ensure that a particular badge was in fact awarded to the Earner claiming it.
 
 <a name="term-earner"></a>
 __Earner__
 
-An Earner is someone who has been awarded one or more Open Badges. When an [Issuer](#term-issuer) awards a badge, they build information about the Earner identity into a new [Badge Assertion](#term-badge-assertion), which links to information about what the badge represents.
+An Earner is someone who has been awarded one or more Open Badges. When an [Issuer](#term-issuer) awards a badge, they build information about the Earner identity into a new [Badge Assertion](#term-badge-assertion), which links to information about what the badge represents. If the Issuer provides a baked badge image for an awarded badge, the Earner can potentially display it in multiple contexts.
 
 <a name="term-hosted-badge"></a>
 __Hosted Badge__
 
-A ___hosted___ badge is one whose Assertion data is represented using the badge image and three JSON files hosted at stable locations. The component parts of a ___hosted___ badge are: the [Badge Assertion](#term-badge-assertion); the Badge Class; the Issuer Organization. The Badge Assertion includes a [verification](#term-verify) field in which either a ___hosted___ or [___signed___](#term-signed-badge) type is specified.
+A ___hosted___ badge is one whose Assertion data is represented using the badge image and three JSON files hosted at stable locations. The component parts of a ___hosted___ badge are: the [Badge Assertion](#term-badge-assertion); the Badge Class (what the badge represents); the Issuer Organization (who issued it). The Badge Assertion includes a [verification](#term-verify) field in which either a ___hosted___ or [___signed___](#term-signed-badge) type is specified.
 
 <a name="term-issue"></a>
 __Issue__
@@ -112,7 +112,7 @@ The OBI is a set of software tools and specifications to support Open Badge syst
 <a name="term-signed-badge"></a>
 __Signed Badge__
 
-A ___signed___ badge has its Assertion data included in a JSON Web Signature (JWS). Typically a ___signed___ badge still uses hosted JSON files for the Badge Class and Issuer Organization, but the [Badge Assertion](#term-badge-assertion) JSON is itself packaged as a signature. The Badge Assertion includes a [verification](#term-verify) field in which either a [___hosted___](#term-hosted) or ___signed___ type is specified.
+A ___signed___ badge has its Assertion data included in a JSON Web Signature (JWS). Typically a ___signed___ badge still uses hosted JSON files for the Badge Class (what the badge represents) and Issuer Organization (who issued it), but the [Badge Assertion](#term-badge-assertion) JSON is itself packaged as a signature. The Badge Assertion includes a [verification](#term-verify) field in which either a [___hosted___](#term-hosted) or ___signed___ type is specified.
 
 <a name="term-validate"></a>
 __Validate, Validation, Validator__
@@ -129,7 +129,7 @@ Verification is the act of checking that a badge was awarded by the [Issuer](#te
 <a name="baking-pngs"></a>
 ### Baking
 
-An <a href="http://www.w3.org/TR/PNG/#11iTXt">`iTXt` chunk</a> __must__ be inserted into the PNG with the ___keyword___ `openbadges`. The text __must__ either be a ___signed badge assertion (JWS)___ or the ___raw JSON for the Open Badges assertion data___. Compression __must not__ be used. 
+An <a href="http://www.w3.org/TR/PNG/#11iTXt">`iTXt` chunk</a> __must__ be inserted into the PNG with the ___keyword___ `openbadges`. The text __must__ either be a ___signed badge assertion (JWS)___ OR the ___raw JSON for the Open Badges assertion data___. Compression __must not__ be used. 
 
 At the moment, _language tag_ and _translated keyword_ have no semantics related to badge baking.
 
@@ -147,27 +147,28 @@ var chunk = new iTXt({
 ```
 
 * An `iTXt` chunk with the keyword `openbadges` __must not appear in a PNG more than once__. 
-* When baking a badge that already contains Open Badges data, the implementor may choose whether to _pass the user an error or overwrite the existing chunk_.
+* When baking a badge that already contains Open Badges data, the implementer __may__ choose whether to _pass the user an error OR overwrite the existing chunk_.
 
 <a name="extracting-pngs"></a>
 ### Extracting
 
-To extract the assertion data from a baked badge, implementors __should__ parse the PNG datastream until the ___first___ <a href="http://www.w3.org/TR/PNG/#11iTXt">`iTXt` chunk</a> is found with the keyword `openbadges`. The rest of the stream can be safely discarded. The text portion of the `iTXt` will either be the JSON representation of an Open Badges assertion or a JSON Web Signature.
+To extract the assertion data from a baked badge, implementers __should__ parse the PNG datastream until the ___first___ <a href="http://www.w3.org/TR/PNG/#11iTXt">`iTXt` chunk</a> is found with the keyword `openbadges`. The rest of the stream __may__ be safely discarded. The text portion of the `iTXt` should either be the JSON representation of an Open Badges assertion OR a JSON Web Signature.
 
 ## SVG Badges
 
 <a name="baking-svgs"></a>
 ### Baking 
 
-To create a baked badge using an SVG image, implementors should:
+To create a baked badge using an SVG image, implementers __must__:
 
 * Add an `xmlns:openbadges` attribute to the opening `<svg>` tag with the value `http://openbadges.org`. 
 * Directly after the opening `<svg>` tag (as the `svg` element's first child), add an `<openbadges:assertion>` element with a `verify` attribute. 
- * The value of `verify` __must__ either be a ___signed Open Badges assertion (JWS)___ __or__ the ___URL of the hosted badge assertion___ (from the `verify.url` field in the badge assertion).
+ * The value of `verify` __must__ either be a ___signed Open Badges assertion (JWS)___ OR the ___URL of the hosted badge assertion___ (from the `verify.url` field in the badge assertion).
 
-__If a JSON Web Signature is being baked__: no tag body is necessary and the tag should be self-closing.
+The structure of the `<openbadges:assertion>` element __must__ be tailored to whether the badge is signed or hosted:
 
-__If a JSON assertion is being baked__: the JSON should go into the body of the tag, wrapped in `<![CDATA[...]]>` tags.
+* ___If a JSON Web Signature is being baked___: no tag body is necessary and the tag should be self-closing.
+* ___If a JSON assertion is being baked___: the JSON should go into the body of the tag, wrapped in `<![CDATA[...]]>` tags.
 
 An example of a well-baked SVG with a hosted assertion follows:
 
@@ -199,16 +200,16 @@ An example of a well-baked SVG with a hosted assertion follows:
 </svg>
 ```
 
-There __must__ be ___only one___ `<openbadges:assertion>` element in a baked SVG. When baking a badge that already contains Open Badges data, the implementor __may__ choose whether to _pass the user an error or overwrite the existing element_.
+There __must__ be ___only one___ `<openbadges:assertion>` element in a baked SVG. When baking a badge that already contains Open Badges data, the implementer __may__ choose whether to _pass the user an error OR overwrite the existing element_.
 
 <a name="extracting-svgs"></a>
 ### Extracting
 
-To extract the assertion data from a baked SVG bage, implementors __should__:
+To extract the assertion data from a baked SVG bage, implementers __should__:
 * Parse the SVG until the ___first___ `<openbadges:assertion>` tag is reached. 
- * The rest of the SVG data can safely be discarded.
+ * The rest of the SVG data __may__ be safely discarded.
 
-The data within the `<openbadges:assertion>` element will either be in the body or in an attribute, depending on whether the badge is signed or hosted.
+The data within the `<openbadges:assertion>` element should either be in the body or in an attribute, depending on whether the badge is signed or hosted.
 
-* ___If the element has no body___: the `verify` attribute will contain the signature of the badge.
+* ___If the element has no body___: the `verify` attribute will contain the JSON Web Signature for the badge assertion.
 * ___If the element has a body___: it should contain the JSON representation of the badge assertion.
