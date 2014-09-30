@@ -1,20 +1,139 @@
-# Badge Baking
+# Open Badges Baking Specification
 
-## What Is Badge Baking?
+## Introduction
 
-In OpenBadges we structures called [assertions](../assertion.md), which are pieces of data that can be used to prove whether a not a person who says they got a badge earned it (in the technical sense that it was issued to them).
+The metadata describing an Open Badge awarded to an earner is an [assertion](../Assertion/latest.md). A baked badge is a badge image with the assertion data embedded into it. The assertion for a badge can be used to verify its authenticity - to prove whether or not it was awarded by the issuer to the earner claiming it.
 
-Badge Baking is the process of taking those assertions and embedding them into the image, so that when a user displays a badge on a page, software that is OpenBadges-aware can automatically extract that assertion data and perform the checks necessary to see if a person legitimately earned the badge.
+Badge Baking is the process of taking an assertion and embedding it into the badge image. When a user displays a baked badge on a page, software can extract that assertion data - then perform verification checks on it. Baking the data into the badge image makes it more portable, allowing the earner to display it wherever they choose.
 
-## Technical Details
+Baked badges are either [PNGs](#png-badges) or [SVGs](#svg-badges). This document outlines the technical implementation for baked badges of both types.
 
-### PNGs
+## Table of Contents
 
-#### Baking
+* [Conventions Used in this Document](#conventions-used-in-this-document)
+* [Intended Audience](#intended-audience)
+* [Concepts](#concepts)
+* [Terminology](#terminology)
+* [PNG Badges](#png-badges)
+ * [Baking](#baking-pngs)
+ * [Extracting](#extracting-pngs)
+* [SVG Badges](#svg-badges)
+ * [Baking](#baking-svgs)
+ * [Extracting](#extracting-svgs)
 
-An <a href="http://www.w3.org/TR/PNG/#11iTXt">`iTXt` chunk</a> should be inserted into the PNG with **keyword** `openbadges`. The **text** can either be a signed badge assertion or the raw JSON for the OpenBadges assertion. Compression **MUST NOT** be used. At the moment, *language tag* and *translated keyword* have no semantics related to badge baking.
+## Conventions Used in this Document
 
-An example of creating a chunk (assuming an iTXt constructor):
+> The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+
+## Intended Audience
+
+This document is intended for the following audiences:
+
+* implementers of badge issuing applications
+* implementers of badge displaying applications
+
+The primary audience is expected to be software developers.
+
+The Open Badges Baking specification relies on structures using JSON syntax - see [RFC 4627](http://www.ietf.org/rfc/rfc4627.txt) and [JSON.org](http://www.json.org/).
+
+## Concepts
+
+Implementing badge baking within the OBI involves understanding a range of concepts which refer to well-known real-world objects and activities, but which have specific meanings within the Open Badges ecosystem.
+
+An Open Badge is a digital representation of a skill or achievement, communicated via an image plus JSON data structures. An awarded badge is defined using a ___Badge Assertion___, which can be represented as a JSON file or a JSON Web Signature (JWS).
+
+People who are awarded Open Badges are referred to as ___Earners___. The people and organizations who award Open Badges are referred to as ___Issuers___. Issuing is the technical act of awarding a badge, the implementation of which is creating a ___Badge Assertion___.
+
+___Displayers___ of Open Badges are implementers of systems in which awarded badges are presented in digital contexts. ___Displayers___ therefore deal with the data in ___Badge Assertions___, which is created by ___Issuers___. 
+
+___Issuers___ can create ___Baked Badges___ by embedding ___Badge Assertions___ into badge images. This means that the data for the awarded badge is all contained in/ linked from a single image file.
+
+For Open Badges to comprise valuable representations of achievement, they must facilitate verification processes. ___Issuers___ are responsible for including the information necessary for this verification, while ___Displayers___ are responsible for using it to check that a badge was awarded by an ___Issuer___, to an ___Earner___. In order to verify a ___Baked Badge___, ___Displayers___ must first extract the assertion data from the badge image.
+
+## Terminology
+
+The Open Badges Baking specification uses the following terms as defined:
+
+<a name="term-badge-assertion"><a>
+__Badge Assertion__
+
+A JSON-structured representation of a badge awarded to an Earner. An Assertion describes the badge [Earner](#term-earner), what the badge represents and the [Issuer](#term-issuer). Assertions can be [___hosted___](#term-hosted-badge) or [___signed___](#term-signed-badge).
+
+<a name="term-award"></a>
+__Award__
+
+In the Open Badges ecosystem, the terms "issue" and "award" are synonymous. To award a badge is to [issue](#term-issue) it - this involves the badge [Issuer](#term-issuer) creating a [Badge Assertion](#term-badge-assertion) to describe the award.
+
+<a name="term-badge"></a>
+__Badge__
+
+In the context of the OBI, a badge is loosely described as a digital representation of a skill, learning achievement or experience. A badge is represented in digital contexts as an image and some metadata. For the badge to exist within the OBI, this metadata __must__ conform to the [Assertion specification](../Assertion/latest.md).
+
+<a name="term-bake"></a>
+__Bake, Baking, Baked Badge__
+
+A baked badge is a badge image file with the data for an [Assertion](#term-badge-assertion) embedded into it. The image __must__ be either a PNG or SVG file. Baked badges are more portable, allowing [Earners](#term-earner) to communicate and display them wherever they choose. Software can extract the Assertion data from a baked badge to access the metadata describing the award.
+
+<a name="term-displayer"></a>
+__Displayer__
+
+A badge Displayer presents information about public badge awards in a digital context. Badge [Earners](#term-earner) can add their awarded badges to public collections, which Displayer implementations can query, typically presenting the information about the badge award alongside its image. Badge Displayers require an understanding of the [Assertion](#term-badge-assertion) structure and Baking process in order to extract and display the relevant data within their applications. Badge Displayers __should__ [verify](#term-verify) Assertions prior to displaying them to ensure that a particular badge was in fact awarded to the Earner claiming it.
+
+<a name="term-earner"></a>
+__Earner__
+
+An Earner is someone who has been awarded one or more Open Badges. When an [Issuer](#term-issuer) awards a badge, they build information about the Earner identity into a new [Badge Assertion](#term-badge-assertion), which links to information about what the badge represents. If the Issuer provides a baked badge image for an awarded badge, the Earner can potentially display it in multiple contexts.
+
+<a name="term-hosted-badge"></a>
+__Hosted Badge__
+
+A ___hosted___ badge is one whose Assertion data is represented using the badge image and three JSON files hosted at stable locations. The component parts of a ___hosted___ badge are: the [Badge Assertion](#term-badge-assertion); the Badge Class (what the badge represents); the Issuer Organization (who issued it). The Badge Assertion includes a [verification](#term-verify) field in which either a ___hosted___ or [___signed___](#term-signed-badge) type is specified.
+
+<a name="term-issue"></a>
+__Issue__
+
+Issuing is the act of awarding a badge to an [Earner](#term-earner). Badge [Issuers](#term-issuer) create badges and decide who to award them to. In order to issue a badge within the OBI, an Issuer __must__ create a [Badge Assertion](#term-badge-assertion), which __may__ be [___hosted___](#term-hosted-badge) or [___signed___](#term-signed-badge). The Issuer may optionally [bake](#term-bake) the Assertion into the badge image.
+
+<a name="term-issuer"></a>
+__Issuer__
+
+An Issuer is a person or organization (or department within an organization) who awards Open Badges to [Earners](#term-earner). Typically the Issuer is responsible for designing and creating the badge as well as awarding it. 
+
+<a name="term-metadata"></a>
+__Metadata__
+
+In the OBI, metadata is information about badges, badge awards and badge Issuers. OBI metadata is defined in JSON as part of the [Assertion specification](../Assertion/latest.md). The Assertion metadata structures are designed for interoperability.
+
+<a name="term-obi"></a>
+__Open Badge Infrastructure (OBI)__
+
+The OBI is a set of software tools and specifications to support Open Badge systems. These tools provide a framework for issuing, displaying and earning Open Badges within an open ecosystem.
+
+<a name="term-signed-badge"></a>
+__Signed Badge__
+
+A ___signed___ badge has its Assertion data included in a JSON Web Signature (JWS). Typically a ___signed___ badge still uses hosted JSON files for the Badge Class (what the badge represents) and Issuer Organization (who issued it), but the [Badge Assertion](#term-badge-assertion) JSON is itself packaged as a signature. The Badge Assertion includes a [verification](#term-verify) field in which either a [___hosted___](#term-hosted) or ___signed___ type is specified.
+
+<a name="term-validate"></a>
+__Validate, Validation, Validator__
+
+Validation is the act of checking a [Badge Assertion](#term-badge-assertion) for structural validity. This includes verifying well-formedness and correctness of data types, as well as ensuring that any linked resources are available.
+
+<a name="term-verify"></a>
+__Verify, Verification__
+
+Verification is the act of checking that a badge was awarded by the [Issuer](#term-issuer) to the [Earner](#term-earner). Badge [Displayers](#term-displayer) __should__ carry out verification on badges before displaying them. Badge Issuers __should__ include the information necessary for this verification to be implemented in [Badge Assertions](#term-badge-assertion). Verification is tailored to whether a Badge Assertion is [___signed___](#term-signed-badge) or [___hosted___](#term-hosted-badge).
+
+## PNG Badges
+
+<a name="baking-pngs"></a>
+### Baking
+
+An <a href="http://www.w3.org/TR/PNG/#11iTXt">`iTXt` chunk</a> __must__ be inserted into the PNG with the ___keyword___ `openbadges`. The text __must__ either be a ___signed badge assertion (JWS)___ OR the ___raw JSON for the Open Badges assertion data___. Compression __must not__ be used. 
+
+At the moment, _language tag_ and _translated keyword_ have no semantics related to badge baking.
+
+An example of creating a chunk (assuming an `iTXt` constructor) follows:
 
 ```js
 var chunk = new iTXt({
@@ -27,26 +146,31 @@ var chunk = new iTXt({
 })
 ```
 
-An iTXt chunk with the keyword “openbadges” **MUST NOT** appear in a PNG more than once. When baking a badge that already contains OpenBadges data, the implementor may choose whether to pass the user an error or overwrite the existing chunk.
+* An `iTXt` chunk with the keyword `openbadges` __must not appear in a PNG more than once__. 
+* When baking a badge that already contains Open Badges data, the implementer __may__ choose whether to _pass the user an error OR overwrite the existing chunk_.
 
-#### Extracting
+<a name="extracting-pngs"></a>
+### Extracting
 
-Parse the PNG datastream until the first <a href="http://www.w3.org/TR/PNG/#11iTXt">`iTXt` chunk</a> is found with the keyword `openbadges`. The rest of the stream can be safely discarded. The text portion of the iTXt will either be the JSON representation of an OpenBadges assertion or a signature.
+To extract the assertion data from a baked badge, implementers __should__ parse the PNG datastream until the ___first___ <a href="http://www.w3.org/TR/PNG/#11iTXt">`iTXt` chunk</a> is found with the keyword `openbadges`. The rest of the stream __may__ be safely discarded. The text portion of the `iTXt` should either be the JSON representation of an Open Badges assertion OR a JSON Web Signature.
 
-#### Legacy PNGs
+## SVG Badges
 
-The pre-specified behavior of badge baking worked differently. Instead of baking the whole assertion or signature into an `iTXt:openbadges` chunk, the URL pointing to the hosted assertion was baked into a `tEXt:openbadges` chunk. In order to get the full assertion, an additional HTTP request must be made after extracting the URL from the `tEXt` chunk.
+<a name="baking-svgs"></a>
+### Baking 
 
-### SVGs
+To create a baked badge using an SVG image, implementers __must__:
 
-#### Baking
-First, Add an `xmlns:openbadges` attribute to the `<svg>` tag with the value "http://openbadges.org". Directly after the `<svg>` tag, add an `<openbadges:assertion>` tag with a `verify` attribute. The value of `verify` should either be a signed OpenBadges assertion **or** the URL from `verify.url` in the badge assertion.
+* Add an `xmlns:openbadges` attribute to the opening `<svg>` tag with the value `http://openbadges.org`. 
+* Directly after the opening `<svg>` tag (as the `svg` element's first child), add an `<openbadges:assertion>` element with a `verify` attribute. 
+ * The value of `verify` __must__ either be a ___signed Open Badges assertion (JWS)___ OR the ___URL of the hosted badge assertion___ (from the `verify.url` field in the badge assertion).
 
-If a signature is being baked, no tag body is necessary and the tag should be self closing.
+The structure of the `<openbadges:assertion>` element __must__ be tailored to whether the badge is signed or hosted:
 
-If an assertion is being baked, the JSON representation of the assertion should go into the body of the tag, wrapped in `<![CDATA[...]]>`.
+* ___If a JSON Web Signature is being baked___: no tag body is necessary and the tag should be self-closing.
+* ___If a JSON assertion is being baked___: the JSON should go into the body of the tag, wrapped in `<![CDATA[...]]>` tags.
 
-An example of a well baked SVG with a hosted assertion:
+An example of a well-baked SVG with a hosted assertion follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -76,10 +200,16 @@ An example of a well baked SVG with a hosted assertion:
 </svg>
 ```
 
-There **MUST** be only one `<openbadges:assertion>` tag in an SVG. When baking a badge that already contains OpenBadges data, the implementor may choose whether to pass the user an error or overwrite the existing tag.
+There __must__ be ___only one___ `<openbadges:assertion>` element in a baked SVG. When baking a badge that already contains Open Badges data, the implementer __may__ choose whether to _pass the user an error OR overwrite the existing element_.
 
-#### Extracting
+<a name="extracting-svgs"></a>
+### Extracting
 
-Parse the SVG until you reach the first `<openbadges:assertion>` tag. The rest of the SVG data can safely be discarded.
+To extract the assertion data from a baked SVG bage, implementers __should__:
+* Parse the SVG until the ___first___ `<openbadges:assertion>` tag is reached. 
+ * The rest of the SVG data __may__ be safely discarded.
 
-If the tag has no body, the `verify` attribute will contain the signature of the badge. If there is a body, it will be the JSON representation of a badge assertion.
+The data within the `<openbadges:assertion>` element should either be in the body or in an attribute, depending on whether the badge is signed or hosted.
+
+* ___If the element has no body___: the `verify` attribute will contain the JSON Web Signature for the badge assertion.
+* ___If the element has a body___: it should contain the JSON representation of the badge assertion.
