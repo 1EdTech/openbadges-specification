@@ -1,0 +1,11 @@
+{% include header.html %}
+{% include page_top.html %}
+
+<section id="main-content">
+{{ content }}
+</section>
+
+{% if page.show_sidebar %}{% include sidebar.html %}{% endif %}
+
+{% include page_bottom.html %}
+{% include footer.html %}
