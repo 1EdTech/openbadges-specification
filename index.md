@@ -12,7 +12,8 @@ Anybody can issue Open Badges, anyone can earn them, and anyone can verify their
 See [documentation]({{ site.url }}/docs#) for the full data specification. A valid Open Badge consists of an *Assertion*, a *Badge Class*, and an *Issuer*
 
 ### A Simple Example Assertion:
-```json
+{% highlight json %}
+```
 {
   "@context": "http://standard.openbadges.org/1.1/context.json",
   "@id": "https://example.org/beths-robotics-badge.json",
@@ -33,6 +34,7 @@ See [documentation]({{ site.url }}/docs#) for the full data specification. A val
   }
 }
 ```
+{% endhighlight %}
 
 This Assertion, embedded in an image file and delivered to an earner, is It is linked to a Badge Class `https://example.org/robotics-badge.json`, and an Issuer (through the Badge Class). Together, they constitute a verifiable claim about the earner's experience, as assessed and recognized by an Issuer. See more [examples]({{site.url}}/examples) of complete Open Badges.
 
