@@ -13,7 +13,6 @@ See [documentation]({{ site.url }}/docs#) for the full data specification. A val
 
 ### A Simple Example Assertion:
 {% highlight json %}
-```
 {
   "@context": "http://standard.openbadges.org/1.1/context.json",
   "@id": "https://example.org/beths-robotics-badge.json",
@@ -33,7 +32,6 @@ See [documentation]({{ site.url }}/docs#) for the full data specification. A val
     "url": "https://example.org/beths-robotics-badge.json"
   }
 }
-```
 {% endhighlight %}
 
 This Assertion, embedded in an image file and delivered to an earner, is It is linked to a Badge Class `https://example.org/robotics-badge.json`, and an Issuer (through the Badge Class). Together, they constitute a verifiable claim about the earner's experience, as assessed and recognized by an Issuer. See more [examples]({{site.url}}/examples) of complete Open Badges.
