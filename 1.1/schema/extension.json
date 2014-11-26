@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "1.1 Open Badge Extension - Core Schema",
+  "description": "The 1.1 OBI Standard allows extensions, as JSON-LD objects embedded in one of the standard Badge Objects (Issuer, Badge Class, or Assertion). 1.1 extensions should validate against this schema and any schema defined in the extension's JSON-LD context.",
+  "type": "object",
+  "definitions": {
+    "JsonLdContext": {  
+      "description": "A link to a valid JSON-LD context file, that maps term names to contexts. Open Badges contexts may also define JSON-schema to validate Badge Objects against. In an Open Badges Extension, this will almost always be a string:uri to a single context file, but might rarely be an array of links instead. Direct insertion of JSON-LD term mappings as a dictionary/object is not permitted in an OBI extension",
+      "oneOf": [
+        { "type": "string", "format": "uri" },
+        { 
+          "type": "array", 
+          "items": { "type": "string" }
+        }
+      ]
+    }, 
+    "JsonLdType": {
+      "description": "An array of types that the extension represents. The first item should be 'extension', and the second should be an IRI (usually URL) corresponding to a definition of the extension itself. For extensions using the Open Badges Standard extension registry, you may use the 'extension:YourExtension' shorthand, where 'YourExtension' is replaced by the name of the extension registered with the Open Badges Standard.",
+      "oneOf": [
+        { "type": "string" }, 
+        { 
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      ]
+    }
+  },
+  "properties": {
+    "@context": { "$ref": "#/definitions/JsonLdContext" },
+    "@type": { "$ref": "#/definitions/JsonLdType" }
+  },
+  "required": ["@context", "@type"],
+  "additionalProperties": true
+}
