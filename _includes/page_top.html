@@ -1,21 +1,21 @@
 <body>
-  <header>
-    <div class="inner">
-      <h1>{{ page.title }}</h1>
-      {% if page.subtitle %} <h2>{{ page.subtitle }}</h2> {% endif %}
-      <a href="https://github.com/openbadges/openbadges-specification" class="button"><small>View project on</small> GitHub</a>
-    </div>
-  </header>
+  <div class="wrapper">
+    <header>
+      <h1>Open Badges Standard</h1>
+      <p>Portable digital credentials</p>
 
-<nav class="top-nav">
-  <ul class="clearfix">
-    <li><a href="{{ site.url}}">About</a></li>
-    <li><a href="{{ site.url}}/docs#">Documentaion</a></li>
-    <li><a href="{{ site.url}}/examples">Examples</a></li>
-    <li><a href="{{ site.url}}/extensions#">Extensions</a></li>
-  </ul>
-</nav>
+      <p class="view"><a href="https://github.com/openbadges/openbadges-specification">View the Project on GitHub <small>openbadges/openbadges-specification</small></a></p>
 
-<div id="content-wrapper">
-  <div class="inner clearfix">
-    
+      <p class="logo-image"><a href="http://openbadges.org"><div>
+        <img src="{{ site.url }}/images/openbadges-logo.png"></div>
+        About Open Badges</a>
+      </p>
+
+      <nav class="project-download-links">
+        <ul>
+          <li><a href="{{ site.url }}#">Read <strong>Docs</strong></a></li>
+          <li><a href="{{ site.url }}/examples">Code <strong>Examples</strong></a></li>
+          <li><a href="{{ site.url }}/extensions#">Develop <strong>Extensions</strong></a></li>
+        </ul>
+      </nav>
+    </header>
