@@ -1,0 +1,166 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "1.1-compliant assertion w/linked Badge Class",
+    "description": "The 1.1 OBI specification mandates that the baked assertion be an object with linked Badge Class and that JSON-LD context and type declarations be present",
+    "type": "object",
+    "definitions": {
+        "JsonLdContext": {
+            "description": "A link to a valid JSON-LD context file, that maps term names to contexts. Open Badges contexts may also define JSON-schema to validate Badge Objects against. In an Open Badges Object, this will almost always be a string:uri to a single context file, but might rarely be an array of links instead. This schema also allows direct mapping of terms to IRIs by using an object as an option within an array",
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "uri"
+                },
+                {
+                    "type": "array",
+                    "items": { "oneOf": 
+                      [   
+                        { "type": "string" },
+                        { "type": "object" }
+                      ]
+                    }
+                }
+            ]
+        },
+        "JsonLdType": {
+            "description": "A type or an array of types that the badge object represents. The first or only item should be 'assertion', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, an assertion will only have one type: 'assertion'",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            ]
+        },
+        "ISODateTime": {
+            "description": "ISO 8601 date format string yyyy-MM-dd'T'HH:mm:ss.SSS with optional .SSS milliseconds",
+            "type": "string",
+            "pattern": "^\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d((.|,)\\d{1,3})?(Z|[+-][0-2]\\d(:?[0-5]\\d)?)$"
+        },
+        "UNIXTimeStamp": {
+            "description": "10-digit UNIX timestamp, epoch time",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9999999999
+        },
+        "DateTime": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/ISODateTime"
+                },
+                {
+                    "$ref": "#/definitions/UNIXTimeStamp"
+                }
+            ]
+        },
+        "IdentityType": {
+            "type": "string",
+            "enum": [
+                "email"
+            ]
+        },
+        "HashString": {
+            "allOf": [
+                {
+                    "type": "string"
+                }
+            ],
+            "oneOf": [
+                {
+                    "title": "Open Badges SHA-1 Hash",
+                    "pattern": "^sha1\\$[a-fA-F0-9]{40}$"
+                },
+                {
+                    "title": "Open Badges SHA-256 Hash",
+                    "pattern": "^sha256\\$[a-fA-F0-9]{64}$"
+                }
+            ]
+        },
+        "IdentityObject": {
+            "title": "Badge Identity Object",
+            "type": "object",
+            "properties": {
+                "identity": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/HashString"
+                        },
+                        {
+                            "type": "string",
+                            "format": "email"
+                        }
+                    ]
+                },
+                "type": {
+                    "$ref": "#/definitions/IdentityType"
+                },
+                "hashed": {
+                    "type": "boolean"
+                },
+                "salt": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "identity",
+                "type",
+                "hashed"
+            ]
+        },
+        "VerificationObject": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "title": "VerificationType",
+                    "type": "string",
+                    "enum": [
+                        "hosted",
+                        "signed"
+                    ]
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            },
+            "required": [
+                "type"
+            ]
+        }
+    },
+    "properties": {
+        "@context": { "$ref": "#/definitions/JsonLdContext" },
+        "@type": { "$ref": "#/definitions/JsonLdContext" },
+        "uid": {
+            "type": "string"
+        },
+        "recipient": {
+            "$ref": "#/definitions/IdentityObject"
+        },
+        "badge": {
+            "type": "string",
+            "format": "uri"
+        },
+        "verify": {
+            "$ref": "#/definitions/VerificationObject"
+        },
+        "issuedOn": {
+            "$ref": "#/definitions/DateTime"
+        },
+        "evidence": {
+            "type": "string",
+            "format": "uri"
+        },
+        "expires": {
+            "$ref": "#/definitions/DateTime"
+        }
+    },
+    "required": [
+        "@context", "@type", "uid", "recipient", "badge", "verify", "issuedOn"
+    ],
+    "additionalProperties": true
+}
