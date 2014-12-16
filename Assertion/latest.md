@@ -60,7 +60,7 @@ Property | Expected Type | Description
 **name** | Text | The name of the achievement.
 **description** | Text | A short description of the achievement.
 **image** | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing the achievement.
-**criteria** | URL | URL of the criteria for earning the achievement. If the badge represents an educational achievement, consider marking up this up with [LRMI](http://www.lrmi.net/)
+**criteria** | URL | URL of the criteria for earning the achievement. If the badge represents an educational achievement, consider adding [LRMI](http://www.lrmi.net/) markup
 **issuer** | URL | URL of the organization that issued the badge. Endpoint should be an [IssuerOrganization](#issuerorganization)
 alignment | Array of [AlignmentObject](#alignmentobject)s | List of objects describing which educational standards this badge aligns to, if any.
 tags | Array of Text | List of tags that describe the type of achievement.
