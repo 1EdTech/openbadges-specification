@@ -39,7 +39,7 @@
         "ISODateTime": {
             "description": "ISO 8601 date format string yyyy-MM-dd'T'HH:mm:ss.SSS with optional .SSS milliseconds",
             "type": "string",
-            "pattern": "^\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d((.|,)\\d{1,3})?(Z|[+-][0-2]\\d(:?[0-5]\\d)?)$"
+            "pattern": "^\\d{4}-[01]\\d-[0-3]\\d(T[0-2]\\d:[0-5]\\d(:[0-5]\\d)?([\\.,]\\d{1,3})?(Z|[+-][0-2]\\d(:?[0-5]\\d)?)?)?$"
         },
         "UNIXTimeStamp": {
             "description": "10-digit UNIX timestamp, epoch time",
