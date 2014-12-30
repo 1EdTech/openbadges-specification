@@ -15,7 +15,7 @@ Submit your published extensions to this page with a pull request on [GitHub](ht
 # Contributed Extensions:
 
 ### <a name="ExampleExtension">Example Extension Name</a> 
-Example explanation of the extension. What badge objects can it extend? e.g. "It may be applied to Badge Classes only.""
+Example explanation of the extension. What badge objects can it extend? e.g. "It may be applied to BadgeClasses only.""
 {% highlight json %}
 { 
   "extension:ExampleExtension": {
