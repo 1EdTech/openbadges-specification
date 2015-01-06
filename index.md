@@ -4,12 +4,12 @@ subtitle: Awesome Sauce for the 21st Century
 show_sidebar: true
 ---
 # {{ page.title }}
-This standard describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing an infrastructure for its validation. We start with some term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v1.1_)]({{site.url}}/1.1/context.json)  for the Open Badges Standard.
+This standard describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing an infrastructure for its validation. We start with some term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v1.1_)]({{site.baseurl}}/1.1/context.json)  for the Open Badges Standard.
 
 **Current version: 1.1**
 
 #### License
-[Copyright](http://www.w3.org/Consortium/Legal/ipr-notice#Copyright) © 2014 the Contributors to the Open Badges 1.1 Specification, published by the [Badge Alliance](http://badgealliance.org) and the [W3C Credentials Community Group](http://opencreds.org/) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) is available. This specification is free for anyone to use or implement.
+[Copyright](http://www.w3.org/Consortium/Legal/ipr-notice#Copyright) © 2014 the Contributors to the Open Badges 1.1 Specification, published by the [Badge Alliance](http://badgealliance.org) and the [W3C Credentials Community Group](http://www.w3.org/community/credentials/) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) is available. This specification is free for anyone to use or implement.
 
 **Edited by the [Badge Alliance Standard Working Group](http://www.badgealliance.org/open-badges-standard/)**
 
@@ -22,7 +22,7 @@ This standard describes a method for packaging information about accomplishments
  * [Implementation](#Implementation)
    - [Hosted verification](#HostedBadges)
    - [Signed verification](#SignedBadge)
- * [Other Resources](OtherResources)
+ * [Other Resources](#OtherResources)
    - [Validator](#Validator)
    - [History/Changelog](#History)
 
@@ -54,21 +54,21 @@ Assertions are representations of an awarded badge, used to share information ab
 | Property | Expected Type | Description |
 | -------- | ------------- | ----------- |
 | <a id="Uid"></a>**uid** | Text | Unique Identifier for the badge. This is expected to be **locally** unique on a per-origin basis, not globally unique. |
-| <a id="Recipient"></a>**recipient** | [IdentityObject](#identityobject) | The recipient of the achievement. |
+| <a id="Recipient"></a>**recipient** | [IdentityObject](#IdentityObject) | The recipient of the achievement. |
 | **badge** | URL | URL that describes the type of badge being awarded. The endpoint should be a [BadgeClass](#badgeclass) |
-| **verify** | [VerificationObject](#verificationobject) | Data to help a third party verify this assertion. |
+| **verify** | [VerificationObject](#VerificationObject) | Data to help a third party verify this assertion. |
 | <a id="issueDate"></a>**issuedOn** | [DateTime](#datetime) | Date that the achievement was awarded. |
 | image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the [Baking specification](https://github.com/mozilla/openbadges/wiki/Badge-Baking). An 'unbaked' image for the badge is defined in the BadgeClass |
 | <a id="Evidence"></a>evidence | URL | URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. |
 | <a id="ExpirationDate"></a>expires | [DateTime](#datetime) | If the achievment has some notion of expiry, this indicates when a badge should no longer be considered valid. |
 
 
-#### <a id="identity-object"></a>IdentityObject
+#### <a id="IdentityObject"></a>IdentityObject
 A collection of information about the recipient of a badge.
 
 Property | Expected Type | Description
 --------|------------|-----------
-<a id="identityHash"></a>**identity** | [IdentityHash](#identityhash) or Text | Either the hash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information, it is strongly recommended that an IdentityHash be used.
+<a id="identityHash"></a>**identity** | [IdentityHash](#identity-hash) or Text | Either the hash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information, it is strongly recommended that an IdentityHash be used.
 **type** | [IdentityType](#identitytype) | The type of identity.
 <a id="hashed"></a>**hashed** | Boolean | Whether or not the `id` value is hashed.
 <a id="salt"></a>salt | Text | If the recipient is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.
@@ -92,8 +92,8 @@ Property | Expected Type | Description
 **description** | Text | A short description of the achievement.
 **image** | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing the achievement.
 <a id="Criteria"></a>**criteria** | URL | URL of the criteria for earning the achievement. If the badge represents an educational achievement, consider marking up this up with [LRMI](http://www.lrmi.net/)
-**issuer** | URL | URL of the organization that issued the badge. Endpoint should be an [IssuerOrganization](#issuerorganization)
-alignment | Array of [AlignmentObject](#alignmentobject)s | List of objects describing which educational standards this badge aligns to, if any.
+**issuer** | URL | URL of the organization that issued the badge. Endpoint should be an [IssuerOrganization](#Issuer)
+alignment | Array of [AlignmentObject](#Alignment)s | List of objects describing which educational standards this badge aligns to, if any.
 <a id="Tags"></a>tags | Array of Text | List of tags that describe the type of achievement.
 
 #### <a id="Alignment"></a>AlignmentObject
@@ -147,17 +147,17 @@ Any additional properties for internal use by an issuer should be namespaced (An
 * Boolean
 * Text
 * Array
-* <a id="date-time"></a>DateTime - Either an [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) date or a standard 10-digit Unix timestamp.
+* <a id="datetime"></a>DateTime - Either an [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) date or a standard 10-digit Unix timestamp.
 * <a id="type"></a>type - A string expressing the type of a Badge Object component
 * URL - Fully qualified URL, including protocol, host, port if applicable, and path.
 * IRI - In JSON-LD and Linked Data, IRIs (Internationalized Resource Identifiers) may look like fully qualified URLs or be namespaced within the JSON-LD context to be expanded to a full IRI.
-* <a id="identity-type"></a>IdentityType - Type of identity being represented. Currently the only supported value for many earner applications like the [Mozilla Backpack](http://backpack.openbadges.org) is "email"
+* <a id="identitytype"></a>IdentityType - Type of identity being represented. Currently the only supported value for many earner applications like the [Mozilla Backpack](http://backpack.openbadges.org) is "email"
 * <a id="identity-hash"></a>IdentityHash - A hash string preceded by a dollar sign ("$") and the algorithm used to generate the hash. For example: `sha256$28d50415252ab6c689a54413da15b083034b66e5` represents the result of calculating a SHA256 on the string "mayze". For more information, see [how to hash & salt in various languages](https://github.com/mozilla/openbadges/wiki/How-to-hash-&-salt-in-various-languages.).
 * <a id="verification-type"></a>VerificationType - Type of verification. Can be either "hosted" or "signed".
 
 
 
-# <a id="implementation"></a> Implementation
+# <a id="Implementation"></a> Implementation
 
 ## Hosted Badges <a id="HostedBadges"></a>
 
