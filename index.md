@@ -4,55 +4,78 @@ subtitle: Awesome Sauce for the 21st Century
 show_sidebar: true
 ---
 # {{ page.title }}
-This standard describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing an infrastructure for its validation. We start with some term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v1.1_)]({{site.url}}/1.1/context.json)  for the Open Badges Standard.
+This standard describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing an infrastructure for its validation. We start with some term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v1.1_)]({{site.baseurl}}/1.1/context.json)  for the Open Badges Standard.
 
-## Badge Objects
-The Open Badges standard is made up of three types of core Badge Objects: Assertions, Badge Classes, and Issuers. A set of one of each of these may be constructed into a valid Open Badge. Each Badge Object is a collection of properties and values. Each type of Badge Object has its own list of mandatory and optional properties as well as restrictions on the values those properties may take.
+**Current version: 1.1**
+
+#### License
+[Copyright](http://www.w3.org/Consortium/Legal/ipr-notice#Copyright) © 2014 the Contributors to the Open Badges 1.1 Specification, published by the [Badge Alliance](http://badgealliance.org) and the [W3C Credentials Community Group](http://www.w3.org/community/credentials/) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) is available. This specification is free for anyone to use or implement.
+
+**Edited by the [Badge Alliance Standard Working Group](http://www.badgealliance.org/open-badges-standard/)**
+
+## Contents
+ * [Badge Objects](#BadgeObjects)
+   - [Assertion](#Assertion)
+   - [BadgeClass](#BadgeClass)
+   - [Issuer](#Issuer)
+   - [Extensions](#Extensions)
+ * [Implementation](#Implementation)
+   - [Hosted verification](#HostedBadges)
+   - [Signed verification](#SignedBadge)
+ * [Other Resources](#OtherResources)
+   - [Validator](#Validator)
+   - [History/Changelog](#History)
+
+## Badge Objects <a id="BadgeObjects"></a>
+The Open Badges standard is made up of three types of core Badge Objects: **[Assertions](#Assertion)**, **[BadgeClasses](#BadgeClass)**, and **[Issuers](#Issuer)**. A set of one of each of these may be constructed into a valid Open Badge. Each Badge Object is a collection of properties and values. Each type of Badge Object has its own list of mandatory and optional properties as well as restrictions on the values those properties may take.
 
 #### Extensions
-Each Badge Object may have additional properties beyond those defined here. Some of these additional properties may take the form of an Open Badges Extension, a structure that follows a standard format for collaboratively extending Badge Objects so that any issuer, earner, or consumer can understand the information added to badges.
+_since: 1.1_ 
+Each Badge Object may have additional properties beyond those defined here. Some of these additional properties may take the form of an Open Badges Extension, a structure that follows a standard format for collaboratively extending Badge Objects so that any issuer, earner, or consumer can understand the information added to badges. ([More...](#Extensions))
 
-
-# Assertion <a id="Assertion"></a>
-Assertions are representations of an awarded badge, used to share information about badges that you've earned with the Backpack. With the 1.0 release of the OBI, there are two types of assertions: hosted and signed. For information regarding the spec prior to the latest release including instructions regarding backwards compatibility see the [spec changes](https://github.com/mozilla/openbadges/wiki/Assertion-Specification-Changes).
-
-## Verification
-### Hosted
+#### Badge Baking
 _since: 0.5_
-A hosted assertion is a file containing a well-formatted badge assertion in JSON served with the content-type `application/json`. This should live at a stable URL on your server (for example, [https://example.org/beths-robotics-badge.json](https://example.org/beths-robotics-badge.json)) -- it is the source of truth for the badge and any future verification attempt will hit that URL to make sure the badge exists and was issued by you.
+Badge assertions may be "baked" into image files as portable credentials. Baking is currently supported for PNG and SVG formats. ([More...](https://github.com/mozilla/openbadges-backpack/wiki/Open-Badge-Baking-Specification))
+`TODO: Move baking specification into this standard`
 
-### Signed
+
+#### Hosted Verification
+_since: 0.5_
+A hosted assertion is a file containing a well-formatted badge assertion in JSON served with the content-type `application/json`. This should live at a stable URL on your server (for example, [https://example.org/beths-robotics-badge.json](https://example.org/beths-robotics-badge.json)) -- it is the source of truth for the badge and any future verification attempt will hit that URL to make sure the badge exists and was issued by you. ([More...](#HostedBadges))
+
+#### Signed Verification
 _since: 1.0_
-A signed badge is in the form of a [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html). Signed badges use the Backpack javascript [issuer API](https://github.com/mozilla/openbadges/wiki/Issuer-API) to pass a signature rather than a URL. The JSON representation of the badge assertion should be used as the JWS payload.
+A signed badge is in the form of a [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html). Signed badges use the Backpack javascript [issuer API](https://github.com/mozilla/openbadges/wiki/Issuer-API) to pass a signature rather than a URL. The JSON representation of the badge assertion should be used as the JWS payload. ([More...](#SignedBadge))
 
-## Assertion Specification
-Assertions are packaged for transmission as JSON objects with a set of mandatory and optional properties. Fields marked **in bold letters** are mandatory.
 
-#### BadgeAssertion
+## Assertion <a id="Assertion"></a> ([example](./examples/#Assertion))
+Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner.Assertions are packaged for transmission as JSON objects with a set of mandatory and optional properties. Fields marked **in bold letters** are mandatory.
 
 | Property | Expected Type | Description |
 | -------- | ------------- | ----------- |
 | <a id="Uid"></a>**uid** | Text | Unique Identifier for the badge. This is expected to be **locally** unique on a per-origin basis, not globally unique. |
-| <a id="Recipient"></a>**recipient** | [IdentityObject](#identityobject) | The recipient of the achievement. |
+| <a id="Recipient"></a>**recipient** | [IdentityObject](#IdentityObject) | The recipient of the achievement. |
 | **badge** | URL | URL that describes the type of badge being awarded. The endpoint should be a [BadgeClass](#badgeclass) |
-| **verify** | [VerificationObject](#verificationobject) | Data to help a third party verify this assertion. |
+| **verify** | [VerificationObject](#VerificationObject) | Data to help a third party verify this assertion. |
 | <a id="issueDate"></a>**issuedOn** | [DateTime](#datetime) | Date that the achievement was awarded. |
-| image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing this user's achievement. This must be a PNG image, and if possible, the image should be prepared via the [Baking specification](https://github.com/mozilla/openbadges/wiki/Badge-Baking). |
+| image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the [Baking specification](https://github.com/mozilla/openbadges/wiki/Badge-Baking). An 'unbaked' image for the badge is defined in the BadgeClass |
 | <a id="Evidence"></a>evidence | URL | URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. |
 | <a id="ExpirationDate"></a>expires | [DateTime](#datetime) | If the achievment has some notion of expiry, this indicates when a badge should no longer be considered valid. |
 
 
-#### <a id="identity-object"></a>IdentityObject
+#### <a id="IdentityObject"></a>IdentityObject
+A collection of information about the recipient of a badge.
 
 Property | Expected Type | Description
 --------|------------|-----------
-<a id="identityHash"></a>**identity** | [IdentityHash](#identityhash) or Text | Either the hash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information, it is strongly recommended that an IdentityHash be used.
+<a id="identityHash"></a>**identity** | [IdentityHash](#identity-hash) or Text | Either the hash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information, it is strongly recommended that an IdentityHash be used.
 **type** | [IdentityType](#identitytype) | The type of identity.
 <a id="hashed"></a>**hashed** | Boolean | Whether or not the `id` value is hashed.
 <a id="salt"></a>salt | Text | If the recipient is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.
 
 
 #### <a id="VerificationObject"></a>VerificationObject
+A collection of information allowing a consumer to authenticate the Assertion.
 
 Property | Expected Type | Description
 --------|------------|-----------
@@ -60,8 +83,8 @@ Property | Expected Type | Description
 **url** | URL | If the type is "hosted", this should be a URL pointing to the assertion on the issuer's server. If the type is "signed", this should be a link to the issuer's public key.
 
 
-
-#### <a id="BadgeClass"></a>BadgeClass
+## <a id="BadgeClass"></a>BadgeClass ([example](./examples/#BadgeClass))
+A collection of information about the accomplishment recognized by the Open Badge. Many assertions may be created corresponding to one BadgeClass
 
 Property | Expected Type | Description
 --------|------------|-----------
@@ -69,12 +92,21 @@ Property | Expected Type | Description
 **description** | Text | A short description of the achievement.
 **image** | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing the achievement.
 <a id="Criteria"></a>**criteria** | URL | URL of the criteria for earning the achievement. If the badge represents an educational achievement, consider marking up this up with [LRMI](http://www.lrmi.net/)
-**issuer** | URL | URL of the organization that issued the badge. Endpoint should be an [IssuerOrganization](#issuerorganization)
-alignment | Array of [AlignmentObject](#alignmentobject)s | List of objects describing which educational standards this badge aligns to, if any.
+**issuer** | URL | URL of the organization that issued the badge. Endpoint should be an [IssuerOrganization](#Issuer)
+alignment | Array of [AlignmentObject](#Alignment)s | List of objects describing which educational standards this badge aligns to, if any.
 <a id="Tags"></a>tags | Array of Text | List of tags that describe the type of achievement.
 
+#### <a id="Alignment"></a>AlignmentObject
 
-#### <a id="Issuer"></a>IssuerOrganization
+Property | Expected Type | Description
+--------|------------|-----------
+**name** | Text | Name of the alignment.
+**url** | URL | URL linking to the official description of the standard.
+description | Text | Short description of the standard
+
+
+## <a id="Issuer"></a>IssuerOrganization ([example](./examples/#Issuer))
+A collection of information about the entity or organization issuing the Open Badge. Each issuer may correspond to many BadgeClasses. Anyone can create and host an Issuer file to start issuing Open Badges.
 
 Property | Expected Type | Description
 --------|------------|-----------
@@ -86,132 +118,65 @@ Property | Expected Type | Description
 <a id="RevocationList"></a>revocationList | URL |  URL of the Badge Revocation List. The endpoint should be a JSON representation of an object where the keys are the **uid** a revoked badge assertion, and the values are the reason for revocation. This is only necessary for signed badges.
 
 
-#### <a id="Alignment"></a>AlignmentObject
+## [Extensions](./extensions/) <a id="Extensions"></a>
+_since 1.1_
+
+The 1.1 version of the Open Badges Standard introduces Extensions as a means for issuers to add additional metadata to Badge Objects beyond what the standard specifies itself. Additional properties are allowed without using Extensions, but Extensions allow issuers to declare how they are adding information so that it can be understood by others and other issuers can add the same sort of information in a compatible way. See the [Extensions](./extensions/) page for specific examples and extensions ready to use in Badge Objects.
+
+Extension authors define and host a new JSON-LD context file describing all the terms the extension covers. These context files may further define any JSON-schema that implementations of the extension should pass. Extensions are implemented as JSON objects inside an Assertion, BadgeClass or Issuer with their own link to the extension context and declaration of type.
 
 Property | Expected Type | Description
 --------|------------|-----------
-**name** | Text | Name of the alignment.
-**url** | URL | URL linking to the official description of the standard.
-description | Text | Short description of the standard
+**@context** | URL | JSON-LD context file shared among all implementations of the extension.
+**@type** | array of IRIs | IRIs or compact IRIs within the OBI or extension context that describe the type of data contained in the extension. These are used to map optional JSON-schema validation to the extension. Must include 'extension' as one element.
+\*anyProperties | Any | Any property names defined in the extension context may be used with any valid JSON value. 
+
+See [example extensions](./extensions/).
 
 
 ### <a id="additional-properties"></a>Additional Properties
 
-Additional properties are allowed so long as they don't clash with specified
-properties. **Processors should preserve all properties when rehosting or
-retransmitting**.
+Outside of extensions, additional properties are allowed so long as they don't clash with specified properties. **Processors should preserve all properties when rehosting or retransmitting**.
 
-Any additional properties SHOULD be namespaced to avoid clashing with
-future properties. For example, if the issuer at **example.org** wants
-to add a `foo` property to the assertion, the property name should be
-`example.org:foo`. This will help prevent unforseen errors should an
-`foo` property be defined in a later version of the specification.
+If a property would be useful beyond internal use, an Extension is likely to serve the purpose. 
 
-If a property would be useful beyond internal use, proposals for
-standardizing can be sent to
-[the openbadges-dev mailing list](https://groups.google.com/forum/?fromgroups#!forum/openbadges-dev).
+Any additional properties for internal use by an issuer should be namespaced (And preferably mapped in the JSON-LD context to avoid clashing with future properties. For example, if the issuer at **example.org** wants to add a `foo` property to the assertion, the property name should be `example:foo`. This will help prevent unforseen errors should an `foo` property be defined in a later version of the specification.
 
 ### Primitives
 
 * Boolean
 * Text
 * Array
-* <a id="date-time"></a>DateTime - Either an [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) date or a standard 10-digit Unix timestamp.
+* <a id="datetime"></a>DateTime - Either an [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) date or a standard 10-digit Unix timestamp.
 * <a id="type"></a>type - A string expressing the type of a Badge Object component
 * URL - Fully qualified URL, including protocol, host, port if applicable, and path.
-* <a id="identity-type"></a>IdentityType - Type of identity being represented. Currently the only supported value is "email"
+* IRI - In JSON-LD and Linked Data, IRIs (Internationalized Resource Identifiers) may look like fully qualified URLs or be namespaced within the JSON-LD context to be expanded to a full IRI.
+* <a id="identitytype"></a>IdentityType - Type of identity being represented. Currently the only supported value for many earner applications like the [Mozilla Backpack](http://backpack.openbadges.org) is "email"
 * <a id="identity-hash"></a>IdentityHash - A hash string preceded by a dollar sign ("$") and the algorithm used to generate the hash. For example: `sha256$28d50415252ab6c689a54413da15b083034b66e5` represents the result of calculating a SHA256 on the string "mayze". For more information, see [how to hash & salt in various languages](https://github.com/mozilla/openbadges/wiki/How-to-hash-&-salt-in-various-languages.).
 * <a id="verification-type"></a>VerificationType - Type of verification. Can be either "hosted" or "signed".
 
-## JSON Examples
-
-There are three JSON files necessary to create a valid assertion:
-
-* _Badge Assertion:_ contains information regarding a specific badge that was awarded to a user
-https://example.org/beths-robotics-badge.json
-```json
-{
-  "uid": "f2c20",
-  "recipient": {
-    "type": "email",
-    "hashed": true,
-    "salt": "deadsea",
-    "identity": "sha256$c7ef86405ba71b85acd8e2e95166c4b111448089f2e1599f42fe1bba46e865c5"
-  },
-  "image": "https://example.org/beths-robot-badge.png",
-  "evidence": "https://example.org/beths-robot-work.html",
-  "issuedOn": 1359217910,
-  "badge": "https://example.org/robotics-badge.json",
-  "verify": {
-    "type": "hosted",
-    "url": "https://example.org/beths-robotics-badge.json"
-  }
-}
-```
-
-* _Badge Class:_ contains information about a badge and what it means https://example.org/robotics-badge.json
-```json
-{
-  "name": "Awesome Robotics Badge",
-  "description": "For doing awesome things with robots that people think is pretty great.",
-  "image": "https://example.org/robotics-badge.png",
-  "criteria": "https://example.org/robotics-badge.html",
-  "tags": ["robots", "awesome"],
-  "issuer": "https://example.org/organization.json",
-  "alignment": [
-    { "name": "CCSS.ELA-Literacy.RST.11-12.3",
-      "url": "http://www.corestandards.org/ELA-Literacy/RST/11-12/3",
-      "description": "Follow precisely a complex multistep procedure when carrying out experiments, taking measurements, or performing technical tasks; analyze the specific results based on explanations in the text."
-    },
-    { "name": "CCSS.ELA-Literacy.RST.11-12.9",
-      "url": "http://www.corestandards.org/ELA-Literacy/RST/11-12/9",
-      "description": " Synthesize information from a range of sources (e.g., texts, experiments, simulations) into a coherent understanding of a process, phenomenon, or concept, resolving conflicting information when possible."
-    }
-  ]
-}
-```
-
-* Issuer Organization: contains information about who issued a badge https://example.org/organization.json
-```json
-{
-  "name": "An Example Badge Issuer",
-  "image": "https://example.org/logo.png",
-  "url": "https://example.org",
-  "email": "steved@example.org",
-  "revocationList": "https://example.org/revoked.json"
-}
-```
-
-Signed badges can also create a Revocation list, also represented as JSON, which defines badges that have been revoked and their reason of revocation. https://example.org/revoked.json
-
-```json
-{
-  "qp8g1s": "Issued in error",
-  "2i9016k": "Issued in error",
-  "1av09le": "Honor code violation"
-}
-```
 
 
-# <a id="implementation"></a> Implementation
+# <a id="Implementation"></a> Implementation
 
-## Hosted Badges
+## Hosted Badges <a id="HostedBadges"></a>
 
-The badge assertion should live at a publicly accessible URL (for
-example, https://example.org/beths-robotics-badge.json). Make sure that you are properly [setting the content-type](#setting-content-type) to `application/json`.
+The badge assertion should live at a publicly accessible URL specified. Make sure that you are properly [setting the content-type](./examples/#setting-content-type) to `application/json`.
 
 ### Revoking
 To mark a hosted assertion as revoked, respond with an HTTP Status of
 `410 Gone` and a body of `{"revoked": true}`.
 
-## Signed Badges
+## Signed Badges ([example](./examples/#SignedBadge)) <a id="SignedBadge"></a>
 
 A signed badge is in the form of a
 [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html):
 
-```
+{% highlight html %}
 <encoded JWS header>.<encoded JWS payload>.<encoded JWS signature>
-```
+{% endhighlight %}
+
+[See an example on the examples page.](./examples/#SignedBadge)
 
 The JSON representation of the badge assertion should be used as the JWS
 payload. For compatibility purposes, using an RSA-SHA256 is highly
@@ -219,19 +184,11 @@ recommended.
 
 An example, with linebreaks for display purposes:
 
-```
-eyJhbGciOiJSUzI1NiJ9
-.
-eyJ1aWQiOiJhYmMtMTIzNCIsInJlY2lwaWVudCI6eyJ0eXBlIjoiZW1haWwiLCJoYXNoZWQiOnRydWUsInNhbHQiOiJkZWFkc2VhIiwiaWQiOiJzaGEyNTYkYzdlZjg2NDA1YmE3MWI4NWFjZDhlMmU5NTE2NmM0YjExMTQ0ODA4OWYyZTE1OTlmNDJmZTFiYmE0NmU4NjVjNSJ9LCJpbWFnZSI6Imh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3QtYmFkZ2UucG5nIiwiZXZpZGVuY2UiOiJodHRwczovL2V4YW1wbGUub3JnL2JldGhzLXJvYm90LXdvcmsuaHRtbCIsImlzc3VlZE9uIjoxMzU5MjE3OTEwLCJiYWRnZSI6Imh0dHBzOi8vZXhhbXBsZS5vcmcvcm9ib3RpY3MtYmFkZ2UuanNvbiIsInZlcmlmeSI6eyJ0eXBlIjoic2lnbmVkIiwidXJsIjoiaHR0cHM6Ly9leGFtcGxlLm9yZy9wdWJsaWNLZXkucGVtIn19
-.
-Liv4CLviFH20_6RciUWf-jrUvMAecxT4KZ_gLHAeT_chrsCvBEE1uwgtwiarIs9acFfMi0FJzrGye6mhdHf3Kjv_6P7BsG3RPkYgK6-5i9uZv4QAIlvfNclWAoWUt4j0_Kip2ftzzWwc5old01nJRtudZHxo5eGosSPlztGRE9G_g_cTj32tz3fG92E2azPmbt7026G91rq80Mi-9c4bZm2EgrcwNBjO0p1mbKYXLIAAkOMuJZ_8S4Go8S0Sg3xC6ZCn03zWuXCP6bdY_jJx2BpmvqC3H55xWIU8p5c9RxI8YifPMmJq8ZQhjld0pl-L8kHolJx7KGfTjQSegANUPg
-```
-
 The public key corresponding to the private key used to the sign the
-badge should be publicly accessible and specified in the `verify.url`
+badge should be publicly accessible via HTTP and specified in the `verify.url`
 property of the badge assertion.
 
-### Revoking
+### Revoking a Signed Badge
 
 To mark a badge as revoked, add an entry to the resource pointed at by
 the IssuerOrganization `revocationList` URL with the **uid** of the
@@ -239,10 +196,6 @@ badge and a reason why the badge is being revoked.
 
 For example, to mark a badge with the uid "abc-1234" as revoked, the
 `revocationList` URL would respond with
-
-```json
-{"abc-1234" : "Issued in error"}
-```
 
 ## Badge Verification
 
@@ -256,23 +209,6 @@ non-default) highlighted.
 The use of the term "eventual 200 OK" is meant to mean that 3xx
 redirects are allowed, as long as the request eventually terminates on a
 resource that returns a 200 OK.
-
-### Structural Validity
-
-* `badge`: must be a valid **URL**. An HTTP GET request MUST BE
-  performed on the URL to ensure eventual 200 OK status.
-* `recipient`: must be an object
-  * `type`: must be a valid type (currently, only "email" is supported)
-  * `identity`: must be a **text**
-  * `hashed` (optional): must be **boolean**
-  * `salt` (optional): must be **text**
-* `image` (optional): must be a valid **URL** or **Data URL**.
-* `evidence` (optional): must be a valid **URL**
-* `issuedOn` (optional): must be a valid [**DateTime**](#datetime)
-* `expires` (optional): must be a valid [**DateTime**](#datetime)
-* `verify`: must be an object
-  * `type`: must be either "hosted" or "signed"
-  * `url`: must be a **URL**
 
 ### Signed Assertion
 
@@ -308,51 +244,11 @@ is not eventually 200 OK, assertion MUST BE treated as invalid.
 2. Assert structural validity
 
 
-## <a id="setting-content-type"></a>Setting Content-Type
+## Other Resources <a id="OtherResources"></a>
 
-In the examples below `badge_assertion` is a native dictionary, hash
-or associative array. `badge_assertion_json` is a prepared JSON string.
-
-### PHP
-```javascript
-// Do this before doing anything that starts a response
-header('Content-Type: application/json');
-```
-
-### Drupal 6
-```javascript
-// do not use drupal_json -- it sets the wrong header
-drupal_add_http_header('Content-Type', 'application/json');
-echo drupal_to_js(badge_assertion);
-```
-### Drupal 7
-```javascript
-drupal_json_output(badge_assertion);
-```
-
-### Django
-```python
-HttpResponse(badge_assertion_json, mimetype='application/json')
-```
-
-### Rails
-```ruby
-render :json => badge_assertion
-```
-
-### Apache
-```apache
-# Save your assertions as .json files and add this to your httpd.conf
-AddType application/json        json
-```
-
-### Nginx
-```nginx
-# In your server context, add the following:
-types {
-  applications/json     json;
-}
-```
-
-## Assertion Validator
+## Assertion Validator <a id="Validator"></a>
 [http://validator.openbadges.org/](http://validator.openbadges.org/)
+
+## History <a id="History"></a>
+ * [From 0.5 to 1.0](https://github.com/mozilla/openbadges/wiki/Assertion-Specification-Changes)
+ * [Early history of the specification](https://github.com/mozilla/openbadges-backpack/wiki/Assertions/_history)
