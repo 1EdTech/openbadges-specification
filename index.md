@@ -1,15 +1,17 @@
 ---
-title: The Open Badges Standard
+title: Open Badges Technical Specification
 subtitle: Awesome Sauce for the 21st Century
 show_sidebar: true
 ---
 # {{ page.title }}
-This standard describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing an infrastructure for its validation. We start with some term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v1.1_)]({{site.baseurl}}/1.1/context.json)  for the Open Badges Standard.
+This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing an infrastructure for its validation. 
+
+We start with some term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v1.1_)]({{site.baseurl}}/1.1/context.json)  for the Open Badges Standard.
 
 **Current version: 1.1**
 
 #### License
-[Copyright](http://www.w3.org/Consortium/Legal/ipr-notice#Copyright) © 2014 the Contributors to the Open Badges 1.1 Specification, published by the [Badge Alliance](http://badgealliance.org) and the [W3C Credentials Community Group](http://www.w3.org/community/credentials/) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) is available. This specification is free for anyone to use or implement.
+[Copyright](http://www.w3.org/Consortium/Legal/ipr-notice#Copyright) © 2014 the Contributors to the Open Badges 1.1 Specification, published by the [Badge Alliance](http://badgealliance.org) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available. Though the Badge Alliance collaborates with the [W3C Credentials Community Group](http://www.w3.org/community/credentials/), the Open Badges specification is not endorsed as a web standard by the W3C. This specification is free for anyone to use or implement.
 
 **Edited by the [Badge Alliance Standard Working Group](http://www.badgealliance.org/open-badges-standard/)**
 
@@ -27,7 +29,7 @@ This standard describes a method for packaging information about accomplishments
    - [History/Changelog](#History)
 
 ## Badge Objects <a id="BadgeObjects"></a>
-The Open Badges standard is made up of three types of core Badge Objects: **[Assertions](#Assertion)**, **[BadgeClasses](#BadgeClass)**, and **[Issuers](#Issuer)**. A set of one of each of these may be constructed into a valid Open Badge. Each Badge Object is a collection of properties and values. Each type of Badge Object has its own list of mandatory and optional properties as well as restrictions on the values those properties may take.
+The Open Badges standard is made up of three types of core Badge Objects: **[Assertions](#Assertion)**, **[BadgeClasses](#BadgeClass)**, and **[Issuers](#Issuer)**. A set of one of each of these may be constructed into a valid Open Badge. Each Badge Object is a collection of properties and values. Each type of Badge Object has its own list of mandatory and optional properties as well as restrictions on the values those properties may take. They are published as JSON for interoperability.
 
 #### Extensions
 _since: 1.1_ 
@@ -36,7 +38,7 @@ Each Badge Object may have additional properties beyond those defined here. Some
 #### Badge Baking
 _since: 0.5_
 Badge assertions may be "baked" into image files as portable credentials. Baking is currently supported for PNG and SVG formats. ([More...](https://github.com/mozilla/openbadges-backpack/wiki/Open-Badge-Baking-Specification))
-`TODO: Move baking specification into this standard`
+`TODO: Move baking specification into this specification document.`
 
 
 #### Hosted Verification
@@ -140,7 +142,7 @@ Outside of extensions, additional properties are allowed so long as they don't c
 
 If a property would be useful beyond internal use, an Extension is likely to serve the purpose. 
 
-Any additional properties for internal use by an issuer should be namespaced (And preferably mapped in the JSON-LD context to avoid clashing with future properties. For example, if the issuer at **example.org** wants to add a `foo` property to the assertion, the property name should be `example:foo`. This will help prevent unforseen errors should an `foo` property be defined in a later version of the specification.
+Any additional properties for internal use by an issuer should be namespaced (And preferably mapped in the JSON-LD context to avoid clashing with future properties. For example, if the issuer at **example.org** wants to add a `foo` property to the assertion, the property name should be `example:foo`, or preferably a dereferencable IRI describing the property, such as `http://example.org/foo`. This will help prevent unforseen errors should an `foo` property be defined in a later version of the specification.
 
 ### Primitives
 
