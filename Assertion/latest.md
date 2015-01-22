@@ -255,7 +255,7 @@ resource that returns a 200 OK.
 * `recipient`: must be an object
   * `type`: must be a valid type (currently, only "email" is supported)
   * `identity`: must be a **text**
-  * `hashed` (optional): must be **boolean**
+  * `hashed`: must be **boolean**
   * `salt` (optional): must be **text**
 * `image` (optional): must be a valid **URL** or **Data URL**.
 * `evidence` (optional): must be a valid **URL**
