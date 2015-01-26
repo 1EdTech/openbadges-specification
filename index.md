@@ -125,13 +125,17 @@ _since 1.1_
 
 The 1.1 version of the Open Badges Standard introduces Extensions as a means for issuers to add additional metadata to Badge Objects beyond what the standard specifies itself. Additional properties are allowed without using Extensions, but Extensions allow issuers to declare how they are adding information so that it can be understood by others and other issuers can add the same sort of information in a compatible way. See the [Extensions](./extensions/) page for specific examples and extensions ready to use in Badge Objects.
 
-Extension authors define and host a new JSON-LD context file describing all the terms the extension covers. These context files may further define any JSON-schema that implementations of the extension should pass. Extensions are implemented as JSON objects inside an Assertion, BadgeClass or Issuer with their own link to the extension context and declaration of type.
+Extension authors define and host a new [JSON-LD](http://json-ld.org) context file describing all the terms the extension covers. These context files may further define any [JSON-schema](http://json-schema.org/) that implementations of the extension should pass. If used, each schema is linked from the context and hosted as a separate JSON-schema files. Extensions are implemented in Open Badges as JSON objects inside an Assertion, BadgeClass or Issuer with their own link to the extension context and declaration of type.
 
 Property | Expected Type | Description
 --------|------------|-----------
 **@context** | URL | JSON-LD context file shared among all implementations of the extension.
 **@type** | array of IRIs | IRIs or compact IRIs within the OBI or extension context that describe the type of data contained in the extension. These are used to map optional JSON-schema validation to the extension. Must include 'extension' as one element.
 \*anyProperties | Any | Any property names defined in the extension context may be used with any valid JSON value. 
+
+An extension value should be included as a JSON object containing the `@context` and `@type` properties and any new properties whose names are mapped in the context file referenced by `@context`. 
+
+The property name for the extension should map to an IRI within the `@context` defined at the root of the extended Badge Object. It is possible to use a fully qualified IRI (e.g. `http://example.org/newBadgeExtension`) or a compact IRI within the extension namespace defined in the [OBI context](./1.1/context.json), like `extension:newBadgeExtension`. In either case, the IRI should correspond to where a human-readable definition of the extension resides. For extensions using the `extension` namespace, this definition may be contributed to the community [extensions repository](./extensions/) on this site.
 
 See [example extensions](./extensions/).
 

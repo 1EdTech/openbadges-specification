@@ -82,6 +82,9 @@ Metadata about the issuer is defined in JSON at a URL/IRI defined by the BadgeCl
 }
 {% endhighlight %}
 
+## [Extension](../extensions/#ExampleExtension)
+For examples of Badge Object Extensions and community-developed extensions ready for implementation, see the [Extensions page](../extensions/#ExampleExtension).
+
 ## [Signed Badges](../#SignedBadge) <a id="SignedBadge"></a>
 A JSON Web Signature for a signed badge looks like the following. (Space has been added here around the `.` separators for clarity.)
 {% highlight html %}
