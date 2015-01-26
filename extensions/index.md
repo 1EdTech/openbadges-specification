@@ -38,3 +38,9 @@ Assertion, BadgeClass, Issuer
 
 
 # Community Extensions:
+
+...
+
+
+# xAPI Integration
+Open Badges will soon be referencable from Experience API activity streams. See [xAPI Open Badges documentation]({{site.baseurl}}/xapi/) for details
