@@ -31,6 +31,7 @@ Assertion, BadgeClass, Issuer
 { 
   "extension:ExampleExtension": {
     "@context":"http://standard.openbadges.org/extensions/exampleExtension/context.json",
+    "@type": ["extension", "extension:ExampleExtension"],
     "exampleProperty": "I'm a property, short and sweet."
   }
 }
