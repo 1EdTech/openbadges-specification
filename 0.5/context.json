@@ -1,16 +1,20 @@
 {
   "@context": {
+    "id": "@id",
+    "type": "@type",
+    
     "obi": "http://standard.openbadges.org/docs#",
     "assertion": "obi:Assertion",
     "badgeclass": "obi:BadgeClass",
     "issuerorg": "obi:Issuer",
+    "extension": "http://openbadges.org/extensions#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "schema": "http://schema.org/",
  
     "name": { "@id": "schema:name", "@type": "xsd:string" },
     "description": { "@id": "schema:description", "@type": "xsd:string" },
-    "type": { "@id": "obi:type", "type": "xsd:string" },
     "url": { "@id": "schema:url", "@type": "@id" },
+    "email": "schema:email",
     "image": { "@id": "obi:image", "@type": "@id" },
  
     "uid": { "@id": "assertion:Uid", "type": "xsd:string" },
