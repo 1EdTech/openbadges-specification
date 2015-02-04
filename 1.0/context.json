@@ -3,7 +3,7 @@
     "id": "@id",
     "type": "@type",
 
-    "obi": "http://standard.openbadges.org/docs#",
+    "obi": "http://standard.openbadges.org/#",
     "assertion": "obi:Assertion",
     "badgeclass": "obi:BadgeClass",
     "issuerorg": "obi:Issuer",
@@ -26,6 +26,8 @@
     "expires": { "@id": "assertion:ExpirationDate", "@type": "xsd:dateTime" },
     "evidence": { "@id": "assertion:Evidence", "@type": "@id" },
     "verify": { "@id": "assertion:VerificationObject"},
+    "hosted": "obi:HostedBadges",
+    "signed": "obi:SignedBadge",
  
     "badge": { "@id": "badgeclass", "@type": "@id" },
     "criteria": { "@id": "badgeclass:Criteria", "@type": "@id" },
