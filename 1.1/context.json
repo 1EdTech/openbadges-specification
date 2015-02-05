@@ -14,7 +14,6 @@
     "name": { "@id": "schema:name", "@type": "xsd:string" },
     "description": { "@id": "schema:description", "@type": "xsd:string" },
     "url": { "@id": "schema:url", "@type": "@id" },
-    "email": "schema:email",
     "image": { "@id": "obi:image", "@type": "@id" },
  
     "uid": { "@id": "assertion:Uid", "type": "xsd:string" },
@@ -35,7 +34,7 @@
     "alignment": { "@id": "badgeclass:Alignment", "@type": "@id" },
  
     "issuer": { "@id": "issuerorg", "@type": "@id" },
-    "email": { "@id": "schema:email", "@type": "@id" },
+    "email": { "@id": "schema:email", "@type": "schema:email"  },
     "revocationList": { "@id": "issuerorg:RevocationList", "@type": "@id" }
  
   },
