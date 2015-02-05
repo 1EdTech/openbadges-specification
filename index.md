@@ -142,11 +142,15 @@ See [example extensions](./extensions/).
 
 ### <a id="additional-properties"></a>Additional Properties
 
-Outside of extensions, additional properties are allowed so long as they don't clash with specified properties. **Processors should preserve all properties when rehosting or retransmitting**.
+Badges consist of sets of claims, properties with values that apply to Issuer Organizations, all earners of a badge, or individual badge recipients. Outside of extensions, additional properties may be added to these claim sets so long as they are mapped to an IRI, as JSON-LD mapped in the context and do not clash with existing properties. For example, if a badge object creatorCreators of Badge Objects may:
 
-If a property would be useful beyond internal use, an Extension is likely to serve the purpose. 
+1. Add individual mappings to the Badge Object's context: `"@context":["http://standard.openbadges.org/1.1/context.json", {"foo": "http://example.org/foo"}]`
+2. Link to additional context files in the Badge Object's context: `"@context":["http://standard.openbadges.org/1.1/context.json", "http://example.org/context"]`
+3. Add new properties using full IRIs as keys (or with compact IRIs in the existing context): `"http://example.org/foo":"bar"` or `schema:comment` where the IRI leads to the vocabulary definition for the term.
 
-Any additional properties for internal use by an issuer should be namespaced (And preferably mapped in the JSON-LD context to avoid clashing with future properties. For example, if the issuer at **example.org** wants to add a `foo` property to the assertion, the property name should be `example:foo`, or preferably a dereferencable IRI describing the property, such as `http://example.org/foo`. This will help prevent unforseen errors should an `foo` property be defined in a later version of the specification.
+**Processors should preserve all properties when rehosting or retransmitting**.
+
+If a property would be useful beyond internal use, an Extension is a recommended way to establish common practice for adding certain sets of information to badge objects.
 
 ### Primitives
 
