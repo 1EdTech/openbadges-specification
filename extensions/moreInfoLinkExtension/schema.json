@@ -1,12 +1,16 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "1.1 Open Badge Example Extension",
-  "description": "An extension that allows you to add a single string exampleProperty to an extension object to represent some of your favorite text.",
+  "title": "More Info Link",
+  "description": "An extension that allows you to add a single url that links to a web page providing additional information about an Open Badge.",
   "type": "object",
   "properties": {
-    "exampleProperty": {
+    "moreInfoUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "moreInfoDescription": {
       "type": "string"
-    }
+    },
   },
-  "required": ["exampleProperty"]
+  "required": ["moreInfoUrl"]
 }
