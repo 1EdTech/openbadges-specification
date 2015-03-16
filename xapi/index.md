@@ -13,6 +13,7 @@ This is an exploratory prototype draft. It has not been approved for use by the 
 
 ## Earning Vocabulary
 This section defines the identifiers and extensions used for OB Earning. 
+This section is copied from [this recipe](https://github.com/ht2/BadgesCoP/tree/master/earning).
 
 ### Identifiers
 *Use the IRIs hyperlinked to the text in the identifiers column, rather than the words themselves.*
