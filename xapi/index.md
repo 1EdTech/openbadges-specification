@@ -11,43 +11,99 @@ The [Experience API](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md) (x
 ### Status of this document
 This is an exploratory prototype draft. It has not been approved for use by the Badge Alliance or the xAPI specification authors. Use for testing only. 
 
-### Verbs
+## Earning Vocabulary
+This section defines the identifiers and extensions used for OB Earning. 
 
-## <a name="verb-earned"></a>Earned
-**URI: [{{ site.baseurl }}/xapi/verbs/earned.json]({{ site.baseurl }}/xapi/verbs/earned.json)**
+### Identifiers
+*Use the IRIs hyperlinked to the text in the identifiers column, rather than the words themselves.*
 
-Indicates that the actor has fulfilled the criteria for earning an Open Badge and has been awarded that badge by its Issuer.
-
-**Current Metadata:**
-{% highlight json %}
-{
-    "name": { "en-US": "earned" },
-    "description": { "en-US": "Indicates that the actor has been recognized by an Open Badge issuer for an achievement. The actor may claim the badge referenced as the object and use it as a verifiable credential, wherever Open Badges are accepted." }
-}
-{% endhighlight %}
+xAPI Property | Identifier | Description | Required
+--- | --- | --- | ---
+verb.id | [Earned](http://specification.openbadges.org/xapi/verbs/earned.json) | States the `actor` earned the `object`. | Required
+context.contextActivities.category.N.id | [OB Recipe](http://specification.openbadges.org/xapi/recipe/base/0_0_1.json) | States the `statement` uses the OB recipe. | Required
+attachments.usageType | [OB Attachment](http://specification.openbadges.org/xapi/attachment/badge.json) | States that the `attachment` is an OB image. | Required
+object.definition.type | [OB Object](http://activitystrea.ms/schema/1.0/badge) | States that the `object` is an OB. | Required
 
 ### Extensions
+*Use the IRIs hyperlinked to the text in the extension column, rather than the words themselves.*
 
-## <a name="extension-badgeassertion"></a>Badge Assertion
-**URI: [{{ site.baseurl }}/xapi/extensions/badgeassetion.json]({{ site.baseurl }}/xapi/extensions/badgeassetion.json)**
+xAPI Property | Extension | Description | Required
+--- | --- | --- | ---
+result.extensions | [OB Assertion](http://specification.openbadges.org/xapi/extensions/badgeassertion.json) | Contains an xAPI OB Assertion Object. | Required
+object.definition.extensions | [OB Class](http://specification.openbadges.org/xapi/extensions/badgeclass.json) | Contains an xAPI OB Class Object. | Required
 
-A reference to a hosted badge assertion. This is the object of an "earned" statement.
+#### [OB Assertion](http://specification.openbadges.org/xapi/extensions/badgeassertion.json) Properties
 
-{% highlight json %}
+Property | Type | Description | Required
+--- | --- | --- | ---
+@id | IRI | Link to the OB assertion. | Required
+
+
+#### [OB Class](http://specification.openbadges.org/xapi/extensions/badgeclass.json) Properties
+
+Property | Type | Description | Required
+--- | --- | --- | ---
+@id | IRI | Link to the OB class. | Required
+image | IRI | Link to the OB image. | Recommended
+criteria | IRI | Link to the OB criteria. | Recommended
+issuer | IRI | Link to the OB issuer. | Recommended
+
+##Earning Example xAPI Statment
+```
 {
-    "name": { "en-US": "badge assertion" },
-    "description": { "en-US": "IRI of a hosted Open Badge assertion" }
+  "verb": {
+    "id": "http://specification.openbadges.org/xapi/verbs/earned.json",
+    "display": {
+      "en-US": "earned"
+    }
+  },
+  "result": {
+    "extensions": {
+      "http://specification.openbadges.org/xapi/extensions/badgeassertion.json": {
+        "@id": "http://www.example.com/assertion/1"
+      }
+    }
+  },
+  "context": {
+    "contextActivities": {
+      "category": [{
+        "id": "http://specification.openbadges.org/xapi/recipe/base/0_0_1",
+        "definition": {
+          "type": "http://id.tincanapi.com/activitytype/recipe"
+        },
+        "objectType": "Activity"
+      }]
+    }
+  },
+  "attachments": [{
+    "usageType": "http://specification.openbadges.org/xapi/attachment/badge.json",
+    "display": {
+      "en-US": "Name of the badge"
+    },
+    "contentType": "image/png",
+    "length": 48826,
+    "sha2": "42a33cb2af34603730577c2e5ddd78858feb34860c4e5bf0f473fa7456d3994a"
+  }],
+  "object": {
+    "id": "www.example.com/badge/1",
+    "definition": {
+      "extensions": {
+        "http://specification.openbadges.org/xapi/extensions/badgeclass.json": {
+          "@id": "http://www.example.com/badgeclass/1",
+          "image": "http://www.example.com/badgeimage/1.png",
+          "criteria": "http://www.example.com/criteria/1",
+          "issuer": "http://www.example.com/issuer/1"
+        }
+      },
+      "name": {
+        "en-US": "Name of the badge"
+      },
+      "description": {
+        "en-US": "Description of the badge."
+      },
+      "type": "http://activitystrea.ms/schema/1.0/badge"
+    },
+    "objectType": "Activity"
+  }
 }
-{% endhighlight %}
-
-## <a name="extension-signedbadgeassertion"></a>Signed Badge Assertion
-**URI: [{{ site.baseurl }}/xapi/extensions/signedbadgeassetion.json]({{ site.baseurl }}/xapi/extensions/signedbadgeassetion.json)**
-
-A string value of the JSON Web Signature token representing a signed assertion.
-
-{% highlight json %}
-{
-    "name": { "en-US": "signed badge assertion" },
-    "description": { "en-US": "JSON Web Signature token containing a signed-verification Open Badge assertion as its payload. The public signing key is linked from the assertions verify.url property." }
-}
-{% endhighlight %}
+```
