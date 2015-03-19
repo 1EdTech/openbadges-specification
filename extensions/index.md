@@ -15,7 +15,7 @@ Submit your published extensions to this page with a pull request on [GitHub](ht
 # Extension Example:
 
 ### <a name="ExampleExtension"></a> Example Extension Name
-This is a definition of an example extension. If it were a real extension, it would describe the purpose of adding it to a badge object. If you follow the link [#ExampleExtension](#ExampleExtension), you'll get to this paragraph. This is the IRI (Internationalized Resource Identifier) to use for implementations of this exension, included below as the compact IRI `extension:ExampleExtension`. See the [context](./exampleExtension/context.json) and [schema](./exampleExtension/schema.json) files that form the machine-readable core of this extension.
+This is a definition of an example extension. If it were a real extension, it would describe the purpose of adding it to a badge object. If you follow the link [#ExampleExtension](#ExampleExtension), you'll get to this paragraph. This is the IRI (Internationalized Resource Identifier) to use for implementations of this extension, included below as the compact IRI `extension:ExampleExtension`. See the [context](./exampleExtension/context.json) and [schema](./exampleExtension/schema.json) files that form the machine-readable core of this extension.
 
 Property     | Type        | Value Description
 -------------|-------------|---------
@@ -39,3 +39,31 @@ Assertion, BadgeClass, Issuer
 
 
 # Community Extensions:
+
+### <a name="applyLink"></a> Apply Link
+The apply link provides a url that allows potential badge earners to apply for an opportunty as specified by the badge issuer.
+
+Property     | Type        | Value Description
+-------------|-------------|---------
+**@context** | context IRI | [http://standard.openbadges.org/extensions/applyLinkExtension/context.json](./applyLinkExtension/context.json)
+**@type**    | type IRI array |`['extension', 'extension:applyLinkExtension']`
+**url** | string,uri | Valid url beginning with http:// or https://
+
+**Extendable Badge Objects:**
+BadgeClass
+
+**Example implementation:**
+{% highlight json %}
+{ 
+  "extension:applyLinkExtension": {
+    "@context":"http://standard.openbadges.org/extensions/applyLinkExtension/context.json",
+    "@type": ["extension", "extension:applyLinkExtension"],
+    "url": "http://website.com/apply"
+  }
+}
+{% endhighlight %}
+
+
+# xAPI Integration
+An exploratory prototype draft xAPI vocabulary has been defined so that Open Badges will soon be referencable from Experience API activity streams. See [xAPI Open Badges documentation]({{site.baseurl}}/xapi/) for details.
+
