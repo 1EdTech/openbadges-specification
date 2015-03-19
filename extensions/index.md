@@ -63,7 +63,5 @@ BadgeClass
 }
 {% endhighlight %}
 
-
 # xAPI Integration
 An exploratory prototype draft xAPI vocabulary has been defined so that Open Badges will soon be referencable from Experience API activity streams. See [xAPI Open Badges documentation]({{site.baseurl}}/xapi/) for details.
-
