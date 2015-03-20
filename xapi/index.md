@@ -20,9 +20,9 @@ This section is copied from [this recipe](https://github.com/ht2/BadgesCoP/tree/
 
 xAPI Property | Identifier | Description | Required
 --- | --- | --- | ---
-verb.id | [Earned](http://specification.openbadges.org/xapi/verbs/earned.json) | States the `actor` earned the `object`. | Required
-context.contextActivities.category.N.id | [OB Recipe](http://specification.openbadges.org/xapi/recipe/base/0_0_1.json) | States the `statement` uses the OB recipe. | Required
-attachments.usageType | [OB Attachment](http://specification.openbadges.org/xapi/attachment/badge.json) | States that the `attachment` is an OB image. | Required
+verb.id | [Earned](http://specification.openbadges.org/xapi/verbs/earned) | States the `actor` earned the `object`. | Required
+context.contextActivities.category.N.id | [OB Recipe](http://specification.openbadges.org/xapi/recipe/base/0_0_1) | States the `statement` uses the OB recipe. | Required
+attachments.usageType | [OB Attachment](http://specification.openbadges.org/xapi/attachment/badge) | States that the `attachment` is an OB image. | Required
 object.definition.type | [OB Object](http://activitystrea.ms/schema/1.0/badge) | States that the `object` is an OB. | Required
 
 ### Extensions
@@ -30,17 +30,17 @@ object.definition.type | [OB Object](http://activitystrea.ms/schema/1.0/badge) |
 
 xAPI Property | Extension | Description | Required
 --- | --- | --- | ---
-result.extensions | [OB Assertion](http://specification.openbadges.org/xapi/extensions/badgeassertion.json) | Contains an xAPI OB Assertion Object. | Required
-object.definition.extensions | [OB Class](http://specification.openbadges.org/xapi/extensions/badgeclass.json) | Contains an xAPI OB Class Object. | Required
+result.extensions | [OB Assertion](http://specification.openbadges.org/xapi/extensions/badgeassertion) | Contains an xAPI OB Assertion Object. | Required
+object.definition.extensions | [OB Class](http://specification.openbadges.org/xapi/extensions/badgeclass) | Contains an xAPI OB Class Object. | Required
 
-#### [OB Assertion](http://specification.openbadges.org/xapi/extensions/badgeassertion.json) Properties
+#### [OB Assertion](http://specification.openbadges.org/xapi/extensions/badgeassertion) Properties
 
 Property | Type | Description | Required
 --- | --- | --- | ---
 @id | IRI | Link to the OB assertion. | Required
 
 
-#### [OB Class](http://specification.openbadges.org/xapi/extensions/badgeclass.json) Properties
+#### [OB Class](http://specification.openbadges.org/xapi/extensions/badgeclass) Properties
 
 Property | Type | Description | Required
 --- | --- | --- | ---
@@ -53,14 +53,14 @@ issuer | IRI | Link to the OB issuer. | Recommended
 {% highlight json %}
 {
   "verb": {
-    "id": "http://specification.openbadges.org/xapi/verbs/earned.json",
+    "id": "http://specification.openbadges.org/xapi/verbs/earned",
     "display": {
       "en-US": "earned"
     }
   },
   "result": {
     "extensions": {
-      "http://specification.openbadges.org/xapi/extensions/badgeassertion.json": {
+      "http://specification.openbadges.org/xapi/extensions/badgeassertion": {
         "@id": "http://www.example.com/assertion/1"
       }
     }
@@ -77,7 +77,7 @@ issuer | IRI | Link to the OB issuer. | Recommended
     }
   },
   "attachments": [{
-    "usageType": "http://specification.openbadges.org/xapi/attachment/badge.json",
+    "usageType": "http://specification.openbadges.org/xapi/attachment/badge",
     "display": {
       "en-US": "Name of the badge"
     },
@@ -89,7 +89,7 @@ issuer | IRI | Link to the OB issuer. | Recommended
     "id": "www.example.com/badge/1",
     "definition": {
       "extensions": {
-        "http://specification.openbadges.org/xapi/extensions/badgeclass.json": {
+        "http://specification.openbadges.org/xapi/extensions/badgeclass": {
           "@id": "http://www.example.com/badgeclass/1",
           "image": "http://www.example.com/badgeimage/1.png",
           "criteria": "http://www.example.com/criteria/1",
