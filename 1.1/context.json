@@ -3,57 +3,65 @@
     "id": "@id",
     "type": "@type",
 
-    "obi": "http://standard.openbadges.org/#",
-    "assertion": "obi:Assertion",
-    "badgeclass": "obi:BadgeClass",
-    "issuerorg": "obi:Issuer",
-    "extension": "http://standard.openbadges.org/extensions#",
+    "obi": "http://specification.openbadges.org/#",
+    "credentials": "http://specification.openbadges.org/credentials/#",
+    "Assertion": "credentials:DefinedAchievementAssertion",
+    "BadgeClass": "credentials:DefinedAchievement",
+    "IssuerOrg": "obi:Issuer",
+    "Extension": "http://specification.openbadges.org/extensions#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "schema": "http://schema.org/",
  
     "name": { "@id": "schema:name", "@type": "xsd:string" },
     "description": { "@id": "schema:description", "@type": "xsd:string" },
     "url": { "@id": "schema:url", "@type": "@id" },
-    "image": { "@id": "obi:image", "@type": "@id" },
+    "image": { "@id": "schema:image", "@type": "@id" },
  
-    "uid": { "@id": "assertion:Uid", "type": "xsd:string" },
-    "recipient": { "@id": "assertion:Recipient", "type": "@id" },
+    "uid": { "@id": "obi:uid", "type": "xsd:string" },
+    "recipient": { "@id": "credentials:Recipient", "type": "@id" },
     "hashed": { "@id": "obi:hashed", "type": "xsd:boolean" },
     "salt": { "@id": "obi:salt", "@type": "xsd:string" },
     "identity": { "@id": "obi:identityHash", "@type": "@id" },
-    "issuedOn": { "@id": "assertion:IssueDate", "@type": "xsd:dateTime" },
-    "expires": { "@id": "assertion:ExpirationDate", "@type": "xsd:dateTime" },
-    "evidence": { "@id": "assertion:Evidence", "@type": "@id" },
-    "verify": { "@id": "assertion:VerificationObject", "@type": "@id" },
-    "hosted": "obi:HostedBadges",
+    "issuedOn": { "@id": "credentials:issueDate", "@type": "xsd:dateTime" },
+    "expires": { "@id": "credentials:expirationDate", "@type": "xsd:dateTime" },
+    "evidence": { "@id": "credentials:evidence", "@type": "@id" },
+    "verify": { "@id": "obi:verificationObject", "@type": "@id" },
+    "hosted": "obi:HostedBadge",
     "signed": "obi:SignedBadge",
  
-    "badge": { "@id": "badgeclass", "@type": "@id" },
-    "criteria": { "@id": "badgeclass:Criteria", "@type": "@id" },
-    "tags": { "@id": "badgeclass:Tags", "@type": "@id" },
-    "alignment": { "@id": "badgeclass:Alignment", "@type": "@id" },
+    "badge": { "@id": "BadgeClass", "@type": "@id" },
+    "criteria": { "@id": "credentials:criteria", "@type": "@id" },
+    "tags": { "@id": "schema:keywords", "@type": "xsd:string" },
+    "alignment": { "@id": "obi:alignment", "@type": "@id" },
  
-    "issuer": { "@id": "issuerorg", "@type": "@id" },
-    "email": { "@id": "schema:email", "@type": "schema:email"  },
-    "revocationList": { "@id": "issuerorg:RevocationList", "@type": "@id" }
- 
+    "issuer": { "@id": "IssuerOrg", "@type": "@id" },
+    "email": "schema:email",
+    "revocationList": { "@id": "obi:RevocationList", "@type": "@id" },
+  
+    "validation": "obi:validation",
+    "TypeValidation": "obi:TypeValidation",
+    "FrameValidation": "obi:FrameValidation"
   },
-  "obi:validation": [
+  "validation": [
     {
-      "obi:validatesType": "assertion",
-      "obi:validationSchema": "http://standard.openbadges.org/1.1/schema/assertion.json"
+      "type": "TypeValidation",
+      "obi:validatesType": "Assertion",
+      "obi:validationSchema": "http://specification.openbadges.org/1.1/schema/assertion.json"
     },
     {
-      "obi:validatesType": "badgeclass",
-      "obi:validationSchema": "http://standard.openbadges.org/1.1/schema/badgeclass.json"
+      "type": "TypeValidation",
+      "obi:validatesType": "BadgeClass",
+      "obi:validationSchema": "http://specification.openbadges.org/1.1/schema/badgeclass.json"
     },
     {
-      "obi:validatesType": "issuerorg",
-      "obi:validationSchema": "http://standard.openbadges.org/1.1/schema/issuer.json"
+      "type": "TypeValidation",
+      "obi:validatesType": "IssuerOrg",
+      "obi:validationSchema": "http://specification.openbadges.org/1.1/schema/issuer.json"
     },
     {
-      "obi:validatesType": "extension",
-      "obi:validationSchema": "http://standard.openbadges.org/1.1/schema/extension.json"
+      "type": "TypeValidation",
+      "obi:validatesType": "Extension",
+      "obi:validationSchema": "http://specification.openbadges.org/1.1/schema/extension.json"
     }
   ]
 }
