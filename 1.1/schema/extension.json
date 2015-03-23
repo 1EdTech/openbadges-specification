@@ -7,7 +7,7 @@
     "JsonLdContext": {  
       "description": "A link to a valid JSON-LD context file, that maps term names to contexts. Open Badges contexts may also define JSON-schema to validate Badge Objects against. In an Open Badges Extension, this will almost always be a string:uri to a single context file, but might rarely be an array of links instead. Direct insertion of JSON-LD term mappings as a dictionary/object is not permitted in an OBI extension",
       "oneOf": [
-        { "type": "string", "format": "uri" },
+        { "type": "string"},
         { 
           "type": "array", 
           "items": { "type": "string" }
