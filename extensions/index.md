@@ -9,7 +9,7 @@ layout: page
 Extensions are community developed contributions to the Open Badges Standard. Any issuer may define and publish them to include new types of metadata in badges. Any other issuer may use the same extensions to publish similar information in a mutually recognizable way.
 
 ### [Open Badges Community Extensions](#CommunityExtensions)
-Submit your published extensions to this page with a pull request on [GitHub](https://github.com/openbadges/openbadges/specification/extensions/index.md), following the existing format of the page.
+Submit your published extensions to this page with a pull request on [GitHub](https://github.com/openbadges/openbadges-specification/blob/gh-pages/extensions/index.md), following the existing format of the page.
 
 
 # Extension Example:

@@ -217,10 +217,7 @@ property of the badge assertion.
 
 To mark a badge as revoked, add an entry to the resource pointed at by
 the IssuerOrganization `revocationList` URL with the **uid** of the
-badge and a reason why the badge is being revoked.
-
-For example, to mark a badge with the uid "abc-1234" as revoked, the
-`revocationList` URL would respond with
+badge and a reason why the badge is being revoked. See an [example](examples/#RevocationList).
 
 ## Badge Verification
 
