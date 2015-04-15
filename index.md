@@ -130,7 +130,7 @@ Property | Expected Type | Description
 **type** | JSON-LD type | valid JSON-LD representation of the Issuer type. In most cases, this will simply be the string `IssuerOrg`. An array including `IssuerOrg` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 **url** | URL | URL of the institution
 <a id="description"></a>description | Text | A short description of the institution
-<a id="image"</a>image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the institution
+<a id="image"></a>image | [Data URL](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the institution
 <a id="email"></a>email | Text | Contact address for someone at the organization.
 <a id="RevocationList"></a>revocationList | URL |  URL of the Badge Revocation List. The endpoint should be a JSON representation of an object where the keys are the **uid** a revoked badge assertion, and the values are the reason for revocation. This is only necessary for signed badges.
 
