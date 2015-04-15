@@ -1,5 +1,5 @@
 {
-  "@context": {
+  "@context": [{
     "id": "@id",
     "type": "@type",
 
@@ -42,90 +42,31 @@
  
     "issuer": { "@id": "obi:issuer", "@type": "@id" },
     "email": "schema:email",
-    "revocationList": { "@id": "obi:revocationList", "@type": "@id" },
+    "revocationList": { "@id": "obi:revocationList", "@type": "@id" }
 
+  }, 
+  "https://dev.truecred.com/contexts/truecred-legacy.jsonld"],
 
-    "dc": "http://purl.org/dc/terms/",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-
-    "about": {"@id": "schema:about", "@type": "@id"},
-    "badgeOffer": {"@id": "obi:badgeOffer", "@type": "@id"},
-    "badgeTemplate": {"@id": "obi:badgeTemplate", "@type": "@id"},
-    "issued": {"@id": "obi:issued", "@type": "xsd:dateTime"},
-    "issuer": {"@id": "obi:issuer", "@type": "@id"},
-    "recipientEmail": "obi:recipientEmail",
-    "recipientPassword": "obi:recipientPassword",
-    "tag": "obi:tag",
-    "Identity": "obi:Identity",
-    "Badge": "obi:Badge",
-    "BadgeOffer": "obi:BadgeOffer",
-    "BadgeTemplate": "obi:BadgeTemplate",
-
-    "address": {"@id": "schema:address", "@type": "@id"},
-    "addressCountry": "schema:addressCountry",
-    "addressLocality": "schema:addressLocality",
-    "addressRegion": "schema:addressRegion",
-    "comment": "rdfs:comment",
-    "created": {"@id": "dc:created", "@type": "xsd:dateTime"},
-    "creator": {"@id": "dc:creator", "@type": "@id"},
-    "familyName": "schema:familyName",
-    "givenName": "schema:givenName",
-    "label": "rdfs:label",
-    "postalCode": "schema:postalCode",
-    "streetAddress": "schema:streetAddress",
-    "title": "dc:title",
-    "PostalAddress": "schema:PostalAddress",
-
-    "identityService": {"@id": "identity:identityService", "@type": "@id"},
-    "credential": {"@id": "sec:credential", "@type": "@id"},
-    "cipherAlgorithm": "sec:cipherAlgorithm",
-    "cipherData": "sec:cipherData",
-    "cipherKey": "sec:cipherKey",
-    "claim": {"@id": "sec:claim", "@type": "@id"},
-    "digestAlgorithm": "sec:digestAlgorithm",
-    "digestValue": "sec:digestValue",
-    "domain": "sec:domain",
-    "expires": {"@id": "sec:expiration", "@type": "xsd:dateTime"},
-    "initializationVector": "sec:initializationVector",
-    "nonce": "sec:nonce",
-    "normalizationAlgorithm": "sec:normalizationAlgorithm",
-    "owner": {"@id": "sec:owner", "@type": "@id"},
-    "password": "sec:password",
-    "privateKey": {"@id": "sec:privateKey", "@type": "@id"},
-    "privateKeyPem": "sec:privateKeyPem",
-    "publicKey": {"@id": "sec:publicKey", "@type": "@id"},
-    "publicKeyPem": "sec:publicKeyPem",
-    "publicKeyService": {"@id": "sec:publicKeyService", "@type": "@id"},
-    "revoked": {"@id": "sec:revoked", "@type": "xsd:dateTime"},
-    "signature": "sec:signature",
-    "signatureAlgorithm": "sec:signatureAlgorithm",
-    "signatureValue": "sec:signatureValue",
-    "EncryptedMessage": "sec:EncryptedMessage",
-    "CryptographicKey": "sec:Key",
-    "GraphSignature2012": "sec:GraphSignature2012"
-
-  },
   "validation": [
     {
       "type": "TypeValidation",
       "obi:validatesType": "Assertion",
-      "obi:validationSchema": "http://specification.openbadges.org/1.1/schema/assertion.json"
+      "obi:validationSchema": "http://specification.openbadges.org/v1/schema/assertion.json"
     },
     {
       "type": "TypeValidation",
       "obi:validatesType": "BadgeClass",
-      "obi:validationSchema": "http://specification.openbadges.org/1.1/schema/badgeclass.json"
+      "obi:validationSchema": "http://specification.openbadges.org/v1/schema/badgeclass.json"
     },
     {
       "type": "TypeValidation",
       "obi:validatesType": "Issuer",
-      "obi:validationSchema": "http://specification.openbadges.org/1.1/schema/issuer.json"
+      "obi:validationSchema": "http://specification.openbadges.org/v1/schema/issuer.json"
     },
     {
       "type": "TypeValidation",
       "obi:validatesType": "Extension",
-      "obi:validationSchema": "http://specification.openbadges.org/1.1/schema/extension.json"
+      "obi:validationSchema": "http://specification.openbadges.org/v1/schema/extension.json"
     }
   ]
 }
