@@ -1,5 +1,7 @@
 {
-  "@context": [{
+  "@context": [
+  "https://w3id.org/openbadges/legacy-v1",
+  {
     "id": "@id",
     "type": "@type",
 
@@ -43,9 +45,7 @@
     "issuer": { "@id": "obi:issuer", "@type": "@id" },
     "email": "schema:email",
     "revocationList": { "@id": "obi:revocationList", "@type": "@id" }
-
-  }, 
-  "https://dev.truecred.com/contexts/truecred-legacy.jsonld"],
+  }],
 
   "validation": [
     {
