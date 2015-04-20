@@ -127,7 +127,7 @@ Property | Expected Type | Description
 <a id="description"></a>description | Text | A short description of the institution
 <a id="image"></a>image | [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the institution
 <a id="email"></a>email | Text | Contact address for someone at the organization.
-<a id="RevocationList"></a>revocationList | URL |  URL of the Badge Revocation List. The endpoint should be a JSON representation of an object where the keys are the **uid** a revoked badge assertion, and the values are the reason for revocation. This is only necessary for signed badges.
+<a id="RevocationList"></a>revocationList | URL |  URL of the Badge Revocation List. The endpoint should be a JSON representation of an object where the keys are the `uid` or `id` of a revoked badge assertion, and the values are the reason for revocation. This is only necessary for signed badges.
 
 
 ## [Extensions](./extensions/) <a id="Extension"></a>
