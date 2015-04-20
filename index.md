@@ -32,7 +32,7 @@ This document is an incomplete draft of the version 1.1 update to the Open Badge
    - [History/Changelog](#History)
 
 ## Badge Objects <a id="BadgeObjects"></a>
-The Open Badges standard is made up of three types of core Badge Objects: **[Assertions](#Assertion)**, **[BadgeClasses](#BadgeClass)**, and **[Issuers](#Issuer)**. A set of one of each of these may be constructed into a valid Open Badge. Each Badge Object is a collection of properties and values. Each type of Badge Object has its own list of mandatory and optional properties as well as restrictions on the values those properties may take. They are published as JSON for interoperability. Since 1.1, Open Badges must be valid [JSON-LD](http://www.w3.org/TR/json-ld/).
+The Open Badges specification is made up of three types of core Badge Objects: **[Assertions](#Assertion)**, **[BadgeClasses](#BadgeClass)**, and **[Issuers](#Issuer)**. A set of one of each of these may be constructed into a valid Open Badge. Each Badge Object is a collection of properties and values. Each type of Badge Object has its own list of mandatory and optional properties as well as restrictions on the values those properties may take. They are published as JSON for interoperability. Since 1.1, Open Badges must be valid [JSON-LD](http://www.w3.org/TR/json-ld/).
 
 #### Extensions
 _since: 1.1_ 
@@ -133,7 +133,7 @@ Property | Expected Type | Description
 ## [Extensions](./extensions/) <a id="Extension"></a>
 _since 1.1_
 
-The 1.1 version of the Open Badges Standard introduces Extensions as a means for issuers to add additional metadata to Badge Objects beyond what the standard specifies itself. Additional properties are allowed without using Extensions, but Extensions allow issuers to declare how they are adding information so that it can be understood by others and other issuers can add the same sort of information in a compatible way. See the [Extensions](./extensions/) page for specific examples and extensions ready to use in Badge Objects.
+The 1.1 version of the Open Badges Specification introduces Extensions as a means for issuers to add additional metadata to Badge Objects beyond what the standard specifies itself. Additional properties are allowed without using Extensions, but Extensions allow issuers to declare how they are adding information so that it can be understood by others and other issuers can add the same sort of information in a compatible way. See the [Extensions](./extensions/) page for specific examples and extensions ready to use in Badge Objects.
 
 Extension authors define and host a new [JSON-LD](http://json-ld.org) context file describing all the terms the extension covers. These context files may further define any [JSON-schema](http://json-schema.org/) that implementations of the extension should pass. If used, each schema is linked from the context and hosted as a separate JSON-schema files. Extensions are implemented in Open Badges as JSON objects inside an Assertion, BadgeClass or Issuer with their own link to the extension context and declaration of type.
 
@@ -189,8 +189,8 @@ Validators that someday use the proposed FrameValidation method pass JSON-LD obj
 
 Badges consist of sets of claims, properties with values that apply to Issuer Organizations, all earners of a badge, or individual badge recipients. Outside of extensions, additional properties may be added to these claim sets so long as they are mapped to an IRI, as JSON-LD mapped in the context and do not clash with existing properties. For example, if a badge object creatorCreators of Badge Objects may:
 
-1. Add individual mappings to the Badge Object's context: `"@context":["http://standard.openbadges.org/1.1/context.json", {"foo": "http://example.org/foo"}]`
-2. Link to additional context files in the Badge Object's context: `"@context":["http://standard.openbadges.org/1.1/context.json", "http://example.org/context"]`
+1. Add individual mappings to the Badge Object's context: `"@context":["https://w3id.org/openbadges/v1", {"foo": "http://example.org/foo"}]`
+2. Link to additional context files in the Badge Object's context: `"@context":["https://w3id.org/openbadges/v1", "http://example.org/context"]`
 3. Add new properties using full IRIs as keys (or with compact IRIs in the existing context): `"http://example.org/foo":"bar"` or `"schema:comment":"baz"` where the IRI leads to the vocabulary definition for the term.
 
 **Processors should preserve all properties when rehosting or retransmitting**.

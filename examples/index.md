@@ -15,7 +15,7 @@ Information is divided between badge objects that describe an individual earner'
 An example of a badge Assertion using the `hosted` verification method. This JSON object is "baked" into a badge image (optionally linked at the Assertion's `image` property) and also hosted at the location specified by the `@id` and `verify.url` properties.
 {% highlight json %}
 {
-  "@context": "http://standard.openbadges.org/1.1/context.json",
+  "@context": "https://w3id.org/openbadges/v1",
   "@type": "assertion",
   "@id": "https://example.org/beths-robotics-badge.json",
   "uid": "f2c20",
@@ -43,7 +43,7 @@ An example of a badge Assertion using the `hosted` verification method. This JSO
 The BadgeClass is hosted at the URL/IRI from the Assertion's `badge` property.
 {% highlight json %}
 {
-  "@context": "http://standard.openbadges.org/1.1/context.json",
+  "@context": "https://w3id.org/openbadges/v1",
   "@type": "badgeclass",
   "@id": "https://example.org/robotics-badge.json",
   "name": "Awesome Robotics Badge",
