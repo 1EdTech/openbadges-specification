@@ -6,7 +6,7 @@ show_sidebar: true
 # {{ page.title }}
 This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing an infrastructure for its validation. 
 
-This specification includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v1.1_)]({{site.baseurl}}/1.1/context.json)  for the Open Badges Standard.
+This specification includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v1.1_)](https://w3id.org/openbadges/v1)  for the Open Badges Standard.
 
 #### Status of this Document
 This document is an incomplete draft of the version 1.1 update to the Open Badges Specification. It has not yet been approved by the Badge Alliance Standard Working Group and is not the current version. See [Version 1.0](https://github.com/mozilla/openbadges-specification/blob/master/Assertion/latest.md) for the current version.
@@ -94,8 +94,8 @@ A collection of information about the accomplishment recognized by the Open Badg
 
 Property | Expected Type | Description
 --------|------------|-----------
-| **@context** | JSON-LD Context | `https://w3id.org/openbadges/v1` or valid JSON-LD context array or object including the 1.1 Open Badges Context
-**id** | URL | Unique IRI for the BadgeClass.
+**@context** | JSON-LD Context | `https://w3id.org/openbadges/v1` or valid JSON-LD context array or object including the 1.1 Open Badges Context
+**id** | URL | Unique IRI for the BadgeClass, the URL where it is published.
 **type** | JSON-LD type | valid JSON-LD representation of the BadgeClass type. In most cases, this will simply be the string `BadgeClass`. An array including `BadgeClass` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 **name** | Text | The name of the achievement.
 **description** | Text | A short description of the achievement.
@@ -119,7 +119,7 @@ A collection of information about the entity or organization issuing the Open Ba
 
 Property | Expected Type | Description
 --------|------------|-----------
-| **@context** | JSON-LD Context | `https://w3id.org/openbadges/v1` or valid JSON-LD context array or object including the 1.1 Open Badges Context
+**@context** | JSON-LD Context | `https://w3id.org/openbadges/v1` or valid JSON-LD context array or object including the 1.1 Open Badges Context
 **id** | URL | Unique IRI for the hosted IssuerOrganization file.
 **type** | JSON-LD type | valid JSON-LD representation of the Issuer type. In most cases, this will simply be the string `IssuerOrg`. An array including `IssuerOrg` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 <a id="name"></a>**name** | Text | The name of the issuing organization.
