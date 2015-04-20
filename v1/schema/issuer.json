@@ -5,7 +5,7 @@
   "type": "object",
   "definitions": {
     "JsonLdContext": {
-        "description": "A link to a valid JSON-LD context file, that maps term names to contexts. Open Badges contexts may also define JSON-schema to validate Badge Objects against. In an Open Badges Object, this will almost always be a string:uri to a single context file, but might rarely be an array of links instead. This schema also allows direct mapping of terms to IRIs by using an object as an option within an array",
+        "description": "A link to a valid JSON-LD context file, that maps term names to contexts. Open Badges contexts may also define JSON-schema to validate Badge Objects against. In an Open Badges Object, this will almost always be a string:uri to a single context file, but might rarely be an array of links or context objects instead. This schema also allows direct mapping of terms to IRIs by using an object as an option within an array.",
         "oneOf": [
             {
                 "type": "string"
@@ -15,7 +15,8 @@
                 "items": { "oneOf": 
                   [   
                     { "type": "string" },
-                    { "type": "object" }
+                    { "type": "object" },
+                    { "type": "array" },
                   ]
                 }
             }
@@ -60,6 +61,7 @@
       "type": "string"
     },
     "url": {
+      "description": "The URL of the issuer's website or homepage",
       "type": "string",
       "format": "uri"
     },
