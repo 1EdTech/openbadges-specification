@@ -55,7 +55,8 @@
   },
   "properties": {
     "@context": { "$ref": "#/definitions/JsonLdContext" },
-    "@type": { "$ref": "#/definitions/JsonLdType" },
+    "type": { "$ref": "#/definitions/JsonLdType" },
+    "id": { "type": "string", "format": "uri" },
     "name": {
       "description": "Human-readable name of the issuing entity",
       "type": "string"

@@ -6,6 +6,7 @@
     "type": "@type",
 
     "obi": "https://w3id.org/openbadges#",
+    "extensions": "https://w3id.org/openbadges/extensions#",
     "validation": "obi:validation",
 
     "xsd": "http://www.w3.org/2001/XMLSchema#",
@@ -50,12 +51,12 @@
     "validationFrame": "obi:validationFrame"
   }],
 
-  "validation": [
-    {
-      "type": "TypeValidation",
-      "validatesType": "Assertion",
-      "validationSchema": "http://specification.openbadges.org/v1/schema/assertion.json"
-    },
+"validation": [
+  {
+    "type": "TypeValidation",
+    "validatesType": "Assertion",
+    "validationSchema": "http://specification.openbadges.org/v1/schema/assertion.json"
+  },
     {
       "type": "TypeValidation",
       "validatesType": "BadgeClass",

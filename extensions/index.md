@@ -19,8 +19,8 @@ This is a definition of an example extension. If it were a real extension, it wo
 
 Property     | Type        | Value Description
 -------------|-------------|---------
-**@context** | context IRI | [http://standard.openbadges.org/extensions/exampleExtension/context.json](./exampleExtension/context.json)
-**@type**    | type IRI array |`['extension', 'extension:exampleExtension']`
+**@context** | context IRI | [http://specification.openbadges.org/extensions/exampleExtension/context.json](./exampleExtension/context.json)
+**type**    | type IRI array |`['extension', 'extensions:ExampleExtension']`
 **exampleProperty** | string | Any text the implementer likes.
 
 **Extendable Badge Objects:**
@@ -30,8 +30,8 @@ Assertion, BadgeClass, Issuer
 {% highlight json %}
 { 
   "extension:ExampleExtension": {
-    "@context":"http://standard.openbadges.org/extensions/exampleExtension/context.json",
-    "@type": ["extension", "extension:ExampleExtension"],
+    "@context":"http://specification.openbadges.org/extensions/exampleExtension/context.json",
+    "type": ["Extension", "extensions:ExampleExtension"],
     "exampleProperty": "I'm a property, short and sweet."
   }
 }
@@ -40,13 +40,13 @@ Assertion, BadgeClass, Issuer
 
 # Community Extensions:
 
-### <a name="applyLink"></a> Apply Link
+### <a name="ApplyLink"></a> Apply Link
 The apply link provides a url that allows potential badge earners to apply for an opportunty as specified by the badge issuer.
 
 Property     | Type        | Value Description
 -------------|-------------|---------
-**@context** | context IRI | [http://standard.openbadges.org/extensions/applyLinkExtension/context.json](./applyLinkExtension/context.json)
-**@type**    | type IRI array |`['extension', 'extension:applyLinkExtension']`
+**@context** | context IRI | [http://specification.openbadges.org/extensions/applyLinkExtension/context.json](./applyLinkExtension/context.json)
+**type**    | type IRI array |`['Extension', 'extensions:ApplyLink']`
 **url** | string,uri | Valid url beginning with http:// or https://
 
 **Extendable Badge Objects:**
@@ -55,9 +55,9 @@ BadgeClass
 **Example implementation:**
 {% highlight json %}
 { 
-  "extension:applyLinkExtension": {
-    "@context":"http://standard.openbadges.org/extensions/applyLinkExtension/context.json",
-    "@type": ["extension", "extension:applyLinkExtension"],
+  "extensions:ApplyLink": {
+    "@context":"http://specification.openbadges.org/extensions/applyLinkExtension/context.json",
+    "type": ["Extension", "extensions:ApplyLink"],
     "url": "http://website.com/apply"
   }
 }

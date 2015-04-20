@@ -134,7 +134,8 @@
     },
     "properties": {
         "@context": { "$ref": "#/definitions/JsonLdContext" },
-        "@type": { "$ref": "#/definitions/JsonLdType" },
+        "type": { "$ref": "#/definitions/JsonLdType" },
+        "id": { "type": "string", "format": "uri" },
         "uid": {
             "type": "string"
         },
@@ -160,7 +161,7 @@
         }
     },
     "required": [
-        "@context", "@type", "uid", "recipient", "badge", "verify", "issuedOn"
+        "@context", "type", "uid", "recipient", "badge", "verify", "issuedOn"
     ],
     "additionalProperties": true
 }
