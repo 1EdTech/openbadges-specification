@@ -66,7 +66,7 @@ Assertions are representations of an awarded badge, used to share information ab
 | <a id="issueDate"></a>**issuedOn** | [DateTime](#dateTime) | Date that the achievement was awarded. |
 | image | URL | URL of an image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the [Baking specification](https://github.com/mozilla/openbadges/wiki/Badge-Baking). An 'unbaked' image for the badge is defined in the [BadgeClass](#BadgeClass) |
 | <a id="evidence"></a>evidence | URL | URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. |
-| <a id="expirationDate"></a>expires | [DateTime](#dateTime) | If the achievment has some notion of expiry, this indicates a date when a badge should no longer be considered valid. |
+| <a id="expirationDate"></a>expires | [DateTime](#dateTime) | If the achievement has some notion of expiry, this indicates a date when a badge should no longer be considered valid. |
 
 
 #### <a id="IdentityObject"></a>IdentityObject
