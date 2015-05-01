@@ -17,11 +17,16 @@ Submit your published extensions to this page with a pull request on [GitHub](ht
 ### <a name="ExampleExtension"></a> Example Extension Name
 This is a definition of an example extension. If it were a real extension, it would describe the purpose of adding it to a badge object. If you follow the link [#ExampleExtension](#ExampleExtension), you'll get to this paragraph. This is the IRI (Internationalized Resource Identifier) to use for implementations of this extension, included below as the compact IRI `extension:ExampleExtension`. See the [context](./exampleExtension/context.json) and [schema](./exampleExtension/schema.json) files that form the machine-readable core of this extension.
 
+{::options parse_block_html="true" /}
+<div class="table-wrapper">
+
 Property     | Type        | Value Description
 -------------|-------------|---------
-**@context** | context IRI | [http://specification.openbadges.org/extensions/exampleExtension/context.json](./exampleExtension/context.json)
+**@context** | context IRI | [https://openbadgespec.org/extensions/exampleExtension/context.json](./exampleExtension/context.json)
 **type**    | type IRI array |`['extension', 'extensions:ExampleExtension']`
 **exampleProperty** | string | Any text the implementer likes.
+
+</div>
 
 **Extendable Badge Objects:**
 Assertion, BadgeClass, Issuer
@@ -30,7 +35,7 @@ Assertion, BadgeClass, Issuer
 {% highlight json %}
 { 
   "extension:ExampleExtension": {
-    "@context":"http://specification.openbadges.org/extensions/exampleExtension/context.json",
+    "@context":"https://openbadgespec.org/extensions/exampleExtension/context.json",
     "type": ["Extension", "extensions:ExampleExtension"],
     "exampleProperty": "I'm a property, short and sweet."
   }
@@ -43,11 +48,16 @@ Assertion, BadgeClass, Issuer
 ### <a name="ApplyLink"></a> Apply Link
 The apply link provides a url that allows potential badge earners to apply for an opportunty as specified by the badge issuer.
 
+{::options parse_block_html="true" /}
+<div class="table-wrapper">
+
 Property     | Type        | Value Description
 -------------|-------------|---------
-**@context** | context IRI | [http://specification.openbadges.org/extensions/applyLinkExtension/context.json](./applyLinkExtension/context.json)
+**@context** | context IRI | [https://openbadgespec.org/extensions/applyLinkExtension/context.json](./applyLinkExtension/context.json)
 **type**    | type IRI array |`['Extension', 'extensions:ApplyLink']`
 **url** | string,uri | Valid url beginning with http:// or https://
+
+</div>
 
 **Extendable Badge Objects:**
 BadgeClass
@@ -56,7 +66,7 @@ BadgeClass
 {% highlight json %}
 { 
   "extensions:ApplyLink": {
-    "@context":"http://specification.openbadges.org/extensions/applyLinkExtension/context.json",
+    "@context":"https://openbadgespec.org/extensions/applyLinkExtension/context.json",
     "type": ["Extension", "extensions:ApplyLink"],
     "url": "http://website.com/apply"
   }

@@ -27,9 +27,9 @@
     "url": { "@id": "schema:url", "@type": "@id" },
     "image": { "@id": "schema:image", "@type": "@id" },
  
-    "uid": { "@id": "obi:uid", "type": "xsd:string" },
-    "recipient": { "@id": "obi:recipient", "type": "@id" },
-    "hashed": { "@id": "obi:hashed", "type": "xsd:boolean" },
+    "uid": { "@id": "obi:uid", "@type": "xsd:string" },
+    "recipient": { "@id": "obi:recipient", "@type": "@id" },
+    "hashed": { "@id": "obi:hashed", "@type": "xsd:boolean" },
     "salt": { "@id": "obi:salt", "@type": "xsd:string" },
     "identity": { "@id": "obi:identityHash", "@type": "xsd:string" },
     "issuedOn": { "@id": "obi:issueDate", "@type": "xsd:dateTime" },
@@ -55,22 +55,22 @@
   {
     "type": "TypeValidation",
     "validatesType": "Assertion",
-    "validationSchema": "http://specification.openbadges.org/v1/schema/assertion.json"
+    "validationSchema": "https://openbadgespec.org/v1/schema/assertion.json"
   },
     {
       "type": "TypeValidation",
       "validatesType": "BadgeClass",
-      "validationSchema": "http://specification.openbadges.org/v1/schema/badgeclass.json"
+      "validationSchema": "https://openbadgespec.org/v1/schema/badgeclass.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "Issuer",
-      "validationSchema": "http://specification.openbadges.org/v1/schema/issuer.json"
+      "validationSchema": "https://openbadgespec.org/v1/schema/issuer.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "Extension",
-      "validationSchema": "http://specification.openbadges.org/v1/schema/extension.json"
+      "validationSchema": "https://openbadgespec.org/v1/schema/extension.json"
     }
   ]
 }

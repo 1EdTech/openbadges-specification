@@ -23,9 +23,9 @@
     "url": { "@id": "schema:url", "@type": "@id" },
     "image": { "@id": "schema:image", "@type": "@id" },
 
-    "uid": { "@id": "obi:uid", "type": "xsd:string" },
-    "recipient": { "@id": "obi:recipient", "type": "@id" },
-    "hashed": { "@id": "obi:hashed", "type": "xsd:boolean" },
+    "uid": { "@id": "obi:uid", "@type": "xsd:string" },
+    "recipient": { "@id": "obi:recipient", "@type": "@id" },
+    "hashed": { "@id": "obi:hashed", "@type": "xsd:boolean" },
     "salt": { "@id": "obi:salt", "@type": "xsd:string" },
     "identity": { "@id": "obi:identityHash", "@type": "xsd:string" },
     "issuedOn": { "@id": "obi:issueDate", "@type": "xsd:dateTime" },
@@ -52,7 +52,7 @@
     {
       "type": "TypeValidation",
       "validatesType": "Assertion",
-      "validationSchema": "http://specification.openbadges.org/v0/schema/assertion.json"
+      "validationSchema": "https://openbadgespec.org/v0/schema/assertion.json"
     }
   ]
 }

@@ -54,12 +54,15 @@ A signed badge is in the form of a [JSON Web Signature](http://self-issued.info/
 ## Assertion <a id="Assertion"></a> ([example](./examples/#Assertion))
 Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner. Assertions are packaged for transmission as JSON objects with a set of mandatory and optional properties. Fields marked **in bold letters** are mandatory.
 
+{::options parse_block_html="true" /}
+<div class="table-wrapper">
+
 | Property | Expected Type | Description |
 | -------- | ------------- | ----------- |
 | **@context** | JSON-LD Context | `https://w3id.org/openbadges/v1` or valid JSON-LD context array or object including the 1.1 Open Badges Context
-| **id** | URL | Unique IRI for the Assertion. If using hosted verification, this should be the URL where the assertion is accessible. For badges that are not hosted, use a [blank node identifier](http://en.wikipedia.org/wiki/Blank_node) string beginning with `_:b`. |
+| id | URL | Unique IRI for the Assertion. If using hosted verification, this should be the URL where the assertion is accessible.
 | **type** | JSON-LD type | valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string `Assertion`. An array including `Assertion` and other string elements that are either URLs or compact IRIs within the current context are allowed.
-| <a id="uid"></a>uid | Text | *deprecated:* Unique Identifier for the badge. This is expected to be *locally* unique on a per-origin basis, not globally unique. Previously a required value, but as of v1.1, `id` is required instead. |
+| <a id="uid"></a>**uid** | Text | Unique Identifier for the badge. This is expected to be *locally* unique on a per-origin basis, not globally unique. |
 | <a id="recipient"></a>**recipient** | [IdentityObject](#IdentityObject) | The recipient of the achievement. |
 | **badge** | URL | URL that describes the type of badge being awarded. The endpoint should be a [BadgeClass](#badgeclass) |
 | **verify** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion. |
@@ -68,9 +71,14 @@ Assertions are representations of an awarded badge, used to share information ab
 | <a id="evidence"></a>evidence | URL | URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. |
 | <a id="expirationDate"></a>expires | [DateTime](#dateTime) | If the achievement has some notion of expiry, this indicates a date when a badge should no longer be considered valid. |
 
+</div>
+
 
 #### <a id="IdentityObject"></a>IdentityObject
 A collection of information about the recipient of a badge.
+
+{::options parse_block_html="true" /}
+<div class="table-wrapper">
 
 Property | Expected Type | Description
 --------|------------|-----------
@@ -79,18 +87,26 @@ Property | Expected Type | Description
 <a id="hashed"></a>**hashed** | Boolean | Whether or not the `identity` value is hashed.
 <a id="salt"></a>salt | Text | If the recipient is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.
 
+</div>
 
 #### <a id="VerificationObject"></a>VerificationObject
 A collection of information allowing a consumer to authenticate the Assertion.
+
+{::options parse_block_html="true" /}
+<div class="table-wrapper">
 
 Property | Expected Type | Description
 --------|------------|-----------
 **type** | VerificationType | The type of verification method.
 **url** | URL | If the type is "hosted", this should be a URL pointing to the assertion on the issuer's server. If the type is "signed", this should be a link to the issuer's public key.
 
+</div>
 
 ## <a id="BadgeClass"></a>BadgeClass ([example](./examples/#BadgeClass))
 A collection of information about the accomplishment recognized by the Open Badge. Many assertions may be created corresponding to one BadgeClass
+
+{::options parse_block_html="true" /}
+<div class="table-wrapper">
 
 Property | Expected Type | Description
 --------|------------|-----------
@@ -105,7 +121,12 @@ Property | Expected Type | Description
 alignment | Array of [AlignmentObject](#Alignment)s | List of objects describing which educational standards this badge aligns to, if any.
 <a id="Tags"></a>tags | Array of Text | List of tags that describe the type of achievement.
 
+</div>
+
 #### <a id="Alignment"></a>AlignmentObject
+
+{::options parse_block_html="true" /}
+<div class="table-wrapper">
 
 Property | Expected Type | Description
 --------|------------|-----------
@@ -113,9 +134,13 @@ Property | Expected Type | Description
 **url** | URL | URL linking to the official description of the standard.
 description | Text | Short description of the standard
 
+</div>
 
 ## <a id="Issuer"></a>IssuerOrganization ([example](./examples/#Issuer))
 A collection of information about the entity or organization issuing the Open Badge. Each issuer may correspond to many BadgeClasses. Anyone can create and host an Issuer file to start issuing Open Badges.
+
+{::options parse_block_html="true" /}
+<div class="table-wrapper">
 
 Property | Expected Type | Description
 --------|------------|-----------
@@ -129,6 +154,7 @@ Property | Expected Type | Description
 <a id="email"></a>email | Text | Contact address for someone at the organization.
 <a id="RevocationList"></a>revocationList | URL |  URL of the Badge Revocation List. The endpoint should be a JSON representation of an object where the keys are the `uid` or `id` of a revoked badge assertion, and the values are the reason for revocation. This is only necessary for signed badges.
 
+</div>
 
 ## [Extensions](./extensions/) <a id="Extension"></a>
 _since 1.1_
@@ -137,11 +163,16 @@ The 1.1 version of the Open Badges Specification introduces Extensions as a mean
 
 Extension authors define and host a new [JSON-LD](http://json-ld.org) context file describing all the terms the extension covers. These context files may further define any [JSON-schema](http://json-schema.org/) that implementations of the extension should pass. If used, each schema is linked from the context and hosted as a separate JSON-schema files. Extensions are implemented in Open Badges as JSON objects inside an Assertion, BadgeClass or Issuer with their own link to the extension context and declaration of type.
 
+{::options parse_block_html="true" /}
+<div class="table-wrapper">
+
 Property | Expected Type | Description
 --------|------------|-----------
 **@context** | URL | JSON-LD context file shared among all implementations of the extension.
 **type** | array of IRIs | IRIs or compact IRIs within the OBI or extension context that describe the type of data contained in the extension. These are used to map optional JSON-schema validation to the extension. Must include 'extension' as one element.
 \*anyProperties | Any | Any property names defined in the extension context may be used with any valid JSON value. 
+
+</div>
 
 An extension value should be included as a JSON object containing the `@context` and `@type` properties and any new properties whose names are mapped in the context file referenced by `@context`. 
 
@@ -161,7 +192,7 @@ For example, this portion of the current Open Badges context links to a validato
     {
       "type": "TypeValidation",
       "validatesType": "Assertion",
-      "validationSchema": "http://specification.openbadges.org/v1/schema/assertion.json"
+      "validationSchema": "https://openbadgespec.org/v1/schema/assertion.json"
     },
     ...
   ]
@@ -172,11 +203,16 @@ For example, this portion of the current Open Badges context links to a validato
 _since 1.1_
 Validators using the TypeValidation method match the schema indicated by the validator's `validationSchema` property against a JSON badge object document or portion of such a document that matches the validator's `validatesType` JSON-LD `type`.
 
+{::options parse_block_html="true" /}
+<div class="table-wrapper">
+
 Property | Expected Type | Description/expected value
 --------|------------|-----------
 **type** | string/compact IRI | `TypeValidation`
-**validatesType** | string/compact IRI | Valid JSON-LD type for a badge component, such as `Assertion`, `extensions:ApplyLink`, or `http://specification.openbadges.org/extensions/#ApplyLink`. Compact forms preferred.
+**validatesType** | string/compact IRI | Valid JSON-LD type for a badge component, such as `Assertion`, `extensions:ApplyLink`, or `https://w3id.org/openbadges/extensions#ApplyLink`. Compact forms preferred.
 **validationSchema** | URL | Location of a hosted JSON-schema
+
+</div>
 
 #### <a id="FrameValidation"></a> Frame Validation
 _status: proposed_

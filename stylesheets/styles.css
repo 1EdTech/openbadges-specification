@@ -15,6 +15,9 @@ h1, h2, h3, h4, h5, h6 {
 p, ul, ol, table, pre, dl {
   margin:0 0 20px;
 }
+.table-wrapper {
+  overflow-x: auto;
+}
 li ul { margin-bottom: 0; }
 
 h1, h2, h3 {
@@ -234,16 +237,18 @@ footer {
   
   pre, code {
     word-wrap:normal;
+    max-width: 100%;
+    overflow-x: scroll;
+  }
+  table {
+    max-width: 100%;
+    overflow-x: scroll;
   }
 }
 
 @media print, screen and (max-width: 480px) {
   body {
     padding:15px;
-  }
-  
-  header ul {
-    display:none;
   }
 }
 
