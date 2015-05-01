@@ -15,7 +15,7 @@ This document represents the current version of the Open Badges Specification.
 - Published: 1 May 2015.
 
 #### License
-[Copyright](http://www.w3.org/Consortium/Legal/ipr-notice#Copyright) © 2014 the Contributors to the Open Badges 1.1 Specification, published by the [Badge Alliance](http://badgealliance.org) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available. Though the Badge Alliance collaborates with the [W3C Credentials Community Group](http://www.w3.org/community/credentials/), the Open Badges specification is not endorsed as a web standard by the W3C. This specification is free for anyone to use or implement.
+[Copyright](http://www.w3.org/Consortium/Legal/ipr-notice#Copyright) © 2014, 2015 the Contributors to the Open Badges 1.1 Specification, published by the [Badge Alliance](http://badgealliance.org) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available. Though the Badge Alliance collaborates with the [W3C Credentials Community Group](http://www.w3.org/community/credentials/), the Open Badges specification is not endorsed as a web standard by the W3C. This specification is free for anyone to use or implement.
 
 **Edited by the [Badge Alliance Standard Working Group](http://www.badgealliance.org/open-badges-standard/)**
 
