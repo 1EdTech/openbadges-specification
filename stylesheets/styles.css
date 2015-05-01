@@ -102,7 +102,10 @@ img {
 header {
   width:270px;
   float:left;
-  position:fixed;
+}
+header:after {
+  content: "";
+  clear: left;
 }
 
 header ul {
@@ -183,8 +186,7 @@ hr {
 footer {
   width:270px;
   float:left;
-  position:fixed;
-  bottom:50px;
+  clear:left;
 }
 
 @media print, screen and (max-width: 960px) {

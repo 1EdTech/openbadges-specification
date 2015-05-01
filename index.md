@@ -9,9 +9,10 @@ This specification describes a method for packaging information about accomplish
 This specification includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v1.1_)](https://w3id.org/openbadges/v1)  for the Open Badges Standard.
 
 #### Status of this Document
-This document is an incomplete draft of the version 1.1 update to the Open Badges Specification. It has not yet been approved by the Badge Alliance Standard Working Group and is not the current version. See [Version 1.0](https://github.com/mozilla/openbadges-specification/blob/master/Assertion/latest.md) for the current version.
+This document represents the current version of the Open Badges Specification. 
 
-**Current version of the Open Badges specification in this document: 1.1**
+> **Current version of the Open Badges specification: 1.1**
+- Published: 1 May 2015.
 
 #### License
 [Copyright](http://www.w3.org/Consortium/Legal/ipr-notice#Copyright) © 2014 the Contributors to the Open Badges 1.1 Specification, published by the [Badge Alliance](http://badgealliance.org) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available. Though the Badge Alliance collaborates with the [W3C Credentials Community Group](http://www.w3.org/community/credentials/), the Open Badges specification is not endorsed as a web standard by the W3C. This specification is free for anyone to use or implement.
@@ -338,5 +339,6 @@ is not eventually 200 OK, assertion MUST BE treated as invalid.
 [http://validator.openbadges.org/](http://validator.openbadges.org/)
 
 ## History <a id="History"></a>
+ * [From 1.0 to 1.1](history/1.1.html) 
  * [From 0.5 to 1.0](https://github.com/mozilla/openbadges/wiki/Assertion-Specification-Changes)
  * [Early history of the specification](https://github.com/mozilla/openbadges-backpack/wiki/Assertions/_history)
