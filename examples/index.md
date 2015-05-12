@@ -16,8 +16,8 @@ An example of a badge Assertion using the `hosted` verification method. This JSO
 {% highlight json %}
 {
   "@context": "https://w3id.org/openbadges/v1",
-  "@type": "assertion",
-  "@id": "https://example.org/beths-robotics-badge.json",
+  "type": "Assertion",
+  "id": "https://example.org/beths-robotics-badge.json",
   "uid": "f2c20",
   "recipient": {
     "type": "email",
@@ -44,8 +44,8 @@ The BadgeClass is hosted at the URL/IRI from the Assertion's `badge` property.
 {% highlight json %}
 {
   "@context": "https://w3id.org/openbadges/v1",
-  "@type": "badgeclass",
-  "@id": "https://example.org/robotics-badge.json",
+  "type": "BadgeClass",
+  "id": "https://example.org/robotics-badge.json",
   "name": "Awesome Robotics Badge",
   "description": "For doing awesome things with robots that people think is pretty great.",
   "image": "https://example.org/robotics-badge.png",
@@ -74,6 +74,9 @@ The BadgeClass is hosted at the URL/IRI from the Assertion's `badge` property.
 Metadata about the issuer is defined in JSON at a URL/IRI defined by the BadgeClass's `issuer` property.
 {% highlight json %}
 {
+  "@context": "https://w3id.org/openbadges/v1",
+  "type": "Issuer",
+  "id": "https://example.org/organization.json"
   "name": "An Example Badge Issuer",
   "image": "https://example.org/logo.png",
   "url": "https://example.org",
