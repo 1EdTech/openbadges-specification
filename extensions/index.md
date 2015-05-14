@@ -73,5 +73,41 @@ BadgeClass
 }
 {% endhighlight %}
 
+### <a name="GeoCoordinates"></a> Location
+An extension allowing for the addition of the geographic location where an individual earned a badge.
+
+{::options parse_block_html="true" /}
+<div class="table-wrapper">
+
+Property     | Type        | Value Description
+-------------|-------------|---------
+**@context** | context IRI | [https://openbadgespec.org/extensions/geoCoordinatesExtension/context.json](https://openbadgespec.org/extensions/geoCoordinatesExtension/context.json)
+**type**    | type IRI array |`['Extension', 'extensions:GeoCoordinates']`
+**description** | text | A description of the location
+**elevation** | number | The elevation of a location *(not required)*
+**latitude** | number | The latitude of a location
+**longitude** | number | The longitude of a location
+
+
+</div>
+
+**Extendable Badge Objects:**
+BadgeClass
+
+**Example implementation:**
+{% highlight json %}
+{ 
+  "extensions:GeoCoordinates": {
+    "@context":"https://openbadgespec.org/extensions/geoCoordinatesExtension/context.json",
+    "type": ["Extension", "extensions:GeoCoordinates"],
+    "description": "Stadium of Light, Sunderland"
+    "elevation": "31.5"
+    "latitude": "54.914440"
+    "longitude": "-1.387721"
+  }
+}
+{% endhighlight %}
+
+
 # xAPI Integration
 An exploratory prototype draft xAPI vocabulary has been defined so that Open Badges will soon be referencable from Experience API activity streams. See [xAPI Open Badges documentation]({{site.baseurl}}/xapi/) for details.
