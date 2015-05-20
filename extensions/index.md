@@ -80,10 +80,10 @@ Endorsement of a Badge Class serves to publicly acknowledge the value of a badge
 
 Property     | Type        | Value Description
 -------------|-------------|---------
-**@context** | context IRI | [https://w3id.org/openbadges/extensions/exampleExtension/context.json](./badgeEndorsement/context.json)
-**type**    | type IRI array |`['Extension', 'extensions:BadgeEndorsement']`
+**@context** | context IRI | [https://w3id.org/openbadges/extensions/exampleExtension/context.json](./endorsement/context.json)
+**type**    | type IRI array |`['Extension', 'extensions:Endorsement']`
 **description** | string | The endorser's statement about the endorsement of this particular badge class.
-endorsedObject | object | An optional embedded copy of the endorsed Badge Object with 'id' attribute set.
+<a name="Endorsement/endorsedObject"></a>endorsedObject | object | An optional embedded copy of the endorsed Badge Object with 'id' attribute set.
 
 **Extendable Badge Objects:**
 Assertion, BadgeClass, Issuer
