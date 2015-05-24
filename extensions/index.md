@@ -130,5 +130,50 @@ Assertion (full copy of endorsed object elided):
 }
 {% endhighlight %}
 
+### <a name="accessibility"></a> Accessibility
+An extension allowing for the addition of the content for people with disabilities.
+
+{::options parse_block_html="true" /}
+<div class="table-wrapper">
+
+Property     | Type        | Value Description
+-------------|-------------|---------
+**@context** | context IRI | [https://w3id.org/openbadges/extensions/accessibility/context.json](https://w3id.org/openbadges/extensions/accessibility/context.json)
+**type**    | type IRI array |`['Extension', 'extensions:Accessibility']`
+**accessibilityAPI** | text | Indicates that the resource is compatible with the referenced accessibility API. Possible values: `['AndroidAccessibility','ARIA','ATK','AT-SPI','BlackberryAccessibility','iAccessible2','iOSAccessibility','JavaAccessibility','MacOSXAccessibility','MSAA','UIAutomation']`
+**accessibilityControl** | text | Identifies one or more input methods that allow access to all of the application functionality. Possible values: `['fullKeyboardControl','fullMouseControl','fullSwitchControl','fullTouchControl','fullVideoControl','fullVoiceControl']`
+**accessibilityFeature** | text | Content features of the resource, such as accessible media, supported enhancements for accessibility and alternatives. `['alternativeText','annotations','audioDescription','bookmarks','braille','captions','ChemML','describedMath','displayTransformability','highContrastAudio','highContrastDisplay','index','largePrint','latex','longDescription','MathML','none','printPageNumbers','readingOrder','signLanguage','structuralNavigation','tableOfContents','taggedPDF','tactileGraphic','tactileObject','timingControl','transcript','ttsMarkup','unlocked']`
+**accessibilityHazard** | text | A characteristic of the described resource that is physiologically dangerous to some users. Related to http://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure.html `['flashing','noFlashingHazard','motionSimulation','noMotionSimulationHazard','sound','noSoundHazard']`
+
+
+</div>
+
+**Extendable Badge Objects:**
+Assertion, BadgeClass, Issuer
+
+**Example implementation:**
+{% highlight json %}
+{
+    "name": "Awesome Robotics Badge",
+    "description": "For doing awesome things with robots that people think is pretty great.",
+    "image": "http://openbadges.it/logo.png",
+    "criteria": "https://example.org/robotics-badge.html",
+    "tags": [
+        "robots",
+        "awesome"
+    ],
+    "issuer": "https://example.org/badge/issuer.json",
+  "extensions:Accessibility": {
+    "@context":"https://w3id.org/openbadges/extensions/accessibility/context.json",
+    "type": ["Extension", "extensions:Accessibility"],
+    "accessibilityAPI": "ARIA",
+    "accessibilityControl": ["fullKeyboardControl","fullMouseControl","fullTouchControl"],
+    "accessibilityFeature": "audioDescription",
+    "accessibilityHazard": "noFlashingHazard",
+    "url": "http://exampleaccessiblecontent.org/"
+  }
+}
+{% endhighlight %}
+
 # xAPI Integration
 An exploratory prototype draft xAPI vocabulary has been defined so that Open Badges will soon be referencable from Experience API activity streams. See [xAPI Open Badges documentation]({{site.baseurl}}/xapi/) for details.
