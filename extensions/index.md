@@ -175,5 +175,38 @@ Assertion, BadgeClass, Issuer
 }
 {% endhighlight %}
 
+### <a name="OriginalCreator"></a> Original Creator
+This extension provides a way to track the origin of a badge when one organisation creates it for another.
+
+For example, presume we have organisations X, Y and Z. A badge is created by X and they grant Y and Z the right to issue it.
+IssuerClass of X is stored as the OriginalCreator in the BadgeClass and either Y or Z becomes the issuer.
+
+
+{::options parse_block_html="true" /}
+<div class="table-wrapper">
+
+Property     | Type        | Value Description
+-------------|-------------|---------
+**@context** | context IRI | [https://openbadgespec.org/extensions/originalCreatorExtension/context.json](./originalCreatorExtension/context.json)
+**type**    | type IRI array |`['Extension', 'extensions:OriginalCreator']`
+**url** | string,uri | Valid url pointing to the IssuerClass document of the original creator of this badge
+
+</div>
+
+**Extendable Badge Objects:**
+BadgeClass
+
+**Example implementation:**
+{% highlight json %}
+{ 
+  "extensions:OriginalCreator": {
+    "@context":"https://openbadgespec.org/extensions/originalCreatorExtension/context.json",
+    "type": ["Extension", "extensions:OriginalCreator"],
+    "url": "https://example.org/creator-organisation.json"
+  }
+}
+{% endhighlight %}
+
+
 # xAPI Integration
 An exploratory prototype draft xAPI vocabulary has been defined so that Open Badges will soon be referencable from Experience API activity streams. See [xAPI Open Badges documentation]({{site.baseurl}}/xapi/) for details.
