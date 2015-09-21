@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Accessibility extension",
+  "description": "An extension allowing for the addition of the accessibility informations.",
+  "type": "object",
+  "properties": {
+    "accessibilityAPI": {
+      "type": "string"
+    },
+    "accessibilityControl": {
+      "type": "string"
+    },
+    "accessibilityFeature": {
+      "type": "string"
+    },
+    "accessibilityHazard": {
+      "type": "string"
+    },
+    "url":{
+      "type": "string",
+      "format": "uri"    	
+    },
+    "required": ["url","accessibilityFeature"]
+  }
+}
+
