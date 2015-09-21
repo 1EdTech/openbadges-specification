@@ -74,7 +74,7 @@ BadgeClass
 {% endhighlight %}
 
 ### <a name="GeoCoordinates"></a> Location
-An extension allowing for the addition of the geographic location where an individual earned a badge.
+An extension allowing for the addition of the geographic coordinates associated with a badge object. For example, geolocation could represent where a Badge Class is available, where a badge was earned or the location of an issuer. The required description property allows implementers to be more specific about the reason location is included.
 
 {::options parse_block_html="true" /}
 <div class="table-wrapper">
@@ -84,7 +84,7 @@ Property     | Type        | Value Description
 **@context** | context IRI | [https://openbadgespec.org/extensions/geoCoordinatesExtension/context.json](https://openbadgespec.org/extensions/geoCoordinatesExtension/context.json)
 **type**    | type IRI array |`['Extension', 'extensions:GeoCoordinates']`
 **description** | text | A description of the location
-**elevation** | number | The elevation of a location *(not required)*
+**geo** | object | The GeoCoordinates of a location (containing the following properties)
 **latitude** | number | The latitude of a location
 **longitude** | number | The longitude of a location
 
@@ -92,18 +92,19 @@ Property     | Type        | Value Description
 </div>
 
 **Extendable Badge Objects:**
-BadgeClass
+Assertion, BadgeClass, Issuer
 
 **Example implementation:**
 {% highlight json %}
 { 
-  "extensions:GeoCoordinates": {
+  "schema:location": {
     "@context":"https://openbadgespec.org/extensions/geoCoordinatesExtension/context.json",
-    "type": ["Extension", "extensions:GeoCoordinates"],
-    "description": "Stadium of Light, Sunderland"
-    "elevation": "31.5"
-    "latitude": "54.914440"
-    "longitude": "-1.387721"
+    "type": ["Extension", "extensions:GeoCoordinates", "schema:Place"],
+    "description": "Stadium of Light, Sunderland",
+    "geo": {
+      "latitude": 54.914440,
+      "longitude": -1.387721
+    }
   }
 }
 {% endhighlight %}
