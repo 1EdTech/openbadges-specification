@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Open Badges Endorsement Extension v1.0",
+  "description": "Endorse another badge object by including this extension in an assertion that has a Badge Object as its recipient. A 'description' property within the extension may be used to describe the specific endorsement instance.",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "endorsedObject": {
+      "type": "object"
+    }
+  },
+  "required": ["description"]
+}

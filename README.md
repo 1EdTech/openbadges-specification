@@ -1,8 +1,8 @@
-# Open Badges Specifications
+# Open Badges Specification
+This repository is the official location for the Open Badges Specification. See [the published documentation](https://openbadgespec.org) (v1.1) for information about the current Open Badges standard. The documentation is generated from the contents of this repository. Contribute pull requests here to suggest edits, and join the [Badge Alliance Standard Working Group](https://groups.google.com/forum/#!forum/ba-standard) to participate in the continuing development of the spec.
 
-A repository for the main Open Badges specifications.
-
-* [Assertion](/Assertion/latest.md): Main specification for the badge data. If you want to understand how badges are made and verified, this is the place to look.
+## Historical versions: 
+* [Assertion](/Assertion/latest.md): v1.0
 
 * [Baking](/Badge-Baking/latest.md): Badge “baking” is the process of embedding a badge assertion into an image (a PNG or an SVG) so that where ever that image goes, the assertion data goes with it and the badge can be independently verified.
 

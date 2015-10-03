@@ -1,0 +1,29 @@
+## Customize the test machine
+machine:
+  # Version of ruby to use
+  ruby:
+    version:
+      2.2.1
+
+checkout:
+  post:
+    - rm -rf ./_site
+
+## Customize dependencies
+dependencies:
+  override:
+    - bundle install: 
+        timeout: 3600 # fail if command has no output for 60 minutes
+    - bundle exec jekyll build:
+        timeout: 3600 # fail if command has no output for 60 minutes
+
+test:
+  override:
+    - echo "I don't often test my code, but when I do, I do it in production."
+
+## Customize deployment commands
+deployment:
+  production:
+    branch: gh-pages
+    commands:
+      - bundle exec s3_website push
