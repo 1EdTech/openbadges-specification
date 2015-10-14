@@ -3,7 +3,7 @@ machine:
   # Version of ruby to use
   ruby:
     version:
-      2.2.1
+      2.2.2
 
 checkout:
   post:
@@ -24,6 +24,6 @@ test:
 ## Customize deployment commands
 deployment:
   production:
-    branch: gh-pages
+    branch: master
     commands:
-      - bundle exec s3_website push
+      - _config/deploy.sh
