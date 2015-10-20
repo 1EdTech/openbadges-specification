@@ -9,7 +9,9 @@ layout: page
 Extensions are community developed contributions to the Open Badges Specification. Any issuer may define and publish them to include new types of metadata in badges. Any other issuer may use the same extensions to publish similar information in a mutually recognizable way.
 
 ### Open Badges Community Extensions [(below)](#CommunityExtensions)
-Submit your published extensions to this page with a pull request on [GitHub](https://github.com/openbadges/openbadges-specification/blob/gh-pages/extensions/index.md), following the existing format of the page.
+Submit your published extensions to this page with a pull request on [GitHub](https://github.com/openbadges/openbadges-specification/blob/master/extensions/index.md), following the existing format of the page.
+
+<small>Note: Extension authors are not required to host extensions on this page in order for them to be valid. Extension authors may publish descriptions, context and/or schema files required for a new extension on any publicly-accessible location, however that location should provide stable hosting for many years, because extended badges will lose their meaning if these resources become inaccessible.</small>
 
 
 # Extension Example:
@@ -42,10 +44,11 @@ Assertion, BadgeClass, Issuer
 }
 {% endhighlight %}
 
-
 # <a name="CommunityExtensions"></a> Community Extensions:
 
 ### <a name="ApplyLink"></a> Apply Link
+_Author: [Kerri Lemoie](https://github.com/kayaelle)_
+
 The apply link provides a url that allows potential badge earners to apply for an opportunty as specified by the badge issuer.
 
 {::options parse_block_html="true" /}
@@ -74,6 +77,8 @@ BadgeClass
 {% endhighlight %}
 
 ### <a name="Endorsement"></a>Endorsement
+_Author: [Nate Otto](http://ottonomy.net)_
+
 Any organization that is set up to issue badges may provide endorsements of other issuers' badge objects (Assertion, Badge Class or Issuer). For example, a school district may issue an endorsement to indicate approval of a specific Badge Class corresponding to professional development credits acceptable by the district. See the Badge Alliance Endorsement Working Group [framework paper](https://docs.google.com/document/d/1VVf19d72KmGMh1ywrLe7HCKEOqGSI0WjvwfGN_8Q2M4/edit) for background. 
 
 Endorsement of a Badge Class serves to publicly acknowledge the value of a badge as *designed, assessed, and issued by a badge issuer*. Endorsements of an Issuer are presumed to apply to all Badge Classes and Assertions created by that Issuer. See the [context](./endorsement/context.json) and [schema](./endorsement/schema.json) for endorsement.
@@ -131,6 +136,8 @@ Assertion (full copy of endorsed object elided):
 {% endhighlight %}
 
 ### <a name="GeoCoordinates"></a> Location
+_Authors: [Doug Belshaw](http://dynamicskillset.com) and [Kerri Lemoie](https://github.com/kayaelle)_
+
 An extension allowing for the addition of the geographic coordinates associated with a badge object. For example, geolocation could represent where a Badge Class is available, where a badge was earned or the location of an issuer. The required description property allows implementers to be more specific about the reason location is included. The extended value takes
 
 {::options parse_block_html="true" /}
@@ -215,6 +222,8 @@ Assertion, BadgeClass, Issuer
 {% endhighlight %}
 
 ### <a name="OriginalCreator"></a> Original Creator
+_Author: [Antti Koskinen](https://github.com/ajk)_
+
 This extension provides a way to track the origin of a badge when one organisation creates it for another.
 
 For example, presume we have organisations X, Y and Z. A badge is created by X and they grant Y and Z the right to issue it.
