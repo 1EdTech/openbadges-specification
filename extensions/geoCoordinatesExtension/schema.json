@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "GeoCoordinates Open Badges Extension",
+  "description": "An extension allowing for the addition of the geographic coordinates associated with a badge object. For example, geolocation could represent where a Badge Class is available, where a badge was earned or the location of an issuer. The required description property allows implementers to be more specific about the reason location is included. Implements Schema.org's Place class",
+  "type": "object",
+  "properties": {
+    "name": {"type": "string"},
+    "description": { "type": "string" },
+    "geo": {
+      "type": "object",
+      "properties": {
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" }
+      },
+      "required": ["latitude", "longitude"]
+    },
+    "required": ["description", "geo"] 
+  }
+}

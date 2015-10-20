@@ -76,7 +76,7 @@ Metadata about the issuer is defined in JSON at a URL/IRI defined by the BadgeCl
 {
   "@context": "https://w3id.org/openbadges/v1",
   "type": "Issuer",
-  "id": "https://example.org/organization.json"
+  "id": "https://example.org/organization.json",
   "name": "An Example Badge Issuer",
   "image": "https://example.org/logo.png",
   "url": "https://example.org",

@@ -8,7 +8,7 @@ layout: page
 ## {{ page.title }}
 Extensions are community developed contributions to the Open Badges Specification. Any issuer may define and publish them to include new types of metadata in badges. Any other issuer may use the same extensions to publish similar information in a mutually recognizable way.
 
-### [Open Badges Community Extensions](#CommunityExtensions)
+### Open Badges Community Extensions [(below)](#CommunityExtensions)
 Submit your published extensions to this page with a pull request on [GitHub](https://github.com/openbadges/openbadges-specification/blob/gh-pages/extensions/index.md), following the existing format of the page.
 
 
@@ -43,7 +43,7 @@ Assertion, BadgeClass, Issuer
 {% endhighlight %}
 
 
-# Community Extensions:
+# <a name="CommunityExtensions"></a> Community Extensions:
 
 ### <a name="ApplyLink"></a> Apply Link
 The apply link provides a url that allows potential badge earners to apply for an opportunty as specified by the badge issuer.
@@ -130,6 +130,45 @@ Assertion (full copy of endorsed object elided):
 }
 {% endhighlight %}
 
+### <a name="GeoCoordinates"></a> Location
+An extension allowing for the addition of the geographic coordinates associated with a badge object. For example, geolocation could represent where a Badge Class is available, where a badge was earned or the location of an issuer. The required description property allows implementers to be more specific about the reason location is included. The extended value takes
+
+{::options parse_block_html="true" /}
+<div class="table-wrapper">
+
+Property     | Type        | Value Description
+-------------|-------------|---------
+**@context** | context IRI | [https://w3id.org/openbadges/extensions/geoCoordinatesExtension/context.json](https://w3id.org/openbadges/extensions/geoCoordinatesExtension/context.json)
+**type**    | type IRI array |`['Extension', 'schema:Place' 'extensions:GeoCoordinates']`
+**name** | text | The place's name, if available
+**description** | text | A description of the location
+**geo** | object | The GeoCoordinates of a location (containing the following properties)
+**latitude** | number | The latitude of a location
+**longitude** | number | The longitude of a location
+
+
+</div>
+
+**Extendable Badge Objects:**
+Assertion, BadgeClass, Issuer
+
+**Example implementation:**
+{% highlight json %}
+{ 
+  ...
+  "schema:location": {
+    "@context": "https://openbadgespec.org/extensions/geoCoordinatesExtension/context.json",
+    "type": ["Extension", "extensions:GeoCoordinates", "schema:Place"],
+    "name": "Stadium of Light, Sunderland",
+    "description": "A foodball stadium in Sunderland, England that is home to Sunderland A.F.C.",
+    "geo": {
+      "latitude": 54.914440,
+      "longitude": -1.387721
+    }
+  }
+}
+{% endhighlight %}
+
 ### <a name="accessibility"></a> Accessibility
 An extension allowing for the addition of the content for people with disabilities.
 
@@ -188,8 +227,8 @@ IssuerClass of X is stored as the OriginalCreator in the BadgeClass and either Y
 Property     | Type        | Value Description
 -------------|-------------|---------
 **@context** | context IRI | [https://openbadgespec.org/extensions/originalCreatorExtension/context.json](./originalCreatorExtension/context.json)
-**type**    | type IRI array |`['Extension', 'extensions:OriginalCreator']`
-**url** | string,uri | Valid url pointing to the IssuerClass document of the original creator of this badge
+**type**     | type IRI array |`['Extension', 'extensions:OriginalCreator']`
+**url**      | string, uri | Valid url pointing to the Issuer document of the issuer that originally defined this BadgeClass
 
 </div>
 
