@@ -136,7 +136,7 @@ Assertion (full copy of endorsed object elided):
 {% endhighlight %}
 
 ### <a name="GeoCoordinates"></a> Location
-_Authors: [Doug Belshaw](http://dynamicskillset.com) and [Kerri Lemoie](https://github.com/kayaelle)_
+_Authors: [Doug Belshaw](http://dougbelshaw.com) and [Kerri Lemoie](https://github.com/kayaelle)_
 
 An extension allowing for the addition of the geographic coordinates associated with a badge object. For example, geolocation could represent where a Badge Class is available, where a badge was earned or the location of an issuer. The required description property allows implementers to be more specific about the reason location is included. The extended value takes
 
