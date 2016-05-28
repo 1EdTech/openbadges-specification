@@ -138,7 +138,7 @@ An extension allowing for the addition of the content for people with disabiliti
 
 Property     | Type        | Value Description
 -------------|-------------|---------
-**@context** | context IRI | [https://w3id.org/openbadges/extensions/accessibility/context.json](https://w3id.org/openbadges/extensions/accessibility/context.json)
+**@context** | context IRI | [https://w3id.org/openbadges/extensions/accessibilityExtension/context.json](https://w3id.org/openbadges/extensions/accessibilityExtension/context.json)
 **type**    | type IRI array |`['Extension', 'extensions:Accessibility']`
 **accessibilityAPI** | text | Indicates that the resource is compatible with the referenced accessibility API. Possible values: `['AndroidAccessibility','ARIA','ATK','AT-SPI','BlackberryAccessibility','iAccessible2','iOSAccessibility','JavaAccessibility','MacOSXAccessibility','MSAA','UIAutomation']`
 **accessibilityControl** | text | Identifies one or more input methods that allow access to all of the application functionality. Possible values: `['fullKeyboardControl','fullMouseControl','fullSwitchControl','fullTouchControl','fullVideoControl','fullVoiceControl']`
@@ -164,7 +164,7 @@ Assertion, BadgeClass, Issuer
     ],
     "issuer": "https://example.org/badge/issuer.json",
   "extensions:Accessibility": {
-    "@context":"https://w3id.org/openbadges/extensions/accessibility/context.json",
+    "@context":"https://w3id.org/openbadges/extensions/accessibilityExtension/context.json",
     "type": ["Extension", "extensions:Accessibility"],
     "accessibilityAPI": "ARIA",
     "accessibilityControl": ["fullKeyboardControl","fullMouseControl","fullTouchControl"],
