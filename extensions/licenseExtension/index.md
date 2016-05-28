@@ -30,9 +30,9 @@ Go back to [all extensions](../) to [See full details about the License Extensio
 By using CC0, you waive all copyright and related rights to a work to the extent possible under the law.
 {% highlight json %}
 {
-  "http://creativecommons.org/ns#license": {
+  "schema:license": {
     "@context": "https://openbadgespec.org/extensions/licenseExtension/context.json",
-    "type": ["Extension", "extensions:LicenseExtension", "http://creativecommons.org/ns#License"],
+    "type": ["Extension", "extensions:LicenseExtension", "cc:License"],
     "id": "CC-0",
     "name": "Creative Commons Public Domain Dedication",
     "legalCode": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"
@@ -45,9 +45,9 @@ By using CC0, you waive all copyright and related rights to a work to the extent
 This license lets others distribute, remix, tweak, and build upon your work, even commercially, as long as they credit you for the original creation. This is the most accommodating of licenses offered. Recommended for maximum dissemination and use of licensed materials.
 {% highlight json %}
 {
-  "http://creativecommons.org/ns#license": {
+  "schema:license": {
     "@context": "https://openbadgespec.org/extensions/licenseExtension/context.json",
-    "type": ["Extension", "extensions:LicenseExtension", "http://creativecommons.org/ns#License"],
+    "type": ["Extension", "extensions:LicenseExtension", "cc:License"],
     "id": "CC-BY",
     "name": "Creative Commons Attribution",
     "legalCode": "http://creativecommons.org/licenses/by/4.0/legalcode"
@@ -60,9 +60,9 @@ This license lets others distribute, remix, tweak, and build upon your work, eve
 This license lets others remix, tweak, and build upon your work even for commercial purposes, as long as they credit you and license their new creations under the identical terms. All new works based on yours will carry the same license, so any derivatives will also allow commercial use.
 {% highlight json %}
 {
-  "http://creativecommons.org/ns#license": {
+  "schema:license": {
     "@context": "https://openbadgespec.org/extensions/licenseExtension/context.json",
-    "type": ["Extension", "extensions:LicenseExtension", "http://creativecommons.org/ns#License"],
+    "type": ["Extension", "extensions:LicenseExtension", "cc:License"],
     "id": "CC-BY-SA",
     "name": "Creative Commons Attribution",
     "legalCode": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
@@ -75,9 +75,9 @@ This license lets others remix, tweak, and build upon your work even for commerc
 This license lets others remix, tweak, and build upon your work non-commercially, and although their new works must also acknowledge you and be non-commercial, they don’t have to license their derivative works on the same terms.
 {% highlight json %}
 {
-  "http://creativecommons.org/ns#license": {
+  "schema:license": {
     "@context": "https://openbadgespec.org/extensions/licenseExtension/context.json",
-    "type": ["Extension", "extensions:LicenseExtension", "http://creativecommons.org/ns#License"],
+    "type": ["Extension", "extensions:LicenseExtension", "cc:License"],
     "id": "CC-BY-NC",
     "name": "Creative Commons Attribution-NonCommercial",
     "legalCode": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
@@ -90,9 +90,9 @@ This license lets others remix, tweak, and build upon your work non-commercially
 This license lets others remix, tweak, and build upon your work non-commercially, as long as they credit you and license their new creations under identical terms.
 {% highlight json %}
 {
-  "http://creativecommons.org/ns#license": {
+  "schema:license": {
     "@context": "https://openbadgespec.org/extensions/licenseExtension/context.json",
-    "type": ["Extension", "extensions:LicenseExtension", "http://creativecommons.org/ns#License"],
+    "type": ["Extension", "extensions:LicenseExtension", "cc:License"],
     "id": "CC-BY-NC-SA",
     "name": "Creative Commons Attribution-NonCommercial",
     "legalCode": "http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
@@ -105,9 +105,9 @@ This license lets others remix, tweak, and build upon your work non-commercially
 This license allows for redistribution, commercial and non-commercial, as long as it is passed along unchanged and in whole, with credit to you. While the Badge Alliance includes all of the Creative Commons licenses in this documentation, it acknowledges that the NoDerivs licenses are only suitable for resources other than core OBI data classes, as these data classes are presumed to be distributed between systems as a matter of the proper functioning of the Open Badges Ecosystem.
 {% highlight json %}
 {
-  "http://creativecommons.org/ns#license": {
+  "schema:license": {
     "@context": "https://openbadgespec.org/extensions/licenseExtension/context.json",
-    "type": ["Extension", "extensions:LicenseExtension", "http://creativecommons.org/ns#License"],
+    "type": ["Extension", "extensions:LicenseExtension", "cc:License"],
     "id": "CC-BY-NC",
     "name": "Creative Commons Attribution-NoDerivatives",
     "legalCode": "http://creativecommons.org/licenses/by-nd/4.0/legalcode"
@@ -120,9 +120,9 @@ This license allows for redistribution, commercial and non-commercial, as long a
 This license is the most restrictive of Creative Commons' six licenses, only allowing others to download your works and share them with others as long as they credit you, but they can’t change them in any way or use them commercially. While the Badge Alliance includes all of the Creative Commons licenses in this documentation, it acknowledges that the NoDerivs licenses are only suitable for resources other than core OBI data classes, as these data classes are presumed to be distributed between systems as a matter of the proper functioning of the Open Badges Ecosystem. NoDerivatives licenses may be used to indicate that transformative uses are not allowed by the copyright holder, 
 {% highlight json %}
 {
-  "http://creativecommons.org/ns#license": {
+  "schema:license": {
     "@context": "https://openbadgespec.org/extensions/licenseExtension/context.json",
-    "type": ["Extension", "extensions:LicenseExtension", "http://creativecommons.org/ns#License"],
+    "type": ["Extension", "extensions:LicenseExtension", "cc:License"],
     "id": "CC-BY-NC-ND",
     "name": "Creative Commons Attribution-NonCommercial",
     "legalCode": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"

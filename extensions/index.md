@@ -243,9 +243,9 @@ The content license extension enables issuers to indicate what permissions are g
   "type": "BadgeClass",
   "name": "Licensed Badge",
   "...": "...",
-  "http://creativecommons.org/ns#license": {
+  "schema:license": {
     "@context": "https://openbadgespec.org/extensions/licenseExtension/context.json",
-    "type": ["Extension", "extensions:LicenseExtension", "http://creativecommons.org/ns#License"],
+    "type": ["Extension", "extensions:LicenseExtension", "cc:License"],
     "id": "CC-BY",
     "name": "Creative Commons Attribution",
     "legalCode": "http://creativecommons.org/licenses/by/3.0/legalcode"
