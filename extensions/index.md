@@ -51,7 +51,6 @@ _Author: [Kerri Lemoie](https://github.com/kayaelle)_
 
 The apply link provides a url that allows potential badge earners to apply for an opportunty as specified by the badge issuer.
 
-{::options parse_block_html="true" /}
 <div class="table-wrapper">
 
 Property     | Type        | Value Description
@@ -135,12 +134,11 @@ Assertion (full copy of endorsed object elided):
 }
 {% endhighlight %}
 
-### <a name="GeoCoordinates"></a> Location
+### <a name="GeoCoordinates"></a>Geo Location
 _Authors: [Doug Belshaw](http://dougbelshaw.com) and [Kerri Lemoie](https://github.com/kayaelle)_
 
 An extension allowing for the addition of the geographic coordinates associated with a badge object. For example, geolocation could represent where a Badge Class is available, where a badge was earned or the location of an issuer. The required description property allows implementers to be more specific about the reason location is included. The extended value takes
 
-{::options parse_block_html="true" /}
 <div class="table-wrapper">
 
 Property     | Type        | Value Description
@@ -179,18 +177,16 @@ Assertion, BadgeClass, Issuer
 ### <a name="accessibility"></a> Accessibility
 An extension allowing for the addition of the content for people with disabilities.
 
-{::options parse_block_html="true" /}
 <div class="table-wrapper">
 
 Property     | Type        | Value Description
 -------------|-------------|---------
 **@context** | context IRI | [https://w3id.org/openbadges/extensions/accessibility/context.json](https://w3id.org/openbadges/extensions/accessibility/context.json)
 **type**    | type IRI array |`['Extension', 'extensions:Accessibility']`
-**accessibilityAPI** | text | Indicates that the resource is compatible with the referenced accessibility API. Possible values: `['AndroidAccessibility','ARIA','ATK','AT-SPI','BlackberryAccessibility','iAccessible2','iOSAccessibility','JavaAccessibility','MacOSXAccessibility','MSAA','UIAutomation']`
-**accessibilityControl** | text | Identifies one or more input methods that allow access to all of the application functionality. Possible values: `['fullKeyboardControl','fullMouseControl','fullSwitchControl','fullTouchControl','fullVideoControl','fullVoiceControl']`
-**accessibilityFeature** | text | Content features of the resource, such as accessible media, supported enhancements for accessibility and alternatives. `['alternativeText','annotations','audioDescription','bookmarks','braille','captions','ChemML','describedMath','displayTransformability','highContrastAudio','highContrastDisplay','index','largePrint','latex','longDescription','MathML','none','printPageNumbers','readingOrder','signLanguage','structuralNavigation','tableOfContents','taggedPDF','tactileGraphic','tactileObject','timingControl','transcript','ttsMarkup','unlocked']`
-**accessibilityHazard** | text | A characteristic of the described resource that is physiologically dangerous to some users. Related to http://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure.html `['flashing','noFlashingHazard','motionSimulation','noMotionSimulationHazard','sound','noSoundHazard']`
-
+**accessibilityAPI** | text | Indicates that the resource is compatible with the referenced accessibility API. Possible values: `['AndroidAccessibility', 'ARIA', 'ATK', 'AT-SPI', 'BlackberryAccessibility', 'iAccessible2', 'iOSAccessibility', 'JavaAccessibility', 'MacOSXAccessibility', 'MSAA', 'UIAutomation']`
+**accessibilityControl** | text | Identifies one or more input methods that allow access to all of the application functionality. Possible values: `['fullKeyboardControl', 'fullMouseControl', 'fullSwitchControl', 'fullTouchControl', 'fullVideoControl', 'fullVoiceControl']`
+**accessibilityFeature** | text | Content features of the resource, such as accessible media, supported enhancements for accessibility and alternatives. `['alternativeText', 'annotations', 'audioDescription', 'bookmarks', 'braille', 'captions', 'ChemML', 'describedMath', 'displayTransformability', 'highContrastAudio', 'highContrastDisplay', 'index', 'largePrint', 'latex', 'longDescription','MathML', 'none', 'printPageNumbers', 'readingOrder', 'signLanguage', 'structuralNavigation', 'tableOfContents', 'taggedPDF', 'tactileGraphic', 'tactileObject', 'timingControl', 'transcript', 'ttsMarkup', 'unlocked']`
+**accessibilityHazard** | text | A characteristic of the described resource that is physiologically dangerous to some users. Related to http://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure.html `['flashing', 'noFlashingHazard', 'motionSimulation', 'noMotionSimulationHazard', 'sound', 'noSoundHazard']`
 
 </div>
 
@@ -221,6 +217,46 @@ Assertion, BadgeClass, Issuer
 }
 {% endhighlight %}
 
+
+### <a name="LicenseExtension"></a>Creative Commons Content License
+_Editor: [Nate Otto](http://ottonomy.net)_
+
+The content license extension enables issuers to indicate what permissions are granted to the public to reuse BadgeClass metadata in their own badges in terms of an expressive set of open content licenses that have broad global buy-in.
+
+<div class="table-wrapper">
+
+| Property      | Type           | Value Description
+|---------------|----------------|-----------------------
+| **@context**  | context IRI    | [https://openbadgespec.org/extensions/licenseExtension/context.json](licenseExtension/context.json)
+| **type**      | type IRI array | `["extension", "cc:License"]`
+| **id**        | @id (IRI)      | The URL unique identifier for the license that is used. For example, 'http://creativecommons.org/licenses/by/4.0/' (Aliases available to international versions: `CC-BY`, `CC-BY-SA`, `CC-BY-NC`, `CC-BY-NC-SA`, `CC-BY-ND`)
+| **legalCode** | @id (IRI)      | The URL unique identifier for the license that is used. For example, 'http://creativecommons.org/licenses/by/4.0/legalcode'
+
+</div>
+
+*Extendable Badge Objects*: BadgeClass
+
+*Example Implementation* (Abbreviated JSON-LD BadgeClass): 
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v1",
+  "type": "BadgeClass",
+  "name": "Licensed Badge",
+  "...": "...",
+  "http://creativecommons.org/ns#license": {
+    "@context": "https://openbadgespec.org/extensions/licenseExtension/context.json",
+    "type": ["Extension", "extensions:LicenseExtension", "http://creativecommons.org/ns#License"],
+    "id": "CC-BY",
+    "name": "Creative Commons Attribution",
+    "legalCode": "http://creativecommons.org/licenses/by/3.0/legalcode"
+  }
+}
+{% endhighlight %}
+
+**Get Started**: See examples of all international Creative Commons licenses in use on the [License Extensions Example Page](licenseExtension).
+
+
+
 ### <a name="OriginalCreator"></a> Original Creator
 _Author: [Antti Koskinen](https://github.com/ajk)_
 
@@ -230,7 +266,6 @@ For example, presume we have organisations X, Y and Z. A badge is created by X a
 IssuerClass of X is stored as the OriginalCreator in the BadgeClass and either Y or Z becomes the issuer.
 
 
-{::options parse_block_html="true" /}
 <div class="table-wrapper">
 
 Property     | Type        | Value Description
