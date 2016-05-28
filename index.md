@@ -41,7 +41,7 @@ Each Badge Object may have additional properties beyond those defined here. Some
 
 #### Badge Baking
 _since: 0.5_
-Badge assertions may be "baked" into image files as portable credentials. Baking is currently supported for PNG and SVG formats. ([Baking Specification](https://github.com/mozilla/openbadges-backpack/wiki/Open-Badge-Baking-Specification) and [Baking Instructions]https://github.com/mozilla/openbadges-backpack/wiki/Badge-Baking)
+Badge assertions may be "baked" into image files as portable credentials. Baking is currently supported for PNG and SVG formats. (See [Baking Specification](https://github.com/mozilla/openbadges-backpack/wiki/Open-Badge-Baking-Specification) and [Baking Instructions](https://github.com/mozilla/openbadges-backpack/wiki/Badge-Baking))
 
 #### Hosted Verification
 _since: 0.5_
