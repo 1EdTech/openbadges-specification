@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Open Badges License Extension",
+  "description": "An extension that allows issuers to describe the license of an Open Badges object.",
+  "type": "object",
+  "properties": {
+    "@graph":{
+      "type": "array",
+      "items": {
+        "type": "object", 
+        "properties": {
+          "id": {
+            "type": "string", 
+            "format": "url"
+          },
+          "name": {
+            "type": "string"
+          },
+          "http://creativecommons.org/ns#legalcode": {
+            "type": "string",
+            "format": "url"
+          }
+        },
+        "required": ["id", "name"]
+      }
+    }
+  }
+}
