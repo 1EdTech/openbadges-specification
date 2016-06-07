@@ -1,3 +1,8 @@
+---
+title: Open Badges Baking Specification
+subtitle: Instructions for Embedding Open Badges into PNG and SVG image files
+show_sidebar: true
+---
 # Badge Baking
 
 ## What Is Badge Baking?
@@ -16,7 +21,7 @@ An <a href="http://www.w3.org/TR/PNG/#11iTXt">`iTXt` chunk</a> should be inserte
 
 An example of creating a chunk (assuming an iTXt constructor):
 
-```js
+{% highlight js %}
 var chunk = new iTXt({
   keyword: 'openbadges',
   compression: 0,
@@ -25,7 +30,7 @@ var chunk = new iTXt({
   translatedKeyword: '',
   text: signature || JSON.stringify(assertion)
 })
-```
+{% endhighlight %}
 
 An iTXt chunk with the keyword “openbadges” **MUST NOT** appear in a PNG more than once. When baking a badge that already contains OpenBadges data, the implementor may choose whether to pass the user an error or overwrite the existing chunk.
 
@@ -48,7 +53,7 @@ If an assertion is being baked, the JSON representation of the assertion should 
 
 An example of a well baked SVG with a hosted assertion:
 
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:openbadges="http://openbadges.org"
@@ -72,9 +77,9 @@ An example of a well baked SVG with a hosted assertion:
     ]]>
   </openbadges:assertion>
 
-  <...rest of document...>
+  <rest-of-document...>
 </svg>
-```
+{% endhighlight %}
 
 There **MUST** be only one `<openbadges:assertion>` tag in an SVG. When baking a badge that already contains OpenBadges data, the implementor may choose whether to pass the user an error or overwrite the existing tag.
 
@@ -83,3 +88,16 @@ There **MUST** be only one `<openbadges:assertion>` tag in an SVG. When baking a
 Parse the SVG until you reach the first `<openbadges:assertion>` tag. The rest of the SVG data can safely be discarded.
 
 If the tag has no body, the `verify` attribute will contain the signature of the badge. If there is a body, it will be the JSON representation of a badge assertion.
+
+## Baking Specification Changelog
+
+### 2013-11-05 Version 1.0.0
+  * Support for full assertions added
+  * Support for signed badges added
+  * Support for SVGs added
+  * PNG baking now uses `iTXt` chunk.
+
+### Pre-release
+  * Only PNGs supported: `tEXt` chunk used with keyword `openbadges`
+  * Only hosted badges supported
+  * Hosted URL embedded in PNG
