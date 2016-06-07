@@ -248,7 +248,7 @@ The content license extension enables issuers to indicate what permissions are g
     "type": ["Extension", "extensions:LicenseExtension", "cc:License"],
     "id": "CC-BY",
     "name": "Creative Commons Attribution",
-    "legalCode": "http://creativecommons.org/licenses/by/3.0/legalcode"
+    "legalCode": "http://creativecommons.org/licenses/by/4.0/legalcode"
   }
 }
 {% endhighlight %}
