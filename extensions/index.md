@@ -223,6 +223,8 @@ _Editor: [Nate Otto](http://ottonomy.net)_
 
 The content license extension enables issuers to indicate what permissions are granted to the public to reuse BadgeClass metadata in their own badges in terms of an expressive set of open content licenses that have broad global buy-in.
 
+Thanks to editorial contributions from [Timothy F Cook](https://twitter.com/timothyfcook), [Attila Szabó Nagy](https://about.me/sznattila), [Serge Ravet](https://twitter.com/szerge), and [Jim Goodell](https://twitter.com/jgoodell2)
+
 <div class="table-wrapper">
 
 | Property      | Type           | Value Description
