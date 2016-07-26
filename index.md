@@ -23,7 +23,7 @@ This document represents the current version of the Open Badges Specification.
  * [Badge Objects](#BadgeObjects)
    - [Assertion](#Assertion)
    - [BadgeClass](#BadgeClass)
-   - [Issuer](#Issuer)
+   - [Issuer Profile](#Issuer)
    - [Extensions](#Extensions)
  * [Implementation](#Implementation)
    - [Hosted verification](#HostedBadge)
@@ -118,7 +118,7 @@ Property | Expected Type | Description
 **description** | Text | A short description of the achievement.
 **image** | [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing the achievement.
 <a id="Criteria"></a>**criteria** | URL | URL of the criteria for earning the achievement. If the badge represents an educational achievement, consider marking up this up with [LRMI](http://www.lrmi.net/)
-**issuer** | URL | URL of the organization that issued the badge. Endpoint should be an [IssuerOrganization](#Issuer)
+**issuer** | URL | URL of the organization that issued the badge. Endpoint should be an [Issuer Profile](#Issuer)
 alignment | Array of [AlignmentObject](#Alignment)s | List of objects describing which educational standards this badge aligns to, if any.
 <a id="Tags"></a>tags | Array of Text | List of tags that describe the type of achievement.
 
@@ -137,7 +137,7 @@ description | Text | Short description of the standard
 
 </div>
 
-## <a id="Issuer"></a>IssuerOrganization ([example](./examples/#Issuer))
+## <a id="Issuer"></a>Issuer Profile ([example](./examples/#Issuer))
 A collection of information about the entity or organization issuing the Open Badge. Each issuer may correspond to many BadgeClasses. Anyone can create and host an Issuer file to start issuing Open Badges.
 
 {::options parse_block_html="true" /}
@@ -146,8 +146,8 @@ A collection of information about the entity or organization issuing the Open Ba
 Property | Expected Type | Description
 --------|------------|-----------
 **@context** | JSON-LD Context | `https://w3id.org/openbadges/v1` or valid JSON-LD context array or object including the 1.1 Open Badges Context
-**id** | URL | Unique IRI for the hosted IssuerOrganization file.
-**type** | JSON-LD type | valid JSON-LD representation of the Issuer type. In most cases, this will simply be the string `IssuerOrg`. An array including `IssuerOrg` and other string elements that are either URLs or compact IRIs within the current context are allowed.
+**id** | URL | Unique IRI for the hosted Issuer Profile file.
+**type** | JSON-LD type | valid JSON-LD representation of the Issuer type. In most cases, this will simply be the string `Issuer`. An array including `Issuer` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 <a id="name"></a>**name** | Text | The name of the issuing organization.
 **url** | URL | URL of the institution
 <a id="description"></a>description | Text | A short description of the institution
@@ -283,7 +283,7 @@ property of the badge assertion.
 ### Revoking a Signed Badge
 
 To mark a badge as revoked, add an entry to the resource pointed at by
-the IssuerOrganization `revocationList` URL with the **uid** of the
+the Issuer Profile `revocationList` URL with the **uid** of the
 badge and a reason why the badge is being revoked. See an [example](examples/#RevocationList).
 
 ## Badge Verification
@@ -320,7 +320,7 @@ the assertion MUST be treated as invalid.
 6. With the public key, perform a JWS verification on the JWS object. If
 the verification fails, assertion MUST be treated as invalid.
 
-7. Retrieve the revocation list from the IssuerOrganization object and
+7. Retrieve the revocation list from the Issuer Profile object and
 ensure the `uid` of the badge does not appear in the list.
 
 8. If the above steps pass, assertion MAY BE treated as valid.
