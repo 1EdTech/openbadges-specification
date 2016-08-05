@@ -117,10 +117,10 @@ Property | Expected Type | Description
 **name** | Text | The name of the achievement.
 **description** | Text | A short description of the achievement.
 **image** | [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | URL of an image representing the achievement.
-<a id="Criteria"></a>**criteria** | URL | URL of the criteria for earning the achievement. If the badge represents an educational achievement, consider marking up this up with [LRMI](http://www.lrmi.net/)
+<a id="criteria"></a>**criteria** | URL | URL of the criteria for earning the achievement. If the badge represents an educational achievement, consider marking up this up with [LRMI](http://www.lrmi.net/)
 **issuer** | URL | URL of the organization that issued the badge. Endpoint should be an [Issuer Profile](#Issuer)
 alignment | Array of [AlignmentObject](#Alignment)s | List of objects describing which educational standards this badge aligns to, if any.
-<a id="Tags"></a>tags | Array of Text | List of tags that describe the type of achievement.
+<a id="tags"></a>tags | Array of Text | List of tags that describe the type of achievement.
 
 </div>
 
@@ -144,16 +144,16 @@ A collection of information about the entity or organization issuing the Open Ba
 <div class="table-wrapper">
 
 Property | Expected Type | Description
---------|------------|-----------
+---------|---------------|------------
 **@context** | JSON-LD Context | `https://w3id.org/openbadges/v1` or valid JSON-LD context array or object including the 1.1 Open Badges Context
 **id** | URL | Unique IRI for the hosted Issuer Profile file.
 **type** | JSON-LD type | valid JSON-LD representation of the Issuer type. In most cases, this will simply be the string `Issuer`. An array including `Issuer` and other string elements that are either URLs or compact IRIs within the current context are allowed.
-<a id="name"></a>**name** | Text | The name of the issuing organization.
-**url** | URL | URL of the institution
-<a id="description"></a>description | Text | A short description of the institution
-<a id="image"></a>image | [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the institution
-<a id="email"></a>email | Text | Contact address for someone at the organization.
-<a id="RevocationList"></a>revocationList | URL |  URL of the Badge Revocation List. The endpoint should be a JSON representation of an object where the keys are the `uid` or `id` of a revoked badge assertion, and the values are the reason for revocation. It is only recommended that signed badge issuers use this method when they have revoked at least one badge.
+**name** | Text | The name of the issuing entity or organization.
+**url** | URL | URL homepage of the issuer, whether individual or institutional.
+description | Text | A short description of the issuer entity or organization
+image | [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the issuer
+email | Text | Contact address for the individual or organization.
+<a id="revocationList"></a>revocationList | URL |  URL of the Badge Revocation List. The endpoint should be a JSON representation of an object where the keys are the `uid` or `id` of a revoked badge assertion, and the values are the reason for revocation. It is only recommended that signed badge issuers use this method when they have revoked at least one badge.
 
 </div>
 
@@ -224,7 +224,7 @@ Validators that someday use the proposed FrameValidation method pass JSON-LD obj
 
 ## <a id="additional-properties"></a>Additional Properties
 
-Badges consist of sets of claims, properties with values that apply to Issuer Organizations, all earners of a badge, or individual badge recipients. Outside of extensions, additional properties may be added to these claim sets so long as they are mapped to an IRI, as JSON-LD mapped in the context and do not clash with existing properties. For example, if a badge object creatorCreators of Badge Objects may:
+Badges consist of sets of claims, properties with values that apply to Issuer Profiles, all earners of a badge, or individual badge recipients. Outside of extensions, additional properties may be added to these claim sets so long as they are mapped to an IRI, as JSON-LD mapped in the context and do not clash with existing properties. For example, if a badge object creatorCreators of Badge Objects may:
 
 1. Add individual mappings to the Badge Object's context: `"@context":["https://w3id.org/openbadges/v1", {"foo": "http://example.org/foo"}]`
 2. Link to additional context files in the Badge Object's context: `"@context":["https://w3id.org/openbadges/v1", "http://example.org/context"]`
