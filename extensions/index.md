@@ -303,10 +303,10 @@ Property     | Type        | Value Description
 -------------|-------------|---------
 **@context** | context IRI | [https://openbadgespec.org/extensions/issuerAccreditationExtension/context.json](./issuerAccreditationExtension/context.json)
 **type**     | type IRI array |`['Extension', 'extensions:IssuerAccreditation']`
-**name**     | string| The official name of the organization, e.g. the registered company name.
-<a name="contactInstructions"></a>**contactInstructions**     | string | Contact instructions for an accrediting organization.
-**url**     | string,uri | URL of the accrediting organization.
-**address**     | object | Physical address of the accrediting organization. Object contains specific locality information. 
+**name**     | string| The official name of the organization, e.g. the registered company name. (required)
+<a name="contactInstructions"></a>**contactInstructions**     | string | Contact instructions for an accrediting organization. (required)
+**url**     | string,uri | URL of the accrediting organization. (required)
+**address**     | object | Physical address of the accrediting organization. Object contains specific locality information. (required)
 **streetAddress**     | string | The street address. For example, 1600 Amphitheatre Pkwy.
 **addressLocality**     | string |  The locality. For example, Mountain View.
 **addressRegion**     | string |  The region. For example, CA.
