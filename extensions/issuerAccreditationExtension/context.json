@@ -1,0 +1,27 @@
+{
+  "@context": {
+    "obi": "https://w3id.org/openbadges#",
+    "extensions": "https://w3id.org/openbadges/extensions#",
+    "schema": "http://schema.org/",
+    "name": "schema:name",
+    "contactInstructions": "extensions:contactInstructions",
+    "url": "schema:url",
+    "address": "schema:address",
+    "streetAddress": "schema:streetAddress",
+    "addressLocality": "schema:addressLocality",
+    "addressRegion": "schema:addressRegion",
+    "postalCode": "schema:postalCode",
+    "description": "schema:description",
+    "logo": "schema:logo",
+    "parentOrganization": "schema:parentOrganization",
+    "areaServed": "schema:areaServed",
+    "accreditationDate": "extensions:accreditationDate",
+    "educationalSector": "extensions:educationalSector"
+  },
+  "obi:validation": [
+    {
+      "obi:validatesType": "extensions#IssuerAccreditation",
+      "obi:validationSchema": "https://openbadgespec.org/extensions/issuerAccreditation/schema.json"
+    }
+  ]
+}
