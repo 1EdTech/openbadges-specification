@@ -327,7 +327,7 @@ Issuer
 {% highlight json %}
 { 
   "extensions:IssuerAccreditation": {
-    "@context":"https://openbadgespec.org/extensions/issuerAccreditationExtensions/context.json",
+    "@context":"https://openbadgespec.org/extensions/issuerAccreditationExtension/context.json",
     "type": ["Extension", "extensions:IssuerAccreditation"],
     "name": "Higher Learning Commission",
     "contactInstructions": "Visit website to request an instiitutional status and requirements report",
@@ -354,7 +354,7 @@ Issuer
 {% highlight json %}
 { 
   "extensions:IssuerAccreditation": [{
-    "@context":"https://openbadgespec.org/extensions/issuerAccreditation/context.json",
+    "@context":"https://openbadgespec.org/extensions/issuerAccreditationExtension/context.json",
     "type": ["Extension", "extensions:IssuerAccreditation"],
     "name": "Northwest Commission on Colleges and Universities",
     "contactInstructions": "Call or email the Commission Office",
@@ -386,6 +386,80 @@ Issuer
     "accreditationDate": "2014-04-01",
     "educationalSector": "postsecondary"
 }]
+{% endhighlight %}
+
+### <a name="Assessment"></a> Assessment (DRAFT)
+_Author: [IMS Global](https://github.com/imsglobal)_
+
+This extension provides information about single or multiple assessments that would be completed by the recipient as part of the requirements for earning an OpenBadge. There could be multiple assessments of different types for each badge earned. Separate, independent evaluations of a single assessment could result in multiple assessment/evaluation records, all included in a single instance of the extension. Please note that this extension is in draft mode and may not be ready for production.
+
+
+<div class="table-wrapper">
+
+Property     | Type        | Value Description
+-------------|-------------|---------
+**@context** | context IRI | [https://openbadgespec.org/extensions/assessmentExtension/context.json](./assessmentExtension/context.json) 
+**type**     | type IRI array |`['Extension', 'extensions:Assessment']`
+**overallDescription**     | string| A description of how the assessment activity is organized, particularly describing the relationship between multiple assessments included in the extension. (required)
+**assessment**     | array | array of AssessmentObjects (at least one AssessmentObject required)
+**assessmentDescription**     | string | Description of the single assessment. (required)
+**assessmentType**     | string | One of the following keywords: Exam, Performance or CreativeWork. (required)
+**assessmentOutput**     | string | This field provides additional details about assessmentType. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge. (required)
+**participationEntity**     | string |  One of the following keywords: Individual or Group. “Individual” refers to whether the assessment was completed by an individual; “Group” refers to assessments that involved two or more people. (required)
+**evaluatedEntity**     | string |  One of the following keywords: Individual or Group. “Individual” refers to whether the recipient of the badge is being evaluated for individual work in completing the assessment (even if done within a group); “Group” indicates that the assessment done by a group was evaluated as a group.(required)
+**evaluationMethod**     | string |  Information about how the assessment is scored.  What do the scores represent in a range of scores? If a rubric was used, what are the score ranges for each criteria?
+**assessmentEvaluation**     | string,uri |  Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods.
+
+</div>
+
+
+**Extendable Badge Objects:**
+Badge Class
+
+**Example implementation (Single Assessment):**
+{% highlight json %}
+"extensions:Assessment": {
+  "@context":"https://openbadgespec.org/extensions/assessmentExtension/context.json",
+  "type": ["Extension", "extensions:assessment"],
+  "overallDescription": "The assessment included are a simulated clinical setting and an actual clinical setting.",
+  "assessment": [
+    {
+      "assessmentDescription": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
+      "assessmentType": "CreativeWork",
+      "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
+      "participationEntity": "Individual",
+      "evaluatedEntity": "Individual",
+      "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice."
+    }
+  ]
+}
+{% endhighlight %}
+
+**Example implementation (Two Assessments):**
+{% highlight json %}
+"extensions:Assessment": {
+  "@context":"https://openbadgespec.org/extensions/assessmentExtension/context.json",
+  "type": ["Extension", "extensions:assessment"],
+  "overallDescription": "The assessments included are a simulated clinical setting and an actual clinical setting.",
+  "assessment": [
+    {
+      "assessmentDescription": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
+      "assessmentType": "CreativeWork",
+      "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
+      "participationEntity": "Individual",
+      "evaluatedEntity": "Individual",
+      "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice."
+    },
+    {
+      "assessmentDescription": "Requires following standard procedures in measuring vital signs in a clinic patient and explaining the  results of a standard lab analysis on the basis of deviations from the norm.",
+      "assessmentType": "Performance",
+      "assessmentOutput": "Clinical demonstration of interpreting blood pressure and lab results to patient without diagnoses, evaluated by clinical supervisor.",
+      "participationEntity": "Individual",
+      "evaluatedEntity": "Individual",
+      "evaluationMethod": "Clinical supervisor uses a checklist to verify that the clinical demonstration includes the key elements that need to be communicated to the patient."
+    },
+  ]
+}
 {% endhighlight %}
 
 
