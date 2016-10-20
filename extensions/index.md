@@ -294,7 +294,7 @@ BadgeClass
 ### <a name="IssuerAccreditation"></a> Issuer Accreditation (DRAFT)
 _Author: [IMS Global](https://github.com/imsglobal)_
 
-This extension provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile.
+This extension provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile. Please note that this extension is in draft mode and may not be ready for production.
 
 
 <div class="table-wrapper">
