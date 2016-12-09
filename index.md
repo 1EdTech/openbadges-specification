@@ -3,13 +3,16 @@ title: Open Badges Technical Specification
 subtitle: A vocabulary for Portable digital credentials developed by IMS Global
 show_sidebar: true
 ---
+{::options parse_block_html="true" /}
 # {{ page.title }}
 This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. 
 
 This specification includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v1.1_)](https://w3id.org/openbadges/v1)  for the Open Badges Standard.
 
 #### Status of this Document
-This document represents a draft in progress of the Open Badges Specification.
+<div class="note good-news">
+This document represents a draft in progress for a future version of the Open Badges Specification. The current version of the specification is v1.1 and is available at [openbadgespec.org](https://openbadgespec.org).
+</div>
 
 > **Current version of the Open Badges specification: 2.0-draft**
 - Published: 31 December 2016.
@@ -48,7 +51,6 @@ Each Badge Object may have [additional properties](#additional-properties) beyon
 ### Assertion <a id="Assertion"></a> ([example](./examples/#Assertion))
 Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner. Assertions are packaged for transmission as JSON objects with a set of mandatory and optional properties. Fields marked **in bold letters** are mandatory.
 
-{::options parse_block_html="true" /}
 <div class="table-wrapper">
 
 | Property | Expected Type | Description |
@@ -74,7 +76,6 @@ Deprecated properties still in use by some implementations:
 ### <a id="BadgeClass"></a>BadgeClass ([example](./examples/#BadgeClass))
 A collection of information about the accomplishment recognized by the Open Badge. Many assertions may be created corresponding to one BadgeClass
 
-{::options parse_block_html="true" /}
 <div class="table-wrapper">
 
 Property | Expected Type | Description
@@ -94,7 +95,6 @@ alignment | Array of [AlignmentObject](#Alignment)s | List of objects describing
 ### <a id="Profile"></a><a id="Issuer"></a>Profile ([example](./examples/#Issuer))
 A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients may also be represented using this vocabulary. Each Profile theat represents an Issuer may correspond to many BadgeClasses. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties. An Issuer Profile is a subclass of the general Profile with some additional requirements.
 
-{::options parse_block_html="true" /}
 <div class="table-wrapper">
 
 Property | Expected Type | Description
@@ -124,7 +124,6 @@ When used to represent a recipient of badges, only `id` and `type` are required 
 ### <a id="IdentityObject"></a>IdentityObject
 A collection of information about the recipient of a badge.
 
-{::options parse_block_html="true" /}
 <div class="table-wrapper">
 
 Property | Expected Type | Description
@@ -140,7 +139,6 @@ Property | Expected Type | Description
 ### <a id="VerificationObject"></a>VerificationObject
 A collection of information allowing a consumer to authenticate the Assertion.
 
-{::options parse_block_html="true" /}
 <div class="table-wrapper">
 
 Property | Expected Type | Description
@@ -154,7 +152,6 @@ Property | Expected Type | Description
 ### <a id="Alignment"></a>AlignmentObject
 The AlignmentObject is based on Schema.org's [AlignmentObject](http://schema.org/AlignmentObject) and uses IRIs from that vocabulary.
 
-{::options parse_block_html="true" /}
 <div class="table-wrapper">
 
 Property | Expected Type | Description
@@ -195,7 +192,6 @@ See the [Extensions](./extensions/) page for specific examples and extensions re
 
 Extension authors define and host a new [JSON-LD](http://json-ld.org) context file describing all the terms the extension covers. These context files may further define any [JSON-schema](http://json-schema.org/) that implementations of the extension should pass. If used, each schema is linked from the context and hosted as a separate JSON-schema files. Extensions are implemented in Open Badges as JSON objects inside an Assertion, BadgeClass or Issuer with their own link to the extension context and declaration of type.
 
-{::options parse_block_html="true" /}
 <div class="table-wrapper">
 
 Property | Expected Type | Description
@@ -235,7 +231,6 @@ For example, this portion of the current Open Badges context links to a validato
 _since 1.1_
 Validators using the TypeValidation method match the schema indicated by the validator's `validationSchema` property against a JSON badge object document or portion of such a document that matches the validator's `validatesType` JSON-LD `type`.
 
-{::options parse_block_html="true" /}
 <div class="table-wrapper">
 
 Property | Expected Type | Description/expected value
