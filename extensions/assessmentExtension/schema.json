@@ -1,0 +1,73 @@
+"$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Issuer Accreditation",
+  "description": "This extension provides information about single or multiple assessments that would be completed by the recipient as part of the requirements for earning an OpenBadge. There could be multiple assessments of different types for each badge earned. Separate, independent evaluations of a single assessment could result in multiple assessment/evaluation records, all included in a single instance of the extension. ",
+  "type": "object",
+  "definitions": {
+    "AssessmentArray": {
+      "description": "List of objects describing each assessment.",
+      "type": "array",
+      "items": {
+        "items": {
+        "$ref": "#/definitions/AssessmentObject"
+      }
+    },
+    "AssessmentObject": {
+      "description": "Each object in an assessment array is an object that describes each assessment.",
+      "type": "object",
+      "items": {
+        "assessmentDescription": {
+          "description": "Description of the single assessment.",
+          "type": "string"
+        },
+        "assessmentType": {
+          "description": "The method used to conduct the assessment being referenced. Values are Exam, Performance or Artifact.",
+          "type": "string",
+          "pattern": "^(Exam|Performance|Artifact)$"
+        },
+        "assessmentOutput": {
+          "description": "This field provides additional details about assessmentType. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge.",
+          "type": "string"
+        },
+        "hasGroupParticipation": {
+          "description": "Completing the assessment activity being referenced requires two or more participants.",
+          "type": "string",
+          "format": "boolean"
+        },
+        "hasGroupEvaluation": {
+          "description": "Participants in the assessment activity being referenced are scored as a group. ",
+          "type": "string",
+          "format": "boolean"
+        },
+        "evaluationMethod": {
+          "description": "Information about how the assessment is scored.  What do the scores represent in a range of scores? If a rubric was used, what are the score ranges for each criteria?",
+          "type": "string"
+        },
+        "assessmentExample": {
+          "description": "An example based on the assessment type.",
+          "type": "string",
+          "format": "uri"
+        },
+        "scoringMethodExampleDescription": {
+          "description": "The text of an example of the method or tool used to score the assessment.",
+          "type": "string"
+        },
+        "assessmentEvaluation": {
+          "description": "Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods.",
+          "type": "string",
+          "format": "uri"
+        },
+      }
+    }
+  },
+  "properties": {
+    "overallDescription": {
+      "description": "A description of how the assessment activity is organized, particularly describing the relationship between multiple assessments included in the extension. For example, this could include information about an overall project that has multiple assessment components.",
+      "type": "string"
+    },
+    "assessment": {
+      "type": "object",
+      "$ref": "#/definitions/AssessmentArray"
+    },
+  },
+  "required": ["overallDescription","assessmentDescription","assessmentType","assessmentOutput","hasGroupParticipation","hasGroupEvaluation","evaluationMethod"]
+}
