@@ -57,7 +57,12 @@
           "format": "uri"
         },
       }
-    }
+    },
+    "AssessmentType": {
+      "description": "One of the following keywords: Exam, Performance or CreativeWork",
+      "type": "string",
+      "pattern": "^(Exam|Performance|CreativeWork)$"
+    },
   },
   "properties": {
     "overallDescription": {

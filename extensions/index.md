@@ -411,7 +411,6 @@ Property     | Type        | Value Description
 **assessmentExample**     | string, uri |  An example based on the assessment type.
 **scoringMethodExampleDescription**     | string |  The text of an example of the method or tool used to score the assessment.
 **assessmentEvaluation**     | string, uri |  Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods.
-
 </div>
 
 
