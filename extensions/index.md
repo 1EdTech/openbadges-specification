@@ -35,7 +35,7 @@ Assertion, BadgeClass, Issuer
 
 **Example implementation:**
 {% highlight json %}
-{ 
+{
   "extensions:ExampleExtension": {
     "@context":"https://openbadgespec.org/extensions/exampleExtension/context.json",
     "type": ["Extension", "extensions:ExampleExtension"],
@@ -66,7 +66,7 @@ BadgeClass
 
 **Example implementation:**
 {% highlight json %}
-{ 
+{
   "extensions:ApplyLink": {
     "@context":"https://openbadgespec.org/extensions/applyLinkExtension/context.json",
     "type": ["Extension", "extensions:ApplyLink"],
@@ -78,7 +78,7 @@ BadgeClass
 ### <a name="Endorsement"></a>Endorsement
 _Author: [Nate Otto](http://ottonomy.net)_
 
-Any organization that is set up to issue badges may provide endorsements of other issuers' badge objects (Assertion, Badge Class or Issuer). For example, a school district may issue an endorsement to indicate approval of a specific Badge Class corresponding to professional development credits acceptable by the district. See the Badge Alliance Endorsement Working Group [framework paper](https://docs.google.com/document/d/1VVf19d72KmGMh1ywrLe7HCKEOqGSI0WjvwfGN_8Q2M4/edit) for background. 
+Any organization that is set up to issue badges may provide endorsements of other issuers' badge objects (Assertion, Badge Class or Issuer). For example, a school district may issue an endorsement to indicate approval of a specific Badge Class corresponding to professional development credits acceptable by the district. See the Badge Alliance Endorsement Working Group [framework paper](https://docs.google.com/document/d/1VVf19d72KmGMh1ywrLe7HCKEOqGSI0WjvwfGN_8Q2M4/edit) for background.
 
 Endorsement of a Badge Class serves to publicly acknowledge the value of a badge as *designed, assessed, and issued by a badge issuer*. Endorsements of an Issuer are presumed to apply to all Badge Classes and Assertions created by that Issuer. See the [context](./endorsement/context.json) and [schema](./endorsement/schema.json) for endorsement.
 
@@ -112,14 +112,14 @@ BadgeClass (each endorsing issuer must define a BadgeClass to use for endorsemen
 
 Assertion (full copy of endorsed object elided):
 {% highlight json %}
-{ 
+{
   "@context": "https://w3id.org/openbadges/v1",
   "id": "http://endorser.org/endorsement124",
   "type": "Assertion",
   "recipient": {
     "identity": "http://anotherissuer.org/badgeclass5",
     "type": "@id",
-    "hashed": false 
+    "hashed": false
   },
   "badge": "http://endorser.org/endorsementclass1",
   "extensions:Endorsement": {
@@ -159,7 +159,7 @@ Assertion, BadgeClass, Issuer
 
 **Example implementation:**
 {% highlight json %}
-{ 
+{
   ...
   "schema:location": {
     "@context": "https://openbadgespec.org/extensions/geoCoordinatesExtension/context.json",
@@ -238,7 +238,7 @@ Thanks to editorial contributions from [Timothy F Cook](https://twitter.com/timo
 
 *Extendable Badge Objects*: BadgeClass
 
-*Example Implementation* (Abbreviated JSON-LD BadgeClass): 
+*Example Implementation* (Abbreviated JSON-LD BadgeClass):
 {% highlight json %}
 {
   "@context": "https://w3id.org/openbadges/v1",
@@ -282,7 +282,7 @@ BadgeClass
 
 **Example implementation:**
 {% highlight json %}
-{ 
+{
   "extensions:OriginalCreator": {
     "@context":"https://openbadgespec.org/extensions/originalCreatorExtension/context.json",
     "type": ["Extension", "extensions:OriginalCreator"],
@@ -294,7 +294,7 @@ BadgeClass
 ### <a name="IssuerAccreditation"></a> Issuer Accreditation (DRAFT)
 _Author: [IMS Global](https://github.com/imsglobal)_
 
-This extension provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile.
+This extension provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile. Please note that this extension is in draft mode and may not be ready for production.
 
 
 <div class="table-wrapper">
@@ -314,9 +314,9 @@ Property     | Type        | Value Description
 **description**     | string |  The description of the accrediting organization.
 **logo**     | string,uri |  The logo for the accrediting organization.
 **parentOrganization**     | object | The larger organization that the accrediting organization is a branch of, if any.
-**areaServed**     | string |  The geographic area where accreditation services are targeted. 
+**areaServed**     | string |  The geographic area where accreditation services are targeted.
 <a name="accreditationDate"></a>**accreditationDate**     | string |  The date accreditation was valid (ex: 2009-07-31).
-<a name="educationSector"></a>**educationSector**     | string |  Focus of accreditation (ex: K12, Postsecondary, CTE, Workforce, Adult Ed). 
+<a name="educationSector"></a>**educationSector**     | string |  Focus of accreditation (ex: K12, Postsecondary, CTE, Workforce, Adult Ed).
 
 </div>
 
@@ -325,9 +325,9 @@ Issuer
 
 **Example implementation (Single Accreditor):**
 {% highlight json %}
-{ 
+{
   "extensions:IssuerAccreditation": {
-    "@context":"https://openbadgespec.org/extensions/issuerAccreditationExtensions/context.json",
+    "@context":"https://openbadgespec.org/extensions/issuerAccreditationExtension/context.json",
     "type": ["Extension", "extensions:IssuerAccreditation"],
     "name": "Higher Learning Commission",
     "contactInstructions": "Visit website to request an instiitutional status and requirements report",
@@ -352,9 +352,9 @@ Issuer
 
 **Example implementation (Two Accreditors):**
 {% highlight json %}
-{ 
+{
   "extensions:IssuerAccreditation": [{
-    "@context":"https://openbadgespec.org/extensions/issuerAccreditation/context.json",
+    "@context":"https://openbadgespec.org/extensions/issuerAccreditationExtension/context.json",
     "type": ["Extension", "extensions:IssuerAccreditation"],
     "name": "Northwest Commission on Colleges and Universities",
     "contactInstructions": "Call or email the Commission Office",
@@ -386,6 +386,86 @@ Issuer
     "accreditationDate": "2014-04-01",
     "educationalSector": "postsecondary"
 }]
+{% endhighlight %}
+
+### <a name="Assessment"></a> Assessment (DRAFT)
+_Author: [IMS Global](https://github.com/imsglobal)_
+
+This extension provides information about single or multiple assessments that would be completed by the recipient as part of the requirements for earning an OpenBadge. There could be multiple assessments of different types for each badge earned. Separate, independent evaluations of a single assessment could result in multiple assessment/evaluation records, all included in a single instance of the extension. Please note that this extension is in draft mode and may not be ready for production.
+
+
+<div class="table-wrapper">
+
+Property     | Type        | Value Description
+-------------|-------------|---------
+**@context** | context IRI | [https://openbadgespec.org/extensions/assessmentExtension/context.json](./assessmentExtension/context.json)
+**type**     | type IRI array |`['Extension', 'extensions:Assessment']`
+**overallDescription**     | string| A description of how the assessment activity is organized, particularly describing the relationship between multiple assessments included in the extension. (required)
+**assessment**     | array | array of AssessmentObjects (at least one AssessmentObject required)
+**assessmentDescription**     | string | Description of the single assessment. (required)
+**assessmentType**     | string | One of the following keywords: Exam, Performance or Artifact. (required)
+**assessmentOutput**     | string | This field provides additional details about assessmentType. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge. (required)
+**hasGroupParticipation**     | string, boolean |  Completing the assessment activity being referenced requires two or more participants. (required)
+**hasGroupEvaluation**     | string, boolean |  Participants in the assessment activity being referenced are scored as a group.(required)
+**evaluationMethod**     | string |  Information about how the assessment is scored.  What do the scores represent in a range of scores? If a rubric was used, what are the score ranges for each criteria?
+**assessmentExample**     | string, uri |  An example based on the assessment type.
+**scoringMethodExampleDescription**     | string |  The text of an example of the method or tool used to score the assessment.
+**assessmentEvaluation**     | string, uri |  Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods.
+</div>
+
+
+**Extendable Badge Objects:**
+Badge Class
+
+**Example implementation (Single Assessment):**
+{% highlight json %}
+"extensions:Assessment": {
+  "@context":"https://openbadgespec.org/extensions/assessmentExtension/context.json",
+  "type": ["Extension", "extensions:assessment"],
+  "overallDescription": "The assessment included are a simulated clinical setting and an actual clinical setting.",
+  "assessment": [
+    {
+      "assessmentDescription": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
+      "assessmentType": "CreativeWork",
+      "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
+      "hasGroupParticipation": "false",
+      "hasGroupEvaluation": "false",
+      "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
+      "assessmentExample": "http://placeholderurl.com",
+      "scoringMethodExampleDescription": "Placeholder text",
+      "assessmentEvaluation": "http://placeholderurl.com"
+    }
+  ]
+}
+{% endhighlight %}
+
+**Example implementation (Two Assessments):**
+{% highlight json %}
+"extensions:Assessment": {
+  "@context":"https://openbadgespec.org/extensions/assessmentExtension/context.json",
+  "type": ["Extension", "extensions:assessment"],
+  "overallDescription": "The assessments included are a simulated clinical setting and an actual clinical setting.",
+  "assessment": [
+    {
+      "assessmentDescription": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
+      "assessmentType": "CreativeWork",
+      "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
+      "hasGroupParticipation": "false",
+      "hasGroupEvaluation": "false",
+      "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
+      "assessmentExample": "http://placeholderurl.com"
+    },
+    {
+      "assessmentDescription": "Requires following standard procedures in measuring vital signs in a clinic patient and explaining the  results of a standard lab analysis on the basis of deviations from the norm.",
+      "assessmentType": "Performance",
+      "assessmentOutput": "Clinical demonstration of interpreting blood pressure and lab results to patient without diagnoses, evaluated by clinical supervisor.",
+      "hasGroupParticipation": "false",
+      "hasGroupEvaluation": "true",
+      "evaluationMethod": "Clinical supervisor uses a checklist to verify that the clinical demonstration includes the key elements that need to be communicated to the patient.",
+      "scoringMethodExampleDescription": "Placeholder text"
+    },
+  ]
+}
 {% endhighlight %}
 
 
