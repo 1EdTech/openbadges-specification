@@ -405,12 +405,13 @@ Property     | Type        | Value Description
 **assessmentDescription**     | string | Description of the single assessment. (required)
 **assessmentType**     | string | One of the following keywords: Exam, Performance or Artifact. (required)
 **assessmentOutput**     | string | This field provides additional details about assessmentType. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge. (required)
-**hasGroupParticipation**     | string, boolean |  Completing the assessment activity being referenced requires two or more participants. (required)
-**hasGroupEvaluation**     | string, boolean |  Participants in the assessment activity being referenced are scored as a group.(required)
+**hasGroupParticipation**     | boolean |  Completing the assessment activity being referenced requires two or more participants. (required)
+**hasGroupEvaluation**     | boolean |  Participants in the assessment activity being referenced are scored as a group.(required)
 **evaluationMethod**     | string |  Information about how the assessment is scored.  What do the scores represent in a range of scores? If a rubric was used, what are the score ranges for each criteria?
 **assessmentExample**     | string, uri |  An example based on the assessment type.
 **scoringMethodExampleDescription**     | string |  The text of an example of the method or tool used to score the assessment.
 **assessmentEvaluation**     | string, uri |  Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods.
+
 </div>
 
 
