@@ -1,10 +1,10 @@
 {
   "@context": {
     "obi": "https://w3id.org/openbadges#",
-    "extensions": "https://w3id.org/openbadges/extensions#IssuerAccreditation",
+    "extensions": "https://w3id.org/openbadges/extensions#",
     "schema": "http://schema.org/",
     "name": "schema:name",
-    "contactInstructions": "extensions:contactInstructions",
+    "contactInstructions": "extensions:accreditationContactInstructions",
     "url": "schema:url",
     "address": "schema:address",
     "streetAddress": "schema:streetAddress",
@@ -16,11 +16,11 @@
     "parentOrganization": "schema:parentOrganization",
     "areaServed": "schema:areaServed",
     "accreditationDate": "extensions:accreditationDate",
-    "educationalSector": "extensions:educationalSector"
+    "educationalSector": "extensions:accreditationEducationalSector"
   },
   "obi:validation": [
     {
-      "obi:validatesType": "extensions#IssuerAccreditation",
+      "obi:validatesType": "extensions:IssuerAccreditation",
       "obi:validationSchema": "https://openbadgespec.org/extensions/issuerAccreditation/schema.json"
     }
   ]

@@ -304,7 +304,7 @@ Property     | Type        | Value Description
 **@context** | context IRI | [https://openbadgespec.org/extensions/issuerAccreditationExtension/context.json](./issuerAccreditationExtension/context.json)
 **type**     | type IRI array |`['Extension', 'extensions:IssuerAccreditation']`
 **name**     | string| The official name of the organization, e.g. the registered company name. (required)
-<a name="contactInstructions"></a>**contactInstructions**     | string | Contact instructions for an accrediting organization. (required)
+<a name="accreditationContactInstructions"></a>**contactInstructions**     | string | Contact instructions for an accrediting organization. (required)
 **url**     | string,uri | URL of the accrediting organization. (required)
 **address**     | object | Physical address of the accrediting organization. Object contains specific locality information. (required)
 **streetAddress**     | string | The street address. For example, 1600 Amphitheatre Pkwy.
@@ -316,7 +316,7 @@ Property     | Type        | Value Description
 **parentOrganization**     | object | The larger organization that the accrediting organization is a branch of, if any.
 **areaServed**     | string |  The geographic area where accreditation services are targeted.
 <a name="accreditationDate"></a>**accreditationDate**     | string |  The date accreditation was valid (ex: 2009-07-31).
-<a name="educationSector"></a>**educationSector**     | string |  Focus of accreditation (ex: K12, Postsecondary, CTE, Workforce, Adult Ed).
+<a name="accreditationEducationSector"></a>**educationSector**     | string |  Focus of accreditation (ex: K12, Postsecondary, CTE, Workforce, Adult Ed).
 
 </div>
 
@@ -330,7 +330,7 @@ Issuer
     "@context":"https://openbadgespec.org/extensions/issuerAccreditationExtension/context.json",
     "type": ["Extension", "extensions:IssuerAccreditation"],
     "name": "Higher Learning Commission",
-    "contactInstructions": "Visit website to request an instiitutional status and requirements report",
+    "contactInstructions": "Visit website to request an institutional status and requirements report",
     "url": "http://hlcommission.org",
     "address": {
       "streetAddress": "230 South LaSalle Street, Suite 7-500",
