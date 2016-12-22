@@ -400,8 +400,8 @@ Property     | Type        | Value Description
 -------------|-------------|---------
 **@context** | context IRI | [https://openbadgespec.org/extensions/assessmentExtension/context.json](./assessmentExtension/context.json)
 **type**     | type IRI array |`['Extension', 'extensions:Assessment']`
-**overallDescription**     | string| A description of how the assessment activity is organized, particularly describing the relationship between multiple assessments included in the extension. (required)
-**assessment**     | array | array of [Assessment Objects](#AssessmentObject) (at least one Assessment Object required)
+<a name="assessmentOverallDescription"></a>**overallDescription**     | string| A description of how the assessment activity is organized, particularly describing the relationship between multiple assessments included in the extension. (required)
+<a name="assessmentArray"></a>**assessment**     | array | array of [Assessment Objects](#AssessmentObject) (at least one Assessment Object required)
 
 </div>
 
@@ -411,15 +411,15 @@ Property     | Type        | Value Description
 
 Property     | Type        | Value Description
 -------------|-------------|---------
-**assessmentDescription**     | string | Description of the single assessment. (required)
-**assessmentType**     | string | One of the following keywords: Exam, Performance or Artifact. (required)
-**assessmentOutput**     | string | This field provides additional details about assessmentType. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge. (required)
-**hasGroupParticipation**     | boolean |  Completing the assessment activity being referenced requires two or more participants. (required)
-**hasGroupEvaluation**     | boolean |  Participants in the assessment activity being referenced are scored as a group.(required)
-**evaluationMethod**     | string |  Information about how the assessment is scored.  What do the scores represent in a range of scores? If a rubric was used, what are the score ranges for each criteria?
-**assessmentExample**     | string, uri |  An example based on the assessment type.
-**scoringMethodExampleDescription**     | string |  The text of an example of the method or tool used to score the assessment.
-**assessmentEvaluation**     | string, uri |  Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods.
+<a name="assessmentDescription"></a>**assessmentDescription**     | string | Description of the single assessment. (required)
+<a name="assessmentType"></a>**assessmentType**     | string | One of the following keywords: Exam, Performance or Artifact. (required)
+<a name="assessmentOutput"></a>**assessmentOutput**     | string | This field provides additional details about assessmentType. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge. (required)
+<a name="assessmentHasGroupParticipation"></a>**hasGroupParticipation**     | boolean |  Completing the assessment activity being referenced requires two or more participants. (required)
+<a name="assessmentHasGroupEvaluation"></a>**hasGroupEvaluation**     | boolean |  Participants in the assessment activity being referenced are scored as a group.(required)
+<a name="assessmentEvaluationMethod"></a>**evaluationMethod**     | string |  Information about how the assessment is scored.  What do the scores represent in a range of scores? If a rubric was used, what are the score ranges for each criteria?
+<a name="assessmentExample"></a>**assessmentExample**     | string, uri |  An example based on the assessment type.
+<a name="scoringMethodExampleDescription"></a>**scoringMethodExampleDescription**     | string |  The text of an example of the method or tool used to score the assessment.
+<a name="assessmentEvaluation"></a>**assessmentEvaluation**     | string, uri |  Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods.
 
 </div>
 
@@ -435,7 +435,7 @@ Badge Class
   "assessment": [
     {
       "assessmentDescription": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
-      "assessmentType": "CreativeWork",
+      "assessmentType": "Artifact",
       "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
       "hasGroupParticipation": false,
       "hasGroupEvaluation": false,
@@ -457,7 +457,7 @@ Badge Class
   "assessment": [
     {
       "assessmentDescription": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
-      "assessmentType": "CreativeWork",
+      "assessmentType": "Artifact",
       "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
       "hasGroupParticipation": false,
       "hasGroupEvaluation": false,
@@ -472,7 +472,7 @@ Badge Class
       "hasGroupEvaluation": true,
       "evaluationMethod": "Clinical supervisor uses a checklist to verify that the clinical demonstration includes the key elements that need to be communicated to the patient.",
       "scoringMethodExampleDescription": "Placeholder text"
-    },
+    }
   ]
 }
 {% endhighlight %}
