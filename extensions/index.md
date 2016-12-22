@@ -401,7 +401,16 @@ Property     | Type        | Value Description
 **@context** | context IRI | [https://openbadgespec.org/extensions/assessmentExtension/context.json](./assessmentExtension/context.json)
 **type**     | type IRI array |`['Extension', 'extensions:Assessment']`
 **overallDescription**     | string| A description of how the assessment activity is organized, particularly describing the relationship between multiple assessments included in the extension. (required)
-**assessment**     | array | array of AssessmentObjects (at least one AssessmentObject required)
+**assessment**     | array | array of [Assessment Objects](#AssessmentObject) (at least one Assessment Object required)
+
+</div>
+
+#### <a id="AssessmentObject"></a>Assessment Object
+
+<div class="table-wrapper">
+
+Property     | Type        | Value Description
+-------------|-------------|---------
 **assessmentDescription**     | string | Description of the single assessment. (required)
 **assessmentType**     | string | One of the following keywords: Exam, Performance or Artifact. (required)
 **assessmentOutput**     | string | This field provides additional details about assessmentType. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge. (required)
@@ -413,7 +422,6 @@ Property     | Type        | Value Description
 **assessmentEvaluation**     | string, uri |  Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods.
 
 </div>
-
 
 **Extendable Badge Objects:**
 Badge Class
@@ -429,8 +437,8 @@ Badge Class
       "assessmentDescription": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
       "assessmentType": "CreativeWork",
       "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
-      "hasGroupParticipation": "false",
-      "hasGroupEvaluation": "false",
+      "hasGroupParticipation": false,
+      "hasGroupEvaluation": false,
       "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
       "assessmentExample": "http://placeholderurl.com",
       "scoringMethodExampleDescription": "Placeholder text",
@@ -451,8 +459,8 @@ Badge Class
       "assessmentDescription": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
       "assessmentType": "CreativeWork",
       "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
-      "hasGroupParticipation": "false",
-      "hasGroupEvaluation": "false",
+      "hasGroupParticipation": false,
+      "hasGroupEvaluation": false,
       "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
       "assessmentExample": "http://placeholderurl.com"
     },
@@ -460,8 +468,8 @@ Badge Class
       "assessmentDescription": "Requires following standard procedures in measuring vital signs in a clinic patient and explaining the  results of a standard lab analysis on the basis of deviations from the norm.",
       "assessmentType": "Performance",
       "assessmentOutput": "Clinical demonstration of interpreting blood pressure and lab results to patient without diagnoses, evaluated by clinical supervisor.",
-      "hasGroupParticipation": "false",
-      "hasGroupEvaluation": "true",
+      "hasGroupParticipation": false,
+      "hasGroupEvaluation": true,
       "evaluationMethod": "Clinical supervisor uses a checklist to verify that the clinical demonstration includes the key elements that need to be communicated to the patient.",
       "scoringMethodExampleDescription": "Placeholder text"
     },

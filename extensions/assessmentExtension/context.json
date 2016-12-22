@@ -1,22 +1,23 @@
 {
   "@context": {
     "obi": "https://w3id.org/openbadges#",
-    "extensions": "https://w3id.org/openbadges/extensions#Assessment",
+    "extensions": "https://w3id.org/openbadges/extensions#",
     "schema": "http://schema.org/",
-    "overallDescription": "extensions:overallDescription",
-    "assessmentDescription": "extensions:assessmentDescription",
-    "assessmentType": "extensions:assessmentType",
-    "assessmentOutput": "extensions:assessmentOutput",
-    "hasGroupParticipation": "extensions:hasGroupParticipation",
-    "hasGroupEvaluation": "extensions:hasGroupEvaluation",
-    "evaluationMethod": "extensions:evaluationMethod",
-    "assessmentExample": "extensions:assessmentExample",
-    "scoringMethodExampleDescription": "extensions:scoringMethodExampleDescription",
-    "assessmentEvaluation": "extensions:assessmentEvaluation"
+    "overallDescription": "extensions:#Assessment",
+    "assessment": "extensions:#Assessment",
+    "assessmentDescription": "extensions:#Assessment",
+    "assessmentType": "extensions:#Assessment",
+    "assessmentOutput": "extensions:#Assessment",
+    "hasGroupParticipation": "extensions:#Assessment",
+    "hasGroupEvaluation": "extensions:#Assessment",
+    "evaluationMethod": "extensions:#Assessment",
+    "assessmentExample": "extensions:#Assessment",
+    "scoringMethodExampleDescription": "extensions:#Assessment",
+    "assessmentEvaluation": "extensions:#Assessment"
   },
   "obi:validation": [
     {
-      "obi:validatesType": "extensions#Assessment",
+      "obi:validatesType": "extensions:assessment",
       "obi:validationSchema": "https://openbadgespec.org/extensions/assessmentExtension/schema.json"
     }
   ]

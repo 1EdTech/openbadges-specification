@@ -7,45 +7,51 @@
       "description": " A description of how the assessment activity is organized, particularly describing the relationship between multiple assessments included in the extension.",
       "type": "string"
     },
-    "assessmentDescription": {
-      "description": " A description of the assessment.",
-      "type": "string"
-    },
-    "assessmentType": {
-      "description": "The method used to conduct the assessment being referenced. Values are Exam, Performance or Artifact.",
-      "type": "string",
-      "pattern": "^(Exam|Performance|Artifact)$"
-    },
-    "assessmentOutput": {
-      "description": "This field provides additional details about assessmentType. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge.",
-      "type": "string"
-    },
-    "hasGroupParticipation": {
-      "description": "Completing the assessment activity being referenced requires two or more participants.",
-      "type": "boolean"
-    },
-    "hasGroupEvaluation": {
-      "description": "Participants in the assessment activity being referenced are scored as a group. ",
-      "type": "boolean"
-    },
-    "evaluationMethod": {
-      "description": "Information about how the assessment is scored.  What do the scores represent in a range of scores? If a rubric was used, what are the score ranges for each criteria?",
-      "type": "string"
-    },
-    "assessmentExample": {
-      "description": "An example based on the assessment type.",
-      "type": "string",
-      "format": "uri"
-    },
-    "scoringMethodExampleDescription": {
-      "description": "The text of an example of the method or tool used to score the assessment.",
-      "type": "string"
-    },
-    "assessmentEvaluation": {
-      "description": "Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods.",
-      "type": "string",
-      "format": "uri"
+    "assessment": {
+      "type":"array",
+      "items": {
+        "assessmentDescription": {
+          "description": " A description of the assessment.",
+          "type": "string"
+        },
+        "assessmentType": {
+          "description": "The method used to conduct the assessment being referenced. Values are Exam, Performance or Artifact.",
+          "type": "string",
+          "pattern": "^(Exam|Performance|Artifact)$"
+        },
+        "assessmentOutput": {
+          "description": "This field provides additional details about assessmentType. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge.",
+          "type": "string"
+        },
+        "hasGroupParticipation": {
+          "description": "Completing the assessment activity being referenced requires two or more participants.",
+          "type": "boolean"
+        },
+        "hasGroupEvaluation": {
+          "description": "Participants in the assessment activity being referenced are scored as a group. ",
+          "type": "boolean"
+        },
+        "evaluationMethod": {
+          "description": "Information about how the assessment is scored.  What do the scores represent in a range of scores? If a rubric was used, what are the score ranges for each criteria?",
+          "type": "string"
+        },
+        "assessmentExample": {
+          "description": "An example based on the assessment type.",
+          "type": "string",
+          "format": "uri"
+        },
+        "scoringMethodExampleDescription": {
+          "description": "The text of an example of the method or tool used to score the assessment.",
+          "type": "string"
+        },
+        "assessmentEvaluation": {
+          "description": "Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods.",
+          "type": "string",
+          "format": "uri"
+        }
+      }
     }
+
   }
   "required": ["overallDescription","assessmentDescription","assessmentType","assessmentOutput","hasGroupParticipation","hasGroupEvaluation","evaluationMethod"]
 }
