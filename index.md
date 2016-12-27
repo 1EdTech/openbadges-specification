@@ -4,6 +4,7 @@ subtitle: A vocabulary for Portable digital credentials developed by IMS Global
 show_sidebar: true
 ---
 {::options parse_block_html="true" /}
+
 # {{ page.title }}
 This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. 
 
@@ -20,10 +21,14 @@ This document represents a draft in progress for a future version of the Open Ba
 #### License
 [Copyright](http://www.w3.org/Consortium/Legal/ipr-notice#Copyright) © 2014-16 the Contributors to the Open Badges 2.0 Specification, published by the [Badge Alliance](http://badgealliance.org) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available. Though the Badge Alliance collaborates with the [W3C Credentials Community Group](http://www.w3.org/community/credentials/) and [W3C Verifiable Claims Task Force](http://w3c.github.io/vctf/), the Open Badges specification is not endorsed as a web standard by the W3C. This specification is free for anyone to use or implement.
 
-**Edited by the [Badge Alliance Standard Working Group](http://www.badgealliance.org/open-badges-standard/)** Contact: [Nate Otto](mailto:nate@badgealliance.org)
+**Edited by the [Badge Alliance Standard Working Group](http://www.badgealliance.org/open-badges-standard/)**  
+(Contact: [Nate Otto](mailto:nate@badgealliance.org))
+
 As of January 2017, the Open Badges has become an [IMS Global Learning Consortium](https://imsglobal.org) web standard. Future versions will be published to this page by IMS Global.
 
 ## Contents
+ * [A Simple Example](#example)
+   - [Linked Data](#LinkedData) 
  * [Open Badges Vocabulary Data Classes](#BadgeObjects)
    - [Assertion](#Assertion)
    - [BadgeClass](#BadgeClass)
@@ -40,6 +45,43 @@ As of January 2017, the Open Badges has become an [IMS Global Learning Consortiu
  * [Other Resources](#OtherResources)
    - [Verification Software](#Validator)
    - [History/Changelog](#History)
+
+## <a id="BadgeObjects"></a> A Simple Example
+
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://example.com/assertions/123",
+  "type": "Assertion",
+  "recipient": {
+    "type": "email",
+    "identity": "alice@example.com"
+  },
+  "created": "2016-12-31T23:59:59+00:00",
+  "verification": {
+    "type": "hosted"
+  },
+  "badge": {
+    "type": "BadgeClass",
+    "id": "https://example.com/badges/5",
+    "name": "3-D Printmaster",
+    "description": "This badge is awarded for passing the 3-D printing knowledge and safety test.",
+    "image": "https://example.com/badges/5/image",
+    "criteria": { "...": "TODO..." },
+    "issuer": {
+      "id": "https://example.com/issuer",
+      "type": "Profile",
+      "name": "Example Maker Society",
+      "url": "https://example.com",
+      "email": "contact@example.com"
+    }
+  }
+
+}
+{% endhighlight %}
+
+### Open Badges in Linked Data
+[Linked Data](https://en.wikipedia.org/wiki/Linked_data) is a method of publishing data so that it can be understood in a variety of contexts. Open Badges are expressed as structured data in [JSON-LD](http://json-ld.org/) so that they can include and be included in data outside the purposes condiered in this specification. Open Badges take advantage of JSON-LD's features for localization, identifying objects by unique IRIs, and extensibility.
 
 ## <a id="BadgeObjects"></a> Open Badges Vocabulary Data Classes 
 The Open Badges Vocabulary defines several data classes used to express achievements that is understandable in software and services that implement Open Badges. There are three core data classes: **[Assertions](#Assertion)**, **[BadgeClasses](#BadgeClass)**, and **[Profiles](#Profile)**. A set of one expression of each of these may be constructed into a valid Open Badge. Each data class is a collection of properties and values, and each defines which are mandatory and optional as well as the restrictions on the values those properties may take. They are published as [JSON-LD](http://www.w3.org/TR/json-ld/)] for interoperability. If properties are included in JSON that cannot be mapped to JSON-LD terms defined in the object's `@context`, they are not considered part of the badge object's meaning.
