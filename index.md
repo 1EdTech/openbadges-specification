@@ -27,9 +27,9 @@ This document represents a draft in progress for a future version of the Open Ba
 As of January 2017, the Open Badges has become an [IMS Global Learning Consortium](https://imsglobal.org) web standard. Future versions will be published to this page by IMS Global.
 
 ## Contents
- * [A Simple Example](#example)
+ * [A Simple Example](#intro-example)
    - [Linked Data](#LinkedData) 
- * [Open Badges Vocabulary Data Classes](#BadgeObjects)
+ * [Open Badges Vocabulary](#BadgeObjects)
    - [Assertion](#Assertion)
    - [BadgeClass](#BadgeClass)
    - [Profile](#Profile) and [Issuer Profile](#Issuer)
@@ -46,7 +46,8 @@ As of January 2017, the Open Badges has become an [IMS Global Learning Consortiu
    - [Verification Software](#Validator)
    - [History/Changelog](#History)
 
-## <a id="BadgeObjects"></a> A Simple Example
+## <a id="intro-example"></a> A Simple Example
+Open Badges contain detailed metadata about achievements. Who earned a badge, who issued it, and what does it mean? The data is all inside.
 
 {% highlight json %}
 {
@@ -73,7 +74,10 @@ As of January 2017, the Open Badges has become an [IMS Global Learning Consortiu
       "type": "Profile",
       "name": "Example Maker Society",
       "url": "https://example.com",
-      "email": "contact@example.com"
+      "email": "contact@example.com",
+      "verification": {
+         "TODOhostedScope": "https://"
+      }
     }
   }
 
@@ -81,7 +85,7 @@ As of January 2017, the Open Badges has become an [IMS Global Learning Consortiu
 {% endhighlight %}
 
 ### Open Badges in Linked Data
-[Linked Data](https://en.wikipedia.org/wiki/Linked_data) is a method of publishing data so that it can be understood in a variety of contexts. Open Badges are expressed as structured data in [JSON-LD](http://json-ld.org/) so that they can include and be included in data outside the purposes condiered in this specification. Open Badges take advantage of JSON-LD's features for localization, identifying objects by unique IRIs, and extensibility.
+[Linked Data](https://en.wikipedia.org/wiki/Linked_data) is a method of publishing data so that it can be understood in a variety of contexts. Open Badges are expressed in [JSON-LD](http://json-ld.org/) so that they can include and be included in documents outside the purposes considered in this specification. Open Badges take advantage of JSON-LD's features for localization, identifying objects by unique IRIs, and extensibility.
 
 ## <a id="BadgeObjects"></a> Open Badges Vocabulary Data Classes 
 The Open Badges Vocabulary defines several data classes used to express achievements that is understandable in software and services that implement Open Badges. There are three core data classes: **[Assertions](#Assertion)**, **[BadgeClasses](#BadgeClass)**, and **[Profiles](#Profile)**. A set of one expression of each of these may be constructed into a valid Open Badge. Each data class is a collection of properties and values, and each defines which are mandatory and optional as well as the restrictions on the values those properties may take. They are published as [JSON-LD](http://www.w3.org/TR/json-ld/)] for interoperability. If properties are included in JSON that cannot be mapped to JSON-LD terms defined in the object's `@context`, they are not considered part of the badge object's meaning.
