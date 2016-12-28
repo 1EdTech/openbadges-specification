@@ -88,7 +88,52 @@ Metadata about the issuer is defined in JSON at a URL/IRI defined by the BadgeCl
 ## [Extension](../extensions/#ExampleExtension)
 For examples of Badge Object Extensions and community-developed extensions ready for implementation, see the [Extensions page](../extensions/#ExampleExtension).
 
-## [Signed Badges](../#SignedBadge) <a id="SignedBadge"></a>
+## <a id="LinkedData"></a> Open Badges in Linked Data
+Because Open Badges are Linked Data objects often hosted at HTTP IRIs, we can use the methods of identifying connections using Badge Objects can identify their connected resources either by their string IRI or by embedding a copy of the related document into the source document. For example, an Assertion may include its BadgeClass definition for portability instead of just linking to the URI of the BadgeClass object. Here, the BadgeClass and its issuer Profile record have been included in the Assertion. Each has its "id" property set to the URI where it is published, the unique identifier for that object. Displayer platforms can use that value to index these records. 
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "type": "Assertion",
+  "id": "https://example.org/beths-robotics-badge.json",
+  "recipient": {
+    "type": "email",
+    "hashed": true,
+    "salt": "deadsea",
+    "identity": "sha256$c7ef86405ba71b85acd8e2e95166c4b111448089f2e1599f42fe1bba46e865c5"
+  },
+  "image": "https://example.org/beths-robot-badge.png",
+  "evidence": "https://example.org/beths-robot-work.html",
+  "issuedOn": 1359217910,
+  "expires": 1609458300,
+  "badge": {
+    "id": "https://example.org/robotics-badge.json",
+    "type": "BadgeClass",
+    "name": "Awesome Robotics Badge",
+    "description": "For doing awesome things with robots that people think is pretty great.",
+    "image": "https://example.org/robotics-badge.png",
+    "criteria": "https://example.org/robotics-badge.html",
+    "issuer": {
+      "type": "Profile",
+      "id": "https://example.org/organization.json",
+      "name": "An Example Badge Issuer",
+      "image": "https://example.org/logo.png",
+      "url": "https://example.org",
+      "email": "steved@example.org",
+    }
+  },
+  "verification": {
+    "type": "hosted"
+  }
+}
+{% endhighlight %}
+**Notes**:
+
+* In this example, the `badge` property in the Assertion is expanded to offer a full BadgeClass record, but not all identifying URIs are represented here as this type of expanded document. For example, `criteria` and `image` properties just use a URI instead of taking advantage of linked data classes for these items in the Specification. You may publish badge objects with a mix of URI references and expanded document formats that have indexable `id`s. Properties that in v1.1 expected a String URI datatype may now encounter a `{}` object containing an `id` property and other metadata. All such properties are now listed in the spec as expecting an @id (linked data subject) expecting the IRI or document representation of a certain data class.
+* Because the properties describing the BadgeClass and issuer Profile are within the same context that's included at the top of the JSON-LD document, you don't need to include a new reference to the "@context" each time.
+* Because this Assertion uses "hosted" verification, and there is no cryptographic signature to verify that the full document here is the exact one published by the issuer, verifier and displayer platforms will likely discard the embedded BadgeClass and issuer Profile here and replace them with the values discovered at their `id` URIs, because only those hosted documents can be trusted to be the creation of the issuer. If the Assertion uses "signed" verification, the validator may accept the embedded values as the intended BadgeClass and issuer Profile, and if they have multiple records for those entities that use the declared `id`, the validator may choose how to index and present that information. Issuers should change the `id`s of their BadgeClasses when they make edits if they wish the edits to essentially be understood as a different achievement than the one published under the original `id`.
+
+
+## <a id="SignedBadge"></a> [Signed Badges](../#SignedBadge) 
 A JSON Web Signature for a signed badge looks like the following. (Space has been added here around the `.` separators for clarity.)
 {% highlight html %}
 eyJhbGciOiJSUzI1NiJ9
@@ -111,6 +156,7 @@ When base64 decoded this corresponds to the three JSON objects below for a signe
 {% highlight html %}
 Liv4CLviFH20_6RciUWf-jrUvMAecxT4KZ_gLHAeT_chrsCvBEE1uwgtwiarIs9acFfMi0FJzrGye6mhdHf3Kjv_6P7BsG3RPkYgK6-5i9uZv4QAIlvfNclWAoWUt4j0_Kip2ftzzWwc5old01nJRtudZHxo5eGosSPlztGRE9G_g_cTj32tz3fG92E2azPmbt7026G91rq80Mi-9c4bZm2EgrcwNBjO0p1mbKYXLIAAkOMuJZ_8S4Go8S0Sg3xC6ZCn03zWuXCP6bdY_jJx2BpmvqC3H55xWIU8p5c9RxI8YifPMmJq8ZQhjld0pl-L8kHolJx7KGfTjQSegANUPg
 {% endhighlight %}
+
 ### [RevocationList](../#RevocationList) <a id="RevocationList"></a>
 A JSON dictionary of badge UIDs that have been revoked. The keys are the UIDs, and the value of each key is a string that could contain a reason for revocation. Checking this list is intended as part of the verification process for signed badges, just as checking for the hosted assertion is part of verifying a hosted badge.
 {% highlight json %}
@@ -120,6 +166,9 @@ A JSON dictionary of badge UIDs that have been revoked. The keys are the UIDs, a
   "1av09le": "Honor code violation"
 }
 {% endhighlight %}
+
+### <a id="SocialMediaUrls"></a> Social Media URLs in Profiles
+When using the `url` property of a profile to denote a social media account, use the canonical url of the account. For example, for a Twitter account, use `https://twitter.com/OpenBadges`. For a Facebook page or account, the URL is in the format `https://www.facebook.com/OpenBadges`.
 
 ### <a id="setting-content-type"></a>Setting Content-Type
 
