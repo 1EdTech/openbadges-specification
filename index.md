@@ -112,7 +112,7 @@ Assertions are representations of an awarded badge, used to share information ab
 | **type** | JSON-LD type | valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string `Assertion`. An array including `Assertion` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 | <a id="recipient"></a>**recipient** | [IdentityObject](#IdentityObject) | The recipient of the achievement. |
 | **badge** | @id: [BadgeClass](#BadgeClass) | IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a [BadgeClass](#badgeclass) |
-| **verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion. |
+| **verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion. (Alias "verify" may be used in [context](v2/context.json).) |
 | <a id="issueDate"></a>**issuedOn** | [DateTime](#dateTime) | Timestamp of when the achievement was awarded. |
 | image | @id: [Image](#Image) | IRI or document representing an image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the [Baking specification](./baking). An 'unbaked' image for the badge is defined in the [BadgeClass](#BadgeClass) and should not be duplicated here. |
 | <a id="evidence"></a>evidence | @id: [Evidence](#Evidence) | IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. May be an array of multiple values. |
@@ -190,14 +190,29 @@ Property | Expected Type | Description
 
 
 ### <a id="VerificationObject"></a>VerificationObject
-A collection of information allowing a consumer to authenticate the Assertion.
+A collection of information allowing an inspector to verify an Assertion. This is used as part of verification instructions in each Assertion but also as an instruction set in an issuer's Profile to describe verification instructions for Assertions the issuer awards.
 
 <div class="table-wrapper">
 
 Property | Expected Type | Description
 ---------|---------------|-----------
-**type** | VerificationType | The type of verification method.
-**url**  | URL | If the type is "hosted", this should be a URL pointing to the assertion on the issuer's server. If the type is "signed", this should be a link to the issuer's public key.
+**type** | JSON-LD type  | The type of verification method. Supported values for single assertion verification are `HostedBadge` and `SignedBadge` (aliases in [context](v2/context.json) are available: `hosted` and `signed`). For instances used in Profiles, the type `VerificationObject` should be used.
+verificationProperty | @id | The @id of the property to be used for verification that an Assertion is within the allowed scope. Only `id` is supported. Verifiers will consider `id` the default value if `verificationProperty` is omitted or if an issuer Profile has no explicit verification instructions, so it may be safely omitted.
+startsWith | URI fragment string | The URI fragment that the verification property must start with. Valid Assertions must have an `id` within this scope. Multiple values allowed, and Assertions will be considered valid if their `id` starts with one of these values.
+<a id="allowedOrigins"></a>allowedOrigins | URI origin string | the hostname component of allowed origins. Any `id` URI within one of the allowedOrigins will be considered valid.
+
+`HostedVerification` and `SignedVerification` are subclasses of `VerificationObject`. Future subclasses may be developed to indicate instructions for verifying Assertions using different methods, such as blockchain-based procedures.
+
+#### <a id="HostedBadge"></a> HostedBadge
+Hosted badge Assertions that have an HTTP(s) `id` simply need to declare a verification type of `HostedBadge`, and verification will use the Assertion's `id` property.
+
+#### <a id="SignedBadge"></a> SignedBadge
+Cryptographically signed Assertions need to declare a verification type of `SignedBadge` within the JSON-LD. These badges are typically delivered as JSON Web Signatures (JWSs), so the signature value is outside the Assertion content, wrapping it. However, it may help to identify which publicKey is associated with the signature within the badge, so the `creator` field is available to be used in SignedBadges.
+
+Property | Expected Type | Description
+---------|---------------|-----------
+**type** | JSON-LD type  | The type of verification method: `SignedBadge` (or legacy alias `signed`).
+creator  | @id: CryptographicKey | The (HTTP) id of the key used to sign the Assertion. If not present, verifiers will check public key(s) declared in the referenced issuer Profile. If a key is declared here, it must be authorized in the issuer Profile as well. `creator` is expected to be the dereferencable URI of a document that describes a [CryptographicKey](#CryptographicKey)
 
 </div>
 
