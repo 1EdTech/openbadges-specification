@@ -41,8 +41,6 @@ As of January 2017, the Open Badges has become an [IMS Global Learning Consortiu
    - [Criteria](#Criteria)
    - [AlignmentObject](#Alignment)
    - [RevocationList](#RevocationList)
- * [Properties](#VocabularyProperties)
-   - [](#recipient)
  * [Profile Identifier Properties](#ProfileIdentifierProperties)
  * [Extensions](#Extensions)
  * [Implementation](#Implementation)
@@ -114,7 +112,7 @@ Assertions are representations of an awarded badge, used to share information ab
 | **type** | JSON-LD type | valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string `Assertion`. An array including `Assertion` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 | <a id="recipient"></a>**recipient** | [IdentityObject](#IdentityObject) | The recipient of the achievement. |
 | **badge** | @id: [BadgeClass](#BadgeClass) | IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a [BadgeClass](#badgeclass) |
-| **verify** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion. |
+| **verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion. |
 | <a id="issueDate"></a>**issuedOn** | [DateTime](#dateTime) | Timestamp of when the achievement was awarded. |
 | image | @id: [Image](#Image) | IRI or document representing an image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the [Baking specification](./baking). An 'unbaked' image for the badge is defined in the [BadgeClass](#BadgeClass) and should not be duplicated here. |
 | <a id="evidence"></a>evidence | @id: [Evidence](#Evidence) | IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. May be an array of multiple values. |
@@ -125,7 +123,7 @@ Assertions are representations of an awarded badge, used to share information ab
 
 Deprecated properties still in use by some implementations: 
 
-* <a id="uid"></a>uid -- String -- Unique Identifier for the badge. This is expected to be *locally* unique on a per-issuer basis and for hosted badges on a per-origin basis. It may not be necessarily globally unique. `uid` has been replaced by the IRI-based `id` property.
+* <a id="uid"></a>uid -- String -- Unique Identifier for the badge. This is expected to be *locally* unique on a per-issuer basis and for hosted badges on a per-origin basis. It may not be necessarily globally unique. `uid` has been replaced by the IRI-based `id` property. It should not be used in v2.0+ Assertions.
 
 
 ### <a id="BadgeClass"></a>BadgeClass ([example](./examples/#BadgeClass))
@@ -420,6 +418,7 @@ recommended.
 
 The public key corresponding to the private key used to the sign the
 badge should be publicly accessible via HTTP and specified in the `verify.url`
+TODO: Key should be in issuer Profile
 property of the badge assertion. (TODO: The key should be specified in the issuer public key declaration...)
 
 #### Revoking a Signed Badge
@@ -430,13 +429,9 @@ badge and a reason why the badge is being revoked. See an [example](examples/#Re
 
 
 ## Badge Verification
-
+TODO: Expand on Verification (Ensuring badge was issued by whom and to whom you expect - in terms of recipient properties and issuer profiles at least), contrast with Validation (structural integrity, data class implementation correct). Mention platform Certification?
 An assertion will either be raw JSON (hosted assertion) or a JWS object
 (signed assertion)
-
-It is STRONGLY RECOMMENDED that a display implementation
-show the `verify.url`, with the origin (protocol, hostname, port if
-non-default) highlighted.
 
 The use of the term "eventual 200 OK" is meant to mean that 3xx
 redirects are allowed, as long as the request eventually terminates on a
