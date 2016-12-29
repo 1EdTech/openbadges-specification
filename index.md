@@ -32,10 +32,14 @@ As of January 2017, the Open Badges has become an [IMS Global Learning Consortiu
  * [Open Badges Vocabulary](#BadgeObjects)
    - [Assertion](#Assertion)
    - [BadgeClass](#BadgeClass)
-   - [Profile](#Profile) and [Issuer Profile](#Issuer)
+   - [Profile](#Profile) (Issuer)
    - [IdentityObject](#IdentityObject)
    - [VerificationObject](#VerificationObject)
+   - [Evidence](#Evidence)
+   - [Image](#Image)
+   - [Criteria](#Criteria)
    - [AlignmentObject](#Alignment)
+   - [RevocationList](#RevocationList)
  * [Profile Identifier Properties](#ProfileIdentifierProperties)
  * [Extensions](#Extensions)
  * [Implementation](#Implementation)
@@ -140,6 +144,7 @@ alignment | Array of [AlignmentObject](#Alignment)s | List of objects describing
 
 </div>
 
+
 ### <a id="Profile"></a><a id="Issuer"></a> Profile ([example](./examples/#Issuer))
 A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile theat represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address. An Issuer Profile is a subclass of the general Profile with some additional requirements.
 
@@ -196,6 +201,24 @@ Property | Expected Type | Description
 </div>
 
 
+### <a id="Evidence"></a>Evidence
+Placeholder for Criteria data class.
+
+<div class="table-wrapper">
+
+Property | Expected Type | Description
+---------|---------------|-----------
+type     | JSON-LD Type  | Defaults to [Criteria](#Criteria)
+id       | IRI           | The URI of a webpage presenting evidence of achievement. 
+evidenceNarrative | Text or Markdown Text | A narrative that describes the evidence of achievement that led to an Assertion.
+name     | Text          | A descriptive title of the evidence
+description | Text       | A longer description of the evidence.
+genre    | Text          | A string that describes the type of evidence. For example, `Poetry`, `Prose`, `Film`
+audience | Text          | A description of the intended audience for a piece of evidence.
+
+</div>
+
+
 ### <a id="Image"></a>Image
 Metadata about images that represent Assertions, BadgeClasses or Profiles. These properties can typically be represented as just the `id` string of the image, but using a fleshed-out document allows for including captions and other applicable metadata.
 
@@ -221,23 +244,6 @@ Property | Expected Type | Description
 type     | JSON-LD Type  | Defaults to [Criteria](#Criteria)
 id       | IRI           | The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass.
 <a name="criteriaText"></a>criteriaText | Text or [Markdown Text](#MarkdownText) | A narrative of what is needed to earn the badge. 
-
-</div>
-
-### <a id="Evidence"></a>Evidence
-Placeholder for Criteria data class.
-
-<div class="table-wrapper">
-
-Property | Expected Type | Description
----------|---------------|-----------
-type     | JSON-LD Type  | Defaults to [Criteria](#Criteria)
-id       | IRI           | The URI of a webpage presenting evidence of achievement. 
-evidenceNarrative | Text or Markdown Text | A narrative that describes the evidence of achievement that led to an Assertion.
-name     | Text          | A descriptive title of the evidence
-description | Text       | A longer description of the evidence.
-genre    | Text          | A string that describes the type of evidence. For example, `Poetry`, `Prose`, `Film`
-audience | Text          | A description of the intended audience for a piece of evidence.
 
 </div>
 
