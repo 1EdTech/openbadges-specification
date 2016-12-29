@@ -27,9 +27,10 @@ This document represents a draft in progress for a future version of the Open Ba
 As of January 2017, the Open Badges has become an [IMS Global Learning Consortium](https://www.imsglobal.org) web standard. Future versions will be published to this page by IMS Global.
 
 ## Contents
- * [A Simple Example](#intro-example)
+ * [Introduction](#intro-example)
    - [Linked Data](#LinkedData) 
- * [Open Badges Vocabulary](#BadgeObjects)
+ * [Open Badges Vocabulary](#Vocabulary)
+ * [Classes](#VocabularyClasses)
    - [Assertion](#Assertion)
    - [BadgeClass](#BadgeClass)
    - [Profile](#Profile) (Issuer)
@@ -40,6 +41,8 @@ As of January 2017, the Open Badges has become an [IMS Global Learning Consortiu
    - [Criteria](#Criteria)
    - [AlignmentObject](#Alignment)
    - [RevocationList](#RevocationList)
+ * [Properties](#VocabularyProperties)
+   - [](#recipient)
  * [Profile Identifier Properties](#ProfileIdentifierProperties)
  * [Extensions](#Extensions)
  * [Implementation](#Implementation)
@@ -115,7 +118,7 @@ Assertions are representations of an awarded badge, used to share information ab
 | <a id="issueDate"></a>**issuedOn** | [DateTime](#dateTime) | Timestamp of when the achievement was awarded. |
 | image | @id: [Image](#Image) | IRI or document representing an image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the [Baking specification](./baking). An 'unbaked' image for the badge is defined in the [BadgeClass](#BadgeClass) and should not be duplicated here. |
 | <a id="evidence"></a>evidence | @id: [Evidence](#Evidence) | IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. May be an array of multiple values. |
-| <a id="evidenceNarrative"></a>evidenceNarrative | Text or [Markdown Text](#MarkdownText) | A narrative that connects multiple pieces of evidence. Likely only present at this location if `evidence` is a multi-value array.
+| <a id="narrative"></a>narrative | Text or [Markdown Text](#MarkdownText) | A narrative that connects multiple pieces of evidence. Likely only present at this location if `evidence` is a multi-value array.
 | <a id="expirationDate"></a>expires | [DateTime](#dateTime) | If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. |
 
 </div>
@@ -210,7 +213,7 @@ Property | Expected Type | Description
 ---------|---------------|-----------
 type     | JSON-LD Type  | Defaults to [Criteria](#Criteria)
 id       | IRI           | The URI of a webpage presenting evidence of achievement. 
-evidenceNarrative | Text or Markdown Text | A narrative that describes the evidence of achievement that led to an Assertion.
+narrative | Text or Markdown Text | A narrative that describes the evidence of achievement that led to an Assertion.
 name     | Text          | A descriptive title of the evidence
 description | Text       | A longer description of the evidence.
 genre    | Text          | A string that describes the type of evidence. For example, `Poetry`, `Prose`, `Film`
@@ -243,11 +246,11 @@ Property | Expected Type | Description
 ---------|---------------|-----------
 type     | JSON-LD Type  | Defaults to [Criteria](#Criteria)
 id       | IRI           | The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass.
-<a name="criteriaText"></a>criteriaText | Text or [Markdown Text](#MarkdownText) | A narrative of what is needed to earn the badge. 
+narrative | Text or [Markdown Text](#MarkdownText) | A narrative of what is needed to earn the badge. 
 
 </div>
 
-For evidence that is ephemeral or completely described within an Assertion via use of the Evidence class, if it is necessary to identify this evidence piece uniquely in an overall evidenceNarrative, an `id` of type `urn:uuid` or otherwise outside the HTTP scheme may be used, but displayers may have less success displaying this usage meaningfully. 
+For evidence that is ephemeral or completely described within an Assertion via use of the Evidence class, if it is necessary to identify this evidence piece uniquely in an overall narrative, an `id` of type `urn:uuid` or otherwise outside the HTTP scheme may be used, but displayers may have less success displaying this usage meaningfully. 
 
 
 ### <a id="Alignment"></a>AlignmentObject

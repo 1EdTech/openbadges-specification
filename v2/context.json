@@ -11,21 +11,44 @@
     "schema": "http://schema.org/",
     "sec": "https://w3id.org/security#",
 
+
+    "AlignmentObject": "schema:AlignmentObject",
+
     "Assertion": "obi:Assertion",
     "BadgeClass": "obi:BadgeClass",
     "Issuer": "obi:Issuer",
+    "Profile": "obi:Profile",
     "Extension": "obi:Extension",
-    "hosted": "obi:HostedBadge",
-    "signed": "obi:SignedBadge",
+    "IdentityObject": "obi:IdentityObject",
+    "VerificationObject": "obi:VerificationObject",
+    "Evidence": "obi:Evidence",
+    "Image": "obi:Image",
+    "Criteria": "obi:Criteria",
+    "RevocationList": "obi:RevocationList",
+
     "TypeValidation": "obi:TypeValidation",
     "FrameValidation": "obi:FrameValidation",
+    "HostedBadge": "obi:HostedBadge",
+    "SignedBadge": "obi:SignedBadge",
+    "hosted": "obi:HostedBadge",
+    "signed": "obi:SignedBadge",
+
 
     "name": { "@id": "schema:name" },
     "description": { "@id": "schema:description" },
     "url": { "@id": "schema:url", "@type": "@id" },
     "image": { "@id": "schema:image", "@type": "@id" },
- 
-    "uid": { "@id": "obi:uid" },
+    "email": { "@id": "schema:email" },
+    "tags": { "@id": "schema:keywords" },
+    "telephone": { "@id": "schema:telephone" },
+    "genre": { "@id": "schema:genre" },
+    "caption": { "@id": "schema:caption" },
+    "author": { "@id": "schema:author", "@type": "@id" },
+    "targetName": { "@id": "schema:targetName" },
+    "targetUrl": { "@id": "schema:targetUrl" },
+    "targetDescription": { "@id": "schema:targetDescription" },
+    "targetFramework": { "@id": "schema:targetFramework" },
+
     "recipient": { "@id": "obi:recipient", "@type": "@id" },
     "hashed": { "@id": "obi:hashed", "@type": "xsd:boolean" },
     "salt": { "@id": "obi:salt" },
@@ -33,42 +56,22 @@
     "issuedOn": { "@id": "obi:issueDate", "@type": "xsd:dateTime" },
     "expires": { "@id": "sec:expiration", "@type": "xsd:dateTime" },
     "evidence": { "@id": "obi:evidence", "@type": "@id" },
+    "audience": { "@id": "obi:audience" },
+    "narrative": { "@id": "obi:evidenceNarrative" },
+    "targetCode": { "@id": "obi:targetCode" },
     "verify": { "@id": "obi:verify", "@type": "@id" },
-
+    "verification": "verify",
     "badge": { "@id": "obi:badge", "@type": "@id" },
     "criteria": { "@id": "obi:criteria", "@type": "@id" },
-    "tags": { "@id": "schema:keywords" },
     "alignment": { "@id": "obi:alignment", "@type": "@id" },
-
     "issuer": { "@id": "obi:issuer", "@type": "@id" },
-    "email": "schema:email",
+    "revoked": { "@id": "obi:revoked", "@type": "xsd:boolean" },
+    "revokedAssertions": { "@id": "obi:revoked" },
     "revocationList": { "@id": "obi:revocationList", "@type": "@id" },
+    "revocationReason": { "@id": "obi:revocationReason" },
 
     "validatesType": "obi:validatesType",
     "validationSchema": "obi:validationSchema",
     "validationFrame": "obi:validationFrame"
-  },
-
-  "validation": [
-    {
-      "type": "TypeValidation",
-      "validatesType": "Assertion",
-      "validationSchema": "https://openbadgespec.org/v1/schema/assertion.json"
-    },
-    {
-      "type": "TypeValidation",
-      "validatesType": "BadgeClass",
-      "validationSchema": "https://openbadgespec.org/v1/schema/badgeclass.json"
-    },
-    {
-      "type": "TypeValidation",
-      "validatesType": "Issuer",
-      "validationSchema": "https://openbadgespec.org/v1/schema/issuer.json"
-    },
-    {
-      "type": "TypeValidation",
-      "validatesType": "Extension",
-      "validationSchema": "https://openbadgespec.org/v1/schema/extension.json"
-    }
-  ]
+  }
 }
