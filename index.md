@@ -118,7 +118,7 @@ Assertions are representations of an awarded badge, used to share information ab
 | image | @id: [Image](#Image) | IRI or document representing an image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the [Baking specification](./baking). An 'unbaked' image for the badge is defined in the [BadgeClass](#BadgeClass) and should not be duplicated here. |
 | <a id="evidence"></a>evidence | @id: [Evidence](#Evidence) | IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. May be an array of multiple values. |
 | <a id="narrative"></a>narrative | Text or [Markdown Text](#MarkdownText) | A narrative that connects multiple pieces of evidence. Likely only present at this location if `evidence` is a multi-value array.
-| <a id="expirationDate"></a>expires | [DateTime](#dateTime) | If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. |
+| <a id="expirationDate"></a>expires | [DateTime](#dateTime) | If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. After this time, the badge should be considered expired. |
 | revoked  | Boolean       | Defaults to `false` if Assertion is not referenced from a [`revokedAssertions`](#revokedAssertions) list and may be omitted. See [RevocationList](#RevocationList). If `revoked` is true, only `revoked` and `id` are required properties, and many issuers strip a hosted Assertion down to only those properties when revoked.
 | revocationReason | Text  | Optional published reason for revocation, if revoked. 
 
@@ -471,6 +471,8 @@ Verification includes tests to ensure that:
 * All Badge Objects were created by the appropriate issuer `Profile`(s) according to rules declared in their [VerificationObjects](#VerificationObject).
 * The `Assertion` was awarded to a valid property value of the expected recipient. (For example, that the `Asssertion` was awarded to a known email address value for `email` type recipient `IdentityObject`.)
 * The `Assertion` issuer is authorized to award Assertions of the declared `BadgeClass` (typically by being the issuer of the BadgeClass.)
+* The `Assertion` has not expired.
+* The `Assertion` has not been revoked by the issuer.
 
 Additional checks may ensure that:
 
