@@ -163,7 +163,7 @@ telephone | Text | A phone number for the entity. For maximum compatibility, the
 description | Text | A short description of the issuer entity or organization
 image | [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the issuer
 email | Text | Contact address for the individual or organization.
-publicKey | PublicKey | TODO Describe Public Key
+publicKey | @id: [CryptographicKey](#CryptographicKey) | The key(s) an issuer uses to sign Assertions.
 <a id="revocationList"></a>revocationList | IRI: [RevocationList](#RevocationList) | HTTP URI of the Badge Revocation List used for marking revocation of signed badges.
 
 **A note on required properties**:
@@ -214,7 +214,7 @@ Cryptographically signed Assertions need to declare a verification type of `Sign
 Property | Expected Type | Description
 ---------|---------------|-----------
 **type** | JSON-LD type  | The type of verification method: `SignedBadge` (or legacy alias `signed`).
-creator  | @id: CryptographicKey | The (HTTP) id of the key used to sign the Assertion. If not present, verifiers will check public key(s) declared in the referenced issuer Profile. If a key is declared here, it must be authorized in the issuer Profile as well. `creator` is expected to be the dereferencable URI of a document that describes a [CryptographicKey](#CryptographicKey)
+creator  | @id: [CryptographicKey](#CryptographicKey) | The (HTTP) id of the key used to sign the Assertion. If not present, verifiers will check public key(s) declared in the referenced issuer Profile. If a key is declared here, it must be authorized in the issuer Profile as well. `creator` is expected to be the dereferencable URI of a document that describes a [CryptographicKey](#CryptographicKey).
 
 </div>
 
@@ -269,7 +269,7 @@ For evidence that is ephemeral or completely described within an Assertion via u
 
 
 ### <a id="Alignment"></a>AlignmentObject
-The AlignmentObject is based on Schema.org's [AlignmentObject](http://schema.org/AlignmentObject) and uses IRIs from that vocabulary.
+The AlignmentObject is an alias for schema.org's [AlignmentObject](http://schema.org/AlignmentObject) and uses IRIs from that vocabulary.
 
 <div class="table-wrapper">
 
@@ -312,6 +312,26 @@ uid      | Text          | Legacy identifier for pre-1.1 badges that did not use
 <a id="revocationReason"></a> revocationReason | Text | The published reason for revocation if desired.
 
 </div>
+
+
+### <a id="CryptographicKey"></a>CryptographicKey
+Alias for the [Key](https://web-payments.org/vocabs/security#Key) class from the [W3C Web Payments Community Group Security Vocabulary](https://web-payments.org/vocabs/security). A CryptographicKey document identifies and describes a Key used for signing Open Badges documents. 
+
+For best compatibility with verification procedures, the `Profile` should be hosted at its HTTPS `id` and should identify a `publicKey` by the HTTPS `id` of a `CryptographicKey` document that identifies its issuer by the issuer's `id` using the `owner` property. This allows convenient and robust usage of these `id`s to identify both the issuer and the key used.
+
+<div class="table-wrapper">
+
+Property | Expected Type | Description
+---------|---------------|-----------
+type     | JSON-LD Type  | `CryptographicKey`
+id       | IRI           | The identifier for the key. Most platforms only support HTTP(s) identifiers.
+owner    | IRI: [Profile](#Profile) | The identifier for the Profile that owns this key. There should be a two-way connection between this Profile and the CryptographicKey through the `owner` and `publicKey` properties.
+publicKeyPem | Text      | The PEM key encoding is a widely-used method to express public keys, compatible with almost every Secure Sockets Layer library implementation.
+
+</div>
+
+For evidence that is ephemeral or completely described within an Assertion via use of the Evidence class, if it is necessary to identify this evidence piece uniquely in an overall narrative, an `id` of type `urn:uuid` or otherwise outside the HTTP scheme may be used, but displayers may have less success displaying this usage meaningfully. 
+
 
 ## <a id="ProfileIdentifierProperties"></a>Profile Identifier Properties
 When profiles are referenced elsewhere in the Open Badges Specification, they may be identified precisely by dereferencable id, such as when a BadgeClass links to an issuer Profile by its `id` URL. Other times, such as when identifying the [recipient](#recipient) of an [Assertion](#Assertion), Profiles may be identified by the value of a specific property unique to the individual or organization represented in a Profile. All properties that serve as profile identifiers must have values with a string datatype.
