@@ -158,12 +158,26 @@ Liv4CLviFH20_6RciUWf-jrUvMAecxT4KZ_gLHAeT_chrsCvBEE1uwgtwiarIs9acFfMi0FJzrGye6mh
 {% endhighlight %}
 
 ### [RevocationList](../#RevocationList) <a id="RevocationList"></a>
-A JSON dictionary of badge UIDs that have been revoked. The keys are the UIDs, and the value of each key is a string that could contain a reason for revocation. Checking this list is intended as part of the verification process for signed badges, just as checking for the hosted assertion is part of verifying a hosted badge.
+Issuers may have a RevocationList if they use `SignedBadge` verification. Checking this list is intended as part of the verification process for signed badges, just as checking for the hosted assertion is part of verifying a hosted badge. It is published as a JSON-LD document with type `RevocationList`. RevocationLists are linked from an issuer Profile via the `revocationList` property. The RevocationList identifies its issuer with the `issuer` property.
+
+RevocationLists may identify revoked Assertions through their `revokedAssertions` property. Individual assertions are identified either by their `id` or (legacy) `uid` properties. `id`-identified Assertions may appear in a RevocationList as that id string or as an object with an `id` property and other metadata, usually just a `revocationReason`. The below example shows `id`s in the `urn:uuid` namespace, which is a recommended namespace for signed Assertions that do not have a hosted (HTTP) `id`.
 {% highlight json %}
 {
-  "qp8g1s": "Issued in error",
-  "2i9016k": "Issued in error",
-  "1av09le": "Honor code violation"
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://example.com/revocationList",
+  "type": "RevocationList",
+  "issuer": "https://example.com/issuer",
+  "revokedAssertions": [
+    "urn:uuid:3c574c87-b96f-4f06-8eb5-68a29335b60e",
+    {
+      "id": "urn:uuid:e79a6c18-787e-4868-8e65-e6a4530fb418",
+      "revocationReason": "Honor code violation"
+    },
+    {
+      "uid": "abc123",
+      "revocationReason": "Issued in error."
+    }
+  ]
 }
 {% endhighlight %}
 

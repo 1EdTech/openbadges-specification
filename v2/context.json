@@ -7,6 +7,7 @@
     "obi": "https://w3id.org/openbadges#",
     "validation": "obi:validation",
 
+    "dc": "http://purl.org/dc/terms/",
     "schema": "http://schema.org/",
     "sec": "https://w3id.org/security#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
@@ -33,7 +34,8 @@
 
     "author": { "@id": "schema:author", "@type": "@id" },
     "caption": { "@id": "schema:caption" },
-    "creator": { "@id": "sec:creator", "@type": "@id" },
+    "created": { "@id": "dc:created", "@type": "xsd:dateTime" },
+    "creator": { "@id": "dc:creator", "@type": "@id" },
     "description": { "@id": "schema:description" },
     "email": { "@id": "schema:email" },
     "genre": { "@id": "schema:genre" },

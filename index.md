@@ -118,10 +118,12 @@ Assertions are representations of an awarded badge, used to share information ab
 | <a id="evidence"></a>evidence | @id: [Evidence](#Evidence) | IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. May be an array of multiple values. |
 | <a id="narrative"></a>narrative | Text or [Markdown Text](#MarkdownText) | A narrative that connects multiple pieces of evidence. Likely only present at this location if `evidence` is a multi-value array.
 | <a id="expirationDate"></a>expires | [DateTime](#dateTime) | If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. |
+| revoked  | Boolean       | Defaults to `false` if Assertion is not referenced from a [`revokedAssertions`](#revokedAssertions) list and may be omitted. See [RevocationList](#RevocationList). If `revoked` is true, only `revoked` and `id` are required properties, and many issuers strip a hosted Assertion down to only those properties when revoked.
+| revocationReason | Text  | Optional published reason for revocation, if revoked. 
 
 </div>
 
-Deprecated properties still in use by some implementations: 
+**Deprecated properties still in use by some implementations**: 
 
 * <a id="uid"></a>uid -- String -- Unique Identifier for the badge. This is expected to be *locally* unique on a per-issuer basis and for hosted badges on a per-origin basis. It may not be necessarily globally unique. `uid` has been replaced by the IRI-based `id` property. It should not be used in v2.0+ Assertions.
 
@@ -284,17 +286,30 @@ In order to render displays of alignment within badge services, `targetName` is 
 **Note:** Open badges v1.x used `schema:name`, `schema:description, and `schema:url`. v2.0 updates the AlignmentObject to use the proper linked data IRIs from the Schema.org vocabulary. 
 </div>
 
+
 ### <a id="RevocationList"></a>Revocation List
-The Revocation List is a document that describes badges an Issuer has revoked that used the `signed` verification method. If you find the badge in the `revoked` list, it has been revoked. An assertion reference may look like `{"id": "https://example.com/1", "revocationReason": "Violation of policy"}`. A UID-based reference may look like `{"uid": "abc123", "revocationReason": "Awarded in error"}`
+The Revocation List is a document that describes badges an Issuer has revoked that used the `signed` verification method. If you find the badge in the `revokedAssertions` list, it has been revoked. 
+
+An assertion reference may look like `{"id": "https://example.com/1", "revocationReason": "Violation of policy"}` or simply the string `"https://example.com/1"`. A UID-based reference may look like `{"uid": "abc123", "revocationReason": "Awarded in error"}`
 
 <div class="table-wrapper">
 
 Property | Expected Type | Description
 ---------|---------------|-----------
-**type** | JSON-LD Type  | `RevocationList`
-id       | IRI           | The `id` of the RevocationList
-issuer   | IRI: Profile  | The `id` of the Issuer
-**revoked** | Array of Assertion references | An array of string `id` or UID-based identifications of badge objects that have been revoked.
+**type** | JSON-LD Type  | `RevocationList`.
+id       | IRI           | The `id` of the RevocationList.
+issuer   | IRI: Profile  | The `id` of the Issuer.
+<a id="revokedAssertions"></a> **revokedAssertions** | Array of revoked Assertions | An array of string `id` or UID-based identifications of badge objects that have been revoked.
+
+**Revoked Assertions referenced by revokedAssertions array:** Properties from [Assertion](#Assertion) in scope for those that have been revoked. Implementers generally only include these properties, clearing out the values that were in place before revocation. An identifying property must be used, either `id` or (legacy) `uid`. If the issuer does not wish to declare a revocation reason or additional metadata, the 
+
+Property | Expected Type | Description
+---------|---------------|-----------
+type     | JSON-LD Type  | Defaults to `Assertion`. May be omitted.
+id       | IRI           | The `id` of the revoked Assertion
+uid      | Text          | Legacy identifier for pre-1.1 badges that did not use an IRI-based `id`
+<a id="revoked"></a> revoked  | Boolean | `true` if the Assertion is revoked. Defaults to true if present in a `revokedAssertions` list and may be omitted.
+<a id="revocationReason"></a> revocationReason | Text | The published reason for revocation if desired.
 
 </div>
 
