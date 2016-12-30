@@ -435,6 +435,8 @@ If a property would be useful beyond a publisher's internal use, an [Extension](
 
 # <a id="Implementation"></a> Implementation
 
+### <a id="setting-content-type"></a>Setting Content-Type
+Badge Objects encoded in JSON-LD should be served with the `application/ld+json` content type by default. If the request indicates only `application/json` as the `Accept` type, responses should include `application/json` in the response content type. If request is made for `text/html` content above `application/ld+json` or `application/json`, a `text/html` content type may be returned.
 
 ### <a id="Baking"></a>Badge Baking
 _since: 0.5_
