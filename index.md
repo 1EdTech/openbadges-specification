@@ -330,8 +330,6 @@ publicKeyPem | Text      | The PEM key encoding is a widely-used method to expre
 
 </div>
 
-For evidence that is ephemeral or completely described within an Assertion via use of the Evidence class, if it is necessary to identify this evidence piece uniquely in an overall narrative, an `id` of type `urn:uuid` or otherwise outside the HTTP scheme may be used, but displayers may have less success displaying this usage meaningfully. 
-
 
 ## <a id="ProfileIdentifierProperties"></a>Profile Identifier Properties
 When profiles are referenced elsewhere in the Open Badges Specification, they may be identified precisely by dereferencable id, such as when a BadgeClass links to an issuer Profile by its `id` URL. Other times, such as when identifying the [recipient](#recipient) of an [Assertion](#Assertion), Profiles may be identified by the value of a specific property unique to the individual or organization represented in a Profile. All properties that serve as profile identifiers must have values with a string datatype.
