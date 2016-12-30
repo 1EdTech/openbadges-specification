@@ -148,6 +148,11 @@ Property     | Type        | Value Description
 **name** | text | The place's name, if available
 **description** | text | A description of the location
 **geo** | object | The GeoCoordinates of a location (containing the following properties)
+
+**GeoCoordinates**:
+
+Property     | Type        | Value Description
+-------------|-------------|---------
 **latitude** | number | The latitude of a location
 **longitude** | number | The longitude of a location
 
@@ -196,15 +201,15 @@ Assertion, BadgeClass, Issuer
 **Example implementation:**
 {% highlight json %}
 {
-    "name": "Awesome Robotics Badge",
-    "description": "For doing awesome things with robots that people think is pretty great.",
-    "image": "http://openbadges.it/logo.png",
-    "criteria": "https://example.org/robotics-badge.html",
-    "tags": [
-        "robots",
-        "awesome"
-    ],
-    "issuer": "https://example.org/badge/issuer.json",
+  "name": "Awesome Robotics Badge",
+  "description": "For doing awesome things with robots that people think is pretty great.",
+  "image": "http://openbadges.it/logo.png",
+  "criteria": "https://example.org/robotics-badge.html",
+  "tags": [
+      "robots",
+      "awesome"
+  ],
+  "issuer": "https://example.org/badge/issuer.json",
   "extensions:Accessibility": {
     "@context":"https://w3id.org/openbadges/extensions/accessibilityExtension/context.json",
     "type": ["Extension", "extensions:Accessibility"],

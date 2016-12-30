@@ -1,6 +1,6 @@
 ---
 title: Open Badges Examples
-subtitle: Examples of Core Open Badge objects
+subtitle: Examples of Core Open Badges objects
 show_sidebar: true
 layout: page
 ---
@@ -16,10 +16,9 @@ Information is divided between badge objects that describe an individual earner'
 An example of a badge Assertion using the `hosted` verification method. This JSON object is "baked" into a badge image (optionally linked at the Assertion's `image` property) and also hosted at the location specified by the `@id` and `verify.url` properties.
 {% highlight json %}
 {
-  "@context": "https://w3id.org/openbadges/v1",
+  "@context": "https://w3id.org/openbadges/v2",
   "type": "Assertion",
   "id": "https://example.org/beths-robotics-badge.json",
-  "uid": "f2c20",
   "recipient": {
     "type": "email",
     "hashed": true,
@@ -28,8 +27,8 @@ An example of a badge Assertion using the `hosted` verification method. This JSO
   },
   "image": "https://example.org/beths-robot-badge.png",
   "evidence": "https://example.org/beths-robot-work.html",
-  "issuedOn": 1359217910,
-  "expires": 1609458300,
+  "issuedOn": "2016-12-31T23:59:59Z",
+  "expires": "2017-06-30T23:59:59Z",
   "badge": "https://example.org/robotics-badge.json",
   "verification": {
     "type": "hosted"
@@ -37,10 +36,8 @@ An example of a badge Assertion using the `hosted` verification method. This JSO
 }
 {% endhighlight %}
 
- * Assertions may be expire on an optional expiration date or may be revoked by removing the hosted assertion. For clarity, the hosted verification server should respond with the HTTP Status Code `410 Gone`.
-
 ### <a id="BadgeClass"></a>BadgeClass Example ([definition](../#BadgeClass))
-The BadgeClass is hosted at the URL/IRI from the Assertion's `badge` property.
+The BadgeClass is hosted at the URI identified in associated Assertions' `badge` property.
 {% highlight json %}
 {
   "@context": "https://w3id.org/openbadges/v2",
@@ -71,8 +68,8 @@ The BadgeClass is hosted at the URL/IRI from the Assertion's `badge` property.
 
 **Notes**:
 
-* `alignment` takes one or multiple AlignmentObjects. If only one value is present, it may or may not be included in `[]`.
-* `issuer` may include an embedded copy of the issuer Profile. Verifiers should fetch the issuer Profile from its HTTP `id` and in most cases treat the hosted value as the most up-to-date representation. In the case of signed-verification Assertions, an embedded `BadgeClass` or issuer `Profile` 
+* The JSON-LD data model treats `"property": ["value"]` as equivalent to `"property": "value"`. An example of this is that `alignment` takes one or multiple AlignmentObjects. If only one value is present, it may or may not be included in `[]`. Not all of the Open Badges properties accept multiple values. For instance, `issuer` may only have one value.
+* Many `@id`-type fields may have a property that appears as an IRI/URI or as an embedded JSON object (with `{}`). For example, `issuer` may include an embedded copy of the issuer Profile. Verifiers should fetch the issuer Profile from its HTTP `id` and in most cases treat the hosted value as the most up-to-date representation. In the case of signed-verification Assertions, an embedded `BadgeClass` or issuer `Profile` can be interpreted to be the value claimed at the time of issue, though `publicKeys` referenced in an embedded issuer `Profile` should not be trusted to belong to the issuer without checking the hosted Profile.
 
 ### <a id="Issuer"></a><a id="Profile"></a>Issuer/Profile Example ([definition](../#Profile))
 Metadata about the issuer is defined in JSON at a URL/IRI defined by the BadgeClass's `issuer` property.
@@ -106,10 +103,7 @@ Because Open Badges are Linked Data objects often hosted at HTTP IRIs, we can us
     "salt": "deadsea",
     "identity": "sha256$c7ef86405ba71b85acd8e2e95166c4b111448089f2e1599f42fe1bba46e865c5"
   },
-  "image": "https://example.org/beths-robot-badge.png",
-  "evidence": "https://example.org/beths-robot-work.html",
-  "issuedOn": 1359217910,
-  "expires": 1609458300,
+  "issuedOn": "2016-12-31T23:59:59Z",
   "badge": {
     "id": "https://example.org/robotics-badge.json",
     "type": "BadgeClass",
@@ -133,7 +127,7 @@ Because Open Badges are Linked Data objects often hosted at HTTP IRIs, we can us
 {% endhighlight %}
 **Notes**:
 
-* In this example, the `badge` property in the Assertion is expanded to offer a full BadgeClass record, but not all identifying URIs are represented here as this type of expanded document. For example, `criteria` and `image` properties just use a URI instead of taking advantage of linked data classes for these items in the Specification. You may publish badge objects with a mix of URI references and expanded document formats that have indexable `id`s. Properties that in v1.1 expected a String URI datatype may now encounter a `{}` object containing an `id` property and other metadata. All such properties are now listed in the spec as expecting an @id (linked data subject) expecting the IRI or document representation of a certain data class.
+* In this example, the `badge` property in the Assertion is expanded to offer a full BadgeClass record, but not all identifying URIs (`@id`-type fields) are represented here as this type of expanded document. For example, `criteria` and `image` properties just use a URI here instead of taking advantage of linked data classes for these items in the Specification. You may publish badge objects with a mix of URI references and expanded document formats that have indexable `id`s. Properties that in v1.1 expected a String URI datatype may now encounter a `{}` object containing an `id` property and other metadata. All such properties are now listed in the spec as expecting an @id (linked data subject) expecting the IRI or document representation of a certain data class.
 * Because the properties describing the BadgeClass and issuer Profile are within the same context that's included at the top of the JSON-LD document, you don't need to include a new reference to the "@context" each time.
 * Because this Assertion uses "hosted" verification, and there is no cryptographic signature to verify that the full document here is the exact one published by the issuer, verifier and displayer platforms will likely discard the embedded BadgeClass and issuer Profile here and replace them with the values discovered at their `id` URIs, because only those hosted documents can be trusted to be the creation of the issuer. If the Assertion uses "signed" verification, the validator may accept the embedded values as the intended BadgeClass and issuer Profile, and if they have multiple records for those entities that use the declared `id`, the validator may choose how to index and present that information. Issuers should change the `id`s of their BadgeClasses when they make edits if they wish the edits to essentially be understood as a different achievement than the one published under the original `id`.
 
@@ -168,7 +162,6 @@ Claims:
     "salt": "deadsea",
     "identity": "sha256$c7ef86405ba71b85acd8e2e95166c4b111448089f2e1599f42fe1bba46e865c5"
   },
-  "image": "https://example.org/beths-robot-badge.png",
   "evidence": "https://example.org/beths-robot-work.html",
   "issuedOn": "2016-12-31T23:59:59Z",
   "badge": "https://example.org/robotics-badge.json",
