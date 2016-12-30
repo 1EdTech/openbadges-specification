@@ -413,21 +413,21 @@ Validators that someday use the proposed FrameValidation method pass JSON-LD obj
 
 Badges consist of sets of claims, properties with values that apply to Profiles, all earners of a badge, or individual badge recipients. Outside of extensions, additional properties may be added to these claim sets so long as they are mapped to an IRI as JSON-LD. For example, publishers of Badge Objects may:
 
-1. Add individual mappings to the Badge Object's context: `"@context":["https://w3id.org/openbadges/v1", {"foo": "http://example.org/foo"}]`
-2. Link to additional context files in the Badge Object's context: `"@context":["https://w3id.org/openbadges/v1", "http://example.org/context"]`
-3. Add new properties using full IRIs as keys (or with compact IRIs in the existing context): `"http://example.org/foo":"bar"` or `"schema:comment":"baz"` where the IRI leads to the vocabulary definition for the term.
+1. Add individual mappings to the Badge Object's context: `"@context":["https://w3id.org/openbadges/v2", {"foo": "http://example.org/foo"}]`
+2. Link to additional context files in the Badge Object's context: `"@context":["https://w3id.org/openbadges/v2", "http://example.org/context"]`
+3. Add new properties using full IRIs as keys (or with compact IRIs valid in the existing context): `"http://example.org/foo":"bar"` or `"schema:comment":"baz"` where the IRI leads to the vocabulary definition for the term.
 
-Processors should preserve properties that are valid data when rehosting or retransmitting, but it is permissible to perform valid JSON-LD transformations. Such transformations include "expanding", "compacting" and modifying the context. Transformations are assumed to be equivalent if the expanded or normalized RDF value of the new version is equivalent to the expanded value of the original.
+Processors should preserve properties that are valid data when rehosting or retransmitting, but it is permissible to perform valid JSON-LD transformations. Such transformations include "expanding", "compacting" and modifying the context. Transformations are assumed to be equivalent if the expanded or normalized RDF value of the new version is semantically equivalent to the expanded value of the original.
 
 If a property would be useful beyond a publisher's internal use, an [Extension](#Extensions) is a recommended way to establish common practice for adding certain sets of information to badge objects.
 
 
-### Primitive datatypes
+## Primitive datatypes
 
 * Boolean
 * Text
 * Array
-* <a id="dateTime"></a>DateTime - Open Badges must express timestamps as strings compatible with [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) guidelines, including the time and a time zone indicator. It is recommended to publish all timestamps in UTC. Previous versions of Open Badges allowed Unix timestamps as integers. Open Badges v2.0 requires string ISO 8601 values.
+* <a id="dateTime"></a>DateTime - Open Badges must express timestamps as strings compatible with [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) guidelines, including the time and a time zone indicator. It is recommended to publish all timestamps in UTC. Previous versions of Open Badges allowed Unix timestamps as integers. Open Badges v2.0 requires string ISO 8601 values with time zone indicators. For example, `2016-12-31T23:59:59+00:00` is a valid ISO 8601 timestamp. It contains the year, month, day, `T` separator, hour number 0-23, minute, optional seconds and decimal microsecond, and a time zone indicator (+/- an offset from UTC or the `Z` designator for UTC).
 * URL - Fully qualified URL, including protocol, host, port if applicable, and path. Interpreters are only expected to interpret URLs in either the `http` or `https` schemes.
 * IRI - In JSON-LD and Linked Data, IRIs (Internationalized Resource Identifiers) may look like fully qualified URLs or be namespaced within the JSON-LD context to be expanded to a full IRI. The only known supported IRI schemes are `http` and `https`.
 * <a id="identityHash"></a>IdentityHash - A hash string preceded by a dollar sign ("$") and the algorithm used to generate the hash. For example: `sha256$28d50415252ab6c689a54413da15b083034b66e5` represents the result of calculating a SHA256 hash on the string "mayze". For more information, see [how to hash & salt in various languages](https://github.com/mozilla/openbadges/wiki/How-to-hash-&-salt-in-various-languages.).
@@ -435,96 +435,108 @@ If a property would be useful beyond a publisher's internal use, an [Extension](
 
 # <a id="Implementation"></a> Implementation
 
+## Publishing Badge Objects
+Open Badges data is published as JSON-LD documents made up of the above data classes. These link together via use of common identification strings and properties. They rely on other data, including image files that are often hosted on HTTP(s) URIs outside of the JSON-LD documents that describe them.
+
 ### <a id="setting-content-type"></a>Setting Content-Type
-Badge Objects encoded in JSON-LD should be served with the `application/ld+json` content type by default. If the request indicates only `application/json` as the `Accept` type, responses should include `application/json` in the response content type. If request is made for `text/html` content above `application/ld+json` or `application/json`, a `text/html` content type may be returned.
+Badge Objects encoded in JSON-LD should be served with the `application/ld+json` content type by default. If the request indicates only `application/json` as the `Accept` type, responses should include `application/json` in the response content type. If request is made for `text/html` or other content-type above `application/ld+json` or `application/json`, the requested content-type may be returned.
 
 ### <a id="Baking"></a>Badge Baking
 _since: 0.5_
 Badge assertions may be "baked" into image files as portable credentials. Baking is currently supported for PNG and SVG formats. (See [Baking Specification](baking) for implementation)
 
 
-### <a id="HostedBadge"></a>Hosted Verification
+## <a id="data-validation"></a>Data Validation
+Data Validation is a proceduce that ensures a cluster of Badge Objects that make up an Open Badge are appropriately published and linked, and that each particular instance of a Badge Object conforms to requirements for its class. Validation of all data class instances used in an Open Badge is a part of badge verification.
+
+Validation includes tests to ensure that:
+
+* All required Badge Objects are appropriately linked and available to the validator with an eventual `200 OK`.
+* Any relevant optional Badge Objects that are linked (such as `RevocationList`s) are available.
+* Each Badge Object is a valid JSON-LD (Linked Data) document.
+* Each Badge Object contains all required properties for its class.
+* Each Badge Object contains values of the expected data type for all declared properties defined in the Vocabulary.
+
+The use of the term "eventual 200 OK" is meant to mean that 3xx
+redirects are allowed, as long as the request eventually terminates on an appropriate
+resource that returns a 200 OK.
+
+
+## Verification
+Verification is the process of ensuring the data that makes up an Open Badge is correct for the purpose at hand. It includes a number of data validation checks as well as procedures to ensure the badge is trustworthy. Verification is distinct from Compliance Certification for applications and services that implement the Specification, though verification is typically a component of certification programs.
+
+Verification includes tests to ensure that:
+
+* All Badge Objects pass data validation. See [Data Validation](#data-validation) above.
+* All Badge Objects were created by the appropriate issuer `Profile`(s) according to rules declared in their [VerificationObjects](#VerificationObject).
+* The `Assertion` was awarded to a valid property value of the expected recipient. (For example, that the `Asssertion` was awarded to a known email address value for `email` type recipient `IdentityObject`.)
+* The `Assertion` issuer is authorized to award Assertions of the declared `BadgeClass` (typically by being the issuer of the BadgeClass.)
+
+Additional checks may ensure that:
+
+* The issuer Profile awarding the Assertion is trusted to have declared accurate information about its identity (typically via Endorsement).
+
+
+### <a id="HostedBadge"></a>HostedBadge Verification
 _since: 0.5_
-A hosted Assertion is a file containing a well-formatted badge Assertion in JSON-LD served with the content-type `application/ld+json` and/or `application/json`. This should be available to anyone who the recipient would like to be able to verify it at a stable URL on your server (for example, `https://example.org/assertions/robotics-badge/123.json`). This URL is the source of truth for the badge, and any verification attempt will request it to make sure the badge exists and was issued by you. Redirects are permissible as long as appropriate assertion content is  Make sure that you are properly [setting the content-type](./examples/#setting-content-type) to `application/ld+json` by default and when verifiers request that type. It is permissible to respond with `text/html` or other formats if they are requested, as long as a JSON/JSON-LD representation is available.
+A hosted Assertion is a file containing validated `Assertion` data in JSON-LD served with the content-type `application/ld+json` and/or `application/json`. This should be available to anyone who the recipient would like to be able to verify it at a stable URI on your server (for example, `https://example.org/assertions/robotics-badge/123.json`). This URI is the source of truth for the badge, and any verification attempt will request it to make sure the Assertion exists and describes the expected achievement. Redirects are permissible as long as appropriate Assertion content is eventually returned. The hosting application must properly [set the content-type](#setting-content-type).
 
-TODO: Permitted scope for hosted verification declared in Issuer Profile. The Assertion URL must exist in the declared scope for the Assertion to be considered valid.
+The Assertion `id` must be within the permitted scope for hosted verification declared in issuer Profile. See [VerificationObject](#VerificationObject). This defaults to requiring the Assertion and BadgeClass to be hosted on the same origin as the issuer Profile `id` if there is no `verification` property declared in the issuer Profile. For domain origins that host multiple applications and websites, `startsWith` path may be used, in which case, the `verificationProperty` (`id`) must start with the value found in the issuer Profile's VerificationObject `startsWith` declaration.
 
-#### Revoking Hosted Assertions
-To mark a hosted assertion as revoked, respond with an HTTP Status of
-`410 Gone` and a body of `{"revoked": true}`.
-TODO
+**Steps to verify a hosted badge Assertion**:
+Verification of hosted assertions may be performed starting with the verification URL or with a full Assertion instance in hand. If starting with a full assertion that indicates `HostedBadge` verification, the input data should only be trusted to identify the URI of the hosted verification file, and upon loading the hosted verification file, the retrieved data should be used as the Assertion value.
 
-### <a id="SignedBadge"></a>Signed Badges ([example](./examples/#SignedBadge)) 
+
+#### Revoking Hosted Assertions ([example](./examples/#revoked-hosted-assertion))
+To mark a hosted assertion as revoked, respond with an HTTP Status of `410 Gone`. The response may include an `Assertion` body containing some additional metadata, such as a `revocationReason`, but it is not required to meet all normal property presence requirements. For revoked Assertions, only `id` and `revoked` are required.
+
+If either the `410 Gone` status or a response body declaring `revoked` true is returned, the Assertion should be treated as revoked and thus invalid.
+
+### <a id="SignedBadge"></a>SignedBadge Verification ([example](./examples/#SignedBadge)) 
 _since: 1.0_
-A signed badge is in the form of a [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html). Signed badges use the Backpack javascript [issuer API](https://github.com/mozilla/openbadges/wiki/Issuer-API) to pass a signature rather than a URL. The JSON representation of the badge assertion should be used as the JWS payload. 
+A signed badge may be published in the form of a [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html). If so, the JSON representation of the badge assertion should be used as the JWS payload. 
 
 A JWS has three components separated by dots (`.`):
 {% highlight html %}
-`JWS header`.`JWS payload`.`JWS signature`
+header.payload.signature
 {% endhighlight %}
 
-The JSON-LD representation of the badge assertion should be used as the JWS
-payload. For compatibility purposes, using an RSA-SHA256 is highly
-recommended.
+The JSON-LD representation of the `Assertion` should be used as the JWS payload. For compatibility purposes, using RSA-SHA256 is recommended.
 
-The public key corresponding to the private key used to the sign the
-badge should be publicly accessible via HTTP and specified in the `verify.url`
-TODO: Key should be in issuer Profile
-property of the badge assertion. (TODO: The key should be specified in the issuer public key declaration...)
+The public key corresponding to the private key used to the sign the badge should be publicly accessible via HTTP and specified in the issuer Profile's `publicKey` property. If there are multiple keys declared in the issuer Profile, the Assertion's `VerificationObject` may specify the `id` of the public key that should be used for verification with its `creator` property.
+
+**Steps to verify a JWS-signed badge Assertion**:
+
+1. Base64 decode the JWS payload. This will be a JSON string representation of the badge assertion.
+2. Parse the decoded JWS body into a JSON object. If the parsing operation fails, assertion MUST be treated as invalid.
+3. Perform data validation on the Assertion and the (embedded or linked) BadgeClass and issuer Profile, as well as any other relevant present data.
+4. Determine the correct signing key `id`(s) to test against the signature from the valid issuer Profile and Assertion VerificationObject. Do not trust a key that is not properly linked from the issuer Profile.
+5. Perform an HTTP GET request on the trusted keys. If it is impossible to get a usable public key, the Assertion cannot be verified.
+6. With each trusted public key, perform a JWS verification on the JWS object. If the verification fails, assertion MUST be treated as invalid.
+7. Retrieve the revocation list from the Issuer Profile object if present and ensure the `id` of the badge does not appear in the `revokedAssertions` list. Legacy v1.x badges that lack a `id` property may be identified in this list by their `uid`.
+8. If the above steps pass, assertion may be treated as valid.
+
+Other signature suites may be later included in this document if they are investigated and approved.
 
 #### Revoking a Signed Badge
 
-To mark a badge as revoked, add an entry to the resource pointed at by
-the Issuer Profile `revocationList` URL with the **uid** of the
-badge and a reason why the badge is being revoked. See an [example](examples/#RevocationList).
-
-
-## Badge Verification
-TODO: Expand on Verification (Ensuring badge was issued by whom and to whom you expect - in terms of recipient properties and issuer profiles at least), contrast with Validation (structural integrity, data class implementation correct). Mention platform Certification?
-An assertion will either be raw JSON (hosted assertion) or a JWS object
-(signed assertion)
-
-The use of the term "eventual 200 OK" is meant to mean that 3xx
-redirects are allowed, as long as the request eventually terminates on a
-resource that returns a 200 OK.
-
-### Signed Assertion
-
-1. Unpack the JWS payload. This will be a JSON string representation of
-the badge assertion.
-2. Parse the JWS body into a JSON object. If the parsing operation
-fails, assertion MUST be treated as invalid.
-3. Assert structural validity.
-4. Extract the `verify.url` property from the JSON object. If their is no
-`verify.url` property, or the `verify.url` property does not contain a valid
-URL, assertion MUST be treated as invalid. TODO: Replace with instructions for obtaining the public key from the provided issuer profile
-5. Perform an HTTP GET request on `verify.url` and store public key. If the
-HTTP status is not 200 OK (either directly or through 3xx redirects),
-the assertion MUST be treated as invalid.
-6. With the public key, perform a JWS verification on the JWS object. If
-the verification fails, assertion MUST be treated as invalid.
-7. Retrieve the revocation list from the Issuer Profile object if present and
-ensure the `id` of the badge does not appear in the list. TODO: deprecated property uid changed to `id`.
-8. If the above steps pass, assertion MAY BE treated as valid.
-
-### Hosted Assertion
-Verification of hosted assertions may be performed starting with the verification URL or with a full Assertion instance in hand. If starting with a full assertion verfied through a hosted method, the input data should only be trusted to identify the URL of the hosted verification file, and upon loading the hosted verification file, that data should be used as the Assertion value.
-
-1. Perform an HTTP GET request on the `verify.url`. If the HTTP Status
-is not eventually 200 OK, assertion MUST BE treated as invalid.
-2. Assert structural validity
-3. TODO: Describe how to determine that all the hosted URLs in question are within scope declared in the Issuer Profile
+To mark a badge as revoked, add an entry to the resource pointed at by the Issuer Profile `revocationList` URL with the **id** of the Assertion and, optionally, a reason why the badge is being revoked. See an [example](examples/#RevocationList).
 
 
 ## Other Resources <a id="OtherResources"></a>
 
-### Assertion Validator <a id="Validator"></a>
-[http://validator.openbadges.org/](http://validator.openbadges.org/)
+### openbadges-validator <a id="Validator"></a>
+The [Open Badges Validator](http://validator.openbadges.org/) service created by the original Open Badges team at the Mozilla foundation is available for use via browser or API. The code is open source and may be incorporated into applications that require the ability to perform Open Badges verification. See [openbadges-validator](https://github.com/mozilla/openbadges-validator) and [openbadges-validator-service](https://github.com/mozilla/openbadges-validator-service) on GitHub. This package does not yet perform all the necessary steps described above for Open Badges verification, and it currently supports up to v1.1 of the Specification. As of January 2017, work is under way to implement Open Badges v2.0 across issuer platforms, verification software, backpacks and displayer services.
 
-### Bakery Service <a id="BakeryService"></a>
+### Bakery Software and Services <a id="BakeryService"></a>
+Following the [Baking Specification](baking/), Assertions may be embedded into PNG or SVG image files. The following software is available to perform baking and extraction ("unbaking") of Open Badges data and images.
+
+* Mozilla Open Badges Bakery application - [openbadges-bakery](https://github.com/mozilla/openbadges-bakery) (NodeJS module) and [openbadges-bakery-service](https://github.com/mozilla/openbadges-bakery-service) (NodeJs/Express)
+* [Mozilla Open Badges Bakery Service](http://bakery.openbadges.org) - Bake badge images in the browser or via HTTP API.
+* Concentric Sky Open Badges Bakery (python module). See [openbadges_bakery](https://pypi.python.org/pypi/openbadges_bakery) on PyPI.
 
 
-## History <a id="History"></a>
+# History <a id="History"></a>
  * [From 1.0 to 1.1](history/1.1.html) 
  * [From 0.5 to 1.0](https://github.com/mozilla/openbadges/wiki/Assertion-Specification-Changes)
  * [Early history of the specification](https://github.com/mozilla/openbadges-backpack/wiki/Assertions/_history)

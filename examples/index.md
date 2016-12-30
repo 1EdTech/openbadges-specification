@@ -235,6 +235,20 @@ RevocationLists may identify revoked Assertions through their `revokedAssertions
 }
 {% endhighlight %}
 
+### <a id="revoked-hosted-assertion"></a>Revoked Hosted Assertion Example (see more about [Hosted Verification](../#HostedBadge))
+Revoked hosted Assertions should be returned with the HTTP status `410 Gone`. The response body may contain an Assertion document with `"revoked": true` that contains additional metadata. It does not need to meet the full requirements of the `Assertion` class. Only `id` and `revoked` properties must be present
+
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://example.org/beths-robotics-badge.json,
+  "revoked": true,
+  "revocationReason": "Turns out the student's robot was just three stacked children in a trenchcoat with dryer vent hose arms."
+}
+{% endhighlight %}
+
+
+
 
 ### <a id="SocialMediaUrls"></a> Social Media URLs in Profiles
 When using the `url` property of a profile to denote a social media account, use the canonical url of the account. For example, for a Twitter account, use `https://twitter.com/OpenBadges`. For a Facebook page or account, the URL is in the format `https://www.facebook.com/OpenBadges`.
