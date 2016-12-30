@@ -41,6 +41,7 @@ As of January 2017, the Open Badges has become an [IMS Global Learning Consortiu
    - [Criteria](#Criteria)
    - [AlignmentObject](#Alignment)
    - [RevocationList](#RevocationList)
+   - [CryptographicKey](#CryptographicKey)
  * [Profile Identifier Properties](#ProfileIdentifierProperties)
  * [Extensions](#Extensions)
  * [Implementation](#Implementation)
@@ -269,7 +270,7 @@ For evidence that is ephemeral or completely described within an Assertion via u
 
 
 ### <a id="Alignment"></a>AlignmentObject
-The AlignmentObject is an alias for schema.org's [AlignmentObject](http://schema.org/AlignmentObject) and uses IRIs from that vocabulary.
+The AlignmentObject is an alias for schema.org's [AlignmentObject](http://schema.org/AlignmentObject) and uses IRIs from that vocabulary. See an [example](examples/#BadgeClass) as it would appear in a BadgeClass document.
 
 <div class="table-wrapper">
 
@@ -287,7 +288,7 @@ In order to render displays of alignment within badge services, `targetName` is 
 </div>
 
 
-### <a id="RevocationList"></a>Revocation List
+### <a id="RevocationList"></a>Revocation List ([example](examples/#RevocationList))
 The Revocation List is a document that describes badges an Issuer has revoked that used the `signed` verification method. If you find the badge in the `revokedAssertions` list, it has been revoked. 
 
 An assertion reference may look like `{"id": "https://example.com/1", "revocationReason": "Violation of policy"}` or simply the string `"https://example.com/1"`. A UID-based reference may look like `{"uid": "abc123", "revocationReason": "Awarded in error"}`
@@ -314,7 +315,7 @@ uid      | Text          | Legacy identifier for pre-1.1 badges that did not use
 </div>
 
 
-### <a id="CryptographicKey"></a>CryptographicKey
+### <a id="CryptographicKey"></a>CryptographicKey ([example](examples/#CryptographicKey))
 Alias for the [Key](https://web-payments.org/vocabs/security#Key) class from the [W3C Web Payments Community Group Security Vocabulary](https://web-payments.org/vocabs/security). A CryptographicKey document identifies and describes a Key used for signing Open Badges documents. 
 
 For best compatibility with verification procedures, the `Profile` should be hosted at its HTTPS `id` and should identify a `publicKey` by the HTTPS `id` of a `CryptographicKey` document that identifies its issuer by the issuer's `id` using the `owner` property. This allows convenient and robust usage of these `id`s to identify both the issuer and the key used.
@@ -449,7 +450,7 @@ TODO: Permitted scope for hosted verification declared in Issuer Profile. The As
 #### Revoking Hosted Assertions
 To mark a hosted assertion as revoked, respond with an HTTP Status of
 `410 Gone` and a body of `{"revoked": true}`.
-
+TODO
 
 ### <a id="SignedBadge"></a>Signed Badges ([example](./examples/#SignedBadge)) 
 _since: 1.0_
