@@ -234,14 +234,68 @@ Revoked hosted Assertions should be returned with the HTTP status `410 Gone`. Th
 {% highlight json %}
 {
   "@context": "https://w3id.org/openbadges/v2",
-  "id": "https://example.org/beths-robotics-badge.json,
+  "id": "https://example.org/beths-robotics-badge.json",
   "revoked": true,
   "revocationReason": "Turns out the student's robot was just three stacked children in a trenchcoat with dryer vent hose arms."
 }
 {% endhighlight %}
 
+### <a id="Evidence"></a>Evidence Example ([definition](../#Evidence))
+Metadata related to evidence may be included in Assertions in several ways. (Some required properties elided in the following examples.)
 
+The issuer may provide a text/Markdown `narrative` describing the evidence:
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://example.org/beths-robotics-badge.json",
+  "narrative": "This student invented her own type of robot. This included: \n\n  * Working robot arms\n  * Working robot legs"
+}
+{% endhighlight %}
 
+Evidence may be referenced by URI `id`:
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://example.org/beths-robotics-badge.json",
+  "evidence": "https://example.org/beths-robot-work.html"
+}
+{% endhighlight %}
+
+Evidence may be more fully described by using the [Evidence](../#Evidence) class:
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://example.org/beths-robotics-badge.json",
+  "evidence": {
+    "id": "https://example.org/beths-robot-work.html",
+    "name": "My Robot"
+    "description": "A webpage with a photo and a description of the robot the student built for this project."
+    "narrative": "The student worked very hard to assemble and present a robot. She documented the process with photograpy and text."
+    "genre": "ePortfolio"
+}
+{% endhighlight %}
+
+It is possible to include multiple values for evidence in an Assertion.
+Evidence may be more fully described by using the [Evidence](../#Evidence) class:
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://example.org/beths-robotics-badge.json",
+  "narrative": "This student invented her own type of robot. This included: \n\n  * Working robot arms\n  * Working robot legs",
+  "evidence": [
+    {
+      "id": "https://example.org/beths-robot-photos.html",
+      "name": "Robot Photoshoot"
+      "description": "A gallery of photos of the student's robot"
+      "genre": "Photography"
+    },
+    {
+      "id": "https://example.org/beths-robot-work.html",
+      "name": "Robotics Reflection #1",
+      "description": "Reflective writing about the first week of a robotics learning journey."
+    }
+  ]
+{% endhighlight %}
 
 ### <a id="SocialMediaUrls"></a> Social Media URLs in Profiles
 When using the `url` property of a profile to denote a social media account, use the canonical url of the account. For example, for a Twitter account, use `https://twitter.com/OpenBadges`. For a Facebook page or account, the URL is in the format `https://www.facebook.com/OpenBadges`.

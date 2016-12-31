@@ -117,7 +117,7 @@ Assertions are representations of an awarded badge, used to share information ab
 | <a id="issueDate"></a>**issuedOn** | [DateTime](#dateTime) | Timestamp of when the achievement was awarded. |
 | image | @id: [Image](#Image) | IRI or document representing an image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the [Baking specification](./baking). An 'unbaked' image for the badge is defined in the [BadgeClass](#BadgeClass) and should not be duplicated here. |
 | <a id="evidence"></a>evidence | @id: [Evidence](#Evidence) | IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. May be an array of multiple values. |
-| <a id="narrative"></a>narrative | Text or [Markdown Text](#MarkdownText) | A narrative that connects multiple pieces of evidence. Likely only present at this location if `evidence` is a multi-value array.
+| <a id="narrative"></a>narrative | Text or [Markdown Text](#MarkdownText) | A narrative that connects multiple pieces of evidence. Likely only present at this location if `evidence` is a multi-value array. 
 | <a id="expirationDate"></a>expires | [DateTime](#dateTime) | If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. After this time, the badge should be considered expired. |
 | revoked  | Boolean       | Defaults to `false` if Assertion is not referenced from a [`revokedAssertions`](#revokedAssertions) list and may be omitted. See [RevocationList](#RevocationList). If `revoked` is true, only `revoked` and `id` are required properties, and many issuers strip a hosted Assertion down to only those properties when revoked.
 | revocationReason | Text  | Optional published reason for revocation, if revoked. 
@@ -220,16 +220,18 @@ creator  | @id: [CryptographicKey](#CryptographicKey) | The (HTTP) id of the key
 </div>
 
 
-### <a id="Evidence"></a>Evidence
-Placeholder for Criteria data class.
+### <a id="Evidence"></a>Evidence ([example](examples/#Evidence))
+Descriptive metadata about evidence related to the issuance of an Assertion. Each instance of the Evidence class present in an Assertion corresponds to one entity, though a single entry can describe a set of items collectively. There may be multiple `evidence` entries referenced from an Assertion. The `narrative` property is also in scope of the Assertion class to provide an overall description of the achievement related to the badge in rich text. It is used here to provide a narrative of achievement of the specific entity described.
+
+If both the `description` and `narrative` properties are present, displayers can assume the `narrative` value goes into more detail and is not simply a recapitulation of `description`.
 
 <div class="table-wrapper">
 
 Property | Expected Type | Description
 ---------|---------------|-----------
-type     | JSON-LD Type  | Defaults to [Criteria](#Criteria)
+type     | JSON-LD Type  | Defaults to [Evidence](#Evidence)
 id       | IRI           | The URI of a webpage presenting evidence of achievement. 
-narrative | Text or Markdown Text | A narrative that describes the evidence of achievement that led to an Assertion.
+narrative | Text or Markdown Text | A narrative that describes the evidence and process of achievement that led to an Assertion.
 name     | Text          | A descriptive title of the evidence
 description | Text       | A longer description of the evidence.
 genre    | Text          | A string that describes the type of evidence. For example, `Poetry`, `Prose`, `Film`
@@ -431,7 +433,7 @@ If a property would be useful beyond a publisher's internal use, an [Extension](
 * URL - Fully qualified URL, including protocol, host, port if applicable, and path. Interpreters are only expected to interpret URLs in either the `http` or `https` schemes.
 * IRI - In JSON-LD and Linked Data, IRIs (Internationalized Resource Identifiers) may look like fully qualified URLs or be namespaced within the JSON-LD context to be expanded to a full IRI. The only known supported IRI schemes are `http` and `https`.
 * <a id="identityHash"></a>IdentityHash - A hash string preceded by a dollar sign ("$") and the algorithm used to generate the hash. For example: `sha256$28d50415252ab6c689a54413da15b083034b66e5` represents the result of calculating a SHA256 hash on the string "mayze". For more information, see [how to hash & salt in various languages](https://github.com/mozilla/openbadges/wiki/How-to-hash-&-salt-in-various-languages.).
-* <a name="MarkdownText"></a> Markdown Text - Text that may contain formatting according to [Markdown syntax](https://daringfireball.net/projects/markdown/syntax)
+* <a name="MarkdownText"></a> Markdown Text - Text that may contain formatting according to [Markdown syntax](https://daringfireball.net/projects/markdown/syntax). Due to uneven support in displayers, publishers are encouraged to limit usage to simple elements like links, emphasis, and lists. Displayers may choose a subset of Markdown formatting to support or how to render this field. Images and tables may or may not be supported.
 
 # <a id="Implementation"></a> Implementation
 
