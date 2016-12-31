@@ -302,7 +302,7 @@ Property | Expected Type | Description
 **targetUrl** | URL | URL linking to the official description of the alignment target, for example an individual standard within an educational framework
 targetDescription | Text | Short description of the alignment target.
 targetFramework | Text | Name of the framework the alignment target
-<a name="targertCode"></a>targetCode | Text | If applicable, a locally unique string identifier that identifies the alignemnt target within its framework and/or `targetUrl`. 
+<a id="targertCode"></a>targetCode | Text | If applicable, a locally unique string identifier that identifies the alignemnt target within its framework and/or `targetUrl`. 
 
 In order to render displays of alignment within badge services, `targetName` is required. In order to accurately identify targets, `targetUrl` is required. In the event that `targetUrl` cannot be specific enough to identify the item, `targetCode` may be used to indicate specifically which item within the targetUrl is the alignment target.
 
@@ -471,7 +471,7 @@ If a property would be useful beyond a publisher's internal use, an [Extension](
 * URL - Fully qualified URL, including protocol, host, port if applicable, and path. Interpreters are only expected to interpret URLs in either the `http` or `https` schemes.
 * IRI - In JSON-LD and Linked Data, IRIs (Internationalized Resource Identifiers) may look like fully qualified URLs or be namespaced within the JSON-LD context to be expanded to a full IRI. The only known supported IRI schemes are `http` and `https`.
 * <a id="identityHash"></a>IdentityHash - A hash string preceded by a dollar sign ("$") and the algorithm used to generate the hash. For example: `sha256$28d50415252ab6c689a54413da15b083034b66e5` represents the result of calculating a SHA256 hash on the string "mayze". For more information, see [how to hash & salt in various languages](https://github.com/mozilla/openbadges/wiki/How-to-hash-&-salt-in-various-languages.).
-* <a name="MarkdownText"></a> Markdown Text - Text that may contain formatting according to [Markdown syntax](https://daringfireball.net/projects/markdown/syntax). Due to uneven support in displayers, publishers are encouraged to limit usage to simple elements like links, emphasis, and lists. Displayers may choose a subset of Markdown formatting to support or how to render this field. Images and tables may or may not be supported.
+* <a id="MarkdownText"></a> Markdown Text - Text that may contain formatting according to [Markdown syntax](https://daringfireball.net/projects/markdown/syntax). Due to uneven support in displayers, publishers are encouraged to limit usage to simple elements like links, emphasis, and lists. Displayers may choose a subset of Markdown formatting to support or how to render this field. Images and tables may or may not be supported.
 
 # <a id="Implementation"></a> Implementation
 
