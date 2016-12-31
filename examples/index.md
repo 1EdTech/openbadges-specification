@@ -132,7 +132,7 @@ Because Open Badges are Linked Data objects often hosted at HTTP IRIs, we can us
 * Because this Assertion uses "hosted" verification, and there is no cryptographic signature to verify that the full document here is the exact one published by the issuer, verifier and displayer platforms will likely discard the embedded BadgeClass and issuer Profile here and replace them with the values discovered at their `id` URIs, because only those hosted documents can be trusted to be the creation of the issuer. If the Assertion uses "signed" verification, the validator may accept the embedded values as the intended BadgeClass and issuer Profile, and if they have multiple records for those entities that use the declared `id`, the validator may choose how to index and present that information. Issuers should change the `id`s of their BadgeClasses when they make edits if they wish the edits to essentially be understood as a different achievement than the one published under the original `id`.
 
 ## Additional Vocabulary Classes Examples
-While the Assertion, BadgeClass, and Profile are the minimal set of JSON-LD resources necessary for a valid badge, there are several secondary data classes that extend the usefulness, security, and portability of Open Badges.
+While the Assertion, BadgeClass, and Profile are the minimal set of JSON-LD resources necessary for a valid badge, there are several secondary data classes that extend the usefulness, security, and portability of Open Badges. The examples below are often abbreviated to highlight a specific feature, so not all examples contain all the required properties to constitute a valid Badge Object of their type.
 
 ### <a id="SignedBadge"></a> Signed Badges Example ([definition](../#SignedBadge))
 JSON Web Signatures, a branch of the [JSON Object Signing and Encryption (JOSE)](https://datatracker.ietf.org/wg/jose/documents/) group of standards is a signature method accepted for Open Badges objects. A JSON Web Signature (JWS) for a signed Assertion is made up of three components, packaged as a string with `.`s used as separators. (Space has been added here around the `.` separators for clarity.) This example is not a valid JWS, as the referenced key on example.org does not exist.
@@ -230,7 +230,6 @@ RevocationLists may identify revoked Assertions through their `revokedAssertions
 
 ### <a id="revoked-hosted-assertion"></a>Revoked Hosted Assertion Example (see more about [Hosted Verification](../#HostedBadge))
 Revoked hosted Assertions should be returned with the HTTP status `410 Gone`. The response body may contain an Assertion document with `"revoked": true` that contains additional metadata. It does not need to meet the full requirements of the `Assertion` class. Only `id` and `revoked` properties must be present
-
 {% highlight json %}
 {
   "@context": "https://w3id.org/openbadges/v2",
@@ -241,8 +240,57 @@ Revoked hosted Assertions should be returned with the HTTP status `410 Gone`. Th
 {% endhighlight %}
 
 
+### <a id="Criteria"></a>Criteria Example ([definition](../#Criteria))
+A BadgeClass's `criteria` field may be populated with a HTTP(s) URI string or an instance of the `Criteria` class. Here, a URI is used:
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://example.org/beths-robotics-badge.json",
+  "criteria": "https://example.org/robotics-badge.html"
+}
+{% endhighlight %}
+
+Embedding criteria into the badge allows display platforms to render criteria information to viewers without directing them to an external website. It may be used in parallel to a criteria URI as follows:
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://example.org/beths-robotics-badge.json",
+  "criteria": {
+    "id": "https://example.org/robotics-badge.html",
+    "narrative": "To earn the **Awesome Robotics Badge**, students must construct a
+    basic robot.\n\nThe robot must be able to:\n\n  * Move forward and backwards.\n
+    * Pick up a bucket by its handle."
+  }
+}
+{% endhighlight %}
+
+The Criteria class may also appear without using an external URI to increase portability, as fewer information dependencies then exist outside of the JSON-LD metadata. Additionally, the narrative can be used to make complex links with the BadgeClass's alignment targets.
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://example.org/beths-robotics-badge.json",
+  "criteria": {
+    "id": "https://example.org/robotics-badge.html",
+    "narrative": "To earn the **Awesome Robotics Badge**, students must construct a
+    basic robot.\n\nThe robot must be able to:\n\n  * Move forward and backwards 
+    [1](https://example.org/robot-skills/1).\n  * Pick up a bucket by its handle
+    [2](https://example.org/robot-skills/2)."
+  },
+  "alignment": [
+    {
+      "targetUrl": "https://example.org/robot-skills/1",
+      "targetName": "Basic Locomotion"
+    },
+    {
+      "targetUrl": "https://example.org/robot-skills/2",
+      "targetName": "Object Manipulation"
+    }
+  ]
+}
+{% endhighlight %}
+
 ### <a id="Evidence"></a>Evidence Example ([definition](../#Evidence))
-Metadata related to evidence may be included in Assertions in several ways. (Some required properties elided in the following examples.)
+Metadata related to evidence may be included in Assertions in several ways.
 
 The issuer may provide a text/Markdown `narrative` describing the evidence:
 {% highlight json %}

@@ -257,8 +257,10 @@ author   | @id: Profile  | The author of the image, if desired.
 </div>
 
 
-### <a id="Criteria"></a>Criteria
-Descriptive metadata about the achievements necessary to be recognized with an Assertion of a particular BadgeClass. This data is added to the BadgeClass so that it may be rendered when that BadgeClass is displayed, instead of simply a 
+### <a id="Criteria"></a>Criteria ([example](examples/#Criteria))
+Descriptive metadata about the achievements necessary to be recognized with an `Assertion` of a particular `BadgeClass`. This data is added to the `BadgeClass` so that it may be rendered when that `BadgeClass` is displayed, instead of simply a link to human-readable criteria external to the badge. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. 
+
+Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an `Assertion` of a particular `BadgeClass`. It is also used after the `Assertion` is awarded to a recipient to let those inspecting earned badges know the general requirements that the recipients met in order to earn it.
 
 <div class="table-wrapper">
 
@@ -270,7 +272,7 @@ narrative | Text or [Markdown Text](#MarkdownText) | A narrative of what is need
 
 </div>
 
-
+On the surface `Criteria` is a very simple class, but it enables some powerful use cases, such as using a Markdown-formatted `narrative` to draw the connections between multiple elements in an `alignment` array. The open nature of the Open Badges vocabulary allows experimentation with [extensions](extensions/) in `Criteria` as well, to let the market establish patterns for machine-readable criteria and automatic-awarding badge contracts.
 
 
 ### <a id="Alignment"></a>AlignmentObject
