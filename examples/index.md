@@ -368,12 +368,29 @@ However, additional properties are available, and can be referenced wherever ima
     "id": "https://example.org/beths-robot-badge.png",
     "caption": "A pretty badge, with many happy trees.",
     "author": "https://en.wikipedia.org/wiki/Bob_Ross"
+  }
 }
 {% endhighlight %}
 
 
 ### <a id="SocialMediaUrls"></a> Social Media URLs in Profiles
 When using the `url` property of a profile to denote a social media account, use the canonical url of the account. For example, for a Twitter account, use `https://twitter.com/OpenBadges`. For a Facebook page or account, the URL is in the format `https://www.facebook.com/OpenBadges`.
+
+
+### <a id="badgeclass-version-control"></a> BadgeClass Versioning
+The `version` property allows issuers to set a version number or string for a BadgeClass. This is particularly useful when replacing a previous version with an update.
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://example.org/beths-robotics-badge-v2.json",
+  "name": "Awesomer Robotics Badge",
+  "version": 2,
+  "related": {
+    "id": "https://example.org/beths-robotics-badge.json",
+    "version": 1
+  }
+}
+{% endhighlight %}
 
 
 ## <a id="Internationalization"></a> Internationalization Examples

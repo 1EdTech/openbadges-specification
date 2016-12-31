@@ -43,6 +43,7 @@ As of January 2017, the Open Badges has become an [IMS Global Learning Consortiu
    - [AlignmentObject](#Alignment)
    - [RevocationList](#RevocationList)
    - [CryptographicKey](#CryptographicKey)
+ * [Properties](#Properties)
  * [Profile Identifier Properties](#ProfileIdentifierProperties)
  * [Extensions](#Extensions)
  * [Implementation](#Implementation)
@@ -349,6 +350,24 @@ type     | JSON-LD Type  | `CryptographicKey`
 id       | IRI           | The identifier for the key. Most platforms only support HTTP(s) identifiers.
 owner    | IRI: [Profile](#Profile) | The identifier for the Profile that owns this key. There should be a two-way connection between this Profile and the CryptographicKey through the `owner` and `publicKey` properties.
 publicKeyPem | Text      | The PEM key encoding is a widely-used method to express public keys, compatible with almost every Secure Sockets Layer library implementation.
+
+</div>
+
+## <a id="Properties"></a>Properties
+Below are listed several properties  usable across several Classes. They are optional in all cases.
+
+### <a id="related"></a>related
+The `related` property identifies another entity of the same type that should be considered the same for most purposes. It is primarily intended to identify alternate language editions or previous versions of BadgeClasses. See examples: [alternate language versions](examples/#Internationalization) and [BadgeClass version control](examples/#badgeclass-version-control)
+
+### <a id="version"></a>version
+The `version` property allows issuers to specify a version string or number. It is primarily used to update a BadgeClass without changing the meaning of previously awarded Assertions by duplicating and linking to the previous version. See [example](examples/#badgeclass-version-control).
+
+<div class="table-wrapper">
+
+Property | Expected Type | Description
+---------|---------------|-----------
+related  | @id           | Identifies related versions of the entity.
+version  | Text or Number | The version identifier for the present edition of the entity.
 
 </div>
 
