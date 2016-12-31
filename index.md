@@ -28,7 +28,8 @@ As of January 2017, the Open Badges has become an [IMS Global Learning Consortiu
 
 ## Contents
  * [Introduction](#intro-example)
-   - [Linked Data](#LinkedData) 
+   - [Linked Data](#LinkedData)
+   - [Internationalization and Multi-lingual Badges](#Internationalization) 
  * [Open Badges Vocabulary](#Vocabulary)
  * [Classes](#VocabularyClasses)
    - [Assertion](#Assertion)
@@ -90,10 +91,24 @@ Open Badges contain detailed metadata about achievements. Who earned a badge, wh
 }
 {% endhighlight %}
 
-### Open Badges in Linked Data
-[Linked Data](https://en.wikipedia.org/wiki/Linked_data) is a method of publishing data so that it can be understood in a variety of contexts. Open Badges are expressed in [JSON-LD](http://json-ld.org/) so that they can include and be included in documents outside the purposes considered in this specification. Open Badges take advantage of JSON-LD's features for localization, identifying objects by unique IRIs, and extensibility.
+
+### <a id="LinkedData"></a> Open Badges in Linked Data
+[Linked Data](https://en.wikipedia.org/wiki/Linked_data) is a method of publishing data so that it can be understood in a variety of contexts. Open Badges are expressed in [JSON-LD](http://json-ld.org/) so that they can include and be included in documents outside the purposes considered in this specification. Open Badges take advantage of JSON-LD's features for internationalization/localization, identifying objects by unique IRIs, and extensibility.
 
 Open Badges are expressed as linked data so that badge resources can be connected. The issuer's Profile in the above example is identified by the "id" `https://example.com/issuer`, which is a URL at which the profile can be discovered. Badge Objects, the instances of the data classes in the Open Badges Vocabulary, can link to one another's hosted URLs or can embed representations of their connected resources for increased portability. See [Linked Data examples](./examples/#LinkedData).
+
+
+### <a id="Internationalization"></a> Internationalization and Multi-lingual Badges
+Open Badges are used by thousands of issuers around the world, and users of those badges speak many languages. Because Open Badges is a Linked Data vocabulary expressed in JSON-LD, there are some excellent features available to issuers and platforms to use Open Badges in their preferred language. See [String internationalization in JSON-LD](http://json-ld.org/spec/latest/json-ld/#string-internationalization). Issuers can: 
+
+* Declare which language a Badge Object is expressed in using language tags compliant with [BCP47](https://tools.ietf.org/html/bcp47).
+* List multiple versions of Badge Objects to make available multiple equivalent versions of the same entity.
+* **In development**: Express multiple language string values within one document, tagging each string entry with its language.
+
+Additionally, developers who wish to write code in a language other than English can build a JSON-LD context file in their preferred language and then encounter badge property names familiar to them and their teams.
+
+See [Internationalization Examples](examples/#Internationalization).
+
 
 ## <a id="BadgeObjects"></a> Open Badges Vocabulary
 The Open Badges Vocabulary defines several data classes used to express achievements that is understandable in software and services that implement Open Badges. There are three core data classes: **[Assertions](#Assertion)**, **[BadgeClasses](#BadgeClass)**, and **[Profiles](#Profile)**. A set of one expression of each of these may be constructed into a valid Open Badge. Each data class is a collection of properties and values, and each defines which are mandatory and optional as well as the restrictions on the values those properties may take. They are published as [JSON-LD](http://www.w3.org/TR/json-ld/)] for interoperability. If properties are included in JSON that cannot be mapped to JSON-LD terms defined in the object's `@context`, they are not considered part of the badge object's meaning.

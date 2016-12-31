@@ -374,3 +374,34 @@ However, additional properties are available, and can be referenced wherever ima
 
 ### <a id="SocialMediaUrls"></a> Social Media URLs in Profiles
 When using the `url` property of a profile to denote a social media account, use the canonical url of the account. For example, for a Twitter account, use `https://twitter.com/OpenBadges`. For a Facebook page or account, the URL is in the format `https://www.facebook.com/OpenBadges`.
+
+
+## <a id="Internationalization"></a> Internationalization Examples
+The string internationalization features of JSON-LD make it possible for issuers to declare which language a Badge Object is expressed in:
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "@language": "en-us",
+  "id": "https://example.org/beths-robotics-badge.json",
+  "name": "Awesome Robotics Badge"
+}
+{% endhighlight %}
+
+It is also possible to list multiple versions of Badge Objects to make available multiple equivalent versions of the same entity.
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "@language": "en-us",
+  "id": "https://example.org/beths-robotics-badge.json",
+  "name": "Awesome Robotics Badge",
+  "related": [{
+      "id": "https://example.org/beths-robotics-badge-es.json?l=es",
+      "@language": "es"
+    }]
+}
+{% endhighlight %}
+
+**Notes**:
+
+* Language codes must be compatible with [BCP47](https://tools.ietf.org/html/bcp47). Think "en" or "es-MX".
+* JSON-LD allows much more expressive combinations of multiple languages in one document. It is likely that you may be able to produce Badge Objects taking advantage of these features that will not be understood by some or all validators or display tools. It is recommended to keep implementations as simple as possible and communicate with the standards group when you want to move beyond the example techniques expressed here.
