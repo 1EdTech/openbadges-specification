@@ -185,8 +185,8 @@ Type       | id            | Description
 -----------|---------------|-----------
 Assertion  | `urn:uuid:a953081a-4bbd-4927-9653-7219bca00e3b` | There is no HTTP(s) `id` for this `Assertion`, because it was delivered as a JWS. It links to the BadgeClass document with the `badge` property. [See immediately above](#example-signed-badge-assertion).
 BadgeClass | `https://example.org/robotics-badge.json` | A `BadgeClass` document that links to the Issuer. [See above](#BadgeClass).
-Profile    | `https://example.org/organization.json`| A issuer `Profile` document that links to the PublicKey document with its `publicKey` property. [See above](#Profile)
-PublicKey  | `https://example.org/publicKey.json` | A `PublicKey` document that links to the issuer `Profile` with its `owner` property. See below](#CryptographicKey).
+Profile    | `https://example.org/organization.json`| A issuer `Profile` document that links to the CryptographicKey document with its `publicKey` property. [See above](#Profile)
+PublicKey  | `https://example.org/publicKey.json` | A `CryptographicKey` document that links to the issuer `Profile` with its `owner` property. See below](#CryptographicKey).
 
 </div>
 
@@ -319,7 +319,7 @@ Evidence may be more fully described by using the [Evidence](../#Evidence) class
     "id": "https://example.org/beths-robot-work.html",
     "name": "My Robot",
     "description": "A webpage with a photo and a description of the robot the student built for this project.",
-    "narrative": "The student worked very hard to assemble and present a robot. She documented the process with photograpy and text.",
+    "narrative": "The student worked very hard to assemble and present a robot. She documented the process with photography and text.",
     "genre": "ePortfolio"
 }
 {% endhighlight %}
