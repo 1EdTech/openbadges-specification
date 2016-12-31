@@ -240,6 +240,7 @@ Revoked hosted Assertions should be returned with the HTTP status `410 Gone`. Th
 }
 {% endhighlight %}
 
+
 ### <a id="Evidence"></a>Evidence Example ([definition](../#Evidence))
 Metadata related to evidence may be included in Assertions in several ways. (Some required properties elided in the following examples.)
 
@@ -268,9 +269,9 @@ Evidence may be more fully described by using the [Evidence](../#Evidence) class
   "id": "https://example.org/beths-robotics-badge.json",
   "evidence": {
     "id": "https://example.org/beths-robot-work.html",
-    "name": "My Robot"
-    "description": "A webpage with a photo and a description of the robot the student built for this project."
-    "narrative": "The student worked very hard to assemble and present a robot. She documented the process with photograpy and text."
+    "name": "My Robot",
+    "description": "A webpage with a photo and a description of the robot the student built for this project.",
+    "narrative": "The student worked very hard to assemble and present a robot. She documented the process with photograpy and text.",
     "genre": "ePortfolio"
 }
 {% endhighlight %}
@@ -285,8 +286,8 @@ Evidence may be more fully described by using the [Evidence](../#Evidence) class
   "evidence": [
     {
       "id": "https://example.org/beths-robot-photos.html",
-      "name": "Robot Photoshoot"
-      "description": "A gallery of photos of the student's robot"
+      "name": "Robot Photoshoot",
+      "description": "A gallery of photos of the student's robot",
       "genre": "Photography"
     },
     {
@@ -296,6 +297,32 @@ Evidence may be more fully described by using the [Evidence](../#Evidence) class
     }
   ]
 {% endhighlight %}
+
+
+### <a id="Image"></a>Image Example ([definition](../#Image))
+In order to provide extra useful information for rendering images, sometimes additional metadata about images is included in Badge Objects using the `Image` class.
+
+Images are often referenced by their HTTP URI where they may be accessed. Displayers usually render this as the image source in HTML.
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://example.org/beths-robotics-badge.json",
+  "image": "https://example.org/beths-robot-badge.png"
+}
+{% endhighlight %}
+
+However, additional properties are available, and can be referenced wherever images appear in Badge Objects. For example, a `caption` can aid in rendering alt text in browsers. If `author` is used, it may be the `id` of an Open Badges Profile, but it may be another `id` that represents the author. Displayers should not assume this is a URI that will resolve to a compatible instance of a `Profile`.
+{% highlight json %}
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://example.org/beths-robotics-badge.json",
+  "image": {
+    "id": "https://example.org/beths-robot-badge.png",
+    "caption": "A pretty badge, with many happy trees.",
+    "author": "https://en.wikipedia.org/wiki/Bob_Ross"
+}
+{% endhighlight %}
+
 
 ### <a id="SocialMediaUrls"></a> Social Media URLs in Profiles
 When using the `url` property of a profile to denote a social media account, use the canonical url of the account. For example, for a Twitter account, use `https://twitter.com/OpenBadges`. For a Facebook page or account, the URL is in the format `https://www.facebook.com/OpenBadges`.

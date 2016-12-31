@@ -239,8 +239,10 @@ audience | Text          | A description of the intended audience for a piece of
 
 </div>
 
+For evidence that is ephemeral or completely described within an Assertion via use of the Evidence class, if it is necessary to identify this evidence piece uniquely in an overall narrative, an `id` of type `urn:uuid` or otherwise outside the HTTP scheme may be used, but displayers may have less success displaying this usage meaningfully. 
 
-### <a id="Image"></a>Image
+
+### <a id="Image"></a>Image ([example](examples/#Image))
 Metadata about images that represent Assertions, BadgeClasses or Profiles. These properties can typically be represented as just the `id` string of the image, but using a fleshed-out document allows for including captions and other applicable metadata.
 
 <div class="table-wrapper">
@@ -256,7 +258,7 @@ author   | @id: Profile  | The author of the image, if desired.
 
 
 ### <a id="Criteria"></a>Criteria
-Placeholder for Criteria data class.
+Descriptive metadata about the achievements necessary to be recognized with an Assertion of a particular BadgeClass. This data is added to the BadgeClass so that it may be rendered when that BadgeClass is displayed, instead of simply a 
 
 <div class="table-wrapper">
 
@@ -268,7 +270,7 @@ narrative | Text or [Markdown Text](#MarkdownText) | A narrative of what is need
 
 </div>
 
-For evidence that is ephemeral or completely described within an Assertion via use of the Evidence class, if it is necessary to identify this evidence piece uniquely in an overall narrative, an `id` of type `urn:uuid` or otherwise outside the HTTP scheme may be used, but displayers may have less success displaying this usage meaningfully. 
+
 
 
 ### <a id="Alignment"></a>AlignmentObject
