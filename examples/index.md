@@ -422,3 +422,59 @@ It is also possible to list multiple versions of Badge Objects to make available
 
 * Language codes must be compatible with [BCP47](https://tools.ietf.org/html/bcp47). Think "en" or "es-MX".
 * JSON-LD allows much more expressive combinations of multiple languages in one document. It is likely that you may be able to produce Badge Objects taking advantage of these features that will not be understood by some or all validators or display tools. It is recommended to keep implementations as simple as possible and communicate with the standards group when you want to move beyond the example techniques expressed here.
+
+
+## <a id="Endorsement"></a> Endorsement Examples
+An endorser can use an `Endorsement` to indicate trust in an email address. Suppose the [issuer Profile record above](#Issuer) exists, but inspectors are unsure whether it is a trustworthy record that truly represents the organization it describes. Endorsements can show that an external party has verified one or more properties of the Issuer. Automated services could be developed to verify properties like `email` or `telephone`, and human verification services could provide more in-depth verification.
+
+Here, an endorser claims to have verified the email address published in the Profile.
+{% highlight json %}
+{
+ "@context": "https://w3id.org/openbadges/v2",
+ "type": "Endorsement",
+ "id": "https://example.org/endorsement-123.json",
+ "issuer": "https://example.org/issuer-5.json",
+ "claim": {
+   "id": "https://example.org/organization.json",
+   "email": "contact@example.org",
+ },
+ "verification": {
+   "type": "hosted"
+ }
+}
+{% endhighlight %}
+
+Another prominent use of Endorsements is to provide a comment expressing approval of a BadgeClass, that it is a good representation of the achievement it describes. The endorser could publish the following about the [above](#BadgeClass) BadgeClass.
+{% highlight json %}
+{
+ "@context": "https://w3id.org/openbadges/v2",
+ "type": "Endorsement",
+ "id": "https://example.org/endorsement-124.json",
+ "issuer": "https://example.org/issuer-5.json",
+ "claim": {
+   "id": "https://example.org/robotics-badge.json",
+   "endorsementComment": "This badge and its associated learning material are great examples of beginning robotics education."
+ },
+ "verification": {
+   "type": "hosted"
+ }
+}
+{% endhighlight %}
+
+The same method could be used to support a single recipient's achievement through endorsing an `Assertion`. Here the endorser also offers an addition to the evidence to be considered associated with the badge.
+{% highlight json %}
+{
+ "@context": "https://w3id.org/openbadges/v2",
+ "type": "Endorsement",
+ "id": "https://example.org/endorsement-125.json",
+ "issuer": "https://example.org/issuer-5.json",
+ "claim": {
+   "id": "https://example.org/beths-robotics-badge.json",
+   "endorsementComment": "This student built a great robot.",
+   "evidence": "https://example.org/photos/my-photos-of-the-robot-competition.html"
+ },
+ "verification": {
+   "type": "hosted"
+ }
+}
+{% endhighlight %}

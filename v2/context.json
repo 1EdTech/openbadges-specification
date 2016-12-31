@@ -7,6 +7,7 @@
     "obi": "https://w3id.org/openbadges#",
     "validation": "obi:validation",
 
+    "cred": "https://w3id.org/credentials#",
     "dc": "http://purl.org/dc/terms/",
     "schema": "http://schema.org/",
     "sec": "https://w3id.org/security#",
@@ -14,6 +15,7 @@
 
     "AlignmentObject": "schema:AlignmentObject",
     "CryptographicKey": "sec:Key",
+    "Endorsement": "cred:Credential",
 
     "Assertion": "obi:Assertion",
     "BadgeClass": "obi:BadgeClass",
@@ -35,10 +37,12 @@
 
     "author": { "@id": "schema:author", "@type": "@id" },
     "caption": { "@id": "schema:caption" },
+    "claim": {"@id": "cred:claim", "@type": "@id"},
     "created": { "@id": "dc:created", "@type": "xsd:dateTime" },
     "creator": { "@id": "dc:creator", "@type": "@id" },
     "description": { "@id": "schema:description" },
     "email": { "@id": "schema:email" },
+    "endorsement": {"@id": "cred:credential", "@type": "@id"},
     "expires": { "@id": "sec:expiration", "@type": "xsd:dateTime" },
     "genre": { "@id": "schema:genre" },
     "image": { "@id": "schema:image", "@type": "@id" },
@@ -62,6 +66,7 @@
     "audience": { "@id": "obi:audience" },
     "badge": { "@id": "obi:badge", "@type": "@id" },
     "criteria": { "@id": "obi:criteria", "@type": "@id" },
+    "endorsementComment": { "@id": "obi:endorsementComment" },
     "evidence": { "@id": "obi:evidence", "@type": "@id" },
     "hashed": { "@id": "obi:hashed", "@type": "xsd:boolean" },
     "identity": { "@id": "obi:identityHash" },

@@ -46,6 +46,7 @@ As of January 2017, the Open Badges has become an [IMS Global Learning Consortiu
  * [Properties](#Properties)
  * [Profile Identifier Properties](#ProfileIdentifierProperties)
  * [Extensions](#Extensions)
+ * [Endorsement](#Endorsement)
  * [Implementation](#Implementation)
    - [Badge Baking](#Baking)
    - [Hosted Verification](#HostedBadge)
@@ -131,7 +132,7 @@ Assertions are representations of an awarded badge, used to share information ab
 | **type** | JSON-LD type | valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string `Assertion`. An array including `Assertion` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 | <a id="recipient"></a>**recipient** | [IdentityObject](#IdentityObject) | The recipient of the achievement.
 | **badge** | @id: [BadgeClass](#BadgeClass) | IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a [BadgeClass](#badgeclass).
-| **verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion. (Alias "verify" may be used in [context](v2/context.json).)
+| <a id="verify"></a><a id="verification"></a>**verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion. (Alias "verify" may be used in [context](v2/context.json).)
 | <a id="issueDate"></a>**issuedOn** | [DateTime](#dateTime) | Timestamp of when the achievement was awarded.
 | image | @id: [Image](#Image) | IRI or document representing an image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the [Baking specification](./baking). An 'unbaked' image for the badge is defined in the [BadgeClass](#BadgeClass) and should not be duplicated here.
 | <a id="evidence"></a>evidence | @id: [Evidence](#Evidence) | IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. May be an array of multiple values.
@@ -370,6 +371,7 @@ Property | Expected Type | Description
 ---------|---------------|-----------
 related  | @id           | Identifies related versions of the entity.
 version  | Text or Number | The version identifier for the present edition of the entity.
+endorsement | @id: [Endorsement](#Endorsement) | Relevant endorsement(s) that make claims about this entity. Note: As endorsements must be published after the publication of the entity they endorse, it will not always be possible to establish a two-way linkage with this property.
 
 </div>
 
@@ -450,6 +452,55 @@ Property | Expected Type | Description/expected value
 _status: proposed_
 Validators that someday use the proposed FrameValidation method pass JSON-LD objects through the JSON-LD Frame indicated by the `validationFrame` property and test the result against the JSON-schema indicated by the validator's `validationSchema` property.
 
+
+## <a id="Endorsement"></a>Endorsement ([example](examples/#Endorsement))
+Open Badges are trustworthy records of achievement. The vocabulary defined above, combined with the validation and verification procedures for badge Assertions, establish Open Badges as a reliable method for expressing and verifying achievements online. However, these procedures don't answer questions like, "Who trusts this BadgeClass to be a good certification of the competency it describes?" or, "Is this Profile's email address verified?" For these questions, there is Endorsement.
+
+Endorsement leans on the Verifiable Claims work prototyped by members of the [Verifiable Claims Task Force](https://w3c.github.io/vctf/) at the [W3C](https://www.w3.org/) and the theoretical backing developed by the 2014 Endorsement Working Group. See [Endorsement Framework Paper](https://docs.google.com/document/d/1VVf19d72KmGMh1ywrLe7HCKEOqGSI0WjvwfGN_8Q2M4/edit#heading=h.xyxfmzqz2vqb).
+
+The `Endorsement` Class is very similar to `Assertion`, except that there is no defined `badge` property. Instead, a `claim` property allows endorsers to make specific claims about other `Profiles`, `BadgeClasses`, or `Assertions`.
+<div class="table-wrapper">
+
+Property | Expected Type | Description/expected value
+---------|---------------|-----------
+**id**   | IRI           | Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.
+**type** | JSON-LD Type  | `Endorsement`, a subclass of VCTF's Credential.
+**claim**    | @id           | An entity, identified by an `id` and additional properties that the endorser would like to claim about that entity.
+**issuer** | @id: Profile | The profile of the Endorsement's issuer.
+**issuedOn** | [DateTime](#dateTime) | Timestamp of when the endorsement was published.
+**verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion.
+
+</div>
+
+Within the `claim` property, the endorsed entity may be of any type (though only Open Badges Vocabulary classes are expected to be understood by Open Badges-specific tools. While `Endorsement` is a very flexible data structure, its usefulness will be limited not by the creativity of endorsers, but by the ability for other tools to discover and understand those endorsements.
+
+There is one special property for use in endorsement, the `endorsementComment`, which allows endorsers to make a simple claim in writing about the entity.
+<div class="table-wrapper">
+
+Property | Expected Type | Description/expected value
+---------|---------------|-----------
+<a id="endorsementComment"></a>endorsementComment | Text or [Markdown](#Markdown) | An endorser's comment about the quality or fitness of the endorsed entity.
+
+</div>
+
+Endorsements use the `claim` property to identify another entity by its `id` and declare properties about it. For example, the following allows an issuer to offer their own claim that an email address belongs to the profile identified as `https://otherissuer.example/1` and make a comment about the quality of their badges.
+{% highlight json %}
+{
+ "@context": "https://w3id.org/openbadges/v2",
+ "type": "Endorsement",
+ "id": "https://example.org/assertions/123",
+ "issuer": "https://example.org/issuer",
+ "claim": {
+   "id": "https://otherissuer.example/1",
+   "email": "contact@otherissuer.example",
+   "endorsementComment": "A great provider of badged learning."
+ },
+ "verification": {
+   "type": "hosted"
+ }
+}
+{% endhighlight %}
+See more examples
 
 ## <a id="additional-properties"></a>Additional Properties
 
