@@ -60,11 +60,11 @@ Open Badges contain detailed metadata about achievements. Who earned a badge, wh
 {% highlight json %}
 {
   "@context": "https://w3id.org/openbadges/v2",
-  "id": "https://example.com/assertions/123",
+  "id": "https://example.org/assertions/123",
   "type": "Assertion",
   "recipient": {
     "type": "email",
-    "identity": "alice@example.com"
+    "identity": "alice@example.org"
   },
   "created": "2016-12-31T23:59:59+00:00",
   "verification": {
@@ -72,19 +72,21 @@ Open Badges contain detailed metadata about achievements. Who earned a badge, wh
   },
   "badge": {
     "type": "BadgeClass",
-    "id": "https://example.com/badges/5",
+    "id": "https://example.org/badges/5",
     "name": "3-D Printmaster",
     "description": "This badge is awarded for passing the 3-D printing knowledge and safety test.",
-    "image": "https://example.com/badges/5/image",
-    "criteria": { "...": "TODO..." },
+    "image": "https://example.org/badges/5/image",
+    "criteria": {
+      "narrative": "Students are tested on knowledge and safety, both through a paper test and a supervised performance evaluation on live equipment"
+    },
     "issuer": {
-      "id": "https://example.com/issuer",
+      "id": "https://example.org/issuer",
       "type": "Profile",
       "name": "Example Maker Society",
-      "url": "https://example.com",
-      "email": "contact@example.com",
+      "url": "https://example.org",
+      "email": "contact@example.org",
       "verification": {
-         "TODOhostedScope": "https://"
+         "allowedOrigins": "example.org"
       }
     }
   }
@@ -96,7 +98,7 @@ Open Badges contain detailed metadata about achievements. Who earned a badge, wh
 ### <a id="LinkedData"></a> Open Badges in Linked Data
 [Linked Data](https://en.wikipedia.org/wiki/Linked_data) is a method of publishing data so that it can be understood in a variety of contexts. Open Badges are expressed in [JSON-LD](http://json-ld.org/) so that they can include and be included in documents outside the purposes considered in this specification. Open Badges take advantage of JSON-LD's features for internationalization/localization, identifying objects by unique IRIs, and extensibility.
 
-Open Badges are expressed as linked data so that badge resources can be connected. The issuer's Profile in the above example is identified by the "id" `https://example.com/issuer`, which is a URL at which the profile can be discovered. Badge Objects, the instances of the data classes in the Open Badges Vocabulary, can link to one another's hosted URLs or can embed representations of their connected resources for increased portability. See [Linked Data examples](./examples/#LinkedData).
+Open Badges are expressed as linked data so that badge resources can be connected. The issuer's Profile in the above example is identified by the "id" `https://example.org/issuer`, which is a URL at which the profile can be discovered. Badge Objects, the instances of the data classes in the Open Badges Vocabulary, can link to one another's hosted URLs or can embed representations of their connected resources for increased portability. See [Linked Data examples](./examples/#LinkedData).
 
 
 ### <a id="Internationalization"></a> Internationalization and Multi-lingual Badges
@@ -313,7 +315,7 @@ In order to render displays of alignment within badge services, `targetName` is 
 ### <a id="RevocationList"></a>Revocation List ([example](examples/#RevocationList))
 The Revocation List is a document that describes badges an Issuer has revoked that used the `signed` verification method. If you find the badge in the `revokedAssertions` list, it has been revoked. 
 
-An assertion reference may look like `{"id": "https://example.com/1", "revocationReason": "Violation of policy"}` or simply the string `"https://example.com/1"`. A UID-based reference may look like `{"uid": "abc123", "revocationReason": "Awarded in error"}`
+An assertion reference may look like `{"id": "https://example.org/1", "revocationReason": "Violation of policy"}` or simply the string `"https://example.org/1"`. A UID-based reference may look like `{"uid": "abc123", "revocationReason": "Awarded in error"}`
 
 <div class="table-wrapper">
 
