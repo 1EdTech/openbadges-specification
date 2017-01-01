@@ -2,10 +2,13 @@
 # Transform this into CSS
 ---
 
+@import 'colors';
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+@import 'modules/note';
+@import 'modules/masthead';
 
 body {
-  padding:50px;
+  padding: 1em 50px 50px 50px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
@@ -54,7 +57,7 @@ a small {
 }
 
 .wrapper {
-  width:860px;
+  width:1060px;
   margin:0 auto;
 }
 
@@ -171,7 +174,7 @@ header ul a strong {
 }
 
 section {
-  width:500px;
+  width:700px;
   float:right;
   padding-bottom:50px;
 }
@@ -193,7 +196,7 @@ footer {
   clear:left;
 }
 
-@media print, screen and (max-width: 960px) {
+@media print, screen and (max-width: 1160px) {
   
   div.wrapper {
     width:auto;
@@ -215,6 +218,7 @@ footer {
     border-width:1px 0;
     padding:20px 0;
     margin:0 0 20px;
+    width: auto;
   }
   
   header a small {

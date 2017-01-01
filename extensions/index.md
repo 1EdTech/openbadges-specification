@@ -16,7 +16,7 @@ Submit your published extensions to this page with a pull request on [GitHub](ht
 
 # Extension Example:
 
-### <a name="ExampleExtension"></a> Example Extension Name
+### <a id="ExampleExtension"></a> Example Extension Name
 This is a definition of an example extension. If it were a real extension, it would describe the purpose of adding it to a badge object. If you follow the link [#ExampleExtension](#ExampleExtension), you'll get to this paragraph. This is the IRI (Internationalized Resource Identifier) to use for implementations of this extension, included below as the compact IRI `extensions:ExampleExtension`. See the [context](./exampleExtension/context.json) and [schema](./exampleExtension/schema.json) files that form the machine-readable core of this extension.
 
 {::options parse_block_html="true" /}
@@ -44,9 +44,9 @@ Assertion, BadgeClass, Issuer
 }
 {% endhighlight %}
 
-# <a name="CommunityExtensions"></a> Community Extensions:
+# <a id="CommunityExtensions"></a> Community Extensions:
 
-### <a name="ApplyLink"></a> Apply Link
+### <a id="ApplyLink"></a> Apply Link
 _Author: [Kerri Lemoie](https://github.com/kayaelle)_
 
 The apply link provides a url that allows potential badge earners to apply for an opportunty as specified by the badge issuer.
@@ -75,64 +75,15 @@ BadgeClass
 }
 {% endhighlight %}
 
-### <a name="Endorsement"></a>Endorsement
-_Author: [Nate Otto](http://ottonomy.net)_
+### <a id="Endorsement"></a>Endorsement
+[Endorsement](../#Endorsement), previously an extension, is now part of the core specification. See [original](endorsement).
 
-Any organization that is set up to issue badges may provide endorsements of other issuers' badge objects (Assertion, Badge Class or Issuer). For example, a school district may issue an endorsement to indicate approval of a specific Badge Class corresponding to professional development credits acceptable by the district. See the Badge Alliance Endorsement Working Group [framework paper](https://docs.google.com/document/d/1VVf19d72KmGMh1ywrLe7HCKEOqGSI0WjvwfGN_8Q2M4/edit) for background.
-
-Endorsement of a Badge Class serves to publicly acknowledge the value of a badge as *designed, assessed, and issued by a badge issuer*. Endorsements of an Issuer are presumed to apply to all Badge Classes and Assertions created by that Issuer. See the [context](./endorsement/context.json) and [schema](./endorsement/schema.json) for endorsement.
+This property definition still resides here in the extensions namespace, which is now replaced by the `claim` property:
 
 Property     | Type        | Value Description
 -------------|-------------|---------
-**@context** | context IRI | [https://w3id.org/openbadges/extensions/exampleExtension/context.json](./endorsement/context.json)
-**type**    | type IRI array |`['Extension', 'extensions:Endorsement']`
-**description** | string | The endorser's statement about the endorsement of this particular badge class.
-<a name="Endorsement/endorsedObject"></a>endorsedObject | object | An optional embedded copy of the endorsed Badge Object with 'id' attribute set.
+<a id="endorsedObject"></a>endorsedObject | object | An optional embedded copy of the endorsed Badge Object with 'id' attribute set.
 
-**Extendable Badge Objects:**
-Assertion, BadgeClass, Issuer
-
-This extension is a little more involved in that it requires a whole Badge Class to be created for each issuer who wants to use it. From there, the extension itself must be added to an Assertion whose recipient identity is the IRI (URL) of the endorsed Badge Object. Endorsers may use one Badge Class for all their endorsements, or they may create multiple badge classes to provide different types of endorsement. Consumers should consider both the Badge Class's `description` field as well as the Assertion's Endorsement extension's `description` property. The extension poses the option to embed the entire endorsed object so questions of intent could be resolved in case the hosted endorsed object is changed by its issuer.
-
-**Example implementation:**
-
-BadgeClass (each endorsing issuer must define a BadgeClass to use for endorsement):
-{% highlight json %}
-{
-  "@context": "https://w3id.org/openbadges/v1",
-  "id": "http://endorser.org/endorsementclass1",
-  "type": "BadgeClass",
-  "name": "Endorsement Badge",
-  "description": "Endorser's badge of support. Badges receiving this have been vetted by the Endorser.",
-  "image": "http://endorser.org/endorsementimage.png",
-  "criteria": "http://endorser.org/what-it-takes",
-  "issuer": "http://endorser.org/issuer1"
-}
-{% endhighlight %}
-
-Assertion (full copy of endorsed object elided):
-{% highlight json %}
-{
-  "@context": "https://w3id.org/openbadges/v1",
-  "id": "http://endorser.org/endorsement124",
-  "type": "Assertion",
-  "recipient": {
-    "identity": "http://anotherissuer.org/badgeclass5",
-    "type": "@id",
-    "hashed": false
-  },
-  "badge": "http://endorser.org/endorsementclass1",
-  "extensions:Endorsement": {
-    "@context":"https://w3id.org/openbadges/extensions/endorsement/context.json",
-    "type": ["Extension", "extensions:Endorsement"],
-    "description": "This badge is truly a work of art, and meaningful for its earners besides.",
-    "endorsedObject": {
-        "**": "*** Full copy of endorsed object ***"
-    }
-  },
-  "issuedOn": "2015-05-20"
-}
-{% endhighlight %}
 
 ### <a name="GeoCoordinates"></a>Geo Location
 _Authors: [Doug Belshaw](http://dougbelshaw.com) and [Kerri Lemoie](https://github.com/kayaelle)_
@@ -148,9 +99,13 @@ Property     | Type        | Value Description
 **name** | text | The place's name, if available
 **description** | text | A description of the location
 **geo** | object | The GeoCoordinates of a location (containing the following properties)
+
+**GeoCoordinates**:
+
+Property     | Type        | Value Description
+-------------|-------------|---------
 **latitude** | number | The latitude of a location
 **longitude** | number | The longitude of a location
-
 
 </div>
 
@@ -174,7 +129,7 @@ Assertion, BadgeClass, Issuer
 }
 {% endhighlight %}
 
-### <a name="Accessibility"></a> Accessibility
+### <a id="Accessibility"></a> Accessibility
 An extension allowing for the addition of the content for people with disabilities.
 
 <div class="table-wrapper">
@@ -196,15 +151,15 @@ Assertion, BadgeClass, Issuer
 **Example implementation:**
 {% highlight json %}
 {
-    "name": "Awesome Robotics Badge",
-    "description": "For doing awesome things with robots that people think is pretty great.",
-    "image": "http://openbadges.it/logo.png",
-    "criteria": "https://example.org/robotics-badge.html",
-    "tags": [
-        "robots",
-        "awesome"
-    ],
-    "issuer": "https://example.org/badge/issuer.json",
+  "name": "Awesome Robotics Badge",
+  "description": "For doing awesome things with robots that people think is pretty great.",
+  "image": "http://openbadges.it/logo.png",
+  "criteria": "https://example.org/robotics-badge.html",
+  "tags": [
+      "robots",
+      "awesome"
+  ],
+  "issuer": "https://example.org/badge/issuer.json",
   "extensions:Accessibility": {
     "@context":"https://w3id.org/openbadges/extensions/accessibilityExtension/context.json",
     "type": ["Extension", "extensions:Accessibility"],
@@ -218,7 +173,7 @@ Assertion, BadgeClass, Issuer
 {% endhighlight %}
 
 
-### <a name="LicenseExtension"></a>Creative Commons Content License
+### <a id="LicenseExtension"></a>Creative Commons Content License
 _Editor: [Nate Otto](http://ottonomy.net)_
 
 The content license extension enables issuers to indicate what permissions are granted to the public to reuse BadgeClass metadata in their own badges in terms of an expressive set of open content licenses that have broad global buy-in.
@@ -258,7 +213,7 @@ Thanks to editorial contributions from [Timothy F Cook](https://twitter.com/timo
 **Get Started**: See examples of all international Creative Commons licenses in use on the [License Extensions Example Page](licenseExtension).
 
 
-### <a name="OriginalCreator"></a> Original Creator
+### <a id="OriginalCreator"></a> Original Creator
 _Author: [Antti Koskinen](https://github.com/ajk)_
 
 This extension provides a way to track the origin of a badge when one organisation creates it for another.
