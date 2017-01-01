@@ -20,7 +20,8 @@ This document represents the current version of the Open Badges Specification, w
 [Copyright](http://www.w3.org/Consortium/Legal/ipr-notice#Copyright) © 2014-16 the Contributors to the Open Badges 2.0 Specification, published by the [Badge Alliance](http://badgealliance.org) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available. Though the Badge Alliance collaborates with the [W3C Credentials Community Group](http://www.w3.org/community/credentials/) and [W3C Verifiable Claims Task Force](http://w3c.github.io/vctf/), the Open Badges specification is not endorsed as a web standard by the W3C. This specification is free for anyone to use or implement.
 
 **Editors**:  
-[Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](http://www.badgealliance.org/open-badges-standard/)
+
+* [Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](http://www.badgealliance.org/open-badges-standard/)
 
 As of January 2017, the Open Badges has become an [IMS Global Learning Consortium](https://www.imsglobal.org) web standard. Future versions will be published to this page by IMS Global.
 
