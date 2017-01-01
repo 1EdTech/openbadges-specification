@@ -21,7 +21,7 @@ This document represents the current version of the Open Badges Specification, w
 
 **Editors**:  
 
-* [Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](http://www.badgealliance.org/open-badges-standard/)
+* [Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](https://openbadges.org/badge-alliance/working-groups/standard/)
 
 As of January 2017, the Open Badges has become an [IMS Global Learning Consortium](https://www.imsglobal.org) web standard. Future versions will be published to this page by IMS Global.
 
