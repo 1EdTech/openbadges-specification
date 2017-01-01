@@ -1,28 +1,26 @@
 ---
-title: Open Badges Technical Specification
+title: Open Badges Specification
 subtitle: A vocabulary for Portable digital credentials developed by IMS Global
 show_sidebar: true
 ---
 {::options parse_block_html="true" /}
 
 # {{ page.title }}
-This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. 
-
-This specification includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v1.1_)](https://w3id.org/openbadges/v1)  for the Open Badges Standard.
+This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. It includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v2.0_)](v2/context.json) for the Open Badges Specificaiton
 
 #### Status of this Document
 <div class="note good-news">
-This document represents a draft in progress for a future version of the Open Badges Specification. The current version of the specification is v1.1 and is available at [openbadgespec.org](https://openbadgespec.org).
+This document represents the current version of the Open Badges Specification, which was released 31 December 2016 and is currently in a pre-implementation phase as issuer, verifier, and displayer support is gathered. The current implemented version of the specification is [v1.1](history/1.1-specification.html), published May 2015.
 </div>
 
-> **Current version of the Open Badges specification: 2.0-draft**
+> **Current version of the Open Badges specification: 2.0**
 - Published: 31 December 2016.
 
 #### License
 [Copyright](http://www.w3.org/Consortium/Legal/ipr-notice#Copyright) © 2014-16 the Contributors to the Open Badges 2.0 Specification, published by the [Badge Alliance](http://badgealliance.org) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available. Though the Badge Alliance collaborates with the [W3C Credentials Community Group](http://www.w3.org/community/credentials/) and [W3C Verifiable Claims Task Force](http://w3c.github.io/vctf/), the Open Badges specification is not endorsed as a web standard by the W3C. This specification is free for anyone to use or implement.
 
-**Edited by the [Badge Alliance Standard Working Group](http://www.badgealliance.org/open-badges-standard/)**  
-(Contact: [Nate Otto](mailto:nate@badgealliance.org))
+**Editors**:  
+[Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](http://www.badgealliance.org/open-badges-standard/)
 
 As of January 2017, the Open Badges has become an [IMS Global Learning Consortium](https://www.imsglobal.org) web standard. Future versions will be published to this page by IMS Global.
 
@@ -411,7 +409,7 @@ Property | Expected Type | Description
 
 An extension value should be included as a JSON object containing the `@context` and `@type` properties and any new properties whose names are mapped in the context file referenced by `@context`. 
 
-The property name for the extension should map to an IRI within the `@context` defined at the root of the extended Badge Object. It is possible to use a fully qualified IRI (e.g. `http://example.org/newBadgeExtension`) or a compact IRI within the extension namespace defined in the [OBI context](./1.1/context.json), like `extension:newBadgeExtension`. In either case, the IRI should correspond to where a human-readable definition of the extension resides. For extensions using the `extension` namespace, this definition may be contributed to the community [extensions repository](./extensions/) on this site.
+The property name for the extension should map to an IRI within the `@context` defined at the root of the extended Badge Object. It is possible to use a fully qualified IRI (e.g. `http://example.org/newBadgeExtension`) or a compact IRI within the extension namespace defined in the [OBI context](./v2/context.json), like `extension:newBadgeExtension`. In either case, the IRI should correspond to where a human-readable definition of the extension resides. For extensions using the `extension` namespace, this definition may be contributed to the community [extensions repository](./extensions/) on this site.
 
 See [example extensions](./extensions/).
 

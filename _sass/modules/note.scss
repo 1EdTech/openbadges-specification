@@ -8,9 +8,30 @@
 .good-news {
 	border-color: $green-bright;
 	background: $green-muted;
-	overflow: auto;
+	color: $green-dark;
 }
 
-.good-news, .issue, .warning {
+.info {
+	border-color: $blue-bright;
+	background: $blue-muted;
+	color: $blue-dark;
+}
+
+.issue {
+	border-color: $yellow-bright;
+	background: $yellow-muted;
+	color: $yellow-dark;
+}
+
+.warning {
+	border-color: $red-bright;
+	background: $red-muted;
+	color: $red-dark;
+}
+
+
+.good-news, .info, .issue, .warning {
 	border-left-style: solid;
+	border-left-width: 0.5em;
+	overflow: auto;
 }
