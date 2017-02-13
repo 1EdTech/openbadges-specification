@@ -66,7 +66,7 @@ Open Badges contain detailed metadata about achievements. Who earned a badge, wh
     "type": "email",
     "identity": "alice@example.org"
   },
-  "created": "2016-12-31T23:59:59+00:00",
+  "issuedOn": "2016-12-31T23:59:59+00:00",
   "verification": {
     "type": "hosted"
   },
@@ -90,7 +90,6 @@ Open Badges contain detailed metadata about achievements. Who earned a badge, wh
       }
     }
   }
-
 }
 {% endhighlight %}
 
