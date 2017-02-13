@@ -60,20 +60,39 @@ An example of a well baked SVG with a hosted assertion:
      viewBox="0 0 512 512">
   <openbadges:assertion verify="https://example.org/assertion.json">
     <![CDATA[
-       {
-         "uid": "abcdef12345",
-         "identity": {
-           "recipient": "sha256$cbb08ce07dd7345341b9358abb810d29eb790fed",
-           "type": "email",
-           "hashed": true
-         }
-         "verify": {
-           "type": "hosted",
-           "url":"https://example.org/assertion.json"
-         }
-         "issuedOn": "2013-11-05",
-         "badge": "https://example.org/badge.json"
-       }
+	   {
+	     "@context": "https://w3id.org/openbadges/v2",
+	     "id": "https://example.org/assertions/123",
+	     "type": "Assertion",
+	     "recipient": {
+	       "type": "email",
+	       "identity": "alice@example.org"
+	     },
+	     "issuedOn": "2016-12-31T23:59:59+00:00",
+	     "verification": {
+	       "type": "hosted"
+	     },
+	     "badge": {
+	       "id": "https://example.org/badges/5",
+		   "type": "BadgeClass",	       
+	       "name": "3-D Printmaster",
+	       "description": "This badge is awarded …",
+	       "image": "https://example.org/badges/5/image",
+	       "criteria": {
+	         "narrative": "Students are tested on …"
+	       },
+	       "issuer": {
+	         "id": "https://example.org/issuer",
+	         "type": "Profile",
+	         "name": "Example Maker Society",
+	         "url": "https://example.org",
+	         "email": "contact@example.org",
+	         "verification": {
+	            "allowedOrigins": "example.org"
+	         }
+	       }
+	     }
+	   }
     ]]>
   </openbadges:assertion>
 
