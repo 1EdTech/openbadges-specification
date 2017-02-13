@@ -110,6 +110,10 @@ If the tag has no body, the `verify` attribute will contain the signature of the
 
 ## Baking Specification Changelog
 
+### 2017-02-13 Version 1.0.0
+  * Update SVG example to use Open Badges 2.0 syntax
+  * Fix typo in introduction
+  
 ### 2013-11-05 Version 1.0.0
   * Support for full assertions added
   * Support for signed badges added
