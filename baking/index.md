@@ -7,7 +7,7 @@ show_sidebar: true
 
 ## What Is Badge Baking?
 
-In OpenBadges we structures called [assertions](../assertion.md), which are pieces of data that can be used to prove whether a not a person who says they got a badge earned it (in the technical sense that it was issued to them).
+In OpenBadges we use structures called [assertions](../assertion.md), which are pieces of data that can be used to prove whether a not a person who says they got a badge earned it (in the technical sense that it was issued to them).
 
 Badge Baking is the process of taking those assertions and embedding them into the image, so that when a user displays a badge on a page, software that is OpenBadges-aware can automatically extract that assertion data and perform the checks necessary to see if a person legitimately earned the badge.
 
