@@ -183,6 +183,7 @@ description | Text | A short description of the issuer entity or organization.
 image | [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the issuer.
 email | Text | Contact address for the individual or organization.
 publicKey | @id: [CryptographicKey](#CryptographicKey) | The key(s) an issuer uses to sign Assertions.
+verification | [VerificationObject](#VerificationObject) | Instructions for how to verify Assertions published by this Profile.
 <a id="revocationList"></a>revocationList | IRI: [RevocationList](#RevocationList) | HTTP URI of the Badge Revocation List used for marking revocation of signed badges.
 
 **A note on required properties**:
