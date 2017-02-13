@@ -463,12 +463,12 @@ The `Endorsement` Class is very similar to `Assertion`, except that there is no 
 
 Property | Expected Type | Description/expected value
 ---------|---------------|-----------
-**id**   | IRI           | Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.
+**id**   | IRI           | Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.
 **type** | JSON-LD Type  | `Endorsement`, a subclass of VCTF's Credential.
 **claim**    | @id           | An entity, identified by an `id` and additional properties that the endorser would like to claim about that entity.
 **issuer** | @id: Profile | The profile of the Endorsement's issuer.
 **issuedOn** | [DateTime](#dateTime) | Timestamp of when the endorsement was published.
-**verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion.
+**verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion of endorsement.
 
 </div>
 
