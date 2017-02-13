@@ -6,7 +6,7 @@ show_sidebar: true
 {::options parse_block_html="true" /}
 
 # {{ page.title }}
-This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. It includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v2.0_)](v2/context.json) for the Open Badges Specificaiton
+This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. It includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v2.0_)](v2/context.json) for the Open Badges Specification.
 
 #### Status of this Document
 <div class="note good-news">
@@ -183,6 +183,7 @@ description | Text | A short description of the issuer entity or organization.
 image | [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the issuer.
 email | Text | Contact address for the individual or organization.
 publicKey | @id: [CryptographicKey](#CryptographicKey) | The key(s) an issuer uses to sign Assertions.
+verification | [VerificationObject](#VerificationObject) | Instructions for how to verify Assertions published by this Profile.
 <a id="revocationList"></a>revocationList | IRI: [RevocationList](#RevocationList) | HTTP URI of the Badge Revocation List used for marking revocation of signed badges.
 
 **A note on required properties**:
@@ -458,22 +459,24 @@ Open Badges are trustworthy records of achievement. The vocabulary defined above
 Endorsement leans on the Verifiable Claims work prototyped by members of the [Verifiable Claims Task Force](https://w3c.github.io/vctf/) at the [W3C](https://www.w3.org/) and the theoretical backing developed by the 2014 Endorsement Working Group. See [Endorsement Framework Paper](https://docs.google.com/document/d/1VVf19d72KmGMh1ywrLe7HCKEOqGSI0WjvwfGN_8Q2M4/edit#heading=h.xyxfmzqz2vqb).
 
 The `Endorsement` Class is very similar to `Assertion`, except that there is no defined `badge` property. Instead, a `claim` property allows endorsers to make specific claims about other `Profiles`, `BadgeClasses`, or `Assertions`.
+
 <div class="table-wrapper">
 
 Property | Expected Type | Description/expected value
 ---------|---------------|-----------
-**id**   | IRI           | Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.
+**id**   | IRI           | Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.
 **type** | JSON-LD Type  | `Endorsement`, a subclass of VCTF's Credential.
 **claim**    | @id           | An entity, identified by an `id` and additional properties that the endorser would like to claim about that entity.
 **issuer** | @id: Profile | The profile of the Endorsement's issuer.
 **issuedOn** | [DateTime](#dateTime) | Timestamp of when the endorsement was published.
-**verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion.
+**verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion of endorsement.
 
 </div>
 
 Within the `claim` property, the endorsed entity may be of any type (though only Open Badges Vocabulary classes are expected to be understood by Open Badges-specific tools. While `Endorsement` is a very flexible data structure, its usefulness will be limited not by the creativity of endorsers, but by the ability for other tools to discover and understand those endorsements.
 
 There is one special property for use in endorsement, the `endorsementComment`, which allows endorsers to make a simple claim in writing about the entity.
+
 <div class="table-wrapper">
 
 Property | Expected Type | Description/expected value
