@@ -5,15 +5,15 @@ show_sidebar: false
 ---
 {::options parse_block_html="true" /}
 
-<div class="statusFinal"><p>IMS Working Specification</p></div>
+<p class="status">IMS Working Specification</p>
 
 <p>
 <a name="top" />
-<a href="http://www.imsglobal.org"><img src="/images/imslogo.png" alt="IMS Global Logo" border="0" /></a>
+<a href="http://www.imsglobal.org"><img src="/images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
 </p>
 
 # {{ page.title }}
-
+# IMS Working Specification
 
 <table class="versionTable" title="Version/Release Details" summary="Details about the version and release.">
 <tr>
@@ -33,6 +33,7 @@ show_sidebar: false
 <div class="iprDistribution">
 	
 **IPR and Distribution Notices**
+
 Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the specification set forth in this document, and to provide supporting documentation.
 
 IMS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on IMS's procedures with respect to rights in IMS specifications can be found at the IMS Intellectual Property Rights web page: http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf.
