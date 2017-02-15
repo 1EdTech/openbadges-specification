@@ -1,31 +1,69 @@
 ---
-title: Open Badges Specification 2.0
+title: Open Badges Specification Version 2.0 
 subtitle: A vocabulary for Portable digital credentials developed by IMS Global
 show_sidebar: false
 ---
 {::options parse_block_html="true" /}
 
 # {{ page.title }}
-This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. It includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v2.0_)](v2/context.json) for the Open Badges Specification.
+
+<div class="statusFinal">IMS Working Specification</div>
+
+<p>
+<a name="top" />
+<a href="http://www.imsglobal.org"><img src="images/imslogo.png" alt="IMS Global Logo" border="0" /></a>
+</p>
+
+<table class="versionTable" title="Version/Release Details" summary="Details about the version and release.">
+<tr>
+<td>Date Issued:</td>
+<td>@@@ March, 2017</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>IMS Working Specification</td>
+</tr>
+<tr>
+<td>Latest version:</td>
+<td><a href="http://www.imsglobal.org/@@@/">http://www.imsglobal.org/@@@/</a></td>
+</tr>
+</table>
+
+<div class="iprDistribution">
+**IPR and Distribution Notices**
+Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the specification set forth in this document, and to provide supporting documentation.
+
+IMS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on IMS's procedures with respect to rights in IMS specifications can be found at the IMS Intellectual Property Rights web page: http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf.
+
+Copyright © 2014-17 the Contributors to the Open Badges 2.0 Specification.
+
+This specification is published under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available.
+
+Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals.
+
+The limited permissions granted above are perpetual and will not be revoked by IMS or its successors or assigns.
+
+THIS SPECIFICATION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND IN PARTICULAR, ANY WARRANTY OF NONINFRINGEMENT IS EXPRESSLY DISCLAIMED. ANY USE OF THIS SPECIFICATION SHALL BE MADE ENTIRELY AT THE IMPLEMENTER'S OWN RISK, AND NEITHER THE CONSORTIUM, NOR ANY OF ITS MEMBERS OR SUBMITTERS, SHALL HAVE ANY LIABILITY WHATSOEVER TO ANY IMPLEMENTER OR THIRD PARTY FOR ANY DAMAGES OF ANY NATURE WHATSOEVER, DIRECTLY OR INDIRECTLY, ARISING FROM THE USE OF THIS SPECIFICATION.
+
+Public contributions, comments and questions can be posted here: http://www.imsglobal.org/community/forum/categories.cfm?catid=@@@.
+</div>
+<br/>
+<hr/>
 
 #### Status of this Document
 <div class="note good-news">
-This document represents the current version of the Open Badges Specification, which was released 31 December 2016 and is currently in a pre-implementation phase as issuer, verifier, and displayer support is gathered. The current implemented version of the specification is [v1.1](history/1.1-specification.html), published May 2015.
+This document represents the current version of the Open Badges Specification, which was initally released as [Open Badges 2.0](http://www.openbadgespec.org) on 31 December 2016 by the Badge Alliance. As of January 2017, Open Badges is becoming an [IMS Global Learning Consortium](https://www.imsglobal.org) standard, and this IMS Working Specification constitutes the first step in the IMS ratification process of Open Badges 2.0. 
+
+This specification is currently in a pre-implementation phase as issuer, verifier, and displayer support is gathered. The current implemented version of the specification is [v1.1](history/1.1-specification.html), published May 2015.
 </div>
-
-> **Current version of the Open Badges specification: 2.0**
-- Published: 31 December 2016.
-
-#### License
-Copyright © 2014-17 the Contributors to the Open Badges 2.0 Specification, published by [IMS Global Learning Consortium](http://www.imsglobal.org) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available. This specification is free for anyone to use or implement.
 
 **Editors**:  
 
 * [Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](https://openbadges.org/badge-alliance/working-groups/standard/)
+* [Markus Gylling](mailto:mgylling@imsglobal.org), IMS Global
 
-As of January 2017, the Open Badges has become an [IMS Global Learning Consortium](https://www.imsglobal.org) web standard. Future versions will be published to this page by IMS Global.
 
-## Contents
+## <a id="toc"></a> Contents
  * [Introduction](#intro-example)
    - [Linked Data](#LinkedData)
    - [Internationalization and Multilingual Badges](#Internationalization) 
@@ -54,8 +92,10 @@ As of January 2017, the Open Badges has become an [IMS Global Learning Consortiu
    - [Verification Software](#Validator)
    - [History/Changelog](#History)
 
-## <a id="intro-example"></a> A Simple Example
-Open Badges contain detailed metadata about achievements. Who earned a badge, who issued it, and what does it mean? The data is all inside.
+## <a id="intro-example"></a> Introduction
+This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. It includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v2.0_)](v2/context.json) for the Open Badges Specification.
+
+In other words, Open Badges contain detailed metadata about achievements. Who earned a badge, who issued it, and what does it mean? The data is all inside. A simple example:
 
 {% highlight json %}
 {
