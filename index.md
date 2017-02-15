@@ -1,6 +1,7 @@
 ---
 title: Open Badges Specification Version 2.0 
 subtitle: A vocabulary for Portable digital credentials developed by IMS Global
+status: IMS Working Specification
 show_sidebar: false
 ---
 {::options parse_block_html="true" /}
@@ -10,9 +11,9 @@ show_sidebar: false
 <a href="http://www.imsglobal.org"><img src="images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
 </p>
 
-<p class="status">IMS Working Specification</p>
+<p class="status">{{status}}</p>
 
-<h1 class="infoModelTitle">{{page.title}} <br/> IMS Working Specification</h1>
+<h1 class="infoModelTitle">{{page.title}} <br/> {{status}}</h1>
 
 <br>
 
@@ -23,7 +24,7 @@ show_sidebar: false
 </tr>
 <tr>
 <td>Status</td>
-<td>IMS Working Specification</td>
+<td>{{status}}</td>
 </tr>
 <tr>
 <td>Latest version:</td>
@@ -71,7 +72,7 @@ _Revision: @@@ March 2017_
 
 #### Status of this Document
 <div class="note good-news">
-This document represents the current version of the Open Badges Specification, which was initally released as [Open Badges 2.0](http://www.openbadgespec.org) on 31 December 2016 by the Badge Alliance. As of January 2017, Open Badges is becoming an [IMS Global Learning Consortium](https://www.imsglobal.org) standard, and this IMS Working Specification constitutes the first step in the IMS ratification process of Open Badges 2.0. 
+This document represents the current version of the Open Badges Specification, which was initally released as [Open Badges 2.0](http://www.openbadgespec.org) on 31 December 2016 by the Badge Alliance. As of January 2017, Open Badges is becoming an [IMS Global Learning Consortium](https://www.imsglobal.org) standard, and this {{status}} constitutes the first step in the IMS ratification process of Open Badges 2.0. 
 
 This specification is currently in a pre-implementation phase as issuer, verifier, and displayer support is gathered. The current implemented version of the specification is [v1.1](history/1.1-specification.html), published May 2015.
 </div>
