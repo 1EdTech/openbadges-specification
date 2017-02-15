@@ -6,7 +6,7 @@ show_sidebar: true
 {::options parse_block_html="true" /}
 
 # {{ page.title }}
-This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. It includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v2.0_)](v2/context.json) for the Open Badges Specificaiton
+This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. It includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v2.0_)](v2/context.json) for the Open Badges Specification.
 
 #### Status of this Document
 <div class="note good-news">
@@ -21,7 +21,7 @@ This document represents the current version of the Open Badges Specification, w
 
 **Editors**:  
 
-* [Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](http://www.badgealliance.org/open-badges-standard/)
+* [Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](https://openbadges.org/badge-alliance/working-groups/standard/)
 
 As of January 2017, the Open Badges has become an [IMS Global Learning Consortium](https://www.imsglobal.org) web standard. Future versions will be published to this page by IMS Global.
 
@@ -66,7 +66,7 @@ Open Badges contain detailed metadata about achievements. Who earned a badge, wh
     "type": "email",
     "identity": "alice@example.org"
   },
-  "created": "2016-12-31T23:59:59+00:00",
+  "issuedOn": "2016-12-31T23:59:59+00:00",
   "verification": {
     "type": "hosted"
   },
@@ -90,7 +90,6 @@ Open Badges contain detailed metadata about achievements. Who earned a badge, wh
       }
     }
   }
-
 }
 {% endhighlight %}
 
@@ -117,7 +116,7 @@ See [Internationalization Examples](examples/#Internationalization).
 The Open Badges Vocabulary defines several data classes used to express achievements that is understandable in software and services that implement Open Badges. There are three core data classes: **[Assertions](#Assertion)**, **[BadgeClasses](#BadgeClass)**, and **[Profiles](#Profile)**. A set of one expression of each of these may be constructed into a valid Open Badge. Each data class is a collection of properties and values, and each defines which are mandatory and optional as well as the restrictions on the values those properties may take. They are published as [JSON-LD](http://www.w3.org/TR/json-ld/)] for interoperability. If properties are included in JSON that cannot be mapped to JSON-LD terms defined in the object's `@context`, they are not considered part of the badge object's meaning.
 
 **Extensions**:
-_since: 1.1_ 
+ 
 Each Badge Object may have [additional properties](#additional-properties) beyond those defined here. Some of these additional properties may take the form of an Open Badges Extension, a structure that follows a standard format for collaboratively extending Badge Objects so that any issuer, earner, or consumer can understand the information added to badges. ([More...](#Extensions))
 
 ### Assertion <a id="Assertion"></a> ([example](./examples/#Assertion))
@@ -183,6 +182,7 @@ description | Text | A short description of the issuer entity or organization.
 image | [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the issuer.
 email | Text | Contact address for the individual or organization.
 publicKey | @id: [CryptographicKey](#CryptographicKey) | The key(s) an issuer uses to sign Assertions.
+verification | [VerificationObject](#VerificationObject) | Instructions for how to verify Assertions published by this Profile.
 <a id="revocationList"></a>revocationList | IRI: [RevocationList](#RevocationList) | HTTP URI of the Badge Revocation List used for marking revocation of signed badges.
 
 **A note on required properties**:
@@ -390,7 +390,6 @@ Many platforms that allow badge issuers and recipients to establish their identi
 
 
 ## <a id="Extensions"></a><a id="Extension"></a>Extensions
-_since 1.1_
 
 The 1.1 version of the Open Badges Specification introduces Extensions as a means for issuers to add additional metadata to Badge Objects beyond what the standard specifies itself. Additional properties are allowed without using Extensions, but Extensions allow issuers to declare how they are adding information so that it can be understood by others and other issuers can add the same sort of information in a compatible way.
 
@@ -415,7 +414,7 @@ The property name for the extension should map to an IRI within the `@context` d
 See [example extensions](./extensions/).
 
 ### Extension Validation <a id="validation"></a>
-_since 1.1_
+
 Open Badges v1.1 implements an optional JSON-schema based mechanism of ensuring badge objects conform to syntactic requirements of the specification. JSON-schema can ensure that required properties exist and that expected data types are used. From the [context](./v1/context.json)s for badge objects and extensions, a `validation` array may contain links to various JSON-schema against which badge objects may be tested. There are two proposed methods of specifying which component of a badge object should be matched against the JSON-schema validator: TypeValidation and FrameValidation. As of 1.1, only TypeValidation is implemented.
 
 For example, this portion of the current Open Badges context links to a validator for Assertions. It indicates through TypeValidation that it should be run against JSON objects with the JSON-LD type of `Assertion` ([https://w3id.org/openbadges#Assertion]).
@@ -434,7 +433,7 @@ For example, this portion of the current Open Badges context links to a validato
 {% endhighlight %}
 
 #### <a id="TypeValidation"></a>Type Validation 
-_since 1.1_
+
 Validators using the TypeValidation method match the schema indicated by the validator's `validationSchema` property against a JSON badge object document or portion of such a document that matches the validator's `validatesType` JSON-LD `type`.
 
 <div class="table-wrapper">
@@ -458,22 +457,24 @@ Open Badges are trustworthy records of achievement. The vocabulary defined above
 Endorsement leans on the Verifiable Claims work prototyped by members of the [Verifiable Claims Task Force](https://w3c.github.io/vctf/) at the [W3C](https://www.w3.org/) and the theoretical backing developed by the 2014 Endorsement Working Group. See [Endorsement Framework Paper](https://docs.google.com/document/d/1VVf19d72KmGMh1ywrLe7HCKEOqGSI0WjvwfGN_8Q2M4/edit#heading=h.xyxfmzqz2vqb).
 
 The `Endorsement` Class is very similar to `Assertion`, except that there is no defined `badge` property. Instead, a `claim` property allows endorsers to make specific claims about other `Profiles`, `BadgeClasses`, or `Assertions`.
+
 <div class="table-wrapper">
 
 Property | Expected Type | Description/expected value
 ---------|---------------|-----------
-**id**   | IRI           | Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.
+**id**   | IRI           | Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.
 **type** | JSON-LD Type  | `Endorsement`, a subclass of VCTF's Credential.
 **claim**    | @id           | An entity, identified by an `id` and additional properties that the endorser would like to claim about that entity.
 **issuer** | @id: Profile | The profile of the Endorsement's issuer.
 **issuedOn** | [DateTime](#dateTime) | Timestamp of when the endorsement was published.
-**verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion.
+**verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion of endorsement.
 
 </div>
 
 Within the `claim` property, the endorsed entity may be of any type (though only Open Badges Vocabulary classes are expected to be understood by Open Badges-specific tools. While `Endorsement` is a very flexible data structure, its usefulness will be limited not by the creativity of endorsers, but by the ability for other tools to discover and understand those endorsements.
 
 There is one special property for use in endorsement, the `endorsementComment`, which allows endorsers to make a simple claim in writing about the entity.
+
 <div class="table-wrapper">
 
 Property | Expected Type | Description/expected value
@@ -631,6 +632,7 @@ Following the [Baking Specification](baking/), Assertions may be embedded into P
 
 
 # History <a id="History"></a>
+ * [From 1.1 to 2.0](history/2.0.html)
  * [From 1.0 to 1.1](history/1.1.html) 
  * [From 0.5 to 1.0](https://github.com/mozilla/openbadges/wiki/Assertion-Specification-Changes)
  * [Early history of the specification](https://github.com/mozilla/openbadges-backpack/wiki/Assertions/_history)
