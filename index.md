@@ -5,15 +5,17 @@ show_sidebar: false
 ---
 {::options parse_block_html="true" /}
 
-<p class="status">IMS Working Specification</p>
-
 <p>
 <a name="top" />
-<a href="http://www.imsglobal.org"><img src="/images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
+<a href="http://www.imsglobal.org"><img src="images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
 </p>
 
-# {{ page.title }}
-# IMS Working Specification
+<p class="status">IMS Working Specification</p>
+
+<h1 class="infoModelTitle">{{page.title}}</h1>
+<h1 class="infoModelTitle">IMS Working Specification<br /></h1>
+
+
 
 <table class="versionTable" title="Version/Release Details" summary="Details about the version and release.">
 <tr>
