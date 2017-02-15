@@ -7,9 +7,7 @@ show_sidebar: false
 
 # {{ page.title }}
 
-<div class="statusFinal">
-IMS Working Specification
-</div>
+<div class="statusFinal"><p>IMS Working Specification</p></div>
 
 <p>
 <a name="top" />
