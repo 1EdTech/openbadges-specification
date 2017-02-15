@@ -7,7 +7,9 @@ show_sidebar: false
 
 # {{ page.title }}
 
-<div class="statusFinal">IMS Working Specification</div>
+<div class="statusFinal">
+IMS Working Specification
+</div>
 
 <p>
 <a name="top" />
@@ -30,6 +32,7 @@ show_sidebar: false
 </table>
 
 <div class="iprDistribution">
+	
 **IPR and Distribution Notices**
 Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the specification set forth in this document, and to provide supporting documentation.
 
@@ -46,8 +49,11 @@ The limited permissions granted above are perpetual and will not be revoked by I
 THIS SPECIFICATION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND IN PARTICULAR, ANY WARRANTY OF NONINFRINGEMENT IS EXPRESSLY DISCLAIMED. ANY USE OF THIS SPECIFICATION SHALL BE MADE ENTIRELY AT THE IMPLEMENTER'S OWN RISK, AND NEITHER THE CONSORTIUM, NOR ANY OF ITS MEMBERS OR SUBMITTERS, SHALL HAVE ANY LIABILITY WHATSOEVER TO ANY IMPLEMENTER OR THIRD PARTY FOR ANY DAMAGES OF ANY NATURE WHATSOEVER, DIRECTLY OR INDIRECTLY, ARISING FROM THE USE OF THIS SPECIFICATION.
 
 Public contributions, comments and questions can be posted here: http://www.imsglobal.org/community/forum/categories.cfm?catid=@@@.
+
 </div>
+
 <br/>
+
 <hr/>
 
 #### Status of this Document
