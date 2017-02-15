@@ -5,9 +5,9 @@
 	<meta name="language" content="en-US" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="stylesheet" type="text/css" href="/openbadges-specification/stylesheets/imsspec2017v1p0.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="/openbadges-specification/stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="/openbadges-specification/stylesheets/print.css" media="print" />
+	<link rel="stylesheet" type="text/css" href="stylesheets/imsspec2017v1p0.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,6 +16,11 @@
     <title>Open Badges Specification Version 2.0</title>
   </head>
 <body>
+<p>
+<a name="top"></a>
+<a href="http://www.imsglobal.org"><img src="images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
+</p>
+
   <div class="wrapper">
 
 <section id="main-content">
@@ -23,14 +28,12 @@
 <h1 id="open-badges-specification-version-20">Open Badges Specification Version 2.0</h1>
 
 <div class="statusFinal">
-  <p>IMS Working Specification&lt;/div&gt;</p>
+  <p>IMS Working Specification</p>
+</div>
 
-  <p>
-<a name="top"></a>
-<a href="http://www.imsglobal.org"><img src="images/imslogo.png" alt="IMS Global Logo" border="0" /></a>
-</p>
 
-  <table class="versionTable" title="Version/Release Details" summary="Details about the version and release.">
+
+<table class="versionTable" title="Version/Release Details" summary="Details about the version and release.">
 <tr>
 <td>Date Issued:</td>
 <td>@@@ March, 2017</td>
@@ -45,91 +48,95 @@
 </tr>
 </table>
 
-  <div class="iprDistribution">
-    <p><strong>IPR and Distribution Notices</strong>
+<div class="iprDistribution">
+
+  <p><strong>IPR and Distribution Notices</strong>
 Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the specification set forth in this document, and to provide supporting documentation.</p>
 
-    <p>IMS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on IMS’s procedures with respect to rights in IMS specifications can be found at the IMS Intellectual Property Rights web page: http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf.</p>
+  <p>IMS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on IMS’s procedures with respect to rights in IMS specifications can be found at the IMS Intellectual Property Rights web page: http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf.</p>
 
-    <p>Copyright © 2014-17 the Contributors to the Open Badges 2.0 Specification.</p>
+  <p>Copyright © 2014-17 the Contributors to the Open Badges 2.0 Specification.</p>
 
-    <p>This specification is published under the <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>. A human-readable <a href="http://www.w3.org/community/about/agreements/cla-deed/">summary</a> of this license is available.</p>
+  <p>This specification is published under the <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>. A human-readable <a href="http://www.w3.org/community/about/agreements/cla-deed/">summary</a> of this license is available.</p>
 
-    <p>Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals.</p>
+  <p>Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals.</p>
 
-    <p>The limited permissions granted above are perpetual and will not be revoked by IMS or its successors or assigns.</p>
+  <p>The limited permissions granted above are perpetual and will not be revoked by IMS or its successors or assigns.</p>
 
-    <p>THIS SPECIFICATION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND IN PARTICULAR, ANY WARRANTY OF NONINFRINGEMENT IS EXPRESSLY DISCLAIMED. ANY USE OF THIS SPECIFICATION SHALL BE MADE ENTIRELY AT THE IMPLEMENTER’S OWN RISK, AND NEITHER THE CONSORTIUM, NOR ANY OF ITS MEMBERS OR SUBMITTERS, SHALL HAVE ANY LIABILITY WHATSOEVER TO ANY IMPLEMENTER OR THIRD PARTY FOR ANY DAMAGES OF ANY NATURE WHATSOEVER, DIRECTLY OR INDIRECTLY, ARISING FROM THE USE OF THIS SPECIFICATION.</p>
+  <p>THIS SPECIFICATION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND IN PARTICULAR, ANY WARRANTY OF NONINFRINGEMENT IS EXPRESSLY DISCLAIMED. ANY USE OF THIS SPECIFICATION SHALL BE MADE ENTIRELY AT THE IMPLEMENTER’S OWN RISK, AND NEITHER THE CONSORTIUM, NOR ANY OF ITS MEMBERS OR SUBMITTERS, SHALL HAVE ANY LIABILITY WHATSOEVER TO ANY IMPLEMENTER OR THIRD PARTY FOR ANY DAMAGES OF ANY NATURE WHATSOEVER, DIRECTLY OR INDIRECTLY, ARISING FROM THE USE OF THIS SPECIFICATION.</p>
 
-    <p>Public contributions, comments and questions can be posted here: http://www.imsglobal.org/community/forum/categories.cfm?catid=@@@.</p>
-  </div>
-  <p><br /></p>
-  <hr />
+  <p>Public contributions, comments and questions can be posted here: http://www.imsglobal.org/community/forum/categories.cfm?catid=@@@.</p>
 
-  <h4 id="status-of-this-document">Status of this Document</h4>
-  <div class="note good-news">
-    <p>This document represents the current version of the Open Badges Specification, which was initally released as <a href="http://www.openbadgespec.org">Open Badges 2.0</a> on 31 December 2016 by the Badge Alliance. As of January 2017, Open Badges is becoming an <a href="https://www.imsglobal.org">IMS Global Learning Consortium</a> standard, and this IMS Working Specification constitutes the first step in the IMS ratification process of Open Badges 2.0.</p>
+</div>
 
-    <p>This specification is currently in a pre-implementation phase as issuer, verifier, and displayer support is gathered. The current implemented version of the specification is <a href="history/1.1-specification.html">v1.1</a>, published May 2015.</p>
-  </div>
+<p><br /></p>
 
-  <p><strong>Editors</strong>:</p>
+<hr />
 
-  <ul>
-    <li><a href="mailto:nate@ottonomy.net">Nate Otto</a>, chair <a href="https://openbadges.org/badge-alliance/working-groups/standard/">Badge Alliance Standard Working Group</a></li>
-    <li><a href="mailto:mgylling@imsglobal.org">Markus Gylling</a>, IMS Global</li>
-  </ul>
+<h4 id="status-of-this-document">Status of this Document</h4>
+<div class="note good-news">
+  <p>This document represents the current version of the Open Badges Specification, which was initally released as <a href="http://www.openbadgespec.org">Open Badges 2.0</a> on 31 December 2016 by the Badge Alliance. As of January 2017, Open Badges is becoming an <a href="https://www.imsglobal.org">IMS Global Learning Consortium</a> standard, and this IMS Working Specification constitutes the first step in the IMS ratification process of Open Badges 2.0.</p>
 
-  <h2 id="contents"><a id="toc"></a> Contents</h2>
-  <ul>
-    <li><a href="#intro-example">Introduction</a>
-      <ul>
-        <li><a href="#LinkedData">Linked Data</a></li>
-        <li><a href="#Internationalization">Internationalization and Multilingual Badges</a></li>
-      </ul>
-    </li>
-    <li><a href="#Vocabulary">Open Badges Vocabulary</a></li>
-    <li><a href="#VocabularyClasses">Classes</a>
-      <ul>
-        <li><a href="#Assertion">Assertion</a></li>
-        <li><a href="#BadgeClass">BadgeClass</a></li>
-        <li><a href="#Profile">Profile</a> (Issuer)</li>
-        <li><a href="#IdentityObject">IdentityObject</a></li>
-        <li><a href="#VerificationObject">VerificationObject</a></li>
-        <li><a href="#Evidence">Evidence</a></li>
-        <li><a href="#Image">Image</a></li>
-        <li><a href="#Criteria">Criteria</a></li>
-        <li><a href="#Alignment">AlignmentObject</a></li>
-        <li><a href="#RevocationList">RevocationList</a></li>
-        <li><a href="#CryptographicKey">CryptographicKey</a></li>
-      </ul>
-    </li>
-    <li><a href="#Properties">Properties</a></li>
-    <li><a href="#ProfileIdentifierProperties">Profile Identifier Properties</a></li>
-    <li><a href="#Extensions">Extensions</a></li>
-    <li><a href="#Endorsement">Endorsement</a></li>
-    <li><a href="#Implementation">Implementation</a>
-      <ul>
-        <li><a href="#Baking">Badge Baking</a></li>
-        <li><a href="#HostedBadge">Hosted Verification</a></li>
-        <li><a href="#SignedBadge">Signed Verification</a></li>
-      </ul>
-    </li>
-    <li><a href="#OtherResources">Other Resources</a>
-      <ul>
-        <li><a href="#Validator">Verification Software</a></li>
-        <li><a href="#History">History/Changelog</a></li>
-      </ul>
-    </li>
-  </ul>
+  <p>This specification is currently in a pre-implementation phase as issuer, verifier, and displayer support is gathered. The current implemented version of the specification is <a href="history/1.1-specification.html">v1.1</a>, published May 2015.</p>
+</div>
 
-  <h2 id="introduction"><a id="intro-example"></a> Introduction</h2>
-  <p>This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. It includes term definitions for representations of data in Open Badges. These term definitions appear in the current <a href="v2/context.json">JSON-LD context (<em>v2.0</em>)</a> for the Open Badges Specification.</p>
+<p><strong>Editors</strong>:</p>
 
-  <p>In other words, Open Badges contain detailed metadata about achievements. Who earned a badge, who issued it, and what does it mean? The data is all inside. A simple example:</p>
+<ul>
+  <li><a href="mailto:nate@ottonomy.net">Nate Otto</a>, chair <a href="https://openbadges.org/badge-alliance/working-groups/standard/">Badge Alliance Standard Working Group</a></li>
+  <li><a href="mailto:mgylling@imsglobal.org">Markus Gylling</a>, IMS Global</li>
+</ul>
 
-  <figure class="highlight">
-    <pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+<h2 id="-contents"><a id="toc"></a> Contents</h2>
+<ul>
+  <li><a href="#intro-example">Introduction</a>
+    <ul>
+      <li><a href="#LinkedData">Linked Data</a></li>
+      <li><a href="#Internationalization">Internationalization and Multilingual Badges</a></li>
+    </ul>
+  </li>
+  <li><a href="#Vocabulary">Open Badges Vocabulary</a></li>
+  <li><a href="#VocabularyClasses">Classes</a>
+    <ul>
+      <li><a href="#Assertion">Assertion</a></li>
+      <li><a href="#BadgeClass">BadgeClass</a></li>
+      <li><a href="#Profile">Profile</a> (Issuer)</li>
+      <li><a href="#IdentityObject">IdentityObject</a></li>
+      <li><a href="#VerificationObject">VerificationObject</a></li>
+      <li><a href="#Evidence">Evidence</a></li>
+      <li><a href="#Image">Image</a></li>
+      <li><a href="#Criteria">Criteria</a></li>
+      <li><a href="#Alignment">AlignmentObject</a></li>
+      <li><a href="#RevocationList">RevocationList</a></li>
+      <li><a href="#CryptographicKey">CryptographicKey</a></li>
+    </ul>
+  </li>
+  <li><a href="#Properties">Properties</a></li>
+  <li><a href="#ProfileIdentifierProperties">Profile Identifier Properties</a></li>
+  <li><a href="#Extensions">Extensions</a></li>
+  <li><a href="#Endorsement">Endorsement</a></li>
+  <li><a href="#Implementation">Implementation</a>
+    <ul>
+      <li><a href="#Baking">Badge Baking</a></li>
+      <li><a href="#HostedBadge">Hosted Verification</a></li>
+      <li><a href="#SignedBadge">Signed Verification</a></li>
+    </ul>
+  </li>
+  <li><a href="#OtherResources">Other Resources</a>
+    <ul>
+      <li><a href="#Validator">Verification Software</a></li>
+      <li><a href="#History">History/Changelog</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="-introduction"><a id="intro-example"></a> Introduction</h2>
+<p>This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. It includes term definitions for representations of data in Open Badges. These term definitions appear in the current <a href="v2/context.json">JSON-LD context (<em>v2.0</em>)</a> for the Open Badges Specification.</p>
+
+<p>In other words, Open Badges contain detailed metadata about achievements. Who earned a badge, who issued it, and what does it mean? The data is all inside. A simple example:</p>
+
+<figure class="highlight">
+  <pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
   </span><span class="nt">"@context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://w3id.org/openbadges/v2"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/assertions/123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Assertion"</span><span class="p">,</span><span class="w">
@@ -162,35 +169,267 @@ Recipients of this document are requested to submit, with their comments, notifi
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span></code></pre>
-  </figure>
+</figure>
 
-  <h3 id="open-badges-in-linked-data"><a id="LinkedData"></a> Open Badges in Linked Data</h3>
-  <p><a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a> is a method of publishing data so that it can be understood in a variety of contexts. Open Badges are expressed in <a href="http://json-ld.org/">JSON-LD</a> so that they can include and be included in documents outside the purposes considered in this specification. Open Badges take advantage of JSON-LD’s features for internationalization/localization, identifying objects by unique IRIs, and extensibility.</p>
+<h3 id="-open-badges-in-linked-data"><a id="LinkedData"></a> Open Badges in Linked Data</h3>
+<p><a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a> is a method of publishing data so that it can be understood in a variety of contexts. Open Badges are expressed in <a href="http://json-ld.org/">JSON-LD</a> so that they can include and be included in documents outside the purposes considered in this specification. Open Badges take advantage of JSON-LD’s features for internationalization/localization, identifying objects by unique IRIs, and extensibility.</p>
 
-  <p>Open Badges are expressed as linked data so that badge resources can be connected. The issuer’s Profile in the above example is identified by the “id” <code class="highlighter-rouge">https://example.org/issuer</code>, which is a URL at which the profile can be discovered. Badge Objects, the instances of the data classes in the Open Badges Vocabulary, can link to one another’s hosted URLs or can embed representations of their connected resources for increased portability. See <a href="./examples/#LinkedData">Linked Data examples</a>.</p>
+<p>Open Badges are expressed as linked data so that badge resources can be connected. The issuer’s Profile in the above example is identified by the “id” <code class="highlighter-rouge">https://example.org/issuer</code>, which is a URL at which the profile can be discovered. Badge Objects, the instances of the data classes in the Open Badges Vocabulary, can link to one another’s hosted URLs or can embed representations of their connected resources for increased portability. See <a href="./examples/#LinkedData">Linked Data examples</a>.</p>
 
-  <h3 id="internationalization-and-multilingual-badges"><a id="Internationalization"></a> Internationalization and Multilingual Badges</h3>
-  <p>Open Badges are used by thousands of issuers around the world, and users of those badges speak many languages. Because Open Badges is a Linked Data vocabulary expressed in JSON-LD, there are some excellent features available to issuers and platforms to use Open Badges in their preferred language. See <a href="http://json-ld.org/spec/latest/json-ld/#string-internationalization">String internationalization in JSON-LD</a>. Issuers can:</p>
+<h3 id="-internationalization-and-multilingual-badges"><a id="Internationalization"></a> Internationalization and Multilingual Badges</h3>
+<p>Open Badges are used by thousands of issuers around the world, and users of those badges speak many languages. Because Open Badges is a Linked Data vocabulary expressed in JSON-LD, there are some excellent features available to issuers and platforms to use Open Badges in their preferred language. See <a href="http://json-ld.org/spec/latest/json-ld/#string-internationalization">String internationalization in JSON-LD</a>. Issuers can:</p>
+
+<ul>
+  <li>Declare which language a Badge Object is expressed in using language tags compliant with <a href="https://tools.ietf.org/html/bcp47">BCP47</a>.</li>
+  <li>List multiple versions of Badge Objects to make available multiple equivalent versions of the same entity.</li>
+  <li><strong>In development</strong>: Express multiple language string values within one document, tagging each string entry with its language.</li>
+</ul>
+
+<p>Additionally, developers who wish to write code in a language other than English can build a JSON-LD context file in their preferred language and then encounter badge property names familiar to them and their teams.</p>
+
+<p>See <a href="examples/#Internationalization">Internationalization Examples</a>.</p>
+
+<h2 id="-open-badges-vocabulary"><a id="BadgeObjects"></a> Open Badges Vocabulary</h2>
+<p>The Open Badges Vocabulary defines several data classes used to express achievements that is understandable in software and services that implement Open Badges. There are three core data classes: <strong><a href="#Assertion">Assertions</a></strong>, <strong><a href="#BadgeClass">BadgeClasses</a></strong>, and <strong><a href="#Profile">Profiles</a></strong>. A set of one expression of each of these may be constructed into a valid Open Badge. Each data class is a collection of properties and values, and each defines which are mandatory and optional as well as the restrictions on the values those properties may take. They are published as <a href="http://www.w3.org/TR/json-ld/">JSON-LD</a>] for interoperability. If properties are included in JSON that cannot be mapped to JSON-LD terms defined in the object’s <code class="highlighter-rouge">@context</code>, they are not considered part of the badge object’s meaning.</p>
+
+<p><strong>Extensions</strong>:</p>
+
+<p>Each Badge Object may have <a href="#additional-properties">additional properties</a> beyond those defined here. Some of these additional properties may take the form of an Open Badges Extension, a structure that follows a standard format for collaboratively extending Badge Objects so that any issuer, earner, or consumer can understand the information added to badges. (<a href="#Extensions">More…</a>)</p>
+
+<h3 id="assertion--example">Assertion <a id="Assertion"></a> (<a href="./examples/#Assertion">example</a>)</h3>
+<p>Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner. Assertions are packaged for transmission as JSON objects with a set of mandatory and optional properties. Fields marked <strong>in bold letters</strong> are mandatory.</p>
+
+<div class="table-wrapper">
+
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Expected Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>id</strong></td>
+        <td>IRI</td>
+        <td>Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the <code class="highlighter-rouge">urn:uuid</code> namespace.</td>
+      </tr>
+      <tr>
+        <td><strong>type</strong></td>
+        <td>JSON-LD type</td>
+        <td>valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string <code class="highlighter-rouge">Assertion</code>. An array including <code class="highlighter-rouge">Assertion</code> and other string elements that are either URLs or compact IRIs within the current context are allowed.</td>
+      </tr>
+      <tr>
+        <td><a id="recipient"></a><strong>recipient</strong></td>
+        <td><a href="#IdentityObject">IdentityObject</a></td>
+        <td>The recipient of the achievement.</td>
+      </tr>
+      <tr>
+        <td><strong>badge</strong></td>
+        <td>@id: <a href="#BadgeClass">BadgeClass</a></td>
+        <td>IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a <a href="#badgeclass">BadgeClass</a>.</td>
+      </tr>
+      <tr>
+        <td><a id="verify"></a><a id="verification"></a><strong>verification</strong></td>
+        <td><a href="#VerificationObject">VerificationObject</a></td>
+        <td>Instructions for third parties to verify this assertion. (Alias “verify” may be used in <a href="v2/context.json">context</a>.)</td>
+      </tr>
+      <tr>
+        <td><a id="issueDate"></a><strong>issuedOn</strong></td>
+        <td><a href="#dateTime">DateTime</a></td>
+        <td>Timestamp of when the achievement was awarded.</td>
+      </tr>
+      <tr>
+        <td>image</td>
+        <td>@id: <a href="#Image">Image</a></td>
+        <td>IRI or document representing an image representing this user’s achievement. This must be a PNG or SVG image, and should be prepared via the <a href="./baking">Baking specification</a>. An ‘unbaked’ image for the badge is defined in the <a href="#BadgeClass">BadgeClass</a> and should not be duplicated here.</td>
+      </tr>
+      <tr>
+        <td><a id="evidence"></a>evidence</td>
+        <td>@id: <a href="#Evidence">Evidence</a></td>
+        <td>IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. May be an array of multiple values.</td>
+      </tr>
+      <tr>
+        <td><a id="narrative"></a>narrative</td>
+        <td>Text or <a href="#MarkdownText">Markdown Text</a></td>
+        <td>A narrative that connects multiple pieces of evidence. Likely only present at this location if <code class="highlighter-rouge">evidence</code> is a multi-value array.</td>
+      </tr>
+      <tr>
+        <td><a id="expirationDate"></a>expires</td>
+        <td><a href="#dateTime">DateTime</a></td>
+        <td>If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. After this time, the badge should be considered expired.</td>
+      </tr>
+      <tr>
+        <td>revoked</td>
+        <td>Boolean</td>
+        <td>Defaults to <code class="highlighter-rouge">false</code> if Assertion is not referenced from a <a href="#revokedAssertions"><code class="highlighter-rouge">revokedAssertions</code></a> list and may be omitted. See <a href="#RevocationList">RevocationList</a>. If <code class="highlighter-rouge">revoked</code> is true, only <code class="highlighter-rouge">revoked</code> and <code class="highlighter-rouge">id</code> are required properties, and many issuers strip a hosted Assertion down to only those properties when revoked.</td>
+      </tr>
+      <tr>
+        <td>revocationReason</td>
+        <td>Text</td>
+        <td>Optional published reason for revocation, if revoked.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<p><strong>Deprecated properties still in use by some implementations</strong>:</p>
+
+<ul>
+  <li><a id="uid"></a>uid – String – Unique Identifier for the badge. This is expected to be <em>locally</em> unique on a per-issuer basis and for hosted badges on a per-origin basis. It may not be necessarily globally unique. <code class="highlighter-rouge">uid</code> has been replaced by the IRI-based <code class="highlighter-rouge">id</code> property. It should not be used in v2.0+ Assertions.</li>
+</ul>
+
+<h3 id="badgeclass-example"><a id="BadgeClass"></a>BadgeClass (<a href="./examples/#BadgeClass">example</a>)</h3>
+<p>A collection of information about the accomplishment recognized by the Open Badge. Many assertions may be created corresponding to one BadgeClass</p>
+
+<div class="table-wrapper">
+
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Expected Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>id</strong></td>
+        <td>IRI</td>
+        <td>Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an <code class="highlighter-rouge">id</code> in another scheme such as <code class="highlighter-rouge">urn:uuid</code>.</td>
+      </tr>
+      <tr>
+        <td><strong>type</strong></td>
+        <td>JSON-LD type</td>
+        <td>valid JSON-LD representation of the BadgeClass type. In most cases, this will simply be the string <code class="highlighter-rouge">BadgeClass</code>. An array including <code class="highlighter-rouge">BadgeClass</code> and other string elements that are either URLs or compact IRIs within the current context are allowed.</td>
+      </tr>
+      <tr>
+        <td><strong>name</strong></td>
+        <td>Text</td>
+        <td>The name of the achievement.</td>
+      </tr>
+      <tr>
+        <td><strong>description</strong></td>
+        <td>Text</td>
+        <td>A short description of the achievement.</td>
+      </tr>
+      <tr>
+        <td><strong>image</strong></td>
+        <td>@id: <a href="#Image">Image</a></td>
+        <td>IRI of an image representing the achievement. May be a <a href="http://en.wikipedia.org/wiki/Data_URI_scheme">Data URI</a>, or URI where the image may be found.</td>
+      </tr>
+      <tr>
+        <td><a id="criteria"></a><strong>criteria</strong></td>
+        <td>@id: <a href="#Criteria">Criteria</a></td>
+        <td>URI or embedded criteria document describing how to earn the achievement.</td>
+      </tr>
+      <tr>
+        <td><strong>issuer</strong></td>
+        <td>@id: <a href="#Profile">Profile</a></td>
+        <td>IRI or document describing the individual, entity, or organization that issued the badge.</td>
+      </tr>
+      <tr>
+        <td>alignment</td>
+        <td>Array of <a href="#Alignment">AlignmentObject</a>s</td>
+        <td>List of objects describing which objectives or educational standards this badge aligns to, if any.</td>
+      </tr>
+      <tr>
+        <td><a id="tags"></a>tags</td>
+        <td>Array of Text</td>
+        <td>List of tags that describe the type of achievement.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="-profile-example"><a id="Profile"></a><a id="Issuer"></a> Profile (<a href="./examples/#Issuer">example</a>)</h3>
+<p>A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address. An Issuer Profile is a subclass of the general Profile with some additional requirements.</p>
+
+<div class="table-wrapper">
+
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Expected Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>id</strong></td>
+        <td>IRI</td>
+        <td>Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs.</td>
+      </tr>
+      <tr>
+        <td><strong>type</strong></td>
+        <td>JSON-LD type</td>
+        <td>Valid JSON-LD representation of the Issuer or Profile type. In most cases, this will simply be the string <code class="highlighter-rouge">Issuer</code> or the more general <code class="highlighter-rouge">Profile</code>. An array including <code class="highlighter-rouge">Issuer</code> and other string elements that are either URLs or compact IRIs within the current context are allowed.</td>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td>Text</td>
+        <td>The name of the entity or organization.</td>
+      </tr>
+      <tr>
+        <td>url</td>
+        <td>IRI</td>
+        <td>The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP. (<a href="./examples/SocialMediaUrl">examples</a>).</td>
+      </tr>
+      <tr>
+        <td>telephone</td>
+        <td>Text</td>
+        <td>A phone number for the entity. For maximum compatibility, the value should be expressed as a <code class="highlighter-rouge">+</code> and country code followed by the number with no spaces or other punctuation, like <code class="highlighter-rouge">+16175551212</code> (<a href="http://en.wikipedia.org/wiki/E.164">E.164 format</a>).</td>
+      </tr>
+      <tr>
+        <td>description</td>
+        <td>Text</td>
+        <td>A short description of the issuer entity or organization.</td>
+      </tr>
+      <tr>
+        <td>image</td>
+        <td><a href="http://en.wikipedia.org/wiki/Data_URI_scheme">Data URI</a> or URL</td>
+        <td>An image representing the issuer.</td>
+      </tr>
+      <tr>
+        <td>email</td>
+        <td>Text</td>
+        <td>Contact address for the individual or organization.</td>
+      </tr>
+      <tr>
+        <td>publicKey</td>
+        <td>@id: <a href="#CryptographicKey">CryptographicKey</a></td>
+        <td>The key(s) an issuer uses to sign Assertions.</td>
+      </tr>
+      <tr>
+        <td>verification</td>
+        <td><a href="#VerificationObject">VerificationObject</a></td>
+        <td>Instructions for how to verify Assertions published by this Profile.</td>
+      </tr>
+      <tr>
+        <td><a id="revocationList"></a>revocationList</td>
+        <td>IRI: <a href="#RevocationList">RevocationList</a></td>
+        <td>HTTP URI of the Badge Revocation List used for marking revocation of signed badges.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>A note on required properties</strong>:
+When used to represent a recipient of badges, only <code class="highlighter-rouge">id</code> and <code class="highlighter-rouge">type</code> are required to enable pseudonymous usage. When used as a badge issuer, the following properties are required:</p>
 
   <ul>
-    <li>Declare which language a Badge Object is expressed in using language tags compliant with <a href="https://tools.ietf.org/html/bcp47">BCP47</a>.</li>
-    <li>List multiple versions of Badge Objects to make available multiple equivalent versions of the same entity.</li>
-    <li><strong>In development</strong>: Express multiple language string values within one document, tagging each string entry with its language.</li>
+    <li><code class="highlighter-rouge">id</code></li>
+    <li><code class="highlighter-rouge">type</code></li>
+    <li><code class="highlighter-rouge">name</code></li>
+    <li><code class="highlighter-rouge">url</code></li>
+    <li><code class="highlighter-rouge">email</code></li>
   </ul>
 
-  <p>Additionally, developers who wish to write code in a language other than English can build a JSON-LD context file in their preferred language and then encounter badge property names familiar to them and their teams.</p>
-
-  <p>See <a href="examples/#Internationalization">Internationalization Examples</a>.</p>
-
-  <h2 id="open-badges-vocabulary"><a id="BadgeObjects"></a> Open Badges Vocabulary</h2>
-  <p>The Open Badges Vocabulary defines several data classes used to express achievements that is understandable in software and services that implement Open Badges. There are three core data classes: <strong><a href="#Assertion">Assertions</a></strong>, <strong><a href="#BadgeClass">BadgeClasses</a></strong>, and <strong><a href="#Profile">Profiles</a></strong>. A set of one expression of each of these may be constructed into a valid Open Badge. Each data class is a collection of properties and values, and each defines which are mandatory and optional as well as the restrictions on the values those properties may take. They are published as <a href="http://www.w3.org/TR/json-ld/">JSON-LD</a>] for interoperability. If properties are included in JSON that cannot be mapped to JSON-LD terms defined in the object’s <code class="highlighter-rouge">@context</code>, they are not considered part of the badge object’s meaning.</p>
-
-  <p><strong>Extensions</strong>:</p>
-
-  <p>Each Badge Object may have <a href="#additional-properties">additional properties</a> beyond those defined here. Some of these additional properties may take the form of an Open Badges Extension, a structure that follows a standard format for collaboratively extending Badge Objects so that any issuer, earner, or consumer can understand the information added to badges. (<a href="#Extensions">More…</a>)</p>
-
-  <h3 id="assertion--example">Assertion <a id="Assertion"></a> (<a href="./examples/#Assertion">example</a>)</h3>
-  <p>Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner. Assertions are packaged for transmission as JSON objects with a set of mandatory and optional properties. Fields marked <strong>in bold letters</strong> are mandatory.</p>
+  <h3 id="identityobject"><a id="IdentityObject"></a>IdentityObject</h3>
+  <p>A collection of information about the recipient of a badge.</p>
 
   <div class="table-wrapper">
 
@@ -204,78 +443,32 @@ Recipients of this document are requested to submit, with their comments, notifi
       </thead>
       <tbody>
         <tr>
-          <td><strong>id</strong></td>
-          <td>IRI</td>
-          <td>Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the <code class="highlighter-rouge">urn:uuid</code> namespace.</td>
+          <td><strong>identity</strong></td>
+          <td><a href="#identityHash">identityHash</a> or Text</td>
+          <td>Either the hash of the identity or the plaintext value. If it’s possible that the plaintext transmission and storage of the identity value would leak personally identifiable information where there is an expectation of privacy, it is strongly recommended that an IdentityHash be used.</td>
         </tr>
         <tr>
-          <td><strong>type</strong></td>
-          <td>JSON-LD type</td>
-          <td>valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string <code class="highlighter-rouge">Assertion</code>. An array including <code class="highlighter-rouge">Assertion</code> and other string elements that are either URLs or compact IRIs within the current context are allowed.</td>
+          <td><a id="identityType"></a><strong>type</strong></td>
+          <td>property IRI</td>
+          <td>The property by which the recipient of a badge is identified. This value should be an IRI mapped in the present context. For example, <code class="highlighter-rouge">email</code> maps to <code class="highlighter-rouge">http://schema.org/email</code> and indicates that the <code class="highlighter-rouge">identity</code> of the <code class="highlighter-rouge">IdentityObject</code> will represent a value of a <a href="#Profile">Profile’s</a> <code class="highlighter-rouge">email</code> property. Currently the only supported value for many platforms that implement Open Badges is <code class="highlighter-rouge">email</code>, but other properties are available. See <a href="#ProfileIdentifierProperties">Profile Identifier Properties</a>.</td>
         </tr>
         <tr>
-          <td><a id="recipient"></a><strong>recipient</strong></td>
-          <td><a href="#IdentityObject">IdentityObject</a></td>
-          <td>The recipient of the achievement.</td>
-        </tr>
-        <tr>
-          <td><strong>badge</strong></td>
-          <td>@id: <a href="#BadgeClass">BadgeClass</a></td>
-          <td>IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a <a href="#badgeclass">BadgeClass</a>.</td>
-        </tr>
-        <tr>
-          <td><a id="verify"></a><a id="verification"></a><strong>verification</strong></td>
-          <td><a href="#VerificationObject">VerificationObject</a></td>
-          <td>Instructions for third parties to verify this assertion. (Alias “verify” may be used in <a href="v2/context.json">context</a>.)</td>
-        </tr>
-        <tr>
-          <td><a id="issueDate"></a><strong>issuedOn</strong></td>
-          <td><a href="#dateTime">DateTime</a></td>
-          <td>Timestamp of when the achievement was awarded.</td>
-        </tr>
-        <tr>
-          <td>image</td>
-          <td>@id: <a href="#Image">Image</a></td>
-          <td>IRI or document representing an image representing this user’s achievement. This must be a PNG or SVG image, and should be prepared via the <a href="./baking">Baking specification</a>. An ‘unbaked’ image for the badge is defined in the <a href="#BadgeClass">BadgeClass</a> and should not be duplicated here.</td>
-        </tr>
-        <tr>
-          <td><a id="evidence"></a>evidence</td>
-          <td>@id: <a href="#Evidence">Evidence</a></td>
-          <td>IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. May be an array of multiple values.</td>
-        </tr>
-        <tr>
-          <td><a id="narrative"></a>narrative</td>
-          <td>Text or <a href="#MarkdownText">Markdown Text</a></td>
-          <td>A narrative that connects multiple pieces of evidence. Likely only present at this location if <code class="highlighter-rouge">evidence</code> is a multi-value array.</td>
-        </tr>
-        <tr>
-          <td><a id="expirationDate"></a>expires</td>
-          <td><a href="#dateTime">DateTime</a></td>
-          <td>If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. After this time, the badge should be considered expired.</td>
-        </tr>
-        <tr>
-          <td>revoked</td>
+          <td><a id="hashed"></a><strong>hashed</strong></td>
           <td>Boolean</td>
-          <td>Defaults to <code class="highlighter-rouge">false</code> if Assertion is not referenced from a <a href="#revokedAssertions"><code class="highlighter-rouge">revokedAssertions</code></a> list and may be omitted. See <a href="#RevocationList">RevocationList</a>. If <code class="highlighter-rouge">revoked</code> is true, only <code class="highlighter-rouge">revoked</code> and <code class="highlighter-rouge">id</code> are required properties, and many issuers strip a hosted Assertion down to only those properties when revoked.</td>
+          <td>Whether or not the <code class="highlighter-rouge">identity</code> value is hashed.</td>
         </tr>
         <tr>
-          <td>revocationReason</td>
+          <td><a id="salt"></a>salt</td>
           <td>Text</td>
-          <td>Optional published reason for revocation, if revoked.</td>
+          <td>If the recipient is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.</td>
         </tr>
       </tbody>
     </table>
 
   </div>
 
-  <p><strong>Deprecated properties still in use by some implementations</strong>:</p>
-
-  <ul>
-    <li><a id="uid"></a>uid – String – Unique Identifier for the badge. This is expected to be <em>locally</em> unique on a per-issuer basis and for hosted badges on a per-origin basis. It may not be necessarily globally unique. <code class="highlighter-rouge">uid</code> has been replaced by the IRI-based <code class="highlighter-rouge">id</code> property. It should not be used in v2.0+ Assertions.</li>
-  </ul>
-
-  <h3 id="badgeclass-example"><a id="BadgeClass"></a>BadgeClass (<a href="./examples/#BadgeClass">example</a>)</h3>
-  <p>A collection of information about the accomplishment recognized by the Open Badge. Many assertions may be created corresponding to one BadgeClass</p>
+  <h3 id="verificationobject"><a id="VerificationObject"></a>VerificationObject</h3>
+  <p>A collection of information allowing an inspector to verify an Assertion. This is used as part of verification instructions in each Assertion but also as an instruction set in an issuer’s Profile to describe verification instructions for Assertions the issuer awards.</p>
 
   <div class="table-wrapper">
 
@@ -289,57 +482,64 @@ Recipients of this document are requested to submit, with their comments, notifi
       </thead>
       <tbody>
         <tr>
-          <td><strong>id</strong></td>
-          <td>IRI</td>
-          <td>Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an <code class="highlighter-rouge">id</code> in another scheme such as <code class="highlighter-rouge">urn:uuid</code>.</td>
+          <td><strong>type</strong></td>
+          <td>JSON-LD type</td>
+          <td>The type of verification method. Supported values for single assertion verification are <code class="highlighter-rouge">HostedBadge</code> and <code class="highlighter-rouge">SignedBadge</code> (aliases in <a href="v2/context.json">context</a> are available: <code class="highlighter-rouge">hosted</code> and <code class="highlighter-rouge">signed</code>). For instances used in Profiles, the type <code class="highlighter-rouge">VerificationObject</code> should be used.</td>
         </tr>
+        <tr>
+          <td>verificationProperty</td>
+          <td>@id</td>
+          <td>The @id of the property to be used for verification that an Assertion is within the allowed scope. Only <code class="highlighter-rouge">id</code> is supported. Verifiers will consider <code class="highlighter-rouge">id</code> the default value if <code class="highlighter-rouge">verificationProperty</code> is omitted or if an issuer Profile has no explicit verification instructions, so it may be safely omitted.</td>
+        </tr>
+        <tr>
+          <td>startsWith</td>
+          <td>URI fragment string</td>
+          <td>The URI fragment that the verification property must start with. Valid Assertions must have an <code class="highlighter-rouge">id</code> within this scope. Multiple values allowed, and Assertions will be considered valid if their <code class="highlighter-rouge">id</code> starts with one of these values.</td>
+        </tr>
+        <tr>
+          <td><a id="allowedOrigins"></a>allowedOrigins</td>
+          <td>URI origin string</td>
+          <td>the hostname component of allowed origins. Any <code class="highlighter-rouge">id</code> URI within one of the allowedOrigins will be considered valid.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><code class="highlighter-rouge">HostedVerification</code> and <code class="highlighter-rouge">SignedVerification</code> are subclasses of <code class="highlighter-rouge">VerificationObject</code>. Future subclasses may be developed to indicate instructions for verifying Assertions using different methods, such as blockchain-based procedures.</p>
+
+    <h4 id="hostedbadge"><a id="HostedBadge"></a> HostedBadge</h4>
+    <p>Hosted badge Assertions that have an HTTP(s) <code class="highlighter-rouge">id</code> simply need to declare a verification type of <code class="highlighter-rouge">HostedBadge</code>, and verification will use the Assertion’s <code class="highlighter-rouge">id</code> property.</p>
+
+    <h4 id="signedbadge"><a id="SignedBadge"></a> SignedBadge</h4>
+    <p>Cryptographically signed Assertions need to declare a verification type of <code class="highlighter-rouge">SignedBadge</code> within the JSON-LD. These badges are typically delivered as JSON Web Signatures (JWSs), so the signature value is outside the Assertion content, wrapping it. However, it may help to identify which publicKey is associated with the signature within the badge, so the <code class="highlighter-rouge">creator</code> field is available to be used in SignedBadges.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Expected Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
         <tr>
           <td><strong>type</strong></td>
           <td>JSON-LD type</td>
-          <td>valid JSON-LD representation of the BadgeClass type. In most cases, this will simply be the string <code class="highlighter-rouge">BadgeClass</code>. An array including <code class="highlighter-rouge">BadgeClass</code> and other string elements that are either URLs or compact IRIs within the current context are allowed.</td>
+          <td>The type of verification method: <code class="highlighter-rouge">SignedBadge</code> (or legacy alias <code class="highlighter-rouge">signed</code>).</td>
         </tr>
         <tr>
-          <td><strong>name</strong></td>
-          <td>Text</td>
-          <td>The name of the achievement.</td>
-        </tr>
-        <tr>
-          <td><strong>description</strong></td>
-          <td>Text</td>
-          <td>A short description of the achievement.</td>
-        </tr>
-        <tr>
-          <td><strong>image</strong></td>
-          <td>@id: <a href="#Image">Image</a></td>
-          <td>IRI of an image representing the achievement. May be a <a href="http://en.wikipedia.org/wiki/Data_URI_scheme">Data URI</a>, or URI where the image may be found.</td>
-        </tr>
-        <tr>
-          <td><a id="criteria"></a><strong>criteria</strong></td>
-          <td>@id: <a href="#Criteria">Criteria</a></td>
-          <td>URI or embedded criteria document describing how to earn the achievement.</td>
-        </tr>
-        <tr>
-          <td><strong>issuer</strong></td>
-          <td>@id: <a href="#Profile">Profile</a></td>
-          <td>IRI or document describing the individual, entity, or organization that issued the badge.</td>
-        </tr>
-        <tr>
-          <td>alignment</td>
-          <td>Array of <a href="#Alignment">AlignmentObject</a>s</td>
-          <td>List of objects describing which objectives or educational standards this badge aligns to, if any.</td>
-        </tr>
-        <tr>
-          <td><a id="tags"></a>tags</td>
-          <td>Array of Text</td>
-          <td>List of tags that describe the type of achievement.</td>
+          <td>creator</td>
+          <td>@id: <a href="#CryptographicKey">CryptographicKey</a></td>
+          <td>The (HTTP) id of the key used to sign the Assertion. If not present, verifiers will check public key(s) declared in the referenced issuer Profile. If a key is declared here, it must be authorized in the issuer Profile as well. <code class="highlighter-rouge">creator</code> is expected to be the dereferencable URI of a document that describes a <a href="#CryptographicKey">CryptographicKey</a>.</td>
         </tr>
       </tbody>
     </table>
 
   </div>
 
-  <h3 id="profile-example"><a id="Profile"></a><a id="Issuer"></a> Profile (<a href="./examples/#Issuer">example</a>)</h3>
-  <p>A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address. An Issuer Profile is a subclass of the general Profile with some additional requirements.</p>
+  <h3 id="evidence-example"><a id="Evidence"></a>Evidence (<a href="examples/#Evidence">example</a>)</h3>
+  <p>Descriptive metadata about evidence related to the issuance of an Assertion. Each instance of the Evidence class present in an Assertion corresponds to one entity, though a single entry can describe a set of items collectively. There may be multiple <code class="highlighter-rouge">evidence</code> entries referenced from an Assertion. The <code class="highlighter-rouge">narrative</code> property is also in scope of the Assertion class to provide an overall description of the achievement related to the badge in rich text. It is used here to provide a narrative of achievement of the specific entity described.</p>
+
+  <p>If both the <code class="highlighter-rouge">description</code> and <code class="highlighter-rouge">narrative</code> properties are present, displayers can assume the <code class="highlighter-rouge">narrative</code> value goes into more detail and is not simply a recapitulation of <code class="highlighter-rouge">description</code>.</p>
 
   <div class="table-wrapper">
 
@@ -353,547 +553,49 @@ Recipients of this document are requested to submit, with their comments, notifi
       </thead>
       <tbody>
         <tr>
-          <td><strong>id</strong></td>
-          <td>IRI</td>
-          <td>Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs.</td>
+          <td>type</td>
+          <td>JSON-LD Type</td>
+          <td>Defaults to <a href="#Evidence">Evidence</a>.</td>
         </tr>
         <tr>
-          <td><strong>type</strong></td>
-          <td>JSON-LD type</td>
-          <td>Valid JSON-LD representation of the Issuer or Profile type. In most cases, this will simply be the string <code class="highlighter-rouge">Issuer</code> or the more general <code class="highlighter-rouge">Profile</code>. An array including <code class="highlighter-rouge">Issuer</code> and other string elements that are either URLs or compact IRIs within the current context are allowed.</td>
+          <td>id</td>
+          <td>IRI</td>
+          <td>The URI of a webpage presenting evidence of achievement.</td>
+        </tr>
+        <tr>
+          <td>narrative</td>
+          <td>Text or Markdown Text</td>
+          <td>A narrative that describes the evidence and process of achievement that led to an Assertion.</td>
         </tr>
         <tr>
           <td>name</td>
           <td>Text</td>
-          <td>The name of the entity or organization.</td>
-        </tr>
-        <tr>
-          <td>url</td>
-          <td>IRI</td>
-          <td>The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP. (<a href="./examples/SocialMediaUrl">examples</a>).</td>
-        </tr>
-        <tr>
-          <td>telephone</td>
-          <td>Text</td>
-          <td>A phone number for the entity. For maximum compatibility, the value should be expressed as a <code class="highlighter-rouge">+</code> and country code followed by the number with no spaces or other punctuation, like <code class="highlighter-rouge">+16175551212</code> (<a href="http://en.wikipedia.org/wiki/E.164">E.164 format</a>).</td>
+          <td>A descriptive title of the evidence.</td>
         </tr>
         <tr>
           <td>description</td>
           <td>Text</td>
-          <td>A short description of the issuer entity or organization.</td>
+          <td>A longer description of the evidence.</td>
         </tr>
         <tr>
-          <td>image</td>
-          <td><a href="http://en.wikipedia.org/wiki/Data_URI_scheme">Data URI</a> or URL</td>
-          <td>An image representing the issuer.</td>
-        </tr>
-        <tr>
-          <td>email</td>
+          <td>genre</td>
           <td>Text</td>
-          <td>Contact address for the individual or organization.</td>
+          <td>A string that describes the type of evidence. For example, <code class="highlighter-rouge">Poetry</code>, <code class="highlighter-rouge">Prose</code>, <code class="highlighter-rouge">Film</code>.</td>
         </tr>
         <tr>
-          <td>publicKey</td>
-          <td>@id: <a href="#CryptographicKey">CryptographicKey</a></td>
-          <td>The key(s) an issuer uses to sign Assertions.</td>
-        </tr>
-        <tr>
-          <td>verification</td>
-          <td><a href="#VerificationObject">VerificationObject</a></td>
-          <td>Instructions for how to verify Assertions published by this Profile.</td>
-        </tr>
-        <tr>
-          <td><a id="revocationList"></a>revocationList</td>
-          <td>IRI: <a href="#RevocationList">RevocationList</a></td>
-          <td>HTTP URI of the Badge Revocation List used for marking revocation of signed badges.</td>
+          <td>audience</td>
+          <td>Text</td>
+          <td>A description of the intended audience for a piece of evidence.</td>
         </tr>
       </tbody>
     </table>
 
-    <p><strong>A note on required properties</strong>:
-When used to represent a recipient of badges, only <code class="highlighter-rouge">id</code> and <code class="highlighter-rouge">type</code> are required to enable pseudonymous usage. When used as a badge issuer, the following properties are required:</p>
-
-    <ul>
-      <li><code class="highlighter-rouge">id</code></li>
-      <li><code class="highlighter-rouge">type</code></li>
-      <li><code class="highlighter-rouge">name</code></li>
-      <li><code class="highlighter-rouge">url</code></li>
-      <li><code class="highlighter-rouge">email</code></li>
-    </ul>
-
-    <h3 id="identityobject"><a id="IdentityObject"></a>IdentityObject</h3>
-    <p>A collection of information about the recipient of a badge.</p>
-
-    <div class="table-wrapper">
-
-      <table>
-        <thead>
-          <tr>
-            <th>Property</th>
-            <th>Expected Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>identity</strong></td>
-            <td><a href="#identityHash">identityHash</a> or Text</td>
-            <td>Either the hash of the identity or the plaintext value. If it’s possible that the plaintext transmission and storage of the identity value would leak personally identifiable information where there is an expectation of privacy, it is strongly recommended that an IdentityHash be used.</td>
-          </tr>
-          <tr>
-            <td><a id="identityType"></a><strong>type</strong></td>
-            <td>property IRI</td>
-            <td>The property by which the recipient of a badge is identified. This value should be an IRI mapped in the present context. For example, <code class="highlighter-rouge">email</code> maps to <code class="highlighter-rouge">http://schema.org/email</code> and indicates that the <code class="highlighter-rouge">identity</code> of the <code class="highlighter-rouge">IdentityObject</code> will represent a value of a <a href="#Profile">Profile’s</a> <code class="highlighter-rouge">email</code> property. Currently the only supported value for many platforms that implement Open Badges is <code class="highlighter-rouge">email</code>, but other properties are available. See <a href="#ProfileIdentifierProperties">Profile Identifier Properties</a>.</td>
-          </tr>
-          <tr>
-            <td><a id="hashed"></a><strong>hashed</strong></td>
-            <td>Boolean</td>
-            <td>Whether or not the <code class="highlighter-rouge">identity</code> value is hashed.</td>
-          </tr>
-          <tr>
-            <td><a id="salt"></a>salt</td>
-            <td>Text</td>
-            <td>If the recipient is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.</td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-
-    <h3 id="verificationobject"><a id="VerificationObject"></a>VerificationObject</h3>
-    <p>A collection of information allowing an inspector to verify an Assertion. This is used as part of verification instructions in each Assertion but also as an instruction set in an issuer’s Profile to describe verification instructions for Assertions the issuer awards.</p>
-
-    <div class="table-wrapper">
-
-      <table>
-        <thead>
-          <tr>
-            <th>Property</th>
-            <th>Expected Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>type</strong></td>
-            <td>JSON-LD type</td>
-            <td>The type of verification method. Supported values for single assertion verification are <code class="highlighter-rouge">HostedBadge</code> and <code class="highlighter-rouge">SignedBadge</code> (aliases in <a href="v2/context.json">context</a> are available: <code class="highlighter-rouge">hosted</code> and <code class="highlighter-rouge">signed</code>). For instances used in Profiles, the type <code class="highlighter-rouge">VerificationObject</code> should be used.</td>
-          </tr>
-          <tr>
-            <td>verificationProperty</td>
-            <td>@id</td>
-            <td>The @id of the property to be used for verification that an Assertion is within the allowed scope. Only <code class="highlighter-rouge">id</code> is supported. Verifiers will consider <code class="highlighter-rouge">id</code> the default value if <code class="highlighter-rouge">verificationProperty</code> is omitted or if an issuer Profile has no explicit verification instructions, so it may be safely omitted.</td>
-          </tr>
-          <tr>
-            <td>startsWith</td>
-            <td>URI fragment string</td>
-            <td>The URI fragment that the verification property must start with. Valid Assertions must have an <code class="highlighter-rouge">id</code> within this scope. Multiple values allowed, and Assertions will be considered valid if their <code class="highlighter-rouge">id</code> starts with one of these values.</td>
-          </tr>
-          <tr>
-            <td><a id="allowedOrigins"></a>allowedOrigins</td>
-            <td>URI origin string</td>
-            <td>the hostname component of allowed origins. Any <code class="highlighter-rouge">id</code> URI within one of the allowedOrigins will be considered valid.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p><code class="highlighter-rouge">HostedVerification</code> and <code class="highlighter-rouge">SignedVerification</code> are subclasses of <code class="highlighter-rouge">VerificationObject</code>. Future subclasses may be developed to indicate instructions for verifying Assertions using different methods, such as blockchain-based procedures.</p>
-
-      <h4 id="hostedbadge"><a id="HostedBadge"></a> HostedBadge</h4>
-      <p>Hosted badge Assertions that have an HTTP(s) <code class="highlighter-rouge">id</code> simply need to declare a verification type of <code class="highlighter-rouge">HostedBadge</code>, and verification will use the Assertion’s <code class="highlighter-rouge">id</code> property.</p>
-
-      <h4 id="signedbadge"><a id="SignedBadge"></a> SignedBadge</h4>
-      <p>Cryptographically signed Assertions need to declare a verification type of <code class="highlighter-rouge">SignedBadge</code> within the JSON-LD. These badges are typically delivered as JSON Web Signatures (JWSs), so the signature value is outside the Assertion content, wrapping it. However, it may help to identify which publicKey is associated with the signature within the badge, so the <code class="highlighter-rouge">creator</code> field is available to be used in SignedBadges.</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Property</th>
-            <th>Expected Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>type</strong></td>
-            <td>JSON-LD type</td>
-            <td>The type of verification method: <code class="highlighter-rouge">SignedBadge</code> (or legacy alias <code class="highlighter-rouge">signed</code>).</td>
-          </tr>
-          <tr>
-            <td>creator</td>
-            <td>@id: <a href="#CryptographicKey">CryptographicKey</a></td>
-            <td>The (HTTP) id of the key used to sign the Assertion. If not present, verifiers will check public key(s) declared in the referenced issuer Profile. If a key is declared here, it must be authorized in the issuer Profile as well. <code class="highlighter-rouge">creator</code> is expected to be the dereferencable URI of a document that describes a <a href="#CryptographicKey">CryptographicKey</a>.</td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-
-    <h3 id="evidence-example"><a id="Evidence"></a>Evidence (<a href="examples/#Evidence">example</a>)</h3>
-    <p>Descriptive metadata about evidence related to the issuance of an Assertion. Each instance of the Evidence class present in an Assertion corresponds to one entity, though a single entry can describe a set of items collectively. There may be multiple <code class="highlighter-rouge">evidence</code> entries referenced from an Assertion. The <code class="highlighter-rouge">narrative</code> property is also in scope of the Assertion class to provide an overall description of the achievement related to the badge in rich text. It is used here to provide a narrative of achievement of the specific entity described.</p>
-
-    <p>If both the <code class="highlighter-rouge">description</code> and <code class="highlighter-rouge">narrative</code> properties are present, displayers can assume the <code class="highlighter-rouge">narrative</code> value goes into more detail and is not simply a recapitulation of <code class="highlighter-rouge">description</code>.</p>
-
-    <div class="table-wrapper">
-
-      <table>
-        <thead>
-          <tr>
-            <th>Property</th>
-            <th>Expected Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>type</td>
-            <td>JSON-LD Type</td>
-            <td>Defaults to <a href="#Evidence">Evidence</a>.</td>
-          </tr>
-          <tr>
-            <td>id</td>
-            <td>IRI</td>
-            <td>The URI of a webpage presenting evidence of achievement.</td>
-          </tr>
-          <tr>
-            <td>narrative</td>
-            <td>Text or Markdown Text</td>
-            <td>A narrative that describes the evidence and process of achievement that led to an Assertion.</td>
-          </tr>
-          <tr>
-            <td>name</td>
-            <td>Text</td>
-            <td>A descriptive title of the evidence.</td>
-          </tr>
-          <tr>
-            <td>description</td>
-            <td>Text</td>
-            <td>A longer description of the evidence.</td>
-          </tr>
-          <tr>
-            <td>genre</td>
-            <td>Text</td>
-            <td>A string that describes the type of evidence. For example, <code class="highlighter-rouge">Poetry</code>, <code class="highlighter-rouge">Prose</code>, <code class="highlighter-rouge">Film</code>.</td>
-          </tr>
-          <tr>
-            <td>audience</td>
-            <td>Text</td>
-            <td>A description of the intended audience for a piece of evidence.</td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-
-    <p>For evidence that is ephemeral or completely described within an Assertion via use of the Evidence class, if it is necessary to identify this evidence piece uniquely in an overall narrative, an <code class="highlighter-rouge">id</code> of type <code class="highlighter-rouge">urn:uuid</code> or otherwise outside the HTTP scheme may be used, but displayers may have less success displaying this usage meaningfully.</p>
-
-    <h3 id="image-example"><a id="Image"></a>Image (<a href="examples/#Image">example</a>)</h3>
-    <p>Metadata about images that represent Assertions, BadgeClasses or Profiles. These properties can typically be represented as just the <code class="highlighter-rouge">id</code> string of the image, but using a fleshed-out document allows for including captions and other applicable metadata.</p>
-
-    <div class="table-wrapper">
-
-      <table>
-        <thead>
-          <tr>
-            <th>Property</th>
-            <th>Expected Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>type</td>
-            <td>JSON-LD Type: <a href="http://schema.org/ImageObject">ImageObject</a></td>
-            <td>Defaults to schema:ImageObject.</td>
-          </tr>
-          <tr>
-            <td><strong>id</strong></td>
-            <td>IRI</td>
-            <td>The URI or Data URI of the image.</td>
-          </tr>
-          <tr>
-            <td>caption</td>
-            <td>Text</td>
-            <td>The caption for the image.</td>
-          </tr>
-          <tr>
-            <td>author</td>
-            <td>@id: Profile</td>
-            <td>The author of the image, if desired.</td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-
-    <h3 id="criteria-example"><a id="Criteria"></a>Criteria (<a href="examples/#Criteria">example</a>)</h3>
-    <p>Descriptive metadata about the achievements necessary to be recognized with an <code class="highlighter-rouge">Assertion</code> of a particular <code class="highlighter-rouge">BadgeClass</code>. This data is added to the <code class="highlighter-rouge">BadgeClass</code> so that it may be rendered when that <code class="highlighter-rouge">BadgeClass</code> is displayed, instead of simply a link to human-readable criteria external to the badge. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether.</p>
-
-    <p>Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an <code class="highlighter-rouge">Assertion</code> of a particular <code class="highlighter-rouge">BadgeClass</code>. It is also used after the <code class="highlighter-rouge">Assertion</code> is awarded to a recipient to let those inspecting earned badges know the general requirements that the recipients met in order to earn it.</p>
-
-    <div class="table-wrapper">
-
-      <table>
-        <thead>
-          <tr>
-            <th>Property</th>
-            <th>Expected Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>type</td>
-            <td>JSON-LD Type</td>
-            <td>Defaults to <a href="#Criteria">Criteria</a>.</td>
-          </tr>
-          <tr>
-            <td>id</td>
-            <td>IRI</td>
-            <td>The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass.</td>
-          </tr>
-          <tr>
-            <td>narrative</td>
-            <td>Text or <a href="#MarkdownText">Markdown Text</a></td>
-            <td>A narrative of what is needed to earn the badge.</td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-
-    <p>On the surface <code class="highlighter-rouge">Criteria</code> is a very simple class, but it enables some powerful use cases, such as using a Markdown-formatted <code class="highlighter-rouge">narrative</code> to draw the connections between multiple elements in an <code class="highlighter-rouge">alignment</code> array. The open nature of the Open Badges vocabulary allows experimentation with <a href="extensions/">extensions</a> in <code class="highlighter-rouge">Criteria</code> as well, to let the market establish patterns for machine-readable criteria and automatic-awarding badge contracts.</p>
-
-    <h3 id="alignmentobject"><a id="Alignment"></a>AlignmentObject</h3>
-    <p>The AlignmentObject is an alias for schema.org’s <a href="http://schema.org/AlignmentObject">AlignmentObject</a> and uses IRIs from that vocabulary. See an <a href="examples/#BadgeClass">example</a> as it would appear in a BadgeClass document.</p>
-
-    <div class="table-wrapper">
-
-      <table>
-        <thead>
-          <tr>
-            <th>Property</th>
-            <th>Expected Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>targetName</strong></td>
-            <td>Text</td>
-            <td>Name of the alignment.</td>
-          </tr>
-          <tr>
-            <td><strong>targetUrl</strong></td>
-            <td>URL</td>
-            <td>URL linking to the official description of the alignment target, for example an individual standard within an educational framework.</td>
-          </tr>
-          <tr>
-            <td>targetDescription</td>
-            <td>Text</td>
-            <td>Short description of the alignment target.</td>
-          </tr>
-          <tr>
-            <td>targetFramework</td>
-            <td>Text</td>
-            <td>Name of the framework the alignment target.</td>
-          </tr>
-          <tr>
-            <td><a id="targertCode"></a>targetCode</td>
-            <td>Text</td>
-            <td>If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or <code class="highlighter-rouge">targetUrl</code>.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p>In order to render displays of alignment within badge services, <code class="highlighter-rouge">targetName</code> is required. In order to accurately identify targets, <code class="highlighter-rouge">targetUrl</code> is required. In the event that <code class="highlighter-rouge">targetUrl</code> cannot be specific enough to identify the item, <code class="highlighter-rouge">targetCode</code> may be used to indicate specifically which item within the targetUrl is the alignment target.</p>
-
-      <p><strong>Note:</strong> Open badges v1.x used <code class="highlighter-rouge">schema:name</code>, <code class="highlighter-rouge">schema:description, and </code>schema:url`. v2.0 updates the AlignmentObject to use the proper linked data IRIs from the Schema.org vocabulary.</p>
-    </div>
-
-    <h3 id="revocation-list-example"><a id="RevocationList"></a>Revocation List (<a href="examples/#RevocationList">example</a>)</h3>
-    <p>The Revocation List is a document that describes badges an Issuer has revoked that used the <code class="highlighter-rouge">signed</code> verification method. If you find the badge in the <code class="highlighter-rouge">revokedAssertions</code> list, it has been revoked.</p>
-
-    <p>An assertion reference may look like <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/1"</span><span class="p">,</span><span class="w"> </span><span class="nt">"revocationReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Violation of policy"</span><span class="p">}</span></code> or simply the string <code class="highlighter-rouge">"https://example.org/1"</code>. A UID-based reference may look like <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="nt">"revocationReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awarded in error"</span><span class="p">}</span></code></p>
-
-    <div class="table-wrapper">
-
-      <table>
-        <thead>
-          <tr>
-            <th>Property</th>
-            <th>Expected Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>type</strong></td>
-            <td>JSON-LD Type</td>
-            <td><code class="highlighter-rouge">RevocationList</code>.</td>
-          </tr>
-          <tr>
-            <td>id</td>
-            <td>IRI</td>
-            <td>The <code class="highlighter-rouge">id</code> of the RevocationList.</td>
-          </tr>
-          <tr>
-            <td>issuer</td>
-            <td>IRI: Profile</td>
-            <td>The <code class="highlighter-rouge">id</code> of the Issuer.</td>
-          </tr>
-          <tr>
-            <td><a id="revokedAssertions"></a> <strong>revokedAssertions</strong></td>
-            <td>Array of revoked Assertions</td>
-            <td>An array of string <code class="highlighter-rouge">id</code> or UID-based identifications of badge objects that have been revoked.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p><strong>Revoked Assertions referenced by revokedAssertions array:</strong> Properties from <a href="#Assertion">Assertion</a> in scope for those that have been revoked. Implementers generally only include these properties, clearing out the values that were in place before revocation. An identifying property must be used, either <code class="highlighter-rouge">id</code> or (legacy) <code class="highlighter-rouge">uid</code>. If the issuer does not wish to declare a revocation reason or additional metadata, the</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Property</th>
-            <th>Expected Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>type</td>
-            <td>JSON-LD Type</td>
-            <td>Defaults to <code class="highlighter-rouge">Assertion</code>. May be omitted.</td>
-          </tr>
-          <tr>
-            <td>id</td>
-            <td>IRI</td>
-            <td>The <code class="highlighter-rouge">id</code> of the revoked Assertion.</td>
-          </tr>
-          <tr>
-            <td>uid</td>
-            <td>Text</td>
-            <td>Legacy identifier for pre-1.1 badges that did not use an IRI-based <code class="highlighter-rouge">id</code>.</td>
-          </tr>
-          <tr>
-            <td><a id="revoked"></a> revoked</td>
-            <td>Boolean</td>
-            <td><code class="highlighter-rouge">true</code> if the Assertion is revoked. Defaults to true if present in a <code class="highlighter-rouge">revokedAssertions</code> list and may be omitted.</td>
-          </tr>
-          <tr>
-            <td><a id="revocationReason"></a> revocationReason</td>
-            <td>Text</td>
-            <td>The published reason for revocation if desired.</td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-
-    <h3 id="cryptographickey-example"><a id="CryptographicKey"></a>CryptographicKey (<a href="examples/#CryptographicKey">example</a>)</h3>
-    <p>Alias for the <a href="https://web-payments.org/vocabs/security#Key">Key</a> class from the <a href="https://web-payments.org/vocabs/security">W3C Web Payments Community Group Security Vocabulary</a>. A CryptographicKey document identifies and describes a Key used for signing Open Badges documents.</p>
-
-    <p>For best compatibility with verification procedures, the <code class="highlighter-rouge">Profile</code> should be hosted at its HTTPS <code class="highlighter-rouge">id</code> and should identify a <code class="highlighter-rouge">publicKey</code> by the HTTPS <code class="highlighter-rouge">id</code> of a <code class="highlighter-rouge">CryptographicKey</code> document that identifies its issuer by the issuer’s <code class="highlighter-rouge">id</code> using the <code class="highlighter-rouge">owner</code> property. This allows convenient and robust usage of these <code class="highlighter-rouge">id</code>s to identify both the issuer and the key used.</p>
-
-    <div class="table-wrapper">
-
-      <table>
-        <thead>
-          <tr>
-            <th>Property</th>
-            <th>Expected Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>type</td>
-            <td>JSON-LD Type</td>
-            <td><code class="highlighter-rouge">CryptographicKey</code>.</td>
-          </tr>
-          <tr>
-            <td>id</td>
-            <td>IRI</td>
-            <td>The identifier for the key. Most platforms only support HTTP(s) identifiers.</td>
-          </tr>
-          <tr>
-            <td>owner</td>
-            <td>IRI: <a href="#Profile">Profile</a></td>
-            <td>The identifier for the Profile that owns this key. There should be a two-way connection between this Profile and the CryptographicKey through the <code class="highlighter-rouge">owner</code> and <code class="highlighter-rouge">publicKey</code> properties.</td>
-          </tr>
-          <tr>
-            <td>publicKeyPem</td>
-            <td>Text</td>
-            <td>The PEM key encoding is a widely-used method to express public keys, compatible with almost every Secure Sockets Layer library implementation.</td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-
-    <h2 id="properties"><a id="Properties"></a>Properties</h2>
-    <p>Below are listed several properties  usable across several Classes. They are optional in all cases.</p>
-
-    <h3 id="related"><a id="related"></a>related</h3>
-    <p>The <code class="highlighter-rouge">related</code> property identifies another entity of the same type that should be considered the same for most purposes. It is primarily intended to identify alternate language editions or previous versions of BadgeClasses. See examples: <a href="examples/#Internationalization">alternate language versions</a> and <a href="examples/#badgeclass-version-control">BadgeClass version control</a></p>
-
-    <h3 id="version"><a id="version"></a>version</h3>
-    <p>The <code class="highlighter-rouge">version</code> property allows issuers to specify a version string or number. It is primarily used to update a BadgeClass without changing the meaning of previously awarded Assertions by duplicating and linking to the previous version. See <a href="examples/#badgeclass-version-control">example</a>.</p>
-
-    <div class="table-wrapper">
-
-      <table>
-        <thead>
-          <tr>
-            <th>Property</th>
-            <th>Expected Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>related</td>
-            <td>@id</td>
-            <td>Identifies related versions of the entity.</td>
-          </tr>
-          <tr>
-            <td>version</td>
-            <td>Text or Number</td>
-            <td>The version identifier for the present edition of the entity.</td>
-          </tr>
-          <tr>
-            <td>endorsement</td>
-            <td>@id: <a href="#Endorsement">Endorsement</a></td>
-            <td>Relevant endorsement(s) that make claims about this entity. Note: As endorsements must be published after the publication of the entity they endorse, it will not always be possible to establish a two-way linkage with this property.</td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-
-    <h2 id="profile-identifier-properties"><a id="ProfileIdentifierProperties"></a>Profile Identifier Properties</h2>
-    <p>When profiles are referenced elsewhere in the Open Badges Specification, they may be identified precisely by dereferencable id, such as when a BadgeClass links to an issuer Profile by its <code class="highlighter-rouge">id</code> URL. Other times, such as when identifying the <a href="#recipient">recipient</a> of an <a href="#Assertion">Assertion</a>, Profiles may be identified by the value of a specific property unique to the individual or organization represented in a Profile. All properties that serve as profile identifiers must have values with a string datatype.</p>
-
-    <p><strong>Properties considered serviceable identifiers include:</strong></p>
-
-    <ul>
-      <li><code class="highlighter-rouge">email</code></li>
-      <li><code class="highlighter-rouge">url</code></li>
-      <li><code class="highlighter-rouge">telephone</code></li>
-    </ul>
-
-    <p>Many platforms that allow badge issuers and recipients to establish their identities as Profiles support only <code class="highlighter-rouge">email</code> (<code class="highlighter-rouge">https://schema.org/email</code>) as an identifier property.</p>
-
   </div>
 
-  <h2 id="extensions"><a id="Extensions"></a><a id="Extension"></a>Extensions</h2>
+  <p>For evidence that is ephemeral or completely described within an Assertion via use of the Evidence class, if it is necessary to identify this evidence piece uniquely in an overall narrative, an <code class="highlighter-rouge">id</code> of type <code class="highlighter-rouge">urn:uuid</code> or otherwise outside the HTTP scheme may be used, but displayers may have less success displaying this usage meaningfully.</p>
 
-  <p>The 1.1 version of the Open Badges Specification introduces Extensions as a means for issuers to add additional metadata to Badge Objects beyond what the standard specifies itself. Additional properties are allowed without using Extensions, but Extensions allow issuers to declare how they are adding information so that it can be understood by others and other issuers can add the same sort of information in a compatible way.</p>
-
-  <p>See the <a href="./extensions/">Extensions</a> page for specific examples and extensions ready to use in Badge Objects.</p>
-
-  <p>Extension authors define and host a new <a href="http://json-ld.org">JSON-LD</a> context file describing all the terms the extension covers. These context files may further define any <a href="http://json-schema.org/">JSON-schema</a> that implementations of the extension should pass. If used, each schema is linked from the context and hosted as a separate JSON-schema files. Extensions are implemented in Open Badges as JSON objects inside an Assertion, BadgeClass or Issuer with their own link to the extension context and declaration of type.</p>
+  <h3 id="image-example"><a id="Image"></a>Image (<a href="examples/#Image">example</a>)</h3>
+  <p>Metadata about images that represent Assertions, BadgeClasses or Profiles. These properties can typically be represented as just the <code class="highlighter-rouge">id</code> string of the image, but using a fleshed-out document allows for including captions and other applicable metadata.</p>
 
   <div class="table-wrapper">
 
@@ -907,39 +609,344 @@ When used to represent a recipient of badges, only <code class="highlighter-roug
       </thead>
       <tbody>
         <tr>
-          <td><strong>@context</strong></td>
-          <td>URL</td>
-          <td>JSON-LD context file shared among all implementations of the extension.</td>
+          <td>type</td>
+          <td>JSON-LD Type: <a href="http://schema.org/ImageObject">ImageObject</a></td>
+          <td>Defaults to schema:ImageObject.</td>
         </tr>
         <tr>
-          <td><strong>type</strong></td>
-          <td>array of IRIs</td>
-          <td>IRIs or compact IRIs within the OBI or extension context that describe the type of data contained in the extension. These are used to map optional JSON-schema validation to the extension. Must include ‘extension’ as one element.</td>
+          <td><strong>id</strong></td>
+          <td>IRI</td>
+          <td>The URI or Data URI of the image.</td>
         </tr>
         <tr>
-          <td>*anyProperties</td>
-          <td>Any</td>
-          <td>Any property names defined in the extension context may be used with any valid JSON value.</td>
+          <td>caption</td>
+          <td>Text</td>
+          <td>The caption for the image.</td>
+        </tr>
+        <tr>
+          <td>author</td>
+          <td>@id: Profile</td>
+          <td>The author of the image, if desired.</td>
         </tr>
       </tbody>
     </table>
 
   </div>
 
-  <p>An extension value should be included as a JSON object containing the <code class="highlighter-rouge">@context</code> and <code class="highlighter-rouge">@type</code> properties and any new properties whose names are mapped in the context file referenced by <code class="highlighter-rouge">@context</code>.</p>
+  <h3 id="criteria-example"><a id="Criteria"></a>Criteria (<a href="examples/#Criteria">example</a>)</h3>
+  <p>Descriptive metadata about the achievements necessary to be recognized with an <code class="highlighter-rouge">Assertion</code> of a particular <code class="highlighter-rouge">BadgeClass</code>. This data is added to the <code class="highlighter-rouge">BadgeClass</code> so that it may be rendered when that <code class="highlighter-rouge">BadgeClass</code> is displayed, instead of simply a link to human-readable criteria external to the badge. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether.</p>
 
-  <p>The property name for the extension should map to an IRI within the <code class="highlighter-rouge">@context</code> defined at the root of the extended Badge Object. It is possible to use a fully qualified IRI (e.g. <code class="highlighter-rouge">http://example.org/newBadgeExtension</code>) or a compact IRI within the extension namespace defined in the <a href="./v2/context.json">OBI context</a>, like <code class="highlighter-rouge">extension:newBadgeExtension</code>. In either case, the IRI should correspond to where a human-readable definition of the extension resides. For extensions using the <code class="highlighter-rouge">extension</code> namespace, this definition may be contributed to the community <a href="./extensions/">extensions repository</a> on this site.</p>
+  <p>Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an <code class="highlighter-rouge">Assertion</code> of a particular <code class="highlighter-rouge">BadgeClass</code>. It is also used after the <code class="highlighter-rouge">Assertion</code> is awarded to a recipient to let those inspecting earned badges know the general requirements that the recipients met in order to earn it.</p>
 
-  <p>See <a href="./extensions/">example extensions</a>.</p>
+  <div class="table-wrapper">
 
-  <h3 id="extension-validation-">Extension Validation <a id="validation"></a></h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Expected Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>type</td>
+          <td>JSON-LD Type</td>
+          <td>Defaults to <a href="#Criteria">Criteria</a>.</td>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>IRI</td>
+          <td>The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass.</td>
+        </tr>
+        <tr>
+          <td>narrative</td>
+          <td>Text or <a href="#MarkdownText">Markdown Text</a></td>
+          <td>A narrative of what is needed to earn the badge.</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <p>Open Badges v1.1 implements an optional JSON-schema based mechanism of ensuring badge objects conform to syntactic requirements of the specification. JSON-schema can ensure that required properties exist and that expected data types are used. From the <a href="./v1/context.json">context</a>s for badge objects and extensions, a <code class="highlighter-rouge">validation</code> array may contain links to various JSON-schema against which badge objects may be tested. There are two proposed methods of specifying which component of a badge object should be matched against the JSON-schema validator: TypeValidation and FrameValidation. As of 1.1, only TypeValidation is implemented.</p>
+  </div>
 
-  <p>For example, this portion of the current Open Badges context links to a validator for Assertions. It indicates through TypeValidation that it should be run against JSON objects with the JSON-LD type of <code class="highlighter-rouge">Assertion</code> ([https://w3id.org/openbadges#Assertion]).</p>
+  <p>On the surface <code class="highlighter-rouge">Criteria</code> is a very simple class, but it enables some powerful use cases, such as using a Markdown-formatted <code class="highlighter-rouge">narrative</code> to draw the connections between multiple elements in an <code class="highlighter-rouge">alignment</code> array. The open nature of the Open Badges vocabulary allows experimentation with <a href="extensions/">extensions</a> in <code class="highlighter-rouge">Criteria</code> as well, to let the market establish patterns for machine-readable criteria and automatic-awarding badge contracts.</p>
 
-  <figure class="highlight">
-    <pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+  <h3 id="alignmentobject"><a id="Alignment"></a>AlignmentObject</h3>
+  <p>The AlignmentObject is an alias for schema.org’s <a href="http://schema.org/AlignmentObject">AlignmentObject</a> and uses IRIs from that vocabulary. See an <a href="examples/#BadgeClass">example</a> as it would appear in a BadgeClass document.</p>
+
+  <div class="table-wrapper">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Expected Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>targetName</strong></td>
+          <td>Text</td>
+          <td>Name of the alignment.</td>
+        </tr>
+        <tr>
+          <td><strong>targetUrl</strong></td>
+          <td>URL</td>
+          <td>URL linking to the official description of the alignment target, for example an individual standard within an educational framework.</td>
+        </tr>
+        <tr>
+          <td>targetDescription</td>
+          <td>Text</td>
+          <td>Short description of the alignment target.</td>
+        </tr>
+        <tr>
+          <td>targetFramework</td>
+          <td>Text</td>
+          <td>Name of the framework the alignment target.</td>
+        </tr>
+        <tr>
+          <td><a id="targertCode"></a>targetCode</td>
+          <td>Text</td>
+          <td>If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or <code class="highlighter-rouge">targetUrl</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>In order to render displays of alignment within badge services, <code class="highlighter-rouge">targetName</code> is required. In order to accurately identify targets, <code class="highlighter-rouge">targetUrl</code> is required. In the event that <code class="highlighter-rouge">targetUrl</code> cannot be specific enough to identify the item, <code class="highlighter-rouge">targetCode</code> may be used to indicate specifically which item within the targetUrl is the alignment target.</p>
+
+    <p><strong>Note:</strong> Open badges v1.x used <code class="highlighter-rouge">schema:name</code>, <code class="highlighter-rouge">schema:description, and </code>schema:url`. v2.0 updates the AlignmentObject to use the proper linked data IRIs from the Schema.org vocabulary.</p>
+  </div>
+
+  <h3 id="revocation-list-example"><a id="RevocationList"></a>Revocation List (<a href="examples/#RevocationList">example</a>)</h3>
+  <p>The Revocation List is a document that describes badges an Issuer has revoked that used the <code class="highlighter-rouge">signed</code> verification method. If you find the badge in the <code class="highlighter-rouge">revokedAssertions</code> list, it has been revoked.</p>
+
+  <p>An assertion reference may look like <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/1"</span><span class="p">,</span><span class="w"> </span><span class="nt">"revocationReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Violation of policy"</span><span class="p">}</span></code> or simply the string <code class="highlighter-rouge">"https://example.org/1"</code>. A UID-based reference may look like <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="nt">"revocationReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awarded in error"</span><span class="p">}</span></code></p>
+
+  <div class="table-wrapper">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Expected Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>type</strong></td>
+          <td>JSON-LD Type</td>
+          <td><code class="highlighter-rouge">RevocationList</code>.</td>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>IRI</td>
+          <td>The <code class="highlighter-rouge">id</code> of the RevocationList.</td>
+        </tr>
+        <tr>
+          <td>issuer</td>
+          <td>IRI: Profile</td>
+          <td>The <code class="highlighter-rouge">id</code> of the Issuer.</td>
+        </tr>
+        <tr>
+          <td><a id="revokedAssertions"></a> <strong>revokedAssertions</strong></td>
+          <td>Array of revoked Assertions</td>
+          <td>An array of string <code class="highlighter-rouge">id</code> or UID-based identifications of badge objects that have been revoked.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Revoked Assertions referenced by revokedAssertions array:</strong> Properties from <a href="#Assertion">Assertion</a> in scope for those that have been revoked. Implementers generally only include these properties, clearing out the values that were in place before revocation. An identifying property must be used, either <code class="highlighter-rouge">id</code> or (legacy) <code class="highlighter-rouge">uid</code>. If the issuer does not wish to declare a revocation reason or additional metadata, the</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Expected Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>type</td>
+          <td>JSON-LD Type</td>
+          <td>Defaults to <code class="highlighter-rouge">Assertion</code>. May be omitted.</td>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>IRI</td>
+          <td>The <code class="highlighter-rouge">id</code> of the revoked Assertion.</td>
+        </tr>
+        <tr>
+          <td>uid</td>
+          <td>Text</td>
+          <td>Legacy identifier for pre-1.1 badges that did not use an IRI-based <code class="highlighter-rouge">id</code>.</td>
+        </tr>
+        <tr>
+          <td><a id="revoked"></a> revoked</td>
+          <td>Boolean</td>
+          <td><code class="highlighter-rouge">true</code> if the Assertion is revoked. Defaults to true if present in a <code class="highlighter-rouge">revokedAssertions</code> list and may be omitted.</td>
+        </tr>
+        <tr>
+          <td><a id="revocationReason"></a> revocationReason</td>
+          <td>Text</td>
+          <td>The published reason for revocation if desired.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <h3 id="cryptographickey-example"><a id="CryptographicKey"></a>CryptographicKey (<a href="examples/#CryptographicKey">example</a>)</h3>
+  <p>Alias for the <a href="https://web-payments.org/vocabs/security#Key">Key</a> class from the <a href="https://web-payments.org/vocabs/security">W3C Web Payments Community Group Security Vocabulary</a>. A CryptographicKey document identifies and describes a Key used for signing Open Badges documents.</p>
+
+  <p>For best compatibility with verification procedures, the <code class="highlighter-rouge">Profile</code> should be hosted at its HTTPS <code class="highlighter-rouge">id</code> and should identify a <code class="highlighter-rouge">publicKey</code> by the HTTPS <code class="highlighter-rouge">id</code> of a <code class="highlighter-rouge">CryptographicKey</code> document that identifies its issuer by the issuer’s <code class="highlighter-rouge">id</code> using the <code class="highlighter-rouge">owner</code> property. This allows convenient and robust usage of these <code class="highlighter-rouge">id</code>s to identify both the issuer and the key used.</p>
+
+  <div class="table-wrapper">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Expected Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>type</td>
+          <td>JSON-LD Type</td>
+          <td><code class="highlighter-rouge">CryptographicKey</code>.</td>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>IRI</td>
+          <td>The identifier for the key. Most platforms only support HTTP(s) identifiers.</td>
+        </tr>
+        <tr>
+          <td>owner</td>
+          <td>IRI: <a href="#Profile">Profile</a></td>
+          <td>The identifier for the Profile that owns this key. There should be a two-way connection between this Profile and the CryptographicKey through the <code class="highlighter-rouge">owner</code> and <code class="highlighter-rouge">publicKey</code> properties.</td>
+        </tr>
+        <tr>
+          <td>publicKeyPem</td>
+          <td>Text</td>
+          <td>The PEM key encoding is a widely-used method to express public keys, compatible with almost every Secure Sockets Layer library implementation.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <h2 id="properties"><a id="Properties"></a>Properties</h2>
+  <p>Below are listed several properties  usable across several Classes. They are optional in all cases.</p>
+
+  <h3 id="related"><a id="related"></a>related</h3>
+  <p>The <code class="highlighter-rouge">related</code> property identifies another entity of the same type that should be considered the same for most purposes. It is primarily intended to identify alternate language editions or previous versions of BadgeClasses. See examples: <a href="examples/#Internationalization">alternate language versions</a> and <a href="examples/#badgeclass-version-control">BadgeClass version control</a></p>
+
+  <h3 id="version"><a id="version"></a>version</h3>
+  <p>The <code class="highlighter-rouge">version</code> property allows issuers to specify a version string or number. It is primarily used to update a BadgeClass without changing the meaning of previously awarded Assertions by duplicating and linking to the previous version. See <a href="examples/#badgeclass-version-control">example</a>.</p>
+
+  <div class="table-wrapper">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Expected Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>related</td>
+          <td>@id</td>
+          <td>Identifies related versions of the entity.</td>
+        </tr>
+        <tr>
+          <td>version</td>
+          <td>Text or Number</td>
+          <td>The version identifier for the present edition of the entity.</td>
+        </tr>
+        <tr>
+          <td>endorsement</td>
+          <td>@id: <a href="#Endorsement">Endorsement</a></td>
+          <td>Relevant endorsement(s) that make claims about this entity. Note: As endorsements must be published after the publication of the entity they endorse, it will not always be possible to establish a two-way linkage with this property.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <h2 id="profile-identifier-properties"><a id="ProfileIdentifierProperties"></a>Profile Identifier Properties</h2>
+  <p>When profiles are referenced elsewhere in the Open Badges Specification, they may be identified precisely by dereferencable id, such as when a BadgeClass links to an issuer Profile by its <code class="highlighter-rouge">id</code> URL. Other times, such as when identifying the <a href="#recipient">recipient</a> of an <a href="#Assertion">Assertion</a>, Profiles may be identified by the value of a specific property unique to the individual or organization represented in a Profile. All properties that serve as profile identifiers must have values with a string datatype.</p>
+
+  <p><strong>Properties considered serviceable identifiers include:</strong></p>
+
+  <ul>
+    <li><code class="highlighter-rouge">email</code></li>
+    <li><code class="highlighter-rouge">url</code></li>
+    <li><code class="highlighter-rouge">telephone</code></li>
+  </ul>
+
+  <p>Many platforms that allow badge issuers and recipients to establish their identities as Profiles support only <code class="highlighter-rouge">email</code> (<code class="highlighter-rouge">https://schema.org/email</code>) as an identifier property.</p>
+
+</div>
+
+<h2 id="extensions"><a id="Extensions"></a><a id="Extension"></a>Extensions</h2>
+
+<p>The 1.1 version of the Open Badges Specification introduces Extensions as a means for issuers to add additional metadata to Badge Objects beyond what the standard specifies itself. Additional properties are allowed without using Extensions, but Extensions allow issuers to declare how they are adding information so that it can be understood by others and other issuers can add the same sort of information in a compatible way.</p>
+
+<p>See the <a href="./extensions/">Extensions</a> page for specific examples and extensions ready to use in Badge Objects.</p>
+
+<p>Extension authors define and host a new <a href="http://json-ld.org">JSON-LD</a> context file describing all the terms the extension covers. These context files may further define any <a href="http://json-schema.org/">JSON-schema</a> that implementations of the extension should pass. If used, each schema is linked from the context and hosted as a separate JSON-schema files. Extensions are implemented in Open Badges as JSON objects inside an Assertion, BadgeClass or Issuer with their own link to the extension context and declaration of type.</p>
+
+<div class="table-wrapper">
+
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Expected Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>@context</strong></td>
+        <td>URL</td>
+        <td>JSON-LD context file shared among all implementations of the extension.</td>
+      </tr>
+      <tr>
+        <td><strong>type</strong></td>
+        <td>array of IRIs</td>
+        <td>IRIs or compact IRIs within the OBI or extension context that describe the type of data contained in the extension. These are used to map optional JSON-schema validation to the extension. Must include ‘extension’ as one element.</td>
+      </tr>
+      <tr>
+        <td>*anyProperties</td>
+        <td>Any</td>
+        <td>Any property names defined in the extension context may be used with any valid JSON value.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<p>An extension value should be included as a JSON object containing the <code class="highlighter-rouge">@context</code> and <code class="highlighter-rouge">@type</code> properties and any new properties whose names are mapped in the context file referenced by <code class="highlighter-rouge">@context</code>.</p>
+
+<p>The property name for the extension should map to an IRI within the <code class="highlighter-rouge">@context</code> defined at the root of the extended Badge Object. It is possible to use a fully qualified IRI (e.g. <code class="highlighter-rouge">http://example.org/newBadgeExtension</code>) or a compact IRI within the extension namespace defined in the <a href="./v2/context.json">OBI context</a>, like <code class="highlighter-rouge">extension:newBadgeExtension</code>. In either case, the IRI should correspond to where a human-readable definition of the extension resides. For extensions using the <code class="highlighter-rouge">extension</code> namespace, this definition may be contributed to the community <a href="./extensions/">extensions repository</a> on this site.</p>
+
+<p>See <a href="./extensions/">example extensions</a>.</p>
+
+<h3 id="extension-validation-">Extension Validation <a id="validation"></a></h3>
+
+<p>Open Badges v1.1 implements an optional JSON-schema based mechanism of ensuring badge objects conform to syntactic requirements of the specification. JSON-schema can ensure that required properties exist and that expected data types are used. From the <a href="./v1/context.json">context</a>s for badge objects and extensions, a <code class="highlighter-rouge">validation</code> array may contain links to various JSON-schema against which badge objects may be tested. There are two proposed methods of specifying which component of a badge object should be matched against the JSON-schema validator: TypeValidation and FrameValidation. As of 1.1, only TypeValidation is implemented.</p>
+
+<p>For example, this portion of the current Open Badges context links to a validator for Assertions. It indicates through TypeValidation that it should be run against JSON objects with the JSON-LD type of <code class="highlighter-rouge">Assertion</code> ([https://w3id.org/openbadges#Assertion]).</p>
+
+<figure class="highlight">
+  <pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
   </span><span class="err">...</span><span class="w">
   </span><span class="nt">"validation"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -950,129 +957,129 @@ When used to represent a recipient of badges, only <code class="highlighter-roug
     </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span></code></pre>
-  </figure>
+</figure>
 
-  <h4 id="type-validation"><a id="TypeValidation"></a>Type Validation</h4>
+<h4 id="type-validation"><a id="TypeValidation"></a>Type Validation</h4>
 
-  <p>Validators using the TypeValidation method match the schema indicated by the validator’s <code class="highlighter-rouge">validationSchema</code> property against a JSON badge object document or portion of such a document that matches the validator’s <code class="highlighter-rouge">validatesType</code> JSON-LD <code class="highlighter-rouge">type</code>.</p>
+<p>Validators using the TypeValidation method match the schema indicated by the validator’s <code class="highlighter-rouge">validationSchema</code> property against a JSON badge object document or portion of such a document that matches the validator’s <code class="highlighter-rouge">validatesType</code> JSON-LD <code class="highlighter-rouge">type</code>.</p>
 
-  <div class="table-wrapper">
+<div class="table-wrapper">
 
-    <table>
-      <thead>
-        <tr>
-          <th>Property</th>
-          <th>Expected Type</th>
-          <th>Description/expected value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>type</strong></td>
-          <td>string/compact IRI</td>
-          <td><code class="highlighter-rouge">TypeValidation</code>.</td>
-        </tr>
-        <tr>
-          <td><strong>validatesType</strong></td>
-          <td>string/compact IRI</td>
-          <td>Valid JSON-LD type for a badge component, such as <code class="highlighter-rouge">Assertion</code>, <code class="highlighter-rouge">extensions:ApplyLink</code>, or <code class="highlighter-rouge">https://w3id.org/openbadges/extensions#ApplyLink</code>. Compact forms preferred.</td>
-        </tr>
-        <tr>
-          <td><strong>validationSchema</strong></td>
-          <td>URL</td>
-          <td>Location of a hosted JSON-schema.</td>
-        </tr>
-      </tbody>
-    </table>
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Expected Type</th>
+        <th>Description/expected value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>type</strong></td>
+        <td>string/compact IRI</td>
+        <td><code class="highlighter-rouge">TypeValidation</code>.</td>
+      </tr>
+      <tr>
+        <td><strong>validatesType</strong></td>
+        <td>string/compact IRI</td>
+        <td>Valid JSON-LD type for a badge component, such as <code class="highlighter-rouge">Assertion</code>, <code class="highlighter-rouge">extensions:ApplyLink</code>, or <code class="highlighter-rouge">https://w3id.org/openbadges/extensions#ApplyLink</code>. Compact forms preferred.</td>
+      </tr>
+      <tr>
+        <td><strong>validationSchema</strong></td>
+        <td>URL</td>
+        <td>Location of a hosted JSON-schema.</td>
+      </tr>
+    </tbody>
+  </table>
 
-  </div>
+</div>
 
-  <h4 id="frame-validation"><a id="FrameValidation"></a> Frame Validation</h4>
-  <p><em>status: proposed</em>
+<h4 id="-frame-validation"><a id="FrameValidation"></a> Frame Validation</h4>
+<p><em>status: proposed</em>
 Validators that someday use the proposed FrameValidation method pass JSON-LD objects through the JSON-LD Frame indicated by the <code class="highlighter-rouge">validationFrame</code> property and test the result against the JSON-schema indicated by the validator’s <code class="highlighter-rouge">validationSchema</code> property.</p>
 
-  <h2 id="endorsement-example"><a id="Endorsement"></a>Endorsement (<a href="examples/#Endorsement">example</a>)</h2>
-  <p>Open Badges are trustworthy records of achievement. The vocabulary defined above, combined with the validation and verification procedures for badge Assertions, establish Open Badges as a reliable method for expressing and verifying achievements online. However, these procedures don’t answer questions like, “Who trusts this BadgeClass to be a good certification of the competency it describes?” or, “Is this Profile’s email address verified?” For these questions, there is Endorsement.</p>
+<h2 id="endorsement-example"><a id="Endorsement"></a>Endorsement (<a href="examples/#Endorsement">example</a>)</h2>
+<p>Open Badges are trustworthy records of achievement. The vocabulary defined above, combined with the validation and verification procedures for badge Assertions, establish Open Badges as a reliable method for expressing and verifying achievements online. However, these procedures don’t answer questions like, “Who trusts this BadgeClass to be a good certification of the competency it describes?” or, “Is this Profile’s email address verified?” For these questions, there is Endorsement.</p>
 
-  <p>Endorsement leans on the Verifiable Claims work prototyped by members of the <a href="https://w3c.github.io/vctf/">Verifiable Claims Task Force</a> at the <a href="https://www.w3.org/">W3C</a> and the theoretical backing developed by the 2014 Endorsement Working Group. See <a href="https://docs.google.com/document/d/1VVf19d72KmGMh1ywrLe7HCKEOqGSI0WjvwfGN_8Q2M4/edit#heading=h.xyxfmzqz2vqb">Endorsement Framework Paper</a>.</p>
+<p>Endorsement leans on the Verifiable Claims work prototyped by members of the <a href="https://w3c.github.io/vctf/">Verifiable Claims Task Force</a> at the <a href="https://www.w3.org/">W3C</a> and the theoretical backing developed by the 2014 Endorsement Working Group. See <a href="https://docs.google.com/document/d/1VVf19d72KmGMh1ywrLe7HCKEOqGSI0WjvwfGN_8Q2M4/edit#heading=h.xyxfmzqz2vqb">Endorsement Framework Paper</a>.</p>
 
-  <p>The <code class="highlighter-rouge">Endorsement</code> Class is very similar to <code class="highlighter-rouge">Assertion</code>, except that there is no defined <code class="highlighter-rouge">badge</code> property. Instead, a <code class="highlighter-rouge">claim</code> property allows endorsers to make specific claims about other <code class="highlighter-rouge">Profiles</code>, <code class="highlighter-rouge">BadgeClasses</code>, or <code class="highlighter-rouge">Assertions</code>.</p>
+<p>The <code class="highlighter-rouge">Endorsement</code> Class is very similar to <code class="highlighter-rouge">Assertion</code>, except that there is no defined <code class="highlighter-rouge">badge</code> property. Instead, a <code class="highlighter-rouge">claim</code> property allows endorsers to make specific claims about other <code class="highlighter-rouge">Profiles</code>, <code class="highlighter-rouge">BadgeClasses</code>, or <code class="highlighter-rouge">Assertions</code>.</p>
 
-  <div class="table-wrapper">
+<div class="table-wrapper">
 
-    <table>
-      <thead>
-        <tr>
-          <th>Property</th>
-          <th>Expected Type</th>
-          <th>Description/expected value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>id</strong></td>
-          <td>IRI</td>
-          <td>Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.</td>
-        </tr>
-        <tr>
-          <td><strong>type</strong></td>
-          <td>JSON-LD Type</td>
-          <td><code class="highlighter-rouge">Endorsement</code>, a subclass of VCTF’s Credential.</td>
-        </tr>
-        <tr>
-          <td><strong>claim</strong></td>
-          <td>@id</td>
-          <td>An entity, identified by an <code class="highlighter-rouge">id</code> and additional properties that the endorser would like to claim about that entity.</td>
-        </tr>
-        <tr>
-          <td><strong>issuer</strong></td>
-          <td>@id: Profile</td>
-          <td>The profile of the Endorsement’s issuer.</td>
-        </tr>
-        <tr>
-          <td><strong>issuedOn</strong></td>
-          <td><a href="#dateTime">DateTime</a></td>
-          <td>Timestamp of when the endorsement was published.</td>
-        </tr>
-        <tr>
-          <td><strong>verification</strong></td>
-          <td><a href="#VerificationObject">VerificationObject</a></td>
-          <td>Instructions for third parties to verify this assertion of endorsement.</td>
-        </tr>
-      </tbody>
-    </table>
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Expected Type</th>
+        <th>Description/expected value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>id</strong></td>
+        <td>IRI</td>
+        <td>Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.</td>
+      </tr>
+      <tr>
+        <td><strong>type</strong></td>
+        <td>JSON-LD Type</td>
+        <td><code class="highlighter-rouge">Endorsement</code>, a subclass of VCTF’s Credential.</td>
+      </tr>
+      <tr>
+        <td><strong>claim</strong></td>
+        <td>@id</td>
+        <td>An entity, identified by an <code class="highlighter-rouge">id</code> and additional properties that the endorser would like to claim about that entity.</td>
+      </tr>
+      <tr>
+        <td><strong>issuer</strong></td>
+        <td>@id: Profile</td>
+        <td>The profile of the Endorsement’s issuer.</td>
+      </tr>
+      <tr>
+        <td><strong>issuedOn</strong></td>
+        <td><a href="#dateTime">DateTime</a></td>
+        <td>Timestamp of when the endorsement was published.</td>
+      </tr>
+      <tr>
+        <td><strong>verification</strong></td>
+        <td><a href="#VerificationObject">VerificationObject</a></td>
+        <td>Instructions for third parties to verify this assertion of endorsement.</td>
+      </tr>
+    </tbody>
+  </table>
 
-  </div>
+</div>
 
-  <p>Within the <code class="highlighter-rouge">claim</code> property, the endorsed entity may be of any type (though only Open Badges Vocabulary classes are expected to be understood by Open Badges-specific tools. While <code class="highlighter-rouge">Endorsement</code> is a very flexible data structure, its usefulness will be limited not by the creativity of endorsers, but by the ability for other tools to discover and understand those endorsements.</p>
+<p>Within the <code class="highlighter-rouge">claim</code> property, the endorsed entity may be of any type (though only Open Badges Vocabulary classes are expected to be understood by Open Badges-specific tools. While <code class="highlighter-rouge">Endorsement</code> is a very flexible data structure, its usefulness will be limited not by the creativity of endorsers, but by the ability for other tools to discover and understand those endorsements.</p>
 
-  <p>There is one special property for use in endorsement, the <code class="highlighter-rouge">endorsementComment</code>, which allows endorsers to make a simple claim in writing about the entity.</p>
+<p>There is one special property for use in endorsement, the <code class="highlighter-rouge">endorsementComment</code>, which allows endorsers to make a simple claim in writing about the entity.</p>
 
-  <div class="table-wrapper">
+<div class="table-wrapper">
 
-    <table>
-      <thead>
-        <tr>
-          <th>Property</th>
-          <th>Expected Type</th>
-          <th>Description/expected value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a id="endorsementComment"></a>endorsementComment</td>
-          <td>Text or <a href="#Markdown">Markdown</a></td>
-          <td>An endorser’s comment about the quality or fitness of the endorsed entity.</td>
-        </tr>
-      </tbody>
-    </table>
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Expected Type</th>
+        <th>Description/expected value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a id="endorsementComment"></a>endorsementComment</td>
+        <td>Text or <a href="#Markdown">Markdown</a></td>
+        <td>An endorser’s comment about the quality or fitness of the endorsed entity.</td>
+      </tr>
+    </tbody>
+  </table>
 
-  </div>
+</div>
 
-  <p>Endorsements use the <code class="highlighter-rouge">claim</code> property to identify another entity by its <code class="highlighter-rouge">id</code> and declare properties about it. For example, the following allows an issuer to offer their own claim that an email address belongs to the profile identified as <code class="highlighter-rouge">https://otherissuer.example/1</code> and make a comment about the quality of their badges.</p>
+<p>Endorsements use the <code class="highlighter-rouge">claim</code> property to identify another entity by its <code class="highlighter-rouge">id</code> and declare properties about it. For example, the following allows an issuer to offer their own claim that an email address belongs to the profile identified as <code class="highlighter-rouge">https://otherissuer.example/1</code> and make a comment about the quality of their badges.</p>
 
-  <figure class="highlight">
-    <pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+<figure class="highlight">
+  <pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
  </span><span class="nt">"@context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://w3id.org/openbadges/v2"</span><span class="p">,</span><span class="w">
  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Endorsement"</span><span class="p">,</span><span class="w">
  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/assertions/123"</span><span class="p">,</span><span class="w">
@@ -1086,166 +1093,158 @@ Validators that someday use the proposed FrameValidation method pass JSON-LD obj
    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hosted"</span><span class="w">
  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span></code></pre>
-  </figure>
+</figure>
 
-  <p>See more examples</p>
+<p>See more examples</p>
 
-  <h2 id="additional-properties"><a id="additional-properties"></a>Additional Properties</h2>
+<h2 id="additional-properties"><a id="additional-properties"></a>Additional Properties</h2>
 
-  <p>Badges consist of sets of claims, properties with values that apply to Profiles, all earners of a badge, or individual badge recipients. Outside of extensions, additional properties may be added to these claim sets so long as they are mapped to an IRI as JSON-LD. For example, publishers of Badge Objects may:</p>
+<p>Badges consist of sets of claims, properties with values that apply to Profiles, all earners of a badge, or individual badge recipients. Outside of extensions, additional properties may be added to these claim sets so long as they are mapped to an IRI as JSON-LD. For example, publishers of Badge Objects may:</p>
 
-  <ol>
-    <li>Add individual mappings to the Badge Object’s context: <code class="highlighter-rouge">"@context":["https://w3id.org/openbadges/v2", {"foo": "http://example.org/foo"}]</code></li>
-    <li>Link to additional context files in the Badge Object’s context: <code class="highlighter-rouge">"@context":["https://w3id.org/openbadges/v2", "http://example.org/context"]</code></li>
-    <li>Add new properties using full IRIs as keys (or with compact IRIs valid in the existing context): <code class="highlighter-rouge">"http://example.org/foo":"bar"</code> or <code class="highlighter-rouge">"schema:comment":"baz"</code> where the IRI leads to the vocabulary definition for the term.</li>
-  </ol>
+<ol>
+  <li>Add individual mappings to the Badge Object’s context: <code class="highlighter-rouge">"@context":["https://w3id.org/openbadges/v2", {"foo": "http://example.org/foo"}]</code></li>
+  <li>Link to additional context files in the Badge Object’s context: <code class="highlighter-rouge">"@context":["https://w3id.org/openbadges/v2", "http://example.org/context"]</code></li>
+  <li>Add new properties using full IRIs as keys (or with compact IRIs valid in the existing context): <code class="highlighter-rouge">"http://example.org/foo":"bar"</code> or <code class="highlighter-rouge">"schema:comment":"baz"</code> where the IRI leads to the vocabulary definition for the term.</li>
+</ol>
 
-  <p>Processors should preserve properties that are valid data when rehosting or retransmitting, but it is permissible to perform valid JSON-LD transformations. Such transformations include “expanding”, “compacting” and modifying the context. Transformations are assumed to be equivalent if the expanded or normalized RDF value of the new version is semantically equivalent to the expanded value of the original.</p>
+<p>Processors should preserve properties that are valid data when rehosting or retransmitting, but it is permissible to perform valid JSON-LD transformations. Such transformations include “expanding”, “compacting” and modifying the context. Transformations are assumed to be equivalent if the expanded or normalized RDF value of the new version is semantically equivalent to the expanded value of the original.</p>
 
-  <p>If a property would be useful beyond a publisher’s internal use, an <a href="#Extensions">Extension</a> is a recommended way to establish common practice for adding certain sets of information to badge objects.</p>
+<p>If a property would be useful beyond a publisher’s internal use, an <a href="#Extensions">Extension</a> is a recommended way to establish common practice for adding certain sets of information to badge objects.</p>
 
-  <h2 id="primitive-datatypes">Primitive datatypes</h2>
+<h2 id="primitive-datatypes">Primitive datatypes</h2>
 
-  <ul>
-    <li>Boolean</li>
-    <li>Text</li>
-    <li>Array</li>
-    <li><a id="dateTime"></a>DateTime - Open Badges must express timestamps as strings compatible with <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> guidelines, including the time and a time zone indicator. It is recommended to publish all timestamps in UTC. Previous versions of Open Badges allowed Unix timestamps as integers. Open Badges v2.0 requires string ISO 8601 values with time zone indicators. For example, <code class="highlighter-rouge">2016-12-31T23:59:59+00:00</code> is a valid ISO 8601 timestamp. It contains the year, month, day, <code class="highlighter-rouge">T</code> separator, hour number 0-23, minute, optional seconds and decimal microsecond, and a time zone indicator (+/- an offset from UTC or the <code class="highlighter-rouge">Z</code> designator for UTC).</li>
-    <li>URL - Fully qualified URL, including protocol, host, port if applicable, and path. Interpreters are only expected to interpret URLs in either the <code class="highlighter-rouge">http</code> or <code class="highlighter-rouge">https</code> schemes.</li>
-    <li>IRI - In JSON-LD and Linked Data, IRIs (Internationalized Resource Identifiers) may look like fully qualified URLs or be namespaced within the JSON-LD context to be expanded to a full IRI. The only known supported IRI schemes are <code class="highlighter-rouge">http</code> and <code class="highlighter-rouge">https</code>.</li>
-    <li><a id="identityHash"></a>IdentityHash - A hash string preceded by a dollar sign (“$”) and the algorithm used to generate the hash. For example: <code class="highlighter-rouge">sha256$28d50415252ab6c689a54413da15b083034b66e5</code> represents the result of calculating a SHA256 hash on the string “mayze”. For more information, see <a href="https://github.com/mozilla/openbadges/wiki/How-to-hash-&amp;-salt-in-various-languages.">how to hash &amp; salt in various languages</a>.</li>
-    <li><a id="MarkdownText"></a> Markdown Text - Text that may contain formatting according to <a href="https://daringfireball.net/projects/markdown/syntax">Markdown syntax</a>. Due to uneven support in displayers, publishers are encouraged to limit usage to simple elements like links, emphasis, and lists. Displayers may choose a subset of Markdown formatting to support or how to render this field. Images and tables may or may not be supported.</li>
-  </ul>
+<ul>
+  <li>Boolean</li>
+  <li>Text</li>
+  <li>Array</li>
+  <li><a id="dateTime"></a>DateTime - Open Badges must express timestamps as strings compatible with <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> guidelines, including the time and a time zone indicator. It is recommended to publish all timestamps in UTC. Previous versions of Open Badges allowed Unix timestamps as integers. Open Badges v2.0 requires string ISO 8601 values with time zone indicators. For example, <code class="highlighter-rouge">2016-12-31T23:59:59+00:00</code> is a valid ISO 8601 timestamp. It contains the year, month, day, <code class="highlighter-rouge">T</code> separator, hour number 0-23, minute, optional seconds and decimal microsecond, and a time zone indicator (+/- an offset from UTC or the <code class="highlighter-rouge">Z</code> designator for UTC).</li>
+  <li>URL - Fully qualified URL, including protocol, host, port if applicable, and path. Interpreters are only expected to interpret URLs in either the <code class="highlighter-rouge">http</code> or <code class="highlighter-rouge">https</code> schemes.</li>
+  <li>IRI - In JSON-LD and Linked Data, IRIs (Internationalized Resource Identifiers) may look like fully qualified URLs or be namespaced within the JSON-LD context to be expanded to a full IRI. The only known supported IRI schemes are <code class="highlighter-rouge">http</code> and <code class="highlighter-rouge">https</code>.</li>
+  <li><a id="identityHash"></a>IdentityHash - A hash string preceded by a dollar sign (“$”) and the algorithm used to generate the hash. For example: <code class="highlighter-rouge">sha256$28d50415252ab6c689a54413da15b083034b66e5</code> represents the result of calculating a SHA256 hash on the string “mayze”. For more information, see <a href="https://github.com/mozilla/openbadges/wiki/How-to-hash-&amp;-salt-in-various-languages.">how to hash &amp; salt in various languages</a>.</li>
+  <li><a id="MarkdownText"></a> Markdown Text - Text that may contain formatting according to <a href="https://daringfireball.net/projects/markdown/syntax">Markdown syntax</a>. Due to uneven support in displayers, publishers are encouraged to limit usage to simple elements like links, emphasis, and lists. Displayers may choose a subset of Markdown formatting to support or how to render this field. Images and tables may or may not be supported.</li>
+</ul>
 
-  <h1 id="implementation"><a id="Implementation"></a> Implementation</h1>
+<h1 id="-implementation"><a id="Implementation"></a> Implementation</h1>
 
-  <h2 id="publishing-badge-objects">Publishing Badge Objects</h2>
-  <p>Open Badges data is published as JSON-LD documents made up of the above data classes. These link together via use of common identification strings and properties. They rely on other data, including image files that are often hosted on HTTP(s) URIs outside of the JSON-LD documents that describe them.</p>
+<h2 id="publishing-badge-objects">Publishing Badge Objects</h2>
+<p>Open Badges data is published as JSON-LD documents made up of the above data classes. These link together via use of common identification strings and properties. They rely on other data, including image files that are often hosted on HTTP(s) URIs outside of the JSON-LD documents that describe them.</p>
 
-  <h3 id="setting-content-type"><a id="setting-content-type"></a>Setting Content-Type</h3>
-  <p>Badge Objects encoded in JSON-LD should be served with the <code class="highlighter-rouge">application/ld+json</code> content type by default. If the request indicates only <code class="highlighter-rouge">application/json</code> as the <code class="highlighter-rouge">Accept</code> type, responses should include <code class="highlighter-rouge">application/json</code> in the response content type. If request is made for <code class="highlighter-rouge">text/html</code> or other content-type above <code class="highlighter-rouge">application/ld+json</code> or <code class="highlighter-rouge">application/json</code>, the requested content-type may be returned.</p>
+<h3 id="setting-content-type"><a id="setting-content-type"></a>Setting Content-Type</h3>
+<p>Badge Objects encoded in JSON-LD should be served with the <code class="highlighter-rouge">application/ld+json</code> content type by default. If the request indicates only <code class="highlighter-rouge">application/json</code> as the <code class="highlighter-rouge">Accept</code> type, responses should include <code class="highlighter-rouge">application/json</code> in the response content type. If request is made for <code class="highlighter-rouge">text/html</code> or other content-type above <code class="highlighter-rouge">application/ld+json</code> or <code class="highlighter-rouge">application/json</code>, the requested content-type may be returned.</p>
 
-  <h3 id="badge-baking"><a id="Baking"></a>Badge Baking</h3>
+<h3 id="badge-baking"><a id="Baking"></a>Badge Baking</h3>
 
-  <p>Badge assertions may be “baked” into image files as portable credentials. Baking is currently supported for PNG and SVG formats. (See <a href="baking">Baking Specification</a> for implementation)</p>
+<p>Badge assertions may be “baked” into image files as portable credentials. Baking is currently supported for PNG and SVG formats. (See <a href="baking">Baking Specification</a> for implementation)</p>
 
-  <h2 id="data-validation"><a id="data-validation"></a>Data Validation</h2>
-  <p>Data Validation is a procedure that ensures a cluster of Badge Objects that make up an Open Badge are appropriately published and linked, and that each particular instance of a Badge Object conforms to requirements for its class. Validation of all data class instances used in an Open Badge is a part of badge verification.</p>
+<h2 id="data-validation"><a id="data-validation"></a>Data Validation</h2>
+<p>Data Validation is a procedure that ensures a cluster of Badge Objects that make up an Open Badge are appropriately published and linked, and that each particular instance of a Badge Object conforms to requirements for its class. Validation of all data class instances used in an Open Badge is a part of badge verification.</p>
 
-  <p>Validation includes tests to ensure that:</p>
+<p>Validation includes tests to ensure that:</p>
 
-  <ul>
-    <li>All required Badge Objects are appropriately linked and available to the validator with an eventual <code class="highlighter-rouge">200 OK</code>.</li>
-    <li>Any relevant optional Badge Objects that are linked (such as <code class="highlighter-rouge">RevocationList</code>s) are available.</li>
-    <li>Each Badge Object is a valid JSON-LD (Linked Data) document.</li>
-    <li>Each Badge Object contains all required properties for its class.</li>
-    <li>Each Badge Object contains values of the expected data type for all declared properties defined in the Vocabulary.</li>
-  </ul>
+<ul>
+  <li>All required Badge Objects are appropriately linked and available to the validator with an eventual <code class="highlighter-rouge">200 OK</code>.</li>
+  <li>Any relevant optional Badge Objects that are linked (such as <code class="highlighter-rouge">RevocationList</code>s) are available.</li>
+  <li>Each Badge Object is a valid JSON-LD (Linked Data) document.</li>
+  <li>Each Badge Object contains all required properties for its class.</li>
+  <li>Each Badge Object contains values of the expected data type for all declared properties defined in the Vocabulary.</li>
+</ul>
 
-  <p>The use of the term “eventual 200 OK” is meant to mean that 3xx
+<p>The use of the term “eventual 200 OK” is meant to mean that 3xx
 redirects are allowed, as long as the request eventually terminates on an appropriate
 resource that returns a 200 OK.</p>
 
-  <h2 id="verification">Verification</h2>
-  <p>Verification is the process of ensuring the data that makes up an Open Badge is correct for the purpose at hand. It includes a number of data validation checks as well as procedures to ensure the badge is trustworthy. Verification is distinct from Compliance Certification for applications and services that implement the Specification, though verification is typically a component of certification programs.</p>
+<h2 id="verification">Verification</h2>
+<p>Verification is the process of ensuring the data that makes up an Open Badge is correct for the purpose at hand. It includes a number of data validation checks as well as procedures to ensure the badge is trustworthy. Verification is distinct from Compliance Certification for applications and services that implement the Specification, though verification is typically a component of certification programs.</p>
 
-  <p>Verification includes tests to ensure that:</p>
+<p>Verification includes tests to ensure that:</p>
 
-  <ul>
-    <li>All Badge Objects pass data validation. See <a href="#data-validation">Data Validation</a> above.</li>
-    <li>All Badge Objects were created by the appropriate issuer <code class="highlighter-rouge">Profile</code>(s) according to rules declared in their <a href="#VerificationObject">VerificationObjects</a>.</li>
-    <li>The <code class="highlighter-rouge">Assertion</code> was awarded to a valid property value of the expected recipient. (For example, that the <code class="highlighter-rouge">Asssertion</code> was awarded to a known email address value for <code class="highlighter-rouge">email</code> type recipient <code class="highlighter-rouge">IdentityObject</code>.)</li>
-    <li>The <code class="highlighter-rouge">Assertion</code> issuer is authorized to award Assertions of the declared <code class="highlighter-rouge">BadgeClass</code> (typically by being the issuer of the BadgeClass.)</li>
-    <li>The <code class="highlighter-rouge">Assertion</code> has not expired.</li>
-    <li>The <code class="highlighter-rouge">Assertion</code> has not been revoked by the issuer.</li>
-  </ul>
+<ul>
+  <li>All Badge Objects pass data validation. See <a href="#data-validation">Data Validation</a> above.</li>
+  <li>All Badge Objects were created by the appropriate issuer <code class="highlighter-rouge">Profile</code>(s) according to rules declared in their <a href="#VerificationObject">VerificationObjects</a>.</li>
+  <li>The <code class="highlighter-rouge">Assertion</code> was awarded to a valid property value of the expected recipient. (For example, that the <code class="highlighter-rouge">Asssertion</code> was awarded to a known email address value for <code class="highlighter-rouge">email</code> type recipient <code class="highlighter-rouge">IdentityObject</code>.)</li>
+  <li>The <code class="highlighter-rouge">Assertion</code> issuer is authorized to award Assertions of the declared <code class="highlighter-rouge">BadgeClass</code> (typically by being the issuer of the BadgeClass.)</li>
+  <li>The <code class="highlighter-rouge">Assertion</code> has not expired.</li>
+  <li>The <code class="highlighter-rouge">Assertion</code> has not been revoked by the issuer.</li>
+</ul>
 
-  <p>Additional checks may ensure that:</p>
+<p>Additional checks may ensure that:</p>
 
-  <ul>
-    <li>The issuer Profile awarding the Assertion is trusted to have declared accurate information about its identity (typically via Endorsement).</li>
-  </ul>
+<ul>
+  <li>The issuer Profile awarding the Assertion is trusted to have declared accurate information about its identity (typically via Endorsement).</li>
+</ul>
 
-  <h3 id="hostedbadge-verification"><a id="HostedBadge"></a>HostedBadge Verification</h3>
+<h3 id="hostedbadge-verification"><a id="HostedBadge"></a>HostedBadge Verification</h3>
 
-  <p>A hosted Assertion is a file containing validated <code class="highlighter-rouge">Assertion</code> data in JSON-LD served with the content-type <code class="highlighter-rouge">application/ld+json</code> and/or <code class="highlighter-rouge">application/json</code>. This should be available to anyone who the recipient would like to be able to verify it at a stable URI on your server (for example, <code class="highlighter-rouge">https://example.org/assertions/robotics-badge/123.json</code>). This URI is the source of truth for the badge, and any verification attempt will request it to make sure the Assertion exists and describes the expected achievement. Redirects are permissible as long as appropriate Assertion content is eventually returned. The hosting application must properly <a href="#setting-content-type">set the content-type</a>.</p>
+<p>A hosted Assertion is a file containing validated <code class="highlighter-rouge">Assertion</code> data in JSON-LD served with the content-type <code class="highlighter-rouge">application/ld+json</code> and/or <code class="highlighter-rouge">application/json</code>. This should be available to anyone who the recipient would like to be able to verify it at a stable URI on your server (for example, <code class="highlighter-rouge">https://example.org/assertions/robotics-badge/123.json</code>). This URI is the source of truth for the badge, and any verification attempt will request it to make sure the Assertion exists and describes the expected achievement. Redirects are permissible as long as appropriate Assertion content is eventually returned. The hosting application must properly <a href="#setting-content-type">set the content-type</a>.</p>
 
-  <p>The Assertion <code class="highlighter-rouge">id</code> must be within the permitted scope for hosted verification declared in issuer Profile. See <a href="#VerificationObject">VerificationObject</a>. This defaults to requiring the Assertion and BadgeClass to be hosted on the same origin as the issuer Profile <code class="highlighter-rouge">id</code> if there is no <code class="highlighter-rouge">verification</code> property declared in the issuer Profile. For domain origins that host multiple applications and websites, <code class="highlighter-rouge">startsWith</code> path may be used, in which case, the <code class="highlighter-rouge">verificationProperty</code> (<code class="highlighter-rouge">id</code>) must start with the value found in the issuer Profile’s VerificationObject <code class="highlighter-rouge">startsWith</code> declaration.</p>
+<p>The Assertion <code class="highlighter-rouge">id</code> must be within the permitted scope for hosted verification declared in issuer Profile. See <a href="#VerificationObject">VerificationObject</a>. This defaults to requiring the Assertion and BadgeClass to be hosted on the same origin as the issuer Profile <code class="highlighter-rouge">id</code> if there is no <code class="highlighter-rouge">verification</code> property declared in the issuer Profile. For domain origins that host multiple applications and websites, <code class="highlighter-rouge">startsWith</code> path may be used, in which case, the <code class="highlighter-rouge">verificationProperty</code> (<code class="highlighter-rouge">id</code>) must start with the value found in the issuer Profile’s VerificationObject <code class="highlighter-rouge">startsWith</code> declaration.</p>
 
-  <p><strong>Steps to verify a hosted badge Assertion</strong>:
+<p><strong>Steps to verify a hosted badge Assertion</strong>:
 Verification of hosted assertions may be performed starting with the verification URL or with a full Assertion instance in hand. If starting with a full assertion that indicates <code class="highlighter-rouge">HostedBadge</code> verification, the input data should only be trusted to identify the URI of the hosted verification file, and upon loading the hosted verification file, the retrieved data should be used as the Assertion value.</p>
 
-  <h4 id="revoking-hosted-assertions-example">Revoking Hosted Assertions (<a href="./examples/#revoked-hosted-assertion">example</a>)</h4>
-  <p>To mark a hosted assertion as revoked, respond with an HTTP Status of <code class="highlighter-rouge">410 Gone</code>. The response may include an <code class="highlighter-rouge">Assertion</code> body containing some additional metadata, such as a <code class="highlighter-rouge">revocationReason</code>, but it is not required to meet all normal property presence requirements. For revoked Assertions, only <code class="highlighter-rouge">id</code> and <code class="highlighter-rouge">revoked</code> are required.</p>
+<h4 id="revoking-hosted-assertions-example">Revoking Hosted Assertions (<a href="./examples/#revoked-hosted-assertion">example</a>)</h4>
+<p>To mark a hosted assertion as revoked, respond with an HTTP Status of <code class="highlighter-rouge">410 Gone</code>. The response may include an <code class="highlighter-rouge">Assertion</code> body containing some additional metadata, such as a <code class="highlighter-rouge">revocationReason</code>, but it is not required to meet all normal property presence requirements. For revoked Assertions, only <code class="highlighter-rouge">id</code> and <code class="highlighter-rouge">revoked</code> are required.</p>
 
-  <p>If either the <code class="highlighter-rouge">410 Gone</code> status or a response body declaring <code class="highlighter-rouge">revoked</code> true is returned, the Assertion should be treated as revoked and thus invalid.</p>
+<p>If either the <code class="highlighter-rouge">410 Gone</code> status or a response body declaring <code class="highlighter-rouge">revoked</code> true is returned, the Assertion should be treated as revoked and thus invalid.</p>
 
-  <h3 id="signedbadge-verification-example"><a id="SignedBadge"></a>SignedBadge Verification (<a href="./examples/#SignedBadge">example</a>)</h3>
+<h3 id="signedbadge-verification-example"><a id="SignedBadge"></a>SignedBadge Verification (<a href="./examples/#SignedBadge">example</a>)</h3>
 
-  <p>A signed badge may be published in the form of a <a href="http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html">JSON Web Signature</a>. If so, the JSON representation of the badge assertion should be used as the JWS payload.</p>
+<p>A signed badge may be published in the form of a <a href="http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html">JSON Web Signature</a>. If so, the JSON representation of the badge assertion should be used as the JWS payload.</p>
 
-  <p>A JWS has three components separated by dots (<code class="highlighter-rouge">.</code>):</p>
+<p>A JWS has three components separated by dots (<code class="highlighter-rouge">.</code>):</p>
 
-  <figure class="highlight">
-    <pre><code class="language-html" data-lang="html">header.payload.signature</code></pre>
-  </figure>
+<figure class="highlight">
+  <pre><code class="language-html" data-lang="html">header.payload.signature</code></pre>
+</figure>
 
-  <p>The JSON-LD representation of the <code class="highlighter-rouge">Assertion</code> should be used as the JWS payload. For compatibility purposes, using RSA-SHA256 is recommended.</p>
+<p>The JSON-LD representation of the <code class="highlighter-rouge">Assertion</code> should be used as the JWS payload. For compatibility purposes, using RSA-SHA256 is recommended.</p>
 
-  <p>The public key corresponding to the private key used to the sign the badge should be publicly accessible via HTTP and specified in the issuer Profile’s <code class="highlighter-rouge">publicKey</code> property. If there are multiple keys declared in the issuer Profile, the Assertion’s <code class="highlighter-rouge">VerificationObject</code> may specify the <code class="highlighter-rouge">id</code> of the public key that should be used for verification with its <code class="highlighter-rouge">creator</code> property.</p>
+<p>The public key corresponding to the private key used to the sign the badge should be publicly accessible via HTTP and specified in the issuer Profile’s <code class="highlighter-rouge">publicKey</code> property. If there are multiple keys declared in the issuer Profile, the Assertion’s <code class="highlighter-rouge">VerificationObject</code> may specify the <code class="highlighter-rouge">id</code> of the public key that should be used for verification with its <code class="highlighter-rouge">creator</code> property.</p>
 
-  <p><strong>Steps to verify a JWS-signed badge Assertion</strong>:</p>
+<p><strong>Steps to verify a JWS-signed badge Assertion</strong>:</p>
 
-  <ol>
-    <li>Base64 decode the JWS payload. This will be a JSON string representation of the badge assertion.</li>
-    <li>Parse the decoded JWS body into a JSON object. If the parsing operation fails, assertion MUST be treated as invalid.</li>
-    <li>Perform data validation on the Assertion and the (embedded or linked) BadgeClass and issuer Profile, as well as any other relevant present data.</li>
-    <li>Determine the correct signing key <code class="highlighter-rouge">id</code>(s) to test against the signature from the valid issuer Profile and Assertion VerificationObject. Do not trust a key that is not properly linked from the issuer Profile.</li>
-    <li>Perform an HTTP GET request on the trusted keys. If it is impossible to get a usable public key, the Assertion cannot be verified.</li>
-    <li>With each trusted public key, perform a JWS verification on the JWS object. If the verification fails, assertion MUST be treated as invalid.</li>
-    <li>Retrieve the revocation list from the Issuer Profile object if present and ensure the <code class="highlighter-rouge">id</code> of the badge does not appear in the <code class="highlighter-rouge">revokedAssertions</code> list. Legacy v1.x badges that lack a <code class="highlighter-rouge">id</code> property may be identified in this list by their <code class="highlighter-rouge">uid</code>.</li>
-    <li>If the above steps pass, assertion may be treated as valid.</li>
-  </ol>
+<ol>
+  <li>Base64 decode the JWS payload. This will be a JSON string representation of the badge assertion.</li>
+  <li>Parse the decoded JWS body into a JSON object. If the parsing operation fails, assertion MUST be treated as invalid.</li>
+  <li>Perform data validation on the Assertion and the (embedded or linked) BadgeClass and issuer Profile, as well as any other relevant present data.</li>
+  <li>Determine the correct signing key <code class="highlighter-rouge">id</code>(s) to test against the signature from the valid issuer Profile and Assertion VerificationObject. Do not trust a key that is not properly linked from the issuer Profile.</li>
+  <li>Perform an HTTP GET request on the trusted keys. If it is impossible to get a usable public key, the Assertion cannot be verified.</li>
+  <li>With each trusted public key, perform a JWS verification on the JWS object. If the verification fails, assertion MUST be treated as invalid.</li>
+  <li>Retrieve the revocation list from the Issuer Profile object if present and ensure the <code class="highlighter-rouge">id</code> of the badge does not appear in the <code class="highlighter-rouge">revokedAssertions</code> list. Legacy v1.x badges that lack a <code class="highlighter-rouge">id</code> property may be identified in this list by their <code class="highlighter-rouge">uid</code>.</li>
+  <li>If the above steps pass, assertion may be treated as valid.</li>
+</ol>
 
-  <p>Other signature suites may be later included in this document if they are investigated and approved.</p>
+<p>Other signature suites may be later included in this document if they are investigated and approved.</p>
 
-  <h4 id="revoking-a-signed-badge">Revoking a Signed Badge</h4>
+<h4 id="revoking-a-signed-badge">Revoking a Signed Badge</h4>
 
-  <p>To mark a badge as revoked, add an entry to the resource pointed at by the Issuer Profile <code class="highlighter-rouge">revocationList</code> URL with the <strong>id</strong> of the Assertion and, optionally, a reason why the badge is being revoked. See an <a href="examples/#RevocationList">example</a>.</p>
+<p>To mark a badge as revoked, add an entry to the resource pointed at by the Issuer Profile <code class="highlighter-rouge">revocationList</code> URL with the <strong>id</strong> of the Assertion and, optionally, a reason why the badge is being revoked. See an <a href="examples/#RevocationList">example</a>.</p>
 
-  <h2 id="other-resources-">Other Resources <a id="OtherResources"></a></h2>
+<h2 id="other-resources-">Other Resources <a id="OtherResources"></a></h2>
 
-  <h3 id="openbadges-validator-">openbadges-validator <a id="Validator"></a></h3>
-  <p>The <a href="http://validator.openbadges.org/">Open Badges Validator</a> service created by the original Open Badges team at the Mozilla foundation is available for use via browser or API. The code is open source and may be incorporated into applications that require the ability to perform Open Badges verification. See <a href="https://github.com/mozilla/openbadges-validator">openbadges-validator</a> and <a href="https://github.com/mozilla/openbadges-validator-service">openbadges-validator-service</a> on GitHub. This package does not yet perform all the necessary steps described above for Open Badges verification, and it currently supports up to v1.1 of the Specification. As of January 2017, work is underway to implement Open Badges v2.0 across issuer platforms, verification software, backpacks and displayer services.</p>
+<h3 id="openbadges-validator-">openbadges-validator <a id="Validator"></a></h3>
+<p>The <a href="http://validator.openbadges.org/">Open Badges Validator</a> service created by the original Open Badges team at the Mozilla foundation is available for use via browser or API. The code is open source and may be incorporated into applications that require the ability to perform Open Badges verification. See <a href="https://github.com/mozilla/openbadges-validator">openbadges-validator</a> and <a href="https://github.com/mozilla/openbadges-validator-service">openbadges-validator-service</a> on GitHub. This package does not yet perform all the necessary steps described above for Open Badges verification, and it currently supports up to v1.1 of the Specification. As of January 2017, work is underway to implement Open Badges v2.0 across issuer platforms, verification software, backpacks and displayer services.</p>
 
-  <h3 id="bakery-software-and-services-">Bakery Software and Services <a id="BakeryService"></a></h3>
-  <p>Following the <a href="baking/">Baking Specification</a>, Assertions may be embedded into PNG or SVG image files. The following software is available to perform baking and extraction (“unbaking”) of Open Badges data and images.</p>
+<h3 id="bakery-software-and-services-">Bakery Software and Services <a id="BakeryService"></a></h3>
+<p>Following the <a href="baking/">Baking Specification</a>, Assertions may be embedded into PNG or SVG image files. The following software is available to perform baking and extraction (“unbaking”) of Open Badges data and images.</p>
 
-  <ul>
-    <li>Mozilla Open Badges Bakery application - <a href="https://github.com/mozilla/openbadges-bakery">openbadges-bakery</a> (NodeJS module) and <a href="https://github.com/mozilla/openbadges-bakery-service">openbadges-bakery-service</a> (NodeJs/Express)</li>
-    <li><a href="http://bakery.openbadges.org">Mozilla Open Badges Bakery Service</a> - Bake badge images in the browser or via HTTP API.</li>
-    <li>Concentric Sky Open Badges Bakery (python module). See <a href="https://pypi.python.org/pypi/openbadges_bakery">openbadges_bakery</a> on PyPI.</li>
-  </ul>
+<ul>
+  <li>Mozilla Open Badges Bakery application - <a href="https://github.com/mozilla/openbadges-bakery">openbadges-bakery</a> (NodeJS module) and <a href="https://github.com/mozilla/openbadges-bakery-service">openbadges-bakery-service</a> (NodeJs/Express)</li>
+  <li><a href="http://bakery.openbadges.org">Mozilla Open Badges Bakery Service</a> - Bake badge images in the browser or via HTTP API.</li>
+  <li>Concentric Sky Open Badges Bakery (python module). See <a href="https://pypi.python.org/pypi/openbadges_bakery">openbadges_bakery</a> on PyPI.</li>
+</ul>
 
-  <h1 id="history-">History <a id="History"></a></h1>
-  <ul>
-    <li><a href="history/2.0.html">From 1.1 to 2.0</a></li>
-    <li><a href="history/1.1.html">From 1.0 to 1.1</a></li>
-    <li><a href="https://github.com/mozilla/openbadges/wiki/Assertion-Specification-Changes">From 0.5 to 1.0</a></li>
-    <li><a href="https://github.com/mozilla/openbadges-backpack/wiki/Assertions/_history">Early history of the specification</a></li>
-  </ul>
-</div>
+<h1 id="history-">History <a id="History"></a></h1>
+<ul>
+  <li><a href="history/2.0.html">From 1.1 to 2.0</a></li>
+  <li><a href="history/1.1.html">From 1.0 to 1.1</a></li>
+  <li><a href="https://github.com/mozilla/openbadges/wiki/Assertion-Specification-Changes">From 0.5 to 1.0</a></li>
+  <li><a href="https://github.com/mozilla/openbadges-backpack/wiki/Assertions/_history">Early history of the specification</a></li>
+</ul>
 
 </section>
 
-      <footer>
-        <p class="repo-owner">The Open Badges Specification is maintained by <a href="https://www.imsglobal.org/">IMS Global Learning Consortium</a>.
-          <div>
-            <a href="https://www.imsglobal.org/"><img src="/openbadges-specification/images/imsglobal-logo.png" style="width: 200px; height: auto;"></a>
-          </div>
-        </p>
-        <p><small><a href="https://github.com/openbadges/openbadges-specification/commits/master">Latest Updates</a></small></p>
-      </footer>
+
     </div>
     <script src="/openbadges-specification/javascripts/scale.fix.js"></script>
     

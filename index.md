@@ -5,14 +5,17 @@ show_sidebar: false
 ---
 {::options parse_block_html="true" /}
 
+
+<p>
+<a name="top" />
+<a href="http://www.imsglobal.org"><img src="images/imslogo.png" alt="IMS Global Logo" border="0" /></a>
+</p>
+
 # {{ page.title }}
 
 <div class="statusFinal"><p>IMS Working Specification</p></div>
 
-<p>
-<a name="top" />
-<a href="http://www.imsglobal.org"><img src="{{ site.baseurl }}images/imslogo.png" alt="IMS Global Logo" border="0" /></a>
-</p>
+
 
 <table class="versionTable" title="Version/Release Details" summary="Details about the version and release.">
 <tr>
