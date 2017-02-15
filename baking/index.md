@@ -58,7 +58,7 @@ An example of a well baked SVG with a hosted assertion:
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:openbadges="http://openbadges.org"
      viewBox="0 0 512 512">
-  <openbadges:assertion verify="https://example.org/assertion.json">
+  <openbadges:assertion verify="https://example.org/assertions/123">
     <![CDATA[
 	   {
 	     "@context": "https://w3id.org/openbadges/v2",
