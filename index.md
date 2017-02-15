@@ -116,7 +116,7 @@ See [Internationalization Examples](examples/#Internationalization).
 The Open Badges Vocabulary defines several data classes used to express achievements that is understandable in software and services that implement Open Badges. There are three core data classes: **[Assertions](#Assertion)**, **[BadgeClasses](#BadgeClass)**, and **[Profiles](#Profile)**. A set of one expression of each of these may be constructed into a valid Open Badge. Each data class is a collection of properties and values, and each defines which are mandatory and optional as well as the restrictions on the values those properties may take. They are published as [JSON-LD](http://www.w3.org/TR/json-ld/)] for interoperability. If properties are included in JSON that cannot be mapped to JSON-LD terms defined in the object's `@context`, they are not considered part of the badge object's meaning.
 
 **Extensions**:
-_since: 1.1_ 
+ 
 Each Badge Object may have [additional properties](#additional-properties) beyond those defined here. Some of these additional properties may take the form of an Open Badges Extension, a structure that follows a standard format for collaboratively extending Badge Objects so that any issuer, earner, or consumer can understand the information added to badges. ([More...](#Extensions))
 
 ### Assertion <a id="Assertion"></a> ([example](./examples/#Assertion))
@@ -390,7 +390,6 @@ Many platforms that allow badge issuers and recipients to establish their identi
 
 
 ## <a id="Extensions"></a><a id="Extension"></a>Extensions
-_since 1.1_
 
 The 1.1 version of the Open Badges Specification introduces Extensions as a means for issuers to add additional metadata to Badge Objects beyond what the standard specifies itself. Additional properties are allowed without using Extensions, but Extensions allow issuers to declare how they are adding information so that it can be understood by others and other issuers can add the same sort of information in a compatible way.
 
@@ -415,7 +414,7 @@ The property name for the extension should map to an IRI within the `@context` d
 See [example extensions](./extensions/).
 
 ### Extension Validation <a id="validation"></a>
-_since 1.1_
+
 Open Badges v1.1 implements an optional JSON-schema based mechanism of ensuring badge objects conform to syntactic requirements of the specification. JSON-schema can ensure that required properties exist and that expected data types are used. From the [context](./v1/context.json)s for badge objects and extensions, a `validation` array may contain links to various JSON-schema against which badge objects may be tested. There are two proposed methods of specifying which component of a badge object should be matched against the JSON-schema validator: TypeValidation and FrameValidation. As of 1.1, only TypeValidation is implemented.
 
 For example, this portion of the current Open Badges context links to a validator for Assertions. It indicates through TypeValidation that it should be run against JSON objects with the JSON-LD type of `Assertion` ([https://w3id.org/openbadges#Assertion]).
@@ -434,7 +433,7 @@ For example, this portion of the current Open Badges context links to a validato
 {% endhighlight %}
 
 #### <a id="TypeValidation"></a>Type Validation 
-_since 1.1_
+
 Validators using the TypeValidation method match the schema indicated by the validator's `validationSchema` property against a JSON badge object document or portion of such a document that matches the validator's `validatesType` JSON-LD `type`.
 
 <div class="table-wrapper">
