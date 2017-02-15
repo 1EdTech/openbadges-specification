@@ -12,10 +12,9 @@ show_sidebar: false
 
 <p class="status">IMS Working Specification</p>
 
-<h1 class="infoModelTitle">{{page.title}}</h1>
-<h1 class="infoModelTitle">IMS Working Specification<br /></h1>
+<h1 class="infoModelTitle">{{page.title}} <br/> IMS Working Specification</h1>
 
-
+<br>
 
 <table class="versionTable" title="Version/Release Details" summary="Details about the version and release.">
 <tr>
@@ -31,6 +30,8 @@ show_sidebar: false
 <td><a href="http://www.imsglobal.org/@@@/">http://www.imsglobal.org/@@@/</a></td>
 </tr>
 </table>
+
+<br>
 
 <div class="iprDistribution">
 	
