@@ -55,9 +55,9 @@ Public contributions, comments and questions can be posted here: http://www.imsg
 
 <p class="copyright">© 2014-17 the Contributors to the Open Badges 2.0 Specification.<br/> All Rights Reserved.</p>
 
-The IMS Logo is a trademark of the IMS Global Learning Consortium, Inc. in the United States and/or other countries. 
+<p class="endWarranty">The IMS Logo is a trademark of the IMS Global Learning Consortium, Inc. in the United States and/or other countries.</p>
 
-For more information: https://www.imsglobal.org/trademarks 
+<p class="endWarranty">For more information: https://www.imsglobal.org/trademarks </p>
 
 _Documents Name: {{page.title}}_
 
