@@ -53,6 +53,16 @@ THIS SPECIFICATION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND IN PART
 
 Public contributions, comments and questions can be posted here: http://www.imsglobal.org/community/forum/categories.cfm?catid=@@@.
 
+<p class="copyright">© 2014-17 the Contributors to the Open Badges 2.0 Specification.<br/> All Rights Reserved.</p>
+
+The IMS Logo is a trademark of the IMS Global Learning Consortium, Inc. in the United States and/or other countries. 
+
+For more information: https://www.imsglobal.org/trademarks 
+
+_Documents Name: {{page.title}}_
+
+_Revision: @@@ March 2017_
+
 </div>
 
 <br/>
@@ -66,7 +76,7 @@ This document represents the current version of the Open Badges Specification, w
 This specification is currently in a pre-implementation phase as issuer, verifier, and displayer support is gathered. The current implemented version of the specification is [v1.1](history/1.1-specification.html), published May 2015.
 </div>
 
-**Editors**:  
+#### Editors  
 
 * [Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](https://openbadges.org/badge-alliance/working-groups/standard/)
 * [Markus Gylling](mailto:mgylling@imsglobal.org), IMS Global

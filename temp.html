@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" type="text/css" href="stylesheets/imsspec2017v1p0.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="/openbadges-specification/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/openbadges-specification/stylesheets/print.css" media="print" />
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,9 +25,11 @@
 <a href="http://www.imsglobal.org"><img src="images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
 </p>
 
-<h1 id="open-badges-specification-version-20">Open Badges Specification Version 2.0</h1>
-
 <p class="status">IMS Working Specification</p>
+
+<h1 class="infoModelTitle">Open Badges Specification Version 2.0 <br /> IMS Working Specification</h1>
+
+<p><br /></p>
 
 <table class="versionTable" title="Version/Release Details" summary="Details about the version and release.">
 <tr>
@@ -43,11 +45,14 @@
 <td><a href="http://www.imsglobal.org/@@@/">http://www.imsglobal.org/@@@/</a></td>
 </tr>
 </table>
-<br/>
+
+<p><br /></p>
+
 <div class="iprDistribution">
 
-  <p><strong>IPR and Distribution Notices</strong>
-Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the specification set forth in this document, and to provide supporting documentation.</p>
+  <p><strong>IPR and Distribution Notices</strong></p>
+
+  <p>Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the specification set forth in this document, and to provide supporting documentation.</p>
 
   <p>IMS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on IMS’s procedures with respect to rights in IMS specifications can be found at the IMS Intellectual Property Rights web page: http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf.</p>
 
@@ -118,12 +123,7 @@ Recipients of this document are requested to submit, with their comments, notifi
       <li><a href="#SignedBadge">Signed Verification</a></li>
     </ul>
   </li>
-  <li><a href="#OtherResources">Other Resources</a>
-    <ul>
-      <li><a href="#Validator">Verification Software</a></li>
-      <li><a href="#History">History/Changelog</a></li>
-    </ul>
-  </li>
+  <li><a href="#History">History/Changelog</a></li>
 </ul>
 
 <h2 id="-introduction"><a id="intro-example"></a> Introduction</h2>
@@ -1215,20 +1215,6 @@ Verification of hosted assertions may be performed starting with the verificatio
 <h4 id="revoking-a-signed-badge">Revoking a Signed Badge</h4>
 
 <p>To mark a badge as revoked, add an entry to the resource pointed at by the Issuer Profile <code class="highlighter-rouge">revocationList</code> URL with the <strong>id</strong> of the Assertion and, optionally, a reason why the badge is being revoked. See an <a href="examples/#RevocationList">example</a>.</p>
-
-<h2 id="other-resources-">Other Resources <a id="OtherResources"></a></h2>
-
-<h3 id="openbadges-validator-">openbadges-validator <a id="Validator"></a></h3>
-<p>The <a href="http://validator.openbadges.org/">Open Badges Validator</a> service created by the original Open Badges team at the Mozilla foundation is available for use via browser or API. The code is open source and may be incorporated into applications that require the ability to perform Open Badges verification. See <a href="https://github.com/mozilla/openbadges-validator">openbadges-validator</a> and <a href="https://github.com/mozilla/openbadges-validator-service">openbadges-validator-service</a> on GitHub. This package does not yet perform all the necessary steps described above for Open Badges verification, and it currently supports up to v1.1 of the Specification. As of January 2017, work is underway to implement Open Badges v2.0 across issuer platforms, verification software, backpacks and displayer services.</p>
-
-<h3 id="bakery-software-and-services-">Bakery Software and Services <a id="BakeryService"></a></h3>
-<p>Following the <a href="baking/">Baking Specification</a>, Assertions may be embedded into PNG or SVG image files. The following software is available to perform baking and extraction (“unbaking”) of Open Badges data and images.</p>
-
-<ul>
-  <li>Mozilla Open Badges Bakery application - <a href="https://github.com/mozilla/openbadges-bakery">openbadges-bakery</a> (NodeJS module) and <a href="https://github.com/mozilla/openbadges-bakery-service">openbadges-bakery-service</a> (NodeJs/Express)</li>
-  <li><a href="http://bakery.openbadges.org">Mozilla Open Badges Bakery Service</a> - Bake badge images in the browser or via HTTP API.</li>
-  <li>Concentric Sky Open Badges Bakery (python module). See <a href="https://pypi.python.org/pypi/openbadges_bakery">openbadges_bakery</a> on PyPI.</li>
-</ul>
 
 <h1 id="history-">History <a id="History"></a></h1>
 <ul>
