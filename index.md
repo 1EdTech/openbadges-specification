@@ -535,7 +535,7 @@ Open Badges data is published as JSON-LD documents made up of the above data cla
 Badge Objects encoded in JSON-LD should be served with the `application/ld+json` content type by default. If the request indicates only `application/json` as the `Accept` type, responses should include `application/json` in the response content type. If request is made for `text/html` or other content-type above `application/ld+json` or `application/json`, the requested content-type may be returned.
 
 ### <a id="Baking"></a>Badge Baking
-_since: 0.5_
+
 Badge assertions may be "baked" into image files as portable credentials. Baking is currently supported for PNG and SVG formats. (See [Baking Specification](baking) for implementation)
 
 
@@ -573,7 +573,7 @@ Additional checks may ensure that:
 
 
 ### <a id="HostedBadge"></a>HostedBadge Verification
-_since: 0.5_
+
 A hosted Assertion is a file containing validated `Assertion` data in JSON-LD served with the content-type `application/ld+json` and/or `application/json`. This should be available to anyone who the recipient would like to be able to verify it at a stable URI on your server (for example, `https://example.org/assertions/robotics-badge/123.json`). This URI is the source of truth for the badge, and any verification attempt will request it to make sure the Assertion exists and describes the expected achievement. Redirects are permissible as long as appropriate Assertion content is eventually returned. The hosting application must properly [set the content-type](#setting-content-type).
 
 The Assertion `id` must be within the permitted scope for hosted verification declared in issuer Profile. See [VerificationObject](#VerificationObject). This defaults to requiring the Assertion and BadgeClass to be hosted on the same origin as the issuer Profile `id` if there is no `verification` property declared in the issuer Profile. For domain origins that host multiple applications and websites, `startsWith` path may be used, in which case, the `verificationProperty` (`id`) must start with the value found in the issuer Profile's VerificationObject `startsWith` declaration.
@@ -588,7 +588,7 @@ To mark a hosted assertion as revoked, respond with an HTTP Status of `410 Gone`
 If either the `410 Gone` status or a response body declaring `revoked` true is returned, the Assertion should be treated as revoked and thus invalid.
 
 ### <a id="SignedBadge"></a>SignedBadge Verification ([example](./examples/#SignedBadge)) 
-_since: 1.0_
+
 A signed badge may be published in the form of a [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html). If so, the JSON representation of the badge assertion should be used as the JWS payload. 
 
 A JWS has three components separated by dots (`.`):
