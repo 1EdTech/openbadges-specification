@@ -7,9 +7,9 @@ show_sidebar: true
 
 ## What Is Badge Baking?
 
-In OpenBadges we structures called [assertions](../assertion.md), which are pieces of data that can be used to prove whether a not a person who says they got a badge earned it (in the technical sense that it was issued to them).
+Open Badges may be transmitted as image files with badge Assertions encoded within. This allows Open Badges to be portable wherever image files may be stored or displayed. Each [Assertion](../#Assertion) expresses verifiable information about an individual's achievement. 
 
-Badge Baking is the process of taking those assertions and embedding them into the image, so that when a user displays a badge on a page, software that is OpenBadges-aware can automatically extract that assertion data and perform the checks necessary to see if a person legitimately earned the badge.
+Badge Baking is the process of taking an Assertion and embedding it into the badge image, so that when a user displays a badge on a page, software that is OpenBadges-aware can automatically extract that Assertion data and perform the checks necessary to see if a person legitimately earned the badge. The [BadgeClass](../#BadgeClass) image must be in either PNG or SVG format in order to support baking.
 
 ## Technical Details
 
@@ -58,22 +58,41 @@ An example of a well baked SVG with a hosted assertion:
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:openbadges="http://openbadges.org"
      viewBox="0 0 512 512">
-  <openbadges:assertion verify="https://example.org/assertion.json">
+  <openbadges:assertion verify="https://example.org/assertions/123">
     <![CDATA[
-       {
-         "uid": "abcdef12345",
-         "identity": {
-           "recipient": "sha256$cbb08ce07dd7345341b9358abb810d29eb790fed",
-           "type": "email",
-           "hashed": true
-         }
-         "verify": {
-           "type": "hosted",
-           "url":"https://example.org/assertion.json"
-         }
-         "issuedOn": "2013-11-05",
-         "badge": "https://example.org/badge.json"
-       }
+	   {
+	     "@context": "https://w3id.org/openbadges/v2",
+	     "id": "https://example.org/assertions/123",
+	     "type": "Assertion",
+	     "recipient": {
+	       "type": "email",
+	       "identity": "alice@example.org"
+	     },
+	     "issuedOn": "2016-12-31T23:59:59+00:00",
+	     "verification": {
+	       "type": "hosted"
+	     },
+	     "badge": {
+	       "id": "https://example.org/badges/5",
+		   "type": "BadgeClass",	       
+	       "name": "3-D Printmaster",
+	       "description": "This badge is awarded …",
+	       "image": "https://example.org/badges/5/image",
+	       "criteria": {
+	         "narrative": "Students are tested on …"
+	       },
+	       "issuer": {
+	         "id": "https://example.org/issuer",
+	         "type": "Profile",
+	         "name": "Example Maker Society",
+	         "url": "https://example.org",
+	         "email": "contact@example.org",
+	         "verification": {
+	            "allowedOrigins": "example.org"
+	         }
+	       }
+	     }
+	   }
     ]]>
   </openbadges:assertion>
 
@@ -91,6 +110,10 @@ If the tag has no body, the `verify` attribute will contain the signature of the
 
 ## Baking Specification Changelog
 
+### 2017-02-13 Version 1.0.0
+  * Update SVG example to use Open Badges 2.0 syntax
+  * Fix typo in introduction
+  
 ### 2013-11-05 Version 1.0.0
   * Support for full assertions added
   * Support for signed badges added
