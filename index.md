@@ -94,9 +94,7 @@ This specification is currently in a pre-implementation phase as issuer, verifie
    - [Badge Baking](#Baking)
    - [Hosted Verification](#HostedBadge)
    - [Signed Verification](#SignedBadge)
- * [Other Resources](#OtherResources)
-   - [Verification Software](#Validator)
-   - [History/Changelog](#History)
+ * [History/Changelog](#History)
 
 ## <a id="intro-example"></a> Introduction
 This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. It includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v2.0_)](v2/context.json) for the Open Badges Specification.
@@ -662,19 +660,6 @@ Other signature suites may be later included in this document if they are invest
 #### Revoking a Signed Badge
 
 To mark a badge as revoked, add an entry to the resource pointed at by the Issuer Profile `revocationList` URL with the **id** of the Assertion and, optionally, a reason why the badge is being revoked. See an [example](examples/#RevocationList).
-
-
-## Other Resources <a id="OtherResources"></a>
-
-### openbadges-validator <a id="Validator"></a>
-The [Open Badges Validator](http://validator.openbadges.org/) service created by the original Open Badges team at the Mozilla foundation is available for use via browser or API. The code is open source and may be incorporated into applications that require the ability to perform Open Badges verification. See [openbadges-validator](https://github.com/mozilla/openbadges-validator) and [openbadges-validator-service](https://github.com/mozilla/openbadges-validator-service) on GitHub. This package does not yet perform all the necessary steps described above for Open Badges verification, and it currently supports up to v1.1 of the Specification. As of January 2017, work is underway to implement Open Badges v2.0 across issuer platforms, verification software, backpacks and displayer services.
-
-### Bakery Software and Services <a id="BakeryService"></a>
-Following the [Baking Specification](baking/), Assertions may be embedded into PNG or SVG image files. The following software is available to perform baking and extraction ("unbaking") of Open Badges data and images.
-
-* Mozilla Open Badges Bakery application - [openbadges-bakery](https://github.com/mozilla/openbadges-bakery) (NodeJS module) and [openbadges-bakery-service](https://github.com/mozilla/openbadges-bakery-service) (NodeJs/Express)
-* [Mozilla Open Badges Bakery Service](http://bakery.openbadges.org) - Bake badge images in the browser or via HTTP API.
-* Concentric Sky Open Badges Bakery (python module). See [openbadges_bakery](https://pypi.python.org/pypi/openbadges_bakery) on PyPI.
 
 
 # History <a id="History"></a>
