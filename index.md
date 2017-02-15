@@ -1,7 +1,7 @@
 ---
-title: Open Badges Specification
+title: Open Badges Specification 2.0
 subtitle: A vocabulary for Portable digital credentials developed by IMS Global
-show_sidebar: true
+show_sidebar: false
 ---
 {::options parse_block_html="true" /}
 
@@ -17,7 +17,7 @@ This document represents the current version of the Open Badges Specification, w
 - Published: 31 December 2016.
 
 #### License
-[Copyright](http://www.w3.org/Consortium/Legal/ipr-notice#Copyright) © 2014-16 the Contributors to the Open Badges 2.0 Specification, published by the [Badge Alliance](http://badgealliance.org) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available. Though the Badge Alliance collaborates with the [W3C Credentials Community Group](http://www.w3.org/community/credentials/) and [W3C Verifiable Claims Task Force](http://w3c.github.io/vctf/), the Open Badges specification is not endorsed as a web standard by the W3C. This specification is free for anyone to use or implement.
+Copyright © 2014-17 the Contributors to the Open Badges 2.0 Specification, published by [IMS Global Learning Consortium](http://www.imsglobal.org) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available. This specification is free for anyone to use or implement.
 
 **Editors**:  
 
