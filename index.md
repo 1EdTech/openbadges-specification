@@ -77,7 +77,7 @@ This specification is currently in a pre-implementation phase as issuer, verifie
 
 #### Editors  
 
-* [Nate Otto](mailto:nate@ottonomy.net), Concentric Sky(https://concentricsky.com/)
+* [Nate Otto](mailto:nate@ottonomy.net), [Concentric Sky](https://concentricsky.com/)
 * [Markus Gylling](mailto:mgylling@imsglobal.org), IMS Global
 
 <div id="toc">
