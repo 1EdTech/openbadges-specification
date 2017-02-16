@@ -199,7 +199,7 @@ Thanks to editorial contributions from [Timothy F Cook](https://twitter.com/timo
 *Example Implementation* (Abbreviated JSON-LD BadgeClass):
 {% highlight json %}
 {
-  "@context": "https://w3id.org/openbadges/v1",
+  "@context": "https://w3id.org/openbadges/v2",
   "type": "BadgeClass",
   "name": "Licensed Badge",
   "...": "...",
