@@ -3,6 +3,10 @@ title: Open Badges Baking Specification
 subtitle: Instructions for Embedding Open Badges into PNG and SVG image files
 show_sidebar: true
 ---
+<div id="top">
+<a href="http://www.imsglobal.org"><img src="../images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
+</div>
+
 # Badge Baking
 
 ## What Is Badge Baking?

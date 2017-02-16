@@ -4,6 +4,9 @@ show_sidebar: true
 layout: page
 ---
 # {{page.title}}
+<div id="top">
+<a href="http://www.imsglobal.org"><img src="../images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
+</div>
 
 The following documents and links detail the major changes between versions of the Open Badges spec.
 
