@@ -4,6 +4,9 @@ subtitle: Community-developed additions to the Open Badges Specification
 show_sidebar: true
 layout: page
 ---
+<div id="top">
+<a href="http://www.imsglobal.org"><img src="../images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
+</div>
 
 ## {{ page.title }}
 Extensions are community developed contributions to the Open Badges Specification. Any issuer may define and publish them to include new types of metadata in badges. Any other issuer may use the same extensions to publish similar information in a mutually recognizable way.

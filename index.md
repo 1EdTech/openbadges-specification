@@ -1,31 +1,88 @@
 ---
-title: Open Badges Specification
+title: Open Badges Specification Version 2.0 
 subtitle: A vocabulary for Portable digital credentials developed by IMS Global
-show_sidebar: true
+show_sidebar: false
 ---
 {::options parse_block_html="true" /}
 
-# {{ page.title }}
-This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. It includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v2.0_)](v2/context.json) for the Open Badges Specificaiton
+<div id="top">
+<a href="http://www.imsglobal.org"><img src="images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
+</div>
+
+<p class="status">IMS Working Specification</p>
+
+<h1 class="infoModelTitle">{{page.title}} <br/> IMS Working Specification</h1>
+
+<br>
+
+<table class="versionTable" title="Version/Release Details" summary="Details about the version and release.">
+<tr>
+<td>Date Issued:</td>
+<td>@@@ March, 2017</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>IMS Working Specification</td>
+</tr>
+<tr>
+<td>Latest version:</td>
+<td><a href="http://www.imsglobal.org/@@@/">http://www.imsglobal.org/@@@/</a></td>
+</tr>
+</table>
+
+<br>
+
+<div class="iprDistribution">
+	
+**IPR and Distribution Notices**
+
+Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the specification set forth in this document, and to provide supporting documentation.
+
+IMS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on IMS's procedures with respect to rights in IMS specifications can be found at the IMS Intellectual Property Rights web page: http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf.
+
+Copyright © 2014-17 the Contributors to the Open Badges 2.0 Specification.
+
+This specification is published under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available.
+
+Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals.
+
+The limited permissions granted above are perpetual and will not be revoked by IMS or its successors or assigns.
+
+THIS SPECIFICATION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND IN PARTICULAR, ANY WARRANTY OF NONINFRINGEMENT IS EXPRESSLY DISCLAIMED. ANY USE OF THIS SPECIFICATION SHALL BE MADE ENTIRELY AT THE IMPLEMENTER'S OWN RISK, AND NEITHER THE CONSORTIUM, NOR ANY OF ITS MEMBERS OR SUBMITTERS, SHALL HAVE ANY LIABILITY WHATSOEVER TO ANY IMPLEMENTER OR THIRD PARTY FOR ANY DAMAGES OF ANY NATURE WHATSOEVER, DIRECTLY OR INDIRECTLY, ARISING FROM THE USE OF THIS SPECIFICATION.
+
+Public contributions, comments and questions can be posted here: http://www.imsglobal.org/community/forum/categories.cfm?catid=@@@.
+
+<p class="copyright">© 2014-17 the Contributors to the Open Badges 2.0 Specification.<br/> All Rights Reserved.</p>
+
+<p class="endWarranty">The IMS Logo is a trademark of the IMS Global Learning Consortium, Inc. in the United States and/or other countries.</p>
+
+<p class="endWarranty">For more information: https://www.imsglobal.org/trademarks </p>
+
+_Documents Name: {{page.title}}_
+
+_Revision: @@@ March 2017_
+
+</div>
+
+<br/>
+
+<hr/>
 
 #### Status of this Document
 <div class="note good-news">
-This document represents the current version of the Open Badges Specification, which was released 31 December 2016 and is currently in a pre-implementation phase as issuer, verifier, and displayer support is gathered. The current implemented version of the specification is [v1.1](history/1.1-specification.html), published May 2015.
+This document represents the current version of the Open Badges Specification, which was initally released as [Open Badges 2.0](http://www.openbadgespec.org) on 31 December 2016 by the Badge Alliance. As of January 2017, Open Badges is becoming an [IMS Global Learning Consortium](https://www.imsglobal.org) standard, and this IMS Working Specification constitutes the first step in the IMS ratification process of Open Badges 2.0. 
+
+This specification is currently in a pre-implementation phase as issuer, verifier, and displayer support is gathered. The current implemented version of the specification is [v1.1](history/1.1-specification.html), published May 2015.
 </div>
 
-> **Current version of the Open Badges specification: 2.0**
-- Published: 31 December 2016.
+#### Editors  
 
-#### License
-[Copyright](http://www.w3.org/Consortium/Legal/ipr-notice#Copyright) © 2014-16 the Contributors to the Open Badges 2.0 Specification, published by the [Badge Alliance](http://badgealliance.org) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available. Though the Badge Alliance collaborates with the [W3C Credentials Community Group](http://www.w3.org/community/credentials/) and [W3C Verifiable Claims Task Force](http://w3c.github.io/vctf/), the Open Badges specification is not endorsed as a web standard by the W3C. This specification is free for anyone to use or implement.
+* [Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](https://openbadges.org/badge-alliance/working-groups/standard/)
+* [Markus Gylling](mailto:mgylling@imsglobal.org), IMS Global
 
-**Editors**:  
-
-* [Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](http://www.badgealliance.org/open-badges-standard/)
-
-As of January 2017, the Open Badges has become an [IMS Global Learning Consortium](https://www.imsglobal.org) web standard. Future versions will be published to this page by IMS Global.
-
-## Contents
+<div id="toc">
+	
+##  Contents
  * [Introduction](#intro-example)
    - [Linked Data](#LinkedData)
    - [Internationalization and Multilingual Badges](#Internationalization) 
@@ -50,12 +107,14 @@ As of January 2017, the Open Badges has become an [IMS Global Learning Consortiu
    - [Badge Baking](#Baking)
    - [Hosted Verification](#HostedBadge)
    - [Signed Verification](#SignedBadge)
- * [Other Resources](#OtherResources)
-   - [Verification Software](#Validator)
-   - [History/Changelog](#History)
+ * [History/Changelog](#History)
 
-## <a id="intro-example"></a> A Simple Example
-Open Badges contain detailed metadata about achievements. Who earned a badge, who issued it, and what does it mean? The data is all inside.
+</div>
+
+## <a id="intro-example"></a> Introduction
+This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. It includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v2.0_)](v2/context.json) for the Open Badges Specification.
+
+In other words, Open Badges contain detailed metadata about achievements. Who earned a badge, who issued it, and what does it mean? The data is all inside. A simple example:
 
 {% highlight json %}
 {
@@ -66,7 +125,7 @@ Open Badges contain detailed metadata about achievements. Who earned a badge, wh
     "type": "email",
     "identity": "alice@example.org"
   },
-  "created": "2016-12-31T23:59:59+00:00",
+  "issuedOn": "2016-12-31T23:59:59+00:00",
   "verification": {
     "type": "hosted"
   },
@@ -90,7 +149,6 @@ Open Badges contain detailed metadata about achievements. Who earned a badge, wh
       }
     }
   }
-
 }
 {% endhighlight %}
 
@@ -117,7 +175,7 @@ See [Internationalization Examples](examples/#Internationalization).
 The Open Badges Vocabulary defines several data classes used to express achievements that is understandable in software and services that implement Open Badges. There are three core data classes: **[Assertions](#Assertion)**, **[BadgeClasses](#BadgeClass)**, and **[Profiles](#Profile)**. A set of one expression of each of these may be constructed into a valid Open Badge. Each data class is a collection of properties and values, and each defines which are mandatory and optional as well as the restrictions on the values those properties may take. They are published as [JSON-LD](http://www.w3.org/TR/json-ld/)] for interoperability. If properties are included in JSON that cannot be mapped to JSON-LD terms defined in the object's `@context`, they are not considered part of the badge object's meaning.
 
 **Extensions**:
-_since: 1.1_ 
+ 
 Each Badge Object may have [additional properties](#additional-properties) beyond those defined here. Some of these additional properties may take the form of an Open Badges Extension, a structure that follows a standard format for collaboratively extending Badge Objects so that any issuer, earner, or consumer can understand the information added to badges. ([More...](#Extensions))
 
 ### Assertion <a id="Assertion"></a> ([example](./examples/#Assertion))
@@ -183,6 +241,7 @@ description | Text | A short description of the issuer entity or organization.
 image | [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the issuer.
 email | Text | Contact address for the individual or organization.
 publicKey | @id: [CryptographicKey](#CryptographicKey) | The key(s) an issuer uses to sign Assertions.
+verification | [VerificationObject](#VerificationObject) | Instructions for how to verify Assertions published by this Profile.
 <a id="revocationList"></a>revocationList | IRI: [RevocationList](#RevocationList) | HTTP URI of the Badge Revocation List used for marking revocation of signed badges.
 
 **A note on required properties**:
@@ -390,7 +449,6 @@ Many platforms that allow badge issuers and recipients to establish their identi
 
 
 ## <a id="Extensions"></a><a id="Extension"></a>Extensions
-_since 1.1_
 
 The 1.1 version of the Open Badges Specification introduces Extensions as a means for issuers to add additional metadata to Badge Objects beyond what the standard specifies itself. Additional properties are allowed without using Extensions, but Extensions allow issuers to declare how they are adding information so that it can be understood by others and other issuers can add the same sort of information in a compatible way.
 
@@ -415,7 +473,7 @@ The property name for the extension should map to an IRI within the `@context` d
 See [example extensions](./extensions/).
 
 ### Extension Validation <a id="validation"></a>
-_since 1.1_
+
 Open Badges v1.1 implements an optional JSON-schema based mechanism of ensuring badge objects conform to syntactic requirements of the specification. JSON-schema can ensure that required properties exist and that expected data types are used. From the [context](./v1/context.json)s for badge objects and extensions, a `validation` array may contain links to various JSON-schema against which badge objects may be tested. There are two proposed methods of specifying which component of a badge object should be matched against the JSON-schema validator: TypeValidation and FrameValidation. As of 1.1, only TypeValidation is implemented.
 
 For example, this portion of the current Open Badges context links to a validator for Assertions. It indicates through TypeValidation that it should be run against JSON objects with the JSON-LD type of `Assertion` ([https://w3id.org/openbadges#Assertion]).
@@ -434,7 +492,7 @@ For example, this portion of the current Open Badges context links to a validato
 {% endhighlight %}
 
 #### <a id="TypeValidation"></a>Type Validation 
-_since 1.1_
+
 Validators using the TypeValidation method match the schema indicated by the validator's `validationSchema` property against a JSON badge object document or portion of such a document that matches the validator's `validatesType` JSON-LD `type`.
 
 <div class="table-wrapper">
@@ -458,22 +516,24 @@ Open Badges are trustworthy records of achievement. The vocabulary defined above
 Endorsement leans on the Verifiable Claims work prototyped by members of the [Verifiable Claims Task Force](https://w3c.github.io/vctf/) at the [W3C](https://www.w3.org/) and the theoretical backing developed by the 2014 Endorsement Working Group. See [Endorsement Framework Paper](https://docs.google.com/document/d/1VVf19d72KmGMh1ywrLe7HCKEOqGSI0WjvwfGN_8Q2M4/edit#heading=h.xyxfmzqz2vqb).
 
 The `Endorsement` Class is very similar to `Assertion`, except that there is no defined `badge` property. Instead, a `claim` property allows endorsers to make specific claims about other `Profiles`, `BadgeClasses`, or `Assertions`.
+
 <div class="table-wrapper">
 
 Property | Expected Type | Description/expected value
 ---------|---------------|-----------
-**id**   | IRI           | Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.
+**id**   | IRI           | Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.
 **type** | JSON-LD Type  | `Endorsement`, a subclass of VCTF's Credential.
 **claim**    | @id           | An entity, identified by an `id` and additional properties that the endorser would like to claim about that entity.
 **issuer** | @id: Profile | The profile of the Endorsement's issuer.
 **issuedOn** | [DateTime](#dateTime) | Timestamp of when the endorsement was published.
-**verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion.
+**verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion of endorsement.
 
 </div>
 
 Within the `claim` property, the endorsed entity may be of any type (though only Open Badges Vocabulary classes are expected to be understood by Open Badges-specific tools. While `Endorsement` is a very flexible data structure, its usefulness will be limited not by the creativity of endorsers, but by the ability for other tools to discover and understand those endorsements.
 
 There is one special property for use in endorsement, the `endorsementComment`, which allows endorsers to make a simple claim in writing about the entity.
+
 <div class="table-wrapper">
 
 Property | Expected Type | Description/expected value
@@ -534,7 +594,7 @@ Open Badges data is published as JSON-LD documents made up of the above data cla
 Badge Objects encoded in JSON-LD should be served with the `application/ld+json` content type by default. If the request indicates only `application/json` as the `Accept` type, responses should include `application/json` in the response content type. If request is made for `text/html` or other content-type above `application/ld+json` or `application/json`, the requested content-type may be returned.
 
 ### <a id="Baking"></a>Badge Baking
-_since: 0.5_
+
 Badge assertions may be "baked" into image files as portable credentials. Baking is currently supported for PNG and SVG formats. (See [Baking Specification](baking) for implementation)
 
 
@@ -572,7 +632,7 @@ Additional checks may ensure that:
 
 
 ### <a id="HostedBadge"></a>HostedBadge Verification
-_since: 0.5_
+
 A hosted Assertion is a file containing validated `Assertion` data in JSON-LD served with the content-type `application/ld+json` and/or `application/json`. This should be available to anyone who the recipient would like to be able to verify it at a stable URI on your server (for example, `https://example.org/assertions/robotics-badge/123.json`). This URI is the source of truth for the badge, and any verification attempt will request it to make sure the Assertion exists and describes the expected achievement. Redirects are permissible as long as appropriate Assertion content is eventually returned. The hosting application must properly [set the content-type](#setting-content-type).
 
 The Assertion `id` must be within the permitted scope for hosted verification declared in issuer Profile. See [VerificationObject](#VerificationObject). This defaults to requiring the Assertion and BadgeClass to be hosted on the same origin as the issuer Profile `id` if there is no `verification` property declared in the issuer Profile. For domain origins that host multiple applications and websites, `startsWith` path may be used, in which case, the `verificationProperty` (`id`) must start with the value found in the issuer Profile's VerificationObject `startsWith` declaration.
@@ -587,7 +647,7 @@ To mark a hosted assertion as revoked, respond with an HTTP Status of `410 Gone`
 If either the `410 Gone` status or a response body declaring `revoked` true is returned, the Assertion should be treated as revoked and thus invalid.
 
 ### <a id="SignedBadge"></a>SignedBadge Verification ([example](./examples/#SignedBadge)) 
-_since: 1.0_
+
 A signed badge may be published in the form of a [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html). If so, the JSON representation of the badge assertion should be used as the JWS payload. 
 
 A JWS has three components separated by dots (`.`):
@@ -617,20 +677,8 @@ Other signature suites may be later included in this document if they are invest
 To mark a badge as revoked, add an entry to the resource pointed at by the Issuer Profile `revocationList` URL with the **id** of the Assertion and, optionally, a reason why the badge is being revoked. See an [example](examples/#RevocationList).
 
 
-## Other Resources <a id="OtherResources"></a>
-
-### openbadges-validator <a id="Validator"></a>
-The [Open Badges Validator](http://validator.openbadges.org/) service created by the original Open Badges team at the Mozilla foundation is available for use via browser or API. The code is open source and may be incorporated into applications that require the ability to perform Open Badges verification. See [openbadges-validator](https://github.com/mozilla/openbadges-validator) and [openbadges-validator-service](https://github.com/mozilla/openbadges-validator-service) on GitHub. This package does not yet perform all the necessary steps described above for Open Badges verification, and it currently supports up to v1.1 of the Specification. As of January 2017, work is underway to implement Open Badges v2.0 across issuer platforms, verification software, backpacks and displayer services.
-
-### Bakery Software and Services <a id="BakeryService"></a>
-Following the [Baking Specification](baking/), Assertions may be embedded into PNG or SVG image files. The following software is available to perform baking and extraction ("unbaking") of Open Badges data and images.
-
-* Mozilla Open Badges Bakery application - [openbadges-bakery](https://github.com/mozilla/openbadges-bakery) (NodeJS module) and [openbadges-bakery-service](https://github.com/mozilla/openbadges-bakery-service) (NodeJs/Express)
-* [Mozilla Open Badges Bakery Service](http://bakery.openbadges.org) - Bake badge images in the browser or via HTTP API.
-* Concentric Sky Open Badges Bakery (python module). See [openbadges_bakery](https://pypi.python.org/pypi/openbadges_bakery) on PyPI.
-
-
 # History <a id="History"></a>
+ * [From 1.1 to 2.0](history/2.0.html)
  * [From 1.0 to 1.1](history/1.1.html) 
  * [From 0.5 to 1.0](https://github.com/mozilla/openbadges/wiki/Assertion-Specification-Changes)
  * [Early history of the specification](https://github.com/mozilla/openbadges-backpack/wiki/Assertions/_history)
