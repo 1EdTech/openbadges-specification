@@ -80,8 +80,9 @@ This specification is currently in a pre-implementation phase as issuer, verifie
 * [Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](https://openbadges.org/badge-alliance/working-groups/standard/)
 * [Markus Gylling](mailto:mgylling@imsglobal.org), IMS Global
 
-
-## <a id="toc"></a> Contents
+<div id="toc">
+	
+##  Contents
  * [Introduction](#intro-example)
    - [Linked Data](#LinkedData)
    - [Internationalization and Multilingual Badges](#Internationalization) 
@@ -107,6 +108,8 @@ This specification is currently in a pre-implementation phase as issuer, verifie
    - [Hosted Verification](#HostedBadge)
    - [Signed Verification](#SignedBadge)
  * [History/Changelog](#History)
+
+</div>
 
 ## <a id="intro-example"></a> Introduction
 This specification describes a method for packaging information about accomplishments, embedding it into portable image files as digital badges, and establishing resources for its validation. It includes term definitions for representations of data in Open Badges. These term definitions appear in the current [JSON-LD context (_v2.0_)](v2/context.json) for the Open Badges Specification.
