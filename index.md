@@ -5,6 +5,11 @@ show_sidebar: false
 ---
 {::options parse_block_html="true" /}
 
+<p>
+<a name="top" />
+<a href="http://www.imsglobal.org"><img src="images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
+</p>
+
 <p class="status">IMS Working Specification</p>
 
 <h1 class="infoModelTitle">{{page.title}} <br/> IMS Working Specification</h1>
