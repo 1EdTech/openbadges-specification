@@ -164,7 +164,6 @@ Open Badges are used by thousands of issuers around the world, and users of thos
 
 * Declare which language a Badge Object is expressed in using language tags compliant with [BCP47](https://tools.ietf.org/html/bcp47).
 * List multiple versions of Badge Objects to make available multiple equivalent versions of the same entity.
-* **In development**: Express multiple language string values within one document, tagging each string entry with its language.
 
 Additionally, developers who wish to write code in a language other than English can build a JSON-LD context file in their preferred language and then encounter badge property names familiar to them and their teams.
 
