@@ -10,10 +10,10 @@ This specification describes a method for packaging information about accomplish
 
 #### Status of this Document
 <div class="note good-news">
-This document represents the current version of the Open Badges Specification, which was released 31 December 2016 and is currently in a pre-implementation phase as issuer, verifier, and displayer support is gathered. The current implemented version of the specification is [v1.1](history/1.1-specification.html), published May 2015.
+This document represents a proposed version of the Open Badges specification that was released 31 December 2016 by the Badge Alliance. The specification is currently under review by the IMS Global Open Badges Workgroup and will be considered official when approved by the IMS Technical Advisory board and published by IMS Global. The current *implemented* version of the specification is [v1.1](history/1.1-specification.html), published May 2015.
 </div>
 
-> **Current version of the Open Badges specification: 2.0**
+> **Proposed version of the Open Badges specification: 2.0**
 - Published: 31 December 2016.
 
 #### License
