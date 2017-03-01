@@ -11,6 +11,8 @@ layout: page
 ## {{ page.title }}
 Extensions are community developed contributions to the Open Badges Specification. Any issuer may define and publish them to include new types of metadata in badges. Any other issuer may use the same extensions to publish similar information in a mutually recognizable way.
 
+These extensions are not part of the core specification and are governed by licensing and copyright terms of the authoring individuals and organizations.
+
 ### Open Badges Community Extensions [(below)](#CommunityExtensions)
 Submit your published extensions to this page with a pull request on [GitHub](https://github.com/openbadges/openbadges-specification/blob/master/extensions/index.md), following the existing format of the page.
 
