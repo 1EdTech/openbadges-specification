@@ -42,7 +42,7 @@ IMS takes no position regarding the validity or scope of any intellectual proper
 
 Copyright © 2014-17 the Contributors to the Open Badges 2.0 Specification.
 
-This specification is published under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available.
+Copyright © 2017 IMS Global Learning Consortium, published under the IMS Global [contributor license agreement](https://www.imsglobal.org/sites/default/files/IMS%20Individual%20Contributor%20License%20Agreement.pdf) and [specification license](https://www.imsglobal.org/speclicense.html). This specification is free for anyone to use or implement.
 
 Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals.
 
@@ -70,9 +70,7 @@ _Revision: @@@ March 2017_
 
 #### Status of this Document
 <div class="note good-news">
-This document represents the current version of the Open Badges Specification, which was initally released as [Open Badges 2.0](http://www.openbadgespec.org) on 31 December 2016 by the Badge Alliance. As of January 2017, Open Badges is becoming an [IMS Global Learning Consortium](https://www.imsglobal.org) standard, and this IMS Working Specification constitutes the first step in the IMS ratification process of Open Badges 2.0. 
-
-This specification is currently in a pre-implementation phase as issuer, verifier, and displayer support is gathered. The current implemented version of the specification is [v1.1](history/1.1-specification.html), published May 2015.
+This document is an official public draft of the Open Badges 2.0 specification, released on XX March 2017 by IMS Global Learning Consortium. The specification will be considered final when approved by the IMS Technical Advisory Board and published as Final Release by IMS Global.
 </div>
 
 #### Editors  
