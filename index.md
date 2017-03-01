@@ -10,18 +10,13 @@ This specification describes a method for packaging information about accomplish
 
 #### Status of this Document
 <div class="note good-news">
-This document represents the current version of the Open Badges Specification, which was released 31 December 2016 and is currently in a pre-implementation phase as issuer, verifier, and displayer support is gathered. The current implemented version of the specification is [v1.1](history/1.1-specification.html), published May 2015.
+This document is an official public draft of the Open Badges 2.0 specification, released on XX March 2017 by IMS Global Learning Consortium. The specification will be considered final when approved by the IMS Technical Advisory Board and published as Final Release by IMS Global.
 </div>
 
-> **Current version of the Open Badges specification: 2.0**
-- Published: 31 December 2016.
 
 #### License
-[Copyright](http://www.w3.org/Consortium/Legal/ipr-notice#Copyright) © 2014-16 the Contributors to the Open Badges 2.0 Specification, published by the [Badge Alliance](http://badgealliance.org) under the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). A human-readable [summary](http://www.w3.org/community/about/agreements/cla-deed/) of this license is available. Though the Badge Alliance collaborates with the [W3C Credentials Community Group](http://www.w3.org/community/credentials/) and [W3C Verifiable Claims Task Force](http://w3c.github.io/vctf/), the Open Badges specification is not endorsed as a web standard by the W3C. This specification is free for anyone to use or implement.
+Copyright © 2017 IMS Global Learning Consortium, published under the IMS Global [contributor license agreement](https://www.imsglobal.org/sites/default/files/IMS%20Individual%20Contributor%20License%20Agreement.pdf) and [specification license](https://www.imsglobal.org/speclicense.html). This specification is free for anyone to use or implement.
 
-**Editors**:  
-
-* [Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](https://openbadges.org/badge-alliance/working-groups/standard/)
 
 As of January 2017, the Open Badges has become an [IMS Global Learning Consortium](https://www.imsglobal.org) web standard. Future versions will be published to this page by IMS Global.
 
