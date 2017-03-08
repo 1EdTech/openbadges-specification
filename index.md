@@ -6,7 +6,7 @@ show_sidebar: false
 {::options parse_block_html="true" /}
 
 <div id="top">
-<a href="http://www.imsglobal.org"><img src="images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
+<a href="http://www.imsglobal.org"><img src="images/imsglobal-logo.png" alt="IMS Global Logo" id="imslogo" /></a>
 </div>
 
 <p class="status">IMS Candidate Final / Public Draft</p>
@@ -15,7 +15,7 @@ show_sidebar: false
 
 <br>
 
-<table class="versionTable" title="Version/Release Details" summary="Details about the version and release.">
+<table class="versionTable" title="Version/Release Details">
 <tr>
 <td>Date Issued:</td>
 <td>08 March, 2017</td>
@@ -80,8 +80,7 @@ This document is a Candidate Final / Public Draft of the Open Badges 2.0 specifi
  * [Introduction](#intro-example)
    - [Linked Data](#LinkedData)
    - [Internationalization and Multilingual Badges](#Internationalization) 
- * [Open Badges Vocabulary](#Vocabulary)
- * [Classes](#VocabularyClasses)
+ * [Open Badges Vocabulary](#BadgeObjects)
    - [Assertion](#Assertion)
    - [BadgeClass](#BadgeClass)
    - [Profile](#Profile) (Issuer)
@@ -97,7 +96,7 @@ This document is a Candidate Final / Public Draft of the Open Badges 2.0 specifi
  * [Profile Identifier Properties](#ProfileIdentifierProperties)
  * [Extensions](#Extensions)
  * [Endorsement](#Endorsement)
- * [Implementation](#Implementation)
+ * [Implementation](#implementation)
    - [Badge Baking](#Baking)
    - [Hosted Verification](#HostedBadge)
    - [Signed Verification](#SignedBadge)
@@ -181,8 +180,8 @@ Assertions are representations of an awarded badge, used to share information ab
 | **id** | IRI | Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the `urn:uuid` namespace.
 | **type** | JSON-LD type | valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string `Assertion`. An array including `Assertion` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 | <a id="recipient"></a>**recipient** | [IdentityObject](#IdentityObject) | The recipient of the achievement.
-| **badge** | @id: [BadgeClass](#BadgeClass) | IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a [BadgeClass](#badgeclass).
-| <a id="verify"></a><a id="verification"></a>**verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion. (Alias "verify" may be used in [context](v2/context.json).)
+| **badge** | @id: [BadgeClass](#BadgeClass) | IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a [BadgeClass](#BadgeClass).
+| <a id="verify"></a> **verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion. (Alias "verify" may be used in [context](v2/context.json).)
 | <a id="issueDate"></a>**issuedOn** | [DateTime](#dateTime) | Timestamp of when the achievement was awarded.
 | image | @id: [Image](#Image) | IRI or document representing an image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the [Baking specification](./baking). An 'unbaked' image for the badge is defined in the [BadgeClass](#BadgeClass) and should not be duplicated here.
 | <a id="evidence"></a>evidence | @id: [Evidence](#Evidence) | IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. May be an array of multiple values.
@@ -276,10 +275,10 @@ startsWith | URI fragment string | The URI fragment that the verification proper
 
 `HostedVerification` and `SignedVerification` are subclasses of `VerificationObject`. Future subclasses may be developed to indicate instructions for verifying Assertions using different methods, such as blockchain-based procedures.
 
-#### <a id="HostedBadge"></a> HostedBadge
+#### HostedBadge
 Hosted badge Assertions that have an HTTP(s) `id` simply need to declare a verification type of `HostedBadge`, and verification will use the Assertion's `id` property.
 
-#### <a id="SignedBadge"></a> SignedBadge
+#### SignedBadge
 Cryptographically signed Assertions need to declare a verification type of `SignedBadge` within the JSON-LD. These badges are typically delivered as JSON Web Signatures (JWSs), so the signature value is outside the Assertion content, wrapping it. However, it may help to identify which publicKey is associated with the signature within the badge, so the `creator` field is available to be used in SignedBadges.
 
 Property | Expected Type | Description
@@ -410,10 +409,10 @@ publicKeyPem | Text      | The PEM key encoding is a widely-used method to expre
 ## <a id="Properties"></a>Properties
 Below are listed several properties  usable across several Classes. They are optional in all cases.
 
-### <a id="related"></a>related
+### related
 The `related` property identifies another entity of the same type that should be considered the same for most purposes. It is primarily intended to identify alternate language editions or previous versions of BadgeClasses. See examples: [alternate language versions](examples/#Internationalization) and [BadgeClass version control](examples/#badgeclass-version-control)
 
-### <a id="version"></a>version
+### version
 The `version` property allows issuers to specify a version string or number. It is primarily used to update a BadgeClass without changing the meaning of previously awarded Assertions by duplicating and linking to the previous version. See [example](examples/#badgeclass-version-control).
 
 <div class="table-wrapper">
@@ -554,7 +553,7 @@ Endorsements use the `claim` property to identify another entity by its `id` and
 {% endhighlight %}
 See more examples
 
-## <a id="additional-properties"></a>Additional Properties
+## Additional Properties
 
 Badges consist of sets of claims, properties with values that apply to Profiles, all earners of a badge, or individual badge recipients. Outside of extensions, additional properties may be added to these claim sets so long as they are mapped to an IRI as JSON-LD. For example, publishers of Badge Objects may:
 
@@ -578,12 +577,12 @@ If a property would be useful beyond a publisher's internal use, an [Extension](
 * <a id="identityHash"></a>IdentityHash - A hash string preceded by a dollar sign ("$") and the algorithm used to generate the hash. For example: `sha256$28d50415252ab6c689a54413da15b083034b66e5` represents the result of calculating a SHA256 hash on the string "mayze". For more information, see [how to hash & salt in various languages](https://github.com/mozilla/openbadges/wiki/How-to-hash-&-salt-in-various-languages.).
 * <a id="MarkdownText"></a> Markdown Text - Text that may contain formatting according to [Markdown syntax](https://daringfireball.net/projects/markdown/syntax). Due to uneven support in displayers, publishers are encouraged to limit usage to simple elements like links, emphasis, and lists. Displayers may choose a subset of Markdown formatting to support or how to render this field. Images and tables may or may not be supported.
 
-# <a id="Implementation"></a> Implementation
+# Implementation
 
 ## Publishing Badge Objects
 Open Badges data is published as JSON-LD documents made up of the above data classes. These link together via use of common identification strings and properties. They rely on other data, including image files that are often hosted on HTTP(s) URIs outside of the JSON-LD documents that describe them.
 
-### <a id="setting-content-type"></a>Setting Content-Type
+### Setting Content-Type
 Badge Objects encoded in JSON-LD should be served with the `application/ld+json` content type by default. If the request indicates only `application/json` as the `Accept` type, responses should include `application/json` in the response content type. If request is made for `text/html` or other content-type above `application/ld+json` or `application/json`, the requested content-type may be returned.
 
 ### <a id="Baking"></a>Badge Baking
@@ -591,7 +590,7 @@ Badge Objects encoded in JSON-LD should be served with the `application/ld+json`
 Badge assertions may be "baked" into image files as portable credentials. Baking is currently supported for PNG and SVG formats. (See [Baking Specification](baking) for implementation)
 
 
-## <a id="data-validation"></a>Data Validation
+## Data Validation
 Data Validation is a procedure that ensures a cluster of Badge Objects that make up an Open Badge are appropriately published and linked, and that each particular instance of a Badge Object conforms to requirements for its class. Validation of all data class instances used in an Open Badge is a part of badge verification.
 
 Validation includes tests to ensure that:

@@ -5,7 +5,7 @@ show_sidebar: true
 layout: page2
 ---
 <div id="top">
-<a href="http://www.imsglobal.org"><img src="../images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
+<a href="http://www.imsglobal.org"><img src="../images/imsglobal-logo.png" alt="IMS Global Logo" id="imslogo" /></a>
 </div>
 
 ## {{ page.title }}
@@ -90,7 +90,7 @@ Property     | Type        | Value Description
 <a id="endorsedObject"></a>endorsedObject | object | An optional embedded copy of the endorsed Badge Object with 'id' attribute set.
 
 
-### <a name="GeoCoordinates"></a>Geo Location
+### <a id="GeoCoordinates"></a>Geo Location
 _Authors: [Doug Belshaw](http://dougbelshaw.com) and [Kerri Lemoie](https://github.com/kayaelle)_
 
 An extension allowing for the addition of the geographic coordinates associated with a badge object. For example, geolocation could represent where a Badge Class is available, where a badge was earned or the location of an issuer. The required description property allows implementers to be more specific about the reason location is included. The extended value takes
@@ -251,20 +251,21 @@ BadgeClass
 }
 {% endhighlight %}
 
-### <a name="IssuerAccreditation"></a> Issuer Accreditation (DRAFT)
+### <a id="IssuerAccreditation"></a> Issuer Accreditation 
 _Author: [IMS Global](https://github.com/imsglobal)_
 
-This extension is located at https://www.imsglobal.org/ims-badge-extensions-education
+This extension is located at [https://www.imsglobal.org/ims-badge-extensions-education](https://www.imsglobal.org/ims-badge-extensions-education)
 
 
 
-### <a name="Assessment"></a> Assessment (DRAFT)
+### <a id="Assessment"></a> Assessment 
 _Author: [IMS Global](https://github.com/imsglobal)_
 
-This extension is located at https://www.imsglobal.org/ims-badge-extensions-education
+This extension is located at [https://www.imsglobal.org/ims-badge-extensions-education](https://www.imsglobal.org/ims-badge-extensions-education)
 
 
 
 
 # xAPI Integration
-An exploratory prototype draft xAPI vocabulary has been defined so that Open Badges will soon be referencable from Experience API activity streams. See [xAPI Open Badges documentation]({{site.baseurl}}/xapi/) for details.
+An exploratory prototype draft xAPI vocabulary has been defined so that Open Badges will soon be referenceable from Experience API activity streams. See [xAPI Open Badges documentation](../xapi/) for details.
+

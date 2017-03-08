@@ -7,7 +7,7 @@ layout: page
 {::options parse_block_html="true" /}
 
 <div id="top">
-<a href="http://www.imsglobal.org"><img src="../images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
+<a href="http://www.imsglobal.org"><img src="../images/imsglobal-logo.png" alt="IMS Global Logo" id="imslogo" /></a>
 </div>
 
 <p class="status">IMS Candidate Final / Public Draft</p>
@@ -16,7 +16,7 @@ layout: page
 
 <br>
 
-<table class="versionTable" title="Version/Release Details" summary="Details about the version and release.">
+<table class="versionTable" title="Version/Release Details">
 <tr>
 <td>Date Issued:</td>
 <td>08 March, 2017</td>
