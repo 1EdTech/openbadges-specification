@@ -2,7 +2,7 @@
 title: Open Badges Examples
 subtitle: Examples of Core Open Badges objects
 show_sidebar: true
-layout: page
+layout: page_sub
 ---
 {::options parse_block_html="true" /}
 

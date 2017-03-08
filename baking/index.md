@@ -2,7 +2,7 @@
 title: Open Badges Baking Specification
 subtitle: Instructions for Embedding Open Badges into PNG and SVG image files
 show_sidebar: true
-layout: page
+layout: page_sub
 ---
 {::options parse_block_html="true" /}
 
