@@ -611,7 +611,7 @@ redirects are allowed, as long as the request eventually terminates on an approp
 resource that returns a 200 OK.
 
 
-## Verification
+## <a id="implementation-verification"></a>Verification
 Verification is the process of ensuring the data that makes up an Open Badge is correct for the purpose at hand. It includes a number of data validation checks as well as procedures to ensure the badge is trustworthy. Verification is distinct from Compliance Certification for applications and services that implement the Specification, though verification is typically a component of certification programs.
 
 Verification includes tests to ensure that:
