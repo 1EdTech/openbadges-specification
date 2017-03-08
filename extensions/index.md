@@ -2,7 +2,7 @@
 title: Open Badges Extensions
 subtitle: Community-developed additions to the Open Badges Specification
 show_sidebar: true
-layout: page
+layout: page2
 ---
 <div id="top">
 <a href="http://www.imsglobal.org"><img src="../images/imsglobal-logo.png" alt="IMS Global Logo" border="0" /></a>
