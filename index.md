@@ -227,7 +227,7 @@ Property | Expected Type | Description
 **id** | IRI | Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs.
 **type** | JSON-LD type | Valid JSON-LD representation of the Issuer or Profile type. In most cases, this will simply be the string `Issuer` or the more general `Profile`. An array including `Issuer` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 name | Text | The name of the entity or organization.
-url | IRI | The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP. ([examples](./examples/SocialMediaUrl)).
+url | IRI | The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP. ([examples](./examples/#SocialMediaUrls)).
 telephone | Text | A phone number for the entity. For maximum compatibility, the value should be expressed as a `+` and country code followed by the number with no spaces or other punctuation, like `+16175551212` ([E.164 format](http://en.wikipedia.org/wiki/E.164)).
 description | Text | A short description of the issuer entity or organization.
 image | [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the issuer.
@@ -530,7 +530,7 @@ There is one special property for use in endorsement, the `endorsementComment`, 
 
 Property | Expected Type | Description/expected value
 ---------|---------------|-----------
-<a id="endorsementComment"></a>endorsementComment | Text or [Markdown](#Markdown) | An endorser's comment about the quality or fitness of the endorsed entity.
+<a id="endorsementComment"></a>endorsementComment | Text or [Markdown](#MarkdownText) | An endorser's comment about the quality or fitness of the endorsed entity.
 
 </div>
 
