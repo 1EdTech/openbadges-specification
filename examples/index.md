@@ -71,9 +71,9 @@ This document is a Candidate Final / Public Draft of the Open Badges 2.0 specifi
 </div>
 
 ## {{ page.subtitle }}
-Information is divided between badge objects that describe an individual earner's accomplishment [(Assertion)](../#Assertion), the general features of the achievement [(BadgeClass)](../#BadgeClass), and the entity or organization issuing the badge [(Issuer)](../#Issuer)
+Information is divided between badge objects that describe an individual earner's accomplishment [(Assertion)](../index.html#Assertion), the general features of the achievement [(BadgeClass)](../index.html#BadgeClass), and the entity or organization issuing the badge [(Issuer)](../index.html#Issuer)
 
-### <a id="Assertion"></a>Assertion Example ([definition](../#Assertion))
+### <a id="Assertion"></a>Assertion Example ([definition](../index.html#Assertion))
 An example of a badge Assertion using the `hosted` verification method. This JSON object is "baked" into a badge image (optionally linked at the Assertion's `image` property) and also hosted at the location specified by the `@id` and `verify.url` properties.
 {% highlight json %}
 {
@@ -97,7 +97,7 @@ An example of a badge Assertion using the `hosted` verification method. This JSO
 }
 {% endhighlight %}
 
-### <a id="BadgeClass"></a>BadgeClass Example ([definition](../#BadgeClass))
+### <a id="BadgeClass"></a>BadgeClass Example ([definition](../index.html#BadgeClass))
 The BadgeClass is hosted at the URI identified in associated Assertions' `badge` property.
 {% highlight json %}
 {
@@ -132,7 +132,7 @@ The BadgeClass is hosted at the URI identified in associated Assertions' `badge`
 * The JSON-LD data model treats `"property": ["value"]` as equivalent to `"property": "value"`. An example of this is that `alignment` takes one or multiple AlignmentObjects. If only one value is present, it may or may not be included in `[]`. Not all of the Open Badges properties accept multiple values. For instance, `issuer` may only have one value.
 * Many `@id`-type fields may have a property that appears as an IRI/URI or as an embedded JSON object (with `{}`). For example, `issuer` may include an embedded copy of the issuer Profile. Verifiers should fetch the issuer Profile from its HTTP `id` and in most cases treat the hosted value as the most up-to-date representation. In the case of signed-verification Assertions, an embedded `BadgeClass` or issuer `Profile` can be interpreted to be the value claimed at the time of issue, though `publicKeys` referenced in an embedded issuer `Profile` should not be trusted to belong to the issuer without checking the hosted Profile.
 
-### <a id="Issuer"></a><a id="Profile"></a>Issuer/Profile Example ([definition](../#Profile))
+### <a id="Issuer"></a><a id="Profile"></a>Issuer/Profile Example ([definition](../index.html#Profile))
 Metadata about the issuer is defined in JSON at a URL/IRI defined by the BadgeClass's `issuer` property.
 {% highlight json %}
 {
@@ -148,7 +148,7 @@ Metadata about the issuer is defined in JSON at a URL/IRI defined by the BadgeCl
 }
 {% endhighlight %}
 
-### Extension Examples ([definition](../#Extensions))
+### Extension Examples ([definition](../index.html#Extensions))
 Extensions are formal sets of properties issuers and platforms add to the Open Badges Vocabulary. A number of community-developed extensions are published on the [Extensions page](../extensions/#ExampleExtension) with embedded examples of each.
 
 ## <a id="LinkedData"></a> Open Badges in Linked Data
@@ -195,7 +195,7 @@ Because Open Badges are Linked Data objects often hosted at HTTP IRIs, we can us
 ## Additional Vocabulary Classes Examples
 While the Assertion, BadgeClass, and Profile are the minimal set of JSON-LD resources necessary for a valid badge, there are several secondary data classes that extend the usefulness, security, and portability of Open Badges. The examples below are often abbreviated to highlight a specific feature, so not all examples contain all the required properties to constitute a valid Badge Object of their type.
 
-### <a id="SignedBadge"></a> Signed Badges Example ([definition](../#SignedBadge))
+### <a id="SignedBadge"></a> Signed Badges Example ([definition](../index.html#SignedBadge))
 JSON Web Signatures, a branch of the [JSON Object Signing and Encryption (JOSE)](https://datatracker.ietf.org/wg/jose/documents/) group of standards is a signature method accepted for Open Badges objects. A JSON Web Signature (JWS) for a signed Assertion is made up of three components, packaged as a string with `.`s used as separators. (Space has been added here around the `.` separators for clarity.) This example is not a valid JWS, as the referenced key on example.org does not exist.
 {% highlight html %}
 eyJhbGciOiJSUzI1NiJ9
@@ -251,7 +251,7 @@ PublicKey  | `https://example.org/publicKey.json` | A `CryptographicKey` documen
 
 </div>
 
-### <a id="CryptographicKey"></a>CryptographicKey Example ([definition](../#CryptographicKey))
+### <a id="CryptographicKey"></a>CryptographicKey Example ([definition](../index.html#CryptographicKey))
 A public key document should describe an Open Badges issuer's public key. For maximum compatibility, it should have its own HTTP(S) identifier, and should identify its issuer using the `owner` property. The `publicKeyPem` shown below has been abbreviated with `...` for readability.
 
 {% highlight json %}
@@ -265,7 +265,7 @@ A public key document should describe an Open Badges issuer's public key. For ma
 {% endhighlight %}
 
 
-### <a id="RevocationList"></a>RevocationList Example ([definition](../#RevocationList))
+### <a id="RevocationList"></a>RevocationList Example ([definition](../index.html#RevocationList))
 Issuers may have a RevocationList if they use `SignedBadge` verification. Checking this list is intended as part of the verification process for signed badges, just as checking for the hosted assertion is part of verifying a hosted badge. It is published as a JSON-LD document with type `RevocationList`. RevocationLists are linked from an issuer Profile via the `revocationList` property. The RevocationList identifies its issuer with the `issuer` property.
 
 RevocationLists may identify revoked Assertions through their `revokedAssertions` property. Individual assertions are identified either by their `id` or (legacy) `uid` properties. `id`-identified Assertions may appear in a RevocationList as that id string or as an object with an `id` property and other metadata, usually just a `revocationReason`. The below example shows `id`s in the `urn:uuid` namespace, which is a recommended namespace for signed Assertions that do not have a hosted (HTTP) `id`.
@@ -289,7 +289,7 @@ RevocationLists may identify revoked Assertions through their `revokedAssertions
 }
 {% endhighlight %}
 
-### <a id="revoked-hosted-assertion"></a>Revoked Hosted Assertion Example (see more about [Hosted Verification](../#HostedBadge))
+### <a id="revoked-hosted-assertion"></a>Revoked Hosted Assertion Example (see more about [Hosted Verification](../index.html#HostedBadge))
 Revoked hosted Assertions should be returned with the HTTP status `410 Gone`. The response body may contain an Assertion document with `"revoked": true` that contains additional metadata. It does not need to meet the full requirements of the `Assertion` class. Only `id` and `revoked` properties must be present
 {% highlight json %}
 {
@@ -301,7 +301,7 @@ Revoked hosted Assertions should be returned with the HTTP status `410 Gone`. Th
 {% endhighlight %}
 
 
-### <a id="Criteria"></a>Criteria Example ([definition](../#Criteria))
+### <a id="Criteria"></a>Criteria Example ([definition](../index.html#Criteria))
 A BadgeClass's `criteria` field may be populated with a HTTP(s) URI string or an instance of the `Criteria` class. Here, a URI is used:
 {% highlight json %}
 {
@@ -350,7 +350,7 @@ The Criteria class may also appear without using an external URI to increase por
 }
 {% endhighlight %}
 
-### <a id="Evidence"></a>Evidence Example ([definition](../#Evidence))
+### <a id="Evidence"></a>Evidence Example ([definition](../index.html#Evidence))
 Metadata related to evidence may be included in Assertions in several ways.
 
 The issuer may provide a text/Markdown `narrative` describing the evidence:
@@ -371,7 +371,7 @@ Evidence may be referenced by URI `id`:
 }
 {% endhighlight %}
 
-Evidence may be more fully described by using the [Evidence](../#Evidence) class:
+Evidence may be more fully described by using the [Evidence](../index.html#Evidence) class:
 {% highlight json %}
 {
   "@context": "https://w3id.org/openbadges/v2",
@@ -386,7 +386,7 @@ Evidence may be more fully described by using the [Evidence](../#Evidence) class
 {% endhighlight %}
 
 It is possible to include multiple values for evidence in an Assertion.
-Evidence may be more fully described by using the [Evidence](../#Evidence) class:
+Evidence may be more fully described by using the [Evidence](../index.html#Evidence) class:
 {% highlight json %}
 {
   "@context": "https://w3id.org/openbadges/v2",
@@ -408,7 +408,7 @@ Evidence may be more fully described by using the [Evidence](../#Evidence) class
 {% endhighlight %}
 
 
-### <a id="Image"></a>Image Example ([definition](../#Image))
+### <a id="Image"></a>Image Example ([definition](../index.html#Image))
 In order to provide extra useful information for rendering images, sometimes additional metadata about images is included in Badge Objects using the `Image` class.
 
 Images are often referenced by their HTTP URI where they may be accessed. Displayers usually render this as the image source in HTML.

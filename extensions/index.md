@@ -81,7 +81,7 @@ BadgeClass
 {% endhighlight %}
 
 ### <a id="Endorsement"></a>Endorsement
-[Endorsement](../#Endorsement), previously an extension, is now part of the core specification. See [original](endorsement).
+[Endorsement](../index.html#Endorsement), previously an extension, is now part of the core specification. See [original](endorsement).
 
 This property definition still resides here in the extensions namespace, which is now replaced by the `claim` property:
 

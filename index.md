@@ -149,7 +149,7 @@ In other words, Open Badges contain detailed metadata about achievements. Who ea
 ### <a id="LinkedData"></a> Open Badges in Linked Data
 [Linked Data](https://en.wikipedia.org/wiki/Linked_data) is a method of publishing data so that it can be understood in a variety of contexts. Open Badges are expressed in [JSON-LD](http://json-ld.org/) so that they can include and be included in documents outside the purposes considered in this specification. Open Badges take advantage of JSON-LD's features for internationalization/localization, identifying objects by unique IRIs, and extensibility.
 
-Open Badges are expressed as linked data so that badge resources can be connected. The issuer's Profile in the above example is identified by the "id" `https://example.org/issuer`, which is a URL at which the profile can be discovered. Badge Objects, the instances of the data classes in the Open Badges Vocabulary, can link to one another's hosted URLs or can embed representations of their connected resources for increased portability. See [Linked Data examples](./examples/#LinkedData).
+Open Badges are expressed as linked data so that badge resources can be connected. The issuer's Profile in the above example is identified by the "id" `https://example.org/issuer`, which is a URL at which the profile can be discovered. Badge Objects, the instances of the data classes in the Open Badges Vocabulary, can link to one another's hosted URLs or can embed representations of their connected resources for increased portability. See [Linked Data examples](./examples/index.html#LinkedData).
 
 
 ### <a id="Internationalization"></a> Internationalization and Multilingual Badges
@@ -160,7 +160,7 @@ Open Badges are used by thousands of issuers around the world, and users of thos
 
 Additionally, developers who wish to write code in a language other than English can build a JSON-LD context file in their preferred language and then encounter badge property names familiar to them and their teams.
 
-See [Internationalization Examples](examples/#Internationalization).
+See [Internationalization Examples](./examples/index.html#Internationalization).
 
 
 ## <a id="BadgeObjects"></a> Open Badges Vocabulary
@@ -170,7 +170,7 @@ The Open Badges Vocabulary defines several data classes used to express achievem
  
 Each Badge Object may have [additional properties](#additional-properties) beyond those defined here. Some of these additional properties may take the form of an Open Badges Extension, a structure that follows a standard format for collaboratively extending Badge Objects so that any issuer, earner, or consumer can understand the information added to badges. ([More...](#Extensions))
 
-### Assertion <a id="Assertion"></a> ([example](./examples/#Assertion))
+### Assertion <a id="Assertion"></a> ([example](./examples/index.html#Assertion))
 Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner. Assertions are packaged for transmission as JSON objects with a set of mandatory and optional properties. Fields marked **in bold letters** are mandatory.
 
 <div class="table-wrapper">
@@ -183,7 +183,7 @@ Assertions are representations of an awarded badge, used to share information ab
 | **badge** | @id: [BadgeClass](#BadgeClass) | IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a [BadgeClass](#BadgeClass).
 | <a id="verify"></a> **verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion. (Alias "verify" may be used in [context](v2/context.json).)
 | <a id="issueDate"></a>**issuedOn** | [DateTime](#dateTime) | Timestamp of when the achievement was awarded.
-| image | @id: [Image](#Image) | IRI or document representing an image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the [Baking specification](./baking). An 'unbaked' image for the badge is defined in the [BadgeClass](#BadgeClass) and should not be duplicated here.
+| image | @id: [Image](#Image) | IRI or document representing an image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the [Baking specification](./baking/index.html). An 'unbaked' image for the badge is defined in the [BadgeClass](#BadgeClass) and should not be duplicated here.
 | <a id="evidence"></a>evidence | @id: [Evidence](#Evidence) | IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. May be an array of multiple values.
 | <a id="narrative"></a>narrative | Text or [Markdown Text](#MarkdownText) | A narrative that connects multiple pieces of evidence. Likely only present at this location if `evidence` is a multi-value array. 
 | <a id="expirationDate"></a>expires | [DateTime](#dateTime) | If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. After this time, the badge should be considered expired.
@@ -197,7 +197,7 @@ Assertions are representations of an awarded badge, used to share information ab
 * <a id="uid"></a>uid -- String -- Unique Identifier for the badge. This is expected to be *locally* unique on a per-issuer basis and for hosted badges on a per-origin basis. It may not be necessarily globally unique. `uid` has been replaced by the IRI-based `id` property. It should not be used in v2.0+ Assertions.
 
 
-### <a id="BadgeClass"></a>BadgeClass ([example](./examples/#BadgeClass))
+### <a id="BadgeClass"></a>BadgeClass ([example](./examples/index.html#BadgeClass))
 A collection of information about the accomplishment recognized by the Open Badge. Many assertions may be created corresponding to one BadgeClass
 
 <div class="table-wrapper">
@@ -217,7 +217,7 @@ alignment | Array of [AlignmentObject](#Alignment)s | List of objects describing
 </div>
 
 
-### <a id="Profile"></a><a id="Issuer"></a> Profile ([example](./examples/#Issuer))
+### <a id="Profile"></a><a id="Issuer"></a> Profile ([example](./examples/index.html#Issuer))
 A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address. An Issuer Profile is a subclass of the general Profile with some additional requirements.
 
 <div class="table-wrapper">
@@ -227,7 +227,7 @@ Property | Expected Type | Description
 **id** | IRI | Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs.
 **type** | JSON-LD type | Valid JSON-LD representation of the Issuer or Profile type. In most cases, this will simply be the string `Issuer` or the more general `Profile`. An array including `Issuer` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 name | Text | The name of the entity or organization.
-url | IRI | The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP. ([examples](./examples/#SocialMediaUrls)).
+url | IRI | The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP. ([examples](./examples/index.html#SocialMediaUrls)).
 telephone | Text | A phone number for the entity. For maximum compatibility, the value should be expressed as a `+` and country code followed by the number with no spaces or other punctuation, like `+16175551212` ([E.164 format](http://en.wikipedia.org/wiki/E.164)).
 description | Text | A short description of the issuer entity or organization.
 image | [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the issuer.
@@ -289,7 +289,7 @@ creator  | @id: [CryptographicKey](#CryptographicKey) | The (HTTP) id of the key
 </div>
 
 
-### <a id="Evidence"></a>Evidence ([example](examples/#Evidence))
+### <a id="Evidence"></a>Evidence ([example](./examples/index.html#Evidence))
 Descriptive metadata about evidence related to the issuance of an Assertion. Each instance of the Evidence class present in an Assertion corresponds to one entity, though a single entry can describe a set of items collectively. There may be multiple `evidence` entries referenced from an Assertion. The `narrative` property is also in scope of the Assertion class to provide an overall description of the achievement related to the badge in rich text. It is used here to provide a narrative of achievement of the specific entity described.
 
 If both the `description` and `narrative` properties are present, displayers can assume the `narrative` value goes into more detail and is not simply a recapitulation of `description`.
@@ -311,7 +311,7 @@ audience | Text          | A description of the intended audience for a piece of
 For evidence that is ephemeral or completely described within an Assertion via use of the Evidence class, if it is necessary to identify this evidence piece uniquely in an overall narrative, an `id` of type `urn:uuid` or otherwise outside the HTTP scheme may be used, but displayers may have less success displaying this usage meaningfully. 
 
 
-### <a id="Image"></a>Image ([example](examples/#Image))
+### <a id="Image"></a>Image ([example](./examples/index.html#Image))
 Metadata about images that represent Assertions, BadgeClasses or Profiles. These properties can typically be represented as just the `id` string of the image, but using a fleshed-out document allows for including captions and other applicable metadata.
 
 <div class="table-wrapper">
@@ -326,7 +326,7 @@ author   | @id: Profile  | The author of the image, if desired.
 </div>
 
 
-### <a id="Criteria"></a>Criteria ([example](examples/#Criteria))
+### <a id="Criteria"></a>Criteria ([example](./examples/index.html#Criteria))
 Descriptive metadata about the achievements necessary to be recognized with an `Assertion` of a particular `BadgeClass`. This data is added to the `BadgeClass` so that it may be rendered when that `BadgeClass` is displayed, instead of simply a link to human-readable criteria external to the badge. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. 
 
 Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an `Assertion` of a particular `BadgeClass`. It is also used after the `Assertion` is awarded to a recipient to let those inspecting earned badges know the general requirements that the recipients met in order to earn it.
@@ -345,7 +345,7 @@ On the surface `Criteria` is a very simple class, but it enables some powerful u
 
 
 ### <a id="Alignment"></a>AlignmentObject
-The AlignmentObject is an alias for schema.org's [AlignmentObject](http://schema.org/AlignmentObject) and uses IRIs from that vocabulary. See an [example](examples/#BadgeClass) as it would appear in a BadgeClass document.
+The AlignmentObject is an alias for schema.org's [AlignmentObject](http://schema.org/AlignmentObject) and uses IRIs from that vocabulary. See an [example](./examples/index.html#BadgeClass) as it would appear in a BadgeClass document.
 
 <div class="table-wrapper">
 
@@ -363,7 +363,7 @@ In order to render displays of alignment within badge services, `targetName` is 
 </div>
 
 
-### <a id="RevocationList"></a>Revocation List ([example](examples/#RevocationList))
+### <a id="RevocationList"></a>Revocation List ([example](./examples/index.html#RevocationList))
 The Revocation List is a document that describes badges an Issuer has revoked that used the `signed` verification method. If you find the badge in the `revokedAssertions` list, it has been revoked. 
 
 An assertion reference may look like `{"id": "https://example.org/1", "revocationReason": "Violation of policy"}` or simply the string `"https://example.org/1"`. A UID-based reference may look like `{"uid": "abc123", "revocationReason": "Awarded in error"}`
@@ -390,7 +390,7 @@ uid      | Text          | Legacy identifier for pre-1.1 badges that did not use
 </div>
 
 
-### <a id="CryptographicKey"></a>CryptographicKey ([example](examples/#CryptographicKey))
+### <a id="CryptographicKey"></a>CryptographicKey ([example](./examples/index.html#CryptographicKey))
 Alias for the [Key](https://web-payments.org/vocabs/security#Key) class from the [W3C Web Payments Community Group Security Vocabulary](https://web-payments.org/vocabs/security). A CryptographicKey document identifies and describes a Key used for signing Open Badges documents. 
 
 For best compatibility with verification procedures, the `Profile` should be hosted at its HTTPS `id` and should identify a `publicKey` by the HTTPS `id` of a `CryptographicKey` document that identifies its issuer by the issuer's `id` using the `owner` property. This allows convenient and robust usage of these `id`s to identify both the issuer and the key used.
@@ -410,10 +410,10 @@ publicKeyPem | Text      | The PEM key encoding is a widely-used method to expre
 Below are listed several properties  usable across several Classes. They are optional in all cases.
 
 ### related
-The `related` property identifies another entity of the same type that should be considered the same for most purposes. It is primarily intended to identify alternate language editions or previous versions of BadgeClasses. See examples: [alternate language versions](examples/#Internationalization) and [BadgeClass version control](examples/#badgeclass-version-control)
+The `related` property identifies another entity of the same type that should be considered the same for most purposes. It is primarily intended to identify alternate language editions or previous versions of BadgeClasses. See examples: [alternate language versions](./examples/index.html#Internationalization) and [BadgeClass version control](./examples/index.html#badgeclass-version-control)
 
 ### version
-The `version` property allows issuers to specify a version string or number. It is primarily used to update a BadgeClass without changing the meaning of previously awarded Assertions by duplicating and linking to the previous version. See [example](examples/#badgeclass-version-control).
+The `version` property allows issuers to specify a version string or number. It is primarily used to update a BadgeClass without changing the meaning of previously awarded Assertions by duplicating and linking to the previous version. See [example](./examples/index.html#badgeclass-version-control).
 
 <div class="table-wrapper">
 
@@ -444,7 +444,7 @@ Many platforms that allow badge issuers and recipients to establish their identi
 
 The 1.1 version of the Open Badges Specification introduces Extensions as a means for issuers to add additional metadata to Badge Objects beyond what the standard specifies itself. Additional properties are allowed without using Extensions, but Extensions allow issuers to declare how they are adding information so that it can be understood by others and other issuers can add the same sort of information in a compatible way.
 
-See the [Extensions](./extensions/) page for specific examples and extensions ready to use in Badge Objects.
+See the [Extensions](./extensions/index.html) page for specific examples and extensions ready to use in Badge Objects.
 
 Extension authors define and host a new [JSON-LD](http://json-ld.org) context file describing all the terms the extension covers. These context files may further define any [JSON-schema](http://json-schema.org/) that implementations of the extension should pass. If used, each schema is linked from the context and hosted as a separate JSON-schema files. Extensions are implemented in Open Badges as JSON objects inside an Assertion, BadgeClass or Issuer with their own link to the extension context and declaration of type.
 
@@ -460,9 +460,9 @@ Property | Expected Type | Description
 
 An extension value should be included as a JSON object containing the `@context` and `@type` properties and any new properties whose names are mapped in the context file referenced by `@context`. 
 
-The property name for the extension should map to an IRI within the `@context` defined at the root of the extended Badge Object. It is possible to use a fully qualified IRI (e.g. `http://example.org/newBadgeExtension`) or a compact IRI within the extension namespace defined in the [OBI context](./v2/context.json), like `extension:newBadgeExtension`. In either case, the IRI should correspond to where a human-readable definition of the extension resides. For extensions using the `extension` namespace, this definition may be contributed to the community [extensions repository](./extensions/) on this site.
+The property name for the extension should map to an IRI within the `@context` defined at the root of the extended Badge Object. It is possible to use a fully qualified IRI (e.g. `http://example.org/newBadgeExtension`) or a compact IRI within the extension namespace defined in the [OBI context](./v2/context.json), like `extension:newBadgeExtension`. In either case, the IRI should correspond to where a human-readable definition of the extension resides. For extensions using the `extension` namespace, this definition may be contributed to the community [extensions repository](./extensions/index.html) on this site.
 
-See [example extensions](./extensions/).
+See [example extensions](./extensions/index.html).
 
 ### Extension Validation <a id="validation"></a>
 
@@ -502,7 +502,7 @@ _status: proposed_
 Validators that someday use the proposed FrameValidation method pass JSON-LD objects through the JSON-LD Frame indicated by the `validationFrame` property and test the result against the JSON-schema indicated by the validator's `validationSchema` property.
 
 
-## <a id="Endorsement"></a>Endorsement ([example](examples/#Endorsement))
+## <a id="Endorsement"></a>Endorsement ([example](./examples/index.html#Endorsement))
 Open Badges are trustworthy records of achievement. The vocabulary defined above, combined with the validation and verification procedures for badge Assertions, establish Open Badges as a reliable method for expressing and verifying achievements online. However, these procedures don't answer questions like, "Who trusts this BadgeClass to be a good certification of the competency it describes?" or, "Is this Profile's email address verified?" For these questions, there is Endorsement.
 
 Endorsement leans on the Verifiable Claims work prototyped by members of the [Verifiable Claims Task Force](https://w3c.github.io/vctf/) at the [W3C](https://www.w3.org/) and the theoretical backing developed by the 2014 Endorsement Working Group. See [Endorsement Framework Paper](https://docs.google.com/document/d/1VVf19d72KmGMh1ywrLe7HCKEOqGSI0WjvwfGN_8Q2M4/edit#heading=h.xyxfmzqz2vqb).
@@ -587,7 +587,7 @@ Badge Objects encoded in JSON-LD should be served with the `application/ld+json`
 
 ### <a id="Baking"></a>Badge Baking
 
-Badge assertions may be "baked" into image files as portable credentials. Baking is currently supported for PNG and SVG formats. (See [Baking Specification](baking) for implementation)
+Badge assertions may be "baked" into image files as portable credentials. Baking is currently supported for PNG and SVG formats. (See [Baking Specification](./baking/index.html) for implementation)
 
 
 ## Data Validation
@@ -633,12 +633,12 @@ The Assertion `id` must be within the permitted scope for hosted verification de
 Verification of hosted assertions may be performed starting with the verification URL or with a full Assertion instance in hand. If starting with a full assertion that indicates `HostedBadge` verification, the input data should only be trusted to identify the URI of the hosted verification file, and upon loading the hosted verification file, the retrieved data should be used as the Assertion value.
 
 
-#### Revoking Hosted Assertions ([example](./examples/#revoked-hosted-assertion))
+#### Revoking Hosted Assertions ([example](./examples/index.html#revoked-hosted-assertion))
 To mark a hosted assertion as revoked, respond with an HTTP Status of `410 Gone`. The response may include an `Assertion` body containing some additional metadata, such as a `revocationReason`, but it is not required to meet all normal property presence requirements. For revoked Assertions, only `id` and `revoked` are required.
 
 If either the `410 Gone` status or a response body declaring `revoked` true is returned, the Assertion should be treated as revoked and thus invalid.
 
-### <a id="SignedBadge"></a>SignedBadge Verification ([example](./examples/#SignedBadge)) 
+### <a id="SignedBadge"></a>SignedBadge Verification ([example](./examples/index.html#SignedBadge)) 
 
 A signed badge may be published in the form of a [JSON Web Signature](http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html). If so, the JSON representation of the badge assertion should be used as the JWS payload. 
 
@@ -666,7 +666,7 @@ Other signature suites may be later included in this document if they are invest
 
 #### Revoking a Signed Badge
 
-To mark a badge as revoked, add an entry to the resource pointed at by the Issuer Profile `revocationList` URL with the **id** of the Assertion and, optionally, a reason why the badge is being revoked. See an [example](examples/#RevocationList).
+To mark a badge as revoked, add an entry to the resource pointed at by the Issuer Profile `revocationList` URL with the **id** of the Assertion and, optionally, a reason why the badge is being revoked. See an [example](./examples/index.html#RevocationList).
 
 
 # History <a id="History"></a>
