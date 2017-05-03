@@ -211,8 +211,8 @@ Property | Expected Type | Description
 **image** | @id: [Image](#Image) | IRI of an image representing the achievement. May be a [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme), or URI where the image may be found.
 <a id="criteria"></a>**criteria** | @id: [Criteria](#Criteria) | URI or embedded criteria document describing how to earn the achievement.
 **issuer** | @id: [Profile](#Profile) | IRI or document describing the individual, entity, or organization that issued the badge.
-alignment | Array of [AlignmentObject](#Alignment)s | List of objects describing which objectives or educational standards this badge aligns to, if any.
-<a id="tags"></a>tags | Array of Text | List of tags that describe the type of achievement.
+alignment | One or more [AlignmentObject](#Alignment)s | An object describing which objectives or educational standards this badge aligns to, if any. May be an array of multiple objects.
+<a id="tags"></a>tags | One or more Text | A tag that describes the type of achievement. May be an array of multiple values.
 
 </div>
 
