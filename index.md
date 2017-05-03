@@ -96,6 +96,8 @@ This document is a Candidate Final / Public Draft of the Open Badges 2.0 specifi
  * [Profile Identifier Properties](#ProfileIdentifierProperties)
  * [Extensions](#Extensions)
  * [Endorsement](#Endorsement)
+ * [Additional Properties](#additional)
+ * [Primitive datatypes](#datatypes)
  * [Implementation](#implementation)
    - [Badge Baking](#Baking)
    - [Hosted Verification](#HostedBadge)
@@ -553,7 +555,7 @@ Endorsements use the `claim` property to identify another entity by its `id` and
 {% endhighlight %}
 See more examples
 
-## Additional Properties
+## <a id="additional"></a>Additional Properties
 
 Badges consist of sets of claims, properties with values that apply to Profiles, all earners of a badge, or individual badge recipients. Outside of extensions, additional properties may be added to these claim sets so long as they are mapped to an IRI as JSON-LD. For example, publishers of Badge Objects may:
 
@@ -566,11 +568,11 @@ Processors should preserve properties that are valid data when rehosting or retr
 If a property would be useful beyond a publisher's internal use, an [Extension](#Extensions) is a recommended way to establish common practice for adding certain sets of information to badge objects.
 
 
-## Primitive datatypes
+## <a id="datatypes"></a>Primitive datatypes
 
-* Boolean
-* Text
-* Array
+* <a id="boolean">Boolean</a> - A JSON boolean value as defined in [RFC4627](https://www.ietf.org/rfc/rfc4627.txt))
+* <a id="text">Text</a> - A JSON string value as defined in [RFC4627](https://www.ietf.org/rfc/rfc4627.txt))
+* <a id="array">Array</a> - A JSON array as defined in [RFC4627](https://www.ietf.org/rfc/rfc4627.txt))
 * <a id="dateTime"></a>DateTime - Open Badges must express timestamps as strings compatible with [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) guidelines, including the time and a time zone indicator. It is recommended to publish all timestamps in UTC. Previous versions of Open Badges allowed Unix timestamps as integers. Open Badges v2.0 requires string ISO 8601 values with time zone indicators. For example, `2016-12-31T23:59:59+00:00` is a valid ISO 8601 timestamp. It contains the year, month, day, `T` separator, hour number 0-23, minute, optional seconds and decimal microsecond, and a time zone indicator (+/- an offset from UTC or the `Z` designator for UTC).
 * URL - Fully qualified URL, including protocol, host, port if applicable, and path. Interpreters are only expected to interpret URLs in either the `http` or `https` schemes.
 * IRI - In JSON-LD and Linked Data, IRIs (Internationalized Resource Identifiers) may look like fully qualified URLs or be namespaced within the JSON-LD context to be expanded to a full IRI. The only known supported IRI schemes are `http` and `https`.
