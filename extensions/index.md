@@ -130,6 +130,8 @@ Assertion, BadgeClass, Issuer
 {% endhighlight %}
 
 ### <a id="Accessibility"></a> Accessibility
+_Author: [Vincenzo Tilotta](https://github.com/tailot)_
+
 An extension allowing for the addition of the content for people with disabilities.
 
 <div class="table-wrapper">
