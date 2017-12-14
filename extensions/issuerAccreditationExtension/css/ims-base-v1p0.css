@@ -1,0 +1,605 @@
+.statusPD {
+  position: fixed;
+  display: block;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 30px;
+  text-align: right;
+  padding-top: 2px;
+  padding-right: 2em;
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  transform-origin: left top;
+  transform: rotate(-90deg) translate(-100%, 0%);
+  -ms-transform-origin: left top;
+  -ms-transform: rotate(90deg);
+  -webkit-transform-origin: left top;
+  -webkit-transform: rotate(-90deg) translate(-100%, 0%);
+  -moz-transform-origin: left top;
+  -moz-transform: rotate(-90deg) translate(-100%, 0%);
+  -o-transform-origin: left top;
+  -o-transform: rotate(-90deg) translate(-100%, 0%);
+  z-index: 12000;
+}
+
+.versionTable {
+	font-size:80%;
+	margin-top:2em;
+}
+
+div#ipr {
+	font-size:80%;
+}
+
+div#copyright, div.endWarranty {
+	font-size:80%;
+	text-align: center;
+}
+
+div.endWarranty {
+	font-style: italic;
+}
+
+div#copyright div.cpr {
+	font-size:140%;
+	color: #005A9C;
+	margin-bottom: 1.5em;
+	margin-top: 1.5em;
+}
+
+div#copyright p {
+	margin-top:0em;
+	margin-bottom:0em;
+}
+
+a#logo {
+	text-decoration: none;
+	border:0;
+}
+
+table#revisionHistory {
+	margin-bottom: 3em;
+}
+
+table#revisionHistory th, table#revisionHistory td  {
+	border: 1px solid black;
+}
+
+body {
+		counter-reset: example figure issue;
+
+		max-width: 60em;
+		margin: 0 auto;
+		padding: 1.6em 1.5em 2em 50px;
+		padding: 1.6em 1.5em 2em calc(26px + 1.5em);
+
+		line-height: 1.5;
+		font-family: sans-serif;
+		widows: 2;
+		orphans: 2;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		hyphens: auto;
+
+		color: black;
+		background: white top left fixed no-repeat;
+		background-size: 25px auto;
+	}
+
+/** Back to Top / ToC Toggle **************************************************/
+
+	@media print {
+		#toc-nav {
+			display: none;
+		}
+	}
+	@media not print {
+		#toc-nav {
+			position: fixed;
+			z-index: 2;
+			bottom: 0; left: 0;
+			margin: 0;
+			min-width: 1.33em;
+			border-top-right-radius: 2rem;
+			box-shadow: 0 0 2px;
+			font-size: 1.5em;
+			color: black;
+		}
+		#toc-nav > a {
+			display: block;
+			white-space: nowrap;
+
+			height: 1.33em;
+			padding: .1em 0.3em;
+			margin: 0;
+
+			box-shadow: 0 0 2px;
+			border: none;
+			border-top-right-radius: 1.33em;
+			background: white;
+		}
+		#toc-nav > #toc-jump {
+			padding-bottom: 2em;
+			margin-bottom: -1.9em;
+		}
+
+		#toc-nav > a:hover,
+		#toc-nav > a:focus {
+			background: #f8f8f8;
+		}
+		#toc-nav > a:not(:hover):not(:focus) {
+			color: #707070;
+		}
+
+		/* statusbar gets in the way on keyboard focus; remove once browsers fix */
+		#toc-nav > a[href="#toc"]:not(:hover):focus:last-child {
+			padding-bottom: 1.5rem;
+		}
+
+		#toc-nav:not(:hover) > a:not(:focus) > span + span {
+			/* Ideally this uses :focus-within on #toc-nav */
+			display: none;
+		}
+		#toc-nav > a > span + span {
+			padding-right: 0.2em;
+		}
+
+		#toc-toggle-inline {
+			vertical-align: 0.05em;
+			font-size: 80%;
+			color: gray;
+			color: hsla(203,20%,40%,.7);
+			border-style: none;
+			background: transparent;
+			position: relative;
+		}
+		#toc-toggle-inline:hover:not(:active),
+		#toc-toggle-inline:focus:not(:active) {
+			text-shadow: 1px 1px silver;
+			top: -1px;
+			left: -1px;
+		}
+
+		#toc-nav :active {
+			color: #C00;
+		}
+	}
+
+/** ToC Sidebar ***************************************************************/
+
+	/* Floating sidebar */
+	@media screen {
+		body.toc-sidebar #toc {
+			position: fixed;
+			top: 0; bottom: 0;
+			left: 0;
+			width: 23.5em;
+			max-width: 80%;
+			max-width: calc(100% - 2em - 26px);
+			overflow: auto;
+			padding: 0 1em;
+			padding-left: 42px;
+			padding-left: calc(1em + 26px);
+			background: inherit;
+			background-color: #f7f8f9;
+			z-index: 1;
+			box-shadow: -.1em 0 .25em rgba(0,0,0,.1) inset;
+		}
+		body.toc-sidebar #toc h2 {
+			margin-top: .8rem;
+			font-variant: small-caps;
+			font-variant: all-small-caps;
+			text-transform: lowercase;
+			font-weight: bold;
+			color: gray;
+			color: hsla(203,20%,40%,.7);
+		}
+		body.toc-sidebar #toc-jump:not(:focus) {
+			width: 0;
+			height: 0;
+			padding: 0;
+			position: absolute;
+			overflow: hidden;
+		}
+	}
+	/* Hide main scroller when only the ToC is visible anyway */
+	@media screen and (max-width: 28em) {
+		body.toc-sidebar {
+			overflow: hidden;
+		}
+	}
+
+	/* Sidebar with its own space */
+  /*
+	@media screen and (min-width: 78em) {
+		body:not(.toc-inline) #toc {
+			position: fixed;
+			top: 0; bottom: 0;
+			left: 0;
+			width: 23.5em;
+			overflow: auto;
+			padding: 0 1em;
+			padding-left: 42px;
+			padding-left: calc(1em + 26px);
+			background: inherit;
+			background-color: #f7f8f9;
+			z-index: 1;
+			box-shadow: -.1em 0 .25em rgba(0,0,0,.1) inset;
+		}
+		body:not(.toc-inline) #toc h2 {
+			margin-top: .8rem;
+			font-variant: small-caps;
+			font-variant: all-small-caps;
+			text-transform: lowercase;
+			font-weight: bold;
+			color: gray;
+			color: hsla(203,20%,40%,.7);
+		}
+
+		body:not(.toc-inline) {
+			padding-left: 29em;
+		}
+
+
+		body:not(.toc-inline) #toc-jump:not(:focus) {
+			width: 0;
+			height: 0;
+			padding: 0;
+			position: absolute;
+			overflow: hidden;
+		}
+	}
+	@media screen and (min-width: 90em) {
+		body:not(.toc-inline) {
+			margin: 0 4em;
+		}
+	} */
+
+	h1, h2, h3, h4, h5, h6, dt {
+		page-break-after: avoid;
+		page-break-inside: avoid;
+		font: 100% sans-serif;
+		font-family: inherit;
+		line-height: 1.2;
+		hyphens: manual;
+	}
+
+	h2, h3, h4, h5, h6 {
+		margin-top: 3rem;
+	}
+
+	h1, h2, h3, div.subtitle {
+		color: #005A9C;
+		background: transparent;
+	}
+
+	h1 { font-size: 170%; }
+	h2, div.subtitle { font-size: 140%; }
+	h3 { font-size: 120%; }
+	h4 { font-weight: bold; }
+	h5 { font-style: italic; }
+	h6 { font-variant: small-caps; }
+	dt { font-weight: bold; }
+
+	h1 + h2,
+	#subtitle {
+		margin-top: 0;
+	}
+	h2 + h3,
+	h3 + h4,
+	h4 + h5,
+	h5 + h6 {
+		margin-top: 1.2em;
+	}
+
+	p {
+		margin: 1em 0;
+	}
+
+	ul, ol {
+		margin-left: 0;
+		padding-left: 2em;
+	}
+
+	li {
+		margin: 0.25em 0 0.5em;
+		padding: 0;
+	}
+
+	dl dd {
+		margin: 0 0 .5em 2em;
+	}
+
+	dfn   {
+		font-weight: bolder;
+	}
+	a > i {
+		font-style: normal;
+	}
+	dt dfn code, code.idl {
+		font-size: inherit;
+	}
+	dfn var {
+		font-style: normal;
+	}
+
+	sup {
+		vertical-align: super;
+		font-size: 80%;
+	}
+
+
+	pre, code, samp {
+		font-family: Menlo, Consolas, "DejaVu Sans Mono", Monaco, monospace;
+		font-size: .9em;
+		page-break-inside: avoid;
+		hyphens: none;
+		text-transform: none;
+	}
+	pre code,
+	code code {
+		font-size: 100%;
+	}
+
+	pre {
+		margin-top: 1em;
+		margin-bottom: 1em;
+		overflow: auto;
+	}
+
+	a[href] {
+		color: #034575;
+		text-decoration: none;
+		border-bottom: 1px solid #707070;
+		padding: 0 1px 0;
+		margin: 0 -1px 0;
+	}
+	a:visited {
+		border-bottom-color: #BBB;
+	}
+
+	a[href]:focus,
+	a[href]:hover {
+		background: #f8f8f8;
+		background: rgba(75%, 75%, 75%, .25);
+		border-bottom-width: 3px;
+		margin-bottom: -2px;
+	}
+	a[href]:active {
+		color: #C00;
+		border-color: #C00;
+	}
+
+	img {
+		border-style: none;
+	}
+
+	figure, .figure, .sidefigure {
+		page-break-inside: avoid;
+		text-align: center;
+		margin: 2.5em 0;
+	}
+	.figure img,    .sidefigure img,    figure img,
+	.figure object, .sidefigure object, figure object {
+		max-width: 100%;
+		margin: auto;
+	}
+	.figure pre, .sidefigure pre, figure pre {
+		text-align: left;
+		display: table;
+		margin: 1em auto;
+	}
+	.figure table, figure table {
+		margin: auto;
+	}
+	@media screen and (min-width: 20em) {
+		.sidefigure {
+			float: right;
+			width: 50%;
+			margin: 0 0 0.5em 0.5em;
+		}
+	}
+	.caption, figcaption, caption {
+		font-style: italic;
+		font-size: 90%;
+	}
+	.caption::before, figcaption::before, figcaption > .marker {
+		font-weight: bold;
+	}
+	.caption, figcaption {
+		counter-increment: figure;
+	}
+
+	.issue, .note, .example, .advisement, blockquote {
+		padding: .5em;
+		border: .5em;
+		border-left-style: solid;
+		page-break-inside: avoid;
+	}
+	span.issue, span.note {
+		padding: .1em .5em .15em;
+		border-right-style: solid;
+	}
+
+	.issue, .note, .example, .advisement,	blockquote {
+		margin: 1em auto;
+	}
+
+	.note > p:first-child, .issue > p:first-child, blockquote > :first-child {
+		margin-top: 0;
+	}
+
+	blockquote > :last-child {
+		margin-bottom: 0;
+	}
+
+	.issue {
+		border-color: #E05252;
+		background: #FBE9E9;
+		counter-increment: issue;
+		overflow: auto;
+	}
+	.issue::before, .issue > .marker {
+		color: #AE1E1E;
+		padding-right: 1em;
+		text-transform: uppercase;
+	}
+
+	.example {
+		border-color: rgb(240,240,240);
+		background: rgb(250,250,250);
+		counter-increment: example;
+		overflow: auto;
+		clear: both;
+	}
+
+	.hljs-string {
+		color: rgb(139,0,0);
+	}
+
+	em.rfc2119 {
+	    text-transform: none !important;
+	    font-style: normal !important;
+			color:inherit !important;
+	}
+
+	.note {
+		border-color: #52E052;
+		background: #E9FBE9;
+		overflow: auto;
+	}
+
+	details {
+		display: block;
+	}
+
+	summary {
+		font-weight: bolder;
+	}
+
+	th, td {
+		text-align: left;
+		text-align: start;
+		vertical-align: top;
+	}
+
+	table.data th, table.data td {
+		border: 1px solid rgb(240,240,240);
+		font-size: 95%;
+	}
+
+	table {
+		word-wrap: normal;
+		overflow-wrap: normal;
+		hyphens: manual;
+		border-color: none;
+	}
+
+
+/** Table of Contents *********************************************************/
+
+	.toc a {
+		/* More spacing; use padding to make it part of the click target. */
+		padding-top: 0.1rem;
+		/* Larger, more consistently-sized click target */
+		display: block;
+		/* Reverse color scheme */
+		color: black;
+		border-color: #3980B5;
+	}
+	.toc a:visited {
+		border-color: #054572;
+	}
+	.toc a:not(:focus):not(:hover) {
+		/* Allow colors to cascade through from link styling */
+		border-bottom-color: transparent;
+	}
+
+	.toc, .toc ol, .toc ul, .toc li {
+		list-style: none; /* Numbers must be inlined into source */
+		/* because generated content isn't search/selectable and markers can't do multilevel yet */
+		margin:  0;
+		padding: 0;
+		line-height: 1.1rem; /* consistent spacing */
+	}
+
+	/* ToC not indented until third level, but font style & margins show hierarchy */
+	.toc > li             { font-weight: bold;   }
+	.toc > li li          { font-weight: normal; }
+	.toc > li li li       { font-size:   95%;    }
+	.toc > li li li li    { font-size:   90%;    }
+	.toc > li li li li li { font-size:   85%;    }
+
+	.toc > li             { margin: 1.5rem 0;    }
+	.toc > li li          { margin: 0.3rem 0;    }
+	.toc > li li li       { margin-left: 2rem;   }
+
+	/* Section numbers in a column of their own */
+	.toc .secno {
+		float: left;
+		width: 4rem;
+		white-space: nowrap;
+	}
+	.toc > li li li li .secno {
+		font-size: 85%;
+	}
+	.toc > li li li li li .secno {
+		font-size: 100%;
+	}
+
+	:not(li) > .toc              { margin-left:  5rem; }
+	.toc .secno                  { margin-left: -5rem; }
+	.toc > li li li .secno       { margin-left: -7rem; }
+	.toc > li li li li .secno    { margin-left: -9rem; }
+	.toc > li li li li li .secno { margin-left: -11rem; }
+
+	/* Tighten up indentation in narrow ToCs */
+	@media (max-width: 30em) {
+		:not(li) > .toc              { margin-left:  4rem; }
+		.toc .secno                  { margin-left: -4rem; }
+		.toc > li li li              { margin-left:  1rem; }
+		.toc > li li li .secno       { margin-left: -5rem; }
+		.toc > li li li li .secno    { margin-left: -6rem; }
+		.toc > li li li li li .secno { margin-left: -7rem; }
+	}
+	@media screen and (min-width: 78em) {
+		body:not(.toc-inline) :not(li) > .toc              { margin-left:  4rem; }
+		body:not(.toc-inline) .toc .secno                  { margin-left: -4rem; }
+		body:not(.toc-inline) .toc > li li li              { margin-left:  1rem; }
+		body:not(.toc-inline) .toc > li li li .secno       { margin-left: -5rem; }
+		body:not(.toc-inline) .toc > li li li li .secno    { margin-left: -6rem; }
+		body:not(.toc-inline) .toc > li li li li li .secno { margin-left: -7rem; }
+	}
+	body.toc-sidebar #toc :not(li) > .toc              { margin-left:  4rem; }
+	body.toc-sidebar #toc .toc .secno                  { margin-left: -4rem; }
+	body.toc-sidebar #toc .toc > li li li              { margin-left:  1rem; }
+	body.toc-sidebar #toc .toc > li li li .secno       { margin-left: -5rem; }
+	body.toc-sidebar #toc .toc > li li li li .secno    { margin-left: -6rem; }
+	body.toc-sidebar #toc .toc > li li li li li .secno { margin-left: -7rem; }
+
+	.toc li {
+		clear: both;
+	}
+
+
+
+/******************************************************************************/
+/*                                    Print                                   */
+/******************************************************************************/
+
+	@media print {
+		/* Pages have their own margins. */
+		html {
+			margin: 0;
+		}
+		/* Serif for print. */
+		body {
+			font-family: serif;
+		}
+	}
+	@page {
+		margin: 1.5cm 1.1cm;
+	}
+
