@@ -36,11 +36,14 @@
 
       <!-- spec main flow goes here -->
       <section>
-        <h2>Introduction</h2>
-        <section>
-            <h3>Scope</h3>
-            <p>Lorem ipsum</p>
-        </section>
+        <h2>1. Introduction</h2>
+	<p>The Open Badges specification is the definition of how information about accomplishments and achievements is packaged and embedded into images, creating portable digital badges, and how resources are established for their validation.</p>
+
+	<p>This document is the Open Badges v2.0 Conformance and Certification document that is used to define how a product can be certified as IMS Open Badges 2.0 compliant. The formal definition of Open Badges 2.0 is available in the following document:
+	<ul>
+		<li><a href="https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/index.html">Open Badges v2.0 Specification</a></li>
+	</ul>
+	</p>
       </section>
 
       <section>
@@ -59,20 +62,101 @@
         </section>
 
         <section>
+        <h2>2. The Conformance Certification Process</h2>
+	<p>The process for conformance testing and certification for Open Badges is as follows:
+	<ul>
+		<li>Go to the IMS Conformance Test Suite for Open Badges located at <a href="http://openbadgesvalidator.imsglobal.org/cert/">http://openbadgesvalidator.imsglobal.org/cert/</a></li>
+		<li>Follow the onscreen instructions for submitting various artifacts and information about your company, product, and contact details.</li>
+		<li>All requirements must be successfully fulfilled and passed in order to be eligible for IMS certification. </li>
+	</ul>
+		<p>After you have submitted your successful conformance information and received confirmation and a registration number from IMS Global, you may then apply the appropriate IMS conformance certification mark. The <a href="https://www.imsglobal.org/cc/statuschart.cfm">IMS Certified Product Directory</a> will list your conformance details. If you have any questions, please feel free to <a href="https://www.imsglobal.org/contactus.cfm">contact us</a> at any point.</p>
+		<p>Appropriate IMS membership is the only way to achieve official conformance to the Open Badges standard. Products without an IMS conformance Registration Number are not considered to be compliant by IMS Global.</p>
+	
+	<p>Implementers of Open Badges may obtain conformance certification for one or more of the following services:
+		<ul>
+			<li>Badge Issuer</li>
+			<li>Badge Displayer</li>
+			<li>Badge Host</li>
+		</ul>
+	</p>
+
+
+<h3>2.1 Badge Issuer Certification</h3>
+	<p>A badge issuer is an application that allows for the creation of badgeClasses and the subsequent delivery of badge Assertions to recipients.</p>
+	<p>Requirements for Badge Issuer Conformance Certification:</p>
+	<ol>
+		<li>Candidate platform must issue a valid OB 2.0 baked badge. Platform must support verification requests according to the verification method used.</li>
+		<br>
+		<li>Candidate platform must allow a recipient to retrieve their OB 2.0 baked badge.</li>
+	</ol>
+	
+	
+<h3>2.2 Badge Displayer Certification</h3>
+	<p>A badge displayer is an application that displays verified badges to viewers.</p>
+	<p>Requirements for Badge Displayer Conformance Certification:</p>
+	<ol>
+		<li>Must enable the badge viewer to retrieve at least the following fields from the badge metadata:</li>
+			<ul>
+				<li>BadgeClass: image, name, description, issuer name</li>
+				<li>Assertion:</li>
+					<ul>
+					<li>issuedOn date</li>
+					<li>If expired, show expired</li>
+					<li>If revoked, show revoked</li>
+					</ul>
+			</ul>
+			<br>
+		<li>Must enable the badge viewer to both of the following:
+			<ol type="a"><li>Retrieve the assertion in order to undertake their own independent verification using the service of their choice</li>
+			<li>Trigger verification of the badge and retrieve results verifying that assertion is currently:
+				<ul>
+				<li>Not expired</li>
+				<li>Not revoked</li>
+				<li>Issued to the expected recipient identity</li>
+				<li>In conformance with the Open Badges specification (i.e. badge is valid)</li>
+				</ul>
+			</li>
+			</ol>
+			<br>
+		<li>Must support of export of baked badges that do not lose any metadata.</li>
+			
+		</li>
+			
+	</ol>
+
+<h3>2.3 Badge Host Certification</h3>
+	<p>A badge host is an application that can aggregate and publicly host Assertions for recipients.</p>
+	<p>Requirements for Badge Host Conformance Certification:</p>
+	<ol>
+		<li>Must be able to import, host, and validate <strong>ALL</strong> of the following three formats:
+			<ul>
+				<li>A baked badge</li>
+				<li>A unique assertion URL</li>
+				<li>A unique assertion JSON</li>
+			</ul>
+		</li>
+		<br>
+		<li>Must be able to import baked badges in both .PNG and .SVG image file formats.</li>
+		<br>
+		<li>Must support import and subsequent export of baked badges that do not lose any Open Badges metadata.</li>
+	</ol>
+
+  </section>
+        <section>
             <h3>Definition of Key Terms and Acronyms</h3>
             <table class="data">
+              <tr><th>**EDIT - TO BE COMPLETED**</th></tr>
               <tr><th>Term</th><th>Definition</th></tr>
-              <tr><td>Extended Transcript</td><td>The entire package or file of a single Extended Transcript.  This represents transcript records for one Person from one Issuer at one point in time.</td></tr>
-              <tr><td>JSON-LD</td><td>JSON for Linked Data is a lightweight Linked Data format. It is easy for humans to read and write. It is based on the JSON format and provides a way to help JSON data interoperate at Web-scale. (http://json-ld.org/)</td></tr>
-              <tr><td>Credential Engine (CE) and Credential Transparency Description Language (CTDL)</td><td>See Related Specifications below</td></tr>
-              <tr><td>CASE</td><td>IMS standard for Competencies and Academic Standards Exchange. See http://www.imsglobal.org/case. See also Related Specifications below.</td></tr>
-              <tr><td>LIS</td><td>See Related Specifications below</td></tr>
-              <tr><td>Open Badges</td><td>See Related Specifications below</td></tr>
             </table>
 
         </section>
         <section>
-            <h3>XXX</h3>
+            <h3>About this Document</h3>
+            <p>Lorem Ipsum</p>
+        </section>
+
+        <section>
+            <h3>List of Contributors</h3>
             <p>Lorem Ipsum</p>
         </section>
 
