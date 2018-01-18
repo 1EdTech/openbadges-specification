@@ -220,7 +220,7 @@ Property | Expected Type | Description
 **type** | JSON-LD type  | The type of verification method. Supported values for single assertion verification are `HostedBadge` and `SignedBadge` (aliases in [context](v2/context.json) are available: `hosted` and `signed`). For instances used in Profiles, the type `VerificationObject` should be used.
 verificationProperty | @id | The @id of the property to be used for verification that an Assertion is within the allowed scope. Only `id` is supported. Verifiers will consider `id` the default value if `verificationProperty` is omitted or if an issuer Profile has no explicit verification instructions, so it may be safely omitted.
 startsWith | URI fragment string | The URI fragment that the verification property must start with. Valid Assertions must have an `id` within this scope. Multiple values allowed, and Assertions will be considered valid if their `id` starts with one of these values.
-<a id="allowedOrigins"></a>allowedOrigins | URI origin string | the hostname component of allowed origins. Any `id` URI within one of the allowedOrigins will be considered valid.
+<a id="allowedOrigins"></a>allowedOrigins | Array of URI hostname strings | A list of the allowed origins, where each entry is expressed using the <a href="https://tools.ietf.org/html/rfc3986#section-3.2.2">host registered name subcomponent</a> only. Any `id` URI within one of the allowedOrigins will be considered valid.
 
 `HostedVerification` and `SignedVerification` are subclasses of `VerificationObject`. Future subclasses may be developed to indicate instructions for verifying Assertions using different methods, such as blockchain-based procedures.
 
