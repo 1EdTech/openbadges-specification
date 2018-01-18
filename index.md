@@ -179,7 +179,7 @@ name | Text | The name of the entity or organization.
 url | IRI | The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP. ([examples](./examples/SocialMediaUrl)).
 telephone | Text | A phone number for the entity. For maximum compatibility, the value should be expressed as a `+` and country code followed by the number with no spaces or other punctuation, like `+16175551212` ([E.164 format](http://en.wikipedia.org/wiki/E.164)).
 description | Text | A short description of the issuer entity or organization.
-image | [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the issuer.
+image | @id: [Image](#Image) | An image representing the issuer. May be a Data URI, or URI where the image may be found or an instance of the Image class.
 email | Text | Contact address for the individual or organization.
 publicKey | @id: [CryptographicKey](#CryptographicKey) | The key(s) an issuer uses to sign Assertions.
 verification | [VerificationObject](#VerificationObject) | Instructions for how to verify Assertions published by this Profile.
