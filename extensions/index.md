@@ -25,7 +25,7 @@ This is a definition of an example extension. If it were a real extension, it wo
 Property     | Type        | Value Description
 -------------|-------------|---------
 **@context** | context IRI | [https://openbadgespec.org/extensions/exampleExtension/context.json](./exampleExtension/context.json)
-**type**    | type IRI array |`['extension', 'extensions:ExampleExtension']`
+**type**    | type IRI array |`['Extension', 'extensions:ExampleExtension']`
 **exampleProperty** | string | Any text the implementer likes.
 
 </div>
@@ -130,6 +130,8 @@ Assertion, BadgeClass, Issuer
 {% endhighlight %}
 
 ### <a id="Accessibility"></a> Accessibility
+_Author: [Vincenzo Tilotta](https://github.com/tailot)_
+
 An extension allowing for the addition of the content for people with disabilities.
 
 <div class="table-wrapper">

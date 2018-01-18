@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>This text will be replaced by the script (config.specTitle)</title>
+    <script
+     src='../../_respec/respec-ims-default.js'
+     class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+        specTitle: "Open Badges Accreditation Extension",
+        specStatus: "IMS Candidate Final",
+        specDate: "November 16th, 2017",
+        specVersion: "1.0",
+        latestVersion: "https://www.imsglobal.org/@@@/",
+        specRevOrder : "First",
+        specSummary: "This extension provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile. Please note that this extension is in draft mode and may not be ready for production.",
+        editors: [
+          {name: "Markus Gylling", company: "IMS Global Learning Consortium (Sweden)"},
+          {name: "TBD", company: "TBD (USA)"}
+        ],
+        cochairs: [
+          {name: "TBD", company: "TBD"},
+          {name: "TBD", company: "TBD"}
+        ],
+        contributors: [
+          {name:"TBD", company:"TBD"},
+          {name:"TBD", company:"TBD"}
+        ],
+      };
+    </script>
+  </head>
+  <body>
+    <!-- a header is inserted here by the script -->
+    <!-- a toc is inserted here by the script -->
+
+      <!-- spec main flow goes here -->
+      <section>
+        <h2>Introduction</h2>
+        <p>This extension provides a reference to a single or to an array of
+          multiple accreditation bodies as related to the Issuer Profile.
+          Please note that this extension is in draft mode and may not be
+          ready for production.</p>
+      </section>
+
+      <section>
+        <h2>Properties</h2>
+        <table>
+          <tr><th>Property</th><th>Type</th><th>Value Description</th></tr>
+          <tr><td>@context</td><td>context IRI</td><td>https://openbadgespec.org/extensions/issuerAccreditationExtension/context.json</td></tr>
+          <tr><td>type</td><td>type IRI array</td><td>['Extension', 'extensions:IssuerAccreditation']</td></tr>
+          <tr><td>name</td><td>string</td><td>The official name of the organization, e.g. the registered company name. (required)</td></tr>
+          <tr><td>contactInstructions</td><td>string</td><td>Contact instructions for an accrediting organization. (required)</td></tr>
+          <tr><td>url</td><td>string,uri</td><td>URL of the accrediting organization. (required)</td></tr>
+          <tr><td>address</td><td>object</td><td>Physical address of the accrediting organization. Object contains specific locality information. (required)</td></tr>
+          <tr><td>streetAddress</td><td>string</td><td>The street address. For example, 1600 Amphitheatre Pkwy.</td></tr>
+          <tr><td>addressLocality</td><td>string</td><td>The locality. For example, Mountain View.</td></tr>
+          <tr><td>addressRegion</td><td>string</td><td>The region. For example, CA.</td></tr>
+          <tr><td>postalCode</td><td>string</td><td>The postal code. For example, 94043.</td></tr>
+          <tr><td>description</td><td>string</td><td>The description of the accrediting organization.</td></tr>
+          <tr><td>logo</td><td>string,uri</td><td>The logo for the accrediting organization.</td></tr>
+          <tr><td>parentOrganization</td><td>object</td><td>The larger organization that the accrediting organization is a branch of, if any.</td></tr>
+          <tr><td>areaServed</td><td>string</td><td>The geographic area where accreditation services are targeted.</td></tr>
+          <tr><td>accreditationDate</td><td>string</td><td>The date accreditation was valid (ex: 2009-07-31).</td></tr>
+          <tr><td>educationSector</td><td>string</td><td>Focus of accreditation (ex: K12, Postsecondary, CTE, Workforce, Adult Ed).</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Extendable Badge Objects</h2>
+        <p><code>Issuer</code></p>
+
+      </section>
+
+      <section>
+        <h2>Examples</h2>
+        <section>
+          <h3>Single Accreditor</h3>
+<pre><code>
+  {
+    "extensions:IssuerAccreditation": {
+      "@context":"https://openbadgespec.org/extensions/issuerAccreditationExtension/context.json",
+      "type": ["Extension", "extensions:IssuerAccreditation"],
+      "name": "Higher Learning Commission",
+      "contactInstructions": "Visit website to request an institutional status and requirements report",
+      "url": "http://hlcommission.org",
+      "address": {
+        "streetAddress": "230 South LaSalle Street, Suite 7-500",
+        "addressLocality": "Chicago",
+        "addressRegion": "IL",
+        "postalCode": "60604-1411"
+      },
+      "description": "The Higher Learning Commission accredits degree-granting post-secondary educational institutions in the North Central region of the United States.",
+      "logo": "http://www.cgscfoundation.org/wp-content/uploads/2016/01/hlc-logo.png",
+      "parentOrganization" : {
+        "name": "North Central Association of Colleges and Schools",
+        "url": "http://www.northcentralassociation.org/"
+      },
+      "areaServed": "HLC accredits degree-granting post-secondary educational institutions in the North Central region, which includes the following 19 states: Arizona, Arkansas, Colorado, Illinois, Indiana, Iowa, Kansa, Michigan, Minnesota, Missouri, Nebraska, New Mexico, North Dakota, Ohio, Oklahoma, South Dakota, West Virginia, Wisconsin, Wyoming",
+      "accreditationDate": "2009-07-31",
+      "educationalSector": "post-secondary"
+  }
+</code></pre>
+        </section>
+        <section>
+          <h3>Two Accreditors</h3>
+<pre><code>
+  {
+    "extensions:IssuerAccreditation": [{
+      "@context":"https://openbadgespec.org/extensions/issuerAccreditationExtension/context.json",
+      "type": ["Extension", "extensions:IssuerAccreditation"],
+      "name": "Northwest Commission on Colleges and Universities",
+      "contactInstructions": "Call or email the Commission Office",
+      "url": "http://www.nwccu.org/index.htm",
+      "address": {
+        "streetAddress": "8060 165th Ave. NE, Suite 100",
+        "addressLocality": "Redmond",
+        "addressRegion": "WA",
+        "postalCode": "98052"
+      },
+      "description": "The Northwest Commission on Colleges and Universities (NWCCU) is an independent, non-profit membership organization recognized by the U.S. Department of Education as the regional authority on educational quality and institutional effectiveness of higher education institutions.",
+      "areaServed": "The US seven-state Northwest region of Alaska, Idaho, Montana, Nevada, Oregon, Utah, and Washington. US-AK, US-ID, US-MT, US-NV, US-OR, US-UT, US-WA",
+      "accreditationDate": "2010-09-01",
+      "educationalSector": "Postsecondary"
+    },
+    {
+      "@context":"https://openbadgespec.org/extensions/issuerAccreditation/context.json",
+      "type": ["Extension", "extensions:issuerAccreditation"],
+      "name": "Commission on Accreditation of Allied Health Education Programs",
+      "contactInstructions": "Contact Kathleen Megivern, Executive Director, megivern@caahep.org",
+      "url": "http://www.ncacasi.org",
+      "address": {
+        "streetAddress": "25400 US Highway 19 N, Suite 158",
+        "addressLocality": "Clearwater",
+        "addressRegion": "FL",
+        "postalCode": "33763"
+      },
+      "description": "CAAHEP is the largest programmatic accreditor in the health sciences field. In collaboration with its Committees on Accreditation, CAAHEP reviews and accredits over 2000 educational programs in twenty-eight (28) health science occupations.",
+      "accreditationDate": "2014-04-01",
+      "educationalSector": "postsecondary"
+  }]
+</code></pre>
+        </section>
+
+
+      </section>
+
+    <!-- a footer is inserted by the script -->
+  </body>
+</html>
