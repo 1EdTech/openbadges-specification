@@ -69,7 +69,7 @@ _Revision: 08 March 2017_
 This document is a Candidate Final / Public Draft of the Open Badges 2.0 specification, released on 08 March 2017 by IMS Global Learning Consortium. The specification will be considered final when approved by the IMS Technical Advisory Board and published as Final Release by IMS Global.
 </div>
 
-#### Editors  
+* [Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](https://openbadges.org/badge-alliance/working-groups/standard/)
 
 * [Nate Otto](mailto:nate@ottonomy.net), [Concentric Sky](https://concentricsky.com/)
 * [Markus Gylling](mailto:mgylling@imsglobal.org), [IMS Global](http://www.imsglobal.org)
@@ -166,7 +166,7 @@ See [Internationalization Examples](./examples/index.html#Internationalization).
 
 
 ## <a id="BadgeObjects"></a> Open Badges Vocabulary
-The Open Badges Vocabulary defines several data classes used to express achievements that is understandable in software and services that implement Open Badges. There are three core data classes: **[Assertions](#Assertion)**, **[BadgeClasses](#BadgeClass)**, and **[Profiles](#Profile)**. A set of one expression of each of these may be constructed into a valid Open Badge. Each data class is a collection of properties and values, and each defines which are mandatory and optional as well as the restrictions on the values those properties may take. They are published as [JSON-LD](http://www.w3.org/TR/json-ld/)] for interoperability. If properties are included in JSON that cannot be mapped to JSON-LD terms defined in the object's `@context`, they are not considered part of the badge object's meaning.
+The Open Badges Vocabulary defines several data classes used to express achievements that is understandable in software and services that implement Open Badges. There are three core data classes: **[Assertions](#Assertion)**, **[BadgeClasses](#BadgeClass)**, and **[Profiles](#Profile)**. A set of one expression of each of these may be constructed into a valid Open Badge. Each data class is a collection of properties and values, and each defines which are mandatory and optional as well as the restrictions on the values those properties may take. They are published as [JSON-LD](http://www.w3.org/TR/json-ld/) for interoperability. If properties are included in JSON that cannot be mapped to JSON-LD terms defined in the object's `@context`, they are not considered part of the badge object's meaning.
 
 **Extensions**:
  
@@ -232,7 +232,7 @@ name | Text | The name of the entity or organization.
 url | IRI | The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP. ([examples](./examples/index.html#SocialMediaUrls)).
 telephone | Text | A phone number for the entity. For maximum compatibility, the value should be expressed as a `+` and country code followed by the number with no spaces or other punctuation, like `+16175551212` ([E.164 format](http://en.wikipedia.org/wiki/E.164)).
 description | Text | A short description of the issuer entity or organization.
-image | [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) or URL | An image representing the issuer.
+image | @id: [Image](#Image) | An image representing the issuer. May be a Data URI, or URI where the image may be found or an instance of the Image class.
 email | Text | Contact address for the individual or organization.
 publicKey | @id: [CryptographicKey](#CryptographicKey) | The key(s) an issuer uses to sign Assertions.
 verification | [VerificationObject](#VerificationObject) | Instructions for how to verify Assertions published by this Profile.
@@ -273,7 +273,7 @@ Property | Expected Type | Description
 **type** | JSON-LD type  | The type of verification method. Supported values for single assertion verification are `HostedBadge` and `SignedBadge` (aliases in [context](v2/context.json) are available: `hosted` and `signed`). For instances used in Profiles, the type `VerificationObject` should be used.
 verificationProperty | @id | The @id of the property to be used for verification that an Assertion is within the allowed scope. Only `id` is supported. Verifiers will consider `id` the default value if `verificationProperty` is omitted or if an issuer Profile has no explicit verification instructions, so it may be safely omitted.
 startsWith | URI fragment string | The URI fragment that the verification property must start with. Valid Assertions must have an `id` within this scope. Multiple values allowed, and Assertions will be considered valid if their `id` starts with one of these values.
-<a id="allowedOrigins"></a>allowedOrigins | URI origin string | the hostname component of allowed origins. Any `id` URI within one of the allowedOrigins will be considered valid.
+<a id="allowedOrigins"></a>allowedOrigins | Array of URI hostname strings | A list of the allowed origins, where each entry is expressed using the <a href="https://tools.ietf.org/html/rfc3986#section-3.2.2">host registered name subcomponent</a> only. Any `id` URI within one of the allowedOrigins will be considered valid.
 
 `HostedVerification` and `SignedVerification` are subclasses of `VerificationObject`. Future subclasses may be developed to indicate instructions for verifying Assertions using different methods, such as blockchain-based procedures.
 
