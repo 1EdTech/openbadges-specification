@@ -7,16 +7,18 @@
      src='../../_respec/respec-ims-default.js'
      class='remove'></script>
     <script class='remove'>
-      var respecConfig = {
+      var respecConfig = {        
         specTitle: "Open Badges Assessment Extension",
+        shortName: "openbadges-assessment",
         specStatus: "IMS Candidate Final",
         specDate: "November 16th, 2017",
+        specNature: "normative",
         specVersion: "1.0",
-        latestVersion: "https://www.imsglobal.org/@@@/",
+        thisURL: "https://www.imsglobal.org/openbadges-assessment/v1p0/",        
+        canonicalURI: "https://www.imsglobal.org/openbadges-assessment/latest/",
         specRevOrder : "First",
-        specSummary: "This extension provides information about single or multiple assessments that would be completed by the recipient as part of the requirements for earning an OpenBadge. There could be multiple assessments of different types for each badge earned. Separate, independent evaluations of a single assessment could result in multiple assessment/evaluation records, all included in a single instance of the extension. Please note that this extension is in draft mode and may not be ready for production.",
         editors: [
-          {name: "Markus Gylling", company: "IMS Global Learning Consortium (Sweden)"},
+          {name: "TBD", company: "TBD"},
           {name: "TBD", company: "TBD (USA)"}
         ],
         cochairs: [
@@ -27,29 +29,60 @@
           {name:"TBD", company:"TBD"},
           {name:"TBD", company:"TBD"}
         ],
+        localBiblio : {
+          "OB-ASSM-CERT": {
+              title: "Open Badges Assessment Extension Certification Guide",
+              href: "https://www.imsglobal.org/openbadges-assessment/v1p0/cert/",
+              publisher: "IMS Global Learning Consortium",
+              "authors": [
+                "First, Last",
+                "First, Last"
+              ]                  
+          }
+        },
+        certGuideBiblioKey: "OB-ASSM-CERT",  
+        overrideCSSLocation : "css/ims-base.css",
+        overrideFixupLocation : "../../_respec/fixup.js",
+        
       };
     </script>
   </head>
   <body>
     <!-- a header is inserted here by the script -->
     <!-- a toc is inserted here by the script -->
-
-      <!-- spec main flow goes here -->
-      <section>
-        <h2>Introduction</h2>
-        <p>This extension provides information about single or multiple
-          assessments that would be completed by the recipient as part of the
-          requirements for earning an OpenBadge. There could be multiple
-          assessments of different types for each badge earned. Separate,
-          independent evaluations of a single assessment could result in
-          multiple assessment/evaluation records, all included in a single
-          instance of the extension. Please note that this extension is in
-          draft mode and may not be ready for production.</p>
+      <section id="abstract">
+        <h2>Abstract</h2>
       </section>
-
+      
+      <section>
+        <h2>Overview</h2>
+        <section class="informative">
+          <h2>Introduction</h2>
+          <p>This extension provides information about single or multiple
+            assessments that would be completed by the recipient as part of the
+            requirements for earning an OpenBadge. There could be multiple
+            assessments of different types for each badge earned. Separate,
+            independent evaluations of a single assessment could result in
+            multiple assessment/evaluation records, all included in a single
+            instance of the extension. Please note that this extension is in
+            draft mode and may not be ready for production.</p>  
+        </section>
+        <section class="informative" id="usecases">                  
+          <h3>Use cases</h3>        
+        </section>  
+        <section id="terminology">
+          <h3>Terminology</h3>
+        </section>  
+        <section id="conformance">
+          <h3>Conformance Statements</h3>
+        </section>
+        
+      </section>      
+      
+      
       <section>
         <h2>Properties</h2>
-        <table>
+        <table class="data">
           <tr><th>Property</th><th>Type</th><th>Value Description</th></tr>
           <tr><td>assessmentDescription</td><td>string</td><td>Description of the single assessment. (required)</td></tr>
           <tr><td>assessmentType</td><td>string</td><td>One of the following keywords: Exam, Performance or Artifact. (required)</td></tr>
@@ -69,7 +102,7 @@
 
       </section>
 
-      <section>
+      <section class="appendix">
         <h2>Examples</h2>
         <section>
           <h3>Single Assessment</h3>
@@ -127,7 +160,26 @@
 
 
       </section>
-
+      <section class="appendix informative" id="revision-history">
+        <h2>Revision History</h2>        
+          <section>
+            <h3>Version History</h3>
+              <table title="Revision History" class="data"
+                summary="Publication history and revision details for this specification.">
+                <thead>
+                  <tr><th>Version No.</th><th>Release Date</th><th>Comments</th></tr>
+                </thead>
+                  <tbody>
+                      <tr>
+                          <td>IMS Candidate Final 1.0</td>
+                          <td>Month XXth, 2018</td>
+                          <td>The Candidate Final release. This declares the 
+                            standard ready for membership review and trial implementation.</td>
+                      </tr>
+                  </tbody>
+              </table>
+           </section>
+        </section>   
     <!-- a footer is inserted by the script -->
   </body>
 </html>
