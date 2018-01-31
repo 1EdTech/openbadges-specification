@@ -93,7 +93,7 @@ Property     | Type        | Value Description
 ### <a id="GeoCoordinates"></a>Geo Location
 _Authors: [Doug Belshaw](http://dougbelshaw.com) and [Kerri Lemoie](https://github.com/kayaelle)_
 
-An extension allowing for the addition of the geographic coordinates associated with a badge object. For example, geolocation could represent where a Badge Class is available, where a badge was earned or the location of an issuer. The required description property allows implementers to be more specific about the reason location is included. The extended value takes
+An extension allowing for the addition of the geographic coordinates associated with a badge object. For example, geolocation could represent where a BadgeClass is available, where a badge Assertion was earned or the location of an issuer. The required description property allows implementers to be more specific about the reason location is included.
 
 <div class="table-wrapper">
 
@@ -101,11 +101,11 @@ Property     | Type        | Value Description
 -------------|-------------|---------
 **@context** | context IRI | [https://w3id.org/openbadges/extensions/geoCoordinatesExtension/context.json](https://w3id.org/openbadges/extensions/geoCoordinatesExtension/context.json)
 **type**    | type IRI array |`['Extension', 'schema:Place' 'extensions:GeoCoordinates']`
-**name** | text | The place's name, if available
+name | text | The place's name, if available
 **description** | text | A description of the location
-**geo** | object | The GeoCoordinates of a location (containing the following properties)
+**geo** | <a href="#GeoCoordinates">GeoCordinates</a> | The GeoCoordinates of a location (containing the following properties)
 
-**GeoCoordinates**:
+<a name="GeoCordinates"></a>**GeoCoordinates**:
 
 Property     | Type        | Value Description
 -------------|-------------|---------
