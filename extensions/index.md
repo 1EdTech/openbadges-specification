@@ -30,7 +30,7 @@ This is a definition of an example extension. If it were a real extension, it wo
 Property     | Type        | Value Description
 -------------|-------------|---------
 **@context** | context IRI | [https://openbadgespec.org/extensions/exampleExtension/context.json](./exampleExtension/context.json)
-**type**    | type IRI array |`['Extension', 'Extensions:ExampleExtension']`
+**type**    | type IRI array |`['Extension', 'extensions:ExampleExtension']`
 **exampleProperty** | string | Any text the implementer likes.
 
 </div>
