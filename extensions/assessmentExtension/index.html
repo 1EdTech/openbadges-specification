@@ -9,23 +9,23 @@
       var respecConfig = {        
         specTitle: "Open Badges Assessment Extension",
         shortName: "openbadges-assessment",
-        specStatus: "First Public Working Draft",
+        specStatus: "Candidate Final",
         specDate: "January 31st, 2018",
         specNature: "normative",
-        specVersion: "1.0",
+        specVersion: "2.0",
         thisURL: "https://openbadgespec.org/extensions/assessmentExtension/",        
         canonicalURI: "https://openbadgespec.org/extensions/assessmentExtension/",
         specRevOrder : "First",
         editors: [
           {name: "TBD", company: "TBD"},
-          {name: "TBD", company: "TBD (USA)"}
+          {name: "TBD", company: "TBD"}
         ],
         cochairs: [
           {name: "TBD", company: "TBD"},
           {name: "TBD", company: "TBD"}
         ],
         contributors: [
-          {name:"Nate Otto", company:"Concentric Sky"}
+          {name:"Nate Otto", company:"Concentric Sky (USA)"}
         ],
         localBiblio : {
           "OB-ASSM-CERT": {
@@ -60,10 +60,20 @@
           <p>This extension provides information about single or multiple assessments that would be completed by the recipient as part of
             the requirements for earning an OpenBadge. There could be multiple assessments of different types for each badge earned. Separate,
             independent evaluations of a single assessment could result in multiple assessment/evaluation records, all included in a single
-            instance of the extension. Please note that this extension is in draft mode and may not be ready for production.</p>  
+            instance of the extension. Please note that this extension is in draft mode and may not be ready for production.</p>
+          <figure>
+            <p><img src="./AssessmentExtension2018-Data-Model-v3.png" alt="A diagram of the relationships between the data classes in this extension"></p>
+            <figcaption>A diagram of the data classes and tree of where to nest the appropriate values in a BadgeClass</figcaption>
+          </figure>
         </section>
         <section class="informative" id="usecases">                  
-          <h3>Use cases</h3>        
+          <h3>Use cases</h3>
+          <ul>
+            <li>Describe an assessment so a potential recipient understands the process.</li>
+            <li>Describe assessment(s) so badge consumers better know what recipients did to earn the badge.</li>
+            <li>Include explicit application information to build an automated application form for the badge.</li>
+            <li>Describe rubrics related to assessment so recipients, assessors, and consumers have a consistent understanding of the criteria for passing the described assessment(s).</li>            
+          </ul>
         </section>
         <section>
           <h3>Extendable Badge Objects</h3>
@@ -232,8 +242,9 @@
             "text": "What are two ways a user can see what URL a link is going to take them to when clicked?"
           },
           {
-            "type": "TextQuestion",
-            "text": "What is the 'browser chrome'?"
+            "type": "FileQuestion",
+            "text": "What is the 'browser chrome'? Take a screenshot cropped to just show some key components of the browser chrome.",
+            "rubricId": "04f28d86-994f-4469-9ad7-3bf9d703a286"
           },
           {
             "type": "TextQuestion",
@@ -242,7 +253,6 @@
             "required": false
           }
         ]
-
       }],
       "rubrics": [{
         "identifier": "04f28d86-994f-4469-9ad7-3bf9d703a286",
@@ -296,7 +306,7 @@
                           <td>Initial proof of concept.</td>
                       </tr>
                       <tr>
-                          <td>First Public Working Draft 2.0</td>
+                          <td>Candidate Final</td>
                           <td>January 31st, 2018</td>
                           <td>Update to include Rubric, Section, and Question</td>
                       </tr>
