@@ -180,13 +180,13 @@ Assertions are representations of an awarded badge, used to share information ab
 | Property | Expected Type | Description
 | -------- | ------------- | -----------
 | **id** | IRI | Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the `urn:uuid` namespace.
-| **type** | JSON-LD type | valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string `Assertion`. An array including `Assertion` and other string elements that are either URLs or compact IRIs within the current context are allowed.
+| **type** | JSON-LD type ([Multiple values allowed](#array))| valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string `Assertion`. An array including `Assertion` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 | <a id="recipient"></a>**recipient** | [IdentityObject](#IdentityObject) | The recipient of the achievement.
 | **badge** | @id: [BadgeClass](#BadgeClass) | IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a [BadgeClass](#BadgeClass).
 | <a id="verify"></a> **verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion. (Alias "verify" may be used in [context](v2/context.json).)
 | <a id="issueDate"></a>**issuedOn** | [DateTime](#dateTime) | Timestamp of when the achievement was awarded.
 | image | @id: [Image](#Image) | IRI or document representing an image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the [Baking specification](./baking/index.html). An 'unbaked' image for the badge is defined in the [BadgeClass](#BadgeClass) and should not be duplicated here.
-| <a id="evidence"></a>evidence | @id: [Evidence](#Evidence) | IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. May be an array of multiple values.
+| <a id="evidence"></a>evidence | @id: [Evidence](#Evidence) ([Multiple values allowed](#array)) | IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. 
 | <a id="narrative"></a>narrative | Text or [Markdown Text](#MarkdownText) | A narrative that connects multiple pieces of evidence. Likely only present at this location if `evidence` is a multi-value array. 
 | <a id="expirationDate"></a>expires | [DateTime](#dateTime) | If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. After this time, the badge should be considered expired.
 | revoked  | Boolean       | Defaults to `false` if Assertion is not referenced from a [`revokedAssertions`](#revokedAssertions) list and may be omitted. See [RevocationList](#RevocationList). If `revoked` is true, only `revoked` and `id` are required properties, and many issuers strip a hosted Assertion down to only those properties when revoked.
@@ -207,14 +207,14 @@ A collection of information about the accomplishment recognized by the Open Badg
 Property | Expected Type | Description
 ---------|---------------|-----------
 **id** | IRI | Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an `id` in another scheme such as `urn:uuid`.
-**type** | JSON-LD type | valid JSON-LD representation of the BadgeClass type. In most cases, this will simply be the string `BadgeClass`. An array including `BadgeClass` and other string elements that are either URLs or compact IRIs within the current context are allowed.
+**type** | JSON-LD type ([Multiple values allowed](#array))| valid JSON-LD representation of the BadgeClass type. In most cases, this will simply be the string `BadgeClass`. An array including `BadgeClass` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 **name** | Text | The name of the achievement.
 **description** | Text | A short description of the achievement.
 **image** | @id: [Image](#Image) | IRI of an image representing the achievement. May be a [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme), or URI where the image may be found.
 <a id="criteria"></a>**criteria** | @id: [Criteria](#Criteria) | URI or embedded criteria document describing how to earn the achievement.
 **issuer** | @id: [Profile](#Profile) | IRI or document describing the individual, entity, or organization that issued the badge.
-alignment | One or more [AlignmentObject](#Alignment)s | An object describing which objectives or educational standards this badge aligns to, if any. May be an array of multiple objects.
-<a id="tags"></a>tags | One or more Text | A tag that describes the type of achievement. May be an array of multiple values.
+alignment | [AlignmentObject](#Alignment) ([Multiple values allowed](#array))| An object describing which objectives or educational standards this badge aligns to, if any.
+<a id="tags"></a>tags | Text ([Multiple values allowed](#array)) | A tag that describes the type of achievement.
 
 </div>
 
@@ -227,7 +227,7 @@ A Profile is a collection of information that describes the entity or organizati
 Property | Expected Type | Description
 ---------|---------------|------------
 **id** | IRI | Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs.
-**type** | JSON-LD type | Valid JSON-LD representation of the Issuer or Profile type. In most cases, this will simply be the string `Issuer` or the more general `Profile`. An array including `Issuer` and other string elements that are either URLs or compact IRIs within the current context are allowed.
+**type** | JSON-LD type ([Multiple values allowed](#array))| Valid JSON-LD representation of the Issuer or Profile type. In most cases, this will simply be the string `Issuer` or the more general `Profile`. An array including `Issuer` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 name | Text | The name of the entity or organization.
 url | IRI | The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP. ([examples](./examples/index.html#SocialMediaUrls)).
 telephone | Text | A phone number for the entity. For maximum compatibility, the value should be expressed as a `+` and country code followed by the number with no spaces or other punctuation, like `+16175551212` ([E.164 format](http://en.wikipedia.org/wiki/E.164)).
@@ -270,10 +270,10 @@ A collection of information allowing an inspector to verify an Assertion. This i
 
 Property | Expected Type | Description
 ---------|---------------|-----------
-**type** | JSON-LD type  | The type of verification method. Supported values for single assertion verification are `HostedBadge` and `SignedBadge` (aliases in [context](v2/context.json) are available: `hosted` and `signed`). For instances used in Profiles, the type `VerificationObject` should be used.
+**type** | JSON-LD type  ([Multiple values allowed](#array))| The type of verification method. Supported values for single assertion verification are `HostedBadge` and `SignedBadge` (aliases in [context](v2/context.json) are available: `hosted` and `signed`). For instances used in Profiles, the type `VerificationObject` should be used.
 verificationProperty | @id | The @id of the property to be used for verification that an Assertion is within the allowed scope. Only `id` is supported. Verifiers will consider `id` the default value if `verificationProperty` is omitted or if an issuer Profile has no explicit verification instructions, so it may be safely omitted.
 startsWith | URI fragment string | The URI fragment that the verification property must start with. Valid Assertions must have an `id` within this scope. Multiple values allowed, and Assertions will be considered valid if their `id` starts with one of these values.
-<a id="allowedOrigins"></a>allowedOrigins | Array of URI hostname strings | A list of the allowed origins, where each entry is expressed using the <a href="https://tools.ietf.org/html/rfc3986#section-3.2.2">host registered name subcomponent</a> only. Any `id` URI within one of the allowedOrigins will be considered valid.
+<a id="allowedOrigins"></a>allowedOrigins | URI hostname string ([Multiple values allowed](#array)) | The <a href="https://tools.ietf.org/html/rfc3986#section-3.2.2">host registered name subcomponent</a> of an allowed origin. Any given `id` URI will be considered valid.
 
 `HostedVerification` and `SignedVerification` are subclasses of `VerificationObject`. Future subclasses may be developed to indicate instructions for verifying Assertions using different methods, such as blockchain-based procedures.
 
@@ -285,7 +285,7 @@ Cryptographically signed Assertions need to declare a verification type of `Sign
 
 Property | Expected Type | Description
 ---------|---------------|-----------
-**type** | JSON-LD type  | The type of verification method: `SignedBadge` (or legacy alias `signed`).
+**type** | JSON-LD type ([Multiple values allowed](#array)) | The type of verification method: `SignedBadge` (or legacy alias `signed`).
 creator  | @id: [CryptographicKey](#CryptographicKey) | The (HTTP) id of the key used to sign the Assertion. If not present, verifiers will check public key(s) declared in the referenced issuer Profile. If a key is declared here, it must be authorized in the issuer Profile as well. `creator` is expected to be the dereferencable URI of a document that describes a [CryptographicKey](#CryptographicKey).
 
 </div>
@@ -300,7 +300,7 @@ If both the `description` and `narrative` properties are present, displayers can
 
 Property | Expected Type | Description
 ---------|---------------|-----------
-type     | JSON-LD Type  | Defaults to [Evidence](#Evidence).
+type     | JSON-LD Type ([Multiple values allowed](#array)) | Defaults to [Evidence](#Evidence).
 id       | IRI           | The URI of a webpage presenting evidence of achievement. 
 narrative | Text or Markdown Text | A narrative that describes the evidence and process of achievement that led to an Assertion.
 name     | Text          | A descriptive title of the evidence.
@@ -320,7 +320,7 @@ Metadata about images that represent Assertions, BadgeClasses or Profiles. These
 
 Property | Expected Type | Description
 ---------|---------------|-----------
-type     | JSON-LD Type: [ImageObject](http://schema.org/ImageObject) | Defaults to schema:ImageObject.
+type     | JSON-LD Type: [ImageObject](http://schema.org/ImageObject) ([Multiple values allowed](#array))| Defaults to schema:ImageObject.
 **id**   | IRI           | The URI or Data URI of the image.
 caption  | Text          | The caption for the image.
 author   | @id: Profile  | The author of the image, if desired.
@@ -337,7 +337,7 @@ Criteria is used to allow would-be recipients to learn what is required of them 
 
 Property  | Expected Type | Description
 ----------|---------------|-----------
-type      | JSON-LD Type  | Defaults to [Criteria](#Criteria).
+type      | JSON-LD Type  ([Multiple values allowed](#array))| Defaults to [Criteria](#Criteria).
 id        | IRI           | The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass.
 narrative | Text or [Markdown Text](#MarkdownText) | A narrative of what is needed to earn the badge. 
 
@@ -374,16 +374,16 @@ An assertion reference may look like `{"id": "https://example.org/1", "revocatio
 
 Property | Expected Type | Description
 ---------|---------------|-----------
-**type** | JSON-LD Type  | `RevocationList`.
+**type** | JSON-LD Type ([Multiple values allowed](#array))| `RevocationList`.
 id       | IRI           | The `id` of the RevocationList.
 issuer   | IRI: Profile  | The `id` of the Issuer.
-<a id="revokedAssertions"></a> **revokedAssertions** | One or more `Assertion`s | A string `id` or UID-based identification of a badge object that has been revoked. May be an array of multiple values.
+<a id="revokedAssertions"></a> **revokedAssertions** | `Assertion` ([Multiple values allowed](#array)) | A string `id` or UID-based identification of a badge object that has been revoked.
 
 **Revoked Assertions referenced by revokedAssertions array:** Properties from [Assertion](#Assertion) in scope for those that have been revoked. Implementers generally only include these properties, clearing out the values that were in place before revocation. An identifying property must be used, either `id` or (legacy) `uid`. If the issuer does not wish to declare a revocation reason or additional metadata, the `id` of the `Assertion` may be included alone either as a single string entry to the list or in an object that defines an `id` property.
 
 Property | Expected Type | Description
 ---------|---------------|-----------
-type     | JSON-LD Type  | Defaults to `Assertion`. May be omitted.
+type     | JSON-LD Type ([Multiple values allowed](#array)) | Defaults to `Assertion`. May be omitted.
 id       | IRI           | The `id` of the revoked Assertion.
 uid      | Text          | Legacy identifier for pre-1.1 badges that did not use an IRI-based `id`.
 <a id="revoked"></a> revoked  | Boolean | `true` if the Assertion is revoked. Defaults to true if present in a `revokedAssertions` list and may be omitted.
@@ -401,7 +401,7 @@ For best compatibility with verification procedures, the `Profile` should be hos
 
 Property | Expected Type | Description
 ---------|---------------|-----------
-type     | JSON-LD Type  | `CryptographicKey`.
+type     | JSON-LD Type ([Multiple values allowed](#array)) | `CryptographicKey`.
 id       | IRI           | The identifier for the key. Most platforms only support HTTP(s) identifiers.
 owner    | IRI: [Profile](#Profile) | The identifier for the Profile that owns this key. There should be a two-way connection between this Profile and the CryptographicKey through the `owner` and `publicKey` properties.
 publicKeyPem | Text      | The PEM key encoding is a widely-used method to express public keys, compatible with almost every Secure Sockets Layer library implementation.
@@ -421,9 +421,9 @@ The `version` property allows issuers to specify a version string or number. It 
 
 Property | Expected Type | Description
 ---------|---------------|-----------
-related  | @id           | Identifies related versions of the entity.
+related  | @id ([Multiple values allowed](#array)) | Identifies a related version of the entity.
 version  | Text or Number | The version identifier for the present edition of the entity.
-endorsement | @id: [Endorsement](#Endorsement) | Relevant endorsement(s) that make claims about this entity. Note: As endorsements must be published after the publication of the entity they endorse, it will not always be possible to establish a two-way linkage with this property.
+endorsement | @id: [Endorsement](#Endorsement) [Multiple values allowed](#array)) | A claim made about this entity. Note: As endorsements must be published after the publication of the entity they endorse, it will not always be possible to establish a two-way linkage with this property.
 
 </div>
 
@@ -455,7 +455,7 @@ Extension authors define and host a new [JSON-LD](http://json-ld.org) context fi
 Property | Expected Type | Description
 --------|------------|-----------
 **@context** | URL | JSON-LD context file shared among all implementations of the extension.
-**type** | array of IRIs | IRIs or compact IRIs within the OBI or extension context that describe the type of data contained in the extension. These are used to map optional JSON-schema validation to the extension. Must include 'extension' as one element.
+**type** | IRI ([Multiple values allowed](#array)) | IRI or compact IRI within the OBI or extension context that describe the type of data contained in the extension. The IRI is used to map optional JSON-schema validation to the extension. Must include 'extension' as one element.
 \*anyProperties | Any | Any property names defined in the extension context may be used with any valid JSON value. 
 
 </div>
@@ -468,7 +468,7 @@ See [example extensions](./extensions/index.html).
 
 ### Extension Validation <a id="validation"></a>
 
-Open Badges v1.1 implements an optional JSON-schema based mechanism of ensuring badge objects conform to syntactic requirements of the specification. JSON-schema can ensure that required properties exist and that expected data types are used. From the [context](./v1/context.json)s for badge objects and extensions, a `validation` array may contain links to various JSON-schema against which badge objects may be tested. There are two proposed methods of specifying which component of a badge object should be matched against the JSON-schema validator: TypeValidation and FrameValidation. As of 1.1, only TypeValidation is implemented.
+Open Badges v1.1 implements an optional JSON-schema based mechanism of ensuring badge objects conform to syntactic requirements of the specification. JSON-schema can ensure that required properties exist and that expected data types are used. From the [context](./v1/context.json)s for badge objects and extensions, a `validation` [array](#array) may contain links to various JSON-schema against which badge objects may be tested. There are two proposed methods of specifying which component of a badge object should be matched against the JSON-schema validator: TypeValidation and FrameValidation. As of 1.1, only TypeValidation is implemented.
 
 For example, this portion of the current Open Badges context links to a validator for Assertions. It indicates through TypeValidation that it should be run against JSON objects with the JSON-LD type of `Assertion` ([https://w3id.org/openbadges#Assertion]).
 {% highlight json %}
@@ -493,7 +493,7 @@ Validators using the TypeValidation method match the schema indicated by the val
 
 Property | Expected Type | Description/expected value
 --------|------------|-----------
-**type** | string/compact IRI | `TypeValidation`.
+**type** | string/compact IRI ([Multiple values allowed](#array)) | `TypeValidation`.
 **validatesType** | string/compact IRI | Valid JSON-LD type for a badge component, such as `Assertion`, `extensions:ApplyLink`, or `https://w3id.org/openbadges/extensions#ApplyLink`. Compact forms preferred.
 **validationSchema** | URL | Location of a hosted JSON-schema.
 
@@ -516,7 +516,7 @@ The `Endorsement` Class is very similar to `Assertion`, except that there is no 
 Property | Expected Type | Description/expected value
 ---------|---------------|-----------
 **id**   | IRI           | Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.
-**type** | JSON-LD Type  | `Endorsement`, a subclass of VCTF's Credential.
+**type** | JSON-LD Type ([Multiple values allowed](#array)) | `Endorsement`, a subclass of VCTF's Credential.
 **claim**    | @id           | An entity, identified by an `id` and additional properties that the endorser would like to claim about that entity.
 **issuer** | @id: Profile | The profile of the Endorsement's issuer.
 **issuedOn** | [DateTime](#dateTime) | Timestamp of when the endorsement was published.
@@ -572,7 +572,7 @@ If a property would be useful beyond a publisher's internal use, an [Extension](
 
 * <a id="boolean">Boolean</a> - A JSON boolean value as defined in [RFC4627](https://www.ietf.org/rfc/rfc4627.txt))
 * <a id="text">Text</a> - A JSON string value as defined in [RFC4627](https://www.ietf.org/rfc/rfc4627.txt))
-* <a id="array">Array</a> - A JSON array as defined in [RFC4627](https://www.ietf.org/rfc/rfc4627.txt))
+* <a id="array">Array</a> - A JSON array as defined in [RFC4627](https://www.ietf.org/rfc/rfc4627.txt)). Arrays are used for all properties where multiple values are allowed when multiple values are used. Each entry in the array must match the type requirement specified for that property.
 * <a id="dateTime"></a>DateTime - Open Badges must express timestamps as strings compatible with [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) guidelines, including the time and a time zone indicator. It is recommended to publish all timestamps in UTC. Previous versions of Open Badges allowed Unix timestamps as integers. Open Badges v2.0 requires string ISO 8601 values with time zone indicators. For example, `2016-12-31T23:59:59+00:00` is a valid ISO 8601 timestamp. It contains the year, month, day, `T` separator, hour number 0-23, minute, optional seconds and decimal microsecond, and a time zone indicator (+/- an offset from UTC or the `Z` designator for UTC).
 * URL - Fully qualified URL, including protocol, host, port if applicable, and path. Interpreters are only expected to interpret URLs in either the `http` or `https` schemes.
 * IRI - In JSON-LD and Linked Data, IRIs (Internationalized Resource Identifiers) may look like fully qualified URLs or be namespaced within the JSON-LD context to be expanded to a full IRI. The only known supported IRI schemes are `http` and `https`.
