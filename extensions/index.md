@@ -260,12 +260,16 @@ This extension is located at [https://www.imsglobal.org/ims-badge-extensions-edu
 
 
 
-### <a id="Assessment"></a> Assessment 
+### <a id="AssessmentExtension"></a> Assessment 
 _Author: [IMS Global](https://github.com/imsglobal)_
 
-This extension is located at [https://www.imsglobal.org/ims-badge-extensions-education](https://www.imsglobal.org/ims-badge-extensions-education)
+This extension allows issuers to embed metadata about assessment(s) performed in the badge awarding process, potentially including some questions and related rubric data.
+See [documentation](./assessmentExtension)
 
+### <a id="ExtraDescriptionExtension"></a> Extra Description
+_Author: [Nate Otto](http://ottonomy.net)_
 
+The Extra Description Extension allows issuers to add additional markdown-formatted descriptive fields to a BadgeClass or Issuer Profile. Each section has a name and a narrative. See [documentation](./extraDescription)
 
 
 # xAPI Integration
