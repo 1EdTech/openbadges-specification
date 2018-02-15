@@ -1,26 +1,226 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "Assessment",
   "description": "This extension provides information about single or multiple assessments that would be completed by the recipient as part of the requirements for earning an OpenBadge. There could be multiple assessments of different types for each badge earned. Separate, independent evaluations of a single assessment could result in multiple assessment/evaluation records, all included in a single instance of the extension. ",
-  "type": "object",
-  "properties": {
-    "overallDescription": {
-      "description": " A description of how the assessment activity is organized, particularly describing the relationship between multiple assessments included in the extension.",
-      "type": "string"
+  "definitions": {
+    "Rubric": {
+      "description": "A guide for assessment of work presented as edivence for completion of a badge.",
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "description": "The data-type for establishing a Globally Unique Identifier (GUID). The form of the GUID is a Universally Unique Identifier (UUID) of 16 hexadecimal characters (lower case) in the format 8-4-4-4-12. All permitted versions (1-5) and variants (1-2) are supported.",
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "title": {
+          "description": "The name of the Rubric",
+          "type": "string"
+        },
+        "lastChangeDateTime": {
+          "description": "Timestamp of last revision. Open Badges DateTime rules should be observed, requiring full datetime with timezone or UTC indicator.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "caseUri": {
+          "description": "An unambiguous reference to this item using a network-resolvable URI that serves CASE-compliant data.",
+          "type": "string",
+          "format": "uri"
+        },
+        "rubricCriteria": {
+          "oneOf": [{
+            "$ref": "#/definitions/RubricCriterion"
+          }, {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/RubricCriterion"
+            }
+          }]
+        }
+      },
+      "required": ["identifier", "rubricCriteria", "title"]
     },
-    "assessment": {
-      "type":"array",
-      "items": {
+    "RubricCriterion": {
+      "description": "An objective to measure with the rubric. Usually represented as a table row.",
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "description": "The data-type for establishing a Globally Unique Identifier (GUID). The form of the GUID is a Universally Unique Identifier (UUID) of 16 hexadecimal characters (lower case) in the format 8-4-4-4-12. All permitted versions (1-5) and variants (1-2) are supported.",
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "lastChangeDateTime": {
+          "description": "Optional, timestamp of last revision. Open Badges DateTime rules should be observed, requiring full datetime with timezone or UTC indicator.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "caseUri": {
+          "description": "An unambiguous reference to this item using a network-resolvable URI that serves CASE-compliant data.",
+          "type": "string",
+          "format": "uri"
+        },
+        "category": {
+          "description": "A textual label for category by which criteria may be grouped.",
+          "type": "string"
+        },
+        "description": {
+          "description": "A human readable description of the criterion",
+          "type": "string"
+        },
+        "weight": {
+          "description": "A numeric weight assigned to this criterion, used for scored rubrics.",
+          "type": "number"
+        },
+        "position": {
+          "description": "A numeric value representing this criterion's position in the criteria list for this rubric. Integer.",
+          "type": "number"
+        },
+        "criterionLevels": {
+          "oneOf": [{
+              "$ref": "#/definitions/RubricCriterionLevel"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RubricCriterionLevel"
+              }
+            }
+          ]
+        }
+      },
+      "required": ["identifier"]
+    },
+    "RubricCriterionLevel": {
+      "description": "A level of achievement on a particular criterion. Usually represented as a cell in a table.",
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "description": "The data-type for establishing a Globally Unique Identifier (GUID). The form of the GUID is a Universally Unique Identifier (UUID) of 16 hexadecimal characters (lower case) in the format 8-4-4-4-12. All permitted versions (1-5) and variants (1-2) are supported.",
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "lastChangeDateTime": {
+          "description": "Optional, timestamp of last revision. Open Badges DateTime rules should be observed, requiring full datetime with timezone or UTC indicator.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "caseUri": {
+          "description": "An unambiguous reference to this item using a network-resolvable URI that serves CASE-compliant data.",
+          "type": "string",
+          "format": "uri"
+        },
+        "quality": {
+          "description": "A qualitative description of this degree of achievement used for column headers or row labels in tabular rubrics.",
+          "type": "string"
+        },
+        "score": {
+          "description": "The number of points awarded for achieving this level.",
+          "type": "number"
+        },
+        "description": {
+          "description": "A human readable description of the criterion level. Typically rendered as the content of a rubric cell.",
+          "type": "string"
+        },
+        "position": {
+          "description": "A numeric value representing this level's position in the list of levels for this criterion. Integer.",
+          "type": "number"
+        },
+        "feedback": {
+          "description": "Pre-defined feedback text to be relayed to the person or organization being evaluated. This may include guidance and suggestions for improvement or development.",
+          "type": "string"
+        }
+      },
+      "required": ["identifier", "description"]
+    },
+    "Section": {
+      "description": "A set of questions that make up part of an assessment",
+      "type": "object",
+      "properties": {
+        "questions": {
+          "oneOf": [{
+              "$ref": "#/definitions/Question"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Question"
+              }
+            }
+          ]
+        },
+        "title": {
+          "description": "The name of the section.",
+          "type": "string"
+        },
+        "description": {
+          "description": "A short description of the section.",
+          "type": "string"
+        },
+        "rubricId": {
+          "description": "A pointer to a Rubric or RubricCriterion defined elsewhere in the extension related to this section, by its UUID-formatted identifier",
+          "type": "string"
+        },
+        "url": {
+          "description": "An external URL that represents this section",
+          "type": "string",
+          "format": "uri"
+        },
+        "required": {
+          "description": "Indicates whether this section is required to be completed. If false, no questions in this section should be considered required.",
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "required": []
+    },
+    "Question": {
+      "description": "A question that may be asked as part of an assessment",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "Identifies the type of question that this is, a hint for how it should be displayed. More question types may be added later.",
+          "type": "string",
+          "enum": ["ExternalQuestion", "FileQuestion", "TextQuestion"]
+        },
+        "text": {
+          "description": "The actual text of the question that should be presented to the assessment subject",
+          "type": "string"
+        },
+        "rubricId": {
+          "description": "A pointer to a Rubric or RubricCriterion defined elsewhere in the extension related to this question, by its UUID-formatted identifier",
+          "type": "string"
+        },
+        "url": {
+          "description": "An external URL that represents this question.",
+          "type": "string",
+          "format": "uri"
+        },
+        "required": {
+          "description": "Indicates whether this question is required to be completed.",
+          "type": "boolean",
+          "default": true
+        },
+        "wordLimit": {
+          "description": "For TextQuestions, specifies a maximum length in words that may be enforced as a suggestion or requirement, depending on the application.",
+          "type": "number"
+        },
+        "characterLimit": {
+          "desccription": "For TextQuestions, specifies a maximium length in characters that may be enforced as a suggestion or requirement, depending on the application.",
+          "type": "number"
+        }
+      },
+      "required": ["type", "text"]
+    },
+    "AssessmentObject": {
         "type": "object",
         "properties": {
-          "assessmentDescription": {
+          "description": {
             "description": " A description of the assessment.",
             "type": "string"
           },
-          "assessmentType": {
-            "description": "The method used to conduct the assessment being referenced. Values are Exam, Performance or Artifact.",
+          "type": {
+            "description": "The method used to conduct the assessment being referenced. Allowed values are Exam, Performance or Artifact.",
             "type": "string",
-            "pattern": "^(Exam|Performance|Artifact)$"
+            "enum": ["Exam", "Performance", "Artifact"]
           },
           "assessmentOutput": {
             "description": "This field provides additional details about assessmentType. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge.",
@@ -51,11 +251,54 @@
             "description": "Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods.",
             "type": "string",
             "format": "uri"
+          },
+          "rubrics": {
+            "oneOf": [{
+                "$ref": "#/definitions/Rubric"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Rubric"
+                }
+              }
+            ]
+          },
+          "sections": {
+            "oneOf": [{
+                "$ref": "#/definitions/Section"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Section"
+                }
+              }
+            ]
           }
         },
-        "required": ["assessmentDescription","assessmentType","assessmentOutput","hasGroupParticipation","hasGroupEvaluation","evaluationMethod"]
-      }
+        "required": ["description", "assessmentType", "assessmentOutput", "hasGroupParticipation", "hasGroupEvaluation", "evaluationMethod"]
     }
   },
-  "required": ["overallDescription", "assessment"]
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": " A description of how the assessment activity is organized, particularly describing the relationship between multiple assessments included in the extension.",
+      "type": "string"
+    },
+    "assessments": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AssessmentObject"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AssessmentObject"
+          }
+        }
+      ]
+    }
+  },
+  "required": ["description", "assessments"]
 }

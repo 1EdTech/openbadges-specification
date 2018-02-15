@@ -3,22 +3,52 @@
     "obi": "https://w3id.org/openbadges#",
     "extensions": "https://w3id.org/openbadges/extensions#",
     "schema": "http://schema.org/",
-    "overallDescription": "extensions:assessmentOverallDescription",
-    "assessment": "extensions:assessmentArray",
-    "assessmentDescription": "extensions:assessmentDescription",
-    "assessmentType": "extensions:assessmentType",
-    "assessmentOutput": "extensions:assessmentOutput",
-    "hasGroupParticipation": "extensions:assessmentHasGroupParticipation",
-    "hasGroupEvaluation": "extensions:assessmentHasGroupEvaluation",
-    "evaluationMethod": "extensions:assessmentEvaluationMethod",
+    "case": "https://purl.imsglobal.org/case/vocab/#",
+
+    "Artifact": "extensions:AssessmentExtensionArtifact",
+    "Exam": "extensions:AssessmentExtensionExam",
+    "ExternalQuestion": "extensions:AssessmentExtensionExternalQuestion",
+    "FileQuestion": "extensions:AssessmentExtensionFileQuestion",
+    "Performance": "extensions:AssessmentExtensionPerformance",
+    "TextQuestion": "extensions:AssessmentExtensionTextQuestion",
+
+    "assessmentEvaluation": "extensions:assessmentEvaluation",
     "assessmentExample": "extensions:assessmentExample",
+    "assessmentOutput": "extensions:assessmentOutput",
+    "assessments": "extensions:assessments",
+        "assessment": "assessments",
+    "assessmentType": "@type",
+    "caseUri": "case:uri",
+    "category": "case:category",
+    "characterLimit": "extensions:assessmentCharacterLimit",
+    "criterionLevels": "case:CFRubricCriterionLevels",
+    "description": "case:description",
+        "assessmentDescription": "description",
+        "overallDescription": "description",
+    "evaluationMethod": "extensions:assessmentEvaluationMethod",
+    "hasGroupEvaluation": "extensions:assessmentHasGroupEvaluation",
+    "hasGroupParticipation": "extensions:assessmentHasGroupParticipation",
+    "identifier": "case:identifier",
+    "lastChangeDateTime": "case:lastChangeDateTime",
+    "position": "case:position",
+    "quality": "case:quality",
+    "questions": "extensions:assessmentQuestions",
+    "required": "extensions:assessmentRequired",
+    "rubricCriteria": "case:CFRubricCriteria",
+    "rubricId": "case:rubricId",
+    "rubrics": "case:rubrics",
+    "sections": "extensions:assessmentSections",
+    "score": "case:score",
     "scoringMethodExampleDescription": "extensions:assessmentScoringMethodExampleDescription",
-    "assessmentEvaluation": "extensions:assessmentEvaluation"
+    "text": "schema:text",
+    "title": "case:title",
+    "weight": "case:weight",
+    "wordLimit": "extensions:assessmentWordLimit"
   },
   "obi:validation": [
     {
-      "obi:validatesType": "extensions:Assessment",
-      "obi:validationSchema": "https://openbadgespec.org/extensions/assessmentExtension/schema.json"
+      "obi:validatesType": "extensions:AssessmentExtension",
+      "obi:validationSchema": "https://w3id.org/openbadges/extensions/assessmentExtension/schema.json"
     }
   ]
 }

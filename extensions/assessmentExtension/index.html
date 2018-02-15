@@ -4,30 +4,28 @@
     <meta charset='utf-8'>
     <title>This text will be replaced by the script (config.specTitle)</title>
     <script
-     src='../../_respec/respec-ims-default.js'
-     class='remove'></script>
+     src='../../javascripts/respec-ims-default.js' class='remove'></script>
     <script class='remove'>
       var respecConfig = {        
         specTitle: "Open Badges Assessment Extension",
         shortName: "openbadges-assessment",
-        specStatus: "IMS Candidate Final",
-        specDate: "November 16th, 2017",
+        specStatus: "Candidate Final",
+        specDate: "January 31st, 2018",
         specNature: "normative",
-        specVersion: "1.0",
-        thisURL: "https://www.imsglobal.org/openbadges-assessment/v1p0/",        
-        canonicalURI: "https://www.imsglobal.org/openbadges-assessment/latest/",
+        specVersion: "2.0",
+        thisURL: "https://openbadgespec.org/extensions/assessmentExtension/",        
+        canonicalURI: "https://openbadgespec.org/extensions/assessmentExtension/",
         specRevOrder : "First",
         editors: [
           {name: "TBD", company: "TBD"},
-          {name: "TBD", company: "TBD (USA)"}
+          {name: "TBD", company: "TBD"}
         ],
         cochairs: [
           {name: "TBD", company: "TBD"},
           {name: "TBD", company: "TBD"}
         ],
         contributors: [
-          {name:"TBD", company:"TBD"},
-          {name:"TBD", company:"TBD"}
+          {name:"Nate Otto", company:"Concentric Sky (USA)"}
         ],
         localBiblio : {
           "OB-ASSM-CERT": {
@@ -42,7 +40,7 @@
         },
         certGuideBiblioKey: "OB-ASSM-CERT",  
         overrideCSSLocation : "css/ims-base.css",
-        overrideFixupLocation : "../../_respec/fixup.js",
+        overrideFixupLocation : "../../javascripts/fixup.js",
         
       };
     </script>
@@ -52,23 +50,34 @@
     <!-- a toc is inserted here by the script -->
       <section id="abstract">
         <h2>Abstract</h2>
+        An extension to Open Badges that allows issuers to define assessment(s) related to the award process.
       </section>
       
       <section>
         <h2>Overview</h2>
         <section class="informative">
           <h2>Introduction</h2>
-          <p>This extension provides information about single or multiple
-            assessments that would be completed by the recipient as part of the
-            requirements for earning an OpenBadge. There could be multiple
-            assessments of different types for each badge earned. Separate,
-            independent evaluations of a single assessment could result in
-            multiple assessment/evaluation records, all included in a single
-            instance of the extension. Please note that this extension is in
-            draft mode and may not be ready for production.</p>  
+          <p>This extension provides information about single or multiple assessments that would be completed by the recipient as part of
+            the requirements for earning an OpenBadge. There could be multiple assessments of different types for each badge earned. Separate,
+            independent evaluations of a single assessment could result in multiple assessment/evaluation records, all included in a single
+            instance of the extension. Please note that this extension is in draft mode and may not be ready for production.</p>
+          <figure>
+            <p><img src="./AssessmentExtension2018-Data-Model-v3.png" alt="A diagram of the relationships between the data classes in this extension"></p>
+            <figcaption>A diagram of the data classes and tree of where to nest the appropriate values in a BadgeClass</figcaption>
+          </figure>
         </section>
         <section class="informative" id="usecases">                  
-          <h3>Use cases</h3>        
+          <h3>Use cases</h3>
+          <ul>
+            <li>Describe an assessment so a potential recipient understands the process.</li>
+            <li>Describe assessment(s) so badge consumers better know what recipients did to earn the badge.</li>
+            <li>Include explicit application information to build an automated application form for the badge.</li>
+            <li>Describe rubrics related to assessment so recipients, assessors, and consumers have a consistent understanding of the criteria for passing the described assessment(s).</li>            
+          </ul>
+        </section>
+        <section>
+          <h3>Extendable Badge Objects</h3>
+          <p><code>BadgeClass</code></p>
         </section>  
         <section id="terminology">
           <h3>Terminology</h3>
@@ -82,81 +91,202 @@
       
       <section>
         <h2>Properties</h2>
-        <table class="data">
-          <tr><th>Property</th><th>Type</th><th>Value Description</th></tr>
-          <tr><td>assessmentDescription</td><td>string</td><td>Description of the single assessment. (required)</td></tr>
-          <tr><td>assessmentType</td><td>string</td><td>One of the following keywords: Exam, Performance or Artifact. (required)</td></tr>
-          <tr><td>assessmentOutput</td><td>string</td><td>This field provides additional details about assessmentType. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge. (required)</td></tr>
-          <tr><td>hasGroupParticipation</td><td>boolean</td><td>Completing the assessment activity being referenced requires two or more participants. (required)</td></tr>
-          <tr><td>hasGroupEvaluation</td><td>boolean</td><td>Participants in the assessment activity being referenced are scored as a group.(required)</td></tr>
-          <tr><td>evaluationMethod</td><td>string</td><td>Information about how the assessment is scored. What do the scores represent in a range of scores? If a rubric was used, what are the score ranges for each criteria?</td></tr>
-          <tr><td>assessmentExample</td><td>string, uri</td><td>An example based on the assessment type.</td></tr>
-          <tr><td>scoringMethodExampleDescription</td><td>string</td><td>The text of an example of the method or tool used to score the assessment.</td></tr>
-          <tr><td>assessmentEvaluation</td><td>string, uri</td><td>Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods.</td></tr>
-        </table>
+        <p>This extension has a more deeply nested data structure than many other available extensions. At the top level is a very simple AssessmentExtension object that contains an overall description and one or more detailed assessment descriptors.</p>
+        <section>
+          <h3>Assessment Extension Properties</h3>
+          <table class="data">
+            <tr><th>Property</th><th>Type</th><th>Value Description</th></tr>
+            <tr><td>@context</td><td>IRI</td><td><code>https://openbadgespec.org/extensions/assessmentExtension/context.json</code> (required)</td></tr>
+            <tr><td>type</td><td>JSON-LD Type Array</td><td><code>["Extension", "extensions:AssessmentExtension"]</code> (required)</td></tr>
+            <tr><td>description</td><td>string</td><td>A short overall description of the assessment(s). (required)</td></tr>
+            <tr><td id="assessments">assessments</td><td><a href="#class-AssessmentObject">AssessmentObject</a></td><td>Detailed information about the assessment(s) that may be administered. (required, multiple allowed)</td></tr>
+          </table>
+        </section>
+
+        <section id="class-AssessmentObject">
+          <h3>AssessmentObject Properties</h3>
+          <table class="data">
+            <tr><th>Property</th><th>Type</th><th>Value Description</th></tr>
+            <tr><td>description</td><td>string</td><td>Description of the single assessment. (required)</td></tr>
+            <tr><td>type</td><td>IRI</td><td>One of the following type identifiers defined in the extension context: Exam, Performance or Artifact. (required)</td></tr>
+            <tr><td id="assessmentOutput">assessmentOutput</td><td>string</td><td>This field provides additional details about assessment type. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge. (required)</td></tr>
+            <tr><td id="assessmentHasGroupParticipation">hasGroupParticipation</td><td>boolean</td><td>Completing the assessment activity being referenced requires two or more participants. (required)</td></tr>
+            <tr><td id="assessmentHasGroupEvaluation">hasGroupEvaluation</td><td>boolean</td><td>Participants in the assessment activity being referenced are scored as a group. (required)</td></tr>
+            <tr><td id="assessmentEvaluationMethod">evaluationMethod</td><td>string</td><td>Information about how the assessment is scored. What do the scores represent in a range of scores? If a rubric was used, what are the score ranges for each criteria?</td></tr>
+            <tr><td id="assessmentExample">assessmentExample</td><td>string (URI)</td><td>An example based on the assessment type.</td></tr>
+            <tr><td id="scoringMethodExampleDescription">scoringMethodExampleDescription</td><td>string</td><td>The text of an example of the method or tool used to score the assessment.</td></tr>
+            <tr><td id="assessmentEvaluation">assessmentEvaluation</td><td>string (URI)</td><td>Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods.</td></tr>
+            <tr><td id="assessmentSections">sections</td><td><a href="#class-Section">Section</a></td><td>A listing of sections, each with questions, that make up the assessment. Typically included if the issuer wishes to make available applications for the badge. (multiple allowed)</td></tr>
+            <tr><td>rubrics</td><td><a href="#class-Rubric">Rubric</a></td><td>Rubrics associated with this badge that an issuer wishes to include, typically so they may be displayed across multiple platforms where the badges appear. A rubric included here may be referenced by sections or questions within those sections. (multiple allowed)</td></tr>
+          </table>
+        </section>
+
+        <section id="class-Section">
+          <h3>Section Properties</h3>
+          <table class="data">
+            <tr><th>Property</th><th>Type</th><th>Value Description</th></tr>
+            <tr><td>title</td><td>string</td><td>The name of the section.</td></tr>
+            <tr><td>description</td><td>string</td><td>A short description of the section.</td></tr>
+            <tr><td id="assessmentQuestions">questions</td><td><a href="#class-Question">Question</a></td><td>The questions that make up this section. (multiple allowed)</td></tr>
+            <tr><td id="assessmentRequired">required</td><td>string</td><td>Indicates whether this section is considered to be required for completion of the assessment. Default: true.</td></tr>
+            <tr><td>url</td><td>string (URI)</td><td>An external URL that represents this section.</td></tr>
+            <tr><td>rubricId</td><td>string</td><td>A pointer to a Rubric or RubricCriterion related to this section, its UUID-formatted identifier. This should match the identifier property of a rubric defined elsewhere in the extension.</td></tr>
+          </table>
+        </section>
+
+        <section id="class-Question">
+          <h3>Question Properties</h3>
+          <table class="data">
+            <tr><th>Property</th><th>Type</th><th>Value Description</th></tr>
+            <tr><td>type</td><td>IRI</td><td>The type of question. One of the following type identifiers defined in the extension context: ExternalQuestion, FileQuestion or TextQuestion. (required)</td></tr>
+            <tr><td>text</td><td>string</td><td>The actual text of the question. (required)</td></tr>
+            <tr><td>required</td><td>string</td><td>Indicates whether this question is considered to be required for completion of the section. Default: true.</td></tr>
+            <tr><td id="assessmentWordLimit">wordLimit</td><td>number</td><td>For TextQuestions, specifies a maximum length in words that may be enforced as a suggestion or requirement, depending on the application.</td></tr>
+            <tr><td id="assessmentCharacterLimit">characterLimit</td><td>number</td><td>For TextQuestions, specifies a maximum length in characters that may be enforced as a suggestion or requirement, depending on the application.</td></tr>
+            <tr><td>url</td><td>string (URI)</td><td>An external URL that represents this question.</td></tr>
+            <tr><td>rubricId</td><td>string</td><td>A pointer to a Rubric related to this question, its UUID-formatted identifier. This should match the identifier property of a rubric defined elsewhere in the extension.</td></tr>
+          </table>
+        </section>
+
+        <section id="class-Rubric">
+          <h3>Rubric Properties</h3>
+          <table class="data">
+            <tr><th>Property</th><th>Type</th><th>Value Description</th></tr>
+            <tr><td>identifier</td><td>string (UUID)</td><td>A unique identifier for the Rubric. The form of the GUID is a Universally Unique Identifier (UUID) of 16 hexadecimal characters (lower case) in the format 8-4-4-4-12. All permitted versions (1-5) and variants (1-2) are supported. (required)</td></tr>
+            <tr><td>title</td><td>string</td><td>The name of the Rubric. (required)</td></tr>
+            <tr><td>rubricCriteria</td><td><a href="#class-RubricCriterion">RubricCriterion</a></td><td>The objective(s) to measure with the rubric. Usually represented as a table row. (required, multiple allowed)</td></tr>
+            <tr><td>caseUri</td><td>string (URI)</td><td>An unambiguous reference to this item using a network-resolvable URI that serves CASE-compliant data.</td></tr>
+            <tr><td>lastChangeDateTime</td><td>string (DateTime)</td><td>Timestamp of last revision. Open Badges DateTime rules should be observed, requiring full datetime with timezone or UTC indicator.</td></tr>
+          </table>
+        </section>
+
+        <section id="class-RubricCriterion">
+          <h3>RubricCriterion Properties</h3>
+          <table class="data">
+            <tr><th>Property</th><th>Type</th><th>Value Description</th></tr>
+            <tr><td>identifier</td><td>string (UUID)</td><td>A unique identifier for the RubricCriterion. The form of the GUID is a Universally Unique Identifier (UUID) of 16 hexadecimal characters (lower case) in the format 8-4-4-4-12. All permitted versions (1-5) and variants (1-2) are supported. (required)</td></tr>
+            <tr><td>description</td><td>string</td><td>A short description of the criterion.</td></tr>
+            <tr><td>criterionLevels</td><td><a href="#class-RubricCriterionLevel">RubricCriterionLevel</a></td><td>A level of achievement on a particular criterion. Usually represented as a cell in a table. (required, multiple allowed)</td></tr>
+            <tr><td>caseUri</td><td>string (URI)</td><td>An unambiguous reference to this item using a network-resolvable URI that serves CASE-compliant data.</td></tr>
+            <tr><td>lastChangeDateTime</td><td>string (DateTime)</td><td>Timestamp of last revision. Open Badges DateTime rules should be observed, requiring full datetime with timezone or UTC indicator.</td></tr>
+            <tr><td>category</td><td>string</td><td>A textual label for category by which criteria may be grouped.</td></tr>
+            <tr><td>weight</td><td>number</td><td>A numeric weight assigned to this criterion, used for scored rubrics.</td></tr>
+            <tr><td>position</td><td>number (Integer)</td><td>A numeric value representing this criterion's position in the criteria list for this rubric.</td></tr>
+          </table>
+        </section>
+
+        <section id="class-RubricCriterionLevel">
+          <h3>RubricCriterionLevel Properties</h3>
+          <table class="data">
+            <tr><th>Property</th><th>Type</th><th>Value Description</th></tr>
+            <tr><td>identifier</td><td>string (UUID)</td><td>A unique identifier for the RubricCriterionLevel. The form of the GUID is a Universally Unique Identifier (UUID) of 16 hexadecimal characters (lower case) in the format 8-4-4-4-12. All permitted versions (1-5) and variants (1-2) are supported. (required)</td></tr>
+            <tr><td>quality</td><td>string</td><td>A qualitative description of this degree of achievement used for column headers or row labels in tabular rubrics. This typically matches exactly across multiple criteria in a rubric to enable rendering as a unified table.</td></tr>
+            <tr><td>description</td><td>string</td><td>A human readable description of the criterion level. Typically rendered as the content of a rubric cell. (required)</td></tr>
+            <tr><td>caseUri</td><td>string (URI)</td><td>An unambiguous reference to this item using a network-resolvable URI that serves CASE-compliant data.</td></tr>
+            <tr><td>lastChangeDateTime</td><td>string (DateTime)</td><td>Timestamp of last revision. Open Badges DateTime rules should be observed, requiring full datetime with timezone or UTC indicator.</td></tr>
+            <tr><td>score</td><td>number</td><td>The number of points awarded for achieving this level.</td></tr>
+            <tr><td>position</td><td>number (Integer)</td><td>A numeric value representing this level's position in the list of levels for this criterion. Integer.</td></tr>
+            <tr><td>feedback</td><td>string</td><td>Pre-defined feedback text to be relayed to the person or organization being evaluated. This may include guidance and suggestions for improvement or development.</td></tr>
+          </table>
+        </section>
+      </section>
+
+    <section class="appendix">
+      <h2>Examples</h2>
+      <section>
+        <h3>A Simple Single Assessment</h3>
+<pre><code>
+{
+  "extensions:assessmentExtension": {
+    "@context":"https://openbadgespec.org/extensions/assessmentExtension/context.json",
+    "type": ["Extension", "extensions:AssessmentExtension"],
+    "description": "A written evaluation based on a simulation of a medical procedure.",
+    "assessments": [
+      {
+        "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
+        "type": "Artifact",
+        "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
+        "hasGroupParticipation": false,
+        "hasGroupEvaluation": false,
+        "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
+        "assessmentExample": "http://placeholderurl.com",
+        "scoringMethodExampleDescription": "Placeholder text",
+        "assessmentEvaluation": "http://placeholderurl.com"
+      }
+    ]
+  }
+}
+</code></pre>
       </section>
 
       <section>
-        <h2>Extendable Badge Objects</h2>
-        <p><code>BadgeClass</code></p>
-
+        <h3>An Assessment with Questions and a Rubric</h3>
+<pre><code>
+{
+  "extensions:assessmentExtension": {
+    "@context": "https://openbadgespec.org/extensions/assessmentExtension/context.json",
+    "type": ["Extension", "extensions:AssessmentExtension"],
+    "description": "A rubric-based evaluation of Web Browser Skills",
+    "assessments": [{
+      "description": "An assessment of celerity with a web browser",
+      "type": "Artifact",
+      "evaluationMethod": "Rubric-based evaluation",
+      "assessmentOutput": "Written responses and screenshots",
+      "hasGroupParticipation": false,
+      "hasGroupEvaluation": false,
+      "sections": [{
+        "title": "Section One: Intro",
+        "description": "Show some knowledge of important facets of current web browsers.",
+        "questions": [{
+            "type": "TextQuestion",
+            "text": "What are two ways a user can see what URL a link is going to take them to when clicked?"
+          },
+          {
+            "type": "FileQuestion",
+            "text": "What is the 'browser chrome'? Take a screenshot cropped to just show some key components of the browser chrome.",
+            "rubricId": "04f28d86-994f-4469-9ad7-3bf9d703a286"
+          },
+          {
+            "type": "TextQuestion",
+            "text": "Extra credit: What are some important effects of competetition in the browser market? Why do they matter",
+            "characterLimit": 500,
+            "required": false
+          }
+        ]
+      }],
+      "rubrics": [{
+        "identifier": "04f28d86-994f-4469-9ad7-3bf9d703a286",
+        "lastChangeDateTime": "2018-01-31T16:54:00Z",
+        "title": "Image Quality Rubric",
+        "rubricCriteria": [{
+          "identifier": "ef324364-735c-443f-975f-9d76bd91f25a",
+          "description": "Resolution",
+          "criterionLevels": [{
+              "identifier": "2b77179b-8b68-4fbe-9e76-d6d38a8131f3",
+              "quality": "Great",
+              "description": "There are enough pixels to experience the image content at the appropriate visual size but not too many.",
+              "position": 0
+            },
+            {
+              "identifier": "6ac9344f-21b6-4196-93f8-4decef0bb7c3",
+              "quality": "OK",
+              "description": "The content is readable or understandable but there may be significantly more pixels than necessary for the purpose or too few to be used for all intended experiences, such as printing.",
+              "position": 1
+            },
+            {
+              "identifier": "29011f65-6ac7-4645-bcac-09e7124aee1c",
+              "quality": "Needs Work",
+              "description": "The content is not understandable. Needs more pixels.",
+              "position": 2
+            }
+          ]
+        }]
+      }]
+    }]
+  }
+}
+</code></pre>
       </section>
-
-      <section class="appendix">
-        <h2>Examples</h2>
-        <section>
-          <h3>Single Assessment</h3>
-<pre><code>
-  "extensions:Assessment": {
-  "@context":"https://openbadgespec.org/extensions/assessmentExtension/context.json",
-  "type": ["Extension", "extensions:assessment"],
-  "overallDescription": "The assessment included are a simulated clinical setting and an actual clinical setting.",
-  "assessment": [
-    {
-      "assessmentDescription": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
-      "assessmentType": "Artifact",
-      "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
-      "hasGroupParticipation": false,
-      "hasGroupEvaluation": false,
-      "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
-      "assessmentExample": "http://placeholderurl.com",
-      "scoringMethodExampleDescription": "Placeholder text",
-      "assessmentEvaluation": "http://placeholderurl.com"
-    }
-  ]
-}
-</code></pre>
-        </section>
-        <section>
-          <h3>Two Assessments</h3>
-<pre><code>
-  "extensions:Assessment": {
-  "@context":"https://openbadgespec.org/extensions/assessmentExtension/context.json",
-  "type": ["Extension", "extensions:assessment"],
-  "overallDescription": "The assessments included are a simulated clinical setting and an actual clinical setting.",
-  "assessment": [
-    {
-      "assessmentDescription": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
-      "assessmentType": "Artifact",
-      "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
-      "hasGroupParticipation": false,
-      "hasGroupEvaluation": false,
-      "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
-      "assessmentExample": "http://placeholderurl.com"
-    },
-    {
-      "assessmentDescription": "Requires following standard procedures in measuring vital signs in a clinic patient and explaining the  results of a standard lab analysis on the basis of deviations from the norm.",
-      "assessmentType": "Performance",
-      "assessmentOutput": "Clinical demonstration of interpreting blood pressure and lab results to patient without diagnoses, evaluated by clinical supervisor.",
-      "hasGroupParticipation": false,
-      "hasGroupEvaluation": true,
-      "evaluationMethod": "Clinical supervisor uses a checklist to verify that the clinical demonstration includes the key elements that need to be communicated to the patient.",
-      "scoringMethodExampleDescription": "Placeholder text"
-    }
-  ]
-}
-</code></pre>
-        </section>
 
 
       </section>
@@ -171,10 +301,14 @@
                 </thead>
                   <tbody>
                       <tr>
-                          <td>IMS Candidate Final 1.0</td>
-                          <td>Month XXth, 2018</td>
-                          <td>The Candidate Final release. This declares the 
-                            standard ready for membership review and trial implementation.</td>
+                          <td>First Public Working Draft 1.0</td>
+                          <td>January 1st, 2017</td>
+                          <td>Initial proof of concept.</td>
+                      </tr>
+                      <tr>
+                          <td>Candidate Final</td>
+                          <td>January 31st, 2018</td>
+                          <td>Update to include Rubric, Section, and Question</td>
                       </tr>
                   </tbody>
               </table>
