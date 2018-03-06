@@ -1,1 +1,15 @@
-schema.json
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "0.1 Extra Description Extension",
+  "description": "An extension to Open Badges that allows issuers to add additional titled sections of descriptive content to their badges and profiles.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "narrative": {
+      "type": "string"
+    }
+  },
+  "required": ["name", "narrative"]
+}
