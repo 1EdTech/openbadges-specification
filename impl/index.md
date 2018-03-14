@@ -80,10 +80,12 @@ _Revision: @@@ May 2017_
 ## <a id="intro"></a> Introduction
 
 
-## <a id="contrib"></a> Contributors
+## <a id="contrib"></a> List of Contributors
+
+The following individuals contributed to the development of this document:
 
 <div class="table-wrapper">
 
-| First Last | [Example Co](https://www.example.com) | role (if any)
+| First Last @@@ | [Example Co](https://www.example.com) | role (if any)
 
 </div>
