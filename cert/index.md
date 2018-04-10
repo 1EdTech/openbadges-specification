@@ -68,7 +68,7 @@ _Revision: @@@ May 2017_
 	
 ##  Contents
  * [1. Introduction](#intro)
- * [2. The Conformance Process] (#conf)
+ * [2. The Conformance Process](#conf)
  * [3. Open Badges 2.0 Issuer Service Conformance](#issuer)
  * [4. Open Badges 2.0 Displayer Service Conformance](#displayer)   
  * [5. Open Badges 2.0 Host Service Conformance](#host)
@@ -239,9 +239,8 @@ After IMS reviews your submitted information and notifies you that your applicat
 
 The following individuals contributed to the development of this document:
 
-<div class="table-wrapper">
-
-| First Last @@@ | [Example Co](https://www.example.com) | role (if any)
+| Name | Organization |
+| ------------- | ------------- |
 | Jeff Bohrer | [IMS Global](https://www.imsglobal.org) |
 | Timothy F. Cook | [LRNG](https://www.lrng.org) |
 | Steve Gance | [Washington State Board for Community and Technical Colleges](https://www.sbctc.edu/) |
@@ -250,4 +249,4 @@ The following individuals contributed to the development of this document:
 | Alex Hripak | [Credly](https://www.credly.com) |
 | Nate Otto | [Concentric Sky](https://www.concentricsky.com/) |
 | Justin Pitcher | [Chalk & Wire](http://www.chalkandwire.com/) |
-</div>
+
