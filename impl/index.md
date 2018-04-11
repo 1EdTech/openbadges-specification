@@ -18,7 +18,7 @@ layout: page_sub
 <table class="versionTable" title="Version/Release Details">
 <tr>
 <td>Date Issued:</td>
-<td>@@@ May, 2018</td>
+<td>12 April 2018</td>
 </tr>
 <tr>
 <td>Status</td>
@@ -40,7 +40,7 @@ Recipients of this document are requested to submit, with their comments, notifi
 
 IMS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on IMS's procedures with respect to rights in IMS specifications can be found at the IMS Intellectual Property Rights web page: [http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf](http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf).
 
-Copyright © 2017 IMS Global Learning Consortium, published under the IMS Global [contributor license agreement](https://www.imsglobal.org/sites/default/files/IMS%20Individual%20Contributor%20License%20Agreement.pdf) and [specification license](https://www.imsglobal.org/speclicense.html). This specification is free for anyone to use or implement.
+Copyright © 2018 IMS Global Learning Consortium, published under the IMS Global [contributor license agreement](https://www.imsglobal.org/sites/default/files/IMS%20Individual%20Contributor%20License%20Agreement.pdf) and [specification license](https://www.imsglobal.org/speclicense.html). This specification is free for anyone to use or implement.
 
 Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals.
 
@@ -56,7 +56,7 @@ Public contributions, comments and questions can be posted here: [https://www.im
 
 _Documents Name: {{page.title}}_
 
-_Revision: @@@ May 2017_
+_Revision: 12 April 2018_
 
 </div>
 
@@ -90,6 +90,10 @@ Open Badges put learners in control of how and where they share verifiable evide
 Open Badges enable learner-control of sharing their credentials and communicating their meaning to educational institutions and employers. These credentials show evidence of rigor of the academic achievement through the inclusion of criteria, assessment details, learner's evidence, alignment with external frameworks, accreditation details, and endorsements.
 
 OBv2 introduces features that significantly improve the verifiability, portability, reliability, and discoverability of Open Badges.
+
+<img alt="Open Badges workflow illustration" src="assets/image1.png" style="width: 75%; height:75%"/>
+
+
 ### Related Documents
 * [OBv2 Specification](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/index.html)
 * OBv2 Conformance and Certification Guide
@@ -218,7 +222,7 @@ The following terms are used throughout this document. Explanations of many othe
 The following individuals contributed to the development of this document:
 - Jeff Bohrer, [IMS Global](https://www.imsglobal.org)
 - Viktor Haag, [D2L Corporation](https://www.d2l.com/)
-- Alexander Hripak, [Credly](https://www.credly.com/
+- Alexander Hripak, [Credly](https://www.credly.com/)
 - Nate Otto, [Concentric Sky](https://www.concentricsky.com/)
 - Justin Pitcher, [Chalk & Wire](http://www.chalkandwire.com/)
 - Timothy F. Cook, [LRNG](https://www.lrng.org/)
