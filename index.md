@@ -18,7 +18,7 @@ show_sidebar: false
 <table class="versionTable" title="Version/Release Details">
 <tr>
 <td>Date Issued:</td>
-<td>08 March, 2017</td>
+<td>12 April 2018</td>
 </tr>
 <tr>
 <td>Status</td>
@@ -26,7 +26,7 @@ show_sidebar: false
 </tr>
 <tr>
 <td>Latest version:</td>
-<td><a href="http://www.imsglobal.org/@@@/">http://www.imsglobal.org/@@@/</a></td>
+<td><a href="https://www.imsglobal.org/spec/ob/v2p0/">https://www.imsglobal.org/spec/ob/v2p0/</a></td>
 </tr>
 </table>
 
@@ -56,7 +56,7 @@ Public contributions, comments and questions can be posted here: [https://www.im
 
 _Documents Name: {{page.title}}_
 
-_Revision: 08 March 2017_
+_Revision: 12 April 2018_
 
 </div>
 
@@ -69,10 +69,6 @@ _Revision: 08 March 2017_
 This document is a Candidate Final / Public Draft of the Open Badges 2.0 specification, released on 08 March 2017 by IMS Global Learning Consortium. The specification will be considered final when approved by the IMS Technical Advisory Board and published as Final Release by IMS Global.
 </div>
 
-* [Nate Otto](mailto:nate@ottonomy.net), chair [Badge Alliance Standard Working Group](https://openbadges.org/badge-alliance/working-groups/standard/)
-
-* [Nate Otto](mailto:nate@ottonomy.net), [Concentric Sky](https://concentricsky.com/)
-* [Markus Gylling](mailto:mgylling@imsglobal.org), [IMS Global](http://www.imsglobal.org)
 
 <div id="toc">
 	
@@ -103,6 +99,7 @@ This document is a Candidate Final / Public Draft of the Open Badges 2.0 specifi
    - [Hosted Verification](#HostedBadge)
    - [Signed Verification](#SignedBadge)
  * [History/Changelog](#History)
+ * [List of Contributors](#contributors)
 
 </div>
 
@@ -676,3 +673,13 @@ To mark a badge as revoked, add an entry to the resource pointed at by the Issue
  * [From 1.0 to 1.1](history/1.1.html) 
  * [From 0.5 to 1.0](https://github.com/mozilla/openbadges/wiki/Assertion-Specification-Changes)
  * [Early history of the specification](https://github.com/mozilla/openbadges-backpack/wiki/Assertions/_history)
+
+
+# List of Contributors <a id="contributors"></a>
+* Timothy F. Cook, LRNG
+* Maria Esquela, eNABLE Community
+* Jim Goodell, QIP/CEDS
+* Randy Macdonald, Innovation Academy / InnovateOregon
+* Nate Otto, Concentric Sky
+* Serge Ravet, ADPIOS, BadgeEU
+* Attila Szabo-Nagy, Erasmus+
