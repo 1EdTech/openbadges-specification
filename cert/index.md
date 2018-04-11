@@ -68,7 +68,7 @@ _Revision: @@@ May 2017_
 	
 ##  Contents
  * [1. Introduction](#intro)
- * [2. The Conformance Process] (#conf)
+ * [2. The Conformance Process](#conf)
  * [3. Open Badges 2.0 Issuer Service Conformance](#issuer)
  * [4. Open Badges 2.0 Displayer Service Conformance](#displayer)   
  * [5. Open Badges 2.0 Host Service Conformance](#host)
@@ -151,8 +151,6 @@ After IMS reviews your submitted information and notifies you that your applicat
 		<ol type='a'>
 			<li>BadgeClass image, name, description, issuer name, issuedOn
 				date</li>
-			<li>Name and identifier of recipient (assumed to be allowed by
-				the mock user to be shown).</li>
 			<li><b>Neither expired nor revoked</b></li>
 		</ol>
 		<p>
@@ -162,8 +160,6 @@ After IMS reviews your submitted information and notifies you that your applicat
 
 			<li>BadgeClass image, name, description, issuer name, issuedOn
 				date</li>
-			<li>Name and identifier of recipient (assumed to be allowed by
-				the mock user to be shown).</li>
 			<li><b>Expired status</b> (display of date optional)</li>
 			<li>Not revoked</li>
 		</ol>
@@ -174,8 +170,6 @@ After IMS reviews your submitted information and notifies you that your applicat
 
 			<li>BadgeClass image, name, description, issuer name, issuedOn
 				date</li>
-			<li>Name and identifier of recipient (assumed to be allowed by
-				the mock user to be shown).</li>
 			<li>Not expired</li>
 			<li><b>Revoked status</b> (display of reason optional)</li>
 		</ol>
@@ -185,8 +179,7 @@ After IMS reviews your submitted information and notifies you that your applicat
 			of the following:</p>
 		<ol type='a'>
 			<li>Trigger verification of the badge and retrieve results
-				verifying that the badge assertion is not expired, and not revoked.
-			</li>
+				verifying that the badge assertion is not expired, and not revoked.</li>
 			<li>Consume pre-existing verification information that includes
 				the results and timestamp of latest verification.</li>
 		</ol>
@@ -246,8 +239,14 @@ After IMS reviews your submitted information and notifies you that your applicat
 
 The following individuals contributed to the development of this document:
 
-<div class="table-wrapper">
+| Name | Organization |
+| ------------- | ------------- |
+| Jeff Bohrer | [IMS Global](https://www.imsglobal.org) |
+| Timothy F. Cook | [LRNG](https://www.lrng.org) |
+| Steve Gance | [Washington State Board for Community and Technical Colleges](https://www.sbctc.edu/) |
+| Markus Gylling | [IMS Global](https://www.imsglobal.org) |
+| Viktor Haag | [D2L](https://www.d2l.com) |
+| Alex Hripak | [Credly](https://www.credly.com) |
+| Nate Otto | [Concentric Sky](https://www.concentricsky.com/) |
+| Justin Pitcher | [Chalk & Wire](http://www.chalkandwire.com/) |
 
-| First Last @@@ | [Example Co](https://www.example.com) | role (if any)
-
-</div>
