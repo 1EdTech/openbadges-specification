@@ -9,7 +9,7 @@ show_sidebar: false
 <a href="http://www.imsglobal.org"><img src="images/imsglobal-logo.png" alt="IMS Global Logo" id="imslogo" /></a>
 </div>
 
-<p class="status">IMS Candidate Final / Public Draft</p>
+<p class="status">IMS Final Release</p>
 
 <h1 class="infoModelTitle">{{page.title}} <br/> IMS Candidate Final / Public Draft</h1>
 
