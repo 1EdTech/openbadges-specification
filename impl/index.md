@@ -26,7 +26,7 @@ layout: page_sub
 </tr>
 <tr>
 <td>Latest version:</td>
-<td><a href="http://www.imsglobal.org/@@@/">http://www.imsglobal.org/@@@/</a></td>
+<td><a href="https://www.imsglobal.org/spec/ob/v2p0/impl/">https://www.imsglobal.org/spec/ob/v2p0/impl/</a></td>
 </tr>
 </table>
 
