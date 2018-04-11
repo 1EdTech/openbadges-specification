@@ -169,8 +169,7 @@
           "type": "boolean",
           "default": true
         }
-      },
-      "required": []
+      }
     },
     "Question": {
       "description": "A question that may be asked as part of an assessment",
@@ -223,7 +222,7 @@
             "enum": ["Exam", "Performance", "Artifact"]
           },
           "assessmentOutput": {
-            "description": "This field provides additional details about assessmentType. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge.",
+            "description": "This field provides additional details about the assessment type. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge.",
             "type": "string"
           },
           "hasGroupParticipation": {
@@ -277,7 +276,7 @@
             ]
           }
         },
-        "required": ["description", "assessmentType", "assessmentOutput", "hasGroupParticipation", "hasGroupEvaluation", "evaluationMethod"]
+        "required": ["description", "type", "assessmentOutput", "hasGroupParticipation", "hasGroupEvaluation", "evaluationMethod"]
     }
   },
   "type": "object",
