@@ -90,6 +90,10 @@ Open Badges put learners in control of how and where they share verifiable evide
 Open Badges enable learner-control of sharing their credentials and communicating their meaning to educational institutions and employers. These credentials show evidence of rigor of the academic achievement through the inclusion of criteria, assessment details, learner's evidence, alignment with external frameworks, accreditation details, and endorsements.
 
 OBv2 introduces features that significantly improve the verifiability, portability, reliability, and discoverability of Open Badges.
+
+<img alt="Open Badges workflow illustration" src="assets/image1.png" style="width: 75%; height:75%"/>
+
+
 ### Related Documents
 * [OBv2 Specification](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/index.html)
 * OBv2 Conformance and Certification Guide
