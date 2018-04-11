@@ -26,7 +26,7 @@ layout: page_sub
 </tr>
 <tr>
 <td>Latest version:</td>
-<td><a href="https://www.imsglobal.org/spec/ob/v2p0/cert/>https://www.imsglobal.org/spec/ob/v2p0/cert/</a></td>
+<td><a href="https://www.imsglobal.org/spec/ob/v2p0/cert/">https://www.imsglobal.org/spec/ob/v2p0/cert/</a></td>
 </tr>
 </table>
 
