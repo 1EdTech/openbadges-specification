@@ -17,8 +17,8 @@ layout: page_sub
 
 <table class="versionTable" title="Version/Release Details">
 <tr>
-<td>Date Issued:</td>
-<td>@@@ May, 2018</td>
+<td>Date Issued</td>
+<td>12 April 2018</td>
 </tr>
 <tr>
 <td>Status</td>
@@ -26,7 +26,7 @@ layout: page_sub
 </tr>
 <tr>
 <td>Latest version:</td>
-<td><a href="http://www.imsglobal.org/@@@/">http://www.imsglobal.org/@@@/</a></td>
+<td><a href="https://www.imsglobal.org/spec/ob/v2p0/cert/</a></td>
 </tr>
 </table>
 
@@ -40,7 +40,7 @@ Recipients of this document are requested to submit, with their comments, notifi
 
 IMS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on IMS's procedures with respect to rights in IMS specifications can be found at the IMS Intellectual Property Rights web page: [http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf](http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf).
 
-Copyright © 2017 IMS Global Learning Consortium, published under the IMS Global [contributor license agreement](https://www.imsglobal.org/sites/default/files/IMS%20Individual%20Contributor%20License%20Agreement.pdf) and [specification license](https://www.imsglobal.org/speclicense.html). This specification is free for anyone to use or implement.
+Copyright © 2018 IMS Global Learning Consortium, published under the IMS Global [contributor license agreement](https://www.imsglobal.org/sites/default/files/IMS%20Individual%20Contributor%20License%20Agreement.pdf) and [specification license](https://www.imsglobal.org/speclicense.html). This specification is free for anyone to use or implement.
 
 Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals.
 
@@ -56,7 +56,7 @@ Public contributions, comments and questions can be posted here: [https://www.im
 
 _Documents Name: {{page.title}}_
 
-_Revision: @@@ May 2017_
+_Revision: 12 April 2018_
 
 </div>
 
