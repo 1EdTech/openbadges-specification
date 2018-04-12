@@ -220,13 +220,16 @@ The following terms are used throughout this document. Explanations of many othe
 ## <a id="contrib"></a> List of Contributors
 
 The following individuals contributed to the development of this document:
-- Jeff Bohrer, [IMS Global](https://www.imsglobal.org)
-- Viktor Haag, [D2L Corporation](https://www.d2l.com/)
-- Alexander Hripak, [Credly](https://www.credly.com/)
-- Nate Otto, [Concentric Sky](https://www.concentricsky.com/)
-- Justin Pitcher, [Chalk & Wire](http://www.chalkandwire.com/)
-- Timothy F. Cook, [LRNG](https://www.lrng.org/)
-- Markus Gylling, [IMS Global](https://www.imsglobal.org)
-- Steve Gance, [WA State Board of Community and Technical Colleges](https://www.sbctc.edu/)
+- Jeff Bohrer, IMS Global
+- Timothy F. Cook, LRNG
+- Steve Gance, Washington State Board for Community and Technical Colleges
+- Markus Gylling, IMS Global
+- Viktor Haag, D2L
+- Alexander Hripak, Credly
+- Nate Otto, Concentric Sky
+- Justin Pitcher, Chalk & Wire
+- Alex Reis, D2L
+- Jarin Schmidt, Pearson Acclaim
+
 
 
