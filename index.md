@@ -40,7 +40,7 @@ Recipients of this document are requested to submit, with their comments, notifi
 
 IMS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on IMS's procedures with respect to rights in IMS specifications can be found at the IMS Intellectual Property Rights web page: [http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf](http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf).
 
-Copyright © 2017 IMS Global Learning Consortium, published under the IMS Global [contributor license agreement](https://www.imsglobal.org/sites/default/files/IMS%20Individual%20Contributor%20License%20Agreement.pdf) and [specification license](https://www.imsglobal.org/speclicense.html). This specification is free for anyone to use or implement.
+Copyright © 2018 IMS Global Learning Consortium, published under the IMS Global [contributor license agreement](https://www.imsglobal.org/sites/default/files/IMS%20Individual%20Contributor%20License%20Agreement.pdf) and [specification license](https://www.imsglobal.org/speclicense.html). This specification is free for anyone to use or implement.
 
 Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals.
 
@@ -676,10 +676,20 @@ To mark a badge as revoked, add an entry to the resource pointed at by the Issue
 
 
 # List of Contributors <a id="contributors"></a>
+* Jeff Bohrer, IMS Global
 * Timothy F. Cook, LRNG
 * Maria Esquela, eNABLE Community
+* Steve Gance, Washington State Board of Community and Technical Colleges
 * Jim Goodell, QIP/CEDS
+* Markus Gylling, IMS Global
+* Viktor Haag, D2L
+* Alex Hripak, Credly
+* Kerrie Lemoie, OpenWorks Group
+* Mark Leuba, IMS Global
 * Randy Macdonald, Innovation Academy / InnovateOregon
 * Nate Otto, Concentric Sky
+* Justin Pitcher, Chalk & Wire
 * Serge Ravet, ADPIOS, BadgeEU
+* Alex Reis, D2L
+* Jarin Schmidt, Pearson Acclaim
 * Attila Szabo-Nagy, Erasmus+
