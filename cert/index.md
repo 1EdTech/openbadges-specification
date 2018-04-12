@@ -238,15 +238,13 @@ After IMS reviews your submitted information and notifies you that your applicat
 ## <a id="contrib"></a>6. List of Contributors
 
 The following individuals contributed to the development of this document:
-
-| Name | Organization |
-| ------------- | ------------- |
-| Jeff Bohrer | [IMS Global](https://www.imsglobal.org) |
-| Timothy F. Cook | [LRNG](https://www.lrng.org) |
-| Steve Gance | [Washington State Board for Community and Technical Colleges](https://www.sbctc.edu/) |
-| Markus Gylling | [IMS Global](https://www.imsglobal.org) |
-| Viktor Haag | [D2L](https://www.d2l.com) |
-| Alex Hripak | [Credly](https://www.credly.com) |
-| Nate Otto | [Concentric Sky](https://www.concentricsky.com/) |
-| Justin Pitcher | [Chalk & Wire](http://www.chalkandwire.com/) |
-
+* Jeff Bohrer, IMS Global
+* Timothy F. Cook, LRNG
+* Steve Gance, Washington State Board for Community and Technical Colleges
+* Markus Gylling, IMS Global
+* Viktor Haag, D2L
+* Alex Hripak, Credly
+* Nate Otto, Concentric Sky
+* Justin Pitcher, Chalk & Wire
+* Alex Reis, D2L
+* Jarin Schmidt, Pearson Acclaim
