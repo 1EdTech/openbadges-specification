@@ -11,7 +11,7 @@ show_sidebar: false
 
 <p class="status">IMS Final Release</p>
 
-<h1 class="infoModelTitle">{{page.title}} <br/> IMS Candidate Final / Public Draft</h1>
+<h1 class="infoModelTitle">{{page.title}} <br/> IMS Final Release</h1>
 
 <br>
 
@@ -22,7 +22,7 @@ show_sidebar: false
 </tr>
 <tr>
 <td>Status</td>
-<td>IMS Candidate Final / Public Draft</td>
+<td>IMS Final Release</td>
 </tr>
 <tr>
 <td>Latest version:</td>
@@ -66,7 +66,7 @@ _Revision: 12 April 2018_
 
 #### Status of this Document
 <div class="note good-news">
-This document is a Candidate Final / Public Draft of the Open Badges 2.0 specification, released on 08 March 2017 by IMS Global Learning Consortium. The specification will be considered final when approved by the IMS Technical Advisory Board and published as Final Release by IMS Global.
+This document is made available for adoption by the public community at large.
 </div>
 
 
