@@ -47,9 +47,9 @@ Assertion, BadgeClass, Issuer
 
 ## <a id="IMSExtensions"></a> IMS Extensions
 
-1. [Issuer Accreditation](/issuerAccreditationExtension/index.html) - This extension provides a reference to a single, or to an array of multiple, accreditation bodies as related to the Issuer Profile. 
+1. [Issuer Accreditation](https://www.imsglobal.org/spec/ob-accred/v1p0/) - This extension provides a reference to a single, or to an array of multiple, accreditation bodies as related to the Issuer Profile. 
 
-2. [Assessment](/assessmentExtension/index.html) - This extension allows issuers to embed metadata about assessment(s) performed in the badge awarding process, potentially including some questions and related rubric data. 
+2. [Assessment](https://www.imsglobal.org/spec/ob-assessment/v1p0/) - This extension allows issuers to embed metadata about assessment(s) performed in the badge awarding process, potentially including some questions and related rubric data. 
 
 ---
 
