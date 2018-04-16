@@ -51,6 +51,7 @@ Assertion, BadgeClass, Issuer
 
 2. [Assessment](https://www.imsglobal.org/spec/ob-assessment/v1p0/) - This extension allows issuers to embed metadata about assessment(s) performed in the badge awarding process, potentially including some questions and related rubric data. 
 
+3. [Extra Description](http://imsglobal.github.io/openbadges-specification/extensions/extraDescription/) - Allows issuers to add additional descriptive fields to a BadgeClass or Issuer Profile.
 ---
 
 ## <a id="CommunityExtensions"></a> Community Extensions
@@ -66,7 +67,7 @@ Submit your published extensions to this page with a pull request on [GitHub](ht
 4. [Accessibility](#Accessibility) - Supports the addition of content for people with disabilities.
 5. [Creative Commons Content License](#LicenseExtension) - Enables issuers to indicate what permissions are granted to the public to reuse BadgeClass metadata in their own badges. 
 6. [Original Creator](#OriginalCreator) - Provides a way to track the origin of a badge when one organisation creates it for another.
-7. [Extra Description](#ExtraDescriptionExtension) - Allows issuers to add additional descriptive fields to a BadgeClass or Issuer Profile.
+
 
 ### <a id="ApplyLink"></a> Apply Link
 _Author: [Kerri Lemoie](https://github.com/kayaelle)_
@@ -271,10 +272,6 @@ BadgeClass
 {% endhighlight %}
 
 
-### <a id="ExtraDescriptionExtension"></a> Extra Description
-_Author: [Nate Otto](http://ottonomy.net)_
-
-The Extra Description Extension allows issuers to add additional markdown-formatted descriptive fields to a BadgeClass or Issuer Profile. Each section has a name and a narrative. See [documentation](./extraDescription)
 
 
 # xAPI Integration
