@@ -2,77 +2,114 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <title>Extra Description Extension</title>
-    <script
-     src='../../javascripts/respec-ims-default.js' class='remove'></script>
-    <script class='remove'>
-      var respecConfig = {        
-        specTitle: "Extra Description Extension",
-        shortName: "openbadges-extraDescription",
-        specStatus: "First Public Working Draft",
-        specDate: "February 5th, 2018",
-        specNature: "normative",
-        specVersion: "0.1",
-        thisURL: "https://openbadgespec.org/extensions/extraDescription/",        
-        canonicalURI: "https://openbadgespec.org/extensions/extraDescription/",
-        specRevOrder : "First",
-        editors: [
-          {name:"Nate Otto", company:"Concentric Sky (USA)"}
-        ],
-        cochairs: [],
-        contributors: [
-          {name:"Nate Otto", company:"Concentric Sky (USA)"}
-        ], 
-        overrideCSSLocation : "../assessmentExtension/css/ims-base.css",
-        overrideFixupLocation : "../../javascripts/fixup.js",
-        localBiblio : {},
-        certGuideBiblioKey: "",  
-      };
-    </script>
+    <script src='https://purl.imsglobal.org/spec/respec-ims-default.js' async class='remove'></script>
+    <script class="remove">     
+     var respecConfig = {
+       specTitle: "Open Badges Extra Description Extension",
+       shortName: "ob-exdesc",
+       specStatus: "IMS Base Document",
+       specDate: "April 12th, 2018",
+       specNature: "normative",
+       specVersion: "1.0",
+       specType: "spec",
+       contributors: [           
+         {name: "Nate Otto", company: "Concentric Sky (USA)", role: "editor"}
+       ],
+       localBiblio: {},
+       skipCertGuideConformanceRef : true      
+     };
+    </script> 
   </head>
   <body>
-    <!-- a header is inserted here by the script -->
-    <!-- a toc is inserted here by the script -->
       <section id="abstract">
         <h2>Abstract</h2>
-        An extension to Open Badges that allows issuers to add additional titled sections of descriptive content to their badges and profiles.
+        An extension to Open Badges that allows issuers to add additional titled 
+        sections of descriptive content to their badges and profiles.
       </section>
       
       <section>
         <h2>Overview</h2>
         <section class="informative">
           <h2>Introduction</h2>
-          <p>This extension provides extra descriptive metadata about a BadgeClass or Issuer Profile. Usage is primarily intended to serve human-readable display contexts. One or more implementations of this extension may appear within a BadgeClass, for instance, offering additional space to explain information that should travel with the badge in the rich text Markdown format.</p>
+          <p>This extension provides extra descriptive metadata about a 
+            BadgeClass or Issuer Profile. Usage is primarily intended to serve 
+            human-readable display contexts. One or more implementations of this 
+            extension may appear within a BadgeClass, for instance, offering 
+            additional space to explain information that should travel with the 
+            badge in the rich text Markdown format.</p>
         </section>
         <section class="informative" id="usecases">                  
           <h3>Use cases</h3>
           <ul>
-            <li>Present to would-be earners a list of links to educational resources that may aid in learning the content or skills necessary to meet the badge's criteria.</li>
+            <li>Present to would-be earners a list of links to educational 
+              resources that may aid in learning the content or skills necessary 
+              to meet the badge's criteria.</li>
             <li>Add a section describing job categories related to a badge.</li>
-            <li>Include information about research done on the badge's design or assessment methodology that could signal enhanced market value.</li>
-            <li>Describe an Issuer Profile more fully, in terms of its focus or links to previous projects.</li>          
+            <li>Include information about research done on the badge's design or 
+              assessment methodology that could signal enhanced market value.</li>
+            <li>Describe an Issuer Profile more fully, in terms of its focus or 
+              links to previous projects.</li>          
           </ul>
         </section>
         <section>
           <h3>Extendable Badge Objects</h3>
-          <p><code>BadgeClass, Profile</code></p>
+          <p><code>BadgeClass</code>, <code>Profile</code></p>
         </section>  
         <section id="conformance">
           <h3>Conformance Statements</h3>
         </section>
-        
+        <section id="documentset">
+          <h3>Document Set</h3>
+          <section>
+            <h4>Normative Documents</h4>
+            <dl>
+              <dt>JSON Schema</dt>
+              <dd>The JSON Schema defines the syntactical restrictions of this 
+                extension [[!OB-EXDESC-10-SCHEMA]].</dd>
+              <dt>JSON-LD Context</dt>
+              <dd>The JSON-LD context defines mappings for the terms used in 
+                this specification to their canonical IRIs [[!OB-EXDESC-10-CONTEXT]].</dd>
+              <dt>Errata</dt>
+              <dd>The errata details any erratum registered for this version of 
+                this specification since its publication [[!OB-EXDESC-10-ERRATA]].</dd>
+            </dl>
+          </section>
+          <!-- <section class="informative">
+            <h4>Informative Documents</h4>
+            <dl>
+              <dt></dt>
+              <dd></dd>
+            </dl>
+          </section> -->
+        </section>
       </section>      
       
       <section>
         <h2>Properties</h2>
-        <p>The extension offers a paired name and narrative field so that implementers can describe one or more sections of extra description, where each section has both a name to identify its purpose as well as a markdown-formatted text narrative. The name and narrative fields already defined in the Open Badges V2 context are reused in this new structure.</p>
+        <p>The extension offers a paired name and narrative field so that 
+          implementers can describe one or more sections of extra description, 
+          where each section has both a name to identify its purpose as well as 
+          a markdown-formatted text narrative. The name and narrative fields 
+          already defined in the Open Badges V2 context are reused in this new 
+          structure.</p>
         <h3>ExtraDescription Extension Properties</h3>
         <table class="data">
           <tr><th>Property</th><th>Type</th><th>Value Description</th></tr>
-          <tr><td>@context</td><td>IRI</td><td><code>https://openbadgespec.org/extensions/extraDescription/context.json</code> (required)</td></tr>
-          <tr><td>type</td><td>JSON-LD Type Array</td><td><code>["Extension", "extensions:ExtraDescriptionExtension"]</code> (required)</td></tr>
-          <tr><td>name</td><td>string</td><td>A short name for the section. (required)</td></tr>
-          <tr><td>narrative</td><td>string (Markdown allowed)</td><td>Descriptive data about the extended badge object that falls under the subject identified by the name field. Basic rich text content such as emphasis, lists, and links allowed in [Markdown](https://daringfireball.net/projects/markdown/) format. Inline images should not be used and may not be supported by implementing platforms. (required)</td></tr>
+          <tr><td>@context</td><td>IRI</td>
+            <td><code>http://purl.imsglobal.org/spec/ob-exdesc/v1p0/context/</code> 
+              (required)</td></tr>
+          <tr><td>type</td><td>JSON-LD Type Array</td>
+            <td><code>["Extension", "extensions:ExtraDescriptionExtension"]</code>
+               (required)</td></tr>
+          <tr><td>name</td><td>string</td><td>A short name for the section. 
+            (required)</td></tr>
+          <tr><td>narrative</td><td>string (Markdown allowed)</td>
+            <td>Descriptive data about the extended badge object that falls under 
+              the subject identified by the name field. Basic rich text content 
+              such as emphasis, lists, and links allowed in 
+              <a href="https://daringfireball.net/projects/markdown/">Markdown</a> 
+              format. Inline images should not be used and may not be supported 
+              by implementing platforms. (required)</td></tr>
         </table>
       </section>
 
@@ -80,35 +117,47 @@
       <h2>Examples</h2>
       <section>
         <h3>A Simple Single Extra Description</h3>
-<pre><code>
+        <figure class="example">        
+          <pre class="scroll"><code>
 {
   "extensions:extraDescription": {
-    "@context":"https://openbadgespec.org/extensions/extraDescription/context.json",
+    "@context":"http://purl.imsglobal.org/spec/ob-exdesc/v1p0/context/",
     "type": ["Extension", "extensions:ExtraDescriptionExtension"],
     "name": "Related Roller Coasters",
     "narrative": "Here are two roller coasters that will give you a similar experience to undergoing assessment for this badge.\n\n* [Tempesto](https://www.youtube.com/watch?v=ZCKhkRPq8rI), Busch Gardens, Williamsburg\n* [Fantasia Mini Special Kiddie Roller Coaster](https://www.youtube.com/watch?v=bisz3CJZDpA), Tongdo Fantasia, South Korea"
   }
 }
-</code></pre>
+          </code></pre>
+        <figcaption>Example of an extraDescription extension property where 
+          Markdown is used for the narrative.</figcaption>
+        </figure>
       </section>
       <section>
         <h3>Two Extra Descriptions</h3>
-        <p>When you add multiple sections, they each have a name and a narrative, and you add them as an array within the <code>extensions:extraDescription</code> property of the BadgeClass (or Issuer Profile)</p>
-<pre><code>
+        <p>When you add multiple sections, they each have a name and a narrative, 
+          and you add them as an array within the 
+          <code>extensions:extraDescription</code> property of the BadgeClass 
+          (or Issuer Profile)</p>
+        <figure class="example">
+          <pre class="scroll"><code>
 {
   "extensions:extraDescription": [{
-    "@context":"https://openbadgespec.org/extensions/extraDescription/context.json",
+    "@context":"http://purl.imsglobal.org/spec/ob-exdesc/v1p0/context/",
     "type": ["Extension", "extensions:ExtraDescriptionExtension"],
     "name": "Related Roller Coasters",
     "narrative": "Here are two roller coasters that will give you a similar experience to undergoing assessment for this badge.\n\n* [Tempesto](https://www.youtube.com/watch?v=ZCKhkRPq8rI), Busch Gardens, Williamsburg\n* [Fantasia Mini Special Kiddie Roller Coaster](https://www.youtube.com/watch?v=bisz3CJZDpA), Tongdo Fantasia, South Korea"
   },{
-    "@context":"https://openbadgespec.org/extensions/extraDescription/context.json",
+    "@context":"http://purl.imsglobal.org/spec/ob-exdesc/v1p0/context/",
     "type": ["Extension", "extensions:ExtraDescriptionExtension"],
     "name": "Related Poem",
     "narrative": "Badges may be round, \nmore commonly hexes, \nThey've got great illustrations, \nSometimes of T-Rexes.\n\nSee this [example badge image](http://hexb.in/hexagons/offline-trex.png)."
   }]
 }
-</code></pre>
+          </code></pre>
+        <figcaption>Example of an extraDescription extension property 
+          with multiple descriptions in an array.</figcaption>
+        </figure>
+
       </section>
       </section>
       <section class="appendix informative" id="revision-history">
@@ -122,14 +171,13 @@
                 </thead>
                   <tbody>
                       <tr>
-                          <td>First Public Working Draft 0.1</td>
-                          <td>February 5th, 2018</td>
+                          <td>Base Document 1.0</td>
+                          <td>April 12th, 2018</td>
                           <td>Initial release.</td>
                       </tr>
                   </tbody>
               </table>
            </section>
         </section>   
-    <!-- a footer is inserted by the script -->
   </body>
 </html>
