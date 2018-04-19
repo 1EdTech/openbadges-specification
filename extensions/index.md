@@ -8,18 +8,12 @@ layout: page2
 <a href="http://www.imsglobal.org"><img src="../images/imsglobal-logo.png" alt="IMS Global Logo" id="imslogo" /></a>
 </div>
 
-## {{ page.title }}
-Extensions are community developed contributions to the Open Badges Specification. Any issuer may define and publish them to include new types of metadata in badges. Any other issuer may use the same extensions to publish similar information in a mutually recognizable way.
+# {{ page.title }}
+Open Badges is extensible through the use of extensions. Any issuer may define and publish extensions in order to include new types of metadata in badges. Any other Open Badges service may use these extensions to publish or consume similar information in a mutually recognizable way.
 
-These extensions are not part of the core specification and are governed by licensing and copyright terms of the authoring individuals and organizations.
+There are two types of extensions, [IMS Extensions](#IMSExtensions) and [Community Extensions](#CommunityExtensions). IMS Extensions are developed through IMS Global workgroups that follow an established process for submission, technical review, intellectual property review, approval, and publishing. Community extensions may be developed and supported by non-IMS individuals or organizations, are not part of the core specification, and are governed by licensing and copyright terms of the authoring individuals and organizations. IMS will publish community extensions here for informational purposes.
 
-### Open Badges Community Extensions [(below)](#CommunityExtensions)
-Submit your published extensions to this page with a pull request on [GitHub](https://github.com/openbadges/openbadges-specification/blob/master/extensions/index.md), following the existing format of the page.
-
-<small>Note: Extension authors are not required to host extensions on this page in order for them to be valid. Extension authors may publish descriptions, context and/or schema files required for a new extension on any publicly-accessible location, however that location should provide stable hosting for many years, because extended badges will lose their meaning if these resources become inaccessible.</small>
-
-
-# Extension Example:
+Here's an example of an Open Badges extension:
 
 ### <a id="ExampleExtension"></a> Example Extension Name
 This is a definition of an example extension. If it were a real extension, it would describe the purpose of adding it to a badge object. If you follow the link [#ExampleExtension](#ExampleExtension), you'll get to this paragraph. This is the IRI (Internationalized Resource Identifier) to use for implementations of this extension, included below as the compact IRI `extensions:ExampleExtension`. See the [context](./exampleExtension/context.json) and [schema](./exampleExtension/schema.json) files that form the machine-readable core of this extension.
@@ -49,7 +43,32 @@ Assertion, BadgeClass, Issuer
 }
 {% endhighlight %}
 
-# <a id="CommunityExtensions"></a> Community Extensions:
+---
+
+## <a id="IMSExtensions"></a> IMS Extensions
+
+1. [Issuer Accreditation](https://www.imsglobal.org/spec/ob-accred/v1p0/) - This extension provides a reference to a single, or to an array of multiple, accreditation bodies as related to the Issuer Profile. 
+
+2. [Assessment](https://www.imsglobal.org/spec/ob-assessment/v1p0/) - This extension allows issuers to embed metadata about assessment(s) performed in the badge awarding process, potentially including some questions and related rubric data. 
+
+3. [Extra Description](http://imsglobal.github.io/openbadges-specification/extensions/extraDescription/) - Allows issuers to add additional descriptive fields to a BadgeClass or Issuer Profile.
+
+---
+
+## <a id="CommunityExtensions"></a> Community Extensions
+
+Submit your published extensions to this page with a pull request on [GitHub](https://github.com/openbadges/openbadges-specification/blob/master/extensions/index.md), following the existing format of the page.
+
+<small>Note: Authors of Community Extensions are not required to host extensions on this page in order for them to be valid. Extension authors may publish descriptions, context and/or schema files required for a new extension on any publicly-accessible location, however that location should provide stable hosting for many years, because extended badges will lose their meaning if these resources become inaccessible.</small>
+
+#### Community Extensions
+1. [Apply Link](#ApplyLink) - The apply link provides a url that allows potential badge earners to apply for an opportunty as specified by the badge issuer.
+2. [Endorsement](#Endorsement) - Legacy extension that is now part of the core specification.
+3. [Geo Location](#GeoCoordinates) - Allows for the addition of the geographic coordinates associated with a badge object.
+4. [Accessibility](#Accessibility) - Supports the addition of content for people with disabilities.
+5. [Creative Commons Content License](#LicenseExtension) - Enables issuers to indicate what permissions are granted to the public to reuse BadgeClass metadata in their own badges. 
+6. [Original Creator](#OriginalCreator) - Provides a way to track the origin of a badge when one organisation creates it for another.
+
 
 ### <a id="ApplyLink"></a> Apply Link
 _Author: [Kerri Lemoie](https://github.com/kayaelle)_
@@ -253,23 +272,7 @@ BadgeClass
 }
 {% endhighlight %}
 
-### <a id="IssuerAccreditation"></a> Issuer Accreditation 
-_Author: [IMS Global](https://github.com/imsglobal)_
 
-This extension is located at [https://www.imsglobal.org/ims-badge-extensions-education](https://www.imsglobal.org/ims-badge-extensions-education)
-
-
-
-### <a id="AssessmentExtension"></a> Assessment 
-_Author: [IMS Global](https://github.com/imsglobal)_
-
-This extension allows issuers to embed metadata about assessment(s) performed in the badge awarding process, potentially including some questions and related rubric data.
-See [documentation](./assessmentExtension)
-
-### <a id="ExtraDescriptionExtension"></a> Extra Description
-_Author: [Nate Otto](http://ottonomy.net)_
-
-The Extra Description Extension allows issuers to add additional markdown-formatted descriptive fields to a BadgeClass or Issuer Profile. Each section has a name and a narrative. See [documentation](./extraDescription)
 
 
 # xAPI Integration
