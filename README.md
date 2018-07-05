@@ -1,2 +1,2 @@
-# openbadges-connect-api
-Repository for the Open Badges Connect API
+# badge-connect-api
+Repository for the Badge Connect API
