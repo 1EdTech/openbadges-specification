@@ -1,29 +1,28 @@
-# badge-connect-api
-Repository for the Badge Connect API.
+﻿# badge-connect-api
 
-# Repository Name
 This is the repository for the IMS Global Badge Connect API specification.
 
-## Working Group Contact Information
+## In Progress Specification License
+While the specification is under development all materials and draft specifications
+are for the IMS Global Contributing Member and/or Invited Guests only and are subject
+to the participant instructions below.  Once the specification has been approved
+by the IMS Technical Advisory Board and released on the IMS Global website
+(www.imsglobal.org) as a Final Specification, the standard IMS Specification
+license will apply.
 
-_Chairs:_ Alex Hripak (Credly)
-
-_Staff:_ Jeff Bohrer (IMS), Markus Gylling (IMS)
-
-_Forum:_ https://www.imsglobal.org/content/open-badges-workgroup
 
 ## Participant Instructions
 By accessing these resources, you hereby acknowledge that the IMS Member or
-Invited Participant organization has elected to participate in the IMS/GLC
-Project Group / Task Force associated with this repository and that he or she is
-serving as the representative of the organization with respect to the IMS IPR Policy.
+Invited Participant organization has elected to participate in the IMS/GLC Project
+Group / Task Force associated with this repository and that he or she is serving
+as the representative of the organization with respect to the IMS IPR Policy.
 
-The IMS/GLC Member or Invited Participant organization and the individual
-agreeing to this acknowledgement understand the requirement to sign and complete
-the IMS Intellectual Property Rights Election form (Appendix B of the IPR Policy)
-at the earlier of the Internal Draft stage and/or 6 months after the group has
-been chartered, and will abide by all rules of the IPR Policy which is posted at
-the following web page: http://www.imsglobal.org/IPR/imsipr_policyFinal.pdf
+The IMS/GLC Member or Invited Participant organization and the individual agreeing
+to this acknowledgement understand the requirement to sign and complete the IMS
+Intellectual Property Rights Election form (Appendix B of the IPR Policy) at the
+earlier of the Internal Draft stage and/or 6 months after the group has been
+chartered, and will abide by all rules of the IPR Policy which is posted at the
+following web page: http://www.imsglobal.org/IPR/imsipr_policyFinal.pdf
 
 In the event that the individual's personal participation in the Project Group
 ceases prior to completion and signing of the Intellectual Property Rights
@@ -56,10 +55,8 @@ appropriate circumstances, be deemed a contribution to that Project Group under
 the IMS GLC IPR Policy. IMS GLC members and participants are responsible for their
 contributions under the terms described in that policy.
 
-
 ## Copyright and License
 
-For details about the copyright and license information, see the LICENSE* file or
-files in the root of this repository.
+For details about the copyright and license information, see the LICENSE.md file.
 
 ©2018 IMS Global Learning Consortium, Inc. All Rights Reserved. Trademark Information - [http://www.imsglobal.org/copyright.html](http://www.imsglobal.org/copyright.html)
