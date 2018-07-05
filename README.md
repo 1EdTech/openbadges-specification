@@ -1,7 +1,4 @@
 # badge-connect-api
-Repository for the Badge Connect API.
-
-# Repository Name
 This is the repository for the IMS Global Badge Connect API specification.
 
 ## Working Group Contact Information
