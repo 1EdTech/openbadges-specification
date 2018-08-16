@@ -146,7 +146,8 @@
         </table>
       </section>
       <section id="api-authentication">
-        <h3>Authentication</h3>
+        <section id="oauth-token">
+        <h3>Obtaining Tokens</h3>
         <p>Security Framework...</p>
       </section>
       <section id="api-envelope">
@@ -159,7 +160,7 @@
     "pagination": {
         "page": 2,
         "perPage": 10,
-        "prevPage": "https://badgehost.com/v1/assertions?page=2&perPage=10&since=2018-01-01",
+        "prevPage": "https://host.example.com/v1/assertions?page=2&perPage=10&since=2018-01-01",
         "nextPage": null,
         "totalResultCount": 11
     },
@@ -173,7 +174,7 @@
     "results": [
         {
           "@context":"https://w3id.org/openbadges/v2",
-          "id":"https://badgehost.com/api/v20/assertion/1234567",
+          "id":"https://issuer.example.com/api/v20/assertion/1234567",
           "type":"Assertion"
         }
     ]
@@ -536,7 +537,7 @@
     "pagination": {
         "page": 2,
         "perPage": 10,
-        "prevPage": "https://badgehost.com/v1/assertions?page=2&perPage=10&since=2018-01-01",
+        "prevPage": "https://host.example.com/v1/assertions?page=2&perPage=10&since=2018-01-01",
         "nextPage": null,
         "totalResultCount": 11
     },
@@ -550,7 +551,7 @@
     "results": [
         {
           "@context":"https://w3id.org/openbadges/v2",
-          "id":"https://badgehost.com/api/v20/assertion/1234567",
+          "id":"https://issuer.example.com/api/v20/assertion/1234567",
           "type":"Assertion"
         }
     ]
@@ -586,7 +587,7 @@
     "results": [
         {
             "@context": "https://w3id.org/openbadges/v2",
-            "id": "https://badgehost.org/profile/12345",
+            "id": "https://host.example.com/profile/12345",
             "type": "Profile",
             "name": "John Appleseed ",
             "url": "https://example.com",
@@ -611,7 +612,7 @@
     "results": [
         {
             "@context": "https://w3id.org/openbadges/v2",
-            "id": "https://badgehost.org/profile/12345",
+            "id": "https://host.example.com/profile/12345",
             "type": "Profile",
             "name": "John Appleseed ",
             "url": "https://example.com",
