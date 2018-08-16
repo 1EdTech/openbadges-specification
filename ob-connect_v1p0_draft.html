@@ -15,9 +15,7 @@
         specNature: "normative",
         specType: "spec",
         contributors: [
-          {name: "First Last", company: "Foo", companyURL: "www.foo.org", role: "Editor"},
-          {name: "First Last", company: "Bar", companyURL: "www.bar.org"}
-
+          {name: "Alexander Hripak", company: "Credly", companyURL: "https://credly.com", role: "Editor"}
         ],
         //localBiblio is used to store bib entries not yet in the online imsBiblio or on specref.org
         localBiblio: _localBiblio
@@ -34,16 +32,28 @@
       <h2>Overview</h2>
       <section class="informative">
         <h3>Design Goals and Rationale</h3>
-        <p><em>The this section (which can be given another title) describes in
-          detail (as compared to the abstract) what the specification aims to
-          accomplish, and functions as a prelude to the use cases section.</em>
-        </p>
+        <p>The Badge Connect API is a specification that allows badge recipients to easily move their Assertions between platforms to streamline the experience of earning and using Open Badges. The initial scope for this specification will cover Assertions and Profiles, with potential additions in future versions of other types of data held by applications in the various Open Badges ecosystem roles of Issuer, Displayer, and Host.</p>
       </section>
 
       <section class="informative" id="usecases">
         <h3>Use cases</h3>
         <p>The following use cases are supported by this specification:</p>
-        <p><em>Tabular presentation of use cases.</em></p>
+        <table>
+          <tbody>
+            <tr>
+              <td>A recipient of an Assertion wants to import historically-issued badges into a chosen Host from an Issuer platform.</td>
+            </tr>
+            <tr>
+              <td>A user wishes to authorize an Issuer to push awarded Assertions to their chosen Host upon issue.</td>
+            </tr>
+            <tr>
+              <td>A user wishes to connect their Assertions to a recruiting platform.</td>
+            </tr>
+            <tr>
+              <td>A user wishes to move their badges from one Host to another Host.</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section id="terminology">
@@ -63,7 +73,6 @@
         <!-- RFC 2119 text is inserted at the top of this section.
             If you want, add additional paragraphs below this comment.
         -->
-        <p>Additional text...<p>
       </section>
       <section id="documentset">
         <h3>Document Set</h3>
@@ -105,24 +114,598 @@
     </section> <!-- /overview -->
 
     <section>
-      <h2>Data Model</h2>
-      <section id="subsec1">
-          <h3>Subsection</h3>
-      </section>
-    </section>
-
-    <section>
       <h2>API</h2>
-      <section id="subsec2">
-          <h3>Subsection</h3>
+      <section id="api-scopes">
+        <h3>Scopes</h3>
+        <p>Access to resources in the Badge Connect API require an access token. These access tokens have a permissioned scope when they are created and inform the responding application which resources the entity has access to.</p>
+        <table title="Scopes for the Badge Connect API endpoints." summary="Scopes for the Badge Connect API endpoints.">
+          <thead>
+            <tr>
+              <td>Name</td>
+              <td>Description</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>assertion.readonly</td>
+              <td>Permission to read assertions for the authenticated entity.</td>
+            </tr>
+            <tr>
+              <td>assertion.create</td>
+              <td>Permission to create assertions for the authenticated entity.</td>
+            </tr>
+            <tr>
+              <td>profile.readonly</td>
+              <td>Permission to read the profile for the authenticated entity.</td>
+            </tr>
+            <tr>
+              <td>profile.patch</td>
+              <td>Permission to update the profile for the authenticated entity.</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
+      <section id="api-authentication">
+        <h3>Authentication</h3>
+        <p>Security Framework...</p>
+      </section>
+      <section id="api-envelope">
+        <h3>Envelope</h3>
+        <p>Responses from all APIs in this document are wrapped in a JSON-LD envelope. It MUST include the Badge Connect context URL and pass the Badge Connect v1 JSON-schema prior to compaction.</p>
+          <pre>
+{
+    "@context": "https://example.com/to/be/determined/context.json",
 
+    "pagination": {
+        "page": 2,
+        "perPage": 10,
+        "prevPage": "https://badgehost.com/v1/assertions?page=2&perPage=10&since=2018-01-01",
+        "nextPage": null,
+        "totalResultCount": 11
+    },
+
+    "status": {
+        "error": null,
+        "statusCode": 200,
+        "statusText": "OK"
+    },
+
+    "results": [
+        {
+          "@context":"https://w3id.org/openbadges/v2",
+          "id":"https://badgehost.com/api/v20/assertion/1234567",
+          "type":"Assertion"
+        }
+    ]
+}
+          </pre>
+        <section id="api-envelope-pagination">
+          <h4>Pagination</h4>
+          <p>The "pagination" property MUST appear when a list response is incomplete and MUST include all of the following keys except "totalResultCount". The "pagination" property MAY appear for complete responses.</p>
+          <table>
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td>Description</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>page</td>
+                <td>An integer representing the current page of results.</td>
+              </tr>
+              <tr>
+                <td>perPage</td>
+                <td>An integer representing the number of results accepted to be displayed on the current page. A client MAY request any number of results, and the platform MAY limit the acceptable perPage values to any number of 10 or more.</td>
+              </tr>
+              <tr>
+                <td>nextPage</td>
+                <td>A nullable string that contains the fully qualified URL of the next page after the current page.</td>
+              </tr>
+              <tr>
+                <td>prevPage</td>
+                <td>A nullable string that contains the fully qualified URL of the previous page before the current page.</td>
+              </tr>
+              <tr>
+                <td>totalResultCount</td>
+                <td>The Host should include the total number of results responsive to the request. If the total number is not known, "totalResultCount" MUST be omitted.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section id="api-envelope-status">
+          <h4>Status</h4>
+          <p>The "status" property MUST appear on all responses.</p>
+          <table>
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td>Description</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>error</td>
+                <td>A nullable string and the human-readable message describing the problem.</td>
+              </tr>
+              <tr>
+                <td>statusCode</td>
+                <td>The HTTP status code of the response.</td>
+              </tr>
+              <tr>
+                <td>statusText</td>
+                <td>A string matching one of the enumerated and allowed values for the given endpoint.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section id="api-envelope-results">
+          <h4>Results</h4>
+          <p>A list of zero or more documents responsive to the request.</p>
+        </section>
+      </section>
+      <section id="api-endpoints">
+        <h3>Endpoints</h3>
+        <section id="api-endpoints-assertion">
+          <h4>Assertions</h4>
+          <table class="openAPIPathsTable" title="The Set of HTTP Verbs and Parameters for the '/assertions' Path" summary="The permitted set of HTTP verbs and path/query parameters for the '/assertions' path.">
+            <thead>
+                <tr>
+                    <th colspan="2">GET /assertions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Description</td>
+                    <td>Fetch Assertions for the supplied parameters and authentication token. The result parameter MUST be a list of zero or more matching Assertions. There SHOULD be only one result for a particular requested ID as the IDs are intended to be globally unique. The Host SHOULD return Assertions ordered by last update, descending and SHOULD return only Assertions updated after the timestamp requested if supplied.</td>
+                </tr>
+                <tr>
+                    <td>Query Parameters</td>
+                    <td>
+                      <table class="openAPIResponsesTable" title="GET /assertions Permitted Query Parameters" summary="The description of the permitted query parameters for the GET /assertions operation.">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>page</td>
+                            <td>Integer</td>
+                            <td>Indicate which page of the results should be retrieved.</td>
+                          </tr>
+                          <tr>
+                            <td>perPage</td>
+                            <td>Integer</td>
+                            <td>Indicate how many results should be retrieved in a single page.</td>
+                          </tr>
+                          <tr>
+                            <td>since</td>
+                            <td>An <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> compatible timestamp with a time zone indicator.</td>
+                            <td>Retrieve Assertions that were created or updated after the provided timestamp.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Responses</td>
+                    <td>
+                        <table class="openAPIResponsesTable" title="GET /assertions Permitted Endpoint Responses" summary="The description of the permitted endpoint responses for the GET /assertions operation.">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>200</td>
+                                    <td><a href="#api-responses-get-assertions-200">Assertions Response</a></td>
+                                    <td>This is the response when the request has been completed successfully.</td>
+                                </tr>
+                                <tr>
+                                    <td>400</td>
+                                    <td><a href="#api-responses-400">400 Response</a></td>
+                                    <td>An invalid request was made.</td>
+                                </tr>
+                                <tr>
+                                    <td>401</td>
+                                    <td><a href="#api-responses-401">401 Response</a></td>
+                                    <td>The request was not correctly authorized.</td>
+                                </tr>
+                                <tr>
+                                    <td>404</td>
+                                    <td><a href="#api-responses-404">404 Response</a></td>
+                                    <td>The requested resource does not exist.</td>
+                                </tr>
+                                <tr>
+                                    <td>405</td>
+                                    <td><a href="#api-responses-405">405 Response</a></td>
+                                    <td>This method is not allowed on the endpoint.</td>
+                                </tr>
+                                <tr>
+                                    <td>500</td>
+                                    <td>-</td>
+                                    <td>This code should be used only if there is catastrophic error.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+          <table class="openAPIPathsTable" title="The Set of HTTP Verbs and Parameters for the '/assertions' Path" summary="The permitted set of HTTP verbs and path/query parameters for the '/assertions' path.">
+            <thead>
+                <tr>
+                    <th colspan="2">POST /assertions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Description</td>
+                    <td>Create or update an Assertion. Multiple Assertions are not allowed. Data MUST be a list exactly one Assertion long. JWS-signed Assertions must be represented in the JSON serialization option.</td>
+                </tr>
+                <tr>
+                    <td>Responses</td>
+                    <td>
+                        <table class="openAPIResponsesTable" title="POST /assertions Permitted Endpoint Responses" summary="The description of the permitted endpoint responses for the POST /assertions operation.">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>200</td>
+                                    <td><a href="#api-responses-post-assertions-200">Assertion Response</a></td>
+                                    <td>This is the response when the request has been completed successfully.</td>
+                                </tr>
+                                <tr>
+                                    <td>400</td>
+                                    <td><a href="#api-responses-400">400 Response</a></td>
+                                    <td>An invalid request was made.</td>
+                                </tr>
+                                <tr>
+                                    <td>401</td>
+                                    <td><a href="#api-responses-401">401 Response</a></td>
+                                    <td>The request was not correctly authorized.</td>
+                                </tr>
+                                <tr>
+                                    <td>404</td>
+                                    <td><a href="#api-responses-404">404 Response</a></td>
+                                    <td>The requested resource does not exist.</td>
+                                </tr>
+                                <tr>
+                                    <td>405</td>
+                                    <td><a href="#api-responses-405">405 Response</a></td>
+                                    <td>This method is not allowed on the endpoint.</td>
+                                </tr>
+                                <tr>
+                                    <td>500</td>
+                                    <td>-</td>
+                                    <td>This code should be used only if there is catastrophic error.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </section>
+        <section id="api-endpoints-profile">
+          <h4>Profile</h4>
+          <table class="openAPIPathsTable" title="The Set of HTTP Verbs and Parameters for the '/profile' Path" summary="The permitted set of HTTP verbs and path/query parameters for the '/profile' path.">
+            <thead>
+                <tr>
+                    <th colspan="2">GET /profile</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Description</td>
+                    <td>Fetch the profile for the supplied authentication token. For a successful result, the Host MUST return exactly one entry in the results list that is a valid OB Profile instance. Multiple values MAY be present for each of the profile identifier properties other than "id": email, url, and telephone.</td>
+                </tr>
+                <tr>
+                    <td>Responses</td>
+                    <td>
+                        <table class="openAPIResponsesTable" title="GET /profile Permitted Endpoint Responses" summary="The description of the permitted endpoint responses for the GET /profile operation.">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>200</td>
+                                    <td><a href="#api-responses-get-profile-200">Profile Response</a></td>
+                                    <td>This is the response when the request has been completed successfully.</td>
+                                </tr>
+                                <tr>
+                                    <td>400</td>
+                                    <td><a href="#api-responses-400">400 Response</a></td>
+                                    <td>An invalid request was made.</td>
+                                </tr>
+                                <tr>
+                                    <td>401</td>
+                                    <td><a href="#api-responses-401">401 Response</a></td>
+                                    <td>The request was not correctly authorized.</td>
+                                </tr>
+                                <tr>
+                                    <td>404</td>
+                                    <td><a href="#api-responses-404">404 Response</a></td>
+                                    <td>The requested resource does not exist.</td>
+                                </tr>
+                                <tr>
+                                    <td>405</td>
+                                    <td><a href="#api-responses-405">405 Response</a></td>
+                                    <td>This method is not allowed on the endpoint.</td>
+                                </tr>
+                                <tr>
+                                    <td>500</td>
+                                    <td>-</td>
+                                    <td>This code should be used only if there is catastrophic error.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+          <table class="openAPIPathsTable" title="The Set of HTTP Verbs and Parameters for the '/profile' Path" summary="The permitted set of HTTP verbs and path/query parameters for the '/profile' path.">
+            <thead>
+                <tr>
+                    <th colspan="2">PATCH /profile</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Description</td>
+                    <td>Update the profile for the authenticate entity. The request SHOULD only include profile identifier properties to be added to the profile, not any existing data. Successful request responses will be the same as GET Profile and may not include the patched values (as the Host may be waiting for asynchronous processes to complete before accepting the value). The value may never become part of the published profile. A Host MAY respond with 400 BAD_REQUEST to reject data that is known immediately to not be acceptable by the platform, e.g. to reject a "telephone" property if the Host cannot validate telephone numbers.</td>
+                </tr>
+                <tr>
+                    <td>Responses</td>
+                    <td>
+                        <table class="openAPIResponsesTable" title="PATCH /profile Permitted Endpoint Responses" summary="The description of the permitted endpoint responses for the PATCH /profile operation.">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>200</td>
+                                    <td><a href="#api-responses-patch-profile-200">Profile Response</a></td>
+                                    <td>This is the response when the request has been completed successfully.</td>
+                                </tr>
+                                <tr>
+                                    <td>400</td>
+                                    <td><a href="#api-responses-400">400 Response</a></td>
+                                    <td>An invalid request was made.</td>
+                                </tr>
+                                <tr>
+                                    <td>401</td>
+                                    <td><a href="#api-responses-401">401 Response</a></td>
+                                    <td>The request was not correctly authorized.</td>
+                                </tr>
+                                <tr>
+                                    <td>404</td>
+                                    <td><a href="#api-responses-404">404 Response</a></td>
+                                    <td>The requested resource does not exist.</td>
+                                </tr>
+                                <tr>
+                                    <td>405</td>
+                                    <td><a href="#api-responses-405">405 Response</a></td>
+                                    <td>This method is not allowed on the endpoint.</td>
+                                </tr>
+                                <tr>
+                                    <td>500</td>
+                                    <td>-</td>
+                                    <td>This code should be used only if there is catastrophic error.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+      <section id="api-retrybehavior">
+        <h3>Retry Behavior</h3>
+        <p>Receivers of requests MAY implement a <strong>Retry-After</strong> header to indicate a period of time to wait before attempting the request again.</p>
+        <p>If no <strong>Retry-After</strong> header is present and the response is non-2XX, it is recommended to retry the request in 30 minutes for an additional two attempts. After which, it MAY be desirable to alert the recipient that there is an issue with the connection (e.g. perhaps they need to reauthenticate or manually trigger the request when they believe services are back up).</p>
+      </section>
+      <section id="api-responses">
+        <h3>Responses</h3>
+        <section id="api-responses-get-assertions-200">
+          <h4>200 GET Assertions Response</h4>
+          <pre>
+{
+    "@context": "https://example.com/to/be/determined/context.json",
+
+    "pagination": {
+        "page": 2,
+        "perPage": 10,
+        "prevPage": "https://badgehost.com/v1/assertions?page=2&perPage=10&since=2018-01-01",
+        "nextPage": null,
+        "totalResultCount": 11
+    },
+
+    "status": {
+        "error": null,
+        "statusCode": 200,
+        "statusText": "OK"
+    },
+
+    "results": [
+        {
+          "@context":"https://w3id.org/openbadges/v2",
+          "id":"https://badgehost.com/api/v20/assertion/1234567",
+          "type":"Assertion"
+        }
+    ]
+}
+          </pre>
+        </section>
+        <section id="api-responses-post-assertions-200">
+          <h4>200 POST Assertion Response</h4>
+          <pre>
+{
+    "@context": "https://example.com/to/be/determined/context.json",
+
+    "status": {
+        "error": null,
+        "statusCode": 200,
+        "statusText": "OK"
+    }
+}
+          </pre>
+        </section>
+        <section id="api-responses-get-profile-200">
+          <h4>200 GET Profile Response</h4>
+          <pre>
+{
+    "@context": "https://example.com/to/be/determined/context.json",
+
+    "status": {
+        "error": null,
+        "statusCode": 200,
+        "statusText": "OK"
+    },
+
+    "results": [
+        {
+            "@context": "https://w3id.org/openbadges/v2",
+            "id": "https://badgehost.org/profile/12345",
+            "type": "Profile",
+            "name": "John Appleseed ",
+            "url": "https://example.com",
+            "email": "john@example.com"
+        }
+    ]
+}
+          </pre>
+        </section>
+        <section id="api-responses-patch-profile-200">
+          <h4>200 PATCH Profile Response</h4>
+          <pre>
+{
+    "@context": "https://example.com/to/be/determined/context.json",
+
+    "status": {
+        "error": null,
+        "statusCode": 200,
+        "statusText": "OK"
+    },
+
+    "results": [
+        {
+            "@context": "https://w3id.org/openbadges/v2",
+            "id": "https://badgehost.org/profile/12345",
+            "type": "Profile",
+            "name": "John Appleseed ",
+            "url": "https://example.com",
+            "email": "john@example.com"
+        }
+    ]
+}
+          </pre>
+        </section>
+        <section id="api-responses-400">
+          <h4>400 Response</h4>
+          <pre>
+  {
+      "@context": "https://example.com/to/be/determined/context.json",
+
+      "status": {
+          "error": "Additional information regarding the error in human readable format.",
+          "statusCode": 400,
+          "statusText": "BAD_REQUEST"
+      }
+  }
+          </pre>
+          <p>Allowed values for the statusText property by endpoint:</p>
+          <ul>
+            <li>
+              <p>POST /assertions</li>
+              <ul>
+                <li>REQUEST_VALIDATION_ERROR (data validation of the request failed)</li>
+                <li>RECIPIENT_PROFILE_MISMATCH (profile match failed)</li>
+                <li>INVALID_BADGE (badge validation failed)</li>
+                <li>BAD_REQUEST (all other errors)</li>
+              </ul>
+            </li>
+            <li>
+              <p>GET /assertions</li>
+              <ul>
+                <li>REQUEST_VALIDATION_ERROR (data validation of the request failed)</li>
+                <li>BAD_REQUEST (all other errors)</li>
+              </ul>
+            </li>
+            <li>
+              <p>PATCH /profile</li>
+              <ul>
+                <li>REQUEST_VALIDATION_ERROR (data validation of the request failed)</li>
+                <li>BAD_REQUEST (all other errors)</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section id="api-responses-401">
+          <h4>401 Response</h4>
+          <pre>
+  {
+      "@context": "https://example.com/to/be/determined/context.json",
+
+      "status": {
+          "error": "Additional information regarding the error in human readable format.",
+          "statusCode": 401,
+          "statusText": "UNAUTHENTICATED"
+      }
+  }
+          </pre>
+          <p>PERMISSION_DENIED is another acceptable value for statusText in the event that the request was authenticated but the scope does not include the requested resource.</p>
+        </section>
+        <section id="api-responses-404">
+          <h4>404 Response</h4>
+          <pre>
+  {
+      "@context": "https://example.com/to/be/determined/context.json",
+
+      "status": {
+          "error": null,
+          "statusCode": 404,
+          "statusText": "NOT_FOUND"
+      }
+  }
+          </pre>
+        </section>
+        <section id="api-responses-405">
+          <h4>405 Response</h4>
+          <pre>
+  {
+      "@context": "https://example.com/to/be/determined/context.json",
+
+      "status": {
+          "error": "Additional information regarding the error in human readable format.",
+          "statusCode": 405,
+          "statusText": "METHOD_NOT_ALLOWED"
+      }
+  }
+          </pre>
+        </section>
+      </section>
     </section>
-
-    <section class="appendix informative">
-      <h2>Examples</h2>
-      <!-- use figure class example for examples -->
-    </section> <!-- /examples -->
 
     <section class="appendix informative" id="revisionhistory">
       <h2>Revision History</h2>
