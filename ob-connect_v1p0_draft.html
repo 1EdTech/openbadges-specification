@@ -122,7 +122,7 @@
         roles of Host and Relying Party. Typically Relying Parties SHOULD be certified Open Badges
         services in the Open Badges roles of Displayer or Issuer, though Hosts may also be relying
         parties to serve the <a href="#usecases-host-host-transfer">Host to Host transfer use case
-        </a>. Badge Connect API uses OAuth2 for authentication, granular resource-based permission
+        </a>. Badge Connect API uses OAuth 2.0 for authentication, granular resource-based permission
         scopes, and offers a number of required endpoints that MUST be implemented by Hosts and
         Relying Parties or both.
       </p>
@@ -130,7 +130,7 @@
       <section id="api-authentication">
         <h3>Authentication</h3>
         <p>A Relying Party requests a token scoped for access to Open Badges Assertions on a Host
-          that belong to a user (resource owner) of that Host service, using an Oauth2
+          that belong to a user (resource owner) of that Host service, using an OAuth 2.0
           Authorization Code Grant as described in the <a href="#TODO">IMS Security Framework</a>.
           Once a Relying Party obtains a code, it exchanges the code for a token by signing a
           request using a public key declared in its manifest file. Subsequent API requests are
@@ -143,10 +143,10 @@
             service to their chosen Host. The user supplies the Relying Party with the Host domain
             authority or selects their Host from a list. The Relying Party then MAY initiate an
             authorization request by redirecting the user to the Host's AuthorizationURI as
-            declared in the Host's Open Badge Connect Manifest. This HTTP GET request MUST a
+            declared in the Host's Open Badge Connect Manifest. This HTTP GET request MUST have a
             <code>redirect_uri</code> query with the absolute URI of the Relying Party's
             redirection endpoint, urlencoded as well as a list of requested scopes from the options
-            available, according to the OAuth2 Specification. The required <code>client_id</code>
+            available, according to the OAuth 2.0 Specification. The required <code>client_id</code>
             parameter MUST be the string <code>BADGE_CONNECT</code>.
           </p>
 
