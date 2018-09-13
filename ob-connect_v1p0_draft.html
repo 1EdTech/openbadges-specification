@@ -15,7 +15,10 @@
         specNature: "normative",
         specType: "spec",
         contributors: [
-          {name: "Alexander Hripak", company: "Credly", companyURL: "https://credly.com", role: "Editor"}
+          {name: "Alexander Hripak", company: "Credly", companyURL: "https://credly.com", role: "Editor"},
+          {name: "Nate Otto", company: "Concentric Sky", companyURL: "https://concentricsky.com", role: "Contributor"},
+          {name: "Justin Pitcher", company: "Chalk & Wire", companyURL: "http://www.chalkandwire.com", role: "Contributor"},
+          {name: "Chris Houston", company: "Capella University", companyURL: "https://www.capella.edu/", role: "Contributor"}
         ],
         //localBiblio is used to store bib entries not yet in the online imsBiblio or on specref.org
         localBiblio: _localBiblio
@@ -40,16 +43,16 @@
         <p>The following use cases are supported by this specification:</p>
         <table>
           <tbody>
-            <tr>
+            <tr id="usecases-issuer-host-import">
               <td>A recipient of an Assertion wants to import historically-issued badges into a chosen Host from an Issuer platform.</td>
             </tr>
-            <tr>
+            <tr id="usecases-issuer-host-award">
               <td>A user wishes to authorize an Issuer to push awarded Assertions to their chosen Host upon issue.</td>
             </tr>
-            <tr>
+            <tr id="usecases-host-displayer-transfer">
               <td>A user wishes to connect their Assertions to a recruiting platform.</td>
             </tr>
-            <tr>
+            <tr id="usecases-host-host-transfer">
               <td>A user wishes to move their badges from one Host to another Host.</td>
             </tr>
           </tbody>
@@ -115,9 +118,80 @@
 
     <section>
       <h2>API</h2>
+      <p>Badge Connect defines a JSON API protocol to be implemented by applications serving in the
+        roles of Host and Relying Party. Typically Relying Parties SHOULD be certified Open Badges
+        services in the Open Badges roles of Displayer or Issuer, though Hosts may also be relying
+        parties to serve the <a href="#usecases-host-host-transfer">Host to Host transfer use case
+        </a>. Badge Connect API uses OAuth 2.0 for authentication, granular resource-based permission
+        scopes, and offers a number of required endpoints that MUST be implemented by Hosts and
+        Relying Parties or both.
+      </p>
+
+      <section id="api-authentication">
+        <h3>Authentication</h3>
+        <p>A Relying Party requests a token scoped for access to Open Badges Assertions on a Host
+          that belong to a user (resource owner) of that Host service, using an OAuth 2.0
+          Authorization Code Grant as described in the <a href="#TODO">IMS Security Framework</a>.
+          Once a Relying Party obtains a code, it exchanges the code for a token by signing a
+          request using a public key declared in its manifest file. Subsequent API requests are
+          authenticated with the token until its expiration, after which it MAY be renewed if the
+          Host supports renewal.
+        </p>
+        <section id="oauth-token">
+          <h3>Obtaining Tokens</h3>
+          <p>The user starts on the Relying Party service and is offered the chance to connect that
+            service to their chosen Host. The user supplies the Relying Party with the Host domain
+            authority or selects their Host from a list. The Relying Party then MAY initiate an
+            authorization request by redirecting the user to the Host's AuthorizationURI as
+            declared in the Host's Open Badge Connect Manifest. This HTTP GET request MUST have a
+            <code>redirect_uri</code> query with the absolute URI of the Relying Party's
+            redirection endpoint, urlencoded as well as a list of requested scopes from the options
+            available, according to the OAuth 2.0 Specification. The required <code>client_id</code>
+            parameter MUST be the string <code>BADGE_CONNECT</code>.
+          </p>
+
+          <p>If the Host does not recognize the Relying Party's redirection endpoint from a prior
+            connection with this Relying Party, the Host SHOULD request the Badge Connect
+            Manifest from the Relying Party from the well-known manifest path relative to the
+            authority of the provided <code>redirect_uri</code> parameter. If the manifest file is
+            valid under the requirements of this specification and the specified redirection
+            endpoint appears in the manifest, the Host MAY honor the request to present the
+            user/resource owner with the option to authorize the request. If the Host recognizes
+            the Relying Party, the Host MAY skip the manifest check for subsequent authorization
+            requests. If the user authorizes the Relying Party to access their resources with the
+            requested scopes, the Host MUST redirect the user back to the redirect_uri with a
+            <code>code</code> query parameter. The Relying Party may use this code in the next step
+            to obtain a token.
+          </p>
+
+          <p>With a code in hand, the Relying Party SHOULD attempt to exchange the code for a
+            token. The Relying Party makes a authorization grant POST request to the Host's
+            tokenUri, as declared in the Host's Badge Connect Manifest. This request is
+            authenticated using the "Using JSON Web Tokens with OAuth 2.0 Authorization Code Grant"
+            method described in the IMS Security Framework. The Relying Party generates a JWT
+            [[!RFC7519]] bearer token as a means for authentication in requesting an OAuth 2.0
+            access token. If the Host finds the request to be valid, it generates and returns an
+            access token in the form specified by the IMS Security Framework. If the request is
+            invalid, the Host MUST return an error message with an HTTP 400 (Bad Request) status
+            code and a body matching the Badge Connect response <a href="#envelope">envelope</a>.
+          </p>
+        </section>
+        <section id="oauth-token">
+          <h3>Authenticating with Tokens</h3>
+          <p>After obtaining a token using the above method, a Relying Party MAY request resources
+            controlled by the resource owner from Host endpoints using the token in the HTTP
+            Authorization header. An example follows, where <code>2YotnFZFEjr1zCsicMWpAA</code> is
+            the token:</p>
+          <pre>Authorization: Bearer 2YotnFZFEjr1zCsicMWpAA</pre>
+        </section>
+      </section>
+
       <section id="api-scopes">
         <h3>Scopes</h3>
-        <p>Access to resources in the Badge Connect API require an access token. These access tokens have a permissioned scope when they are created and inform the responding application which resources the entity has access to.</p>
+        <p>Access to resources in the Badge Connect API require an access token. These access
+          tokens have a permissioned scope when they are created and inform the responding
+          application which resources the entity has access to.
+        </p>
         <table title="Scopes for the Badge Connect API endpoints." summary="Scopes for the Badge Connect API endpoints.">
           <thead>
             <tr>
@@ -145,10 +219,6 @@
           </tbody>
         </table>
       </section>
-      <section id="api-authentication">
-        <h3>Authentication</h3>
-        <p>Security Framework...</p>
-      </section>
       <section id="api-envelope">
         <h3>Envelope</h3>
         <p>Responses from all APIs in this document are wrapped in a JSON-LD envelope. It MUST include the Badge Connect context URL and pass the Badge Connect v1 JSON-schema prior to compaction.</p>
@@ -159,7 +229,7 @@
     "pagination": {
         "page": 2,
         "perPage": 10,
-        "prevPage": "https://badgehost.com/v1/assertions?page=2&perPage=10&since=2018-01-01",
+        "prevPage": "https://host.example.com/v1/assertions?page=2&perPage=10&since=2018-01-01",
         "nextPage": null,
         "totalResultCount": 11
     },
@@ -173,7 +243,7 @@
     "results": [
         {
           "@context":"https://w3id.org/openbadges/v2",
-          "id":"https://badgehost.com/api/v20/assertion/1234567",
+          "id":"https://issuer.example.com/api/v20/assertion/1234567",
           "type":"Assertion"
         }
     ]
@@ -536,7 +606,7 @@
     "pagination": {
         "page": 2,
         "perPage": 10,
-        "prevPage": "https://badgehost.com/v1/assertions?page=2&perPage=10&since=2018-01-01",
+        "prevPage": "https://host.example.com/v1/assertions?page=2&perPage=10&since=2018-01-01",
         "nextPage": null,
         "totalResultCount": 11
     },
@@ -550,7 +620,7 @@
     "results": [
         {
           "@context":"https://w3id.org/openbadges/v2",
-          "id":"https://badgehost.com/api/v20/assertion/1234567",
+          "id":"https://issuer.example.com/api/v20/assertion/1234567",
           "type":"Assertion"
         }
     ]
@@ -586,7 +656,7 @@
     "results": [
         {
             "@context": "https://w3id.org/openbadges/v2",
-            "id": "https://badgehost.org/profile/12345",
+            "id": "https://host.example.com/profile/12345",
             "type": "Profile",
             "name": "John Appleseed ",
             "url": "https://example.com",
@@ -611,7 +681,7 @@
     "results": [
         {
             "@context": "https://w3id.org/openbadges/v2",
-            "id": "https://badgehost.org/profile/12345",
+            "id": "https://host.example.com/profile/12345",
             "type": "Profile",
             "name": "John Appleseed ",
             "url": "https://example.com",
