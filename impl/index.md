@@ -119,6 +119,7 @@ These recommended practices are in addition to the information provided in the s
 #### Issuing Badges
 - Creating Badge Classes
   - Accessibility: Encouraging alt text for images - The Image data object contains a “Caption” property which can be rendered as alt text for images. Badge platforms should consider adding features that prompt users who create badge classes to submit Caption text to be used for this purpose. 
+  - Use of urn-based identifiers for embedded BadgeClasses presents a possibility that multiple data versions would be published under the same urn embedded in different Assertions. HTTP identifiers for BadgeClasses allows relying parties the best possible means to resolve possible differences to know which version best represents the current wishes of the issuer.
 - Delivering badges to recipients
   - Typically, an Open Badge is made available to recipients through an email message or other notification that contains instructions and a mechanism for downloading the badge without signing up for any account. 
 - Recipient should be notified
