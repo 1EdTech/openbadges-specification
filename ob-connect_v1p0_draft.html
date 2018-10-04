@@ -184,6 +184,11 @@
             the token:</p>
           <pre>Authorization: Bearer 2YotnFZFEjr1zCsicMWpAA</pre>
         </section>
+        <section id="oauth-token">
+            <h3>Revocation by Resource Owner</h3>
+            <p>Host platforms MUST provide a list of authorized clients to the resource owner for review. The list SHOULD identify the relying party and when the grant was created. From this list the resource owner MUST be able to revoke the relying party's access.</p>
+            <p>Subsequent attempts to use the relevant revoked access or refresh tokens SHOULD result in a 401 UNAUTHENTICATED error.</p>
+        </section>
       </section>
 
       <section id="api-scopes">
