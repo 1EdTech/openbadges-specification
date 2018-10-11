@@ -134,7 +134,8 @@ These recommended practices are in addition to the information provided in the s
 - Revoking badge assertions
   - The revocation properties of Open Badges provide a mechanism by which a badge issuer may retract or nullify existing badge assertions. Revocation is an intentional act of a badge issuer and differs from the expiration date of a badge assertion, though both expiration and revocation are ways to communicate that the badge assertion is no longer current. 
 - Maintaining hosted resources for badge verification
-  - A critical feature of Open Badges is the ability for consumers to verify the badge. Maintain necessary hosted verification resources for the entire useful life of issued badges. This requires services to maintain a high level of availability.
+  - A critical feature of Open Badges is the ability for consumers to verify the badge. Maintain necessary hosted verification resources for the entire useful life of issued badges. This requires services to maintain a high level of availability. 
+  - Consider processes to prevent authorized BadgeClass owners from deleting existing BadgeClasses from which assertions have been issued. BadgeClasses are required resources for validating and verifying assertions. If the issuer does desire to invalidate all awarded assertions of the BadgeClass to be deleted, it is recommended to treat these assertions as revoked and supply a relevant revocationReason through the RevocationList or hosted Assertion verification URLs.
 
 #### Publishing Badges
 - Expectations of publishing badges
