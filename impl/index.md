@@ -18,7 +18,7 @@ layout: page_sub
 <table class="versionTable" title="Version/Release Details">
 <tr>
 <td>Date Issued:</td>
-<td>12 April 2018</td>
+<td>18 October 2018</td>
 </tr>
 <tr>
 <td>Status</td>
@@ -68,10 +68,12 @@ _Revision: 12 April 2018_
 	
 ##  Contents
  * [Introduction](#intro)
+ * [Context](#context)
  * [Use Cases](#usecases)
  * [Recommended Practices](#recpractices)
  * [Definition of Key Terms](#terms)
  * [List of Contributors](#contrib)
+ * [Revision History](#history)
   
 </div>
 
@@ -233,5 +235,17 @@ The following individuals contributed to the development of this document:
 - Alex Reis, D2L
 - Jarin Schmidt, Pearson Acclaim
 
+## <a id="history"></a> Revision History
+<table>
+	<tr>
+		<th>Release date</th><th>Comments</th>
+	</tr>
+	<tr>
+		<td>18 October 2018</td><td>Recommendations for urn-based identifiers; Recommendations for deletion of badgeClass</td>
+	</tr>
+	<tr>
+		<td>12 April 2018</td><td>Original Release</td>
+	</tr>
+</table>
 
 
