@@ -241,7 +241,7 @@ The following individuals contributed to the development of this document:
 		<th>Release date</th><th>Comments</th>
 	</tr>
 	<tr>
-		<td>18 October 2018</td><td>Recommendations for urn-based identifiers; Recommendations for deletion of badgeClass</td>
+		<td>18 October 2018</td><td>Recommendations for urn-based identifiers; Recommendations for deletion of BadgeClass</td>
 	</tr>
 	<tr>
 		<td>12 April 2018</td><td>Original Release</td>
