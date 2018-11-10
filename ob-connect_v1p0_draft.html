@@ -218,7 +218,7 @@
               <td>Permission to read the profile for the authenticated entity.</td>
             </tr>
             <tr>
-              <td>profile.patch</td>
+              <td>profile.update</td>
               <td>Permission to update the profile for the authenticated entity.</td>
             </tr>
           </tbody>
@@ -537,7 +537,7 @@
           <table class="openAPIPathsTable" title="The Set of HTTP Verbs and Parameters for the '/profile' Path" summary="The permitted set of HTTP verbs and path/query parameters for the '/profile' path.">
             <thead>
                 <tr>
-                    <th colspan="2">PATCH /profile</th>
+                    <th colspan="2">POST /profile</th>
                 </tr>
             </thead>
             <tbody>
@@ -548,7 +548,7 @@
                 <tr>
                     <td>Responses</td>
                     <td>
-                        <table class="openAPIResponsesTable" title="PATCH /profile Permitted Endpoint Responses" summary="The description of the permitted endpoint responses for the PATCH /profile operation.">
+                        <table class="openAPIResponsesTable" title="POST /profile Permitted Endpoint Responses" summary="The description of the permitted endpoint responses for the POST /profile operation.">
                             <thead>
                                 <tr>
                                     <th>Name</th>
@@ -559,7 +559,7 @@
                             <tbody>
                                 <tr>
                                     <td>200</td>
-                                    <td><a href="#api-responses-patch-profile-200">Profile Response</a></td>
+                                    <td><a href="#api-responses-post-profile-200">Profile Response</a></td>
                                     <td>This is the response when the request has been completed successfully.</td>
                                 </tr>
                                 <tr>
@@ -671,8 +671,8 @@
 }
           </pre>
         </section>
-        <section id="api-responses-patch-profile-200">
-          <h4>200 PATCH Profile Response</h4>
+        <section id="api-responses-post-profile-200">
+          <h4>200 POST Profile Response</h4>
           <pre>
 {
     "@context": "https://example.com/to/be/determined/context.json",
@@ -728,7 +728,7 @@
               </ul>
             </li>
             <li>
-              <p>PATCH /profile</li>
+              <p>POST /profile</li>
               <ul>
                 <li>REQUEST_VALIDATION_ERROR (data validation of the request failed)</li>
                 <li>BAD_REQUEST (all other errors)</li>
