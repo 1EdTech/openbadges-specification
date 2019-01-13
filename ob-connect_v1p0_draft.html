@@ -224,6 +224,49 @@
           </tbody>
         </table>
       </section>
+
+    <section id="api-manifest">
+        <h3>Manifest</h3>
+        <p>Something something</p>
+        <p>Implementers of the spec MUST name their manifest `badgeconnect.json` and MUST place it in their <code>/.well-known/</code> directory.
+            E.g. <code>https://YOUR_DOMAIN/.well-known/badgeconnect.json</code></p>
+        <pre>
+{
+	"@context": "to/be/determined/location/context.json",
+	"id": "https://badgehost.example.com/.well-known/obc.json",
+	"badgeConnectAPI": [{
+			"name": "A Badge Host",
+			"image": "https://badgehost.example.com/logo.png",
+			"apiBase": "https://badgehost.example.com/api/obc/v1",
+			"version": 1,
+			"scopesOffered": [
+				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.readonly",
+				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.create",
+				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.readonly",
+				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.patch"
+			],
+			"scopesRequested": [
+				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.readonly",
+				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.create",
+				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.readonly",
+				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.patch"
+			],
+			"authorizationUrl": "https://badgehost.example.com/o/auth",
+			"tokenUrl": "https://badgehost.example.com/o/token",
+			"redirectUris": [
+				"https://badgehost.example.com/o/redirect"
+			],
+			"termsOfServiceUrl": "https://badgehost.example.com/terms",
+			"privacyPolicyUrl": "https://badgehost.example.com/privacy",
+			"keys": "https://badgehost.example.com/.well-known/jwks.json"
+		}
+
+	]
+}
+        </pre>
+    </section>
+
+
       <section id="api-envelope">
         <h3>Envelope</h3>
         <p>Responses from all APIs in this document are wrapped in a JSON-LD envelope. It MUST include the Badge Connect context URL and pass the Badge Connect v1 JSON-schema prior to compaction.</p>
