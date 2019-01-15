@@ -227,43 +227,119 @@
 
     <section id="api-manifest">
         <h3>Manifest</h3>
-        <p>Something something</p>
-        <p>Implementers of the spec MUST name their manifest `badgeconnect.json` and MUST place it in their <code>/.well-known/</code> directory.
+        <p>All Hosts and Relying Parties MUST implement JSON a manifest file which contains configuration information about their implementation, such as scope support, redirect URIs, and branding information.</p>
+        <p>Platforms MUST name their manifest `badgeconnect.json` and MUST host it in the <code>/.well-known/</code> directory of the platform.
             E.g. <code>https://YOUR_DOMAIN/.well-known/badgeconnect.json</code></p>
+        <h4>Manifest Structure</h4>
         <pre>
 {
 	"@context": "to/be/determined/location/context.json",
-	"id": "https://badgehost.example.com/.well-known/obc.json",
+	"id": "https://badgehost.example.com/.well-known/badgeconnect.json",
 	"badgeConnectAPI": [{
-			"name": "A Badge Host",
-			"image": "https://badgehost.example.com/logo.png",
-			"apiBase": "https://badgehost.example.com/api/obc/v1",
-			"version": 1,
-			"scopesOffered": [
-				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.readonly",
-				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.create",
-				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.readonly",
-				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.patch"
-			],
-			"scopesRequested": [
-				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.readonly",
-				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.create",
-				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.readonly",
-				"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.patch"
-			],
-			"authorizationUrl": "https://badgehost.example.com/o/auth",
-			"tokenUrl": "https://badgehost.example.com/o/token",
-			"redirectUris": [
-				"https://badgehost.example.com/o/redirect"
-			],
-			"termsOfServiceUrl": "https://badgehost.example.com/terms",
-			"privacyPolicyUrl": "https://badgehost.example.com/privacy",
-			"keys": "https://badgehost.example.com/.well-known/jwks.json"
-		}
-
-	]
+		"name": "A Badge Host",
+		"image": "https://badgehost.example.com/logo.png",
+		"apiBase": "https://badgehost.example.com/api/obc/v1",
+		"version": 1,
+        "termsOfServiceUrl": "https://badgehost.example.com/terms",
+		"privacyPolicyUrl": "https://badgehost.example.com/privacy",
+		"scopesOffered": [
+		    "https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.readonly",
+			"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.create",
+			"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.readonly",
+			"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.patch"
+		],
+		"scopesRequested": [
+			"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.readonly",
+			"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.create",
+			"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.readonly",
+			"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.patch"
+		],
+		"authorizationUrl": "https://badgehost.example.com/o/auth",
+		"tokenUrl": "https://badgehost.example.com/o/token",
+        "redirectUris": [
+			"https://badgehost.example.com/o/redirect"
+		],
+        "keys": "https://badgehost.example.com/.well-known/jwks.json"
+	}]
 }
         </pre>
+
+        <h4>Manifest Properties</h4>
+
+        <table title="Properties for the manifest file." summary="Properties for the manifest file.">
+          <thead>
+            <tr>
+              <td>Property</td>
+              <td>Required</td>
+              <td>Description</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>name</code></td>
+              <td>Yes</td>
+              <td>The name of the platform supporting the API. This SHOULD reflect the user-facing identity of the platform requesting authorization.</td>
+            </tr>
+            <tr>
+              <td><code>image</code></td>
+              <td>No</td>
+              <td>An image representing the platform. May be a URI to a hosted image or a Data URI.</td>
+            </tr>
+            <tr>
+              <td><code>apiBase</code></td>
+              <td>Yes</td>
+              <td>Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing slash "/". <br />
+                  E.g. <code>apiBase + "/assertions"</code>
+              </td>
+            </tr>
+            <tr>
+              <td><code>version</code></td>
+              <td>Yes</td>
+              <td>Integer representing the implemented version. MUST be <strong>1</strong>.</td>
+            </tr>
+            <tr>
+              <td><code>termsOfServiceUrl</code></td>
+              <td>Yes</td>
+              <td>Fully qualified URL to the platform's terms of service. Other platforms SHOULD display this resource as part of their authorization interface.</td>
+            </tr>
+            <tr>
+              <td><code>privacyPolicyUrl</code></td>
+              <td>Yes</td>
+              <td>Fully qualified URL to the platform's privacy policy. Other platforms SHOULD display this resource as part of their authorization interface.</td>
+            </tr>
+            <tr>
+              <td><code>scopesOffered</code></td>
+              <td>Yes*</td>
+              <td><strong>Applies to Hosts only.</strong> An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the scope descriptors.</td>
+            </tr>
+            <tr>
+              <td><code>scopesRequested</code></td>
+              <td>Yes*</td>
+              <td><strong>Applies to Relying Parties only.</strong> An array of strings listing the scopes supported by the relying party in the form of fully qualified URLs to the scope descriptors.</td>
+            </tr>
+            <tr>
+              <td><code>authorizationUrl</code></td>
+              <td>Yes*</td>
+              <td><strong>Applies to Hosts only.</strong> A fully qualified URL to the host's authorization endpoint.</td>
+            </tr>
+            <tr>
+              <td><code>tokenUrl</code></td>
+              <td>Yes*</td>
+              <td><strong>Applies to Hosts only.</strong> A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</td>
+            </tr>
+            <tr>
+              <td><code>redirectUris</code></td>
+              <td>Yes*</td>
+              <td><strong>Applies to Relying Parties only.</strong> An array of one or more fully qualified URIs representing the valid redirect values for authorization requests. The HOST MUST reject any authorization requests with redirect URIs that are not an exact match of a registered URI</td>
+            </tr>
+            <tr>
+              <td><code>keys</code></td>
+              <td>No</td>
+              <td><strong>Applies to Relying Parties only.</strong> Allows the relying party to declare the location of their JWKS file. Currently this file MUST be named <code>jwks.json</code> and placed in the <code>.well-known</code> directory. E.g. <code>https://YOUR_DOMAIN/.well-known/jwks.json</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+
     </section>
 
 
