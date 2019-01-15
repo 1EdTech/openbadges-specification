@@ -166,13 +166,31 @@
 
           <p>With a code in hand, the Relying Party SHOULD attempt to exchange the code for a
             token. The Relying Party makes a authorization grant POST request to the Host's
-            tokenUri, as declared in the Host's Badge Connect Manifest. This request is
+            tokenUri, as declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a>. This request is
             authenticated using the "Using JSON Web Tokens with OAuth 2.0 Authorization Code Grant"
-            method described in the IMS Security Framework. The Relying Party generates a JWT
-            [[!RFC7519]] bearer token as a means for authentication in requesting an OAuth 2.0
-            access token. If the Host finds the request to be valid, it generates and returns an
-            access token in the form specified by the IMS Security Framework. If the request is
-            invalid, the Host MUST return an error message with an HTTP 400 (Bad Request) status
+            method described in the IMS Security Framework. The Relying Party generates an RSA256 signed JWT
+            [[!RFC7519]] to be passed in the request body's <code>client_assertion</code> parameter along with a predefined <code>client_assertion_type</code> of <code>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</code></p>
+            <p>An example token request:</p>
+<pre><code>
+POST /badge/connect/auth/token HTTP/1.1
+Host: www.example.com
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code
+&code=n0esc3NRze7LTCu7iYzS6a5acc3f0ogp4
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+.eyJpc3MiOiJ0b29sLmNvbSIsInN1YiI6Ind3dy5leGFtcGxlLmNvbSIsImF1ZCI6Imh0dHBzOi8vd3d3LmV4YW1wbGUuY29tL2x0aS9hdXRoL3R
+va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDdhNDRiMmVjZTczZDAwYTA5MzY0ZDQ5YiJ9
+.liArqLDIF-xGcCu8ythy0HlzntxwZ90AYTnwH-daCQQ
+</code></pre>
+  			<p>The authorization server decodes the JWT and checks the <code>iss</code>,
+  				<code>sub</code>,
+  				<code>exp</code>, <code>aud</code> and <code>jti</code> values, followed
+  				by verifying the signature using the <code>kid</code> and <a href="#api-jwks">JWKS file</a>. If it finds the request to be a valid, it generates
+  				and returns an access token and optionally a refresh token.</p>
+
+            <p>If the request is invalid, the Host MUST return an error message with an HTTP 400 (Bad Request) status
             code and a body matching the Badge Connect response <a href="#envelope">envelope</a>.
           </p>
         </section>
@@ -342,6 +360,45 @@
 
     </section>
 
+    <section id="api-jwks">
+        <h3>JSON Web Key Set</h3>
+        <p>A JWKS file is a container of one or multiple <strong>public</strong> keys identified by their key identifier (<code>kid</code> key parameter), in the form of a JSON Web Key. [[!RFC7517]] defines JSON Web Keys.</p>
+        <p>Relying parties MUST name their set <code>jwks.json</code> and place it in the <code>.well-known</code> directory. E.g. <code>https://YOUR_DOMAIN/.well-known/jwks.json</code></p>
+        <p>When a Relying Party requests a token, they MUST sign the JWT passed in the <code>client_assertion</code> with an RSA256 signature. The Relying Party identifies the key a Host uses to validate the
+          JWT signature by using a <code>kid</code> claim in the JWT header. The Relying Party MUST NOT reuse the <code>kid</code> identifier to identify different public keys, allowing the public key to optionally be cached by the Host.
+          The relying party MAY issue a <code>cache-control: max-age</code> HTTP header on requests to retrieve a key set to signal how long the retriever may cache the key set before refreshing it.
+        </p>
+        <p>Here is an example of a JWK Set containing two RSA keys:</p>
+        <pre><code>
+  {
+      "keys": [{
+          "e": "AQAB",
+          "use": "sig",
+          "alg": "RS256",
+          "kty": "RSA",
+          "n": "oNqXxxWuX7LlovO5reRNau5f96K_o3DJx-wK7lrjBmp0qKwNszbbp8MvfrlVs-oYXfj1rzqAeY6GJF5BETViDTT0i2fEz37J0HGAeTrO7Z5zI5Ure9Cb0lulLOZj1hF8piZzWW_z_set2NyhafoZ-IG1NSe61mqHu7mTjuHYST84igz-bPKhkJAVlmPPjHTO51hG9T_roVIkjXnvgqd2dCaJ0ExT2bR96jcyausbkdDNfPtJdfSCAWYXGQnt0PmIysOHPtCkyFqv5ez8KXT7Q4CAYd7nxwfWNOFRHyLAyF__cYEJlBEKGyJniSIPtkGBWrbXUQhKF6TEFa-RRRl8Dw==",
+          "kid": "1516918956_0"
+      }, {
+          "e": "AQAB",
+          "use": "sig",
+          "alg": "RS256",
+          "kty": "RSA",
+          "n": "kMfHwTp2dIYybtvU-xzF2E3dRJBNBtNbb-d3-Rm6nRUraxnTwZ6Fr1YpFBd1pnWzLzdtMv7ofCd28nx-1mfYZ6qhqPWF1RpGe2vVOSTmcu-QpA9h-rouqRKlv3jvXPn623Z2U1Wml0EIxyIzD3WLu7NkWEKSIcBzeY1TctpO5FSU3EyyCX1UoIMuvYBP9tiZlc74yIZvky-qT8Ej3S8L0JqhvD583E_uGMoLowguOl2yYr9zhubiqOxT3VsxvpJCu04TWmvf4XX34IQRyAHcPJFQ2QiBfLWvWyc6iP3JJYJvyapwc5vVEismryXnngyBX8NXHZaarMi6g5kTQi8itw==",
+          "kid": "1516918956_1"
+      }]
+  }
+  </code></pre>
+
+    <p>Here is a quick breakdown of what each property represents:</p>
+    <ul>
+        <li><strong>e</strong>: is the exponent for a standard PEM</li>
+        <li><strong>use</strong>: is how the key was meant to be used. For the example above sig represents signature.</li>
+        <li><strong>alg</strong>: is the algorithm for the key</li>
+        <li><strong>kty</strong>: is the key type</li>
+        <li><strong>n</strong>: is the modulus for a standard PEM</li>
+        <li><strong>kid</strong>: is the unique identifier for the key</li>
+    </u>
+    </section>
 
       <section id="api-envelope">
         <h3>Envelope</h3>
