@@ -332,7 +332,7 @@
             <tbody>
                 <tr>
                     <td>Description</td>
-                    <td>Fetch Assertions for the supplied parameters and authentication token. The result parameter MUST be a list of zero or more matching Assertions. There SHOULD be only one result for a particular requested ID as the IDs are intended to be globally unique. The Host SHOULD return Assertions ordered by last update, descending and SHOULD return only Assertions updated after the timestamp requested if supplied.</td>
+                    <td>Fetch Assertions for the supplied parameters and authentication token. The result parameter MUST be a list of zero or more matching Assertions which may be JSON-LD Assertion documents or JSON Web Signatures. There SHOULD be only one result for a particular requested ID as the IDs are intended to be globally unique. The Host SHOULD return Assertions ordered by last update, descending and SHOULD return only Assertions updated after the timestamp requested if supplied.</td>
                 </tr>
                 <tr>
                     <td>Query Parameters</td>
@@ -627,7 +627,8 @@
           "@context":"https://w3id.org/openbadges/v2",
           "id":"https://issuer.example.com/api/v20/assertion/1234567",
           "type":"Assertion"
-        }
+        },
+        "eyJhbGciOiJSUzI1NiJ9.ew0KICAiQGNvbnRleHQiOiAiaHR0cHM6Ly93M2lkLm9yZy9vcGVuYmFkZ2VzL3YyIiwNCiAgInR5cGUiOiAiQXNzZXJ0aW9uIiwNCiAgImlkIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3RpY3MtYmFkZ2UuanNvbiIsDQogICJyZWNpcGllbnQiOiB7DQogICAgInR5cGUiOiAiZW1haWwiLA0KICAgICJoYXNoZWQiOiB0cnVlLA0KICAgICJzYWx0IjogImRlYWRzZWEiLA0KICAgICJpZGVudGl0eSI6ICJzaGEyNTYkYzdlZjg2NDA1YmE3MWI4NWFjZDhlMmU5NTE2NmM0YjExMTQ0ODA4OWYyZTE1OTlmNDJmZTFiYmE0NmU4NjVjNSINCiAgfSwNCiAgImltYWdlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3QtYmFkZ2UucG5nIiwNCiAgImV2aWRlbmNlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3Qtd29yay5odG1sIiwNCiAgImlzc3VlZE9uIjogIjIwMTYtMTItMzFUMjM6NTk6NTlaIiwNCiAgImJhZGdlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvcm9ib3RpY3MtYmFkZ2UuanNvbiIsDQogICJ2ZXJpZnkiOiB7DQogICAgInR5cGUiOiAiU2lnbmVkQmFkZ2UiLA0KICAgICJjcmVhdG9yIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvcHVibGljS2V5Ig0KICB9DQp9.Liv4CLviFH20_6RciUWf-jrUvMAecxT4KZ_gLHAeT_chrsCvBEE1uwgtwiarIs9acFfMi0FJzrGye6mhdHf3Kjv_6P7BsG3RPkYgK6-5i9uZv4QAIlvfNclWAoWUt4j0_Kip2ftzzWwc5old01nJRtudZHxo5eGosSPlztGRE9G_g_cTj32tz3fG92E2azPmbt7026G91rq80Mi-9c4bZm2EgrcwNBjO0p1mbKYXLIAAkOMuJZ_8S4Go8S0Sg3xC6ZCn03zWuXCP6bdY_jJx2BpmvqC3H55xWIU8p5c9RxI8YifPMmJq8ZQhjld0pl-L8kHolJx7KGfTjQSegANUPg"
     ]
 }
           </pre>
