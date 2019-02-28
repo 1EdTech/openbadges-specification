@@ -402,11 +402,9 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
 
       <section id="api-envelope">
         <h3>Envelope</h3>
-        <p>Responses from all APIs in this document are wrapped in a JSON-LD envelope. It MUST include the Badge Connect context URL and pass the Badge Connect v1 JSON-schema prior to compaction.</p>
+        <p>Responses from all APIs in this document are wrapped in an API envelope.</p>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
     "pagination": {
         "page": 2,
         "perPage": 10,
@@ -782,8 +780,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>200 GET Assertions Response</h4>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
     "pagination": {
         "page": 2,
         "perPage": 10,
@@ -812,8 +808,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>200 POST Assertion Response</h4>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
     "status": {
         "error": null,
         "statusCode": 200,
@@ -826,8 +820,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>200 GET Profile Response</h4>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
     "status": {
         "error": null,
         "statusCode": 200,
@@ -851,8 +843,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>200 POST Profile Response</h4>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
     "status": {
         "error": null,
         "statusCode": 200,
@@ -876,8 +866,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>400 Response</h4>
           <pre>
   {
-      "@context": "https://example.com/to/be/determined/context.json",
-
       "status": {
           "error": "Additional information regarding the error in human readable format.",
           "statusCode": 400,
@@ -916,8 +904,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>401 Response</h4>
           <pre>
   {
-      "@context": "https://example.com/to/be/determined/context.json",
-
       "status": {
           "error": "Additional information regarding the error in human readable format.",
           "statusCode": 401,
@@ -931,8 +917,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>404 Response</h4>
           <pre>
   {
-      "@context": "https://example.com/to/be/determined/context.json",
-
       "status": {
           "error": null,
           "statusCode": 404,
@@ -945,8 +929,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>405 Response</h4>
           <pre>
   {
-      "@context": "https://example.com/to/be/determined/context.json",
-
       "status": {
           "error": "Additional information regarding the error in human readable format.",
           "statusCode": 405,
