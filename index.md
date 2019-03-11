@@ -324,7 +324,7 @@ Property | Expected Type | Description
 **type** | JSON-LD Type  | `RevocationList`.
 id       | IRI           | The `id` of the RevocationList.
 issuer   | IRI: Profile  | The `id` of the Issuer.
-<a id="revokedAssertions"></a> **revokedAssertions** | Array of revoked Assertions | An array of string `id` or UID-based identifications of badge objects that have been revoked.
+<a id="revokedAssertions"></a> **revokedAssertions** | Array of revoked Assertions | An array of string `id` or UID-based identifications of assertion objects that have been revoked.
 
 **Revoked Assertions referenced by revokedAssertions array:** Properties from [Assertion](#Assertion) in scope for those that have been revoked. Implementers generally only include these properties, clearing out the values that were in place before revocation. An identifying property must be used, either `id` or (legacy) `uid`. If the issuer does not wish to declare a revocation reason or additional metadata, the 
 
