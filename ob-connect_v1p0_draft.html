@@ -245,9 +245,35 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
 
     <section id="api-manifest">
         <h3>Manifest</h3>
-        <p>All Hosts and Relying Parties MUST implement JSON a manifest file which contains configuration information about their implementation, such as scope support, redirect URIs, and branding information.</p>
-        <p>Platforms MUST name their manifest `badgeconnect.json` and MUST host it in the <code>/.well-known/</code> directory of the platform.
-            E.g. <code>https://YOUR_DOMAIN/.well-known/badgeconnect.json</code></p>
+        <p>All Hosts and Relying Parties MUST implement a JSON manifest file
+          which contains configuration information about their implementation,
+          such as scope support, redirect URIs, and branding information.</p>
+        <p>Platforms MUST serve the manifest at the path
+          <code>/.well-known/badgeconnect.json</code> on the relevant service
+          domain. The manifest must only be provided over secure TLS protocol.
+            E.g. <code>https://YOUR_DOMAIN/.well-known/badgeconnect.json</code>
+        </p>
+
+        <h4>Requesting Manifests</h4>
+        <p>Upon requesting a Manifest file from either a Host or Relying Party,
+          the requester SHOULD respect the <code>Cache-Control</code> and
+          <code>Expires</code> headers if present in the response and configure
+          local cache to match the directives it declares. If directives include
+          one of <code>no-cache, no-store</code>, the requester SHOULD NOT cache
+          the data for future interactions. If directies include
+          <code>max-age</code> or if an <code>Expires</code> header is present,
+          the requester SHOULD cache the manifest file data if valid up to the
+          expiration indicated, either at the time indicated by the Expires
+          header or max-age seconds from request time.
+        </p>
+        <p>An <code>Etag</code> header MAY be offered with the Manifest file
+          response. If so, after a resource's declared expiration, a requester
+          MAY include an <code>If-None-Match</code> header containing the value
+          of the Etag to check if the resource is still fresh. If so the server
+          may return a <code>304 Not Modified</code> response status code, and a
+          new <code>Expires</code> or <code>Cache-Control</code> header MAY be
+          included, which the requester SHOULD use to update the cache expiration.
+        </p>
         <h4>Manifest Structure</h4>
         <pre>
 {
