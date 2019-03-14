@@ -402,19 +402,9 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
 
       <section id="api-envelope">
         <h3>Envelope</h3>
-        <p>Responses from all APIs in this document are wrapped in a JSON-LD envelope. It MUST include the Badge Connect context URL and pass the Badge Connect v1 JSON-schema prior to compaction.</p>
+        <p>Responses from all APIs in this document are wrapped in a JSON envelope.</p>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
-    "pagination": {
-        "page": 2,
-        "perPage": 10,
-        "prevPage": "https://host.example.com/v1/assertions?page=2&perPage=10&since=2018-01-01",
-        "nextPage": null,
-        "totalResultCount": 11
-    },
-
     "status": {
         "error": null,
         "statusCode": 200,
@@ -432,7 +422,14 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           </pre>
         <section id="api-envelope-pagination">
           <h4>Pagination</h4>
-          <p>The "pagination" property MUST appear when a list response is incomplete and MUST include all of the following keys except "totalResultCount". The "pagination" property MAY appear for complete responses.</p>
+          <p>Pagination is controlled by two query string parameters appended to the request.</p>
+          <ul>
+            <li><code>limit</code> - the number of results to return</li>
+            <li><code>offset</code> - the index of the first record to return (zero indexed)</li>
+          </ul>
+          <p>The HTTP <code>Link</code> header MUST appear when a list response is incomplete and MAY appear for complete responses.</p>
+          <p>It is RECOMMENDED that Host implementations pass the total result count back to the requester. When the total result count is not known, this MUST be omitted. The value MUST be provided in the custom HTTP header: <code>X-Total-Count</code>.</p>
+          <p>The header MUST support all of the following link relations (<code>rel</code> values):</p>
           <table>
             <thead>
               <tr>
@@ -442,27 +439,31 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
             </thead>
             <tbody>
               <tr>
-                <td>page</td>
-                <td>An integer representing the current page of results.</td>
+                <td>next</td>
+                <td>The link relation for the immediate next page of results. This MUST appear when the current list response is incomplete.</td>
               </tr>
               <tr>
-                <td>perPage</td>
-                <td>An integer representing the number of results accepted to be displayed on the current page. A client MAY request any number of results, and the platform MAY limit the acceptable perPage values to any number of 10 or more.</td>
+                <td>last</td>
+                <td>The link relation for the last page of results. This MUST always appear.</td>
               </tr>
               <tr>
-                <td>nextPage</td>
-                <td>A nullable string that contains the fully qualified URL of the next page after the current page.</td>
+                <td>first</td>
+                <td>The link relation for the first page of results. This MUST always appear.</td>
               </tr>
               <tr>
-                <td>prevPage</td>
-                <td>A nullable string that contains the fully qualified URL of the previous page before the current page.</td>
-              </tr>
-              <tr>
-                <td>totalResultCount</td>
-                <td>The Host should include the total number of results responsive to the request. If the total number is not known, "totalResultCount" MUST be omitted.</td>
+                <td>prev</td>
+                <td>The link relation for the immediate previous page of results. This MUST appear when the offset is greater than zero.</td>
               </tr>
             </tbody>
           </table>
+          <p>An example of Link header pagination, line breaks added for readability:</p>
+          <pre>
+Link:
+&lt;https://host.example.com/v1/assertions?limit=10&offset=20&gt;; rel="next",
+&lt;https://host.example.com/v1/assertions?limit=3&offset=500&gt;; rel="last",
+&lt;https://host.example.com/v1/assertions?limit=10&offset=0&gt;; rel="first",
+&lt;https://host.example.com/v1/assertions?limit=10&offset=0&gt;; rel="prev"
+          </pre>
         </section>
         <section id="api-envelope-status">
           <h4>Status</h4>
@@ -523,14 +524,14 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
                         </thead>
                         <tbody>
                           <tr>
-                            <td>page</td>
-                            <td>Integer</td>
-                            <td>Indicate which page of the results should be retrieved.</td>
-                          </tr>
-                          <tr>
-                            <td>perPage</td>
+                            <td>limit</td>
                             <td>Integer</td>
                             <td>Indicate how many results should be retrieved in a single page.</td>
+                          </tr>
+                          <tr>
+                            <td>offset</td>
+                            <td>Integer</td>
+                            <td>Indicate the index of the first record to return (zero indexed).</td>
                           </tr>
                           <tr>
                             <td>since</td>
@@ -782,16 +783,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>200 GET Assertions Response</h4>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
-    "pagination": {
-        "page": 2,
-        "perPage": 10,
-        "prevPage": "https://host.example.com/v1/assertions?page=2&perPage=10&since=2018-01-01",
-        "nextPage": null,
-        "totalResultCount": 11
-    },
-
     "status": {
         "error": null,
         "statusCode": 200,
@@ -813,8 +804,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>200 POST Assertion Response</h4>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
     "status": {
         "error": null,
         "statusCode": 200,
@@ -827,8 +816,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>200 GET Profile Response</h4>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
     "status": {
         "error": null,
         "statusCode": 200,
@@ -852,8 +839,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>200 POST Profile Response</h4>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
     "status": {
         "error": null,
         "statusCode": 200,
@@ -877,8 +862,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>400 Response</h4>
           <pre>
   {
-      "@context": "https://example.com/to/be/determined/context.json",
-
       "status": {
           "error": "Additional information regarding the error in human readable format.",
           "statusCode": 400,
@@ -917,8 +900,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>401 Response</h4>
           <pre>
   {
-      "@context": "https://example.com/to/be/determined/context.json",
-
       "status": {
           "error": "Additional information regarding the error in human readable format.",
           "statusCode": 401,
@@ -932,8 +913,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>404 Response</h4>
           <pre>
   {
-      "@context": "https://example.com/to/be/determined/context.json",
-
       "status": {
           "error": null,
           "statusCode": 404,
@@ -946,8 +925,6 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
           <h4>405 Response</h4>
           <pre>
   {
-      "@context": "https://example.com/to/be/determined/context.json",
-
       "status": {
           "error": "Additional information regarding the error in human readable format.",
           "statusCode": 405,
