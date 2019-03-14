@@ -251,34 +251,34 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
         <h4>Manifest Structure</h4>
         <pre>
 {
-	"@context": "to/be/determined/location/context.json",
-	"id": "https://badgehost.example.com/.well-known/badgeconnect.json",
-	"badgeConnectAPI": {
-		"name": "A Badge Host",
-		"image": "https://badgehost.example.com/logo.png",
-		"apiBase": "https://badgehost.example.com/api/obc/v1",
-		"version": 1,
-        "termsOfServiceUrl": "https://badgehost.example.com/terms",
-		"privacyPolicyUrl": "https://badgehost.example.com/privacy",
-		"scopesOffered": [
-		    "https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.readonly",
-			"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.create",
-			"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.readonly",
-			"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.patch"
-		],
-		"scopesRequested": [
-			"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.readonly",
-			"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/assertion.create",
-			"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.readonly",
-			"https://purl.imsglobal.org/spec/obc/v2p0/oauth2scope/profile.patch"
-		],
-		"authorizationUrl": "https://badgehost.example.com/o/auth",
-		"tokenUrl": "https://badgehost.example.com/o/token",
-        "redirectUris": [
-			"https://badgehost.example.com/o/redirect"
-		],
-        "keys": "https://badgehost.example.com/.well-known/jwks.json"
-	}
+  "@context": "to/be/determined/location/context.json",
+  "id": "https://badgehost.example.com/.well-known/badgeconnect.json",
+  "badgeConnectAPI": [{
+    "name": "A Badge Host",
+    "image": "https://badgehost.example.com/logo.png",
+    "apiBase": "https://badgehost.example.com/api/obc/v1",
+    "version": "v1p0",
+    "termsOfServiceUrl": "https://badgehost.example.com/terms",
+    "privacyPolicyUrl": "https://badgehost.example.com/privacy",
+    "scopesOffered": [
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/assertion.readonly",
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/assertion.create",
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/profile.readonly",
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/profile.patch"
+    ],
+    "scopesRequested": [
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/assertion.readonly",
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/assertion.create",
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/profile.readonly",
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/profile.patch"
+    ],
+    "authorizationUrl": "https://badgehost.example.com/o/auth",
+    "tokenUrl": "https://badgehost.example.com/o/token",
+    "redirectUris": [
+      "https://badgehost.example.com/o/redirect"
+    ],
+    "keys": "https://badgehost.example.com/.well-known/jwks.json"
+  }]
 }
         </pre>
 
@@ -313,7 +313,7 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
             <tr>
               <td><code>version</code></td>
               <td>Yes</td>
-              <td>Integer representing the implemented version. MUST be <strong>1</strong>.</td>
+              <td>A string representing the implemented version. MUST be in the format of <code>vMAJORpMINOR</code> where <strong>MAJOR</strong> and <strong>MINOR</strong> are integers.</td>
             </tr>
             <tr>
               <td><code>termsOfServiceUrl</code></td>
