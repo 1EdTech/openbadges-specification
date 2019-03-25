@@ -40,8 +40,52 @@ Recipients of this document are requested to submit, with their comments, notifi
 
 IMS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on IMS's procedures with respect to rights in IMS specifications can be found at the IMS Intellectual Property Rights web page: [http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf](http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf).
 
-Copyright © 2018 IMS Global Learning Consortium, published under the IMS Global [contributor license agreement](https://www.imsglobal.org/sites/default/files/IMS%20Individual%20Contributor%20License%20Agreement.pdf) and [specification license](https://www.imsglobal.org/speclicense.html). This specification is free for anyone to use or implement.
+The Consortium draws attention to the fact that it is claimed that compliance with this specification may involve the use of a patent concerning  [https://patents.google.com/patent/US10033536B2/en](US10033536B2) and [https://patents.google.com/patent/US10068074B2/en] (US10068074B2). The Consortium takes no position concerning the evidence, validity or scope of such patent rights.
 
+The patent holder has assured the Consortium that it is willing to license patent rights it owns or controls which would necessarily be infringed by any implementation of this specification to those licensees (Members and non-Members alike) desiring to implement this specification. The statement of the patent holder to such effect has been filed with the Consortium. Information may be obtained from:
+Credly
+349 Fifth Avenue,Suite 726
+New York, NY 10016
+
+Attention is also drawn to the possibility that some of the elements of this specification may be the subject of patent rights other than those identified above. The Consortium shall not be responsible for identifying any or all such patent rights.
+
+The following participating organizations have made explicit license commitments to this specification:
+
+<table width="100%" border="1">
+    <tr>
+      <td>Org  name </td>
+      <td>&nbsp;Date license made</td>
+      <td>Patent or other description</td>
+      <td>&nbsp;Type</td>
+    </tr>
+    <tr>
+      <td>Credly</td>
+      <td>March 18, 2018</td>
+      <td><a href="https://patents.google.com/patent/US10033536B2/en">US10033536B2</a> and <a href="https://patents.google.com/patent/US10068074B2/en">US10068074B2</a></td>
+      <td>RF RAND (Required Elements)</td>
+    </tr>
+    <tr>
+      <td>Pearson </td>
+      <td>November 21, 2017</td>
+      <td>&nbsp;</td>
+      <td>RF RAND (Required Elements)</td>
+    </tr>
+  </table>
+
+
+
+Copyright © 2018 IMS Global Learning Consortium. All Rights Reserved.
+
+If you wish to distribute this document or use this document  to implement a product or service, you must
+    complete a valid license registration with IMS and  receive an email from IMS granting the license. To
+    register, follow the instructions on the IMS website: [http://www.imsglobal.org/specificationdownload.cfm](Specification Download)
+
+This document may be copied and furnished to others by  Licensee organizations registered on the IMS
+    website provided that the above copyright notice and this  paragraph are included on all such copies.
+    However, this document itself may not be modified in any  way, such as by changing the details of the
+    specification, removing the copyright notice or references  to IMS, except as needed for the purpose of
+    developing IMS specifications under the auspices of a  chartered IMS work group.
+    
 Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals.
 
 The limited permissions granted above are perpetual and will not be revoked by IMS or its successors or assigns.
