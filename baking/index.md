@@ -2,14 +2,79 @@
 title: Open Badges Baking Specification
 subtitle: Instructions for Embedding Open Badges into PNG and SVG image files
 show_sidebar: true
+layout: page_sub
 ---
+{::options parse_block_html="true" /}
+
+<div id="top">
+<a href="http://www.imsglobal.org"><img src="../images/imsglobal-logo.png" alt="IMS Global Logo" id="imslogo" /></a>
+</div>
+
+<p class="status">IMS Final Release</p>
+
+<h1 class="infoModelTitle">{{page.title}} <br/> IMS Final Release</h1>
+
+<br>
+
+<table class="versionTable" title="Version/Release Details">
+<tr>
+<td>Date Issued:</td>
+<td>12 April 2018</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>IMS Final Release</td>
+</tr>
+<tr>
+<td>Latest version:</td>
+<td><a href="https://www.imsglobal.org/spec/ob/v2p0/baking/">https://www.imsglobal.org/spec/ob/v2p0/baking/</a></td>
+</tr>
+</table>
+
+<br>
+
+<div class="iprDistribution">
+	
+**IPR and Distribution Notices**
+
+Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the specification set forth in this document, and to provide supporting documentation.
+
+IMS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on IMS's procedures with respect to rights in IMS specifications can be found at the IMS Intellectual Property Rights web page: [http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf](http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf).
+
+Copyright © 2018 IMS Global Learning Consortium, published under the IMS Global [contributor license agreement](https://www.imsglobal.org/sites/default/files/IMS%20Individual%20Contributor%20License%20Agreement.pdf) and [specification license](https://www.imsglobal.org/speclicense.html). This specification is free for anyone to use or implement.
+
+Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals.
+
+The limited permissions granted above are perpetual and will not be revoked by IMS or its successors or assigns.
+
+THIS SPECIFICATION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND IN PARTICULAR, ANY WARRANTY OF NONINFRINGEMENT IS EXPRESSLY DISCLAIMED. ANY USE OF THIS SPECIFICATION SHALL BE MADE ENTIRELY AT THE IMPLEMENTER'S OWN RISK, AND NEITHER THE CONSORTIUM, NOR ANY OF ITS MEMBERS OR SUBMITTERS, SHALL HAVE ANY LIABILITY WHATSOEVER TO ANY IMPLEMENTER OR THIRD PARTY FOR ANY DAMAGES OF ANY NATURE WHATSOEVER, DIRECTLY OR INDIRECTLY, ARISING FROM THE USE OF THIS SPECIFICATION.
+
+Public contributions, comments and questions can be posted here: [https://www.imsglobal.org/forums/ims-glc-public-forums-and-resources/open-badges-community-forum](https://www.imsglobal.org/forums/ims-glc-public-forums-and-resources/open-badges-community-forum).
+
+<p class="endWarranty">The IMS Logo is a trademark of the IMS Global Learning Consortium, Inc. in the United States and/or other countries.</p>
+
+<p class="endWarranty">For more information: [https://www.imsglobal.org/trademarks](https://www.imsglobal.org/trademarks) </p>
+
+_Documents Name: {{page.title}}_
+
+</div>
+
+<br/>
+
+<hr/>
+
+#### Status of this Document
+<div class="note good-news">
+This document is made available for adoption by the public community at large.
+</div>
+
 # Badge Baking
 
 ## What Is Badge Baking?
 
-Open Badges may be transmitted as image files with badge Assertions encoded within. This allows Open Badges to be portable wherever image files may be stored or displayed. Each [Assertion](../#Assertion) expresses verifiable information about an individual's achievement. 
+Open Badges may be transmitted as image files with badge Assertions encoded within. This allows Open Badges to be portable wherever image files may be stored or displayed. Each [Assertion](../index.html#Assertion) expresses verifiable information about an individual's achievement. 
 
-Badge Baking is the process of taking an Assertion and embedding it into the badge image, so that when a user displays a badge on a page, software that is OpenBadges-aware can automatically extract that Assertion data and perform the checks necessary to see if a person legitimately earned the badge. The [BadgeClass](../#BadgeClass) image must be in either PNG or SVG format in order to support baking.
+Badge Baking is the process of taking an Assertion and embedding it into the badge image, so that when a user displays a badge on a page, software that is OpenBadges-aware can automatically extract that Assertion data and perform the checks necessary to see if a person legitimately earned the badge. The [BadgeClass](../index.html#BadgeClass) image must be in either PNG or SVG format in order to support baking.
 
 ## Technical Details
 
@@ -110,6 +175,9 @@ If the tag has no body, the `verify` attribute will contain the signature of the
 
 ## Baking Specification Changelog
 
+### 2018-04-16 Version 1.0.0 Final
+  * IMS Final Release, no material changes since last version
+	
 ### 2017-02-13 Version 1.0.0
   * Update SVG example to use Open Badges 2.0 syntax
   * Fix typo in introduction
