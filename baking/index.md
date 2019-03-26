@@ -41,6 +41,53 @@ Recipients of this document are requested to submit, with their comments, notifi
 
 IMS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on IMS's procedures with respect to rights in IMS specifications can be found at the IMS Intellectual Property Rights web page: [http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf](http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf).
 
+The following participating organizations have made explicit license commitments to this specification:
+<table width="100%" border="1">
+  <tr>
+    <td>Org  name </td>
+    <td>Date election made</td>
+    <td>Necessary Claims</td>
+    <td>&nbsp;Type</td>
+    </tr>
+  <tr>
+    <td>Credly</td>
+    <td>March 14, 2019</td>
+    <td>No</td>
+    <td>RF RAND (Required &amp; Optional Elements)</td>
+    </tr>
+  <tr>
+    <td>Mozilla Foundation</td>
+    <td>March 14, 2019</td>
+    <td>No</td>
+    <td>RF RAND (Required &amp; Optional Elements)</td>
+  </tr>
+   <tr>
+    <td>Digitalme</td>
+    <td>March 11, 2019</td>
+    <td>No</td>
+    <td>RF RAND (Required &amp; Optional Elements)</td>
+  </tr>
+  <tr>
+    <td>D2L Corporation</td>
+    <td>March 10, 2019</td>
+    <td>No</td>
+    <td>RF RAND (Required &amp; Optional Elements)</td>
+  </tr>
+  <tr>
+    <td>Credly</td>
+    <td>March 18, 2018</td>
+    <td>No</td>
+    <td>RF RAND (Required Elements)</td>
+  </tr>
+  <tr>
+    <td>Pearson </td>
+    <td>November 21, 2017</td>
+    <td>No</td>
+    <td>RF RAND (Required  Elements)</td>
+  </tr>
+</table>
+
+
 Copyright © 2018 IMS Global Learning Consortium, published under the IMS Global [contributor license agreement](https://www.imsglobal.org/sites/default/files/IMS%20Individual%20Contributor%20License%20Agreement.pdf) and [specification license](https://www.imsglobal.org/speclicense.html). This specification is free for anyone to use or implement.
 
 Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals.
