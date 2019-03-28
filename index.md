@@ -600,7 +600,7 @@ Endorsements use the `claim` property to identify another entity by its `id` and
  }
 }
 {% endhighlight %}
-See more examples
+[See more examples](examples/#Endorsement)
 
 ## <a id="additional"></a>Additional Properties
 
