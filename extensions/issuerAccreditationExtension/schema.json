@@ -13,6 +13,7 @@
   "properties": {
     "name": {"type": "string"},
     "contactInstructions": {"type": "string"},
+    "email": {"type": "string"},
     "url": {
       "type": "string",
       "format": "uri"
@@ -23,8 +24,9 @@
       "properties": {
         "streetAddress": {"type": "string"},
         "addressLocality": {"type": "string"},
-        "addressRegion": {"type": "string"},
-        "postalCode": {"type": "string"}
+        "addressRegion": {"type": "string"},        
+        "addressCountry": {"type": "string"},
+        "postalCode": {"type": "string"}    
       }
     },
     "logo": {
@@ -45,6 +47,7 @@
             "streetAddress": {"type": "string"},
             "addressLocality": {"type": "string"},
             "addressRegion": {"type": "string"},
+            "addressCountry": {"type": "string"},
             "postalCode": {"type": "string"}
           }
         }

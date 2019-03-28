@@ -1,85 +1,209 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <title>This text will be replaced by the script (config.specTitle)</title>
-    <script
-     src='../../_respec/respec-ims-default.js'
-     class='remove'></script>
-    <script class='remove'>
-      var respecConfig = {
-        specTitle: "Open Badges Accreditation Extension",
-        specStatus: "IMS Candidate Final",
-        specDate: "November 16th, 2017",
-        specVersion: "1.0",
-        latestVersion: "https://www.imsglobal.org/@@@/",
-        specRevOrder : "First",
-        specSummary: "This extension provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile. Please note that this extension is in draft mode and may not be ready for production.",
-        editors: [
-          {name: "Markus Gylling", company: "IMS Global Learning Consortium (Sweden)"},
-          {name: "TBD", company: "TBD (USA)"}
-        ],
-        cochairs: [
-          {name: "TBD", company: "TBD"},
-          {name: "TBD", company: "TBD"}
-        ],
-        contributors: [
-          {name:"TBD", company:"TBD"},
-          {name:"TBD", company:"TBD"}
-        ],
-      };
-    </script>
-  </head>
-  <body>
-    <!-- a header is inserted here by the script -->
-    <!-- a toc is inserted here by the script -->
+<html lang="en">
+<head>
+  <meta charset='utf-8'>
+  <script src='https://purl.imsglobal.org/spec/respec-ims-default.js' async class='remove'></script>
+  <script class='remove'>
+    var respecConfig = {
+      specTitle: "Open Badges Issuer Accreditation Extension",
+      shortName: "ob-accred",
+      specStatus: "IMS Candidate Final",
+      specDate: "April 12th, 2018",
+      specVersion: "1.0",
+      specNature: "normative",
+      specType: "spec",
+      contributors: [        
+        {name: "Thor Anderson", company: "IMS Global"},
+        {name: "Robert Bajor", company: "Digital Promise"},
+        {name: "Sherri N. Braxton", company: "University of Maryland, Baltimore County"},
+        {name: "Joe Crawford", company: "			Cobb County School District, Georgia"},
+        {name: "Van Davis", company: "Blackboard"},
+        {name: "Gary Driscoll", company: "Educational Testing Service"},
+        {name: "Jonathan Finkelstein", company: "Credly"},
+        {name: "Steve Gance", company: "Washington State Board of Community and Technical Colleges"},
+        {name: "Bob Grogan", company: "eLumen"},
+        {name: "Grainne Hamilton", company: "DigitalMe"},
+        {name: "Joel Hernandez", company: "eLumen"},
+        {name: "Hal Herzog", company: "Learning Objects"},
+        {name: "Curtis Hunter", company: "D2L"},
+        {name: "Patrina Law", company: "The Open University"},
+        {name: "Mark Leuba", company: "IMS Global"},
+        {name: "Randy Newbrough", company: "Indiana University"},
+        {name: "Nate Otto", company: "Concentric Sky"},
+        {name: "Jason Weaver", company: "Parchment"},
+        {name: "Shannon Wells", company: "Foundation for California Community Colleges"},
+        {name: "Casey Wright", company: "Purdue University"},
+        {name: "David Leaser", company: "IBM"},
+        {name: "Heidi Wilkes", company: "SNHU"},
+        {name: "Patrick Wirth", company: "University of Wisconsin Extension"},
+        {name: "Moses Wolfenstein", company: "University of Wisconsin Extension"},
+        {name: "Tim Riches", company: "DigitalMe"},
+        {name: "Melissa Moreno", company: "Career Skills Institute, Santa Barbara City College"},
+        {name: "Travis Pynenburg", company: "SNHU"},
+        {name: "Kerrie Lemoie", company: "OpenWorks Group LLC"}
+      ],
+      skipCertGuideConformanceRef : true
+    };
+  </script>
+</head>
 
-      <!-- spec main flow goes here -->
+<body>
+
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <p>This extension provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile.</p>
+  </section>
+
+  <section>
+    <h2>Overview</h2>
+    <section class="informative">
+      <h2>Introduction</h2>
+      <p>This extension provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile.</p>
+      <p>Issuers can include this information in order to convey trust to the badge viewer.</p>
+    </section>
+    <section class="informative" id="usecases">
+      <h3>Use cases</h3>
+      <ul>
+        <li>An issuer wants to include detailed information about an accrediting organization as it pertains to the program or the badge.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Extendable Badge Objects</h2>
+      <p><code>Issuer</code></p>
+    </section>
+
+    <section id="terminology">
+      <h3>Terminology</h3>
+      <p>The terminology used in this document is consistent with the terminology established in the Open Badges 2.0 specification [[!OB-20]].</p>
+    </section>
+    <section id="conformance">
+      <h3>Conformance Statements</h3>
+    </section>
+    <section id="documentset">
+      <h3>Document Set</h3>
       <section>
-        <h2>Introduction</h2>
-        <p>This extension provides a reference to a single or to an array of
-          multiple accreditation bodies as related to the Issuer Profile.
-          Please note that this extension is in draft mode and may not be
-          ready for production.</p>
+        <h4>Normative Documents</h4>
+        <dl>
+          <dt>JSON Schema</dt>
+          <dd>The JSON Schema defines the syntactical restrictions of this extension [[!OB-ACCRED-10-SCHEMA]].</dd>
+          <dt>JSON-LD Context</dt>
+          <dd>The JSON-LD context defines mappings for the terms used in this specification to their canonical IRIs [[!OB-ACCRED-10-CONTEXT]].</dd>
+          <dt>Errata</dt>
+          <dd>The errata details any erratum registered for this version of this specification since its publication [[!OB-ACCRED-10-ERRATA]].</dd>
+        </dl>
       </section>
+    </section>
+  </section>
 
-      <section>
-        <h2>Properties</h2>
-        <table>
-          <tr><th>Property</th><th>Type</th><th>Value Description</th></tr>
-          <tr><td>@context</td><td>context IRI</td><td>https://openbadgespec.org/extensions/issuerAccreditationExtension/context.json</td></tr>
-          <tr><td>type</td><td>type IRI array</td><td>['Extension', 'extensions:IssuerAccreditation']</td></tr>
-          <tr><td>name</td><td>string</td><td>The official name of the organization, e.g. the registered company name. (required)</td></tr>
-          <tr><td>contactInstructions</td><td>string</td><td>Contact instructions for an accrediting organization. (required)</td></tr>
-          <tr><td>url</td><td>string,uri</td><td>URL of the accrediting organization. (required)</td></tr>
-          <tr><td>address</td><td>object</td><td>Physical address of the accrediting organization. Object contains specific locality information. (required)</td></tr>
-          <tr><td>streetAddress</td><td>string</td><td>The street address. For example, 1600 Amphitheatre Pkwy.</td></tr>
-          <tr><td>addressLocality</td><td>string</td><td>The locality. For example, Mountain View.</td></tr>
-          <tr><td>addressRegion</td><td>string</td><td>The region. For example, CA.</td></tr>
-          <tr><td>postalCode</td><td>string</td><td>The postal code. For example, 94043.</td></tr>
-          <tr><td>description</td><td>string</td><td>The description of the accrediting organization.</td></tr>
-          <tr><td>logo</td><td>string,uri</td><td>The logo for the accrediting organization.</td></tr>
-          <tr><td>parentOrganization</td><td>object</td><td>The larger organization that the accrediting organization is a branch of, if any.</td></tr>
-          <tr><td>areaServed</td><td>string</td><td>The geographic area where accreditation services are targeted.</td></tr>
-          <tr><td>accreditationDate</td><td>string</td><td>The date accreditation was valid (ex: 2009-07-31).</td></tr>
-          <tr><td>educationSector</td><td>string</td><td>Focus of accreditation (ex: K12, Postsecondary, CTE, Workforce, Adult Ed).</td></tr>
-        </table>
-      </section>
+  <section>
+    <h2>Properties</h2>
+    <table class="data">
+      <tr>
+        <th>Property</th>
+        <th>Type</th>
+        <th>Value Description</th>
+      </tr>
+      <tr>
+        <td>@context</td>
+        <td>context IRI</td>
+        <td><code>https://purl.imsglobal.org/spec/ob-accred/v1p0/context/</code></td>
+      </tr>
+      <tr>
+        <td>type</td>
+        <td>type IRI array</td>
+        <td>['Extension', 'extensions:IssuerAccreditation']</td>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td>string</td>
+        <td>The official name of the organization, e.g. the registered company name. (required)</td>
+      </tr>
+      <tr>
+        <td>contactInstructions</td>
+        <td>string</td>
+        <td>Contact instructions for an accrediting organization. (required)</td>
+      </tr>
+      <tr>
+        <td>url</td>
+        <td>string,uri</td>
+        <td>URL of the accrediting organization. (required)</td>
+      </tr>
+      <tr>
+        <td>email</td>
+        <td>string</td>
+        <td>Email address of the accrediting organization.</td>
+      </tr>
+      <tr>
+        <td>address</td>
+        <td>object</td>
+        <td>Physical address of the accrediting organization. Object contains specific locality information. (required)</td>
+      </tr>
+      <tr>
+        <td>streetAddress</td>
+        <td>string</td>
+        <td>The street address. For example, 1600 Amphitheatre Pkwy.</td>
+      </tr>
+      <tr>
+        <td>addressLocality</td>
+        <td>string</td>
+        <td>The locality. For example, Mountain View.</td>
+      </tr>
+      <tr>
+        <td>addressRegion</td>
+        <td>string</td>
+        <td>The region. For example, CA.</td>
+      </tr>
+      <tr>
+        <td>addressCountry</td>
+        <td>string</td>
+        <td>The country. For example, UK.</td>
+      </tr>
+      <tr>
+        <td>postalCode</td>
+        <td>string</td>
+        <td>The postal code. For example, 94043.</td>
+      </tr>
+      <tr>
+        <td>description</td>
+        <td>string</td>
+        <td>The description of the accrediting organization.</td>
+      </tr>
+      <tr>
+        <td>logo</td>
+        <td>string,uri</td>
+        <td>The logo for the accrediting organization.</td>
+      </tr>
+      <tr>
+        <td>parentOrganization</td>
+        <td>object</td>
+        <td>The larger organization that the accrediting organization is a branch of, if any.</td>
+      </tr>
+      <tr>
+        <td>areaServed</td>
+        <td>string</td>
+        <td>The geographic area where accreditation services are targeted.</td>
+      </tr>
+      <tr>
+        <td>accreditationDate</td>
+        <td>string</td>
+        <td>The date accreditation was valid (ex: 2009-07-31).</td>
+      </tr>
+      <tr>
+        <td>educationSector</td>
+        <td>string</td>
+        <td>Focus of accreditation (ex: K12, Postsecondary, CTE, Workforce, Adult Ed).</td>
+      </tr>
+    </table>
+  </section>
 
-      <section>
-        <h2>Extendable Badge Objects</h2>
-        <p><code>Issuer</code></p>
-
-      </section>
-
-      <section>
-        <h2>Examples</h2>
-        <section>
-          <h3>Single Accreditor</h3>
-<pre><code>
+  <section>
+    <h2>Examples</h2>
+    <section>
+      <h3>Single Accreditor</h3>
+      <pre><code>
   {
     "extensions:IssuerAccreditation": {
-      "@context":"https://openbadgespec.org/extensions/issuerAccreditationExtension/context.json",
+      "@context":"https://purl.imsglobal.org/spec/ob-accred/v1p0/context/",
       "type": ["Extension", "extensions:IssuerAccreditation"],
       "name": "Higher Learning Commission",
       "contactInstructions": "Visit website to request an institutional status and requirements report",
@@ -101,13 +225,13 @@
       "educationalSector": "post-secondary"
   }
 </code></pre>
-        </section>
-        <section>
-          <h3>Two Accreditors</h3>
-<pre><code>
+    </section>
+    <section>
+      <h3>Two Accreditors</h3>
+      <pre><code>
   {
     "extensions:IssuerAccreditation": [{
-      "@context":"https://openbadgespec.org/extensions/issuerAccreditationExtension/context.json",
+      "@context":"https://purl.imsglobal.org/spec/ob-accred/v1p0/context/",
       "type": ["Extension", "extensions:IssuerAccreditation"],
       "name": "Northwest Commission on Colleges and Universities",
       "contactInstructions": "Call or email the Commission Office",
@@ -124,7 +248,7 @@
       "educationalSector": "Postsecondary"
     },
     {
-      "@context":"https://openbadgespec.org/extensions/issuerAccreditation/context.json",
+      "@context":"https://purl.imsglobal.org/spec/ob-accred/v1p0/context/",
       "type": ["Extension", "extensions:issuerAccreditation"],
       "name": "Commission on Accreditation of Allied Health Education Programs",
       "contactInstructions": "Contact Kathleen Megivern, Executive Director, megivern@caahep.org",
@@ -140,11 +264,8 @@
       "educationalSector": "postsecondary"
   }]
 </code></pre>
-        </section>
+    </section>
+  </section>
+</body>
 
-
-      </section>
-
-    <!-- a footer is inserted by the script -->
-  </body>
 </html>
