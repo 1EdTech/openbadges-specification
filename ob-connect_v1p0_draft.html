@@ -17,7 +17,7 @@
         contributors: [
           {name: "Alexander Hripak", company: "Credly", companyURL: "https://credly.com", role: "Editor"},
           {name: "Nate Otto", company: "Concentric Sky", companyURL: "https://concentricsky.com", role: "Contributor"},
-          {name: "Justin Pitcher", company: "Chalk & Wire", companyURL: "http://www.chalkandwire.com", role: "Contributor"},
+          {name: "Justin Pitcher", company: "Campus Labs", companyURL: "https://www.campuslabs.com/", role: "Contributor"},
           {name: "Chris Houston", company: "Capella University", companyURL: "https://www.capella.edu/", role: "Contributor"}
         ],
         //localBiblio is used to store bib entries not yet in the online imsBiblio or on specref.org
@@ -132,10 +132,10 @@
         <p>A Relying Party requests a token scoped for access to Open Badges Assertions on a Host
           that belong to a user (resource owner) of that Host service, using an OAuth 2.0
           Authorization Code Grant as described in the <a href="#TODO">IMS Security Framework</a>.
-          Once a Relying Party obtains a code, it exchanges the code for a token by signing a
-          request using a public key declared in its manifest file. Subsequent API requests are
-          authenticated with the token until its expiration, after which it MAY be renewed if the
-          Host supports renewal.
+          Once a Relying Party obtains a code, it exchanges the code for a token using a signed JWT that
+          is verified using an identified public key in a key set. Subsequent API requests are
+          authenticated with the access token until its expiration, after which it MAY be renewed if the
+          Host supports and provided a refresh token.
         </p>
         <section id="oauth-token">
           <h3>Obtaining Tokens</h3>
@@ -166,13 +166,31 @@
 
           <p>With a code in hand, the Relying Party SHOULD attempt to exchange the code for a
             token. The Relying Party makes a authorization grant POST request to the Host's
-            tokenUri, as declared in the Host's Badge Connect Manifest. This request is
+            tokenUri, as declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a>. This request is
             authenticated using the "Using JSON Web Tokens with OAuth 2.0 Authorization Code Grant"
-            method described in the IMS Security Framework. The Relying Party generates a JWT
-            [[!RFC7519]] bearer token as a means for authentication in requesting an OAuth 2.0
-            access token. If the Host finds the request to be valid, it generates and returns an
-            access token in the form specified by the IMS Security Framework. If the request is
-            invalid, the Host MUST return an error message with an HTTP 400 (Bad Request) status
+            method described in the IMS Security Framework. The Relying Party generates an RSA256 signed JWT
+            [[!RFC7519]] to be passed in the request body's <code>client_assertion</code> parameter along with a predefined <code>client_assertion_type</code> of <code>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</code></p>
+            <p>An example token request:</p>
+<pre><code>
+POST /badge/connect/auth/token HTTP/1.1
+Host: www.example.com
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code
+&code=n0esc3NRze7LTCu7iYzS6a5acc3f0ogp4
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+.eyJpc3MiOiJ0b29sLmNvbSIsInN1YiI6Ind3dy5leGFtcGxlLmNvbSIsImF1ZCI6Imh0dHBzOi8vd3d3LmV4YW1wbGUuY29tL2x0aS9hdXRoL3R
+va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDdhNDRiMmVjZTczZDAwYTA5MzY0ZDQ5YiJ9
+.liArqLDIF-xGcCu8ythy0HlzntxwZ90AYTnwH-daCQQ
+</code></pre>
+  			<p>The authorization server decodes the JWT and checks the <code>iss</code>,
+  				<code>sub</code>,
+  				<code>exp</code>, <code>aud</code> and <code>jti</code> values, followed
+  				by verifying the signature using the <code>kid</code> and <a href="#api-jwks">JWKS file</a>. If it finds the request to be a valid, it generates
+  				and returns an access token and optionally a refresh token.</p>
+
+            <p>If the request is invalid, the Host MUST return an error message with an HTTP 400 (Bad Request) status
             code and a body matching the Badge Connect response <a href="#envelope">envelope</a>.
           </p>
         </section>
@@ -224,21 +242,195 @@
           </tbody>
         </table>
       </section>
+
+    <section id="api-manifest">
+        <h3>Manifest</h3>
+        <p>All Hosts and Relying Parties MUST implement a JSON manifest file
+          which contains configuration information about their implementation,
+          such as scope support, redirect URIs, and branding information.</p>
+        <p>Platforms MUST serve the manifest at the path
+          <code>/.well-known/badgeconnect.json</code> on the relevant service
+          domain. The manifest must only be provided over secure TLS protocol.
+            E.g. <code>https://YOUR_DOMAIN/.well-known/badgeconnect.json</code>
+        </p>
+
+        <h4>Requesting Manifests</h4>
+        <p>Upon requesting a Manifest file from either a Host or Relying Party,
+          the requester SHOULD respect the <code>Cache-Control</code> and
+          <code>Expires</code> headers if present in the response and configure
+          local cache to match the directives it declares. If directives include
+          one of <code>no-cache, no-store</code>, the requester SHOULD NOT cache
+          the data for future interactions. If directies include
+          <code>max-age</code> or if an <code>Expires</code> header is present,
+          the requester SHOULD cache the manifest file data if valid up to the
+          expiration indicated, either at the time indicated by the Expires
+          header or max-age seconds from request time.
+        </p>
+        <p>An <code>Etag</code> header MAY be offered with the Manifest file
+          response. If so, after a resource's declared expiration, a requester
+          MAY include an <code>If-None-Match</code> header containing the value
+          of the Etag to check if the resource is still fresh. If so the server
+          may return a <code>304 Not Modified</code> response status code, and a
+          new <code>Expires</code> or <code>Cache-Control</code> header MAY be
+          included, which the requester SHOULD use to update the cache expiration.
+        </p>
+        <h4>Manifest Structure</h4>
+        <pre>
+{
+  "@context": "to/be/determined/location/context.json",
+  "id": "https://badgehost.example.com/.well-known/badgeconnect.json",
+  "badgeConnectAPI": [{
+    "name": "A Badge Host",
+    "image": "https://badgehost.example.com/logo.png",
+    "apiBase": "https://badgehost.example.com/api/obc/v1",
+    "version": "v1p0",
+    "termsOfServiceUrl": "https://badgehost.example.com/terms",
+    "privacyPolicyUrl": "https://badgehost.example.com/privacy",
+    "scopesOffered": [
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/assertion.readonly",
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/assertion.create",
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/profile.readonly",
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/profile.patch"
+    ],
+    "scopesRequested": [
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/assertion.readonly",
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/assertion.create",
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/profile.readonly",
+      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/profile.patch"
+    ],
+    "authorizationUrl": "https://badgehost.example.com/o/auth",
+    "tokenUrl": "https://badgehost.example.com/o/token",
+    "redirectUris": [
+      "https://badgehost.example.com/o/redirect"
+    ],
+    "keys": "https://badgehost.example.com/.well-known/jwks.json"
+  }]
+}
+        </pre>
+
+        <h4>Manifest Properties</h4>
+
+        <table title="Properties for the manifest file." summary="Properties for the manifest file.">
+          <thead>
+            <tr>
+              <td>Property</td>
+              <td>Required</td>
+              <td>Description</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>name</code></td>
+              <td>Yes</td>
+              <td>The name of the platform supporting the API. This SHOULD reflect the user-facing identity of the platform requesting authorization.</td>
+            </tr>
+            <tr>
+              <td><code>image</code></td>
+              <td>No</td>
+              <td>An image representing the platform. May be a URI to a hosted image or a Data URI.</td>
+            </tr>
+            <tr>
+              <td><code>apiBase</code></td>
+              <td>Yes</td>
+              <td>Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing slash "/". <br />
+                  E.g. <code>apiBase + "/assertions"</code>
+              </td>
+            </tr>
+            <tr>
+              <td><code>version</code></td>
+              <td>Yes</td>
+              <td>A string representing the implemented version. MUST be in the format of <code>vMAJORpMINOR</code> where <strong>MAJOR</strong> and <strong>MINOR</strong> are integers.</td>
+            </tr>
+            <tr>
+              <td><code>termsOfServiceUrl</code></td>
+              <td>Yes</td>
+              <td>Fully qualified URL to the platform's terms of service. Other platforms SHOULD link to this resource as part of their authorization interface.</td>
+            </tr>
+            <tr>
+              <td><code>privacyPolicyUrl</code></td>
+              <td>Yes</td>
+              <td>Fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as part of their authorization interface.</td>
+            </tr>
+            <tr>
+              <td><code>scopesOffered</code></td>
+              <td>Yes*</td>
+              <td><strong>Applies to Hosts only.</strong> An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the scope descriptors.</td>
+            </tr>
+            <tr>
+              <td><code>scopesRequested</code></td>
+              <td>Yes*</td>
+              <td><strong>Applies to Relying Parties only.</strong> An array of strings listing the scopes supported by the relying party in the form of fully qualified URLs to the scope descriptors.</td>
+            </tr>
+            <tr>
+              <td><code>authorizationUrl</code></td>
+              <td>Yes*</td>
+              <td><strong>Applies to Hosts only.</strong> A fully qualified URL to the host's authorization endpoint.</td>
+            </tr>
+            <tr>
+              <td><code>tokenUrl</code></td>
+              <td>Yes*</td>
+              <td><strong>Applies to Hosts only.</strong> A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</td>
+            </tr>
+            <tr>
+              <td><code>redirectUris</code></td>
+              <td>Yes*</td>
+              <td><strong>Applies to Relying Parties only.</strong> An array of one or more fully qualified URIs representing the valid redirect values for authorization requests. The HOST MUST reject any authorization requests with redirect URIs that are not an exact match of a registered URI</td>
+            </tr>
+            <tr>
+              <td><code>keys</code></td>
+              <td>No</td>
+              <td><strong>Applies to Relying Parties only.</strong> Allows the relying party to declare the location of their JWKS file. Currently this file MUST be named <code>jwks.json</code> and placed in the <code>.well-known</code> directory. E.g. <code>https://YOUR_DOMAIN/.well-known/jwks.json</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+
+    </section>
+
+    <section id="api-jwks">
+        <h3>JSON Web Key Set</h3>
+        <p>A JWKS file is a container of one or multiple <strong>public</strong> keys identified by their key identifier (<code>kid</code> key parameter), in the form of a JSON Web Key. [[!RFC7517]] defines JSON Web Keys.</p>
+        <p>Relying parties MUST name their set <code>jwks.json</code> and place it in the <code>.well-known</code> directory. E.g. <code>https://YOUR_DOMAIN/.well-known/jwks.json</code></p>
+        <p>When a Relying Party requests a token, they MUST sign the JWT passed in the <code>client_assertion</code> with an RSA256 signature. The Relying Party identifies the key a Host uses to validate the
+          JWT signature by using a <code>kid</code> claim in the JWT header. The Relying Party MUST NOT reuse the <code>kid</code> identifier to identify different public keys, allowing the public key to optionally be cached by the Host.
+          The relying party MAY issue a <code>cache-control: max-age</code> HTTP header on requests to retrieve a key set to signal how long the retriever may cache the key set before refreshing it.
+        </p>
+        <p>Here is an example of a JWK Set containing two RSA keys:</p>
+        <pre><code>
+  {
+      "keys": [{
+          "e": "AQAB",
+          "use": "sig",
+          "alg": "RS256",
+          "kty": "RSA",
+          "n": "oNqXxxWuX7LlovO5reRNau5f96K_o3DJx-wK7lrjBmp0qKwNszbbp8MvfrlVs-oYXfj1rzqAeY6GJF5BETViDTT0i2fEz37J0HGAeTrO7Z5zI5Ure9Cb0lulLOZj1hF8piZzWW_z_set2NyhafoZ-IG1NSe61mqHu7mTjuHYST84igz-bPKhkJAVlmPPjHTO51hG9T_roVIkjXnvgqd2dCaJ0ExT2bR96jcyausbkdDNfPtJdfSCAWYXGQnt0PmIysOHPtCkyFqv5ez8KXT7Q4CAYd7nxwfWNOFRHyLAyF__cYEJlBEKGyJniSIPtkGBWrbXUQhKF6TEFa-RRRl8Dw==",
+          "kid": "1516918956_0"
+      }, {
+          "e": "AQAB",
+          "use": "sig",
+          "alg": "RS256",
+          "kty": "RSA",
+          "n": "kMfHwTp2dIYybtvU-xzF2E3dRJBNBtNbb-d3-Rm6nRUraxnTwZ6Fr1YpFBd1pnWzLzdtMv7ofCd28nx-1mfYZ6qhqPWF1RpGe2vVOSTmcu-QpA9h-rouqRKlv3jvXPn623Z2U1Wml0EIxyIzD3WLu7NkWEKSIcBzeY1TctpO5FSU3EyyCX1UoIMuvYBP9tiZlc74yIZvky-qT8Ej3S8L0JqhvD583E_uGMoLowguOl2yYr9zhubiqOxT3VsxvpJCu04TWmvf4XX34IQRyAHcPJFQ2QiBfLWvWyc6iP3JJYJvyapwc5vVEismryXnngyBX8NXHZaarMi6g5kTQi8itw==",
+          "kid": "1516918956_1"
+      }]
+  }
+  </code></pre>
+
+    <p>Here is a quick breakdown of what each property represents:</p>
+    <ul>
+        <li><strong>e</strong>: is the exponent for a standard PEM</li>
+        <li><strong>use</strong>: is how the key was meant to be used. For the example above sig represents signature.</li>
+        <li><strong>alg</strong>: is the algorithm for the key</li>
+        <li><strong>kty</strong>: is the key type</li>
+        <li><strong>n</strong>: is the modulus for a standard PEM</li>
+        <li><strong>kid</strong>: is the unique identifier for the key</li>
+    </u>
+    </section>
+
       <section id="api-envelope">
         <h3>Envelope</h3>
-        <p>Responses from all APIs in this document are wrapped in a JSON-LD envelope. It MUST include the Badge Connect context URL and pass the Badge Connect v1 JSON-schema prior to compaction.</p>
+        <p>Responses from all APIs in this document are wrapped in a JSON envelope.</p>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
-    "pagination": {
-        "page": 2,
-        "perPage": 10,
-        "prevPage": "https://host.example.com/v1/assertions?page=2&perPage=10&since=2018-01-01",
-        "nextPage": null,
-        "totalResultCount": 11
-    },
-
     "status": {
         "error": null,
         "statusCode": 200,
@@ -256,7 +448,14 @@
           </pre>
         <section id="api-envelope-pagination">
           <h4>Pagination</h4>
-          <p>The "pagination" property MUST appear when a list response is incomplete and MUST include all of the following keys except "totalResultCount". The "pagination" property MAY appear for complete responses.</p>
+          <p>Pagination is controlled by two query string parameters appended to the request.</p>
+          <ul>
+            <li><code>limit</code> - the number of results to return</li>
+            <li><code>offset</code> - the index of the first record to return (zero indexed)</li>
+          </ul>
+          <p>The HTTP <code>Link</code> header MUST appear when a list response is incomplete and MAY appear for complete responses.</p>
+          <p>It is RECOMMENDED that Host implementations pass the total result count back to the requester. When the total result count is not known, this MUST be omitted. The value MUST be provided in the custom HTTP header: <code>X-Total-Count</code>.</p>
+          <p>The header MUST support all of the following link relations (<code>rel</code> values):</p>
           <table>
             <thead>
               <tr>
@@ -266,27 +465,31 @@
             </thead>
             <tbody>
               <tr>
-                <td>page</td>
-                <td>An integer representing the current page of results.</td>
+                <td>next</td>
+                <td>The link relation for the immediate next page of results. This MUST appear when the current list response is incomplete.</td>
               </tr>
               <tr>
-                <td>perPage</td>
-                <td>An integer representing the number of results accepted to be displayed on the current page. A client MAY request any number of results, and the platform MAY limit the acceptable perPage values to any number of 10 or more.</td>
+                <td>last</td>
+                <td>The link relation for the last page of results. This MUST always appear.</td>
               </tr>
               <tr>
-                <td>nextPage</td>
-                <td>A nullable string that contains the fully qualified URL of the next page after the current page.</td>
+                <td>first</td>
+                <td>The link relation for the first page of results. This MUST always appear.</td>
               </tr>
               <tr>
-                <td>prevPage</td>
-                <td>A nullable string that contains the fully qualified URL of the previous page before the current page.</td>
-              </tr>
-              <tr>
-                <td>totalResultCount</td>
-                <td>The Host should include the total number of results responsive to the request. If the total number is not known, "totalResultCount" MUST be omitted.</td>
+                <td>prev</td>
+                <td>The link relation for the immediate previous page of results. This MUST appear when the offset is greater than zero.</td>
               </tr>
             </tbody>
           </table>
+          <p>An example of Link header pagination, line breaks added for readability:</p>
+          <pre>
+Link:
+&lt;https://host.example.com/v1/assertions?limit=10&offset=20&gt;; rel="next",
+&lt;https://host.example.com/v1/assertions?limit=3&offset=500&gt;; rel="last",
+&lt;https://host.example.com/v1/assertions?limit=10&offset=0&gt;; rel="first",
+&lt;https://host.example.com/v1/assertions?limit=10&offset=0&gt;; rel="prev"
+          </pre>
         </section>
         <section id="api-envelope-status">
           <h4>Status</h4>
@@ -332,7 +535,7 @@
             <tbody>
                 <tr>
                     <td>Description</td>
-                    <td>Fetch Assertions for the supplied parameters and authentication token. The result parameter MUST be a list of zero or more matching Assertions. There SHOULD be only one result for a particular requested ID as the IDs are intended to be globally unique. The Host SHOULD return Assertions ordered by last update, descending and SHOULD return only Assertions updated after the timestamp requested if supplied.</td>
+                    <td>Fetch Assertions for the supplied parameters and authentication token. The result parameter MUST be a list of zero or more matching Assertions which may be JSON-LD Assertion documents or JSON Web Signatures. There SHOULD be only one result for a particular requested ID as the IDs are intended to be globally unique. The Host SHOULD return Assertions ordered by last update, descending and SHOULD return only Assertions updated after the timestamp requested if supplied.</td>
                 </tr>
                 <tr>
                     <td>Query Parameters</td>
@@ -347,14 +550,14 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td>page</td>
-                            <td>Integer</td>
-                            <td>Indicate which page of the results should be retrieved.</td>
-                          </tr>
-                          <tr>
-                            <td>perPage</td>
+                            <td>limit</td>
                             <td>Integer</td>
                             <td>Indicate how many results should be retrieved in a single page.</td>
+                          </tr>
+                          <tr>
+                            <td>offset</td>
+                            <td>Integer</td>
+                            <td>Indicate the index of the first record to return (zero indexed).</td>
                           </tr>
                           <tr>
                             <td>since</td>
@@ -606,16 +809,6 @@
           <h4>200 GET Assertions Response</h4>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
-    "pagination": {
-        "page": 2,
-        "perPage": 10,
-        "prevPage": "https://host.example.com/v1/assertions?page=2&perPage=10&since=2018-01-01",
-        "nextPage": null,
-        "totalResultCount": 11
-    },
-
     "status": {
         "error": null,
         "statusCode": 200,
@@ -627,7 +820,8 @@
           "@context":"https://w3id.org/openbadges/v2",
           "id":"https://issuer.example.com/api/v20/assertion/1234567",
           "type":"Assertion"
-        }
+        },
+        "eyJhbGciOiJSUzI1NiJ9.ew0KICAiQGNvbnRleHQiOiAiaHR0cHM6Ly93M2lkLm9yZy9vcGVuYmFkZ2VzL3YyIiwNCiAgInR5cGUiOiAiQXNzZXJ0aW9uIiwNCiAgImlkIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3RpY3MtYmFkZ2UuanNvbiIsDQogICJyZWNpcGllbnQiOiB7DQogICAgInR5cGUiOiAiZW1haWwiLA0KICAgICJoYXNoZWQiOiB0cnVlLA0KICAgICJzYWx0IjogImRlYWRzZWEiLA0KICAgICJpZGVudGl0eSI6ICJzaGEyNTYkYzdlZjg2NDA1YmE3MWI4NWFjZDhlMmU5NTE2NmM0YjExMTQ0ODA4OWYyZTE1OTlmNDJmZTFiYmE0NmU4NjVjNSINCiAgfSwNCiAgImltYWdlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3QtYmFkZ2UucG5nIiwNCiAgImV2aWRlbmNlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3Qtd29yay5odG1sIiwNCiAgImlzc3VlZE9uIjogIjIwMTYtMTItMzFUMjM6NTk6NTlaIiwNCiAgImJhZGdlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvcm9ib3RpY3MtYmFkZ2UuanNvbiIsDQogICJ2ZXJpZnkiOiB7DQogICAgInR5cGUiOiAiU2lnbmVkQmFkZ2UiLA0KICAgICJjcmVhdG9yIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvcHVibGljS2V5Ig0KICB9DQp9.Liv4CLviFH20_6RciUWf-jrUvMAecxT4KZ_gLHAeT_chrsCvBEE1uwgtwiarIs9acFfMi0FJzrGye6mhdHf3Kjv_6P7BsG3RPkYgK6-5i9uZv4QAIlvfNclWAoWUt4j0_Kip2ftzzWwc5old01nJRtudZHxo5eGosSPlztGRE9G_g_cTj32tz3fG92E2azPmbt7026G91rq80Mi-9c4bZm2EgrcwNBjO0p1mbKYXLIAAkOMuJZ_8S4Go8S0Sg3xC6ZCn03zWuXCP6bdY_jJx2BpmvqC3H55xWIU8p5c9RxI8YifPMmJq8ZQhjld0pl-L8kHolJx7KGfTjQSegANUPg"
     ]
 }
           </pre>
@@ -636,8 +830,6 @@
           <h4>200 POST Assertion Response</h4>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
     "status": {
         "error": null,
         "statusCode": 200,
@@ -650,8 +842,6 @@
           <h4>200 GET Profile Response</h4>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
     "status": {
         "error": null,
         "statusCode": 200,
@@ -675,8 +865,6 @@
           <h4>200 POST Profile Response</h4>
           <pre>
 {
-    "@context": "https://example.com/to/be/determined/context.json",
-
     "status": {
         "error": null,
         "statusCode": 200,
@@ -700,8 +888,6 @@
           <h4>400 Response</h4>
           <pre>
   {
-      "@context": "https://example.com/to/be/determined/context.json",
-
       "status": {
           "error": "Additional information regarding the error in human readable format.",
           "statusCode": 400,
@@ -740,8 +926,6 @@
           <h4>401 Response</h4>
           <pre>
   {
-      "@context": "https://example.com/to/be/determined/context.json",
-
       "status": {
           "error": "Additional information regarding the error in human readable format.",
           "statusCode": 401,
@@ -755,8 +939,6 @@
           <h4>404 Response</h4>
           <pre>
   {
-      "@context": "https://example.com/to/be/determined/context.json",
-
       "status": {
           "error": null,
           "statusCode": 404,
@@ -769,8 +951,6 @@
           <h4>405 Response</h4>
           <pre>
   {
-      "@context": "https://example.com/to/be/determined/context.json",
-
       "status": {
           "error": "Additional information regarding the error in human readable format.",
           "statusCode": 405,
