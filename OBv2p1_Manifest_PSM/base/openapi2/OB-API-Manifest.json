@@ -1,0 +1,234 @@
+{
+    "swagger" : "2.0",
+    "info" : {
+        "version" : "2.1",
+        "title" : "Open Badges OpenAPI (JSON) Definition",
+        "description" : "TBD",
+        "termsOfService" : "Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals. The limited permissions granted above are perpetual and will not be revoked by IMS or its successors or assigns. THIS API DEFINITION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND IN PARTICULAR, ANY WARRANTY OF NONINFRINGEMENT IS EXPRESSLY DISCLAIMED. ANY USE OF THIS SPECIFICATION SHALL BE MADE ENTIRELY AT THE IMPLEMENTERS OWN RISK, AND NEITHER THE  CONSORTIUM, NOR ANY OF ITS MEMBERS OR SUBMITTERS, SHALL HAVE ANY LIABILITY WHATSOEVER TO ANY IMPLEMENTER OR THIRD PARTY FOR ANY DAMAGES OF ANY NATURE WHATSOEVER,  DIRECTLY OR INDIRECTLY, ARISING FROM THE USE OF THIS API DEFINITION.",
+        "contact" : {
+            "name" : "Lisa Mattson (COO), IMS Global ",
+            "url" : "http://www.imsglobal.org",
+            "email" : "lmattson@imsglobal.org"
+        },
+        "license" : {
+            "name" : "IMS Global",
+            "url" : "https://www.imsglobal.org/license.html"
+        }
+    },
+    "host" : "",
+    "basePath" : "",
+    "schemes" : [ "http","https" ],
+    "tags" : [
+        {
+            "name" : "OB-API-Manifest",
+            "description" : "No description supplied."
+        }
+    ],
+    "paths" : {
+        "/.well-known/badgeconnect.json" : {
+            "get" : {
+                "operationId" : "getManifest",
+                "summary" : "The REST read request message for the getManifest() API call.",
+                "tags" : [ "OB-API-Manifest" ],
+                "description" : "...not supplied...",
+                "responses" : {
+                    "200" : {
+                        "description" : "...tbd (Response description)...",
+                        "schema" : {
+                            "$ref" : "#/definitions/Manifest.Type"
+                        }
+                    },
+                    "400" : {
+                        "description" : "...tbd (Response description)...",
+                        "schema" : {
+                            "$ref" : "#/definitions/imsx_StatusInfo.Type"
+                        }
+                    },
+                    "401" : {
+                        "description" : "...tbd (Response description)...",
+                        "schema" : {
+                            "$ref" : "#/definitions/imsx_StatusInfo.Type"
+                        }
+                    },
+                    "404" : {
+                        "description" : "...tbd (Response description)...",
+                        "schema" : {
+                            "$ref" : "#/definitions/imsx_StatusInfo.Type"
+                        }
+                    },
+                    "default" : {
+                        "description" : "...tbd (Response description)...",
+                        "schema" : {
+                            "$ref" : "#/definitions/imsx_StatusInfo.Type"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions" : {
+        "BadgeConnectAPI.Type" : {
+            "description" : "...tbd (Class description)...",
+            "type" : "object",
+            "properties" : {
+                "name" : {
+                    "description" : "Model Primitive Datatype = String. The name of the platform supporting the API. This SHOULD reflect the user-facing identity of the platform requesting authorization.",
+                    "type" : "string"
+                },
+                "image" : {
+                    "description" : "Model Primitive Datatype = AnyURI. An image representing the platform. May be a URI to a hosted image or a Data URI.",
+                    "type" : "string",
+                    "format" : "uri"
+                },
+                "apiBase" : {
+                    "description" : "Model Primitive Datatype = AnyURI. Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing slash '/'. E.g. apiBase + '/assertions'.",
+                    "type" : "string",
+                    "format" : "uri"
+                },
+                "version" : {
+                    "description" : "Model Primitive Datatype = String. A string representing the implemented version. MUST be in the format of vMAJORpMINOR where MAJOR and MINOR are integers.",
+                    "type" : "string"
+                },
+                "termsOfServiceUrl" : {
+                    "description" : "Model Primitive Datatype = AnyURI. Fully qualified URL to the platform's terms of service. Other platforms SHOULD link to this resource as part of their authorization interface.",
+                    "type" : "string",
+                    "format" : "uri"
+                },
+                "privacyPolicyUrl" : {
+                    "description" : "Model Primitive Datatype = AnyURI. Fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as part of their authorization interface.",
+                    "type" : "string",
+                    "format" : "uri"
+                },
+                "scopesOffered" : {
+                    "description" : "Model Primitive Datatype = AnyURI. Applies to Hosts only. An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the scope descriptors.",
+                    "type" : "array",
+                    "minItems" : 0,
+                    "items" : {
+                        "type" : "string",
+                        "format" : "uri"
+                    }
+                },
+                "scopesRequested" : {
+                    "description" : "Model Primitive Datatype = AnyURI. Applies to Relying Parties only. An array of strings listing the scopes supported by the relying party in the form of fully qualified URLs to the scope descriptors.",
+                    "type" : "array",
+                    "minItems" : 0,
+                    "items" : {
+                        "type" : "string",
+                        "format" : "uri"
+                    }
+                },
+                "authorizationUrl" : {
+                    "description" : "Model Primitive Datatype = AnyURI. Applies to Hosts only. A fully qualified URL to the host's authorization endpoint.",
+                    "type" : "string",
+                    "format" : "uri"
+                },
+                "tokenUrl" : {
+                    "description" : "Model Primitive Datatype = AnyURI. Applies to Hosts only. A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.",
+                    "type" : "string",
+                    "format" : "uri"
+                },
+                "redirectUris" : {
+                    "description" : "Model Primitive Datatype = AnyURI. Applies to Relying Parties only. An array of one or more fully qualified URIs representing the valid redirect values for authorization requests. The HOST MUST reject any authorization requests with redirect URIs that are not an exact match of a registered URI.",
+                    "type" : "array",
+                    "minItems" : 0,
+                    "items" : {
+                        "type" : "string",
+                        "format" : "uri",
+                    }
+                },
+                "keys" : {
+                    "description" : "Model Primitive Datatype = AnyURI. Applies to Relying Parties only. Allows the relying party to declare the location of their JWKS file. Currently this file MUST be named  jwks.json and placed in the .well-known directory. E.g.  https://YOUR_DOMAIN/.well-known/jwks.json.",
+                    "type" : "string",
+                    "format" : "uri"
+                }
+            },
+            "required" : [ "name","apiBase","version","termsOfServiceUrl","privacyPolicyUrl" ],
+            "additionalProperties" : false
+        },
+        "Manifest.Type" : {
+            "description" : "...tbd (Class description)...",
+            "type" : "object",
+            "properties" : {
+                "context" : {
+                    "description" : "Model Primitive Datatype = AnyURI. ...tbd (DerivedType property description)...",
+                    "type" : "string",
+                    "format" : "uri"
+                },
+                "id" : {
+                    "description" : "Model Primitive Datatype = NormalizedString. ...tbd (DerivedType property description)...",
+                    "type" : "string"
+                },
+                "badgeConnectAPI" : {
+                    "description" : "...tbd (ComplexType property description)...",
+                    "type" : "array",
+                    "minItems" : 1,
+                    "items" : {
+                        "$ref" : "#/definitions/BadgeConnectAPI.Type"
+                    }
+                }
+            },
+            "required" : [ "badgeConnectAPI" ],
+            "additionalProperties" : false
+        },
+        "imsx_CodeMinor.Type" : {
+            "description" : "...tbd (Class description)...",
+            "type" : "object",
+            "properties" : {
+                "imsx_codeMinorField" : {
+                    "description" : "...tbd (ComplexType property description)...",
+                    "type" : "array",
+                    "minItems" : 1,
+                    "items" : {
+                        "$ref" : "#/definitions/imsx_CodeMinorField.Type"
+                    }
+                }
+            },
+            "required" : [ "imsx_codeMinorField" ],
+            "additionalProperties" : false
+        },
+        "imsx_CodeMinorField.Type" : {
+            "description" : "...tbd (Class description)...",
+            "type" : "object",
+            "properties" : {
+                "imsx_codeMinorFieldName" : {
+                    "description" : "Model Primitive Datatype = NormalizedString. ...tbd (PrimitiveType description)...",
+                    "type" : "string"
+                },
+                "imsx_codeMinorFieldValue" : {
+                    "description" : "...tbd (Enumeration description)...",
+                    "type" : "string",
+                    "enum" : [ "forbidden","fullsuccess","internal_server_error","invalid_data","invalid_query_parameter","server_busy","unauthorizedrequest" ]
+                }
+            },
+            "required" : [ "imsx_codeMinorFieldName","imsx_codeMinorFieldValue" ],
+            "additionalProperties" : false
+        },
+        "imsx_StatusInfo.Type" : {
+            "description" : "...tbd (Class description)...",
+            "type" : "object",
+            "properties" : {
+                "imsx_codeMajor" : {
+                    "description" : "...tbd (Enumeration description)...",
+                    "type" : "string",
+                    "enum" : [ "success","failure","processing","unsupported" ]
+                },
+                "imsx_severity" : {
+                    "description" : "...tbd (Enumeration description)...",
+                    "type" : "string",
+                    "enum" : [ "status","warning","error" ]
+                },
+                "imsx_description" : {
+                    "description" : "Model Primitive Datatype = String. ...tbd (PrimitiveType description)...",
+                    "type" : "string"
+                },
+                "imsx_codeMinor" : {
+                    "$ref" : "#/definitions/imsx_CodeMinor.Type"
+                }
+            },
+            "required" : [ "imsx_codeMajor","imsx_severity" ],
+            "additionalProperties" : false
+        }
+    },
+    "consumes" : [ "application/json" ],
+    "produces" : [ "application/json" ]
+}

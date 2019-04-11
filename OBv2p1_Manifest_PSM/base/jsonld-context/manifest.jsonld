@@ -1,0 +1,29 @@
+{
+    "@context" : {
+        "id" : "@id",
+        "type" : "@type",
+
+        "api" : "https://purl.imsglobal.org/spec/ob/v2p1/context",
+        "xsd" : "http://www.w3.org/2001/XMLSchema#",
+
+        "dtBadgeConnectAPI" : "api:dtBadgeConnectAPI",
+
+        "dtIRI" : { "@id" : "api:dtIRI", "@type" : "xsd:normalizedString" },
+        "dtURL" : { "@id" : "api:dtURL", "@type" : "xsd:anyURI" },
+
+        "apiBase" : "api:dtURL",
+        "authorizationUrl" : "api:dtURL",
+        "badgeConnectAPI" : { "@id" : "api:dtBadgeConnectAPI", "@container" : "@set" },
+        "context" : "api:dtURL",
+        "image" : { "@id" : "api:image", "@type" : "xsd:anyURI" },
+        "keys" : "api:dtURL",
+        "name" : { "@id" : "api:name", "@type" : "xsd:string" },
+        "privacyPolicyUrl" : "api:dtURL",
+        "redirectUris" : { "@id" : "api:dtURL", "@container" : "@set" },
+        "scopesOffered" : { "@id" : "api:scopesOffered", "@type" : "xsd:anyURI", "@container" : "@set" },
+        "scopesRequested" : { "@id" : "api:scopesRequested", "@type" : "xsd:anyURI", "@container" : "@set" },
+        "termsOfServiceUrl" : "api:dtURL",
+        "tokenUrl" : "api:dtURL",
+        "version" : { "@id" : "api:version", "@type" : "xsd:string" }
+    }
+}
