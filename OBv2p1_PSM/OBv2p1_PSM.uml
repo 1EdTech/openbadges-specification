@@ -65,9 +65,12 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_inbu4FuxEemah4rv1IhOJg" name="AnyType"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_0l1cEFvbEemah4rv1IhOJg" name="DateTime"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_phwfAFypEemEApipHzfrZQ" name="Namespace"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_KZyFsF0-EemKA8ueSq5-Tg" name="Integer"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="__h7HIF1EEemKA8ueSq5-Tg" name="PositiveInteger"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Fs4NgF1FEemKA8ueSq5-Tg" name="NonNegativeInteger"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_K8wBgFsdEemah4rv1IhOJg" name="ProfileEnvelope">
-      <packagedElement xmi:type="uml:Class" xmi:id="_RiSyIFsdEemah4rv1IhOJg" name="ProfileEnvelope">
+    <packagedElement xmi:type="uml:Package" xmi:id="_K8wBgFsdEemah4rv1IhOJg" name="ProfileResponse">
+      <packagedElement xmi:type="uml:Class" xmi:id="_RiSyIFsdEemah4rv1IhOJg" name="ProfileResponse">
         <ownedComment xmi:type="uml:Comment" xmi:id="_bjGiwFusEemah4rv1IhOJg">
           <body>Responses from all APIs in this document are wrapped in a JSON envelope.</body>
         </ownedComment>
@@ -283,8 +286,8 @@
         </ownedAttribute>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_VOUigFseEemah4rv1IhOJg" name="AssertionEnvelope">
-      <packagedElement xmi:type="uml:Class" xmi:id="_iEotoFseEemah4rv1IhOJg" name="AssertionEnvelope">
+    <packagedElement xmi:type="uml:Package" xmi:id="_VOUigFseEemah4rv1IhOJg" name="AssertionsResponse">
+      <packagedElement xmi:type="uml:Class" xmi:id="_iEotoFseEemah4rv1IhOJg" name="AssertionsResponse">
         <ownedComment xmi:type="uml:Comment" xmi:id="_hyyYIFusEemah4rv1IhOJg">
           <body>Responses from all APIs in this document are wrapped in a JSON envelope.</body>
         </ownedComment>
@@ -320,6 +323,9 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_Aed0kFuoEemah4rv1IhOJg" name="Image">
       <packagedElement xmi:type="uml:Class" xmi:id="_GdCEwFuoEemah4rv1IhOJg" name="Image">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_H_Ws0F1NEemKA8ueSq5-Tg">
+          <body>Metadata about images that represent Assertions, BadgeClasses or Profiles.</body>
+        </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_W0UcQFuoEemah4rv1IhOJg" name="id" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_d3STQFupEemah4rv1IhOJg">
             <body>The URI or Data URI of the image.</body>
@@ -693,6 +699,23 @@
         <ownedComment xmi:type="uml:Comment" xmi:id="_RyrtUFx3EemEApipHzfrZQ">
           <body>Open Badges Connect API</body>
         </ownedComment>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_xPCUgF09EemKA8ueSq5-Tg" name="getAssertions">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_sJGgAF0-EemKA8ueSq5-Tg">
+            <body>Fetch Assertions for the supplied parameters and authentication token.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_z9Rm8F0-EemKA8ueSq5-Tg" name="response" type="_iEotoFseEemah4rv1IhOJg" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_YFoUMF1KEemKA8ueSq5-Tg" name="postAssertion">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ffb94F1LEemKA8ueSq5-Tg">
+            <body>Create or update an Assertion.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_pg0YsF1KEemKA8ueSq5-Tg" name="assertion" type="_MqQPsFseEemah4rv1IhOJg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_t5PVAF1LEemKA8ueSq5-Tg">
+              <body>The Assertion to be created or updated.</body>
+            </ownedComment>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_tb2D0F1KEemKA8ueSq5-Tg" name="response" type="_iEotoFseEemah4rv1IhOJg" direction="return"/>
+        </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_gqqkkFvPEemah4rv1IhOJg" name="getProfile">
           <ownedComment xmi:type="uml:Comment" xmi:id="_fvY4AFvjEemah4rv1IhOJg">
             <body>Fetch the profile for the supplied authentication token.</body>
@@ -730,28 +753,28 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DyLxkFx4EemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DyTtYFx4EemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_E37RoFx4EemEApipHzfrZQ" name="400" type="_RiSyIFsdEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_E37RoFx4EemEApipHzfrZQ" name="400" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_3oqlkFx4EemEApipHzfrZQ">
             <body>An invalid request was made.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_I_Bp4Fx4EemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_I_JlsFx4EemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_JwDeMFx4EemEApipHzfrZQ" name="401" type="_RiSyIFsdEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_JwDeMFx4EemEApipHzfrZQ" name="401" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_14JDIFx4EemEApipHzfrZQ">
             <body>The request was not correctly authorized.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LuEqEFx4EemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LuL-0Fx4EemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_MSBEoFx4EemEApipHzfrZQ" name="404" type="_RiSyIFsdEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_MSBEoFx4EemEApipHzfrZQ" name="404" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_ztrWsFx4EemEApipHzfrZQ">
             <body>The requested resource does not exist.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OKGnoFx4EemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OKN8YFx4EemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_PIxPUFx4EemEApipHzfrZQ" name="405" type="_RiSyIFsdEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_PIxPUFx4EemEApipHzfrZQ" name="405" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_xBoAIFx4EemEApipHzfrZQ">
             <body>This method is not allowed on the endpoint.</body>
           </ownedComment>
@@ -765,7 +788,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__DmjgF0wEemKA8ueSq5-Tg"/>
           <upperValue xmi:type="uml:LiteralInteger" xmi:id="_AShNsF0xEemKA8ueSq5-Tg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_0pwTwFvQEemah4rv1IhOJg" name="default" visibility="public" type="_RiSyIFsdEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_0pwTwFvQEemah4rv1IhOJg" name="default" visibility="public" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_PwBRQFvjEemah4rv1IhOJg">
             <body>Any other response.</body>
           </ownedComment>
@@ -783,24 +806,24 @@
             <body>This is the response when the request has been completed successfully.</body>
           </ownedComment>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZSPxMFyuEemEApipHzfrZQ" name="400" type="_RiSyIFsdEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZSPxMFyuEemEApipHzfrZQ" name="400" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_FZsVkFyyEemEApipHzfrZQ">
             <body>An invalid request was made.</body>
           </ownedComment>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_cJgSMFyuEemEApipHzfrZQ" name="401" type="_RiSyIFsdEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cJgSMFyuEemEApipHzfrZQ" name="401" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_HPCtoFyyEemEApipHzfrZQ">
             <body>The request was not correctly authorized.</body>
           </ownedComment>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_e5H6IFyuEemEApipHzfrZQ" name="404" type="_RiSyIFsdEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_e5H6IFyuEemEApipHzfrZQ" name="404" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_J-ogYFyyEemEApipHzfrZQ">
             <body>The requested resource does not exist.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jArlYFyuEemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jA1WYFyuEemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_jmx8EFyuEemEApipHzfrZQ" name="405" type="_RiSyIFsdEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jmx8EFyuEemEApipHzfrZQ" name="405" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_LCZqgFyyEemEApipHzfrZQ">
             <body>This method is not allowed on the endpoint.</body>
           </ownedComment>
@@ -814,7 +837,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8L2d0F0xEemKA8ueSq5-Tg"/>
           <upperValue xmi:type="uml:LiteralInteger" xmi:id="_9pdEQF0xEemKA8ueSq5-Tg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_qi_gQFyuEemEApipHzfrZQ" name="default" type="_RiSyIFsdEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qi_gQFyuEemEApipHzfrZQ" name="default" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_RTspcFyyEemEApipHzfrZQ">
             <body>Any other response.</body>
           </ownedComment>
@@ -1052,6 +1075,145 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_9CpPQFyqEemEApipHzfrZQ" name="IRI"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_vzpb8F06EemKA8ueSq5-Tg" name="REST">
+      <packagedElement xmi:type="uml:Class" xmi:id="_6E6QYF06EemKA8ueSq5-Tg" name="getAssertions">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__qVn0F06EemKA8ueSq5-Tg" name="endpoint" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_CHpXwF07EemKA8ueSq5-Tg" value="/assertions"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_6X0TYF08EemKA8ueSq5-Tg" name="responses" type="_Hnu8MF07EemKA8ueSq5-Tg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8PAegF08EemKA8ueSq5-Tg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8PMEsF08EemKA8ueSq5-Tg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Hnu8MF07EemKA8ueSq5-Tg" name="GetAssertions">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hj9YMF08EemKA8ueSq5-Tg" name="200" type="_iEotoFseEemah4rv1IhOJg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_bd3uQF09EemKA8ueSq5-Tg">
+            <body>This is the response when the request has been completed successfully.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kRrisF08EemKA8ueSq5-Tg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kR4-EF08EemKA8ueSq5-Tg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_lOGusF08EemKA8ueSq5-Tg" name="400" type="_69zx0F07EemKA8ueSq5-Tg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Y76u4F09EemKA8ueSq5-Tg">
+            <body>An invalid request was made.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n-40QF08EemKA8ueSq5-Tg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n_DMUF08EemKA8ueSq5-Tg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_okQyMF08EemKA8ueSq5-Tg" name="401" type="_69zx0F07EemKA8ueSq5-Tg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Wk8QcF09EemKA8ueSq5-Tg">
+            <body>The request was not correctly authorized.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qyMpYF08EemKA8ueSq5-Tg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qyXBcF08EemKA8ueSq5-Tg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rWSN4F08EemKA8ueSq5-Tg" name="404" type="_69zx0F07EemKA8ueSq5-Tg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_UlAZAF09EemKA8ueSq5-Tg">
+            <body>The requested resource does not exist.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tD4_MF08EemKA8ueSq5-Tg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tEDXQF08EemKA8ueSq5-Tg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tqg6UF08EemKA8ueSq5-Tg" name="405" type="_69zx0F07EemKA8ueSq5-Tg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_S0BjkF09EemKA8ueSq5-Tg">
+            <body>This method is not allowed on the endpoint.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vj7TAF08EemKA8ueSq5-Tg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vkFEAF08EemKA8ueSq5-Tg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ww-U8F08EemKA8ueSq5-Tg" name="500">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Q6dZ4F09EemKA8ueSq5-Tg">
+            <body>This code should be used only if there is catastrophic error.</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yvPYcF08EemKA8ueSq5-Tg" name="default" type="_69zx0F07EemKA8ueSq5-Tg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_K2PNoF09EemKA8ueSq5-Tg">
+            <body>Any other response.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_01nPEF08EemKA8ueSq5-Tg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_01xnIF08EemKA8ueSq5-Tg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_PwKlcF1HEemKA8ueSq5-Tg" name="getAssertions">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_muIWAF1HEemKA8ueSq5-Tg" name="limit" type="_9FqAwFsaEemah4rv1IhOJg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_7h440F1HEemKA8ueSq5-Tg">
+            <body>Indicate how many results should be retrieved in a single page.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_r-99gF1HEemKA8ueSq5-Tg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_r_IVkF1HEemKA8ueSq5-Tg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_8zJFUF1HEemKA8ueSq5-Tg" name="offset" type="_Fs4NgF1FEemKA8ueSq5-Tg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_VuS7UF1IEemKA8ueSq5-Tg">
+            <body>Indicate the index of the first record to return (zero indexed).</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__R2jcF1HEemKA8ueSq5-Tg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__SAUcF1HEemKA8ueSq5-Tg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_AAKa8F1IEemKA8ueSq5-Tg" name="since" type="_0l1cEFvbEemah4rv1IhOJg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_YfMVoF1IEemKA8ueSq5-Tg">
+            <body>Retrieve Assertions that were created or updated after the provided timestamp. Must be an ISO 8601 compatible timestamp with a time zone indicator.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_By_qgF1IEemKA8ueSq5-Tg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BzI0cF1IEemKA8ueSq5-Tg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_5rFSwF1IEemKA8ueSq5-Tg" name="postAssertion">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DS3FUF1JEemKA8ueSq5-Tg" name="endpoint" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_FNZfYF1JEemKA8ueSq5-Tg" value="/assertions"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_M7rkQF1KEemKA8ueSq5-Tg" name="responses" type="_HxfMwF1JEemKA8ueSq5-Tg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_HxfMwF1JEemKA8ueSq5-Tg" name="PostAssertion">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ThDLMF1JEemKA8ueSq5-Tg" name="200" type="_iEotoFseEemah4rv1IhOJg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Iu1JUF1KEemKA8ueSq5-Tg">
+            <body>The Assertion was updated successfully.</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_f-qicF1JEemKA8ueSq5-Tg" name="201" type="_iEotoFseEemah4rv1IhOJg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_FpUw8F1KEemKA8ueSq5-Tg">
+            <body>The Assertion was created successfully.</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_idQr0F1JEemKA8ueSq5-Tg" name="400" type="_69zx0F07EemKA8ueSq5-Tg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="__ZPS8F1JEemKA8ueSq5-Tg">
+            <body>An invalid request was made.</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_k3Oz4F1JEemKA8ueSq5-Tg" name="401" type="_69zx0F07EemKA8ueSq5-Tg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_9n0YoF1JEemKA8ueSq5-Tg">
+            <body>The request was not correctly authorized.</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mzyAIF1JEemKA8ueSq5-Tg" name="404" type="_69zx0F07EemKA8ueSq5-Tg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_74Uw8F1JEemKA8ueSq5-Tg">
+            <body>The requested resource does not exist.</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_o350AF1JEemKA8ueSq5-Tg" name="405" type="_69zx0F07EemKA8ueSq5-Tg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6ITk0F1JEemKA8ueSq5-Tg">
+            <body>This method is not allowed on the endpoint.</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qsuAkF1JEemKA8ueSq5-Tg" name="500">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4MeKQF1JEemKA8ueSq5-Tg">
+            <body>This code should be used only if there is catastrophic error.</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_sfnhkF1JEemKA8ueSq5-Tg" name="default" type="_69zx0F07EemKA8ueSq5-Tg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_2CrMMF1JEemKA8ueSq5-Tg">
+            <body>Any other response.</body>
+          </ownedComment>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_1RRFwF07EemKA8ueSq5-Tg" name="ErrorResponse">
+      <packagedElement xmi:type="uml:Class" xmi:id="_69zx0F07EemKA8ueSq5-Tg" name="ErrorResponse">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BGkf0F08EemKA8ueSq5-Tg" name="status" visibility="private" type="_IDsREFsaEemah4rv1IhOJg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DccyEF08EemKA8ueSq5-Tg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DciRoF08EemKA8ueSq5-Tg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_eHS4sFr6Eemah4rv1IhOJg">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_v9HSoFsZEemah4rv1IhOJg" source="PapyrusVersion">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v9HSoVsZEemah4rv1IhOJg" key="Version" value="0.4.24"/>
@@ -1161,4 +1323,18 @@
   <DunelmUMLBasev1p0:Update xmi:id="_GA8_UFyxEemEApipHzfrZQ" base_Operation="_6egP0FywEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:Unordered xmi:id="_MKOYUF0tEemKA8ueSq5-Tg" base_Class="_lQfa8FylEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:Unordered xmi:id="_OzYL4F0tEemKA8ueSq5-Tg" base_Class="_0-m5oFylEemEApipHzfrZQ"/>
+  <DunelmUMLBasev1p0:BindingModel xmi:id="_z1LXsF06EemKA8ueSq5-Tg" base_Package="_vzpb8F06EemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:Operation xmi:id="_-mtAkF06EemKA8ueSq5-Tg" base_Class="_6E6QYF06EemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:Responses xmi:id="_OhqocF07EemKA8ueSq5-Tg" base_Class="_Hnu8MF07EemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:DataModel xmi:id="_6FVRsF07EemKA8ueSq5-Tg" base_Package="_1RRFwF07EemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:Unordered xmi:id="_9fj84F07EemKA8ueSq5-Tg" base_Class="_69zx0F07EemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:Read xmi:id="_0W7SgF09EemKA8ueSq5-Tg" base_Operation="_xPCUgF09EemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:PrimitiveType xmi:id="_OcXKUF0-EemKA8ueSq5-Tg" base_Class="_KZyFsF0-EemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:PrimitiveType xmi:id="_ErY7UF1FEemKA8ueSq5-Tg" base_Class="__h7HIF1EEemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:PrimitiveType xmi:id="_JwkFYF1FEemKA8ueSq5-Tg" base_Class="_Fs4NgF1FEemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:Parameter xmi:id="_VdJ9cF1HEemKA8ueSq5-Tg" base_Class="_PwKlcF1HEemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:Operation xmi:id="_-xQiYF1IEemKA8ueSq5-Tg" base_Class="_5rFSwF1IEemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:Responses xmi:id="_LOPngF1JEemKA8ueSq5-Tg" base_Class="_HxfMwF1JEemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:Update xmi:id="_IUxOEF1LEemKA8ueSq5-Tg" base_Operation="_YFoUMF1KEemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:CreateBP xmi:id="_PB1jAF1LEemKA8ueSq5-Tg" base_Operation="_YFoUMF1KEemKA8ueSq5-Tg"/>
 </xmi:XMI>

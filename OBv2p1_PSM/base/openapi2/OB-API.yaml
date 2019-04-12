@@ -57,6 +57,134 @@ security:
 #                                   Paths                                           #
 #####################################################################################
 paths: 
+    /assertions:
+        get:
+            operationId: getAssertions
+            summary: The REST read request message for the getAssertions() API call.
+            tags: 
+                - OB-API
+            description: |
+                Fetch Assertions for the supplied parameters and authentication token.
+            parameters: 
+                - name: limit
+                  in: query
+                  description: |
+                      Indicate how many results should be retrieved in a single page.
+                  required: false
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+                  minimum: 1
+                - name: offset
+                  in: query
+                  description: |
+                      Indicate the index of the first record to return (zero indexed).
+                  required: false
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+                  minimum: 0
+                - name: since
+                  in: query
+                  description: |
+                      Retrieve Assertions that were created or updated after the provided timestamp. Must be an ISO 8601 compatible timestamp with a time zone indicator.
+                  required: false
+                  type: string
+                  format: date-time
+                  allowEmptyValue: false
+            responses: 
+                "200" : 
+                    description: |
+                        This is the response when the request has been completed successfully.
+                    schema: 
+                        $ref: "#/definitions/AssertionsResponse.Type"
+                "400" : 
+                    description: |
+                        An invalid request was made.
+                    schema: 
+                        $ref: "#/definitions/ErrorResponse.Type"
+                "401" : 
+                    description: |
+                        The request was not correctly authorized.
+                    schema: 
+                        $ref: "#/definitions/ErrorResponse.Type"
+                "404" : 
+                    description: |
+                        The requested resource does not exist.
+                    schema: 
+                        $ref: "#/definitions/ErrorResponse.Type"
+                "405" : 
+                    description: |
+                        This method is not allowed on the endpoint.
+                    schema: 
+                        $ref: "#/definitions/ErrorResponse.Type"
+                "500" : 
+                    description: |
+                        This code should be used only if there is catastrophic error.
+                    schema: 
+                        $ref: "#/definitions/GetAssertionsResponseBody.Type"
+                "default" : 
+                    description: |
+                        Any other response.
+                    schema: 
+                        $ref: "#/definitions/ErrorResponse.Type"
+        post:
+            operationId: postAssertion
+            summary: The REST update request message for the postAssertion() API call.
+            tags: 
+                - OB-API
+            description: |
+                Create or update an Assertion.
+            parameters: 
+                - name: assertion
+                  in: body
+                  description: |
+                      The assertion to be created or updated.
+                  required: true
+                  schema: 
+                      $ref: "#/definitions/Assertion.Type"
+            responses: 
+                "200" : 
+                    description: |
+                        The Assertion was updated successfully.
+                    schema: 
+                        $ref: "#/definitions/AssertionsResponse.Type"
+                "201" : 
+                    description: |
+                        The Assertion was created successfully.
+                    schema: 
+                        $ref: "#/definitions/AssertionsResponse.Type"
+                "400" : 
+                    description: |
+                        An invalid request was made.
+                    schema: 
+                        $ref: "#/definitions/ErrorResponse.Type"
+                "401" : 
+                    description: |
+                        The request was not correctly authorized.
+                    schema: 
+                        $ref: "#/definitions/ErrorResponse.Type"
+                "404" : 
+                    description: |
+                        The requested resource does not exist.
+                    schema: 
+                        $ref: "#/definitions/ErrorResponse.Type"
+                "405" : 
+                    description: |
+                        This method is not allowed on the endpoint.
+                    schema: 
+                        $ref: "#/definitions/ErrorResponse.Type"
+                "500" : 
+                    description: |
+                        This code should be used only if there is catastrophic error.
+                    schema: 
+                        $ref: "#/definitions/PostAssertionResponseBody.Type"
+                "default" : 
+                    description: |
+                        Any other response.
+                    schema: 
+                        $ref: "#/definitions/ErrorResponse.Type"
+
     /profile:
         get:
             operationId: getProfile
@@ -70,27 +198,27 @@ paths:
                     description: |
                         This is the response when the request has been completed successfully.
                     schema: 
-                        $ref: "#/definitions/ProfileEnvelope.Type"
+                        $ref: "#/definitions/ProfileResponse.Type"
                 "400" : 
                     description: |
                         An invalid request was made.
                     schema: 
-                        $ref: "#/definitions/ProfileEnvelope.Type"
+                        $ref: "#/definitions/ErrorResponse.Type"
                 "401" : 
                     description: |
                         The request was not correctly authorized.
                     schema: 
-                        $ref: "#/definitions/ProfileEnvelope.Type"
+                        $ref: "#/definitions/ErrorResponse.Type"
                 "404" : 
                     description: |
                         The requested resource does not exist.
                     schema: 
-                        $ref: "#/definitions/ProfileEnvelope.Type"
+                        $ref: "#/definitions/ErrorResponse.Type"
                 "405" : 
                     description: |
                         This method is not allowed on the endpoint.
                     schema: 
-                        $ref: "#/definitions/ProfileEnvelope.Type"
+                        $ref: "#/definitions/ErrorResponse.Type"
                 "500" : 
                     description: |
                         This code should be used only if there is catastrophic error.
@@ -100,7 +228,7 @@ paths:
                     description: |
                         Any other response.
                     schema: 
-                        $ref: "#/definitions/ProfileEnvelope.Type"
+                        $ref: "#/definitions/ErrorResponse.Type"
         post:
             operationId: postProfile
             summary: The REST update request message for the postProfile() API call.
@@ -121,27 +249,27 @@ paths:
                     description: |
                         This is the response when the request has been completed successfully.
                     schema: 
-                        $ref: "#/definitions/ProfileEnvelope.Type"
+                        $ref: "#/definitions/ProfileResponse.Type"
                 "400" : 
                     description: |
                         An invalid request was made.
                     schema: 
-                        $ref: "#/definitions/ProfileEnvelope.Type"
+                        $ref: "#/definitions/ErrorResponse.Type"
                 "401" : 
                     description: |
                         The request was not correctly authorized.
                     schema: 
-                        $ref: "#/definitions/ProfileEnvelope.Type"
+                        $ref: "#/definitions/ErrorResponse.Type"
                 "404" : 
                     description: |
                         The requested resource does not exist.
                     schema: 
-                        $ref: "#/definitions/ProfileEnvelope.Type"
+                        $ref: "#/definitions/ErrorResponse.Type"
                 "405" : 
                     description: |
                         This method is not allowed on the endpoint.
                     schema: 
-                        $ref: "#/definitions/ProfileEnvelope.Type"
+                        $ref: "#/definitions/ErrorResponse.Type"
                 "500" : 
                     description: |
                         This code should be used only if there is catastrophic error.
@@ -151,14 +279,26 @@ paths:
                     description: |
                         Any other response.
                     schema: 
-                        $ref: "#/definitions/ProfileEnvelope.Type"
+                        $ref: "#/definitions/ErrorResponse.Type"
 
 
 #####################################################################################
 #                               Definitions                                         #
 #####################################################################################
 definitions: 
+    GetAssertionsResponseBody.Type:
+        description: |
+            This code should be used only if there is catastrophic error.
+        type: object
+        properties: 
+        additionalProperties: false
     GetProfileResponseBody.Type:
+        description: |
+            This code should be used only if there is catastrophic error.
+        type: object
+        properties: 
+        additionalProperties: false
+    PostAssertionResponseBody.Type:
         description: |
             This code should be used only if there is catastrophic error.
         type: object
@@ -250,7 +390,7 @@ definitions:
                 items: 
                     $ref: "#/definitions/Endorsement.Type"
         additionalProperties: true
-    AssertionEnvelope.Type:
+    AssertionsResponse.Type:
         description: |
             Responses from all APIs in this document are wrapped in a JSON envelope.
         type: object
@@ -419,6 +559,16 @@ definitions:
             verification: 
                 $ref: "#/definitions/VerificationObject.Type"
         additionalProperties: false
+    ErrorResponse.Type:
+        description: |
+            ...not supplied...
+        type: object
+        required: 
+            - status
+        properties: 
+            status: 
+                $ref: "#/definitions/Status.Type"
+        additionalProperties: false
     Evidence.Type:
         description: |
             Descriptive metadata about evidence related to the issuance of an Assertion.
@@ -575,7 +725,7 @@ definitions:
                 items: 
                     $ref: "#/definitions/Endorsement.Type"
         additionalProperties: true
-    ProfileEnvelope.Type:
+    ProfileResponse.Type:
         description: |
             Responses from all APIs in this document are wrapped in a JSON envelope.
         type: object
