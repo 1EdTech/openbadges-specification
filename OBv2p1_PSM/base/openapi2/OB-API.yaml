@@ -98,7 +98,7 @@ paths:
                         $ref: "#/definitions/GetProfileResponseBody.Type"
                 "default" : 
                     description: |
-                        ...tbd (Response description)...
+                        Any other response.
                     schema: 
                         $ref: "#/definitions/ProfileEnvelope.Type"
         post:
@@ -149,7 +149,7 @@ paths:
                         $ref: "#/definitions/PostProfileResponseBody.Type"
                 "default" : 
                     description: |
-                        ...tbd (Response description)...
+                        Any other response.
                     schema: 
                         $ref: "#/definitions/ProfileEnvelope.Type"
 
@@ -158,13 +158,13 @@ paths:
 #                               Definitions                                         #
 #####################################################################################
 definitions: 
-    GetProfileResponsesResponseBody.Type:
+    GetProfileResponseBody.Type:
         description: |
             This code should be used only if there is catastrophic error.
         type: object
         properties: 
         additionalProperties: false
-    PostProfileResponsesResponseBody.Type:
+    PostProfileResponseBody.Type:
         description: |
             This code should be used only if there is catastrophic error.
         type: object
@@ -451,6 +451,24 @@ definitions:
                 description: A description of the intended audience for a piece of evidence. Model Primitive Datatype = String.
                 type: string
         additionalProperties: false
+    HostedVerification.Type:
+        description: |
+            HostedVerification and SignedVerification are subclasses of VerificationObject.
+        type: object
+        allOf: 
+            - $ref: "#/definitions/VerificationObject.Type"
+            - type: object
+              properties: 
+                type: 
+                    description: |
+                        The type of verification method is 'HostedVerification'. Model Primitive Datatype = String.
+                    type: array
+                    minItems: 1
+                    items: 
+                        type: string
+              required: 
+                - type
+              additionalProperties: false
     IdentityObject.Type:
         description: |
             A collection of information about the recipient of a badge.
@@ -604,6 +622,26 @@ definitions:
                 items: 
                     type: string
         additionalProperties: false
+    SignedVerification.Type:
+        description: |
+            HostedVerification and SignedVerification are subclasses of VerificationObject.
+        type: object
+        allOf: 
+            - $ref: "#/definitions/VerificationObject.Type"
+            - type: object
+              properties: 
+                type: 
+                    description: |
+                        The type of verification method is 'SignedVerification'. Model Primitive Datatype = String.
+                    type: array
+                    minItems: 1
+                    items: 
+                        type: string
+                creator: 
+                    $ref: "#/definitions/CryptographicKey.Type"
+              required: 
+                - type
+              additionalProperties: false
     Status.Type:
         description: |
             Response status.
@@ -636,35 +674,32 @@ definitions:
         additionalProperties: false
     VerificationObject.Type:
         description: |
-            A collection of information allowing an inspector to verify an Assertion. This is used as part of verification instructions in each Assertion but also as an instruction set in an issuer’s Profile to describe verification instructions for Assertions the issuer awards.
+            A collection of information allowing an inspector to verify an Assertion.
         type: object
-        allOf: 
-            - $ref: "#/definitions/.Type"
-            - type: object
-              properties: 
-                type: 
-                    description: |
-                        The type of verification method. Supported values for single assertion verification are HostedBadge and SignedBadge (aliases in context are available: hosted and signed). For instances used in Profiles, the type VerificationObject should be used. Model Primitive Datatype = String.
-                    type: array
-                    minItems: 1
-                    items: 
-                        type: string
-                verificationProperty: 
-                    description: The @id of the property to be used for verification that an Assertion is within the allowed scope. Only id is supported. Verifiers will consider id the default value if verificationProperty is omitted or if an issuer Profile has no explicit verification instructions, so it may be safely omitted. Model Primitive Datatype = AnyURI.
+        required: 
+            - type
+        properties: 
+            type: 
+                description: |
+                    The type of verification method. Model Primitive Datatype = String.
+                type: array
+                minItems: 1
+                items: 
                     type: string
-                    format: uri
-                startsWith: 
-                    description: The URI fragment that the verification property must start with. Valid Assertions must have an id within this scope. Multiple values allowed, and Assertions will be considered valid if their id starts with one of these values. Model Primitive Datatype = String.
-                    type: array
-                    minItems: 0
-                    items: 
-                        type: string
-                allowedOrigins: 
-                    description: The host registered name subcomponent of an allowed origin. Any given id URI will be considered valid. Model Primitive Datatype = String.
-                    type: array
-                    minItems: 0
-                    items: 
-                        type: string
-              required: 
-                - type
-              additionalProperties: false
+            verificationProperty: 
+                description: The @id of the property to be used for verification that an Assertion is within the allowed scope. Model Primitive Datatype = AnyURI.
+                type: string
+                format: uri
+            startsWith: 
+                description: The URI fragment that the verification property must start with. Model Primitive Datatype = String.
+                type: array
+                minItems: 0
+                items: 
+                    type: string
+            allowedOrigins: 
+                description: The host registered name subcomponent of an allowed origin. Model Primitive Datatype = String.
+                type: array
+                minItems: 0
+                items: 
+                    type: string
+        additionalProperties: false

@@ -359,34 +359,32 @@
     <packagedElement xmi:type="uml:Package" xmi:id="_633GgFupEemah4rv1IhOJg" name="Verification">
       <packagedElement xmi:type="uml:Class" xmi:id="_AXTxwFuqEemah4rv1IhOJg" name="VerificationObject">
         <ownedComment xmi:type="uml:Comment" xmi:id="_Iz4VcFuqEemah4rv1IhOJg">
-          <body>A collection of information allowing an inspector to verify an Assertion. This is used as part of verification instructions in each Assertion but also as an instruction set in an issuer’s Profile to describe verification instructions for Assertions the issuer awards.</body>
+          <body>A collection of information allowing an inspector to verify an Assertion.</body>
         </ownedComment>
-        <generalization xmi:type="uml:Generalization" xmi:id="_voRuIFylEemEApipHzfrZQ" general="_lQfa8FylEemEApipHzfrZQ"/>
-        <generalization xmi:type="uml:Generalization" xmi:id="_7cOdUFylEemEApipHzfrZQ" general="_0-m5oFylEemEApipHzfrZQ"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_KTJv0FuqEemah4rv1IhOJg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_8i3aUFuqEemah4rv1IhOJg">
-            <body>The type of verification method. Supported values for single assertion verification are HostedBadge and SignedBadge (aliases in context are available: hosted and signed). For instances used in Profiles, the type VerificationObject should be used.</body>
+            <body>The type of verification method.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RfjFEFuqEemah4rv1IhOJg" value="1"/>
           <upperValue xmi:type="uml:LiteralString" xmi:id="_Tp1yYFuqEemah4rv1IhOJg" value="*"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_VMkwcFuqEemah4rv1IhOJg" name="verificationProperty" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_4QxTAFuqEemah4rv1IhOJg">
-            <body>The @id of the property to be used for verification that an Assertion is within the allowed scope. Only id is supported. Verifiers will consider id the default value if verificationProperty is omitted or if an issuer Profile has no explicit verification instructions, so it may be safely omitted.</body>
+            <body>The @id of the property to be used for verification that an Assertion is within the allowed scope.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XwCywFuqEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XwKukFuqEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_YX-8gFuqEemah4rv1IhOJg" name="startsWith" visibility="private" type="_d5nbgFsaEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_ssA2YFuqEemah4rv1IhOJg">
-            <body>The URI fragment that the verification property must start with. Valid Assertions must have an id within this scope. Multiple values allowed, and Assertions will be considered valid if their id starts with one of these values.</body>
+            <body>The URI fragment that the verification property must start with.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_esJpQFuqEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralString" xmi:id="_u3G08FuqEemah4rv1IhOJg" value="*"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_fZbmAFuqEemah4rv1IhOJg" name="allowedOrigins" visibility="private" type="_d5nbgFsaEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_m2TnQFuqEemah4rv1IhOJg">
-            <body>The host registered name subcomponent of an allowed origin. Any given id URI will be considered valid.</body>
+            <body>The host registered name subcomponent of an allowed origin.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hbrKkFuqEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralString" xmi:id="_pMtd8FuqEemah4rv1IhOJg" value="*"/>
@@ -396,11 +394,28 @@
         <ownedComment xmi:type="uml:Comment" xmi:id="_agtpEFymEemEApipHzfrZQ">
           <body>HostedVerification and SignedVerification are subclasses of VerificationObject.</body>
         </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_VVJk4F0vEemKA8ueSq5-Tg" general="_AXTxwFuqEemah4rv1IhOJg"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NHqwoF0wEemKA8ueSq5-Tg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_VUrOUF0wEemKA8ueSq5-Tg">
+            <body>The type of verification method is 'HostedVerification'.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_O7yZoF0wEemKA8ueSq5-Tg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_O8AcEF0wEemKA8ueSq5-Tg" value="*"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_0-m5oFylEemEApipHzfrZQ" name="SignedVerification">
         <ownedComment xmi:type="uml:Comment" xmi:id="_ZUJIQFymEemEApipHzfrZQ">
           <body>HostedVerification and SignedVerification are subclasses of VerificationObject.</body>
         </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_XdHW8F0vEemKA8ueSq5-Tg" general="_AXTxwFuqEemah4rv1IhOJg"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_UYu1YF0uEemKA8ueSq5-Tg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_5Av7IF0uEemKA8ueSq5-Tg">
+            <body>The type of verification method is 'SignedVerification'.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XhpHEF0uEemKA8ueSq5-Tg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Xh8pEF0uEemKA8ueSq5-Tg" value="*"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_vRE7YF0vEemKA8ueSq5-Tg" value="SignedVerification"/>
+        </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_DMpssFymEemEApipHzfrZQ" name="creator" visibility="private" type="_KD_NcFvhEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_LBW_IFymEemEApipHzfrZQ">
             <body>The (HTTP) id of the key used to sign the Assertion.</body>
@@ -707,7 +722,7 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1SOvIFx3EemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_kTX7MFvQEemah4rv1IhOJg" name="GetProfileResponses">
+      <packagedElement xmi:type="uml:Class" xmi:id="_kTX7MFvQEemah4rv1IhOJg" name="GetProfile">
         <ownedAttribute xmi:type="uml:Property" xmi:id="__3SCQFx3EemEApipHzfrZQ" name="200" type="_RiSyIFsdEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_5X8K0Fx4EemEApipHzfrZQ">
             <body>This is the response when the request has been completed successfully.</body>
@@ -747,6 +762,8 @@
           <ownedComment xmi:type="uml:Comment" xmi:id="_uMF9cFx4EemEApipHzfrZQ">
             <body>This code should be used only if there is catastrophic error.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__DmjgF0wEemKA8ueSq5-Tg"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_AShNsF0xEemKA8ueSq5-Tg" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_0pwTwFvQEemah4rv1IhOJg" name="default" visibility="public" type="_RiSyIFsdEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_PwBRQFvjEemah4rv1IhOJg">
@@ -760,7 +777,7 @@
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_nsgwcFywEemEApipHzfrZQ" name="responses" type="_OsFq0FyuEemEApipHzfrZQ"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_OsFq0FyuEemEApipHzfrZQ" name="PostProfileResponses">
+      <packagedElement xmi:type="uml:Class" xmi:id="_OsFq0FyuEemEApipHzfrZQ" name="PostProfile">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_WO4t4FyuEemEApipHzfrZQ" name="200" type="_RiSyIFsdEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_DlZtcFyyEemEApipHzfrZQ">
             <body>This is the response when the request has been completed successfully.</body>
@@ -794,6 +811,8 @@
           <ownedComment xmi:type="uml:Comment" xmi:id="_M8pwsFyyEemEApipHzfrZQ">
             <body>This code should be used only if there is catastrophic error.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8L2d0F0xEemKA8ueSq5-Tg"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_9pdEQF0xEemKA8ueSq5-Tg" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_qi_gQFyuEemEApipHzfrZQ" name="default" type="_RiSyIFsdEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_RTspcFyyEemEApipHzfrZQ">
@@ -1130,8 +1149,6 @@
   <DunelmUMLBasev1p0:DerivedType xmi:id="_7itAIFyiEemEApipHzfrZQ" base_Class="_3j3zEFyiEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:Union xmi:id="_eWo5IFyjEemEApipHzfrZQ" base_Class="_ZxpD8FyjEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:DerivedType xmi:id="_kMn1EFyjEemEApipHzfrZQ" base_Class="_ggapEFyjEemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:DerivedType xmi:id="_rodpoFylEemEApipHzfrZQ" base_Class="_lQfa8FylEemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:DerivedType xmi:id="_3-ekEFylEemEApipHzfrZQ" base_Class="_0-m5oFylEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:DataModel xmi:id="_YkCPEFyoEemEApipHzfrZQ" base_Package="_S_6fMFyoEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:Unordered xmi:id="_cxMMAFyoEemEApipHzfrZQ" base_Class="_Z7i0kFyoEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:DataModel xmi:id="_QNp9gFypEemEApipHzfrZQ" base_Package="_KczZMFypEemEApipHzfrZQ"/>
@@ -1142,4 +1159,6 @@
   <DunelmUMLBasev1p0:Operation xmi:id="_FrIAoFyuEemEApipHzfrZQ" base_Class="_6yYVcFytEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:Responses xmi:id="_ROzfMFyuEemEApipHzfrZQ" base_Class="_OsFq0FyuEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:Update xmi:id="_GA8_UFyxEemEApipHzfrZQ" base_Operation="_6egP0FywEemEApipHzfrZQ"/>
+  <DunelmUMLBasev1p0:Unordered xmi:id="_MKOYUF0tEemKA8ueSq5-Tg" base_Class="_lQfa8FylEemEApipHzfrZQ"/>
+  <DunelmUMLBasev1p0:Unordered xmi:id="_OzYL4F0tEemKA8ueSq5-Tg" base_Class="_0-m5oFylEemEApipHzfrZQ"/>
 </xmi:XMI>
