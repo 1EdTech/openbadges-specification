@@ -326,13 +326,6 @@
         <ownedComment xmi:type="uml:Comment" xmi:id="_H_Ws0F1NEemKA8ueSq5-Tg">
           <body>Metadata about images that represent Assertions, BadgeClasses or Profiles.</body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_W0UcQFuoEemah4rv1IhOJg" name="id" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_d3STQFupEemah4rv1IhOJg">
-            <body>The URI or Data URI of the image.</body>
-          </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Zh9HMFuoEemah4rv1IhOJg" value="1"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZiB_sFuoEemah4rv1IhOJg" value="1"/>
-        </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_coR-8FuoEemah4rv1IhOJg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_a9NHwFupEemah4rv1IhOJg">
             <body>Defaults to ImageObject.</body>
@@ -341,6 +334,13 @@
           <upperValue xmi:type="uml:LiteralString" xmi:id="_lu5lMFuoEemah4rv1IhOJg" value="*"/>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="__Vx4wFuoEemah4rv1IhOJg" value="ImageObject"/>
         </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_W0UcQFuoEemah4rv1IhOJg" name="id" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_d3STQFupEemah4rv1IhOJg">
+            <body>The URI or Data URI of the image.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Zh9HMFuoEemah4rv1IhOJg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZiB_sFuoEemah4rv1IhOJg" value="1"/>
+        </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_tRdXsFuoEemah4rv1IhOJg" name="caption" visibility="private" type="_d5nbgFsaEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_T1eQEFupEemah4rv1IhOJg">
             <body>The caption for the image.</body>
@@ -348,7 +348,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wnrFkFuoEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wnyaUFuoEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_D-LnQFupEemah4rv1IhOJg" name="author" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_D-LnQFupEemah4rv1IhOJg" name="author" visibility="private" type="_Gr-QEFyiEemEApipHzfrZQ">
           <ownedComment xmi:type="uml:Comment" xmi:id="_Q480kFupEemah4rv1IhOJg">
             <body>The profile id of the author of the image, if desired.</body>
           </ownedComment>
@@ -893,19 +893,19 @@
         <ownedComment xmi:type="uml:Comment" xmi:id="_9hwRYFvfEemah4rv1IhOJg">
           <body>Descriptive metadata about evidence related to the issuance of an Assertion.</body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_IifQYFvfEemah4rv1IhOJg" name="id" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_pXAPUFvfEemah4rv1IhOJg">
-            <body>The URI of a webpage presenting evidence of achievement.</body>
-          </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_K1RLUFvfEemah4rv1IhOJg"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_K1Wq4FvfEemah4rv1IhOJg" value="1"/>
-        </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Lpk9IFvfEemah4rv1IhOJg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_6FQVUFvfEemah4rv1IhOJg">
             <body>Defaults to Evidence.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Os0rsFvfEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Os-csFvfEemah4rv1IhOJg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IifQYFvfEemah4rv1IhOJg" name="id" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_pXAPUFvfEemah4rv1IhOJg">
+            <body>The URI of a webpage presenting evidence of achievement.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_K1RLUFvfEemah4rv1IhOJg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_K1Wq4FvfEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Q3NfoFvfEemah4rv1IhOJg" name="narrative" visibility="private" type="_d5nbgFsaEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_lucNMFvfEemah4rv1IhOJg">
@@ -949,8 +949,8 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_lGlYYFyiEemEApipHzfrZQ" name="IRI"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_Yc3M8FvgEemah4rv1IhOJg" name="Revocation List">
-      <packagedElement xmi:type="uml:Class" xmi:id="_de7YoFvgEemah4rv1IhOJg" name="Revocation List">
+    <packagedElement xmi:type="uml:Package" xmi:id="_Yc3M8FvgEemah4rv1IhOJg" name="RevocationList">
+      <packagedElement xmi:type="uml:Class" xmi:id="_de7YoFvgEemah4rv1IhOJg" name="RevocationList">
         <ownedComment xmi:type="uml:Comment" xmi:id="__J0l8FvgEemah4rv1IhOJg">
           <body>The Revocation List is a document that describes badges an Issuer has revoked that used the signed verification method.</body>
         </ownedComment>

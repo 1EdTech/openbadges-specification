@@ -130,7 +130,7 @@
                     {
                         "name" : "assertion",
                         "in" : "body",
-                        "description" : "The assertion to be created or updated.",
+                        "description" : "The Assertion to be created or updated.",
                         "required" : true,
                         "schema" : {
                             "$ref" : "#/definitions/Assertion.Type"
@@ -728,14 +728,9 @@
             "additionalProperties" : false
         },
         "Image.Type" : {
-            "description" : "...tbd (Class description)...",
+            "description" : "Metadata about images that represent Assertions, BadgeClasses or Profiles.",
             "type" : "object",
             "properties" : {
-                "id" : {
-                    "description" : "Model Primitive Datatype = AnyURI. The URI or Data URI of the image.",
-                    "type" : "string",
-                    "format" : "uri"
-                },
                 "type" : {
                     "description" : "Model Primitive Datatype = String. Defaults to ImageObject.",
                     "type" : "array",
@@ -744,14 +739,17 @@
                         "type" : "string"
                     }
                 },
+                "id" : {
+                    "description" : "Model Primitive Datatype = AnyURI. The URI or Data URI of the image.",
+                    "type" : "string",
+                    "format" : "uri"
+                },
                 "caption" : {
                     "description" : "Model Primitive Datatype = String. The caption for the image.",
                     "type" : "string"
                 },
                 "author" : {
-                    "description" : "Model Primitive Datatype = AnyURI. The profile id of the author of the image, if desired.",
-                    "type" : "string",
-                    "format" : "uri"
+
                 }
             },
             "required" : [ "id" ],
@@ -844,7 +842,7 @@
             "required" : [ "status" ],
             "additionalProperties" : false
         },
-        "Revocation List.Type" : {
+        "RevocationList.Type" : {
             "description" : "The Revocation List is a document that describes badges an Issuer has revoked that used the signed verification method.",
             "type" : "object",
             "properties" : {

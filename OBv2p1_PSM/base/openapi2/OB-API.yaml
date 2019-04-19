@@ -139,7 +139,7 @@ paths:
                 - name: assertion
                   in: body
                   description: |
-                      The assertion to be created or updated.
+                      The Assertion to be created or updated.
                   required: true
                   schema: 
                       $ref: "#/definitions/Assertion.Type"
@@ -644,15 +644,11 @@ definitions:
         additionalProperties: false
     Image.Type:
         description: |
-            ...not supplied...
+            Metadata about images that represent Assertions, BadgeClasses or Profiles.
         type: object
         required: 
             - id
         properties: 
-            id: 
-                description: The URI or Data URI of the image. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
             type: 
                 description: |
                     Defaults to ImageObject. Model Primitive Datatype = String.
@@ -660,13 +656,14 @@ definitions:
                 minItems: 0
                 items: 
                     type: string
+            id: 
+                description: The URI or Data URI of the image. Model Primitive Datatype = AnyURI.
+                type: string
+                format: uri
             caption: 
                 description: The caption for the image. Model Primitive Datatype = String.
                 type: string
             author: 
-                description: The profile id of the author of the image, if desired. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
         additionalProperties: false
     Profile.Type:
         description: |
@@ -742,7 +739,7 @@ definitions:
                 items: 
                     $ref: "#/definitions/Profile.Type"
         additionalProperties: false
-    Revocation List.Type:
+    RevocationList.Type:
         description: |
             The Revocation List is a document that describes badges an Issuer has revoked that used the signed verification method.
         type: object
