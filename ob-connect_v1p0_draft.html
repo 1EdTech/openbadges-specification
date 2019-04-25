@@ -207,6 +207,29 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
             <p>Host platforms MUST provide a list of authorized clients to the resource owner for review. The list SHOULD identify the relying party and when the grant was created. From this list the resource owner MUST be able to revoke the relying party's access.</p>
             <p>Subsequent attempts to use the relevant revoked access or refresh tokens SHOULD result in a 401 UNAUTHENTICATED error.</p>
         </section>
+        <section id="oauth-token">
+            <h3>Revocation by Relying Party</h3>
+            <p>Host platforms MAY provide a mechanism to revoke both types of tokens by providing a token revocation endpoint in their manifest file [[!RFC7009]]. This revocation endpoint allows a Relying Party to invalidate its tokens if the end-user logs out, changes identity, or removes the respective Host.</p>
+            <p>Token revocation endpoints MUST support the revocation of refresh tokens and SHOULD support the revocation of access tokens.</p>
+            <h4>Revocation Request</h4>
+            <p>The Relying Party makes a POST request to the Host's token revocation URL, as declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a>.
+            The HTTP request entity-body MUST contain a <code>token</code> parameter containing the refresh token or access token, as well as a JWT
+              [[!RFC7519]] <code>client_assertion</code> parameter, and a predefined <code>client_assertion_type</code> of <code>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</code></p>
+            <p>Similar to access token requests, the Host MUST authenticate the revocation request using the the JWT.</p>
+            <p>Relying Parties MAY also pass a <code>token_type_hint</code> parameter with a value of <code>access_token</code> or <code>refresh_token</code>.</p>
+            <p>An example revocation request:</p>
+  <pre><code>
+  POST /badge/connect/auth/revoke_token HTTP/1.1
+  Host: www.example.com
+  Content-Type: application/x-www-form-urlencoded
+
+  token=n0esc3NRze7LTCu7iYzS6a5acc3f0ogp4
+  &token_type_hint=access_token
+  &client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+  &client_assertion=jwtHeader.jwtPayload.jwtSignature
+  </code></pre>
+            <p>
+        </section>
       </section>
 
       <section id="api-scopes">
@@ -300,6 +323,7 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
     ],
     "authorizationUrl": "https://badgehost.example.com/o/auth",
     "tokenUrl": "https://badgehost.example.com/o/token",
+    "tokenRevocationUrl": "https://badgehost.example.com/o/revoke_token",
     "redirectUris": [
       "https://badgehost.example.com/o/redirect"
     ],
@@ -370,6 +394,11 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
               <td><code>tokenUrl</code></td>
               <td>Yes*</td>
               <td><strong>Applies to Hosts only.</strong> A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</td>
+            </tr>
+            <tr>
+              <td><code>tokenRevocationUrl</code></td>
+              <td>No</td>
+              <td><strong>Applies to Hosts only.</strong> A fully qualified URL to the host's token revocation endpoint for invalidating an existing refresh token or access token.</td>
             </tr>
             <tr>
               <td><code>redirectUris</code></td>
