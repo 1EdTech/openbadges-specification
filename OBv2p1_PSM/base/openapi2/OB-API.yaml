@@ -6,7 +6,7 @@ swagger: '2.0'
 info: 
     version: '2.1'
     title: Open Badges OpenAPI (YAML) Definition
-    description: TBD
+    description: @@@TBD
     termsOfService: Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals. The limited permissions granted above are perpetual and will not be revoked by IMS or its successors or assigns. THIS API DEFINITION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND IN PARTICULAR, ANY WARRANTY OF NONINFRINGEMENT IS EXPRESSLY DISCLAIMED. ANY USE OF THIS SPECIFICATION SHALL BE MADE ENTIRELY AT THE IMPLEMENTERS OWN RISK, AND NEITHER THE  CONSORTIUM, NOR ANY OF ITS MEMBERS OR SUBMITTERS, SHALL HAVE ANY LIABILITY WHATSOEVER TO ANY IMPLEMENTER OR THIRD PARTY FOR ANY DAMAGES OF ANY NATURE WHATSOEVER,  DIRECTLY OR INDIRECTLY, ARISING FROM THE USE OF THIS API DEFINITION.
     contact: 
         name: Lisa Mattson (COO), IMS Global
@@ -122,7 +122,7 @@ paths:
                     description: |
                         This code should be used only if there is catastrophic error.
                     schema: 
-                        $ref: "#/definitions/GetAssertionsResponseBody.Type"
+                        $ref: "#/definitions/ErrorResponse.Type"
                 "default" : 
                     description: |
                         Any other response.
@@ -178,7 +178,7 @@ paths:
                     description: |
                         This code should be used only if there is catastrophic error.
                     schema: 
-                        $ref: "#/definitions/PostAssertionResponseBody.Type"
+                        $ref: "#/definitions/ErrorResponse.Type"
                 "default" : 
                     description: |
                         Any other response.
@@ -198,7 +198,7 @@ paths:
                     description: |
                         This is the response when the request has been completed successfully.
                     schema: 
-                        $ref: "#/definitions/ProfileResponse.Type"
+                        $ref: "#/definitions/ProfilesResponse.Type"
                 "400" : 
                     description: |
                         An invalid request was made.
@@ -223,7 +223,7 @@ paths:
                     description: |
                         This code should be used only if there is catastrophic error.
                     schema: 
-                        $ref: "#/definitions/GetProfileResponseBody.Type"
+                        $ref: "#/definitions/ErrorResponse.Type"
                 "default" : 
                     description: |
                         Any other response.
@@ -240,7 +240,7 @@ paths:
                 - name: profile
                   in: body
                   description: |
-                      The authented user's profile.
+                      The authenticated user's profile.
                   required: true
                   schema: 
                       $ref: "#/definitions/Profile.Type"
@@ -249,7 +249,7 @@ paths:
                     description: |
                         This is the response when the request has been completed successfully.
                     schema: 
-                        $ref: "#/definitions/ProfileResponse.Type"
+                        $ref: "#/definitions/ProfilesResponse.Type"
                 "400" : 
                     description: |
                         An invalid request was made.
@@ -274,7 +274,7 @@ paths:
                     description: |
                         This code should be used only if there is catastrophic error.
                     schema: 
-                        $ref: "#/definitions/PostProfileResponseBody.Type"
+                        $ref: "#/definitions/ErrorResponse.Type"
                 "default" : 
                     description: |
                         Any other response.
@@ -286,30 +286,6 @@ paths:
 #                               Definitions                                         #
 #####################################################################################
 definitions: 
-    GetAssertionsResponseBody.Type:
-        description: |
-            This code should be used only if there is catastrophic error.
-        type: object
-        properties: 
-        additionalProperties: false
-    GetProfileResponseBody.Type:
-        description: |
-            This code should be used only if there is catastrophic error.
-        type: object
-        properties: 
-        additionalProperties: false
-    PostAssertionResponseBody.Type:
-        description: |
-            This code should be used only if there is catastrophic error.
-        type: object
-        properties: 
-        additionalProperties: false
-    PostProfileResponseBody.Type:
-        description: |
-            This code should be used only if there is catastrophic error.
-        type: object
-        properties: 
-        additionalProperties: false
     AlignmentObject.Type:
         description: |
             The AlignmentObject is an alias for schema.org’s AlignmentObject and uses IRIs from that vocabulary.
@@ -348,19 +324,13 @@ definitions:
             - issuedOn
         properties: 
             id: 
-                description: Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Id.Type"
             type: 
-                description: |
-                    Valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string Assertion. An array including Assertion and other string elements that are either URLs or compact IRIs within the current context are allowed. Model Primitive Datatype = String.
-                type: array
-                minItems: 1
-                items: 
-                    type: string
+                $ref: "#/definitions/JSON_LD_Type.Type"
             recipient: 
                 $ref: "#/definitions/IdentityObject.Type"
             badge: 
+                $ref: "#/definitions/JSON_LD_Id.Type"
             verification: 
                 $ref: "#/definitions/VerificationObject.Type"
             issuedOn: 
@@ -368,7 +338,14 @@ definitions:
                 type: string
                 format: date-time
             image: 
+                $ref: "#/definitions/JSON_LD_Id.Type"
             evidence: 
+                description: |
+                    IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.
+                type: array
+                minItems: 0
+                items: 
+                    $ref: "#/definitions/JSON_LD_Id.Type"
             narratrive: 
                 description: A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array. Model Primitive Datatype = String.
                 type: string
@@ -421,16 +398,9 @@ definitions:
             - issuer
         properties: 
             id: 
-                description: Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Id.Type"
             type: 
-                description: |
-                    Valid JSON-LD representation of the BadgeClass type. In most cases, this will simply be the string BadgeClass. An array including BadgeClass and other string elements that are either URLs or compact IRIs within the current context are allowed. Model Primitive Datatype = String.
-                type: array
-                minItems: 1
-                items: 
-                    type: string
+                $ref: "#/definitions/JSON_LD_Type.Type"
             name: 
                 description: The name of the achievement. Model Primitive Datatype = String.
                 type: string
@@ -438,11 +408,11 @@ definitions:
                 description: A short description of the achievement. Model Primitive Datatype = String.
                 type: string
             image: 
-                description: IRI of an image representing the achievement. May be a Data URI, or URI where the image may be found. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Id.Type"
             criteria: 
+                $ref: "#/definitions/JSON_LD_Id.Type"
             issuer: 
+                $ref: "#/definitions/JSON_LD_Id.Type"
             alignment: 
                 description: |
                     An object describing which objectives or educational standards this badge aligns to, if any.
@@ -483,6 +453,7 @@ definitions:
             - endorsementComment
         properties: 
             id: 
+                $ref: "#/definitions/JSON_LD_Id.Type"
             endorsementComment: 
                 description: The simple claim the endorser is making about the entity. Model Primitive Datatype = String.
                 type: string
@@ -493,16 +464,9 @@ definitions:
         type: object
         properties: 
             id: 
-                description: The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Id.Type"
             type: 
-                description: |
-                    Defaults to Criteria. Model Primitive Datatype = String.
-                type: array
-                minItems: 0
-                items: 
-                    type: string
+                $ref: "#/definitions/JSON_LD_Type.Type"
             narrative: 
                 description: A narrative of what is needed to earn the badge. Model Primitive Datatype = String.
                 type: string
@@ -513,20 +477,11 @@ definitions:
         type: object
         properties: 
             type: 
-                description: |
-                    CryptographicKey. Model Primitive Datatype = String.
-                type: array
-                minItems: 0
-                items: 
-                    type: string
+                $ref: "#/definitions/JSON_LD_Type.Type"
             id: 
-                description: The identifier for the key. Most platforms only support HTTP(s) identifiers. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Id.Type"
             owner: 
-                description: The identifier for the Profile that owns this key. There should be a two-way connection between this Profile and the CryptographicKey through the owner and publicKey properties. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Id.Type"
             publicKeyPem: 
                 description: The PEM key encoding is a widely-used method to express public keys, compatible with almost every Secure Sockets Layer library implementation. Model Primitive Datatype = String.
                 type: string
@@ -543,15 +498,13 @@ definitions:
             - verification
         properties: 
             id: 
+                $ref: "#/definitions/JSON_LD_Id.Type"
             type: 
-                description: |
-                    ...tbd (DerivedType description)... Model Primitive Datatype = String.
-                type: array
-                minItems: 1
-                items: 
-                    type: string
+                $ref: "#/definitions/JSON_LD_Type.Type"
             claim: 
+                $ref: "#/definitions/JSON_LD_Id.Type"
             issuer: 
+                $ref: "#/definitions/JSON_LD_Id.Type"
             issuedOn: 
                 description: ...tbd (Property description)... Model Primitive Datatype = DateTime.
                 type: string
@@ -574,17 +527,10 @@ definitions:
             Descriptive metadata about evidence related to the issuance of an Assertion.
         type: object
         properties: 
-            id: 
-                description: The URI of a webpage presenting evidence of achievement. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
             type: 
-                description: |
-                    Defaults to Evidence. Model Primitive Datatype = String.
-                type: array
-                minItems: 0
-                items: 
-                    type: string
+                $ref: "#/definitions/JSON_LD_Type.Type"
+            id: 
+                $ref: "#/definitions/JSON_LD_Id.Type"
             narrative: 
                 description: A narrative that describes the evidence and process of achievement that led to an Assertion. Model Primitive Datatype = String.
                 type: string
@@ -601,24 +547,6 @@ definitions:
                 description: A description of the intended audience for a piece of evidence. Model Primitive Datatype = String.
                 type: string
         additionalProperties: false
-    HostedVerification.Type:
-        description: |
-            HostedVerification and SignedVerification are subclasses of VerificationObject.
-        type: object
-        allOf: 
-            - $ref: "#/definitions/VerificationObject.Type"
-            - type: object
-              properties: 
-                type: 
-                    description: |
-                        The type of verification method is 'HostedVerification'. Model Primitive Datatype = String.
-                    type: array
-                    minItems: 1
-                    items: 
-                        type: string
-              required: 
-                - type
-              additionalProperties: false
     IdentityObject.Type:
         description: |
             A collection of information about the recipient of a badge.
@@ -632,9 +560,7 @@ definitions:
                 description: Either the hash of the identity or the plaintext value. If it’s possible that the plaintext transmission and storage of the identity value would leak personally identifiable information where there is an expectation of privacy, it is strongly recommended that an IdentityHash be used. Model Primitive Datatype = String.
                 type: string
             type: 
-                description: The property by which the recipient of a badge is identified. This value should be an IRI mapped in the present context. For example, email maps to http://schema.org/email and indicates that the identity of the IdentityObject will represent a value of a Profile’s email property. Currently the only supported value for many platforms that implement Open Badges is email, but other properties are available. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Type.Type"
             hashed: 
                 description: Whether or not the identity value is hashed. Model Primitive Datatype = Boolean.
                 type: boolean
@@ -650,20 +576,32 @@ definitions:
             - id
         properties: 
             type: 
-                description: |
-                    Defaults to ImageObject. Model Primitive Datatype = String.
-                type: array
-                minItems: 0
-                items: 
-                    type: string
+                $ref: "#/definitions/JSON_LD_Type.Type"
             id: 
-                description: The URI or Data URI of the image. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Id.Type"
             caption: 
                 description: The caption for the image. Model Primitive Datatype = String.
                 type: string
             author: 
+                $ref: "#/definitions/JSON_LD_Id.Type"
+        additionalProperties: false
+    JSON_LD_Context.Type:
+        description: |
+            JSON-LD @context.
+        type: object
+        properties: {}
+        additionalProperties: false
+    JSON_LD_Id.Type:
+        description: |
+            JSON-LD @id.
+        type: object
+        properties: {}
+        additionalProperties: false
+    JSON_LD_Type.Type:
+        description: |
+            JSON-LD @type.
+        type: object
+        properties: {}
         additionalProperties: false
     Profile.Type:
         description: |
@@ -674,16 +612,9 @@ definitions:
             - type
         properties: 
             id: 
-                description: Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Id.Type"
             type: 
-                description: |
-                    Valid JSON-LD representation of the Issuer or Profile type. In most cases, this will simply be the string Issuer or the more general Profile. An array including Issuer and other string elements that are either URLs or compact IRIs within the current context are allowed. Model Primitive Datatype = String.
-                type: array
-                minItems: 1
-                items: 
-                    type: string
+                $ref: "#/definitions/JSON_LD_Type.Type"
             name: 
                 description: The name of the entity or organization. Model Primitive Datatype = String.
                 type: string
@@ -698,22 +629,16 @@ definitions:
                 description: A short description of the issuer entity or organization. Model Primitive Datatype = String.
                 type: string
             image: 
-                description: An image representing the issuer. May be a Data URI, or URI where the image may be found or an instance of the Image class. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Id.Type"
             email: 
                 description: Contact address for the individual or organization. Model Primitive Datatype = String.
                 type: string
             publicKey: 
-                description: The key(s) an issuer uses to sign Assertions. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Id.Type"
             verification: 
                 $ref: "#/definitions/VerificationObject.Type"
             revocationList: 
-                description: HTTP URI of the Badge Revocation List used for marking revocation of signed badges. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Id.Type"
             endorsement: 
                 description: |
                     ...tbd (ComplexType property description)...
@@ -722,7 +647,7 @@ definitions:
                 items: 
                     $ref: "#/definitions/Endorsement.Type"
         additionalProperties: true
-    ProfileResponse.Type:
+    ProfilesResponse.Type:
         description: |
             Responses from all APIs in this document are wrapped in a JSON envelope.
         type: object
@@ -748,47 +673,19 @@ definitions:
             - revokedAssertions
         properties: 
             type: 
-                description: |
-                    RevocationList. Model Primitive Datatype = String.
-                type: array
-                minItems: 1
-                items: 
-                    type: string
+                $ref: "#/definitions/JSON_LD_Type.Type"
             id: 
-                description: The id of the RevocationList. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Id.Type"
             issuer: 
-                description: The id of the Issuer. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Id.Type"
             revokedAssertions: 
-                description: A string id or UID-based identification of a badge object that has been revoked. Model Primitive Datatype = String.
+                description: |
+                    A string id or UID-based identification of a badge object that has been revoked.
                 type: array
                 minItems: 1
                 items: 
-                    type: string
+                    $ref: "#/definitions/JSON_LD_Id.Type"
         additionalProperties: false
-    SignedVerification.Type:
-        description: |
-            HostedVerification and SignedVerification are subclasses of VerificationObject.
-        type: object
-        allOf: 
-            - $ref: "#/definitions/VerificationObject.Type"
-            - type: object
-              properties: 
-                type: 
-                    description: |
-                        The type of verification method is 'SignedVerification'. Model Primitive Datatype = String.
-                    type: array
-                    minItems: 1
-                    items: 
-                        type: string
-                creator: 
-                    $ref: "#/definitions/CryptographicKey.Type"
-              required: 
-                - type
-              additionalProperties: false
     Status.Type:
         description: |
             Response status.
@@ -823,20 +720,11 @@ definitions:
         description: |
             A collection of information allowing an inspector to verify an Assertion.
         type: object
-        required: 
-            - type
         properties: 
             type: 
-                description: |
-                    The type of verification method. Model Primitive Datatype = String.
-                type: array
-                minItems: 1
-                items: 
-                    type: string
+                $ref: "#/definitions/JSON_LD_Type.Type"
             verificationProperty: 
-                description: The @id of the property to be used for verification that an Assertion is within the allowed scope. Model Primitive Datatype = AnyURI.
-                type: string
-                format: uri
+                $ref: "#/definitions/JSON_LD_Id.Type"
             startsWith: 
                 description: The URI fragment that the verification property must start with. Model Primitive Datatype = String.
                 type: array
@@ -849,4 +737,6 @@ definitions:
                 minItems: 0
                 items: 
                     type: string
+            creator: 
+                $ref: "#/definitions/JSON_LD_Id.Type"
         additionalProperties: false

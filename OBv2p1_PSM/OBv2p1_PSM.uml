@@ -69,14 +69,14 @@
       <packagedElement xmi:type="uml:Class" xmi:id="__h7HIF1EEemKA8ueSq5-Tg" name="PositiveInteger"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_Fs4NgF1FEemKA8ueSq5-Tg" name="NonNegativeInteger"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_K8wBgFsdEemah4rv1IhOJg" name="ProfileResponse">
-      <packagedElement xmi:type="uml:Class" xmi:id="_RiSyIFsdEemah4rv1IhOJg" name="ProfileResponse">
+    <packagedElement xmi:type="uml:Package" xmi:id="_K8wBgFsdEemah4rv1IhOJg" name="ProfilesResponse">
+      <packagedElement xmi:type="uml:Class" xmi:id="_RiSyIFsdEemah4rv1IhOJg" name="ProfilesResponse">
         <ownedComment xmi:type="uml:Comment" xmi:id="_bjGiwFusEemah4rv1IhOJg">
           <body>Responses from all APIs in this document are wrapped in a JSON envelope.</body>
         </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_YbFO4FsdEemah4rv1IhOJg" name="status" visibility="private" type="_IDsREFsaEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_DzAxsFusEemah4rv1IhOJg">
-            <body>The &quot;status&quot; property MUST appear on all responses.</body>
+            <body>The 'status' property MUST appear on all responses.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aRWM8FsdEemah4rv1IhOJg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aRbFcFsdEemah4rv1IhOJg" value="1"/>
@@ -95,19 +95,19 @@
         <ownedComment xmi:type="uml:Comment" xmi:id="_3xIUMFurEemah4rv1IhOJg">
           <body>A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address. An Issuer Profile is a subclass of the general Profile with some additional requirements.</body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_nSX2cFshEemah4rv1IhOJg" name="id" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nSX2cFshEemah4rv1IhOJg" name="id" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_0q-bkFurEemah4rv1IhOJg">
             <body>Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rORrUFshEemah4rv1IhOJg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rOV8wFshEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="__h-1EFshEemah4rv1IhOJg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__h-1EFshEemah4rv1IhOJg" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_yo-uoFurEemah4rv1IhOJg">
             <body>Valid JSON-LD representation of the Issuer or Profile type. In most cases, this will simply be the string Issuer or the more general Profile. An array including Issuer and other string elements that are either URLs or compact IRIs within the current context are allowed.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IAy0cFsiEemah4rv1IhOJg" value="1"/>
-          <upperValue xmi:type="uml:LiteralString" xmi:id="_aRjPAFsiEemah4rv1IhOJg" value="*"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_EiJssHNzEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_bVA3IFsiEemah4rv1IhOJg" name="name" visibility="private" type="_d5nbgFsaEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_wEvQQFurEemah4rv1IhOJg">
@@ -137,7 +137,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ki5jAFsiEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kjBe0FsiEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_gFvH0FupEemah4rv1IhOJg" name="image" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gFvH0FupEemah4rv1IhOJg" name="image" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_nhnYoFurEemah4rv1IhOJg">
             <body>An image representing the issuer. May be a Data URI, or URI where the image may be found or an instance of the Image class.</body>
           </ownedComment>
@@ -151,7 +151,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pcNH8FupEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pcSAcFupEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_qKg_cFupEemah4rv1IhOJg" name="publicKey" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qKg_cFupEemah4rv1IhOJg" name="publicKey" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_jRhccFurEemah4rv1IhOJg">
             <body>The key(s) an issuer uses to sign Assertions.</body>
           </ownedComment>
@@ -165,7 +165,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LKAC0FurEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralInteger" xmi:id="_MKczMFurEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_YIOMwFurEemah4rv1IhOJg" name="revocationList" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_YIOMwFurEemah4rv1IhOJg" name="revocationList" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_d9dh0FurEemah4rv1IhOJg">
             <body>HTTP URI of the Badge Revocation List used for marking revocation of signed badges.</body>
           </ownedComment>
@@ -181,30 +181,25 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DqpMEFytEemEApipHzfrZQ" value="*"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_Gr-QEFyiEemEApipHzfrZQ" name="IRI or Profile">
-        <generalization xmi:type="uml:Generalization" xmi:id="_VoeEkFyiEemEApipHzfrZQ" general="_s0ibUFsdEemah4rv1IhOJg"/>
-        <generalization xmi:type="uml:Generalization" xmi:id="_XUUiYFyiEemEApipHzfrZQ" general="_Nlsg8FyiEemEApipHzfrZQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_Nlsg8FyiEemEApipHzfrZQ" name="IRI"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_HZW90FseEemah4rv1IhOJg" name="Assertion">
       <packagedElement xmi:type="uml:Class" xmi:id="_MqQPsFseEemah4rv1IhOJg" name="Assertion">
         <ownedComment xmi:type="uml:Comment" xmi:id="_-SJT4FvcEemah4rv1IhOJg">
           <body>Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner.</body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_zYRoIFusEemah4rv1IhOJg" name="id" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_zYRoIFusEemah4rv1IhOJg" name="id" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_7CN0MFvcEemah4rv1IhOJg">
             <body>Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1Ll_4FusEemah4rv1IhOJg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1Lt7sFusEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_1yp_4FusEemah4rv1IhOJg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_1yp_4FusEemah4rv1IhOJg" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_46J7gFvcEemah4rv1IhOJg">
             <body>Valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string Assertion. An array including Assertion and other string elements that are either URLs or compact IRIs within the current context are allowed.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6Pq9wFusEemah4rv1IhOJg" value="1"/>
-          <upperValue xmi:type="uml:LiteralString" xmi:id="_7lGfoFusEemah4rv1IhOJg" value="*"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_Jtd7AHNzEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_6cjtwFutEemah4rv1IhOJg" name="recipient" visibility="private" type="_MjNmkFutEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_1sDAwFvcEemah4rv1IhOJg">
@@ -213,7 +208,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_81od8FutEemah4rv1IhOJg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_81t9gFutEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_Lu0fwFuuEemah4rv1IhOJg" name="badge" visibility="private" type="_ZxpD8FyjEemEApipHzfrZQ">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Lu0fwFuuEemah4rv1IhOJg" name="badge" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_0AYwMFvcEemah4rv1IhOJg">
             <body>IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a BadgeClass.</body>
           </ownedComment>
@@ -234,21 +229,21 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9BSlcFvbEemah4rv1IhOJg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9BYFAFvbEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_-TJO4FvbEemah4rv1IhOJg" name="image" visibility="private" type="_xv2mAFyiEemEApipHzfrZQ">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_-TJO4FvbEemah4rv1IhOJg" name="image" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_qFHZ4FvcEemah4rv1IhOJg">
             <body>IRI or document representing an image representing this user’s achievement. This must be a PNG or SVG image, and should be prepared via the Baking specification. An ‘unbaked’ image for the badge is defined in the BadgeClass and should not be duplicated here.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bui-wFvcEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BupscFvcEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_Fm2GAFvcEemah4rv1IhOJg" name="evidence" visibility="private" type="_e0z4UFyiEemEApipHzfrZQ">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Fm2GAFvcEemah4rv1IhOJg" name="evidence" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_oPNBIFvcEemah4rv1IhOJg">
             <body>IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H81tAFvcEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H87MkFvcEemah4rv1IhOJg" value="*"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_JAosUFvcEemah4rv1IhOJg" name="narratrive" visibility="private" type="_d5nbgFsaEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_JAosUFvcEemah4rv1IhOJg" name="narratrive" visibility="private" type="_a_H3wHNtEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_mLh5MFvcEemah4rv1IhOJg">
             <body>A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array.</body>
           </ownedComment>
@@ -293,7 +288,7 @@
         </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_ntOGwFseEemah4rv1IhOJg" name="status" visibility="private" type="_IDsREFsaEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_lksjgFusEemah4rv1IhOJg">
-            <body>The &quot;status&quot; property MUST appear on all responses.</body>
+            <body>The 'status' property MUST appear on all responses.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_o2c_sFseEemah4rv1IhOJg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_o2h4MFseEemah4rv1IhOJg" value="1"/>
@@ -320,21 +315,28 @@
         <generalization xmi:type="uml:Generalization" xmi:id="_uH9u0FvdEemah4rv1IhOJg" general="_o_Ty8FvdEemah4rv1IhOJg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_o_Ty8FvdEemah4rv1IhOJg" name="AnyURI"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_a_H3wHNtEemIM-6B0skAFA" name="Markdown Text">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6qKGIHNtEemIM-6B0skAFA">
+          <body>Text that may contain formatting according to Markdown syntax. Due to uneven support in displayers, publishers are encouraged to limit usage to simple elements like links, emphasis, and lists. Displayers may choose a subset of Markdown formatting to support or how to render this field. Images and tables may or may not be supported.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_tk11sHNtEemIM-6B0skAFA" general="_nxKm4HNtEemIM-6B0skAFA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_nxKm4HNtEemIM-6B0skAFA" name="String"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_Aed0kFuoEemah4rv1IhOJg" name="Image">
       <packagedElement xmi:type="uml:Class" xmi:id="_GdCEwFuoEemah4rv1IhOJg" name="Image">
         <ownedComment xmi:type="uml:Comment" xmi:id="_H_Ws0F1NEemKA8ueSq5-Tg">
           <body>Metadata about images that represent Assertions, BadgeClasses or Profiles.</body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_coR-8FuoEemah4rv1IhOJg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_coR-8FuoEemah4rv1IhOJg" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_a9NHwFupEemah4rv1IhOJg">
             <body>Defaults to ImageObject.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kVoFIFuoEemah4rv1IhOJg"/>
-          <upperValue xmi:type="uml:LiteralString" xmi:id="_lu5lMFuoEemah4rv1IhOJg" value="*"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_AJHP4HNzEemIM-6B0skAFA" value="1"/>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="__Vx4wFuoEemah4rv1IhOJg" value="ImageObject"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_W0UcQFuoEemah4rv1IhOJg" name="id" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_W0UcQFuoEemah4rv1IhOJg" name="id" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_d3STQFupEemah4rv1IhOJg">
             <body>The URI or Data URI of the image.</body>
           </ownedComment>
@@ -348,7 +350,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wnrFkFuoEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wnyaUFuoEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_D-LnQFupEemah4rv1IhOJg" name="author" visibility="private" type="_Gr-QEFyiEemEApipHzfrZQ">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_D-LnQFupEemah4rv1IhOJg" name="author" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_Q480kFupEemah4rv1IhOJg">
             <body>The profile id of the author of the image, if desired.</body>
           </ownedComment>
@@ -356,25 +358,20 @@
           <upperValue xmi:type="uml:LiteralInteger" xmi:id="_KdOuUFupEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_xv2mAFyiEemEApipHzfrZQ" name="IRI or Image">
-        <generalization xmi:type="uml:Generalization" xmi:id="_-D1gIFyiEemEApipHzfrZQ" general="_GdCEwFuoEemah4rv1IhOJg"/>
-        <generalization xmi:type="uml:Generalization" xmi:id="__3sDYFyiEemEApipHzfrZQ" general="_3j3zEFyiEemEApipHzfrZQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_3j3zEFyiEemEApipHzfrZQ" name="IRI"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_633GgFupEemah4rv1IhOJg" name="Verification">
       <packagedElement xmi:type="uml:Class" xmi:id="_AXTxwFuqEemah4rv1IhOJg" name="VerificationObject">
         <ownedComment xmi:type="uml:Comment" xmi:id="_Iz4VcFuqEemah4rv1IhOJg">
           <body>A collection of information allowing an inspector to verify an Assertion.</body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_KTJv0FuqEemah4rv1IhOJg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_KTJv0FuqEemah4rv1IhOJg" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_8i3aUFuqEemah4rv1IhOJg">
             <body>The type of verification method.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RfjFEFuqEemah4rv1IhOJg" value="1"/>
-          <upperValue xmi:type="uml:LiteralString" xmi:id="_Tp1yYFuqEemah4rv1IhOJg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RfjFEFuqEemah4rv1IhOJg"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_jec_EHNuEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_VMkwcFuqEemah4rv1IhOJg" name="verificationProperty" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_VMkwcFuqEemah4rv1IhOJg" name="verificationProperty" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_4QxTAFuqEemah4rv1IhOJg">
             <body>The @id of the property to be used for verification that an Assertion is within the allowed scope.</body>
           </ownedComment>
@@ -395,34 +392,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hbrKkFuqEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralString" xmi:id="_pMtd8FuqEemah4rv1IhOJg" value="*"/>
         </ownedAttribute>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_lQfa8FylEemEApipHzfrZQ" name="HostedVerification">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_agtpEFymEemEApipHzfrZQ">
-          <body>HostedVerification and SignedVerification are subclasses of VerificationObject.</body>
-        </ownedComment>
-        <generalization xmi:type="uml:Generalization" xmi:id="_VVJk4F0vEemKA8ueSq5-Tg" general="_AXTxwFuqEemah4rv1IhOJg"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_NHqwoF0wEemKA8ueSq5-Tg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_VUrOUF0wEemKA8ueSq5-Tg">
-            <body>The type of verification method is 'HostedVerification'.</body>
-          </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_O7yZoF0wEemKA8ueSq5-Tg" value="1"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_O8AcEF0wEemKA8ueSq5-Tg" value="*"/>
-        </ownedAttribute>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_0-m5oFylEemEApipHzfrZQ" name="SignedVerification">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_ZUJIQFymEemEApipHzfrZQ">
-          <body>HostedVerification and SignedVerification are subclasses of VerificationObject.</body>
-        </ownedComment>
-        <generalization xmi:type="uml:Generalization" xmi:id="_XdHW8F0vEemKA8ueSq5-Tg" general="_AXTxwFuqEemah4rv1IhOJg"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_UYu1YF0uEemKA8ueSq5-Tg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_5Av7IF0uEemKA8ueSq5-Tg">
-            <body>The type of verification method is 'SignedVerification'.</body>
-          </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XhpHEF0uEemKA8ueSq5-Tg" value="1"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Xh8pEF0uEemKA8ueSq5-Tg" value="*"/>
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_vRE7YF0vEemKA8ueSq5-Tg" value="SignedVerification"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_DMpssFymEemEApipHzfrZQ" name="creator" visibility="private" type="_KD_NcFvhEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DMpssFymEemEApipHzfrZQ" name="creator" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_LBW_IFymEemEApipHzfrZQ">
             <body>The (HTTP) id of the key used to sign the Assertion.</body>
           </ownedComment>
@@ -443,7 +413,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VCLW8FutEemah4rv1IhOJg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VCXkMFutEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_VrpKsFutEemah4rv1IhOJg" name="type" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_VrpKsFutEemah4rv1IhOJg" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_ziqdwFutEemah4rv1IhOJg">
             <body>The property by which the recipient of a badge is identified. This value should be an IRI mapped in the present context. For example, email maps to http://schema.org/email and indicates that the identity of the IdentityObject will represent a value of a Profile’s email property. Currently the only supported value for many platforms that implement Open Badges is email, but other properties are available.</body>
           </ownedComment>
@@ -474,19 +444,19 @@
         <ownedComment xmi:type="uml:Comment" xmi:id="_tTB1cFveEemah4rv1IhOJg">
           <body>A collection of information about the accomplishment recognized by the Open Badge.</body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_PYyaoFuvEemah4rv1IhOJg" name="id" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_PYyaoFuvEemah4rv1IhOJg" name="id" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_wbpMMFveEemah4rv1IhOJg">
             <body>Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QjbBwFuvEemah4rv1IhOJg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qjf6QFuvEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_RK5RcFuvEemah4rv1IhOJg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_RK5RcFuvEemah4rv1IhOJg" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_mIao4FveEemah4rv1IhOJg">
             <body>Valid JSON-LD representation of the BadgeClass type. In most cases, this will simply be the string BadgeClass. An array including BadgeClass and other string elements that are either URLs or compact IRIs within the current context are allowed.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VI4xAFuvEemah4rv1IhOJg" value="1"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VJCiAFuvEemah4rv1IhOJg" value="*"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_MmD4wHNzEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_W8CwsFuvEemah4rv1IhOJg" name="name" visibility="private" type="_d5nbgFsaEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_jlCGIFveEemah4rv1IhOJg">
@@ -502,21 +472,21 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aelqYFuvEemah4rv1IhOJg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aetmMFuvEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_bgl58FuvEemah4rv1IhOJg" name="image" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_bgl58FuvEemah4rv1IhOJg" name="image" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_gZQGoFveEemah4rv1IhOJg">
             <body>IRI of an image representing the achievement. May be a Data URI, or URI where the image may be found.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fP8gkFuvEemah4rv1IhOJg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fQEcYFuvEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_PFhq8FuwEemah4rv1IhOJg" name="criteria" visibility="private" type="_uCClYFx_EemEApipHzfrZQ">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_PFhq8FuwEemah4rv1IhOJg" name="criteria" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_emGuAFveEemah4rv1IhOJg">
             <body>URI or embedded criteria document describing how to earn the achievement.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SxJBEFuwEemah4rv1IhOJg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SxOgoFuwEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_X0DhUFuwEemah4rv1IhOJg" name="issuer" visibility="private" type="_Gr-QEFyiEemEApipHzfrZQ">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_X0DhUFuwEemah4rv1IhOJg" name="issuer" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_cMRv4FveEemah4rv1IhOJg">
             <body>IRI or document describing the individual, entity, or organization that issued the badge.</body>
           </ownedComment>
@@ -557,33 +527,28 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__oVNMFysEemEApipHzfrZQ" value="*"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_ZxpD8FyjEemEApipHzfrZQ" name="IRI or BadgeClass">
-        <generalization xmi:type="uml:Generalization" xmi:id="_mLLzgFyjEemEApipHzfrZQ" general="_Gl3zgFuvEemah4rv1IhOJg"/>
-        <generalization xmi:type="uml:Generalization" xmi:id="_nhHrsFyjEemEApipHzfrZQ" general="_ggapEFyjEemEApipHzfrZQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_ggapEFyjEemEApipHzfrZQ" name="IRI"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_lrwtcFuvEemah4rv1IhOJg" name="Criteria">
       <packagedElement xmi:type="uml:Class" xmi:id="_rRRkcFuvEemah4rv1IhOJg" name="Criteria">
         <ownedComment xmi:type="uml:Comment" xmi:id="_MYbLgFuwEemah4rv1IhOJg">
           <body>Descriptive metadata about the achievements necessary to be recognized with an Assertion of a particular BadgeClass.</body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_ynyfAFuvEemah4rv1IhOJg" name="id" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ynyfAFuvEemah4rv1IhOJg" name="id" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_B7vKMFuwEemah4rv1IhOJg">
             <body>The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1Lt0UFuvEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1LyFwFuvEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_1yLXYFuvEemah4rv1IhOJg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_1yLXYFuvEemah4rv1IhOJg" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_EeCH0FuwEemah4rv1IhOJg">
             <body>Defaults to Criteria.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4VXF0FuvEemah4rv1IhOJg"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4VbXQFuvEemah4rv1IhOJg" value="*"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_A5ObAHNvEemIM-6B0skAFA" value="1"/>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_4VfosFuvEemah4rv1IhOJg" value="Criteria"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_6k-YAFuvEemah4rv1IhOJg" name="narrative" visibility="private" type="_d5nbgFsaEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_6k-YAFuvEemah4rv1IhOJg" name="narrative" visibility="private" type="_a_H3wHNtEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="__XsgIFuvEemah4rv1IhOJg">
             <body>A narrative of what is needed to earn the badge.</body>
           </ownedComment>
@@ -591,16 +556,11 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8f3XYFuvEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_uCClYFx_EemEApipHzfrZQ" name="IRI or Criteria">
-        <generalization xmi:type="uml:Generalization" xmi:id="_QJgOYFyKEemEApipHzfrZQ" general="_rRRkcFuvEemah4rv1IhOJg"/>
-        <generalization xmi:type="uml:Generalization" xmi:id="_VQ-8MFyjEemEApipHzfrZQ" general="_4HJNIFx_EemEApipHzfrZQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_4HJNIFx_EemEApipHzfrZQ" name="IRI"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_nsx3EFu8Eemah4rv1IhOJg" name="OB-API">
       <packagedElement xmi:type="uml:Class" xmi:id="_uK2GsFu8Eemah4rv1IhOJg" name="OB-API">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_yY2_QFu8Eemah4rv1IhOJg" name="Author" type="_d5nbgFsaEemah4rv1IhOJg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_zmLG8Fu8Eemah4rv1IhOJg" value="TBD"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_zmLG8Fu8Eemah4rv1IhOJg" value="@@@TBD"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_0G1kAFu8Eemah4rv1IhOJg" name="Date" type="_d5nbgFsaEemah4rv1IhOJg">
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_1fGXcFu8Eemah4rv1IhOJg" value="April 2019"/>
@@ -618,13 +578,13 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="__BVisFu8Eemah4rv1IhOJg" value="2.1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="__fGcwFu8Eemah4rv1IhOJg" name="SpecificationURL" type="_d5nbgFsaEemah4rv1IhOJg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_Bq9QUFu9Eemah4rv1IhOJg" value="TBD"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_Bq9QUFu9Eemah4rv1IhOJg" value="@@@TBD"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_CUfVgFu9Eemah4rv1IhOJg" name="SpecificationDocURL" type="_d5nbgFsaEemah4rv1IhOJg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_EXdS0Fu9Eemah4rv1IhOJg" value="TBD"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_EXdS0Fu9Eemah4rv1IhOJg" value="@@@TBD"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_FF9XkFu9Eemah4rv1IhOJg" name="Description" type="_d5nbgFsaEemah4rv1IhOJg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_GG0XoFu9Eemah4rv1IhOJg" value="TBD"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_GG0XoFu9Eemah4rv1IhOJg" value="@@@TBD"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_GpPIMFu9Eemah4rv1IhOJg" name="History" type="_d5nbgFsaEemah4rv1IhOJg">
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_J_AKIFu9Eemah4rv1IhOJg" value="This is the first release of Open Badges Connect API definition."/>
@@ -644,23 +604,24 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_c-_pQFu9Eemah4rv1IhOJg" value="Yes"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_dfQdsFu9Eemah4rv1IhOJg" name="JSONSchemaLocation" type="_d5nbgFsaEemah4rv1IhOJg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_fvtdYFu9Eemah4rv1IhOJg" value="TBD"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_fvtdYFu9Eemah4rv1IhOJg" value="@@@TBD"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_gR9O0Fu9Eemah4rv1IhOJg" name="YAMLDescription" type="_d5nbgFsaEemah4rv1IhOJg">
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_hly1QFu9Eemah4rv1IhOJg" value="Yes"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_iHcw0Fu9Eemah4rv1IhOJg" name="YAMLSchemaLocation" type="_d5nbgFsaEemah4rv1IhOJg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_j2BygFu9Eemah4rv1IhOJg" value="TBD"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_j2BygFu9Eemah4rv1IhOJg" value="@@@TBD"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_OeP9kFx2EemEApipHzfrZQ" name="HostName" type="_d5nbgFsaEemah4rv1IhOJg">
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_RSm7kFx2EemEApipHzfrZQ" value="www.imsglobal.org"/>
         </ownedAttribute>
       </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_gQZekHM1EemIM-6B0skAFA" name="OpenAPIv3.0"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_fO6NsFvOEemah4rv1IhOJg" name="OB-API">
       <packagedElement xmi:type="uml:Class" xmi:id="_ls6L4FvOEemah4rv1IhOJg" name="OB-API">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_qYd8EFvOEemah4rv1IhOJg" name="Author" type="_d5nbgFsaEemah4rv1IhOJg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_rlg-AFvOEemah4rv1IhOJg" value="TBD"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_rlg-AFvOEemah4rv1IhOJg" value="@@@TBD"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_sO5SMFvOEemah4rv1IhOJg" name="Date" type="_d5nbgFsaEemah4rv1IhOJg">
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_t4cC4FvOEemah4rv1IhOJg" value="April 2019"/>
@@ -678,13 +639,13 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="__VvnQFvOEemah4rv1IhOJg" value="2.1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="__27owFvOEemah4rv1IhOJg" name="SpecificationURL" type="_d5nbgFsaEemah4rv1IhOJg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_Bva0YFvPEemah4rv1IhOJg" value="URL"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_Bva0YFvPEemah4rv1IhOJg" value="@@@TBD"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_CR5PUFvPEemah4rv1IhOJg" name="SpecificationDocURL" type="_d5nbgFsaEemah4rv1IhOJg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_EF0rEFvPEemah4rv1IhOJg" value="TBD"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_EF0rEFvPEemah4rv1IhOJg" value="@@@TBD"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Ep8EwFvPEemah4rv1IhOJg" name="Description" type="_d5nbgFsaEemah4rv1IhOJg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_GJWCAFvPEemah4rv1IhOJg" value="TBD"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_GJWCAFvPEemah4rv1IhOJg" value="@@@TBD"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Gt9K8FvPEemah4rv1IhOJg" name="History" type="_d5nbgFsaEemah4rv1IhOJg">
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_KqFpUFvPEemah4rv1IhOJg" value="This is the first release of Open Badges Connect API definition."/>
@@ -728,7 +689,7 @@
           </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_L26GEFyxEemEApipHzfrZQ" name="profile" type="_s0ibUFsdEemah4rv1IhOJg">
             <ownedComment xmi:type="uml:Comment" xmi:id="__jsLgFyxEemEApipHzfrZQ">
-              <body>The authented user's profile.</body>
+              <body>The authenticated user's profile.</body>
             </ownedComment>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_P0puAFyxEemEApipHzfrZQ" type="_RiSyIFsdEemah4rv1IhOJg" direction="return"/>
@@ -781,7 +742,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UY8vgFx4EemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UZEEQFx4EemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_VcIDwFx4EemEApipHzfrZQ" name="500">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_VcIDwFx4EemEApipHzfrZQ" name="500" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_uMF9cFx4EemEApipHzfrZQ">
             <body>This code should be used only if there is catastrophic error.</body>
           </ownedComment>
@@ -792,6 +753,8 @@
           <ownedComment xmi:type="uml:Comment" xmi:id="_PwBRQFvjEemah4rv1IhOJg">
             <body>Any other response.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7jvDAHMsEemIM-6B0skAFA"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_8hd2kHMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_6yYVcFytEemEApipHzfrZQ" name="postProfile">
@@ -805,16 +768,22 @@
           <ownedComment xmi:type="uml:Comment" xmi:id="_DlZtcFyyEemEApipHzfrZQ">
             <body>This is the response when the request has been completed successfully.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-PL8oHMsEemIM-6B0skAFA" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="__ImQ4HMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_ZSPxMFyuEemEApipHzfrZQ" name="400" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_FZsVkFyyEemEApipHzfrZQ">
             <body>An invalid request was made.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Aot_0HMtEemIM-6B0skAFA" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_Bma-MHMtEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_cJgSMFyuEemEApipHzfrZQ" name="401" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_HPCtoFyyEemEApipHzfrZQ">
             <body>The request was not correctly authorized.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DCM_sHMtEemIM-6B0skAFA" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_D_qGcHMtEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_e5H6IFyuEemEApipHzfrZQ" name="404" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_J-ogYFyyEemEApipHzfrZQ">
@@ -830,7 +799,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l85e4FyuEemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_l9DP4FyuEemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_mbkX4FyuEemEApipHzfrZQ" name="500">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mbkX4FyuEemEApipHzfrZQ" name="500" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_M8pwsFyyEemEApipHzfrZQ">
             <body>This code should be used only if there is catastrophic error.</body>
           </ownedComment>
@@ -841,7 +810,7 @@
           <ownedComment xmi:type="uml:Comment" xmi:id="_RTspcFyyEemEApipHzfrZQ">
             <body>Any other response.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tDoRAFyuEemEApipHzfrZQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tDoRAFyuEemEApipHzfrZQ"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tDyCAFyuEemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
       </packagedElement>
@@ -893,21 +862,21 @@
         <ownedComment xmi:type="uml:Comment" xmi:id="_9hwRYFvfEemah4rv1IhOJg">
           <body>Descriptive metadata about evidence related to the issuance of an Assertion.</body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_Lpk9IFvfEemah4rv1IhOJg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Lpk9IFvfEemah4rv1IhOJg" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_6FQVUFvfEemah4rv1IhOJg">
             <body>Defaults to Evidence.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Os0rsFvfEemah4rv1IhOJg"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Os-csFvfEemah4rv1IhOJg" value="*"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_qe8mUHNuEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_IifQYFvfEemah4rv1IhOJg" name="id" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IifQYFvfEemah4rv1IhOJg" name="id" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_pXAPUFvfEemah4rv1IhOJg">
             <body>The URI of a webpage presenting evidence of achievement.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_K1RLUFvfEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_K1Wq4FvfEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_Q3NfoFvfEemah4rv1IhOJg" name="narrative" visibility="private" type="_d5nbgFsaEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Q3NfoFvfEemah4rv1IhOJg" name="narrative" visibility="private" type="_a_H3wHNtEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_lucNMFvfEemah4rv1IhOJg">
             <body>A narrative that describes the evidence and process of achievement that led to an Assertion.</body>
           </ownedComment>
@@ -943,39 +912,34 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bxJdoFvfEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_e0z4UFyiEemEApipHzfrZQ" name="IRI or Evidence">
-        <generalization xmi:type="uml:Generalization" xmi:id="_s9r3gFyiEemEApipHzfrZQ" general="_DNzDoFvfEemah4rv1IhOJg"/>
-        <generalization xmi:type="uml:Generalization" xmi:id="_uMxg0FyiEemEApipHzfrZQ" general="_lGlYYFyiEemEApipHzfrZQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_lGlYYFyiEemEApipHzfrZQ" name="IRI"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_Yc3M8FvgEemah4rv1IhOJg" name="RevocationList">
       <packagedElement xmi:type="uml:Class" xmi:id="_de7YoFvgEemah4rv1IhOJg" name="RevocationList">
         <ownedComment xmi:type="uml:Comment" xmi:id="__J0l8FvgEemah4rv1IhOJg">
           <body>The Revocation List is a document that describes badges an Issuer has revoked that used the signed verification method.</body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_h8md0FvgEemah4rv1IhOJg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_h8md0FvgEemah4rv1IhOJg" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_71jY0FvgEemah4rv1IhOJg">
             <body>RevocationList.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kbSt0FvgEemah4rv1IhOJg" value="1"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kbXmUFvgEemah4rv1IhOJg" value="*"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_e_3XEHNyEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_ojui0FvgEemah4rv1IhOJg" name="id" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ojui0FvgEemah4rv1IhOJg" name="id" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_51rLwFvgEemah4rv1IhOJg">
             <body>The id of the RevocationList.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_q4GZMFvgEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_q4Nt8FvgEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_rffwYFvgEemah4rv1IhOJg" name="issuer" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rffwYFvgEemah4rv1IhOJg" name="issuer" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_4GDoQFvgEemah4rv1IhOJg">
             <body>The id of the Issuer.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t8uAwFvgEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t818kFvgEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_vWTp4FvgEemah4rv1IhOJg" name="revokedAssertions" visibility="private" type="_d5nbgFsaEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_vWTp4FvgEemah4rv1IhOJg" name="revokedAssertions" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_2OV4sFvgEemah4rv1IhOJg">
             <body>A string id or UID-based identification of a badge object that has been revoked.</body>
           </ownedComment>
@@ -989,21 +953,21 @@
         <ownedComment xmi:type="uml:Comment" xmi:id="_qkuUwFvhEemah4rv1IhOJg">
           <body>Alias for the Key class from the W3C Web Payments Community Group Security Vocabulary. A CryptographicKey document identifies and describes a Key used for signing Open Badges documents.</body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_QcmVUFvhEemah4rv1IhOJg" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_QcmVUFvhEemah4rv1IhOJg" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_nb6JsFvhEemah4rv1IhOJg">
             <body>CryptographicKey.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UGi3gFvhEemah4rv1IhOJg"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UGqMQFvhEemah4rv1IhOJg" value="*"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_5teCIHNyEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_Ww9PUFvhEemah4rv1IhOJg" name="id" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Ww9PUFvhEemah4rv1IhOJg" name="id" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_lw-48FvhEemah4rv1IhOJg">
             <body>The identifier for the key. Most platforms only support HTTP(s) identifiers.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZM67cFvhEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZNDeUFvhEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_aG86wFvhEemah4rv1IhOJg" name="owner" visibility="private" type="_ZBGJMFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_aG86wFvhEemah4rv1IhOJg" name="owner" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_j2lBwFvhEemah4rv1IhOJg">
             <body>The identifier for the Profile that owns this key. There should be a two-way connection between this Profile and the CryptographicKey through the owner and publicKey properties.</body>
           </ownedComment>
@@ -1021,16 +985,16 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_S_6fMFyoEemEApipHzfrZQ" name="Endorsement">
       <packagedElement xmi:type="uml:Class" xmi:id="_Z7i0kFyoEemEApipHzfrZQ" name="Endorsement">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_fHcRsFyoEemEApipHzfrZQ" name="id" visibility="private" type="_Nlsg8FyiEemEApipHzfrZQ">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_fHcRsFyoEemEApipHzfrZQ" name="id" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gkEnwFyoEemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gkI5MFyoEemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_hVQNEFyoEemEApipHzfrZQ" name="type" visibility="private" type="_vHUZcFshEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hVQNEFyoEemEApipHzfrZQ" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_icceoFyoEemEApipHzfrZQ" value="1"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ichXIFyoEemEApipHzfrZQ" value="*"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_17hP8HNxEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_J-JcYFyrEemEApipHzfrZQ" name="claim" visibility="private" type="_1ofK0FyqEemEApipHzfrZQ"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_Yg8-gFyrEemEApipHzfrZQ" name="issuer" visibility="private" type="_Gr-QEFyiEemEApipHzfrZQ">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_J-JcYFyrEemEApipHzfrZQ" name="claim" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Yg8-gFyrEemEApipHzfrZQ" name="issuer" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bwbyQFyrEemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bwkVIFyrEemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
@@ -1049,14 +1013,14 @@
         <ownedComment xmi:type="uml:Comment" xmi:id="_s17wEFyqEemEApipHzfrZQ">
           <body>The claim the endorser is making.</body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_Xxjz0FypEemEApipHzfrZQ" name="id" visibility="private" type="_Nlsg8FyiEemEApipHzfrZQ">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Xxjz0FypEemEApipHzfrZQ" name="id" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_KMnysFyqEemEApipHzfrZQ">
             <body>The id of the entity the endorser would like to claim about.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZdAB8FypEemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZdDsUFypEemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZRxz8FyqEemEApipHzfrZQ" name="endorsementComment" visibility="private" type="_d5nbgFsaEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZRxz8FyqEemEApipHzfrZQ" name="endorsementComment" visibility="private" type="_a_H3wHNtEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_m8hFoFyqEemEApipHzfrZQ">
             <body>The simple claim the endorser is making about the entity.</body>
           </ownedComment>
@@ -1069,11 +1033,6 @@
           </ownedComment>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_1ofK0FyqEemEApipHzfrZQ" name="IRI or Claim">
-        <generalization xmi:type="uml:Generalization" xmi:id="_GBtcAFyrEemEApipHzfrZQ" general="_SpUusFypEemEApipHzfrZQ"/>
-        <generalization xmi:type="uml:Generalization" xmi:id="_Hs-rAFyrEemEApipHzfrZQ" general="_9CpPQFyqEemEApipHzfrZQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_9CpPQFyqEemEApipHzfrZQ" name="IRI"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_vzpb8F06EemKA8ueSq5-Tg" name="REST">
       <packagedElement xmi:type="uml:Class" xmi:id="_6E6QYF06EemKA8ueSq5-Tg" name="getAssertions">
@@ -1121,16 +1080,18 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vj7TAF08EemKA8ueSq5-Tg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vkFEAF08EemKA8ueSq5-Tg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_ww-U8F08EemKA8ueSq5-Tg" name="500">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ww-U8F08EemKA8ueSq5-Tg" name="500" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_Q6dZ4F09EemKA8ueSq5-Tg">
             <body>This code should be used only if there is catastrophic error.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UuiUAHMsEemIM-6B0skAFA"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_WQdZwHMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_yvPYcF08EemKA8ueSq5-Tg" name="default" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_K2PNoF09EemKA8ueSq5-Tg">
             <body>Any other response.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_01nPEF08EemKA8ueSq5-Tg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_01nPEF08EemKA8ueSq5-Tg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_01xnIF08EemKA8ueSq5-Tg" value="1"/>
         </ownedAttribute>
       </packagedElement>
@@ -1168,41 +1129,57 @@
           <ownedComment xmi:type="uml:Comment" xmi:id="_Iu1JUF1KEemKA8ueSq5-Tg">
             <body>The Assertion was updated successfully.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mueEUHMsEemIM-6B0skAFA" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_oA-1EHMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_f-qicF1JEemKA8ueSq5-Tg" name="201" type="_iEotoFseEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_FpUw8F1KEemKA8ueSq5-Tg">
             <body>The Assertion was created successfully.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qKYKgHMsEemIM-6B0skAFA" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_rcIGQHMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_idQr0F1JEemKA8ueSq5-Tg" name="400" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="__ZPS8F1JEemKA8ueSq5-Tg">
             <body>An invalid request was made.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tdQQgHMsEemIM-6B0skAFA" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_ulQaYHMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_k3Oz4F1JEemKA8ueSq5-Tg" name="401" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_9n0YoF1JEemKA8ueSq5-Tg">
             <body>The request was not correctly authorized.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_v1qSUHMsEemIM-6B0skAFA" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_w6XQkHMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_mzyAIF1JEemKA8ueSq5-Tg" name="404" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_74Uw8F1JEemKA8ueSq5-Tg">
             <body>The requested resource does not exist.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yJy4IHMsEemIM-6B0skAFA" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_zExSoHMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_o350AF1JEemKA8ueSq5-Tg" name="405" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_6ITk0F1JEemKA8ueSq5-Tg">
             <body>This method is not allowed on the endpoint.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0NtQoHMsEemIM-6B0skAFA" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_1B670HMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_qsuAkF1JEemKA8ueSq5-Tg" name="500">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qsuAkF1JEemKA8ueSq5-Tg" name="500" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_4MeKQF1JEemKA8ueSq5-Tg">
             <body>This code should be used only if there is catastrophic error.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XU9jsHMsEemIM-6B0skAFA"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_Ytp08HMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_sfnhkF1JEemKA8ueSq5-Tg" name="default" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_2CrMMF1JEemKA8ueSq5-Tg">
             <body>Any other response.</body>
           </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fMKwgHMsEemIM-6B0skAFA"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_gd2a0HMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
       </packagedElement>
     </packagedElement>
@@ -1212,6 +1189,85 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DccyEF08EemKA8ueSq5-Tg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DciRoF08EemKA8ueSq5-Tg" value="1"/>
         </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_IL8f8HKZEemIM-6B0skAFA" name="Legend">
+      <packagedElement xmi:type="uml:Class" xmi:id="_Sg2eQHKZEemIM-6B0skAFA" name="OB">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Z2yxEHKZEemIM-6B0skAFA" name="Author" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_chp00HKZEemIM-6B0skAFA" value="@@@TBD"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_dNZggHKZEemIM-6B0skAFA" name="Date" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_fA10EHKZEemIM-6B0skAFA" value="April 2019"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_fe4a8HKZEemIM-6B0skAFA" name="Version" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_hEsiMHKZEemIM-6B0skAFA" value="2.1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_htdLUHKZEemIM-6B0skAFA" name="Status" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_jpFxkHKZEemIM-6B0skAFA" value="IMS Candidate Final"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kGHr0HKZEemIM-6B0skAFA" name="Description" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mOmbQHKZEemIM-6B0skAFA" value="@@@TBD"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_m2044HKZEemIM-6B0skAFA" name="History" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_uLGXwHKZEemIM-6B0skAFA" value="This is the first release of the Open Badges Service definition."/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_u0yN8HKZEemIM-6B0skAFA" name="SpecificationTitle" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_yaNcgHKZEemIM-6B0skAFA" value="Open Badges"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_03YCgHKZEemIM-6B0skAFA" name="SpecificationVersion" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_2hv5oHKZEemIM-6B0skAFA" value="2.1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2-b1oHKZEemIM-6B0skAFA" name="SpecificationURL" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_4m2k8HKZEemIM-6B0skAFA" value="ob"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_8bFrkHKZEemIM-6B0skAFA" name="SpecificationDocURL" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="__GvZgHKZEemIM-6B0skAFA" value="ob"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_KAmfAHKaEemIM-6B0skAFA" name="JSON-LD">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_OkA_0HKaEemIM-6B0skAFA" name="ContextRoot" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_VVnPcHKaEemIM-6B0skAFA" value="https://purl.imsglobal.org/spec/ob/v2p1/context#"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WNIGQHKaEemIM-6B0skAFA" name="ContextLeaf" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_YKRIYHKaEemIM-6B0skAFA" value="ob_v2p1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Y5JnoHKaEemIM-6B0skAFA" name="ContextPrefix" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_cEYNgHKaEemIM-6B0skAFA" value="imsob"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cuKKUHKaEemIM-6B0skAFA" name="ContextLocation" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_ikCYkHKaEemIM-6B0skAFA" value="https://purl.imsglobal.org/spec/ob/v2p1/context/ob_v2p1.jsonld"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_lcQi4HKaEemIM-6B0skAFA" name="JSD">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_roPkAHKaEemIM-6B0skAFA" name="SchemaIDRoot" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_uwHT4HKaEemIM-6B0skAFA" value="ob"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_vgvfkHKaEemIM-6B0skAFA" name="SchemaLocationRoot" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_1pto8HKaEemIM-6B0skAFA" value="https://purl.imsglobal.org/spec/ob/v2p1/jsd"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2Te-sHKaEemIM-6B0skAFA" name="SchemaLocationVersion" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_4CRbwHKaEemIM-6B0skAFA" value="v2p1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DkObAHKmEemIM-6B0skAFA" name="NameSpaceLeaf" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_F3oBAHKmEemIM-6B0skAFA" value="imsob_v2p1"/>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_SZvTIHNpEemIM-6B0skAFA" name="JSON-LD Types">
+      <packagedElement xmi:type="uml:Class" xmi:id="_Znky0HNpEemIM-6B0skAFA" name="JSON_LD_Context">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_v9eoYHNqEemIM-6B0skAFA">
+          <body>JSON-LD @context.</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_gsdx4HNpEemIM-6B0skAFA" name="JSON_LD_Type">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rzLyMHNqEemIM-6B0skAFA">
+          <body>JSON-LD @type.</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_lVWBgHNpEemIM-6B0skAFA" name="JSON_LD_Id">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ohD6IHNqEemIM-6B0skAFA">
+          <body>JSON-LD @id.</body>
+        </ownedComment>
       </packagedElement>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_eHS4sFr6Eemah4rv1IhOJg">
@@ -1280,7 +1336,6 @@
   <DunelmUMLBasev1p0:DataModel xmi:id="_owNV4FuvEemah4rv1IhOJg" base_Package="_lrwtcFuvEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:Unordered xmi:id="_tY9psFuvEemah4rv1IhOJg" base_Class="_rRRkcFuvEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:PrimitiveType xmi:id="_nkdCgFuxEemah4rv1IhOJg" base_Class="_inbu4FuxEemah4rv1IhOJg"/>
-  <DunelmUMLBasev1p0:ServiceGroupModel xmi:id="_rYvygFu8Eemah4rv1IhOJg" base_Package="_nsx3EFu8Eemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:Legend xmi:id="_wpvLAFu8Eemah4rv1IhOJg" base_Class="_uK2GsFu8Eemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:Binding xmi:id="_OKXXUFu9Eemah4rv1IhOJg" base_Class="_LU7bQFu9Eemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:ServiceModel xmi:id="_kTIVgFvOEemah4rv1IhOJg" base_Package="_fO6NsFvOEemah4rv1IhOJg"/>
@@ -1301,28 +1356,14 @@
   <DunelmUMLBasev1p0:Unordered xmi:id="_g_FFoFvgEemah4rv1IhOJg" base_Class="_de7YoFvgEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:DataModel xmi:id="_I-YQQFvhEemah4rv1IhOJg" base_Package="_FLnJQFvhEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:Unordered xmi:id="_PFrlsFvhEemah4rv1IhOJg" base_Class="_KD_NcFvhEemah4rv1IhOJg"/>
-  <DunelmUMLBasev1p0:Union xmi:id="_AbLf4FyAEemEApipHzfrZQ" base_Class="_uCClYFx_EemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:DerivedType xmi:id="_-cSuUFygEemEApipHzfrZQ" base_Class="_4HJNIFx_EemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:Union xmi:id="_LlnfkFyiEemEApipHzfrZQ" base_Class="_Gr-QEFyiEemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:DerivedType xmi:id="_SjB9oFyiEemEApipHzfrZQ" base_Class="_Nlsg8FyiEemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:Union xmi:id="_kEoMIFyiEemEApipHzfrZQ" base_Class="_e0z4UFyiEemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:DerivedType xmi:id="_pyDpAFyiEemEApipHzfrZQ" base_Class="_lGlYYFyiEemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:Union xmi:id="_1puakFyiEemEApipHzfrZQ" base_Class="_xv2mAFyiEemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:DerivedType xmi:id="_7itAIFyiEemEApipHzfrZQ" base_Class="_3j3zEFyiEemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:Union xmi:id="_eWo5IFyjEemEApipHzfrZQ" base_Class="_ZxpD8FyjEemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:DerivedType xmi:id="_kMn1EFyjEemEApipHzfrZQ" base_Class="_ggapEFyjEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:DataModel xmi:id="_YkCPEFyoEemEApipHzfrZQ" base_Package="_S_6fMFyoEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:Unordered xmi:id="_cxMMAFyoEemEApipHzfrZQ" base_Class="_Z7i0kFyoEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:DataModel xmi:id="_QNp9gFypEemEApipHzfrZQ" base_Package="_KczZMFypEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:Unordered xmi:id="_VBYLMFypEemEApipHzfrZQ" base_Class="_SpUusFypEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:PrimitiveType xmi:id="_tsOUUFypEemEApipHzfrZQ" base_Class="_phwfAFypEemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:Union xmi:id="_5qckYFyqEemEApipHzfrZQ" base_Class="_1ofK0FyqEemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:DerivedType xmi:id="_-1ee0FyqEemEApipHzfrZQ" base_Class="_9CpPQFyqEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:Operation xmi:id="_FrIAoFyuEemEApipHzfrZQ" base_Class="_6yYVcFytEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:Responses xmi:id="_ROzfMFyuEemEApipHzfrZQ" base_Class="_OsFq0FyuEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:Update xmi:id="_GA8_UFyxEemEApipHzfrZQ" base_Operation="_6egP0FywEemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:Unordered xmi:id="_MKOYUF0tEemKA8ueSq5-Tg" base_Class="_lQfa8FylEemEApipHzfrZQ"/>
-  <DunelmUMLBasev1p0:Unordered xmi:id="_OzYL4F0tEemKA8ueSq5-Tg" base_Class="_0-m5oFylEemEApipHzfrZQ"/>
   <DunelmUMLBasev1p0:BindingModel xmi:id="_z1LXsF06EemKA8ueSq5-Tg" base_Package="_vzpb8F06EemKA8ueSq5-Tg"/>
   <DunelmUMLBasev1p0:Operation xmi:id="_-mtAkF06EemKA8ueSq5-Tg" base_Class="_6E6QYF06EemKA8ueSq5-Tg"/>
   <DunelmUMLBasev1p0:Responses xmi:id="_OhqocF07EemKA8ueSq5-Tg" base_Class="_Hnu8MF07EemKA8ueSq5-Tg"/>
@@ -1337,4 +1378,16 @@
   <DunelmUMLBasev1p0:Responses xmi:id="_LOPngF1JEemKA8ueSq5-Tg" base_Class="_HxfMwF1JEemKA8ueSq5-Tg"/>
   <DunelmUMLBasev1p0:Update xmi:id="_IUxOEF1LEemKA8ueSq5-Tg" base_Operation="_YFoUMF1KEemKA8ueSq5-Tg"/>
   <DunelmUMLBasev1p0:CreateBP xmi:id="_PB1jAF1LEemKA8ueSq5-Tg" base_Operation="_YFoUMF1KEemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:DataModel xmi:id="_Q7r3QHKZEemIM-6B0skAFA" base_Package="_IL8f8HKZEemIM-6B0skAFA"/>
+  <DunelmUMLBasev1p0:Legend xmi:id="_XgN7QHKZEemIM-6B0skAFA" base_Class="_Sg2eQHKZEemIM-6B0skAFA"/>
+  <DunelmUMLBasev1p0:Binding xmi:id="_Mdn7EHKaEemIM-6B0skAFA" base_Class="_KAmfAHKaEemIM-6B0skAFA"/>
+  <DunelmUMLBasev1p0:Binding xmi:id="_pJ5SQHKaEemIM-6B0skAFA" base_Class="_lcQi4HKaEemIM-6B0skAFA"/>
+  <DunelmUMLBasev1p0:ServiceGroupModel xmi:id="_78HksHKmEemIM-6B0skAFA" base_Package="_nsx3EFu8Eemah4rv1IhOJg"/>
+  <DunelmUMLBasev1p0:Binding xmi:id="_lTHxkHM1EemIM-6B0skAFA" base_Class="_gQZekHM1EemIM-6B0skAFA"/>
+  <DunelmUMLBasev1p0:DataModel xmi:id="_X4cXgHNpEemIM-6B0skAFA" base_Package="_SZvTIHNpEemIM-6B0skAFA"/>
+  <DunelmUMLBasev1p0:Sequence xmi:id="_e7-EoHNpEemIM-6B0skAFA" base_Class="_Znky0HNpEemIM-6B0skAFA"/>
+  <DunelmUMLBasev1p0:Sequence xmi:id="_kjrUAHNpEemIM-6B0skAFA" base_Class="_gsdx4HNpEemIM-6B0skAFA"/>
+  <DunelmUMLBasev1p0:Sequence xmi:id="_owPbEHNpEemIM-6B0skAFA" base_Class="_lVWBgHNpEemIM-6B0skAFA"/>
+  <DunelmUMLBasev1p0:DerivedType xmi:id="_hQZBgHNtEemIM-6B0skAFA" base_Class="_a_H3wHNtEemIM-6B0skAFA"/>
+  <DunelmUMLBasev1p0:PrimitiveType xmi:id="_rlHZoHNtEemIM-6B0skAFA" base_Class="_nxKm4HNtEemIM-6B0skAFA"/>
 </xmi:XMI>

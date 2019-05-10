@@ -3,7 +3,7 @@
     "info" : {
         "version" : "2.1",
         "title" : "Open Badges OpenAPI (JSON) Definition",
-        "description" : "TBD",
+        "description" : "@@@TBD",
         "termsOfService" : "Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals. The limited permissions granted above are perpetual and will not be revoked by IMS or its successors or assigns. THIS API DEFINITION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND IN PARTICULAR, ANY WARRANTY OF NONINFRINGEMENT IS EXPRESSLY DISCLAIMED. ANY USE OF THIS SPECIFICATION SHALL BE MADE ENTIRELY AT THE IMPLEMENTERS OWN RISK, AND NEITHER THE  CONSORTIUM, NOR ANY OF ITS MEMBERS OR SUBMITTERS, SHALL HAVE ANY LIABILITY WHATSOEVER TO ANY IMPLEMENTER OR THIRD PARTY FOR ANY DAMAGES OF ANY NATURE WHATSOEVER,  DIRECTLY OR INDIRECTLY, ARISING FROM THE USE OF THIS API DEFINITION.",
         "contact" : {
             "name" : "Lisa Mattson (COO), IMS Global ",
@@ -110,7 +110,7 @@
                     "500" : {
                         "description" : "This code should be used only if there is catastrophic error.",
                         "schema" : {
-                            "$ref" : "#/definitions/GetAssertionsResponseBody.Type"
+                            "$ref" : "#/definitions/ErrorResponse.Type"
                         }
                     },
                     "default" : {
@@ -177,7 +177,7 @@
                     "500" : {
                         "description" : "This code should be used only if there is catastrophic error.",
                         "schema" : {
-                            "$ref" : "#/definitions/PostAssertionResponseBody.Type"
+                            "$ref" : "#/definitions/ErrorResponse.Type"
                         }
                     },
                     "default" : {
@@ -199,7 +199,7 @@
                     "200" : {
                         "description" : "This is the response when the request has been completed successfully.",
                         "schema" : {
-                            "$ref" : "#/definitions/ProfileResponse.Type"
+                            "$ref" : "#/definitions/ProfilesResponse.Type"
                         }
                     },
                     "400" : {
@@ -229,7 +229,7 @@
                     "500" : {
                         "description" : "This code should be used only if there is catastrophic error.",
                         "schema" : {
-                            "$ref" : "#/definitions/GetProfileResponseBody.Type"
+                            "$ref" : "#/definitions/ErrorResponse.Type"
                         }
                     },
                     "default" : {
@@ -249,7 +249,7 @@
                     {
                         "name" : "profile",
                         "in" : "body",
-                        "description" : "The authented user's profile.",
+                        "description" : "The authenticated user's profile.",
                         "required" : true,
                         "schema" : {
                             "$ref" : "#/definitions/Profile.Type"
@@ -260,7 +260,7 @@
                     "200" : {
                         "description" : "This is the response when the request has been completed successfully.",
                         "schema" : {
-                            "$ref" : "#/definitions/ProfileResponse.Type"
+                            "$ref" : "#/definitions/ProfilesResponse.Type"
                         }
                     },
                     "400" : {
@@ -290,7 +290,7 @@
                     "500" : {
                         "description" : "This code should be used only if there is catastrophic error.",
                         "schema" : {
-                            "$ref" : "#/definitions/PostProfileResponseBody.Type"
+                            "$ref" : "#/definitions/ErrorResponse.Type"
                         }
                     },
                     "default" : {
@@ -304,38 +304,6 @@
         }
     },
     "definitions" : {
-        "GetAssertionsResponseBody.Type" : {
-            "description" : "This code should be used only if there is catastrophic error.",
-            "type" : "object",
-            "properties" : {
-
-            },
-            "additionalProperties" : false
-        },
-        "GetProfileResponseBody.Type" : {
-            "description" : "This code should be used only if there is catastrophic error.",
-            "type" : "object",
-            "properties" : {
-
-            },
-            "additionalProperties" : false
-        },
-        "PostAssertionResponseBody.Type" : {
-            "description" : "This code should be used only if there is catastrophic error.",
-            "type" : "object",
-            "properties" : {
-
-            },
-            "additionalProperties" : false
-        },
-        "PostProfileResponseBody.Type" : {
-            "description" : "This code should be used only if there is catastrophic error.",
-            "type" : "object",
-            "properties" : {
-
-            },
-            "additionalProperties" : false
-        },
         "AlignmentObject.Type" : {
             "description" : "The AlignmentObject is an alias for schema.org’s AlignmentObject and uses IRIs from that vocabulary.",
             "type" : "object",
@@ -370,25 +338,23 @@
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "description" : "Model Primitive Datatype = AnyURI. Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "type" : {
-                    "description" : "Model Primitive Datatype = String. Valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string Assertion. An array including Assertion and other string elements that are either URLs or compact IRIs within the current context are allowed.",
-                    "type" : "array",
-                    "minItems" : 1,
-                    "items" : {
-                        "type" : "string"
-                    }
+                    "description" : "Valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string Assertion. An array including Assertion and other string elements that are either URLs or compact IRIs within the current context are allowed.",
+                    "$ref" : "#/definitions/JSON_LD_Type.Type"
                 },
                 "recipient" : {
+                    "description" : "The recipient of the achievement.",
                     "$ref" : "#/definitions/IdentityObject.Type"
                 },
                 "badge" : {
-
+                    "description" : "IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a BadgeClass.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "verification" : {
+                    "description" : "Instructions for third parties to verify this assertion. (Alias 'verify' may be used in context.)",
                     "$ref" : "#/definitions/VerificationObject.Type"
                 },
                 "issuedOn" : {
@@ -397,10 +363,16 @@
                     "format" : "date-time"
                 },
                 "image" : {
-
+                    "description" : "IRI or document representing an image representing this user’s achievement. This must be a PNG or SVG image, and should be prepared via the Baking specification. An ‘unbaked’ image for the badge is defined in the BadgeClass and should not be duplicated here.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "evidence" : {
-
+                    "description" : "IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.",
+                    "type" : "array",
+                    "minItems" : 0,
+                    "items" : {
+                        "$ref" : "#/definitions/JSON_LD_Id.Type"
+                    }
                 },
                 "narratrive" : {
                     "description" : "Model Primitive Datatype = String. A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array.",
@@ -436,6 +408,7 @@
             "type" : "object",
             "properties" : {
                 "status" : {
+                    "description" : "The 'status' property MUST appear on all responses.",
                     "$ref" : "#/definitions/Status.Type"
                 },
                 "results" : {
@@ -455,17 +428,12 @@
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "description" : "Model Primitive Datatype = AnyURI. Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "type" : {
-                    "description" : "Model Primitive Datatype = String. Valid JSON-LD representation of the BadgeClass type. In most cases, this will simply be the string BadgeClass. An array including BadgeClass and other string elements that are either URLs or compact IRIs within the current context are allowed.",
-                    "type" : "array",
-                    "minItems" : 1,
-                    "items" : {
-                        "type" : "string"
-                    }
+                    "description" : "Valid JSON-LD representation of the BadgeClass type. In most cases, this will simply be the string BadgeClass. An array including BadgeClass and other string elements that are either URLs or compact IRIs within the current context are allowed.",
+                    "$ref" : "#/definitions/JSON_LD_Type.Type"
                 },
                 "name" : {
                     "description" : "Model Primitive Datatype = String. The name of the achievement.",
@@ -476,15 +444,16 @@
                     "type" : "string"
                 },
                 "image" : {
-                    "description" : "Model Primitive Datatype = AnyURI. IRI of an image representing the achievement. May be a Data URI, or URI where the image may be found.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "IRI of an image representing the achievement. May be a Data URI, or URI where the image may be found.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "criteria" : {
-
+                    "description" : "URI or embedded criteria document describing how to earn the achievement.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "issuer" : {
-
+                    "description" : "IRI or document describing the individual, entity, or organization that issued the badge.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "alignment" : {
                     "description" : "An object describing which objectives or educational standards this badge aligns to, if any.",
@@ -531,7 +500,8 @@
             "type" : "object",
             "properties" : {
                 "id" : {
-
+                    "description" : "The id of the entity the endorser would like to claim about.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "endorsementComment" : {
                     "description" : "Model Primitive Datatype = String. The simple claim the endorser is making about the entity.",
@@ -546,17 +516,12 @@
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "description" : "Model Primitive Datatype = AnyURI. The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "type" : {
-                    "description" : "Model Primitive Datatype = String. Defaults to Criteria.",
-                    "type" : "array",
-                    "minItems" : 0,
-                    "items" : {
-                        "type" : "string"
-                    }
+                    "description" : "Defaults to Criteria.",
+                    "$ref" : "#/definitions/JSON_LD_Type.Type"
                 },
                 "narrative" : {
                     "description" : "Model Primitive Datatype = String. A narrative of what is needed to earn the badge.",
@@ -570,22 +535,16 @@
             "type" : "object",
             "properties" : {
                 "type" : {
-                    "description" : "Model Primitive Datatype = String. CryptographicKey.",
-                    "type" : "array",
-                    "minItems" : 0,
-                    "items" : {
-                        "type" : "string"
-                    }
+                    "description" : "CryptographicKey.",
+                    "$ref" : "#/definitions/JSON_LD_Type.Type"
                 },
                 "id" : {
-                    "description" : "Model Primitive Datatype = AnyURI. The identifier for the key. Most platforms only support HTTP(s) identifiers.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "The identifier for the key. Most platforms only support HTTP(s) identifiers.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "owner" : {
-                    "description" : "Model Primitive Datatype = AnyURI. The identifier for the Profile that owns this key. There should be a two-way connection between this Profile and the CryptographicKey through the owner and publicKey properties.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "The identifier for the Profile that owns this key. There should be a two-way connection between this Profile and the CryptographicKey through the owner and publicKey properties.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "publicKeyPem" : {
                     "description" : "Model Primitive Datatype = String. The PEM key encoding is a widely-used method to express public keys, compatible with almost every Secure Sockets Layer library implementation.",
@@ -599,21 +558,20 @@
             "type" : "object",
             "properties" : {
                 "id" : {
-
+                    "description" : "...tbd (ComplexType property description)...",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "type" : {
-                    "description" : "Model Primitive Datatype = String. ...tbd (DerivedType property description)...",
-                    "type" : "array",
-                    "minItems" : 1,
-                    "items" : {
-                        "type" : "string"
-                    }
+                    "description" : "...tbd (ComplexType property description)...",
+                    "$ref" : "#/definitions/JSON_LD_Type.Type"
                 },
                 "claim" : {
-
+                    "description" : "...tbd (ComplexType property description)...",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "issuer" : {
-
+                    "description" : "...tbd (ComplexType property description)...",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "issuedOn" : {
                     "description" : "Model Primitive Datatype = DateTime. ...tbd (PrimitiveType description)...",
@@ -621,6 +579,7 @@
                     "format" : "date-time"
                 },
                 "verification" : {
+                    "description" : "...tbd (ComplexType property description)...",
                     "$ref" : "#/definitions/VerificationObject.Type"
                 }
             },
@@ -632,6 +591,7 @@
             "type" : "object",
             "properties" : {
                 "status" : {
+                    "description" : "...tbd (ComplexType property description)...",
                     "$ref" : "#/definitions/Status.Type"
                 }
             },
@@ -642,18 +602,13 @@
             "description" : "Descriptive metadata about evidence related to the issuance of an Assertion.",
             "type" : "object",
             "properties" : {
-                "id" : {
-                    "description" : "Model Primitive Datatype = AnyURI. The URI of a webpage presenting evidence of achievement.",
-                    "type" : "string",
-                    "format" : "uri"
-                },
                 "type" : {
-                    "description" : "Model Primitive Datatype = String. Defaults to Evidence.",
-                    "type" : "array",
-                    "minItems" : 0,
-                    "items" : {
-                        "type" : "string"
-                    }
+                    "description" : "Defaults to Evidence.",
+                    "$ref" : "#/definitions/JSON_LD_Type.Type"
+                },
+                "id" : {
+                    "description" : "The URI of a webpage presenting evidence of achievement.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "narrative" : {
                     "description" : "Model Primitive Datatype = String. A narrative that describes the evidence and process of achievement that led to an Assertion.",
@@ -678,30 +633,6 @@
             },
             "additionalProperties" : false
         },
-        "HostedVerification.Type" : {
-            "description" : "HostedVerification and SignedVerification are subclasses of VerificationObject.",
-            "type" : "object",
-            "allOf" : [
-                {
-                    "$ref" : "#/definitions/VerificationObject.Type"
-                },
-                {
-                    "type" : "object",
-                    "properties" : {
-                        "type" : {
-                            "description" : "Model Primitive Datatype = String. The type of verification method is 'HostedVerification'.",
-                            "type" : "array",
-                            "minItems" : 1,
-                            "items" : {
-                                "type" : "string"
-                            }
-                        }
-                    },
-                    "required" : [ "type" ],
-                    "additionalProperties" : false
-                }
-            ]
-        },
         "IdentityObject.Type" : {
             "description" : "A collection of information about the recipient of a badge.",
             "type" : "object",
@@ -711,9 +642,8 @@
                     "type" : "string"
                 },
                 "type" : {
-                    "description" : "Model Primitive Datatype = AnyURI. The property by which the recipient of a badge is identified. This value should be an IRI mapped in the present context. For example, email maps to http://schema.org/email and indicates that the identity of the IdentityObject will represent a value of a Profile’s email property. Currently the only supported value for many platforms that implement Open Badges is email, but other properties are available.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "The property by which the recipient of a badge is identified. This value should be an IRI mapped in the present context. For example, email maps to http://schema.org/email and indicates that the identity of the IdentityObject will represent a value of a Profile’s email property. Currently the only supported value for many platforms that implement Open Badges is email, but other properties are available.",
+                    "$ref" : "#/definitions/JSON_LD_Type.Type"
                 },
                 "hashed" : {
                     "description" : "Model Primitive Datatype = Boolean. Whether or not the identity value is hashed.",
@@ -732,27 +662,47 @@
             "type" : "object",
             "properties" : {
                 "type" : {
-                    "description" : "Model Primitive Datatype = String. Defaults to ImageObject.",
-                    "type" : "array",
-                    "minItems" : 0,
-                    "items" : {
-                        "type" : "string"
-                    }
+                    "description" : "Defaults to ImageObject.",
+                    "$ref" : "#/definitions/JSON_LD_Type.Type"
                 },
                 "id" : {
-                    "description" : "Model Primitive Datatype = AnyURI. The URI or Data URI of the image.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "The URI or Data URI of the image.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "caption" : {
                     "description" : "Model Primitive Datatype = String. The caption for the image.",
                     "type" : "string"
                 },
                 "author" : {
-
+                    "description" : "The profile id of the author of the image, if desired.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 }
             },
             "required" : [ "id" ],
+            "additionalProperties" : false
+        },
+        "JSON_LD_Context.Type" : {
+            "description" : "JSON-LD @context.",
+            "type" : "object",
+            "properties" : {
+
+            },
+            "additionalProperties" : false
+        },
+        "JSON_LD_Id.Type" : {
+            "description" : "JSON-LD @id.",
+            "type" : "object",
+            "properties" : {
+
+            },
+            "additionalProperties" : false
+        },
+        "JSON_LD_Type.Type" : {
+            "description" : "JSON-LD @type.",
+            "type" : "object",
+            "properties" : {
+
+            },
             "additionalProperties" : false
         },
         "Profile.Type" : {
@@ -760,17 +710,12 @@
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "description" : "Model Primitive Datatype = AnyURI. Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "type" : {
-                    "description" : "Model Primitive Datatype = String. Valid JSON-LD representation of the Issuer or Profile type. In most cases, this will simply be the string Issuer or the more general Profile. An array including Issuer and other string elements that are either URLs or compact IRIs within the current context are allowed.",
-                    "type" : "array",
-                    "minItems" : 1,
-                    "items" : {
-                        "type" : "string"
-                    }
+                    "description" : "Valid JSON-LD representation of the Issuer or Profile type. In most cases, this will simply be the string Issuer or the more general Profile. An array including Issuer and other string elements that are either URLs or compact IRIs within the current context are allowed.",
+                    "$ref" : "#/definitions/JSON_LD_Type.Type"
                 },
                 "name" : {
                     "description" : "Model Primitive Datatype = String. The name of the entity or organization.",
@@ -790,26 +735,24 @@
                     "type" : "string"
                 },
                 "image" : {
-                    "description" : "Model Primitive Datatype = AnyURI. An image representing the issuer. May be a Data URI, or URI where the image may be found or an instance of the Image class.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "An image representing the issuer. May be a Data URI, or URI where the image may be found or an instance of the Image class.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "email" : {
                     "description" : "Model Primitive Datatype = String. Contact address for the individual or organization.",
                     "type" : "string"
                 },
                 "publicKey" : {
-                    "description" : "Model Primitive Datatype = AnyURI. The key(s) an issuer uses to sign Assertions.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "The key(s) an issuer uses to sign Assertions.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "verification" : {
+                    "description" : "Instructions for how to verify Assertions published by this Profile.",
                     "$ref" : "#/definitions/VerificationObject.Type"
                 },
                 "revocationList" : {
-                    "description" : "Model Primitive Datatype = AnyURI. HTTP URI of the Badge Revocation List used for marking revocation of signed badges.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "HTTP URI of the Badge Revocation List used for marking revocation of signed badges.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "endorsement" : {
                     "description" : "...tbd (ComplexType property description)...",
@@ -823,11 +766,12 @@
             "required" : [ "id","type" ],
             "additionalProperties" : true
         },
-        "ProfileResponse.Type" : {
+        "ProfilesResponse.Type" : {
             "description" : "Responses from all APIs in this document are wrapped in a JSON envelope.",
             "type" : "object",
             "properties" : {
                 "status" : {
+                    "description" : "The 'status' property MUST appear on all responses.",
                     "$ref" : "#/definitions/Status.Type"
                 },
                 "results" : {
@@ -847,61 +791,28 @@
             "type" : "object",
             "properties" : {
                 "type" : {
-                    "description" : "Model Primitive Datatype = String. RevocationList.",
-                    "type" : "array",
-                    "minItems" : 1,
-                    "items" : {
-                        "type" : "string"
-                    }
+                    "description" : "RevocationList.",
+                    "$ref" : "#/definitions/JSON_LD_Type.Type"
                 },
                 "id" : {
-                    "description" : "Model Primitive Datatype = AnyURI. The id of the RevocationList.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "The id of the RevocationList.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "issuer" : {
-                    "description" : "Model Primitive Datatype = AnyURI. The id of the Issuer.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "The id of the Issuer.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "revokedAssertions" : {
-                    "description" : "Model Primitive Datatype = String. A string id or UID-based identification of a badge object that has been revoked.",
+                    "description" : "A string id or UID-based identification of a badge object that has been revoked.",
                     "type" : "array",
                     "minItems" : 1,
                     "items" : {
-                        "type" : "string"
+                        "$ref" : "#/definitions/JSON_LD_Id.Type"
                     }
                 }
             },
             "required" : [ "type","revokedAssertions" ],
             "additionalProperties" : false
-        },
-        "SignedVerification.Type" : {
-            "description" : "HostedVerification and SignedVerification are subclasses of VerificationObject.",
-            "type" : "object",
-            "allOf" : [
-                {
-                    "$ref" : "#/definitions/VerificationObject.Type"
-                },
-                {
-                    "type" : "object",
-                    "properties" : {
-                        "type" : {
-                            "description" : "Model Primitive Datatype = String. The type of verification method is 'SignedVerification'.",
-                            "type" : "array",
-                            "minItems" : 1,
-                            "items" : {
-                                "type" : "string"
-                            }
-                        },
-                        "creator" : {
-                            "$ref" : "#/definitions/CryptographicKey.Type"
-                        }
-                    },
-                    "required" : [ "type" ],
-                    "additionalProperties" : false
-                }
-            ]
         },
         "Status.Type" : {
             "description" : "Response status.",
@@ -931,17 +842,12 @@
             "type" : "object",
             "properties" : {
                 "type" : {
-                    "description" : "Model Primitive Datatype = String. The type of verification method.",
-                    "type" : "array",
-                    "minItems" : 1,
-                    "items" : {
-                        "type" : "string"
-                    }
+                    "description" : "The type of verification method.",
+                    "$ref" : "#/definitions/JSON_LD_Type.Type"
                 },
                 "verificationProperty" : {
-                    "description" : "Model Primitive Datatype = AnyURI. The @id of the property to be used for verification that an Assertion is within the allowed scope.",
-                    "type" : "string",
-                    "format" : "uri"
+                    "description" : "The @id of the property to be used for verification that an Assertion is within the allowed scope.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 },
                 "startsWith" : {
                     "description" : "Model Primitive Datatype = String. The URI fragment that the verification property must start with.",
@@ -958,9 +864,12 @@
                     "items" : {
                         "type" : "string"
                     }
+                },
+                "creator" : {
+                    "description" : "The (HTTP) id of the key used to sign the Assertion.",
+                    "$ref" : "#/definitions/JSON_LD_Id.Type"
                 }
             },
-            "required" : [ "type" ],
             "additionalProperties" : false
         }
     },
