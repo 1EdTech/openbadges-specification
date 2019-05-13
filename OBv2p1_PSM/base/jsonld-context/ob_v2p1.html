@@ -43,9 +43,6 @@
             <li><a href="#dtIdentityObject">dtIdentityObject</a></li>
             <li><a href="#dtImage">dtImage</a></li>
             <li><a href="#dtJSON-LD Type">dtJSON-LD Type</a></li>
-            <li><a href="#dtJSON_LD_Context">dtJSON_LD_Context</a></li>
-            <li><a href="#dtJSON_LD_Id">dtJSON_LD_Id</a></li>
-            <li><a href="#dtJSON_LD_Type">dtJSON_LD_Type</a></li>
             <li><a href="#dtMarkdown Text">dtMarkdown Text</a></li>
             <li><a href="#dtProfile">dtProfile</a></li>
             <li><a href="#dtProfilesResponse">dtProfilesResponse</a></li>
@@ -53,12 +50,16 @@
             <li><a href="#dtStatus">dtStatus</a></li>
             <li><a href="#dtURL">dtURL</a></li>
             <li><a href="#dtVerificationObject">dtVerificationObject</a></li>
+            <li><a href="#dtcontext">dtcontext</a></li>
+            <li><a href="#dtid">dtid</a></li>
+            <li><a href="#dttype">dttype</a></li>
         </ul>
         <p />
         <div style="text-align: right; clear: both;"><a href="#toc">toc</a> | <a href="#top">top</a></div>
         <hr />
         <h2>List of Properties</h2>
         <ul>
+            <li><a href="#@context">@context</a></li>
             <li><a href="#alignment">alignment</a></li>
             <li><a href="#allowedOrigins">allowedOrigins</a></li>
             <li><a href="#audience">audience</a></li>
@@ -135,6 +136,8 @@
         <p>Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner.</p>
             <p>The list and definition of the child properties is:-</p>
         <dl class="jsonldcontext">
+            <dt>@context</dt>
+            <dd>JSON-LD context.</dd>
             <dt>id</dt>
             <dd>Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.</dd>
             <dt>type</dt>
@@ -210,6 +213,8 @@
         <dl class="jsonldcontext">
             <dt>id</dt>
             <dd>The id of the entity the endorser would like to claim about.</dd>
+            <dt>type</dt>
+            <dd>Defaults to Claim.</dd>
             <dt>endorsementComment</dt>
             <dd>The simple claim the endorser is making about the entity.</dd>
             <dt>extensions</dt>
@@ -230,10 +235,10 @@
         <p>Alias for the Key class from the W3C Web Payments Community Group Security Vocabulary. A CryptographicKey document identifies and describes a Key used for signing Open Badges documents.</p>
             <p>The list and definition of the child properties is:-</p>
         <dl class="jsonldcontext">
-            <dt>type</dt>
-            <dd>CryptographicKey.</dd>
             <dt>id</dt>
             <dd>The identifier for the key. Most platforms only support HTTP(s) identifiers.</dd>
+            <dt>type</dt>
+            <dd>Defaults to CryptographicKey.</dd>
             <dt>owner</dt>
             <dd>The identifier for the Profile that owns this key. There should be a two-way connection between this Profile and the CryptographicKey through the owner and publicKey properties.</dd>
             <dt>publicKeyPem</dt>
@@ -244,17 +249,17 @@
             <p>The list and definition of the child properties is:-</p>
         <dl class="jsonldcontext">
             <dt>id</dt>
-            <dd></dd>
+            <dd>Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.</dd>
             <dt>type</dt>
-            <dd></dd>
+            <dd>Endorsement, a subclass of VCTF's Credential.</dd>
             <dt>claim</dt>
-            <dd></dd>
+            <dd>An entity, identified by an id and additional properties that the endorser would like to claim about that entity.</dd>
             <dt>issuer</dt>
-            <dd></dd>
+            <dd>The profile of the Endorsement’s issuer.</dd>
             <dt>issuedOn</dt>
-            <dd></dd>
+            <dd>Timestamp of when the endorsement was published.</dd>
             <dt>verification</dt>
-            <dd></dd>
+            <dd>Instructions for third parties to verify this assertion of endorsement.</dd>
         </dl>
         <h3><a name="dtErrorResponse">"dtErrorResponse" Class</a></h3>
         <p></p>
@@ -312,12 +317,6 @@
         </dl>
         <h3><a name="dtJSON-LD Type">"dtJSON-LD Type" Class</a></h3>
         <p></p>
-        <h3><a name="dtJSON_LD_Context">"dtJSON_LD_Context" Class</a></h3>
-        <p>JSON-LD @context.</p>
-        <h3><a name="dtJSON_LD_Id">"dtJSON_LD_Id" Class</a></h3>
-        <p>JSON-LD @id.</p>
-        <h3><a name="dtJSON_LD_Type">"dtJSON_LD_Type" Class</a></h3>
-        <p>JSON-LD @type.</p>
         <h3><a name="dtMarkdown Text">"dtMarkdown Text" Class</a></h3>
         <p>Text that may contain formatting according to Markdown syntax. Due to uneven support in displayers, publishers are encouraged to limit usage to simple elements like links, emphasis, and lists. Displayers may choose a subset of Markdown formatting to support or how to render this field. Images and tables may or may not be supported.</p>
         <h3><a name="dtProfile">"dtProfile" Class</a></h3>
@@ -401,10 +400,18 @@
             <dt>creator</dt>
             <dd>The (HTTP) id of the key used to sign the Assertion.</dd>
         </dl>
+        <h3><a name="dtcontext">"dtcontext" Class</a></h3>
+        <p>JSON-LD @context.</p>
+        <h3><a name="dtid">"dtid" Class</a></h3>
+        <p>JSON-LD @id.</p>
+        <h3><a name="dttype">"dttype" Class</a></h3>
+        <p>JSON-LD @type.</p>
         <p />
         <div style="text-align: right; clear: both;"><a href="#toc">toc</a> | <a href="#top">top</a></div>
         <hr />
         <h2>Property Definitions</h2>
+        <h3><a name="@context">"@context" Property</a></h3>
+            <p>JSON-LD context.</p>
         <h3><a name="alignment">"alignment" Property</a></h3>
             <p>An object describing which objectives or educational standards this badge aligns to, if any.</p>
         <h3><a name="allowedOrigins">"allowedOrigins" Property</a></h3>
@@ -430,7 +437,7 @@
             <dd>The caption for the image.</dd>
         </dl>
         <h3><a name="claim">"claim" Property</a></h3>
-            <p></p>
+            <p>An entity, identified by an id and additional properties that the endorser would like to claim about that entity.</p>
         <h3><a name="creator">"creator" Property</a></h3>
             <p>The (HTTP) id of the key used to sign the Assertion.</p>
         <h3><a name="criteria">"criteria" Property</a></h3>
@@ -509,7 +516,7 @@
             <dt><a href="#dtAssertion">dtAssertion</a> Class</dt>
             <dd>Timestamp of when the achievement was awarded.</dd>
             <dt><a href="#dtEndorsement">dtEndorsement</a> Class</dt>
-            <dd></dd>
+            <dd>Timestamp of when the endorsement was published.</dd>
         </dl>
         <h3><a name="issuer">"issuer" Property</a></h3>
             <p>IRI or document describing the individual, entity, or organization that issued the badge.</p>

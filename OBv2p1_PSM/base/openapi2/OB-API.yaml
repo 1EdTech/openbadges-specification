@@ -316,6 +316,7 @@ definitions:
             Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner.
         type: object
         required: 
+            - @context
             - id
             - type
             - recipient
@@ -323,14 +324,16 @@ definitions:
             - verification
             - issuedOn
         properties: 
+            @context: 
+                $ref: "#/definitions/context.Type"
             id: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             type: 
-                $ref: "#/definitions/JSON_LD_Type.Type"
+                $ref: "#/definitions/type.Type"
             recipient: 
                 $ref: "#/definitions/IdentityObject.Type"
             badge: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             verification: 
                 $ref: "#/definitions/VerificationObject.Type"
             issuedOn: 
@@ -338,14 +341,14 @@ definitions:
                 type: string
                 format: date-time
             image: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             evidence: 
                 description: |
                     IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.
                 type: array
                 minItems: 0
                 items: 
-                    $ref: "#/definitions/JSON_LD_Id.Type"
+                    $ref: "#/definitions/id.Type"
             narratrive: 
                 description: A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array. Model Primitive Datatype = String.
                 type: string
@@ -398,9 +401,9 @@ definitions:
             - issuer
         properties: 
             id: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             type: 
-                $ref: "#/definitions/JSON_LD_Type.Type"
+                $ref: "#/definitions/type.Type"
             name: 
                 description: The name of the achievement. Model Primitive Datatype = String.
                 type: string
@@ -408,11 +411,11 @@ definitions:
                 description: A short description of the achievement. Model Primitive Datatype = String.
                 type: string
             image: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             criteria: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             issuer: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             alignment: 
                 description: |
                     An object describing which objectives or educational standards this badge aligns to, if any.
@@ -453,7 +456,9 @@ definitions:
             - endorsementComment
         properties: 
             id: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
+            type: 
+                $ref: "#/definitions/type.Type"
             endorsementComment: 
                 description: The simple claim the endorser is making about the entity. Model Primitive Datatype = String.
                 type: string
@@ -464,9 +469,9 @@ definitions:
         type: object
         properties: 
             id: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             type: 
-                $ref: "#/definitions/JSON_LD_Type.Type"
+                $ref: "#/definitions/type.Type"
             narrative: 
                 description: A narrative of what is needed to earn the badge. Model Primitive Datatype = String.
                 type: string
@@ -476,12 +481,12 @@ definitions:
             Alias for the Key class from the W3C Web Payments Community Group Security Vocabulary. A CryptographicKey document identifies and describes a Key used for signing Open Badges documents.
         type: object
         properties: 
-            type: 
-                $ref: "#/definitions/JSON_LD_Type.Type"
             id: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
+            type: 
+                $ref: "#/definitions/type.Type"
             owner: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             publicKeyPem: 
                 description: The PEM key encoding is a widely-used method to express public keys, compatible with almost every Secure Sockets Layer library implementation. Model Primitive Datatype = String.
                 type: string
@@ -498,15 +503,15 @@ definitions:
             - verification
         properties: 
             id: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             type: 
-                $ref: "#/definitions/JSON_LD_Type.Type"
+                $ref: "#/definitions/type.Type"
             claim: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             issuer: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             issuedOn: 
-                description: ...tbd (Property description)... Model Primitive Datatype = DateTime.
+                description: Timestamp of when the endorsement was published. Model Primitive Datatype = DateTime.
                 type: string
                 format: date-time
             verification: 
@@ -528,9 +533,9 @@ definitions:
         type: object
         properties: 
             type: 
-                $ref: "#/definitions/JSON_LD_Type.Type"
+                $ref: "#/definitions/type.Type"
             id: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             narrative: 
                 description: A narrative that describes the evidence and process of achievement that led to an Assertion. Model Primitive Datatype = String.
                 type: string
@@ -560,7 +565,7 @@ definitions:
                 description: Either the hash of the identity or the plaintext value. If it’s possible that the plaintext transmission and storage of the identity value would leak personally identifiable information where there is an expectation of privacy, it is strongly recommended that an IdentityHash be used. Model Primitive Datatype = String.
                 type: string
             type: 
-                $ref: "#/definitions/JSON_LD_Type.Type"
+                $ref: "#/definitions/type.Type"
             hashed: 
                 description: Whether or not the identity value is hashed. Model Primitive Datatype = Boolean.
                 type: boolean
@@ -576,32 +581,14 @@ definitions:
             - id
         properties: 
             type: 
-                $ref: "#/definitions/JSON_LD_Type.Type"
+                $ref: "#/definitions/type.Type"
             id: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             caption: 
                 description: The caption for the image. Model Primitive Datatype = String.
                 type: string
             author: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
-        additionalProperties: false
-    JSON_LD_Context.Type:
-        description: |
-            JSON-LD @context.
-        type: object
-        properties: {}
-        additionalProperties: false
-    JSON_LD_Id.Type:
-        description: |
-            JSON-LD @id.
-        type: object
-        properties: {}
-        additionalProperties: false
-    JSON_LD_Type.Type:
-        description: |
-            JSON-LD @type.
-        type: object
-        properties: {}
+                $ref: "#/definitions/id.Type"
         additionalProperties: false
     Profile.Type:
         description: |
@@ -612,9 +599,9 @@ definitions:
             - type
         properties: 
             id: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             type: 
-                $ref: "#/definitions/JSON_LD_Type.Type"
+                $ref: "#/definitions/type.Type"
             name: 
                 description: The name of the entity or organization. Model Primitive Datatype = String.
                 type: string
@@ -629,16 +616,16 @@ definitions:
                 description: A short description of the issuer entity or organization. Model Primitive Datatype = String.
                 type: string
             image: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             email: 
                 description: Contact address for the individual or organization. Model Primitive Datatype = String.
                 type: string
             publicKey: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             verification: 
                 $ref: "#/definitions/VerificationObject.Type"
             revocationList: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             endorsement: 
                 description: |
                     ...tbd (ComplexType property description)...
@@ -673,18 +660,18 @@ definitions:
             - revokedAssertions
         properties: 
             type: 
-                $ref: "#/definitions/JSON_LD_Type.Type"
+                $ref: "#/definitions/type.Type"
             id: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             issuer: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             revokedAssertions: 
                 description: |
                     A string id or UID-based identification of a badge object that has been revoked.
                 type: array
                 minItems: 1
                 items: 
-                    $ref: "#/definitions/JSON_LD_Id.Type"
+                    $ref: "#/definitions/id.Type"
         additionalProperties: false
     Status.Type:
         description: |
@@ -722,9 +709,9 @@ definitions:
         type: object
         properties: 
             type: 
-                $ref: "#/definitions/JSON_LD_Type.Type"
+                $ref: "#/definitions/type.Type"
             verificationProperty: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
             startsWith: 
                 description: The URI fragment that the verification property must start with. Model Primitive Datatype = String.
                 type: array
@@ -738,5 +725,23 @@ definitions:
                 items: 
                     type: string
             creator: 
-                $ref: "#/definitions/JSON_LD_Id.Type"
+                $ref: "#/definitions/id.Type"
+        additionalProperties: false
+    context.Type:
+        description: |
+            JSON-LD @context.
+        type: object
+        properties: {}
+        additionalProperties: false
+    id.Type:
+        description: |
+            JSON-LD @id.
+        type: object
+        properties: {}
+        additionalProperties: false
+    type.Type:
+        description: |
+            JSON-LD @type.
+        type: object
+        properties: {}
         additionalProperties: false

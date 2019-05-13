@@ -187,6 +187,13 @@
         <ownedComment xmi:type="uml:Comment" xmi:id="_-SJT4FvcEemah4rv1IhOJg">
           <body>Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner.</body>
         </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_7ax-sHXGEemem9f--NE_1w" name="@context" visibility="private" type="_Znky0HNpEemIM-6B0skAFA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_1pN5oHXPEemem9f--NE_1w">
+            <body>JSON-LD context.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_95v7gHXGEemem9f--NE_1w" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_96CPYHXGEemem9f--NE_1w" value="1"/>
+        </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_zYRoIFusEemah4rv1IhOJg" name="id" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_7CN0MFvcEemah4rv1IhOJg">
             <body>Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.</body>
@@ -953,19 +960,19 @@
         <ownedComment xmi:type="uml:Comment" xmi:id="_qkuUwFvhEemah4rv1IhOJg">
           <body>Alias for the Key class from the W3C Web Payments Community Group Security Vocabulary. A CryptographicKey document identifies and describes a Key used for signing Open Badges documents.</body>
         </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_QcmVUFvhEemah4rv1IhOJg" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_nb6JsFvhEemah4rv1IhOJg">
-            <body>CryptographicKey.</body>
-          </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UGi3gFvhEemah4rv1IhOJg"/>
-          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_5teCIHNyEemIM-6B0skAFA" value="1"/>
-        </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Ww9PUFvhEemah4rv1IhOJg" name="id" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_lw-48FvhEemah4rv1IhOJg">
             <body>The identifier for the key. Most platforms only support HTTP(s) identifiers.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZM67cFvhEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZNDeUFvhEemah4rv1IhOJg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_QcmVUFvhEemah4rv1IhOJg" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_nb6JsFvhEemah4rv1IhOJg">
+            <body>Defaults to CryptographicKey.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UGi3gFvhEemah4rv1IhOJg"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_5teCIHNyEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_aG86wFvhEemah4rv1IhOJg" name="owner" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_j2lBwFvhEemah4rv1IhOJg">
@@ -986,23 +993,42 @@
     <packagedElement xmi:type="uml:Package" xmi:id="_S_6fMFyoEemEApipHzfrZQ" name="Endorsement">
       <packagedElement xmi:type="uml:Class" xmi:id="_Z7i0kFyoEemEApipHzfrZQ" name="Endorsement">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_fHcRsFyoEemEApipHzfrZQ" name="id" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_QkewwHXREemem9f--NE_1w">
+            <body>Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.</body>
+          </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gkEnwFyoEemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gkI5MFyoEemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_hVQNEFyoEemEApipHzfrZQ" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_a-HeEHXREemem9f--NE_1w">
+            <body>Endorsement, a subclass of VCTF's Credential.</body>
+          </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_icceoFyoEemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralInteger" xmi:id="_17hP8HNxEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_J-JcYFyrEemEApipHzfrZQ" name="claim" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_J-JcYFyrEemEApipHzfrZQ" name="claim" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_fRL1wHXREemem9f--NE_1w">
+            <body>An entity, identified by an id and additional properties that the endorser would like to claim about that entity.</body>
+          </ownedComment>
+        </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Yg8-gFyrEemEApipHzfrZQ" name="issuer" visibility="private" type="_lVWBgHNpEemIM-6B0skAFA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hwWm4HXREemem9f--NE_1w">
+            <body>The profile of the Endorsement’s issuer.</body>
+          </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bwbyQFyrEemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bwkVIFyrEemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_eiV5MFyrEemEApipHzfrZQ" name="issuedOn" visibility="private" type="_0l1cEFvbEemah4rv1IhOJg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ko2eAHXREemem9f--NE_1w">
+            <body>Timestamp of when the endorsement was published.</body>
+          </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iUU9EFyrEemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iUcR0FyrEemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_jby7cFyrEemEApipHzfrZQ" name="verification" visibility="private" type="_AXTxwFuqEemah4rv1IhOJg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_m4jPwHXREemem9f--NE_1w">
+            <body>Instructions for third parties to verify this assertion of endorsement.</body>
+          </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l_Rk0FyrEemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_l_Y5kFyrEemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
@@ -1019,6 +1045,13 @@
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZdAB8FypEemEApipHzfrZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZdDsUFypEemEApipHzfrZQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_v6cjgHXQEemem9f--NE_1w" name="type" visibility="private" type="_gsdx4HNpEemIM-6B0skAFA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_8bQYsHXQEemem9f--NE_1w">
+            <body>Defaults to Claim.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ywIXMHXQEemem9f--NE_1w"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ywNPsHXQEemem9f--NE_1w" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_ZRxz8FyqEemEApipHzfrZQ" name="endorsementComment" visibility="private" type="_a_H3wHNtEemIM-6B0skAFA">
           <ownedComment xmi:type="uml:Comment" xmi:id="_m8hFoFyqEemEApipHzfrZQ">
@@ -1254,17 +1287,17 @@
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_SZvTIHNpEemIM-6B0skAFA" name="JSON-LD Types">
-      <packagedElement xmi:type="uml:Class" xmi:id="_Znky0HNpEemIM-6B0skAFA" name="JSON_LD_Context">
+      <packagedElement xmi:type="uml:Class" xmi:id="_Znky0HNpEemIM-6B0skAFA" name="context">
         <ownedComment xmi:type="uml:Comment" xmi:id="_v9eoYHNqEemIM-6B0skAFA">
           <body>JSON-LD @context.</body>
         </ownedComment>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_gsdx4HNpEemIM-6B0skAFA" name="JSON_LD_Type">
+      <packagedElement xmi:type="uml:Class" xmi:id="_gsdx4HNpEemIM-6B0skAFA" name="type">
         <ownedComment xmi:type="uml:Comment" xmi:id="_rzLyMHNqEemIM-6B0skAFA">
           <body>JSON-LD @type.</body>
         </ownedComment>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_lVWBgHNpEemIM-6B0skAFA" name="JSON_LD_Id">
+      <packagedElement xmi:type="uml:Class" xmi:id="_lVWBgHNpEemIM-6B0skAFA" name="id">
         <ownedComment xmi:type="uml:Comment" xmi:id="_ohD6IHNqEemIM-6B0skAFA">
           <body>JSON-LD @id.</body>
         </ownedComment>
