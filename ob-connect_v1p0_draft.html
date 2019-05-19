@@ -408,7 +408,7 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
             <tr>
               <td><code>keys</code></td>
               <td>No</td>
-              <td><strong>Applies to Relying Parties only.</strong> Allows the relying party to declare the location of their JWKS file. Currently this file MUST be named <code>jwks.json</code> and placed in the <code>.well-known</code> directory. E.g. <code>https://YOUR_DOMAIN/.well-known/jwks.json</code>.</td>
+              <td><strong>Applies to Relying Parties only.</strong> Allows the relying party to declare the location of their JWKS file.</td>
             </tr>
           </tbody>
         </table>
@@ -418,7 +418,7 @@ va2VuIiwiaWF0IjoiMTQ4NTkwNzIwMCIsImV4cCI6IjE0ODU5MDc1MDAiLCJqdGkiOiIyOWY5MGMwNDd
     <section id="api-jwks">
         <h3>JSON Web Key Set</h3>
         <p>A JWKS file is a container of one or multiple <strong>public</strong> keys identified by their key identifier (<code>kid</code> key parameter), in the form of a JSON Web Key. [[!RFC7517]] defines JSON Web Keys.</p>
-        <p>Relying parties MUST name their set <code>jwks.json</code> and place it in the <code>.well-known</code> directory. E.g. <code>https://YOUR_DOMAIN/.well-known/jwks.json</code></p>
+        <p>Relying parties MUST make a JWKS file available via HTTP over TLS.</p>
         <p>When a Relying Party requests a token, they MUST sign the JWT passed in the <code>client_assertion</code> with an RSA256 signature. The Relying Party identifies the key a Host uses to validate the
           JWT signature by using a <code>kid</code> claim in the JWT header. The Relying Party MUST NOT reuse the <code>kid</code> identifier to identify different public keys, allowing the public key to optionally be cached by the Host.
           The relying party MAY issue a <code>cache-control: max-age</code> HTTP header on requests to retrieve a key set to signal how long the retriever may cache the key set before refreshing it.
