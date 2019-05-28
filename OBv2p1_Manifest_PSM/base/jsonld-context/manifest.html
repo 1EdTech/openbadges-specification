@@ -38,18 +38,17 @@
         <hr />
         <h2>List of Properties</h2>
         <ul>
+            <li><a href="#@context">@context</a></li>
             <li><a href="#apiBase">apiBase</a></li>
             <li><a href="#authorizationUrl">authorizationUrl</a></li>
             <li><a href="#badgeConnectAPI">badgeConnectAPI</a></li>
-            <li><a href="#context">context</a></li>
             <li><a href="#image">image</a></li>
-            <li><a href="#keys">keys</a></li>
             <li><a href="#name">name</a></li>
             <li><a href="#privacyPolicyUrl">privacyPolicyUrl</a></li>
-            <li><a href="#redirectUris">redirectUris</a></li>
+            <li><a href="#registrationUrl">registrationUrl</a></li>
             <li><a href="#scopesOffered">scopesOffered</a></li>
-            <li><a href="#scopesRequested">scopesRequested</a></li>
             <li><a href="#termsOfServiceUrl">termsOfServiceUrl</a></li>
+            <li><a href="#tokenRevocationUrl">tokenRevocationUrl</a></li>
             <li><a href="#tokenUrl">tokenUrl</a></li>
             <li><a href="#version">version</a></li>
         </ul>
@@ -58,60 +57,60 @@
         <hr />
         <h2>Class Definitions</h2>
         <h3><a name="dtBadgeConnectAPI">"dtBadgeConnectAPI" Class</a></h3>
-        <p></p>
+        <p>Configuration information about a single implementation.</p>
             <p>The list and definition of the child properties is:-</p>
         <dl class="jsonldcontext">
+            <dt>id</dt>
+            <dd>Unique IRI for the configuration.</dd>
+            <dt>type</dt>
+            <dd>JSON-LD type of the configuration object. Defaults to BadgeConnectAPI.</dd>
             <dt>name</dt>
             <dd>The name of the platform supporting the API. This SHOULD reflect the user-facing identity of the platform requesting authorization.</dd>
             <dt>image</dt>
             <dd>An image representing the platform. May be a URI to a hosted image or a Data URI.</dd>
             <dt>apiBase</dt>
             <dd>Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing slash '/'. E.g. apiBase + '/assertions'.</dd>
-            <dt>version</dt>
-            <dd>A string representing the implemented version. MUST be in the format of vMAJORpMINOR where MAJOR and MINOR are integers.</dd>
-            <dt>termsOfServiceUrl</dt>
-            <dd>Fully qualified URL to the platform's terms of service. Other platforms SHOULD link to this resource as part of their authorization interface.</dd>
-            <dt>privacyPolicyUrl</dt>
-            <dd>Fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as part of their authorization interface.</dd>
             <dt>scopesOffered</dt>
             <dd>Applies to Hosts only. An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the scope descriptors.</dd>
-            <dt>scopesRequested</dt>
-            <dd>Applies to Relying Parties only. An array of strings listing the scopes supported by the relying party in the form of fully qualified URLs to the scope descriptors.</dd>
+            <dt>version</dt>
+            <dd>A string representing the implemented version. MUST be in the format of vMAJORpMINOR where MAJOR and MINOR are integers.</dd>
+            <dt>registrationUrl</dt>
+            <dd>A fully qualifed URL to the host's dynamic client registration endpoint.</dd>
             <dt>authorizationUrl</dt>
-            <dd>Applies to Hosts only. A fully qualified URL to the host's authorization endpoint.</dd>
+            <dd>A fully qualified URL to the host's authorization endpoint.</dd>
             <dt>tokenUrl</dt>
-            <dd>Applies to Hosts only. A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</dd>
-            <dt>redirectUris</dt>
-            <dd>Applies to Relying Parties only. An array of one or more fully qualified URIs representing the valid redirect values for authorization requests. The HOST MUST reject any authorization requests with redirect URIs that are not an exact match of a registered URI.</dd>
-            <dt>keys</dt>
-            <dd>Applies to Relying Parties only. Allows the relying party to declare the location of their JWKS file. Currently this file MUST be named  jwks.json and placed in the .well-known directory. E.g.  https://YOUR_DOMAIN/.well-known/jwks.json.</dd>
+            <dd>A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</dd>
+            <dt>tokenRevocationUrl</dt>
+            <dd>A fully qualifed URL to the host's token revocation endpoint.</dd>
+            <dt>termsOfServiceUrl</dt>
+            <dd>A fully qualified URL to the platform's terms of service. Other platforms SHOULD link to this resource as part of their authorization interface.</dd>
+            <dt>privacyPolicyUrl</dt>
+            <dd>A fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as part of their authorization interface.</dd>
         </dl>
         <h3><a name="dtIRI">"dtIRI" Class</a></h3>
-        <p></p>
+        <p>The internationalized resource identifier (IRI) is an internet protocol standard which extends the ASCII characters subset of the Uniform Resource Identifier (URI) protocol.</p>
         <h3><a name="dtURL">"dtURL" Class</a></h3>
-        <p></p>
+        <p>A unifom resource locator (URL) is the address of a resource on the internet.</p>
         <p />
         <div style="text-align: right; clear: both;"><a href="#toc">toc</a> | <a href="#top">top</a></div>
         <hr />
         <h2>Property Definitions</h2>
+        <h3><a name="@context">"@context" Property</a></h3>
+            <p>The URL of the JSON-LD @context file for the manifest.</p>
         <h3><a name="apiBase">"apiBase" Property</a></h3>
             <p>Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing slash '/'. E.g. apiBase + '/assertions'.</p>
         <h3><a name="authorizationUrl">"authorizationUrl" Property</a></h3>
-            <p>Applies to Hosts only. A fully qualified URL to the host's authorization endpoint.</p>
+            <p>A fully qualified URL to the host's authorization endpoint.</p>
         <h3><a name="badgeConnectAPI">"badgeConnectAPI" Property</a></h3>
-            <p></p>
-        <h3><a name="context">"context" Property</a></h3>
-            <p></p>
+            <p>Set of BadgeConnectAPI configurations.</p>
         <h3><a name="id">"id" Property</a></h3>
-            <p></p>
+            <p>Unique IRI for the configuration.</p>
         <h3><a name="image">"image" Property</a></h3>
             <p>This property is used in the following classes:-</p>
         <dl class="jsonldcontext">
             <dt><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a> Class</dt>
             <dd>An image representing the platform. May be a URI to a hosted image or a Data URI.</dd>
         </dl>
-        <h3><a name="keys">"keys" Property</a></h3>
-            <p>Applies to Relying Parties only. Allows the relying party to declare the location of their JWKS file. Currently this file MUST be named  jwks.json and placed in the .well-known directory. E.g.  https://YOUR_DOMAIN/.well-known/jwks.json.</p>
         <h3><a name="name">"name" Property</a></h3>
             <p>This property is used in the following classes:-</p>
         <dl class="jsonldcontext">
@@ -119,25 +118,23 @@
             <dd>The name of the platform supporting the API. This SHOULD reflect the user-facing identity of the platform requesting authorization.</dd>
         </dl>
         <h3><a name="privacyPolicyUrl">"privacyPolicyUrl" Property</a></h3>
-            <p>Fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as part of their authorization interface.</p>
-        <h3><a name="redirectUris">"redirectUris" Property</a></h3>
-            <p>Applies to Relying Parties only. An array of one or more fully qualified URIs representing the valid redirect values for authorization requests. The HOST MUST reject any authorization requests with redirect URIs that are not an exact match of a registered URI.</p>
+            <p>A fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as part of their authorization interface.</p>
+        <h3><a name="registrationUrl">"registrationUrl" Property</a></h3>
+            <p>A fully qualifed URL to the host's dynamic client registration endpoint.</p>
         <h3><a name="scopesOffered">"scopesOffered" Property</a></h3>
             <p>This property is used in the following classes:-</p>
         <dl class="jsonldcontext">
             <dt><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a> Class</dt>
             <dd>Applies to Hosts only. An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the scope descriptors.</dd>
         </dl>
-        <h3><a name="scopesRequested">"scopesRequested" Property</a></h3>
-            <p>This property is used in the following classes:-</p>
-        <dl class="jsonldcontext">
-            <dt><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a> Class</dt>
-            <dd>Applies to Relying Parties only. An array of strings listing the scopes supported by the relying party in the form of fully qualified URLs to the scope descriptors.</dd>
-        </dl>
         <h3><a name="termsOfServiceUrl">"termsOfServiceUrl" Property</a></h3>
-            <p>Fully qualified URL to the platform's terms of service. Other platforms SHOULD link to this resource as part of their authorization interface.</p>
+            <p>A fully qualified URL to the platform's terms of service. Other platforms SHOULD link to this resource as part of their authorization interface.</p>
+        <h3><a name="tokenRevocationUrl">"tokenRevocationUrl" Property</a></h3>
+            <p>A fully qualifed URL to the host's token revocation endpoint.</p>
         <h3><a name="tokenUrl">"tokenUrl" Property</a></h3>
-            <p>Applies to Hosts only. A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</p>
+            <p>A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</p>
+        <h3><a name="type">"type" Property</a></h3>
+            <p>JSON-LD type of the configuration object. Defaults to BadgeConnectAPI.</p>
         <h3><a name="version">"version" Property</a></h3>
             <p>This property is used in the following classes:-</p>
         <dl class="jsonldcontext">
