@@ -33,7 +33,7 @@ produces:
 #                                  Tags                                             #
 #####################################################################################
 tags: 
-    - name: OB-API
+    - name: OBC-Service
       description: |
         Open Badges Connect API
 
@@ -62,7 +62,7 @@ paths:
             operationId: getAssertions
             summary: The REST read request message for the getAssertions() API call.
             tags: 
-                - OB-API
+                - OBC-Service
             description: |
                 Fetch Assertions for the supplied parameters and authentication token.
             parameters: 
@@ -121,18 +121,14 @@ paths:
                 "500" : 
                     description: |
                         This code should be used only if there is catastrophic error.
-                    schema: 
-                        $ref: "#/definitions/ErrorResponse.Type"
                 "default" : 
                     description: |
                         Any other response.
-                    schema: 
-                        $ref: "#/definitions/ErrorResponse.Type"
         post:
             operationId: postAssertion
             summary: The REST update request message for the postAssertion() API call.
             tags: 
-                - OB-API
+                - OBC-Service
             description: |
                 Create or update an Assertion.
             parameters: 
@@ -177,20 +173,16 @@ paths:
                 "500" : 
                     description: |
                         This code should be used only if there is catastrophic error.
-                    schema: 
-                        $ref: "#/definitions/ErrorResponse.Type"
                 "default" : 
                     description: |
                         Any other response.
-                    schema: 
-                        $ref: "#/definitions/ErrorResponse.Type"
 
     /profile:
         get:
             operationId: getProfile
             summary: The REST read request message for the getProfile() API call.
             tags: 
-                - OB-API
+                - OBC-Service
             description: |
                 Fetch the profile for the supplied authentication token.
             responses: 
@@ -222,18 +214,14 @@ paths:
                 "500" : 
                     description: |
                         This code should be used only if there is catastrophic error.
-                    schema: 
-                        $ref: "#/definitions/ErrorResponse.Type"
                 "default" : 
                     description: |
                         Any other response.
-                    schema: 
-                        $ref: "#/definitions/ErrorResponse.Type"
         post:
             operationId: postProfile
             summary: The REST update request message for the postProfile() API call.
             tags: 
-                - OB-API
+                - OBC-Service
             description: |
                 Update the profile for the authenticated user.
             parameters: 
@@ -273,13 +261,9 @@ paths:
                 "500" : 
                     description: |
                         This code should be used only if there is catastrophic error.
-                    schema: 
-                        $ref: "#/definitions/ErrorResponse.Type"
                 "default" : 
                     description: |
                         Any other response.
-                    schema: 
-                        $ref: "#/definitions/ErrorResponse.Type"
 
 
 #####################################################################################

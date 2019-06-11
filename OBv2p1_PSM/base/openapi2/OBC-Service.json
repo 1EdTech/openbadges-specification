@@ -20,7 +20,7 @@
     "schemes" : [ "http","https" ],
     "tags" : [
         {
-            "name" : "OB-API",
+            "name" : "OBC-Service",
             "description" : "Open Badges Connect API"
         }
     ],
@@ -43,7 +43,7 @@
             "get" : {
                 "operationId" : "getAssertions",
                 "summary" : "The REST read request message for the getAssertions() API call.",
-                "tags" : [ "OB-API" ],
+                "tags" : [ "OBC-Service" ],
                 "description" : "Fetch Assertions for the supplied parameters and authentication token.",
                 "parameters" : [
                     {
@@ -108,23 +108,17 @@
                         }
                     },
                     "500" : {
-                        "description" : "This code should be used only if there is catastrophic error.",
-                        "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
-                        }
+                        "description" : "This code should be used only if there is catastrophic error."
                     },
                     "default" : {
-                        "description" : "Any other response.",
-                        "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
-                        }
+                        "description" : "Any other response."
                     }
                 }
             },
             "post" : {
                 "operationId" : "postAssertion",
                 "summary" : "The REST update request message for the postAssertion() API call.",
-                "tags" : [ "OB-API" ],
+                "tags" : [ "OBC-Service" ],
                 "description" : "Create or update an Assertion.",
                 "parameters" : [
                     {
@@ -175,16 +169,10 @@
                         }
                     },
                     "500" : {
-                        "description" : "This code should be used only if there is catastrophic error.",
-                        "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
-                        }
+                        "description" : "This code should be used only if there is catastrophic error."
                     },
                     "default" : {
-                        "description" : "Any other response.",
-                        "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
-                        }
+                        "description" : "Any other response."
                     }
                 }
             }
@@ -193,7 +181,7 @@
             "get" : {
                 "operationId" : "getProfile",
                 "summary" : "The REST read request message for the getProfile() API call.",
-                "tags" : [ "OB-API" ],
+                "tags" : [ "OBC-Service" ],
                 "description" : "Fetch the profile for the supplied authentication token.",
                 "responses" : {
                     "200" : {
@@ -227,23 +215,17 @@
                         }
                     },
                     "500" : {
-                        "description" : "This code should be used only if there is catastrophic error.",
-                        "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
-                        }
+                        "description" : "This code should be used only if there is catastrophic error."
                     },
                     "default" : {
-                        "description" : "Any other response.",
-                        "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
-                        }
+                        "description" : "Any other response."
                     }
                 }
             },
             "post" : {
                 "operationId" : "postProfile",
                 "summary" : "The REST update request message for the postProfile() API call.",
-                "tags" : [ "OB-API" ],
+                "tags" : [ "OBC-Service" ],
                 "description" : "Update the profile for the authenticated user.",
                 "parameters" : [
                     {
@@ -288,16 +270,10 @@
                         }
                     },
                     "500" : {
-                        "description" : "This code should be used only if there is catastrophic error.",
-                        "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
-                        }
+                        "description" : "This code should be used only if there is catastrophic error."
                     },
                     "default" : {
-                        "description" : "Any other response.",
-                        "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
-                        }
+                        "description" : "Any other response."
                     }
                 }
             }
@@ -338,27 +314,21 @@
             "type" : "object",
             "properties" : {
                 "@context" : {
-                    "description" : "JSON-LD context.",
                     "$ref" : "#/definitions/context.Type"
                 },
                 "id" : {
-                    "description" : "Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "type" : {
-                    "description" : "Valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string Assertion. An array including Assertion and other string elements that are either URLs or compact IRIs within the current context are allowed.",
                     "$ref" : "#/definitions/type.Type"
                 },
                 "recipient" : {
-                    "description" : "The recipient of the achievement.",
                     "$ref" : "#/definitions/IdentityObject.Type"
                 },
                 "badge" : {
-                    "description" : "IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a BadgeClass.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "verification" : {
-                    "description" : "Instructions for third parties to verify this assertion. (Alias 'verify' may be used in context.)",
                     "$ref" : "#/definitions/VerificationObject.Type"
                 },
                 "issuedOn" : {
@@ -367,7 +337,6 @@
                     "format" : "date-time"
                 },
                 "image" : {
-                    "description" : "IRI or document representing an image representing this user’s achievement. This must be a PNG or SVG image, and should be prepared via the Baking specification. An ‘unbaked’ image for the badge is defined in the BadgeClass and should not be duplicated here.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "evidence" : {
@@ -412,7 +381,6 @@
             "type" : "object",
             "properties" : {
                 "status" : {
-                    "description" : "The 'status' property MUST appear on all responses.",
                     "$ref" : "#/definitions/Status.Type"
                 },
                 "results" : {
@@ -432,11 +400,9 @@
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "description" : "Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "type" : {
-                    "description" : "Valid JSON-LD representation of the BadgeClass type. In most cases, this will simply be the string BadgeClass. An array including BadgeClass and other string elements that are either URLs or compact IRIs within the current context are allowed.",
                     "$ref" : "#/definitions/type.Type"
                 },
                 "name" : {
@@ -448,15 +414,12 @@
                     "type" : "string"
                 },
                 "image" : {
-                    "description" : "IRI of an image representing the achievement. May be a Data URI, or URI where the image may be found.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "criteria" : {
-                    "description" : "URI or embedded criteria document describing how to earn the achievement.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "issuer" : {
-                    "description" : "IRI or document describing the individual, entity, or organization that issued the badge.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "alignment" : {
@@ -504,11 +467,9 @@
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "description" : "The id of the entity the endorser would like to claim about.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "type" : {
-                    "description" : "Defaults to Claim.",
                     "$ref" : "#/definitions/type.Type"
                 },
                 "endorsementComment" : {
@@ -524,11 +485,9 @@
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "description" : "The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "type" : {
-                    "description" : "Defaults to Criteria.",
                     "$ref" : "#/definitions/type.Type"
                 },
                 "narrative" : {
@@ -543,15 +502,12 @@
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "description" : "The identifier for the key. Most platforms only support HTTP(s) identifiers.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "type" : {
-                    "description" : "Defaults to CryptographicKey.",
                     "$ref" : "#/definitions/type.Type"
                 },
                 "owner" : {
-                    "description" : "The identifier for the Profile that owns this key. There should be a two-way connection between this Profile and the CryptographicKey through the owner and publicKey properties.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "publicKeyPem" : {
@@ -566,19 +522,15 @@
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "description" : "Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "type" : {
-                    "description" : "Endorsement, a subclass of VCTF's Credential.",
                     "$ref" : "#/definitions/type.Type"
                 },
                 "claim" : {
-                    "description" : "An entity, identified by an id and additional properties that the endorser would like to claim about that entity.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "issuer" : {
-                    "description" : "The profile of the Endorsement’s issuer.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "issuedOn" : {
@@ -587,7 +539,6 @@
                     "format" : "date-time"
                 },
                 "verification" : {
-                    "description" : "Instructions for third parties to verify this assertion of endorsement.",
                     "$ref" : "#/definitions/VerificationObject.Type"
                 }
             },
@@ -599,7 +550,6 @@
             "type" : "object",
             "properties" : {
                 "status" : {
-                    "description" : "...tbd (ComplexType property description)...",
                     "$ref" : "#/definitions/Status.Type"
                 }
             },
@@ -611,11 +561,9 @@
             "type" : "object",
             "properties" : {
                 "type" : {
-                    "description" : "Defaults to Evidence.",
                     "$ref" : "#/definitions/type.Type"
                 },
                 "id" : {
-                    "description" : "The URI of a webpage presenting evidence of achievement.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "narrative" : {
@@ -650,7 +598,6 @@
                     "type" : "string"
                 },
                 "type" : {
-                    "description" : "The property by which the recipient of a badge is identified. This value should be an IRI mapped in the present context. For example, email maps to http://schema.org/email and indicates that the identity of the IdentityObject will represent a value of a Profile’s email property. Currently the only supported value for many platforms that implement Open Badges is email, but other properties are available.",
                     "$ref" : "#/definitions/type.Type"
                 },
                 "hashed" : {
@@ -670,11 +617,9 @@
             "type" : "object",
             "properties" : {
                 "type" : {
-                    "description" : "Defaults to ImageObject.",
                     "$ref" : "#/definitions/type.Type"
                 },
                 "id" : {
-                    "description" : "The URI or Data URI of the image.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "caption" : {
@@ -682,7 +627,6 @@
                     "type" : "string"
                 },
                 "author" : {
-                    "description" : "The profile id of the author of the image, if desired.",
                     "$ref" : "#/definitions/id.Type"
                 }
             },
@@ -694,11 +638,9 @@
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "description" : "Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "type" : {
-                    "description" : "Valid JSON-LD representation of the Issuer or Profile type. In most cases, this will simply be the string Issuer or the more general Profile. An array including Issuer and other string elements that are either URLs or compact IRIs within the current context are allowed.",
                     "$ref" : "#/definitions/type.Type"
                 },
                 "name" : {
@@ -719,7 +661,6 @@
                     "type" : "string"
                 },
                 "image" : {
-                    "description" : "An image representing the issuer. May be a Data URI, or URI where the image may be found or an instance of the Image class.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "email" : {
@@ -727,15 +668,12 @@
                     "type" : "string"
                 },
                 "publicKey" : {
-                    "description" : "The key(s) an issuer uses to sign Assertions.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "verification" : {
-                    "description" : "Instructions for how to verify Assertions published by this Profile.",
                     "$ref" : "#/definitions/VerificationObject.Type"
                 },
                 "revocationList" : {
-                    "description" : "HTTP URI of the Badge Revocation List used for marking revocation of signed badges.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "endorsement" : {
@@ -755,7 +693,6 @@
             "type" : "object",
             "properties" : {
                 "status" : {
-                    "description" : "The 'status' property MUST appear on all responses.",
                     "$ref" : "#/definitions/Status.Type"
                 },
                 "results" : {
@@ -775,15 +712,12 @@
             "type" : "object",
             "properties" : {
                 "type" : {
-                    "description" : "RevocationList.",
                     "$ref" : "#/definitions/type.Type"
                 },
                 "id" : {
-                    "description" : "The id of the RevocationList.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "issuer" : {
-                    "description" : "The id of the Issuer.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "revokedAssertions" : {
@@ -826,11 +760,9 @@
             "type" : "object",
             "properties" : {
                 "type" : {
-                    "description" : "The type of verification method.",
                     "$ref" : "#/definitions/type.Type"
                 },
                 "verificationProperty" : {
-                    "description" : "The @id of the property to be used for verification that an Assertion is within the allowed scope.",
                     "$ref" : "#/definitions/id.Type"
                 },
                 "startsWith" : {
@@ -850,7 +782,6 @@
                     }
                 },
                 "creator" : {
-                    "description" : "The (HTTP) id of the key used to sign the Assertion.",
                     "$ref" : "#/definitions/id.Type"
                 }
             },

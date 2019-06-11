@@ -1,0 +1,238 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id" : "getAssertions-200-responsepayload-schema.json",
+    "title" : "Open Badges Version 2.1 IMS Candidate Final JSON Schema Binding (getAssertions-200-responsepayload-schema)",
+    "description" : "Author-@@@TBD;  Version-2.1;  Release Date-June 2019. ",
+    "type" : "object",
+    "properties" : {
+        "status" : {
+            "description" : "The 'status' property MUST appear on all responses.",
+            "$ref" : "#/definitions/Status.Type"
+        },
+        "results" : {
+            "description" : "A list of zero or more assertions responsive to the request.",
+            "type" : "array",
+            "minItems" : 0,
+            "items" : {
+                "$ref" : "#/definitions/Assertion.Type"
+            }
+        }
+    },
+    "required" : [ "status" ],
+    "additionalProperties" : false,
+    "definitions" : {
+        "Assertion.Type" : {
+            "description" : "Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner.",
+            "type" : "object",
+            "properties" : {
+                "@context" : {
+                    "description" : "JSON-LD context.",
+                    "$ref" : "#/definitions/context.Type"
+                },
+                "id" : {
+                    "description" : "Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.",
+                    "$ref" : "#/definitions/id.Type"
+                },
+                "type" : {
+                    "description" : "Valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string Assertion. An array including Assertion and other string elements that are either URLs or compact IRIs within the current context are allowed.",
+                    "$ref" : "#/definitions/type.Type"
+                },
+                "recipient" : {
+                    "description" : "The recipient of the achievement.",
+                    "$ref" : "#/definitions/IdentityObject.Type"
+                },
+                "badge" : {
+                    "description" : "IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a BadgeClass.",
+                    "$ref" : "#/definitions/id.Type"
+                },
+                "verification" : {
+                    "description" : "Instructions for third parties to verify this assertion. (Alias 'verify' may be used in context.)",
+                    "$ref" : "#/definitions/VerificationObject.Type"
+                },
+                "issuedOn" : {
+                    "description" : "Model Primitive Datatype = DateTime. Timestamp of when the achievement was awarded.",
+                    "type" : "string",
+                    "format" : "date-time"
+                },
+                "image" : {
+                    "description" : "IRI or document representing an image representing this user’s achievement. This must be a PNG or SVG image, and should be prepared via the Baking specification. An ‘unbaked’ image for the badge is defined in the BadgeClass and should not be duplicated here.",
+                    "$ref" : "#/definitions/id.Type"
+                },
+                "evidence" : {
+                    "description" : "IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.",
+                    "type" : "array",
+                    "minItems" : 0,
+                    "items" : {
+                        "$ref" : "#/definitions/id.Type"
+                    }
+                },
+                "narratrive" : {
+                    "description" : "Model Primitive Datatype = String. A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array.",
+                    "type" : "string"
+                },
+                "expires" : {
+                    "description" : "Model Primitive Datatype = DateTime. If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. After this time, the badge should be considered expired.",
+                    "type" : "string",
+                    "format" : "date-time"
+                },
+                "revoked" : {
+                    "description" : "Model Primitive Datatype = Boolean. Defaults to false if Assertion is not referenced from a revokedAssertions list and may be omitted. See RevocationList. If revoked is true, only revoked and id are required properties, and many issuers strip a hosted Assertion down to only those properties when revoked.",
+                    "type" : "boolean"
+                },
+                "revocationReason" : {
+                    "description" : "Model Primitive Datatype = String. Optional published reason for revocation, if revoked.",
+                    "type" : "string"
+                },
+                "endorsement" : {
+                    "description" : "...tbd (ComplexType property description)...",
+                    "type" : "array",
+                    "minItems" : 0,
+                    "items" : {
+                        "$ref" : "#/definitions/Endorsement.Type"
+                    }
+                }
+            },
+            "required" : [ "@context","id","type","recipient","badge","verification","issuedOn" ],
+            "additionalProperties" : true
+        },
+        "Endorsement.Type" : {
+            "description" : "...tbd (Class description)...",
+            "type" : "object",
+            "properties" : {
+                "id" : {
+                    "description" : "Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.",
+                    "$ref" : "#/definitions/id.Type"
+                },
+                "type" : {
+                    "description" : "Endorsement, a subclass of VCTF's Credential.",
+                    "$ref" : "#/definitions/type.Type"
+                },
+                "claim" : {
+                    "description" : "An entity, identified by an id and additional properties that the endorser would like to claim about that entity.",
+                    "$ref" : "#/definitions/id.Type"
+                },
+                "issuer" : {
+                    "description" : "The profile of the Endorsement’s issuer.",
+                    "$ref" : "#/definitions/id.Type"
+                },
+                "issuedOn" : {
+                    "description" : "Model Primitive Datatype = DateTime. Timestamp of when the endorsement was published.",
+                    "type" : "string",
+                    "format" : "date-time"
+                },
+                "verification" : {
+                    "description" : "Instructions for third parties to verify this assertion of endorsement.",
+                    "$ref" : "#/definitions/VerificationObject.Type"
+                }
+            },
+            "required" : [ "id","type","issuer","issuedOn","verification" ],
+            "additionalProperties" : false
+        },
+        "IdentityObject.Type" : {
+            "description" : "A collection of information about the recipient of a badge.",
+            "type" : "object",
+            "properties" : {
+                "identity" : {
+                    "description" : "Model Primitive Datatype = String. Either the hash of the identity or the plaintext value. If it’s possible that the plaintext transmission and storage of the identity value would leak personally identifiable information where there is an expectation of privacy, it is strongly recommended that an IdentityHash be used.",
+                    "type" : "string"
+                },
+                "type" : {
+                    "description" : "The property by which the recipient of a badge is identified. This value should be an IRI mapped in the present context. For example, email maps to http://schema.org/email and indicates that the identity of the IdentityObject will represent a value of a Profile’s email property. Currently the only supported value for many platforms that implement Open Badges is email, but other properties are available.",
+                    "$ref" : "#/definitions/type.Type"
+                },
+                "hashed" : {
+                    "description" : "Model Primitive Datatype = Boolean. Whether or not the identity value is hashed.",
+                    "type" : "boolean"
+                },
+                "salt" : {
+                    "description" : "Model Primitive Datatype = String. If the recipient is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.",
+                    "type" : "string"
+                }
+            },
+            "required" : [ "identity","type","hashed" ],
+            "additionalProperties" : false
+        },
+        "Status.Type" : {
+            "description" : "Response status.",
+            "type" : "object",
+            "properties" : {
+                "error" : {
+                    "description" : "Model Primitive Datatype = String. A nullable string and the human-readable message describing the problem.",
+                    "type" : "string"
+                },
+                "statusCode" : {
+                    "description" : "Model Primitive Datatype = PositiveInteger. The HTTP status code of the response.",
+                    "type" : "integer",
+                    "format" : "int32",
+                    "minimum" : 1
+                },
+                "statusText" : {
+                    "description" : "A string matching one of the enumerated and allowed values for the given endpoint.",
+                    "type" : "string",
+                    "enum" : [ "OK","REQUEST_VALIDATION_ERROR","RECIPIENT_PROFILE_MISMATCH","INVALID_BADGE","BAD_REQUEST","UNAUTHENTICATED","PERMISSION_DENIED","NOT_FOUND","METHOD_NOT_ALLOWED" ]
+                }
+            },
+            "required" : [ "statusCode" ],
+            "additionalProperties" : false
+        },
+        "VerificationObject.Type" : {
+            "description" : "A collection of information allowing an inspector to verify an Assertion.",
+            "type" : "object",
+            "properties" : {
+                "type" : {
+                    "description" : "The type of verification method.",
+                    "$ref" : "#/definitions/type.Type"
+                },
+                "verificationProperty" : {
+                    "description" : "The @id of the property to be used for verification that an Assertion is within the allowed scope.",
+                    "$ref" : "#/definitions/id.Type"
+                },
+                "startsWith" : {
+                    "description" : "Model Primitive Datatype = String. The URI fragment that the verification property must start with.",
+                    "type" : "array",
+                    "minItems" : 0,
+                    "items" : {
+                        "type" : "string"
+                    }
+                },
+                "allowedOrigins" : {
+                    "description" : "Model Primitive Datatype = String. The host registered name subcomponent of an allowed origin.",
+                    "type" : "array",
+                    "minItems" : 0,
+                    "items" : {
+                        "type" : "string"
+                    }
+                },
+                "creator" : {
+                    "description" : "The (HTTP) id of the key used to sign the Assertion.",
+                    "$ref" : "#/definitions/id.Type"
+                }
+            },
+            "additionalProperties" : false
+        },
+        "context.Type" : {
+            "description" : "JSON-LD @context.",
+            "type" : "object",
+            "properties" : {
+
+            },
+            "additionalProperties" : false
+        },
+        "id.Type" : {
+            "description" : "JSON-LD @id.",
+            "type" : "object",
+            "properties" : {
+
+            },
+            "additionalProperties" : false
+        },
+        "type.Type" : {
+            "description" : "JSON-LD @type.",
+            "type" : "object",
+            "properties" : {
+
+            },
+            "additionalProperties" : false
+        }
+    }
+}

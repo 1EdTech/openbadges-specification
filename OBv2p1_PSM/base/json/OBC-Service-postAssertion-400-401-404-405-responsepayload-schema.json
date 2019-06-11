@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id" : "postAssertion-400-401-404-405-responsepayload-schema.json",
+    "title" : "Open Badges Version 2.1 IMS Candidate Final JSON Schema Binding (postAssertion-400-401-404-405-responsepayload-schema)",
+    "description" : "Author-@@@TBD;  Version-2.1;  Release Date-June 2019. ",
+    "type" : "object",
+    "properties" : {
+        "status" : {
+            "description" : "...tbd (ComplexType property description)...",
+            "$ref" : "#/definitions/Status.Type"
+        }
+    },
+    "required" : [ "status" ],
+    "additionalProperties" : false,
+    "definitions" : {
+        "Status.Type" : {
+            "description" : "Response status.",
+            "type" : "object",
+            "properties" : {
+                "error" : {
+                    "description" : "Model Primitive Datatype = String. A nullable string and the human-readable message describing the problem.",
+                    "type" : "string"
+                },
+                "statusCode" : {
+                    "description" : "Model Primitive Datatype = PositiveInteger. The HTTP status code of the response.",
+                    "type" : "integer",
+                    "format" : "int32",
+                    "minimum" : 1
+                },
+                "statusText" : {
+                    "description" : "A string matching one of the enumerated and allowed values for the given endpoint.",
+                    "type" : "string",
+                    "enum" : [ "OK","REQUEST_VALIDATION_ERROR","RECIPIENT_PROFILE_MISMATCH","INVALID_BADGE","BAD_REQUEST","UNAUTHENTICATED","PERMISSION_DENIED","NOT_FOUND","METHOD_NOT_ALLOWED" ]
+                }
+            },
+            "required" : [ "statusCode" ],
+            "additionalProperties" : false
+        }
+    }
+}
