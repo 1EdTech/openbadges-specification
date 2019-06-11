@@ -1,65 +1,36 @@
 {
-    "swagger" : "2.0",
-    "info" : {
-        "version" : "2.1",
-        "title" : "Open Badges OpenAPI (JSON) Definition",
-        "description" : "TBD",
-        "termsOfService" : "Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals. The limited permissions granted above are perpetual and will not be revoked by IMS or its successors or assigns. THIS API DEFINITION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND IN PARTICULAR, ANY WARRANTY OF NONINFRINGEMENT IS EXPRESSLY DISCLAIMED. ANY USE OF THIS SPECIFICATION SHALL BE MADE ENTIRELY AT THE IMPLEMENTERS OWN RISK, AND NEITHER THE  CONSORTIUM, NOR ANY OF ITS MEMBERS OR SUBMITTERS, SHALL HAVE ANY LIABILITY WHATSOEVER TO ANY IMPLEMENTER OR THIRD PARTY FOR ANY DAMAGES OF ANY NATURE WHATSOEVER,  DIRECTLY OR INDIRECTLY, ARISING FROM THE USE OF THIS API DEFINITION.",
-        "contact" : {
-            "name" : "Lisa Mattson (COO), IMS Global ",
-            "url" : "http://www.imsglobal.org",
-            "email" : "lmattson@imsglobal.org"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id" : "getManifest-200-responsepayload-schema.json",
+    "title" : " Version   JSON Schema Binding (getManifest-200-responsepayload-schema)",
+    "description" : "Author-;  Version-;  Release Date-. ",
+    "type" : "object",
+    "properties" : {
+        "@context" : {
+            "description" : "Model Primitive Datatype = AnyURI. The URL of the JSON-LD @context file for the manifest.",
+            "type" : "string",
+            "format" : "uri"
         },
-        "license" : {
-            "name" : "IMS Global",
-            "url" : "https://www.imsglobal.org/license.html"
-        }
-    },
-    "host" : "",
-    "basePath" : "",
-    "schemes" : [ "http","https" ],
-    "tags" : [
-        {
-            "name" : "OB-API-Manifest",
-            "description" : "Open Badges API manifest interface."
-        }
-    ],
-    "paths" : {
-        "/.well-known/badgeconnect.json" : {
-            "get" : {
-                "operationId" : "getManifest",
-                "summary" : "The REST read request message for the getManifest() API call.",
-                "tags" : [ "OB-API-Manifest" ],
-                "description" : "Open Badges API manifest read operation.",
-                "responses" : {
-                    "200" : {
-                        "description" : "This is the response when the request has been completed successfully.",
-                        "schema" : {
-                            "$ref" : "#/definitions/Manifest.Type"
-                        }
-                    },
-                    "404" : {
-                        "description" : "This is the response when the provider does not support the badge connect API.",
-                        "schema" : {
-                            "$ref" : "#/definitions/.Type"
-                        }
-                    },
-                    "421" : {
-                        "description" : "This is the response when the request was not made over secure TLS protocol.",
-                        "schema" : {
-                            "$ref" : "#/definitions/.Type"
-                        }
-                    },
-                    "default" : {
-                        "description" : "This is the response when some other error has occured.",
-                        "schema" : {
-                            "$ref" : "#/definitions/.Type"
-                        }
-                    }
-                }
+        "id" : {
+            "description" : "Model Primitive Datatype = AnyURI. Unique IRI for the manifest.",
+            "type" : "string",
+            "format" : "uri"
+        },
+        "type" : {
+            "description" : "Model Primitive Datatype = AnyURI. The JSON-LD type of the manifest. Defaults to Manifest.",
+            "type" : "string",
+            "format" : "uri"
+        },
+        "badgeConnectAPI" : {
+            "description" : "Set of BadgeConnectAPI configurations.",
+            "type" : "array",
+            "minItems" : 1,
+            "items" : {
+                "$ref" : "#/definitions/BadgeConnectAPI.Type"
             }
         }
     },
+    "required" : [ "@context","id","badgeConnectAPI" ],
+    "additionalProperties" : false,
     "definitions" : {
         "BadgeConnectAPI.Type" : {
             "description" : "Configuration information about a single implementation.",
@@ -135,39 +106,6 @@
             },
             "required" : [ "name","apiBase","scopesOffered","version","registrationUrl","authorizationUrl","tokenUrl","termsOfServiceUrl","privacyPolicyUrl" ],
             "additionalProperties" : false
-        },
-        "Manifest.Type" : {
-            "description" : "Provider configuration information. A provider may support multiple implementations.",
-            "type" : "object",
-            "properties" : {
-                "@context" : {
-                    "description" : "Model Primitive Datatype = AnyURI. The URL of the JSON-LD @context file for the manifest.",
-                    "type" : "string",
-                    "format" : "uri"
-                },
-                "id" : {
-                    "description" : "Model Primitive Datatype = AnyURI. Unique IRI for the manifest.",
-                    "type" : "string",
-                    "format" : "uri"
-                },
-                "type" : {
-                    "description" : "Model Primitive Datatype = AnyURI. The JSON-LD type of the manifest. Defaults to "Manifest".",
-                    "type" : "string",
-                    "format" : "uri"
-                },
-                "badgeConnectAPI" : {
-                    "description" : "Set of BadgeConnectAPI configurations.",
-                    "type" : "array",
-                    "minItems" : 1,
-                    "items" : {
-                        "$ref" : "#/definitions/BadgeConnectAPI.Type"
-                    }
-                }
-            },
-            "required" : [ "@context","id","badgeConnectAPI" ],
-            "additionalProperties" : false
         }
-    },
-    "consumes" : [ "application/json" ],
-    "produces" : [ "application/json" ]
+    }
 }

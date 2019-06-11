@@ -33,9 +33,9 @@ produces:
 #                                  Tags                                             #
 #####################################################################################
 tags: 
-    - name: OB-API-Manifest
+    - name: OBC-Manifest
       description: |
-        Open Badges API manifest interface.
+        Open Badges Connect Service Manifest interface.
 
 #####################################################################################
 #                                 Security                                          #
@@ -50,9 +50,9 @@ paths:
             operationId: getManifest
             summary: The REST read request message for the getManifest() API call.
             tags: 
-                - OB-API-Manifest
+                - OBC-Manifest
             description: |
-                Open Badges API manifest read operation.
+                Open Badges Connect Service manifest read operation.
             responses: 
                 "200" : 
                     description: |
@@ -62,18 +62,12 @@ paths:
                 "404" : 
                     description: |
                         This is the response when the provider does not support the badge connect API.
-                    schema: 
-                        $ref: "#/definitions/.Type"
                 "421" : 
                     description: |
                         This is the response when the request was not made over secure TLS protocol.
-                    schema: 
-                        $ref: "#/definitions/.Type"
                 "default" : 
                     description: |
                         This is the response when some other error has occured.
-                    schema: 
-                        $ref: "#/definitions/.Type"
 
 
 #####################################################################################
@@ -167,7 +161,7 @@ definitions:
                 type: string
                 format: uri
             type: 
-                description: The JSON-LD type of the manifest. Defaults to "Manifest". Model Primitive Datatype = AnyURI.
+                description: The JSON-LD type of the manifest. Defaults to Manifest. Model Primitive Datatype = AnyURI.
                 type: string
                 format: uri
             badgeConnectAPI: 

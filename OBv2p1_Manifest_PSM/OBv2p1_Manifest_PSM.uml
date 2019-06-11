@@ -22,10 +22,11 @@
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_-_T4AIGQEemmt6Oyz5xtew" name="type" visibility="private" type="_Hm54IFr-Eemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_L9LVQIGUEemmt6Oyz5xtew">
-            <body>The JSON-LD type of the manifest. Defaults to &quot;Manifest&quot;.</body>
+            <body>The JSON-LD type of the manifest. Defaults to Manifest.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CFCS0IGREemmt6Oyz5xtew"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CFN5AIGREemmt6Oyz5xtew" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_IKiHYIyHEem_UKY2IsbfeQ" value="Manifest"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_NaFBkFsHEemah4rv1IhOJg" name="badgeConnectAPI" visibility="private" type="_hZkWMFsEEemah4rv1IhOJg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_Uq89sIGUEemmt6Oyz5xtew">
@@ -40,6 +41,7 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_kvcKAFr9Eemah4rv1IhOJg" name="String"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_yS7kMFr9Eemah4rv1IhOJg" name="NormalizedString"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_QSby8FsAEemah4rv1IhOJg" name="AnyURI"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Y1rZkIyIEem_UKY2IsbfeQ" name="Void"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_8Ck5UFr9Eemah4rv1IhOJg" name="DerivedTypes">
       <packagedElement xmi:type="uml:Class" xmi:id="_Hm54IFr-Eemah4rv1IhOJg" name="IRI">
@@ -155,8 +157,8 @@
         </ownedAttribute>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_xXww4FsHEemah4rv1IhOJg" name="OB-API-Manifest">
-      <packagedElement xmi:type="uml:Class" xmi:id="_BRfpsFsIEemah4rv1IhOJg" name="OB-API-Manifest">
+    <packagedElement xmi:type="uml:Package" xmi:id="_xXww4FsHEemah4rv1IhOJg" name="OBC-Manifest">
+      <packagedElement xmi:type="uml:Class" xmi:id="_BRfpsFsIEemah4rv1IhOJg" name="OBC-Manifest">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_H0zlsFsIEemah4rv1IhOJg" name="Author" type="_kvcKAFr9Eemah4rv1IhOJg">
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_KJMDIFsIEemah4rv1IhOJg" value="TBD"/>
         </ownedAttribute>
@@ -213,13 +215,13 @@
         </ownedAttribute>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_ydEhMFsJEemah4rv1IhOJg" name="OB-API-Manifest">
-      <packagedElement xmi:type="uml:Class" xmi:id="_-fw3AFsJEemah4rv1IhOJg" name="OB-API-Manifest">
+    <packagedElement xmi:type="uml:Package" xmi:id="_ydEhMFsJEemah4rv1IhOJg" name="OBC-Manifest">
+      <packagedElement xmi:type="uml:Class" xmi:id="_-fw3AFsJEemah4rv1IhOJg" name="OBC-Manifest">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_DssO4FsKEemah4rv1IhOJg" name="Author" type="_kvcKAFr9Eemah4rv1IhOJg">
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_EoskIFsKEemah4rv1IhOJg" value="tbd"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_FK-KwFsKEemah4rv1IhOJg" name="Date" type="_kvcKAFr9Eemah4rv1IhOJg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_GYgU4FsKEemah4rv1IhOJg" value="April 2019"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_GYgU4FsKEemah4rv1IhOJg" value="June 2019"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_G1dWoFsKEemah4rv1IhOJg" name="Version" type="_kvcKAFr9Eemah4rv1IhOJg">
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_IeWAAFsKEemah4rv1IhOJg" value="1.0"/>
@@ -231,7 +233,7 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_MuV1kFsKEemah4rv1IhOJg" value="tbd"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_NMrXYFsKEemah4rv1IhOJg" name="History" type="_kvcKAFr9Eemah4rv1IhOJg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_QnLvYFsKEemah4rv1IhOJg" value="This is the first release of the Open Badges Connect API definition."/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_QnLvYFsKEemah4rv1IhOJg" value="This is the first release of the Open Badges Connect Service definition."/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_Tue3gFsKEemah4rv1IhOJg" name="REST">
@@ -239,13 +241,13 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_Z7M4cFsKEemah4rv1IhOJg" value=""/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Interface" xmi:id="_diXMYFsKEemah4rv1IhOJg" name="OB-API-Manifest">
+      <packagedElement xmi:type="uml:Interface" xmi:id="_diXMYFsKEemah4rv1IhOJg" name="OBC-Manifest">
         <ownedComment xmi:type="uml:Comment" xmi:id="_IfmeUIGYEemmt6Oyz5xtew">
-          <body>Open Badges API manifest interface.</body>
+          <body>Open Badges Connect Service Manifest interface.</body>
         </ownedComment>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_hc5vUFsKEemah4rv1IhOJg" name="getManifest">
           <ownedComment xmi:type="uml:Comment" xmi:id="_TtLxEIGYEemmt6Oyz5xtew">
-            <body>Open Badges API manifest read operation.</body>
+            <body>Open Badges Connect Service manifest read operation.</body>
           </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_pvw9YFsKEemah4rv1IhOJg" name="manifest" type="_IKTVkFr9Eemah4rv1IhOJg" direction="out"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_K7z7MFu-Eemah4rv1IhOJg" type="_kvcKAFr9Eemah4rv1IhOJg" direction="return">
@@ -273,21 +275,21 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OrilQFsOEemah4rv1IhOJg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Orp6AFsOEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_XixEoFsOEemah4rv1IhOJg" name="404" visibility="private" type="_kvcKAFr9Eemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_XixEoFsOEemah4rv1IhOJg" name="404" visibility="private" type="_Y1rZkIyIEem_UKY2IsbfeQ">
           <ownedComment xmi:type="uml:Comment" xmi:id="_vtDnMIGWEemmt6Oyz5xtew">
             <body>This is the response when the provider does not support the badge connect API.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_adOqoFsOEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_addUIFsOEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_UQh30FsOEemah4rv1IhOJg" name="421" visibility="private" type="_kvcKAFr9Eemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_UQh30FsOEemah4rv1IhOJg" name="421" visibility="private" type="_Y1rZkIyIEem_UKY2IsbfeQ">
           <ownedComment xmi:type="uml:Comment" xmi:id="_6A2LMIGWEemmt6Oyz5xtew">
             <body>This is the response when the request was not made over secure TLS protocol.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XA6UwFsOEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XBBCcFsOEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_a-N30FsOEemah4rv1IhOJg" name="default" visibility="private" type="_kvcKAFr9Eemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_a-N30FsOEemah4rv1IhOJg" name="default" visibility="private" type="_Y1rZkIyIEem_UKY2IsbfeQ">
           <ownedComment xmi:type="uml:Comment" xmi:id="_9L2uoIGWEemmt6Oyz5xtew">
             <body>This is the response when some other error has occured.</body>
           </ownedComment>
@@ -299,7 +301,7 @@
     <packagedElement xmi:type="uml:Package" xmi:id="_7OLtUFsQEemah4rv1IhOJg" name="JSON-LD">
       <packagedElement xmi:type="uml:Class" xmi:id="_JP9JgFsSEemah4rv1IhOJg" name="JSON-LD">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_spMvAFsSEemah4rv1IhOJg" name="ContextRoot" type="_kvcKAFr9Eemah4rv1IhOJg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_yuvw8FsSEemah4rv1IhOJg" value="https://purl.imsglobal.org/spec/ob/v2p1/context"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_yuvw8FsSEemah4rv1IhOJg" value="https://purl.imsglobal.org/spec/ob/v2p1/manifest.jsonld"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_IlaFwFsUEemah4rv1IhOJg" name="ContextLeaf" type="_kvcKAFr9Eemah4rv1IhOJg">
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_LSNqQFsUEemah4rv1IhOJg" value="manifest"/>
@@ -370,4 +372,5 @@
   <DunelmUMLBasev1p0:Responses xmi:id="_FWuyAFsOEemah4rv1IhOJg" base_Class="__Tk8wFsNEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:DataModel xmi:id="_H2RZwFsSEemah4rv1IhOJg" base_Package="_7OLtUFsQEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:Binding xmi:id="_MBI3sFsSEemah4rv1IhOJg" base_Class="_JP9JgFsSEemah4rv1IhOJg"/>
+  <DunelmUMLBasev1p0:PrimitiveType xmi:id="_gsMp4IyIEem_UKY2IsbfeQ" base_Class="_Y1rZkIyIEem_UKY2IsbfeQ"/>
 </xmi:XMI>
