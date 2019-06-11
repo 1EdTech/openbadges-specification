@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+    <head>
+        <title>OBC-Manifest</title>
+        <meta name="language" content="en-US" />
+        <meta name="author" content="tbd" />
+        <meta name="date" content="June 2019" />
+        <meta name="status" content="IMS Candidate Final" />
+        <meta name="version" content="1.0" />
+        <meta name="publisher" content="IMS Global" />
+        <meta name="description" content="tbd" />
+        <meta name="history" content="This is the first release of the Open Badges Connect Service definition." />
+        <meta name="copyright" content="(c) IMS Global Learning Consortium" />
+        <link rel="icon" href="http://www.imsglobal.org/favicon.ico" type="image/x-icon" />
+        <link rel="StyleSheet" href="files/general/imsspec2018v1p0.css" type="text/css" />
+        <script src="files/general/imsspec2018v1p0.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+<!-- Top Level -->
+
+        <p class="logoImage">
+            <a name="top" />
+            <a href="http://www.imsglobal.org"><img class="logoImage" src="https://www.imsglobal.org/sites/default/files/logo.png" alt="IMS Global Logo" /></a>
+        </p>
+        <h1 class="infoModelTitle">IMS OBC-Manifest Context Description Notes</h1>
+        <h1 class="infoModelTitle">IMS Candidate Final<br />Version 1.0</h1>
+        <p>This is the set of term definitions for the OBC-Manifest context.</p>
+        <p>tbd</p>
+        <h2><a name="toc">List of Classes</a></h2>
+        <ul>
+            <li><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a></li>
+            <li><a href="#dtIRI">dtIRI</a></li>
+            <li><a href="#dtURL">dtURL</a></li>
+        </ul>
+        <p />
+        <div style="text-align: right; clear: both;"><a href="#toc">toc</a> | <a href="#top">top</a></div>
+        <hr />
+        <h2>List of Properties</h2>
+        <ul>
+            <li><a href="#@context">@context</a></li>
+            <li><a href="#apiBase">apiBase</a></li>
+            <li><a href="#authorizationUrl">authorizationUrl</a></li>
+            <li><a href="#badgeConnectAPI">badgeConnectAPI</a></li>
+            <li><a href="#image">image</a></li>
+            <li><a href="#name">name</a></li>
+            <li><a href="#privacyPolicyUrl">privacyPolicyUrl</a></li>
+            <li><a href="#registrationUrl">registrationUrl</a></li>
+            <li><a href="#scopesOffered">scopesOffered</a></li>
+            <li><a href="#termsOfServiceUrl">termsOfServiceUrl</a></li>
+            <li><a href="#tokenRevocationUrl">tokenRevocationUrl</a></li>
+            <li><a href="#tokenUrl">tokenUrl</a></li>
+            <li><a href="#version">version</a></li>
+        </ul>
+        <p />
+        <div style="text-align: right; clear: both;"><a href="#toc">toc</a> | <a href="#top">top</a></div>
+        <hr />
+        <h2>Class Definitions</h2>
+        <h3><a name="dtBadgeConnectAPI">"dtBadgeConnectAPI" Class</a></h3>
+        <p>Configuration information about a single implementation.</p>
+            <p>The list and definition of the child properties is:-</p>
+        <dl class="jsonldcontext">
+            <dt>id</dt>
+            <dd>Unique IRI for the configuration.</dd>
+            <dt>type</dt>
+            <dd>JSON-LD type of the configuration object. Defaults to BadgeConnectAPI.</dd>
+            <dt>name</dt>
+            <dd>The name of the platform supporting the API. This SHOULD reflect the user-facing identity of the platform requesting authorization.</dd>
+            <dt>image</dt>
+            <dd>An image representing the platform. May be a URI to a hosted image or a Data URI.</dd>
+            <dt>apiBase</dt>
+            <dd>Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing slash '/'. E.g. apiBase + '/assertions'.</dd>
+            <dt>scopesOffered</dt>
+            <dd>Applies to Hosts only. An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the scope descriptors.</dd>
+            <dt>version</dt>
+            <dd>A string representing the implemented version. MUST be in the format of vMAJORpMINOR where MAJOR and MINOR are integers.</dd>
+            <dt>registrationUrl</dt>
+            <dd>A fully qualifed URL to the host's dynamic client registration endpoint.</dd>
+            <dt>authorizationUrl</dt>
+            <dd>A fully qualified URL to the host's authorization endpoint.</dd>
+            <dt>tokenUrl</dt>
+            <dd>A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</dd>
+            <dt>tokenRevocationUrl</dt>
+            <dd>A fully qualifed URL to the host's token revocation endpoint.</dd>
+            <dt>termsOfServiceUrl</dt>
+            <dd>A fully qualified URL to the platform's terms of service. Other platforms SHOULD link to this resource as part of their authorization interface.</dd>
+            <dt>privacyPolicyUrl</dt>
+            <dd>A fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as part of their authorization interface.</dd>
+        </dl>
+        <h3><a name="dtIRI">"dtIRI" Class</a></h3>
+        <p>The internationalized resource identifier (IRI) is an internet protocol standard which extends the ASCII characters subset of the Uniform Resource Identifier (URI) protocol.</p>
+        <h3><a name="dtURL">"dtURL" Class</a></h3>
+        <p>A unifom resource locator (URL) is the address of a resource on the internet.</p>
+        <p />
+        <div style="text-align: right; clear: both;"><a href="#toc">toc</a> | <a href="#top">top</a></div>
+        <hr />
+        <h2>Property Definitions</h2>
+        <h3><a name="@context">"@context" Property</a></h3>
+            <p>The URL of the JSON-LD @context file for the manifest.</p>
+        <h3><a name="apiBase">"apiBase" Property</a></h3>
+            <p>Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing slash '/'. E.g. apiBase + '/assertions'.</p>
+        <h3><a name="authorizationUrl">"authorizationUrl" Property</a></h3>
+            <p>A fully qualified URL to the host's authorization endpoint.</p>
+        <h3><a name="badgeConnectAPI">"badgeConnectAPI" Property</a></h3>
+            <p>Set of BadgeConnectAPI configurations.</p>
+        <h3><a name="id">"id" Property</a></h3>
+            <p>Unique IRI for the configuration.</p>
+        <h3><a name="image">"image" Property</a></h3>
+            <p>This property is used in the following classes:-</p>
+        <dl class="jsonldcontext">
+            <dt><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a> Class</dt>
+            <dd>An image representing the platform. May be a URI to a hosted image or a Data URI.</dd>
+        </dl>
+        <h3><a name="name">"name" Property</a></h3>
+            <p>This property is used in the following classes:-</p>
+        <dl class="jsonldcontext">
+            <dt><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a> Class</dt>
+            <dd>The name of the platform supporting the API. This SHOULD reflect the user-facing identity of the platform requesting authorization.</dd>
+        </dl>
+        <h3><a name="privacyPolicyUrl">"privacyPolicyUrl" Property</a></h3>
+            <p>A fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as part of their authorization interface.</p>
+        <h3><a name="registrationUrl">"registrationUrl" Property</a></h3>
+            <p>A fully qualifed URL to the host's dynamic client registration endpoint.</p>
+        <h3><a name="scopesOffered">"scopesOffered" Property</a></h3>
+            <p>This property is used in the following classes:-</p>
+        <dl class="jsonldcontext">
+            <dt><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a> Class</dt>
+            <dd>Applies to Hosts only. An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the scope descriptors.</dd>
+        </dl>
+        <h3><a name="termsOfServiceUrl">"termsOfServiceUrl" Property</a></h3>
+            <p>A fully qualified URL to the platform's terms of service. Other platforms SHOULD link to this resource as part of their authorization interface.</p>
+        <h3><a name="tokenRevocationUrl">"tokenRevocationUrl" Property</a></h3>
+            <p>A fully qualifed URL to the host's token revocation endpoint.</p>
+        <h3><a name="tokenUrl">"tokenUrl" Property</a></h3>
+            <p>A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</p>
+        <h3><a name="type">"type" Property</a></h3>
+            <p>JSON-LD type of the configuration object. Defaults to BadgeConnectAPI.</p>
+        <h3><a name="version">"version" Property</a></h3>
+            <p>This property is used in the following classes:-</p>
+        <dl class="jsonldcontext">
+            <dt><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a> Class</dt>
+            <dd>A string representing the implemented version. MUST be in the format of vMAJORpMINOR where MAJOR and MINOR are integers.</dd>
+        </dl>
+        <p />
+        <div style="text-align: right; clear: both;"><a href="#toc">toc</a> | <a href="#top">top</a></div>
+        <hr />
+    </body>
+</html>

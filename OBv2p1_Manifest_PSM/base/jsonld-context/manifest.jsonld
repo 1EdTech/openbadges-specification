@@ -1,0 +1,28 @@
+{
+    "@context" : {
+        "id" : "@id",
+        "type" : "@type",
+
+        "manifest" : "https://purl.imsglobal.org/spec/ob/v2p1/manifest.jsonld",
+        "xsd" : "http://www.w3.org/2001/XMLSchema#",
+
+        "dtBadgeConnectAPI" : "manifest:dtBadgeConnectAPI",
+
+        "dtIRI" : { "@id" : "manifest:dtIRI", "@type" : "xsd:anyURI" },
+        "dtURL" : { "@id" : "manifest:dtURL", "@type" : "xsd:anyURI" },
+
+        "@context" : "manifest:dtURL",
+        "apiBase" : "manifest:dtURL",
+        "authorizationUrl" : "manifest:dtURL",
+        "badgeConnectAPI" : { "@id" : "manifest:dtBadgeConnectAPI", "@container" : "@set" },
+        "image" : { "@id" : "manifest:image", "@type" : "xsd:anyURI" },
+        "name" : { "@id" : "manifest:name", "@type" : "xsd:string" },
+        "privacyPolicyUrl" : "manifest:dtURL",
+        "registrationUrl" : "manifest:dtURL",
+        "scopesOffered" : { "@id" : "manifest:scopesOffered", "@type" : "xsd:anyURI", "@container" : "@set" },
+        "termsOfServiceUrl" : "manifest:dtURL",
+        "tokenRevocationUrl" : "manifest:dtURL",
+        "tokenUrl" : "manifest:dtURL",
+        "version" : { "@id" : "manifest:version", "@type" : "xsd:string" }
+    }
+}
