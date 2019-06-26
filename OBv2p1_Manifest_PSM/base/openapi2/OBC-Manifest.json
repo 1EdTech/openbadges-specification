@@ -35,7 +35,7 @@
                     "200" : {
                         "description" : "This is the response when the request has been completed successfully.",
                         "schema" : {
-                            "$ref" : "#/definitions/Manifest.Type"
+                            "$ref" : "#/definitions/ManifestDType"
                         }
                     },
                     "404" : {
@@ -52,7 +52,7 @@
         }
     },
     "definitions" : {
-        "BadgeConnectAPI.Type" : {
+        "BadgeConnectAPIDType" : {
             "description" : "Configuration information about a single implementation.",
             "type" : "object",
             "properties" : {
@@ -127,7 +127,7 @@
             "required" : [ "name","apiBase","scopesOffered","version","registrationUrl","authorizationUrl","tokenUrl","termsOfServiceUrl","privacyPolicyUrl" ],
             "additionalProperties" : false
         },
-        "Manifest.Type" : {
+        "ManifestDType" : {
             "description" : "Provider configuration information. A provider may support multiple implementations.",
             "type" : "object",
             "properties" : {
@@ -144,14 +144,15 @@
                 "type" : {
                     "description" : "Model Primitive Datatype = AnyURI. The JSON-LD type of the manifest. Defaults to Manifest.",
                     "type" : "string",
-                    "format" : "uri"
+                    "format" : "uri",
+                    "default" : "Manifest"
                 },
                 "badgeConnectAPI" : {
                     "description" : "Set of BadgeConnectAPI configurations.",
                     "type" : "array",
                     "minItems" : 1,
                     "items" : {
-                        "$ref" : "#/definitions/BadgeConnectAPI.Type"
+                        "$ref" : "#/definitions/BadgeConnectAPIDType"
                     }
                 }
             },

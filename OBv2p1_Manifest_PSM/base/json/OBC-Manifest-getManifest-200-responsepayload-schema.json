@@ -18,21 +18,22 @@
         "type" : {
             "description" : "Model Primitive Datatype = AnyURI. The JSON-LD type of the manifest. Defaults to Manifest.",
             "type" : "string",
-            "format" : "uri"
+            "format" : "uri",
+            "default" : "Manifest"
         },
         "badgeConnectAPI" : {
             "description" : "Set of BadgeConnectAPI configurations.",
             "type" : "array",
             "minItems" : 1,
             "items" : {
-                "$ref" : "#/definitions/BadgeConnectAPI.Type"
+                "$ref" : "#/definitions/BadgeConnectAPIDType"
             }
         }
     },
     "required" : [ "@context","id","badgeConnectAPI" ],
     "additionalProperties" : false,
     "definitions" : {
-        "BadgeConnectAPI.Type" : {
+        "BadgeConnectAPIDType" : {
             "description" : "Configuration information about a single implementation.",
             "type" : "object",
             "properties" : {
