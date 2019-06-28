@@ -7,39 +7,39 @@
     "properties" : {
         "status" : {
             "description" : "The 'status' property MUST appear on all responses.",
-            "$ref" : "#/definitions/Status.Type"
+            "$ref" : "#/definitions/StatusDType"
         },
         "results" : {
             "description" : "A list of zero or more profiles responsive to the request.",
             "type" : "array",
             "minItems" : 0,
             "items" : {
-                "$ref" : "#/definitions/Profile.Type"
+                "$ref" : "#/definitions/ProfileDType"
             }
         }
     },
     "required" : [ "status" ],
     "additionalProperties" : false,
     "definitions" : {
-        "Endorsement.Type" : {
+        "EndorsementDType" : {
             "description" : "...tbd (Class description)...",
             "type" : "object",
             "properties" : {
                 "id" : {
                     "description" : "Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.",
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "type" : {
                     "description" : "Endorsement, a subclass of VCTF's Credential.",
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "claim" : {
                     "description" : "An entity, identified by an id and additional properties that the endorser would like to claim about that entity.",
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "issuer" : {
                     "description" : "The profile of the Endorsement’s issuer.",
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "issuedOn" : {
                     "description" : "Model Primitive Datatype = DateTime. Timestamp of when the endorsement was published.",
@@ -48,23 +48,23 @@
                 },
                 "verification" : {
                     "description" : "Instructions for third parties to verify this assertion of endorsement.",
-                    "$ref" : "#/definitions/VerificationObject.Type"
+                    "$ref" : "#/definitions/VerificationObjectDType"
                 }
             },
             "required" : [ "id","type","issuer","issuedOn","verification" ],
             "additionalProperties" : false
         },
-        "Profile.Type" : {
+        "ProfileDType" : {
             "description" : "A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address. An Issuer Profile is a subclass of the general Profile with some additional requirements.",
             "type" : "object",
             "properties" : {
                 "id" : {
                     "description" : "Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs.",
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "type" : {
                     "description" : "Valid JSON-LD representation of the Issuer or Profile type. In most cases, this will simply be the string Issuer or the more general Profile. An array including Issuer and other string elements that are either URLs or compact IRIs within the current context are allowed.",
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "name" : {
                     "description" : "Model Primitive Datatype = String. The name of the entity or organization.",
@@ -85,7 +85,7 @@
                 },
                 "image" : {
                     "description" : "An image representing the issuer. May be a Data URI, or URI where the image may be found or an instance of the Image class.",
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "email" : {
                     "description" : "Model Primitive Datatype = String. Contact address for the individual or organization.",
@@ -93,29 +93,29 @@
                 },
                 "publicKey" : {
                     "description" : "The key(s) an issuer uses to sign Assertions.",
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "verification" : {
                     "description" : "Instructions for how to verify Assertions published by this Profile.",
-                    "$ref" : "#/definitions/VerificationObject.Type"
+                    "$ref" : "#/definitions/VerificationObjectDType"
                 },
                 "revocationList" : {
                     "description" : "HTTP URI of the Badge Revocation List used for marking revocation of signed badges.",
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "endorsement" : {
                     "description" : "...tbd (ComplexType property description)...",
                     "type" : "array",
                     "minItems" : 0,
                     "items" : {
-                        "$ref" : "#/definitions/Endorsement.Type"
+                        "$ref" : "#/definitions/EndorsementDType"
                     }
                 }
             },
             "required" : [ "id","type" ],
             "additionalProperties" : true
         },
-        "Status.Type" : {
+        "StatusDType" : {
             "description" : "Response status.",
             "type" : "object",
             "properties" : {
@@ -138,17 +138,17 @@
             "required" : [ "statusCode" ],
             "additionalProperties" : false
         },
-        "VerificationObject.Type" : {
+        "VerificationObjectDType" : {
             "description" : "A collection of information allowing an inspector to verify an Assertion.",
             "type" : "object",
             "properties" : {
                 "type" : {
                     "description" : "The type of verification method.",
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "verificationProperty" : {
                     "description" : "The @id of the property to be used for verification that an Assertion is within the allowed scope.",
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "startsWith" : {
                     "description" : "Model Primitive Datatype = String. The URI fragment that the verification property must start with.",
@@ -168,12 +168,12 @@
                 },
                 "creator" : {
                     "description" : "The (HTTP) id of the key used to sign the Assertion.",
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 }
             },
             "additionalProperties" : false
         },
-        "id.Type" : {
+        "idDType" : {
             "description" : "JSON-LD @id.",
             "type" : "object",
             "properties" : {
@@ -181,7 +181,7 @@
             },
             "additionalProperties" : false
         },
-        "type.Type" : {
+        "typeDType" : {
             "description" : "JSON-LD @type.",
             "type" : "object",
             "properties" : {

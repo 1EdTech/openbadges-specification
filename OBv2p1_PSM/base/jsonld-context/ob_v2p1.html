@@ -30,7 +30,8 @@
         <h2><a name="toc">List of Classes</a></h2>
         <ul>
             <li><a href="#dtAlignmentObject">dtAlignmentObject</a></li>
-            <li><a href="#dtAssertion">dtAssertion</a></li>
+            <li><a href="#dtAssertionOrSignedAssertion">dtAssertionOrSignedAssertion</a></li>
+            <li><a href="#dtAssertions">dtAssertions</a></li>
             <li><a href="#dtAssertionsResponse">dtAssertionsResponse</a></li>
             <li><a href="#dtBadgeClass">dtBadgeClass</a></li>
             <li><a href="#dtClaim">dtClaim</a></li>
@@ -132,41 +133,10 @@
             <dt>targetCode</dt>
             <dd>If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl.</dd>
         </dl>
-        <h3><a name="dtAssertion">"dtAssertion" Class</a></h3>
-        <p>Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner.</p>
-            <p>The list and definition of the child properties is:-</p>
-        <dl class="jsonldcontext">
-            <dt>@context</dt>
-            <dd>JSON-LD context.</dd>
-            <dt>id</dt>
-            <dd>Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.</dd>
-            <dt>type</dt>
-            <dd>Valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string Assertion. An array including Assertion and other string elements that are either URLs or compact IRIs within the current context are allowed.</dd>
-            <dt>recipient</dt>
-            <dd>The recipient of the achievement.</dd>
-            <dt>badge</dt>
-            <dd>IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a BadgeClass.</dd>
-            <dt>verification</dt>
-            <dd>Instructions for third parties to verify this assertion. (Alias 'verify' may be used in context.)</dd>
-            <dt>issuedOn</dt>
-            <dd>Timestamp of when the achievement was awarded.</dd>
-            <dt>image</dt>
-            <dd>IRI or document representing an image representing this user’s achievement. This must be a PNG or SVG image, and should be prepared via the Baking specification. An ‘unbaked’ image for the badge is defined in the BadgeClass and should not be duplicated here.</dd>
-            <dt>evidence</dt>
-            <dd>IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.</dd>
-            <dt>narratrive</dt>
-            <dd>A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array.</dd>
-            <dt>expires</dt>
-            <dd>If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. After this time, the badge should be considered expired.</dd>
-            <dt>revoked</dt>
-            <dd>Defaults to false if Assertion is not referenced from a revokedAssertions list and may be omitted. See RevocationList. If revoked is true, only revoked and id are required properties, and many issuers strip a hosted Assertion down to only those properties when revoked.</dd>
-            <dt>revocationReason</dt>
-            <dd>Optional published reason for revocation, if revoked.</dd>
-            <dt>endorsement</dt>
-            <dd></dd>
-            <dt>extensions</dt>
-            <dd></dd>
-        </dl>
+        <h3><a name="dtAssertionOrSignedAssertion">"dtAssertionOrSignedAssertion" Class</a></h3>
+        <p>Can be an Assertion object or a JWT string representing a signed Assertion.</p>
+        <h3><a name="dtAssertions">"dtAssertions" Class</a></h3>
+        <p></p>
         <h3><a name="dtAssertionsResponse">"dtAssertionsResponse" Class</a></h3>
         <p>Responses from all APIs in this document are wrapped in a JSON envelope.</p>
             <p>The list and definition of the child properties is:-</p>

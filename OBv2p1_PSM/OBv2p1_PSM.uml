@@ -288,6 +288,7 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7uvFcFysEemEApipHzfrZQ" value="*"/>
         </ownedAttribute>
       </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_I7XZ0JntEemnAvA_WHueag" name="Assertions"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_VOUigFseEemah4rv1IhOJg" name="AssertionsResponse">
       <packagedElement xmi:type="uml:Class" xmi:id="_iEotoFseEemah4rv1IhOJg" name="AssertionsResponse">
@@ -301,13 +302,18 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_o2c_sFseEemah4rv1IhOJg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_o2h4MFseEemah4rv1IhOJg" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_pZpMUFseEemah4rv1IhOJg" name="results" visibility="private" type="_MqQPsFseEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_pZpMUFseEemah4rv1IhOJg" name="results" visibility="private" type="_pPfWkJnvEemnAvA_WHueag">
           <ownedComment xmi:type="uml:Comment" xmi:id="_pStGUFusEemah4rv1IhOJg">
             <body>A list of zero or more assertions responsive to the request.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sI8rMFseEemah4rv1IhOJg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sJBjsFseEemah4rv1IhOJg" value="*"/>
         </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_pPfWkJnvEemnAvA_WHueag" name="AssertionOrSignedAssertion">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_AaxxcJnwEemnAvA_WHueag">
+          <body>Can be an Assertion object or a JWT string representing a signed Assertion.</body>
+        </ownedComment>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_SGYZ0FshEemah4rv1IhOJg" name="DerivedTypes">
@@ -677,10 +683,12 @@
           <ownedComment xmi:type="uml:Comment" xmi:id="_ffb94F1LEemKA8ueSq5-Tg">
             <body>Create or update an Assertion.</body>
           </ownedComment>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_pg0YsF1KEemKA8ueSq5-Tg" name="assertion" type="_MqQPsFseEemah4rv1IhOJg">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_pg0YsF1KEemKA8ueSq5-Tg" name="assertions" type="_MqQPsFseEemah4rv1IhOJg">
             <ownedComment xmi:type="uml:Comment" xmi:id="_t5PVAF1LEemKA8ueSq5-Tg">
-              <body>The Assertion to be created or updated.</body>
+              <body>The Assertion to be created or updated. Data MUST be a list exactly one Assertion long.</body>
             </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QX__8JnsEemnAvA_WHueag" value="1"/>
+            <upperValue xmi:type="uml:LiteralString" xmi:id="_vaJCUJnsEemnAvA_WHueag" value="*"/>
           </ownedParameter>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_tb2D0F1KEemKA8ueSq5-Tg" name="response" type="_iEotoFseEemah4rv1IhOJg" direction="return"/>
         </ownedOperation>
@@ -1389,8 +1397,6 @@
   <DunelmUMLBasev1p0:Parameter xmi:id="_VdJ9cF1HEemKA8ueSq5-Tg" base_Class="_PwKlcF1HEemKA8ueSq5-Tg"/>
   <DunelmUMLBasev1p0:Operation xmi:id="_-xQiYF1IEemKA8ueSq5-Tg" base_Class="_5rFSwF1IEemKA8ueSq5-Tg"/>
   <DunelmUMLBasev1p0:Responses xmi:id="_LOPngF1JEemKA8ueSq5-Tg" base_Class="_HxfMwF1JEemKA8ueSq5-Tg"/>
-  <DunelmUMLBasev1p0:Update xmi:id="_IUxOEF1LEemKA8ueSq5-Tg" base_Operation="_YFoUMF1KEemKA8ueSq5-Tg"/>
-  <DunelmUMLBasev1p0:CreateBP xmi:id="_PB1jAF1LEemKA8ueSq5-Tg" base_Operation="_YFoUMF1KEemKA8ueSq5-Tg"/>
   <DunelmUMLBasev1p0:DataModel xmi:id="_Q7r3QHKZEemIM-6B0skAFA" base_Package="_IL8f8HKZEemIM-6B0skAFA"/>
   <DunelmUMLBasev1p0:Legend xmi:id="_XgN7QHKZEemIM-6B0skAFA" base_Class="_Sg2eQHKZEemIM-6B0skAFA"/>
   <DunelmUMLBasev1p0:Binding xmi:id="_Mdn7EHKaEemIM-6B0skAFA" base_Class="_KAmfAHKaEemIM-6B0skAFA"/>
@@ -1402,4 +1408,6 @@
   <DunelmUMLBasev1p0:DerivedType xmi:id="_hQZBgHNtEemIM-6B0skAFA" base_Class="_a_H3wHNtEemIM-6B0skAFA"/>
   <DunelmUMLBasev1p0:PrimitiveType xmi:id="_rlHZoHNtEemIM-6B0skAFA" base_Class="_nxKm4HNtEemIM-6B0skAFA"/>
   <DunelmUMLBasev1p0:PrimitiveType xmi:id="_iVwLMIyUEem_UKY2IsbfeQ" base_Class="_erW9EIyUEem_UKY2IsbfeQ"/>
+  <DunelmUMLBasev1p0:Update xmi:id="_uFDwoJnqEemnAvA_WHueag" base_Operation="_YFoUMF1KEemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:Unordered xmi:id="_zQndQJnvEemnAvA_WHueag" base_Class="_pPfWkJnvEemnAvA_WHueag"/>
 </xmi:XMI>
