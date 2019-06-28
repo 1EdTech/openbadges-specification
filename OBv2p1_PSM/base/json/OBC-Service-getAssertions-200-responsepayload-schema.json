@@ -6,28 +6,28 @@
     "type" : "object",
     "properties" : {
         "status" : {
-            "description" : "The 'status' property MUST appear on all responses.",
+            "description" : "...tbd (ComplexType property description)...",
             "$ref" : "#/definitions/StatusDType"
         },
         "results" : {
-            "description" : "A list of zero or more assertions responsive to the request.",
+            "description" : "Can be a list containing a combination of Assertion objects and JWT strings representing signed assertions in response to Assertion endpoints, or a set with only one Profile object in response to Profile endpoints.",
             "type" : "array",
-            "minItems" : 0,
+            "minItems" : 1,
             "items" : {
-                "$ref" : "#/definitions/AssertionOrSignedAssertionDType"
+                "$ref" : "#/definitions/AnyDType"
             }
         }
     },
-    "required" : [ "status" ],
+    "required" : [ "status","results" ],
     "additionalProperties" : false,
     "definitions" : {
-        "AssertionOrSignedAssertionDType" : {
-            "description" : "Can be an Assertion object or a JWT string representing a signed Assertion.",
+        "AnyDType" : {
+            "description" : "Generic object.",
             "type" : "object",
             "properties" : {
 
             },
-            "additionalProperties" : false
+            "additionalProperties" : true
         },
         "StatusDType" : {
             "description" : "Response status.",

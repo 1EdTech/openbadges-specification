@@ -95,7 +95,7 @@ paths:
                     description: |
                         This is the response when the request has been completed successfully.
                     schema: 
-                        $ref: "#/definitions/AssertionsResponseDType"
+                        $ref: "#/definitions/ResponseEnvelopeDType"
                 "400" : 
                     description: |
                         An invalid request was made.
@@ -142,7 +142,7 @@ paths:
                     description: |
                         The Assertion was updated successfully.
                     schema: 
-                        $ref: "#/definitions/AssertionsResponseDType"
+                        $ref: "#/definitions/ResponseEnvelopeDType"
                 "400" : 
                     description: |
                         An invalid request was made.
@@ -183,7 +183,7 @@ paths:
                     description: |
                         This is the response when the request has been completed successfully.
                     schema: 
-                        $ref: "#/definitions/ProfilesResponseDType"
+                        $ref: "#/definitions/ResponseEnvelopeDType"
                 "400" : 
                     description: |
                         An invalid request was made.
@@ -230,7 +230,7 @@ paths:
                     description: |
                         This is the response when the request has been completed successfully.
                     schema: 
-                        $ref: "#/definitions/ProfilesResponseDType"
+                        $ref: "#/definitions/ResponseEnvelopeDType"
                 "400" : 
                     description: |
                         An invalid request was made.
@@ -288,6 +288,12 @@ definitions:
                 description: If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl. Model Primitive Datatype = String.
                 type: string
         additionalProperties: false
+    AnyDType:
+        description: |
+            Generic object.
+        type: object
+        properties: {}
+        additionalProperties: true
     AssertionDType:
         description: |
             Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner.
@@ -347,29 +353,6 @@ definitions:
                 items: 
                     $ref: "#/definitions/EndorsementDType"
         additionalProperties: true
-    AssertionOrSignedAssertionDType:
-        description: |
-            Can be an Assertion object or a JWT string representing a signed Assertion.
-        type: object
-        properties: {}
-        additionalProperties: false
-    AssertionsResponseDType:
-        description: |
-            Responses from all APIs in this document are wrapped in a JSON envelope.
-        type: object
-        required: 
-            - status
-        properties: 
-            status: 
-                $ref: "#/definitions/StatusDType"
-            results: 
-                description: |
-                    A list of zero or more assertions responsive to the request.
-                type: array
-                minItems: 0
-                items: 
-                    $ref: "#/definitions/AssertionOrSignedAssertionDType"
-        additionalProperties: false
     BadgeClassDType:
         description: |
             A collection of information about the accomplishment recognized by the Open Badge.
@@ -617,22 +600,23 @@ definitions:
                 items: 
                     $ref: "#/definitions/EndorsementDType"
         additionalProperties: true
-    ProfilesResponseDType:
+    ResponseEnvelopeDType:
         description: |
-            Responses from all APIs in this document are wrapped in a JSON envelope.
+            ...not supplied...
         type: object
         required: 
             - status
+            - results
         properties: 
             status: 
                 $ref: "#/definitions/StatusDType"
             results: 
                 description: |
-                    A list of zero or more profiles responsive to the request.
+                    Can be a list containing a combination of Assertion objects and JWT strings representing signed assertions in response to Assertion endpoints, or a set with only one Profile object in response to Profile endpoints.
                 type: array
-                minItems: 0
+                minItems: 1
                 items: 
-                    $ref: "#/definitions/ProfileDType"
+                    $ref: "#/definitions/AnyDType"
         additionalProperties: false
     RevocationListDType:
         description: |

@@ -80,7 +80,7 @@
                     "200" : {
                         "description" : "This is the response when the request has been completed successfully.",
                         "schema" : {
-                            "$ref" : "#/definitions/AssertionsResponseDType"
+                            "$ref" : "#/definitions/ResponseEnvelopeDType"
                         }
                     },
                     "400" : {
@@ -135,7 +135,7 @@
                     "200" : {
                         "description" : "The Assertion was updated successfully.",
                         "schema" : {
-                            "$ref" : "#/definitions/AssertionsResponseDType"
+                            "$ref" : "#/definitions/ResponseEnvelopeDType"
                         }
                     },
                     "400" : {
@@ -181,7 +181,7 @@
                     "200" : {
                         "description" : "This is the response when the request has been completed successfully.",
                         "schema" : {
-                            "$ref" : "#/definitions/ProfilesResponseDType"
+                            "$ref" : "#/definitions/ResponseEnvelopeDType"
                         }
                     },
                     "400" : {
@@ -236,7 +236,7 @@
                     "200" : {
                         "description" : "This is the response when the request has been completed successfully.",
                         "schema" : {
-                            "$ref" : "#/definitions/ProfilesResponseDType"
+                            "$ref" : "#/definitions/ResponseEnvelopeDType"
                         }
                     },
                     "400" : {
@@ -302,6 +302,14 @@
             },
             "required" : [ "targetName","targetUrl" ],
             "additionalProperties" : false
+        },
+        "AnyDType" : {
+            "description" : "Generic object.",
+            "type" : "object",
+            "properties" : {
+
+            },
+            "additionalProperties" : true
         },
         "AssertionDType" : {
             "description" : "Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner.",
@@ -369,33 +377,6 @@
             },
             "required" : [ "@context","id","type","recipient","badge","verification","issuedOn" ],
             "additionalProperties" : true
-        },
-        "AssertionOrSignedAssertionDType" : {
-            "description" : "Can be an Assertion object or a JWT string representing a signed Assertion.",
-            "type" : "object",
-            "properties" : {
-
-            },
-            "additionalProperties" : false
-        },
-        "AssertionsResponseDType" : {
-            "description" : "Responses from all APIs in this document are wrapped in a JSON envelope.",
-            "type" : "object",
-            "properties" : {
-                "status" : {
-                    "$ref" : "#/definitions/StatusDType"
-                },
-                "results" : {
-                    "description" : "A list of zero or more assertions responsive to the request.",
-                    "type" : "array",
-                    "minItems" : 0,
-                    "items" : {
-                        "$ref" : "#/definitions/AssertionOrSignedAssertionDType"
-                    }
-                }
-            },
-            "required" : [ "status" ],
-            "additionalProperties" : false
         },
         "BadgeClassDType" : {
             "description" : "A collection of information about the accomplishment recognized by the Open Badge.",
@@ -690,23 +671,23 @@
             "required" : [ "id","type" ],
             "additionalProperties" : true
         },
-        "ProfilesResponseDType" : {
-            "description" : "Responses from all APIs in this document are wrapped in a JSON envelope.",
+        "ResponseEnvelopeDType" : {
+            "description" : "...tbd (Class description)...",
             "type" : "object",
             "properties" : {
                 "status" : {
                     "$ref" : "#/definitions/StatusDType"
                 },
                 "results" : {
-                    "description" : "A list of zero or more profiles responsive to the request.",
+                    "description" : "Can be a list containing a combination of Assertion objects and JWT strings representing signed assertions in response to Assertion endpoints, or a set with only one Profile object in response to Profile endpoints.",
                     "type" : "array",
-                    "minItems" : 0,
+                    "minItems" : 1,
                     "items" : {
-                        "$ref" : "#/definitions/ProfileDType"
+                        "$ref" : "#/definitions/AnyDType"
                     }
                 }
             },
-            "required" : [ "status" ],
+            "required" : [ "status","results" ],
             "additionalProperties" : false
         },
         "RevocationListDType" : {
