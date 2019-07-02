@@ -296,31 +296,64 @@ Pragma: no-cache
             service to their chosen Host. The user supplies the Relying Party with the Host domain
             authority or selects their Host from a list. The Relying Party MUST make a request to the Host's
             registrationUrl as declared in the Host's Badge Connect Manifest following the process
-            in [[!RFC7591]]. The Relying Party then MAY initiate an
-            authorization request by redirecting the user to the Host's authorizationUrl as
-            declared in the Host's Badge Connect Manifest. This HTTP GET request MUST have a
-            <code>redirect_uri</code> query string parameter with the absolute URI of the Relying Party's
-            redirection endpoint, urlencoded as well as a list of requested scopes from the options
-            available, according to the OAuth 2.0 Specification. The required <code>client_id</code>
-            parameter MUST be the client_id provided by the response to the registrationUrl endpoint.
+            in [[!RFC7591]].</p>
+          <p>The Relying Party then MAY initiate an authorization request as described in Section 4.2
+            of the IMS Security Framework [[SEC-10]] by redirecting the user to the Host's authorizationUrl as
+            declared in the Host's Badge Connect Manifest. This HTTP GET request MUST include the following
+            query parameters:
+            <dl>
+                <dt>response_type</dt>
+                <dd>Value MUST be set to "code".</dd>
+                <dt>client_id</dt>
+                <dd>The client identifier.</dd>
+                <dt>redirect_uri</dt>
+                <dd>The relying party's redirection endpoint.</dd>
+                <dt>scope</dt>
+                <dd>The scope of the access request.</dd>
+                <dt>state</dt>
+                <dd>An opaque value used by the client to maintain state between the request and callback.</dd>
+                <dt>code_challenge</dt>
+                <dd>This is BASE64URL-ENCODE(SHA256(ASCII(code_verifier))).</dd>
+                <dt>code_challenge_method</dt>
+                <dd>This MUST have a value of S256 i.e. the SHA256 code verifier transformation method is used.</dd>
+            </dl>
+            The required <code>client_id</code> parameter MUST be the <code>client_id</code> provided by the response 
+            to the registrationUrl endpoint.
           </p>
 
           <p>If the Host does not recognize the Relying Party's redirection endpoint from a prior
             connection with this Relying Party, the Host SHOULD throw an error specifying that
             the redirection endpoint is not applicable to any registered client and registration
-            should be made before proceeding. If the redirect_uri matches the known client_id,
+            should be made before proceeding. If the <code>redirect_uri</code> matches the known 
+            <code>client_id</code>,
             the Host MAY honor the request to present the
             user or resource owner with the option to authorize the request. If the Host recognizes
             the Relying Party, the Host MAY skip the need to register the client again.
             If the user authorizes the Relying Party to access their resources with the
-            requested scopes, the Host MUST redirect the user back to the redirect_uri with a
-            <code>code</code> query string parameter.
+            requested scopes, the Host MUST redirect the user back to the <code>redirect_uri</code> 
+            with a <code>code</code> query string parameter.
           </p>
 
           <p>With the supplied code, the Relying Party SHOULD attempt to exchange the code for a
             token. The Relying Party makes an authorization grant POST request to the Host's
-            tokenUrl, as declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a>.</p>
-            <p>An example token request:</p>
+            tokenUrl, as declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a>.
+            The HTTP POST request MUST include a Basic authorization header with the <code>client_id</code>
+            and <code>client_secret</code> provided by the response to the registrationUrl endpoint.
+            The body of the request MUST include the following form fields:
+            <dl>
+                <dt>grant_type</dt>
+                <dd>Value MUST be set to "authorization_code".</dd>
+                <dt>code</dt>
+                <dd>The authorization code received from the authorization server.</dd>
+                <dt>redirect_uri</dt>
+                <dd>The relying party's redirection endpoint.</dd>
+                <dt>scope</dt>
+                <dd>The scope of the access request.</dd>
+                <dt>code_verifier</dt>
+                <dd>The code verifier.</dd>
+            </dl>
+          </p>
+          <p>An example token request:</p>
 <pre><code>POST /badge/connect/auth/token HTTP/1.1
 Host: www.example.com
 Authorization: Basic QkFER0VDT05ORUNUX3M2QmhkUmtxdDM6Y3paQ2FHUlNhM0YwTXpvM1JtcG1jREJhUW5JeFMzUkVVbUp1Wmxaa2JVbDM=
