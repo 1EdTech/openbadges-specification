@@ -31,12 +31,15 @@
             "flow" : "application",
             "tokenUrl" : "http://www.imsglobal.org",
             "scopes" : {
-
+                "https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.create" : "",
+                "https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.readonly" : "",
+                "https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.readonly" : "",
+                "https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.update" : ""
             }
         }
     },
     "security" : [
-        { "OAuth2Security" : [  ] }
+        { "OAuth2Security" : [ "https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.create","https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.readonly","https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.readonly","https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.update" ] }
     ],
     "paths" : {
         "/assertions" : {
