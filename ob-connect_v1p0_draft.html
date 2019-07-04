@@ -299,26 +299,26 @@ Pragma: no-cache
             in [[!RFC7591]].</p>
           <p>The Relying Party then MAY initiate an authorization request as described in Section 4.2
             of the IMS Security Framework [[SEC-10]] by redirecting the user to the Host's authorizationUrl as
-            declared in the Host's Badge Connect Manifest. This HTTP GET request includes the following
+            declared in the Host's Badge Connect Manifest. This HTTP GET request MUST include the following
             query parameters:
             <dl>
                 <dt>response_type</dt>
-                <dd>REQUIRED. Value MUST be set to "code".</dd>
+                <dd>Value MUST be set to "code".</dd>
                 <dt>client_id</dt>
-                <dd>REQUIRED. The client identifier.</dd>
+                <dd>The client identifier.</dd>
                 <dt>redirect_uri</dt>
-                <dd>OPTIONAL. The relying party's redirection endpoint.</dd>
+                <dd>The relying party's redirection endpoint.</dd>
                 <dt>scope</dt>
-                <dd>REQUIRED. The scope of the access request.</dd>
+                <dd>The scope of the access request.</dd>
                 <dt>state</dt>
-                <dd>REQUIRED. An opaque value used by the client to maintain state between the request and callback.</dd>
+                <dd>An opaque value used by the client to maintain state between the request and callback.</dd>
                 <dt>code_challenge</dt>
-                <dd>REQUIRED. This is BASE64URL-ENCODE(SHA256(ASCII(code_verifier))).</dd>
+                <dd>This is BASE64URL-ENCODE(SHA256(ASCII(code_verifier))).</dd>
                 <dt>code_challenge_method</dt>
-                <dd>REQUIRED. This MUST have a value of S256 i.e. the SHA256 code verifier transformation method is used.</dd>
+                <dd>This MUST have a value of S256 i.e. the SHA256 code verifier transformation method is used.</dd>
             </dl>
             The required <code>client_id</code> parameter MUST be the <code>client_id</code> provided by the response 
-            to the registrationUrl endpoint. 
+            to the registrationUrl endpoint.
           </p>
 
           <p>If the Host does not recognize the Relying Party's redirection endpoint from a prior
