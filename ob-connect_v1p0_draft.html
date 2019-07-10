@@ -318,6 +318,18 @@ Pragma: no-cache
             parameter MUST be the client_id provided by the response to the registrationUrl endpoint.
           </p>
 
+          <p>An example authorization request (line breaks for display purposes only):</p>
+<pre><code>GET /authorize?
+response_type=code
+&client_id=BADGECONNECT_s6BhdRkqt3
+&state=xyzjklabc
+&scope=SPACE_SEPARATED_STRING_OF_REQUESTED_SCOPES
+&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM
+&code_challange_method=S256
+&redirect_uri=https%3A%2F%2Fbadgehost.example.com%2Fo%2Fredirect HTTP/1.1
+Host: www.example.com
+</code></pre>
+
           <p>If the Host does not recognize the Relying Party's redirection endpoint from a prior
             connection with this Relying Party, the Host SHOULD throw an error specifying that
             the redirection endpoint is not applicable to any registered client and registration
@@ -332,7 +344,8 @@ Pragma: no-cache
 
           <p>With the supplied code, the Relying Party SHOULD attempt to exchange the code for a
             token. The Relying Party makes an authorization grant POST request to the Host's
-            tokenUrl, as declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a>.</p>
+            tokenUrl, as declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a>.
+          </p>
             <p>An example token request:</p>
 <pre><code>POST /badge/connect/auth/token HTTP/1.1
 Host: www.example.com
