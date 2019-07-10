@@ -169,62 +169,75 @@ Host: badge-host.example.com
   "scope": "YOUR_REQUESTED_SPACE_SEPARATED_LIST_OF_SCOPES"
 }
 </code></pre>
-          <p>The properties of the JSON body MUST be implemented as described in the following table. All listed properties MUST be present in the registration request in order for it to be accepted by the Host.</p>
+          <p>The properties of the JSON body MUST be implemented as described in the following table. All required properties MUST be present in the registration request in order for it to be accepted by the Host.</p>
           <table title="Properties in the client registration request">
             <thead>
               <tr>
                 <td>Name</td>
+                <td>Required</td>
                 <td>Description</td>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>client_name</td>
+                <td>Yes</td>
                 <td>The human-readable name of the Relying Party.</td>
               </tr>
               <tr>
                 <td>client_uri</td>
+                <td>Yes</td>
                 <td>A page that which describes the Relying Party.</td>
               </tr>
               <tr>
                 <td>logo_uri</td>
+                <td>Yes</td>
                 <td>The logo of the Relying Party.</td>
               </tr>
               <tr>
                 <td>tos_uri</td>
+                <td>Yes</td>
                 <td>The Terms of Service of the Relying Party.</td>
               </tr>
               <tr>
                 <td>policy_uri</td>
+                <td>Yes</td>
                 <td>The Privacy Policy of the Relying Party.</td>
               </tr>
               <tr>
                 <td>software_id</td>
+                <td>Yes</td>
                 <td>A unique idenfitier assigned by the client developer. As described in [[!RFC7591]], it SHOULD remain the same for all instances of the client software.</td>
               </tr>
               <tr>
                 <td>software_version</td>
+                <td>Yes</td>
                 <td>A version identifier string for the client software. The value SHOULD change on any update to the client software.</td>
               </tr>
               <tr>
                 <td>redirect_uris</td>
+                <td>Yes</td>
                 <td>Array of redirection URI strings for use in the Oauth 2.0 flow.</td>
               </tr>
               <tr>
                 <td>token_endpoint_auth_method</td>
-                <td>String indicator of the requested authentication method for the token endpoint, the value MUST be <code>client_secret_basic</code>.</td>
+                <td>No</td>
+                <td>String indicator of the requested authentication method for the token endpoint. If omitted the default value is <code>client_secret_basic</code>.</td>
               </tr>
               <tr>
                 <td>grant_types</td>
-                <td>Array of Oauth 2.0 grant type strings. The values MUST include <code>authorization_code</code> and <code>refresh_token</code>.</td>
+                <td>No</td>
+                <td>Array of Oauth 2.0 grant type strings. If omitted, the default behavior is that the client will use only the <code>authorization_code</code> Grant Type.</td>
               </tr>
               <tr>
                 <td>response_types</td>
-                <td>Array of Oauth 2.0 response type strings. The values MUST include <code>code</code>.</td>
+                <td>No</td>
+                <td>Array of Oauth 2.0 response type strings. If omitted, the default is that the client will use only the <code>code</code> response type.</td>
               </tr>
               <tr>
                 <td>scope</td>
-                <td>String containing a space-separated list of scope values that this client is permitted to use when requesting access tokens.</td>
+                <td>No</td>
+                <td>String containing a space-separated list of scope values that this client is permitted to use when requesting access tokens. If omitted, the Host MAY register a client with a default set of scopes.</td>
               </tr>
             </tbody>
           </table>
