@@ -30,8 +30,8 @@
         <h2><a name="toc">List of Classes</a></h2>
         <ul>
             <li><a href="#dtAlignmentObject">dtAlignmentObject</a></li>
-            <li><a href="#dtAssertion">dtAssertion</a></li>
-            <li><a href="#dtAssertionsResponse">dtAssertionsResponse</a></li>
+            <li><a href="#dtAny">dtAny</a></li>
+            <li><a href="#dtAssertions">dtAssertions</a></li>
             <li><a href="#dtBadgeClass">dtBadgeClass</a></li>
             <li><a href="#dtClaim">dtClaim</a></li>
             <li><a href="#dtCriteria">dtCriteria</a></li>
@@ -44,8 +44,7 @@
             <li><a href="#dtImage">dtImage</a></li>
             <li><a href="#dtJSON-LD Type">dtJSON-LD Type</a></li>
             <li><a href="#dtMarkdown Text">dtMarkdown Text</a></li>
-            <li><a href="#dtProfile">dtProfile</a></li>
-            <li><a href="#dtProfilesResponse">dtProfilesResponse</a></li>
+            <li><a href="#dtResponseEnvelope">dtResponseEnvelope</a></li>
             <li><a href="#dtRevocationList">dtRevocationList</a></li>
             <li><a href="#dtStatus">dtStatus</a></li>
             <li><a href="#dtURL">dtURL</a></li>
@@ -132,50 +131,15 @@
             <dt>targetCode</dt>
             <dd>If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl.</dd>
         </dl>
-        <h3><a name="dtAssertion">"dtAssertion" Class</a></h3>
-        <p>Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner.</p>
+        <h3><a name="dtAny">"dtAny" Class</a></h3>
+        <p>Generic object.</p>
             <p>The list and definition of the child properties is:-</p>
         <dl class="jsonldcontext">
-            <dt>@context</dt>
-            <dd>JSON-LD context.</dd>
-            <dt>id</dt>
-            <dd>Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.</dd>
-            <dt>type</dt>
-            <dd>Valid JSON-LD representation of the Assertion type. In most cases, this will simply be the string Assertion. An array including Assertion and other string elements that are either URLs or compact IRIs within the current context are allowed.</dd>
-            <dt>recipient</dt>
-            <dd>The recipient of the achievement.</dd>
-            <dt>badge</dt>
-            <dd>IRI or document that describes the type of badge being awarded. If an HTTP/HTTPS IRI The endpoint should be a BadgeClass.</dd>
-            <dt>verification</dt>
-            <dd>Instructions for third parties to verify this assertion. (Alias 'verify' may be used in context.)</dd>
-            <dt>issuedOn</dt>
-            <dd>Timestamp of when the achievement was awarded.</dd>
-            <dt>image</dt>
-            <dd>IRI or document representing an image representing this user’s achievement. This must be a PNG or SVG image, and should be prepared via the Baking specification. An ‘unbaked’ image for the badge is defined in the BadgeClass and should not be duplicated here.</dd>
-            <dt>evidence</dt>
-            <dd>IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.</dd>
-            <dt>narratrive</dt>
-            <dd>A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array.</dd>
-            <dt>expires</dt>
-            <dd>If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. After this time, the badge should be considered expired.</dd>
-            <dt>revoked</dt>
-            <dd>Defaults to false if Assertion is not referenced from a revokedAssertions list and may be omitted. See RevocationList. If revoked is true, only revoked and id are required properties, and many issuers strip a hosted Assertion down to only those properties when revoked.</dd>
-            <dt>revocationReason</dt>
-            <dd>Optional published reason for revocation, if revoked.</dd>
-            <dt>endorsement</dt>
-            <dd></dd>
             <dt>extensions</dt>
             <dd></dd>
         </dl>
-        <h3><a name="dtAssertionsResponse">"dtAssertionsResponse" Class</a></h3>
-        <p>Responses from all APIs in this document are wrapped in a JSON envelope.</p>
-            <p>The list and definition of the child properties is:-</p>
-        <dl class="jsonldcontext">
-            <dt>status</dt>
-            <dd>The 'status' property MUST appear on all responses.</dd>
-            <dt>results</dt>
-            <dd>A list of zero or more assertions responsive to the request.</dd>
-        </dl>
+        <h3><a name="dtAssertions">"dtAssertions" Class</a></h3>
+        <p></p>
         <h3><a name="dtBadgeClass">"dtBadgeClass" Class</a></h3>
         <p>A collection of information about the accomplishment recognized by the Open Badge.</p>
             <p>The list and definition of the child properties is:-</p>
@@ -319,45 +283,14 @@
         <p></p>
         <h3><a name="dtMarkdown Text">"dtMarkdown Text" Class</a></h3>
         <p>Text that may contain formatting according to Markdown syntax. Due to uneven support in displayers, publishers are encouraged to limit usage to simple elements like links, emphasis, and lists. Displayers may choose a subset of Markdown formatting to support or how to render this field. Images and tables may or may not be supported.</p>
-        <h3><a name="dtProfile">"dtProfile" Class</a></h3>
-        <p>A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address. An Issuer Profile is a subclass of the general Profile with some additional requirements.</p>
-            <p>The list and definition of the child properties is:-</p>
-        <dl class="jsonldcontext">
-            <dt>id</dt>
-            <dd>Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs.</dd>
-            <dt>type</dt>
-            <dd>Valid JSON-LD representation of the Issuer or Profile type. In most cases, this will simply be the string Issuer or the more general Profile. An array including Issuer and other string elements that are either URLs or compact IRIs within the current context are allowed.</dd>
-            <dt>name</dt>
-            <dd>The name of the entity or organization.</dd>
-            <dt>url</dt>
-            <dd>The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP.</dd>
-            <dt>telephone</dt>
-            <dd>A phone number for the entity. For maximum compatibility, the value should be expressed as a + and country code followed by the number with no spaces or other punctuation, like +16175551212 (E.164 format).</dd>
-            <dt>description</dt>
-            <dd>A short description of the issuer entity or organization.</dd>
-            <dt>image</dt>
-            <dd>An image representing the issuer. May be a Data URI, or URI where the image may be found or an instance of the Image class.</dd>
-            <dt>email</dt>
-            <dd>Contact address for the individual or organization.</dd>
-            <dt>publicKey</dt>
-            <dd>The key(s) an issuer uses to sign Assertions.</dd>
-            <dt>verification</dt>
-            <dd>Instructions for how to verify Assertions published by this Profile.</dd>
-            <dt>revocationList</dt>
-            <dd>HTTP URI of the Badge Revocation List used for marking revocation of signed badges.</dd>
-            <dt>endorsement</dt>
-            <dd></dd>
-            <dt>extensions</dt>
-            <dd></dd>
-        </dl>
-        <h3><a name="dtProfilesResponse">"dtProfilesResponse" Class</a></h3>
-        <p>Responses from all APIs in this document are wrapped in a JSON envelope.</p>
+        <h3><a name="dtResponseEnvelope">"dtResponseEnvelope" Class</a></h3>
+        <p></p>
             <p>The list and definition of the child properties is:-</p>
         <dl class="jsonldcontext">
             <dt>status</dt>
-            <dd>The 'status' property MUST appear on all responses.</dd>
+            <dd></dd>
             <dt>results</dt>
-            <dd>A list of zero or more profiles responsive to the request.</dd>
+            <dd>Can be a list containing a combination of Assertion objects and JWT strings representing signed assertions in response to Assertion endpoints, or a set with only one Profile object in response to Profile endpoints.</dd>
         </dl>
         <h3><a name="dtRevocationList">"dtRevocationList" Class</a></h3>
         <p>The Revocation List is a document that describes badges an Issuer has revoked that used the signed verification method.</p>
@@ -479,6 +412,8 @@
         <h3><a name="extensions">"extensions" Property</a></h3>
             <p>This property is used in the following classes:-</p>
         <dl class="jsonldcontext">
+            <dt><a href="#dtAny">dtAny</a> Class</dt>
+            <dd></dd>
             <dt><a href="#dtAssertion">dtAssertion</a> Class</dt>
             <dd></dd>
             <dt><a href="#dtBadgeClass">dtBadgeClass</a> Class</dt>
@@ -549,7 +484,7 @@
         <h3><a name="related">"related" Property</a></h3>
             <p></p>
         <h3><a name="results">"results" Property</a></h3>
-            <p>A list of zero or more assertions responsive to the request.</p>
+            <p>Can be a list containing a combination of Assertion objects and JWT strings representing signed assertions in response to Assertion endpoints, or a set with only one Profile object in response to Profile endpoints.</p>
         <h3><a name="revocationList">"revocationList" Property</a></h3>
             <p>HTTP URI of the Badge Revocation List used for marking revocation of signed badges.</p>
         <h3><a name="revocationReason">"revocationReason" Property</a></h3>
@@ -579,7 +514,7 @@
             <dd>The URI fragment that the verification property must start with.</dd>
         </dl>
         <h3><a name="status">"status" Property</a></h3>
-            <p>The 'status' property MUST appear on all responses.</p>
+            <p></p>
         <h3><a name="statusCode">"statusCode" Property</a></h3>
             <p>This property is used in the following classes:-</p>
         <dl class="jsonldcontext">

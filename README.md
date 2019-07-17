@@ -5,7 +5,7 @@ This is the repository for the IMS Global Badge Connect API specification. This 
 
 _Chairs:_ Alex Hripak (Credly)
 
-_Staff:_ Jeff Bohrer (IMS), Markus Gylling (IMS)
+_Staff:_ Jeff Bohrer (IMS), Andy Miller (IMS)
 
 _Forum:_ https://www.imsglobal.org/content/open-badges-workgroup
 

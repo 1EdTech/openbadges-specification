@@ -27,16 +27,19 @@
     "securityDefinitions" : {
         "OAuth2Security" : {
             "type" : "oauth2",
-            "description" : "The standard usage of OAuth 2.0 by IMS Global",
+            "description" : "The standard usage of OAuth 2.0 Client Credentials by IMS Global",
             "flow" : "application",
             "tokenUrl" : "http://www.imsglobal.org",
             "scopes" : {
-                "user" : "All Endpoints"
+                "https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.create" : "",
+                "https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.readonly" : "",
+                "https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.readonly" : "",
+                "https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.update" : ""
             }
         }
     },
     "security" : [
-        { "OAuth2Security" : [ "user" ] }
+        { "OAuth2Security" : [ "https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.create","https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.readonly","https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.readonly","https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.update" ] }
     ],
     "paths" : {
         "/assertions" : {
@@ -80,31 +83,31 @@
                     "200" : {
                         "description" : "This is the response when the request has been completed successfully.",
                         "schema" : {
-                            "$ref" : "#/definitions/AssertionsResponse.Type"
+                            "$ref" : "#/definitions/ResponseEnvelopeDType"
                         }
                     },
                     "400" : {
                         "description" : "An invalid request was made.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "401" : {
                         "description" : "The request was not correctly authorized.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "404" : {
                         "description" : "The requested resource does not exist.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "405" : {
                         "description" : "This method is not allowed on the endpoint.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "500" : {
@@ -122,12 +125,12 @@
                 "description" : "Create or update an Assertion.",
                 "parameters" : [
                     {
-                        "name" : "assertion",
+                        "name" : "assertions",
                         "in" : "body",
-                        "description" : "The Assertion to be created or updated.",
+                        "description" : "The Assertion to be created or updated. Data MUST be a list exactly one Assertion long.",
                         "required" : true,
                         "schema" : {
-                            "$ref" : "#/definitions/Assertion.Type"
+                            "$ref" : "#/definitions/AssertionDType"
                         }
                     }
                 ],
@@ -135,37 +138,31 @@
                     "200" : {
                         "description" : "The Assertion was updated successfully.",
                         "schema" : {
-                            "$ref" : "#/definitions/AssertionsResponse.Type"
-                        }
-                    },
-                    "201" : {
-                        "description" : "The Assertion was created successfully.",
-                        "schema" : {
-                            "$ref" : "#/definitions/AssertionsResponse.Type"
+                            "$ref" : "#/definitions/ResponseEnvelopeDType"
                         }
                     },
                     "400" : {
                         "description" : "An invalid request was made.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "401" : {
                         "description" : "The request was not correctly authorized.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "404" : {
                         "description" : "The requested resource does not exist.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "405" : {
                         "description" : "This method is not allowed on the endpoint.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "500" : {
@@ -187,31 +184,31 @@
                     "200" : {
                         "description" : "This is the response when the request has been completed successfully.",
                         "schema" : {
-                            "$ref" : "#/definitions/ProfilesResponse.Type"
+                            "$ref" : "#/definitions/ResponseEnvelopeDType"
                         }
                     },
                     "400" : {
                         "description" : "An invalid request was made.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "401" : {
                         "description" : "The request was not correctly authorized.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "404" : {
                         "description" : "The requested resource does not exist.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "405" : {
                         "description" : "This method is not allowed on the endpoint.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "500" : {
@@ -234,7 +231,7 @@
                         "description" : "The authenticated user's profile.",
                         "required" : true,
                         "schema" : {
-                            "$ref" : "#/definitions/Profile.Type"
+                            "$ref" : "#/definitions/ProfileDType"
                         }
                     }
                 ],
@@ -242,31 +239,31 @@
                     "200" : {
                         "description" : "This is the response when the request has been completed successfully.",
                         "schema" : {
-                            "$ref" : "#/definitions/ProfilesResponse.Type"
+                            "$ref" : "#/definitions/ResponseEnvelopeDType"
                         }
                     },
                     "400" : {
                         "description" : "An invalid request was made.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "401" : {
                         "description" : "The request was not correctly authorized.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "404" : {
                         "description" : "The requested resource does not exist.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "405" : {
                         "description" : "This method is not allowed on the endpoint.",
                         "schema" : {
-                            "$ref" : "#/definitions/ErrorResponse.Type"
+                            "$ref" : "#/definitions/ErrorResponseDType"
                         }
                     },
                     "500" : {
@@ -280,7 +277,7 @@
         }
     },
     "definitions" : {
-        "AlignmentObject.Type" : {
+        "AlignmentObjectDType" : {
             "description" : "The AlignmentObject is an alias for schema.org’s AlignmentObject and uses IRIs from that vocabulary.",
             "type" : "object",
             "properties" : {
@@ -309,27 +306,35 @@
             "required" : [ "targetName","targetUrl" ],
             "additionalProperties" : false
         },
-        "Assertion.Type" : {
+        "AnyDType" : {
+            "description" : "Generic object.",
+            "type" : "object",
+            "properties" : {
+
+            },
+            "additionalProperties" : true
+        },
+        "AssertionDType" : {
             "description" : "Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner.",
             "type" : "object",
             "properties" : {
                 "@context" : {
-                    "$ref" : "#/definitions/context.Type"
+                    "$ref" : "#/definitions/contextDType"
                 },
                 "id" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "type" : {
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "recipient" : {
-                    "$ref" : "#/definitions/IdentityObject.Type"
+                    "$ref" : "#/definitions/IdentityObjectDType"
                 },
                 "badge" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "verification" : {
-                    "$ref" : "#/definitions/VerificationObject.Type"
+                    "$ref" : "#/definitions/VerificationObjectDType"
                 },
                 "issuedOn" : {
                     "description" : "Model Primitive Datatype = DateTime. Timestamp of when the achievement was awarded.",
@@ -337,14 +342,14 @@
                     "format" : "date-time"
                 },
                 "image" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "evidence" : {
                     "description" : "IRI or document describing the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.",
                     "type" : "array",
                     "minItems" : 0,
                     "items" : {
-                        "$ref" : "#/definitions/id.Type"
+                        "$ref" : "#/definitions/idDType"
                     }
                 },
                 "narratrive" : {
@@ -369,41 +374,22 @@
                     "type" : "array",
                     "minItems" : 0,
                     "items" : {
-                        "$ref" : "#/definitions/Endorsement.Type"
+                        "$ref" : "#/definitions/EndorsementDType"
                     }
                 }
             },
             "required" : [ "@context","id","type","recipient","badge","verification","issuedOn" ],
             "additionalProperties" : true
         },
-        "AssertionsResponse.Type" : {
-            "description" : "Responses from all APIs in this document are wrapped in a JSON envelope.",
-            "type" : "object",
-            "properties" : {
-                "status" : {
-                    "$ref" : "#/definitions/Status.Type"
-                },
-                "results" : {
-                    "description" : "A list of zero or more assertions responsive to the request.",
-                    "type" : "array",
-                    "minItems" : 0,
-                    "items" : {
-                        "$ref" : "#/definitions/Assertion.Type"
-                    }
-                }
-            },
-            "required" : [ "status" ],
-            "additionalProperties" : false
-        },
-        "BadgeClass.Type" : {
+        "BadgeClassDType" : {
             "description" : "A collection of information about the accomplishment recognized by the Open Badge.",
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "type" : {
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "name" : {
                     "description" : "Model Primitive Datatype = String. The name of the achievement.",
@@ -414,20 +400,20 @@
                     "type" : "string"
                 },
                 "image" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "criteria" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "issuer" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "alignment" : {
                     "description" : "An object describing which objectives or educational standards this badge aligns to, if any.",
                     "type" : "array",
                     "minItems" : 0,
                     "items" : {
-                        "$ref" : "#/definitions/AlignmentObject.Type"
+                        "$ref" : "#/definitions/AlignmentObjectDType"
                     }
                 },
                 "tags" : {
@@ -443,7 +429,7 @@
                     "type" : "array",
                     "minItems" : 0,
                     "items" : {
-                        "$ref" : "#/definitions/BadgeClass.Type"
+                        "$ref" : "#/definitions/BadgeClassDType"
                     }
                 },
                 "version" : {
@@ -455,22 +441,22 @@
                     "type" : "array",
                     "minItems" : 0,
                     "items" : {
-                        "$ref" : "#/definitions/Endorsement.Type"
+                        "$ref" : "#/definitions/EndorsementDType"
                     }
                 }
             },
             "required" : [ "id","type","name","description","image","criteria","issuer" ],
             "additionalProperties" : true
         },
-        "Claim.Type" : {
+        "ClaimDType" : {
             "description" : "The claim the endorser is making.",
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "type" : {
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "endorsementComment" : {
                     "description" : "Model Primitive Datatype = String. The simple claim the endorser is making about the entity.",
@@ -480,15 +466,15 @@
             "required" : [ "id","endorsementComment" ],
             "additionalProperties" : true
         },
-        "Criteria.Type" : {
+        "CriteriaDType" : {
             "description" : "Descriptive metadata about the achievements necessary to be recognized with an Assertion of a particular BadgeClass.",
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "type" : {
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "narrative" : {
                     "description" : "Model Primitive Datatype = String. A narrative of what is needed to earn the badge.",
@@ -497,18 +483,18 @@
             },
             "additionalProperties" : false
         },
-        "CryptographicKey.Type" : {
+        "CryptographicKeyDType" : {
             "description" : "Alias for the Key class from the W3C Web Payments Community Group Security Vocabulary. A CryptographicKey document identifies and describes a Key used for signing Open Badges documents.",
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "type" : {
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "owner" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "publicKeyPem" : {
                     "description" : "Model Primitive Datatype = String. The PEM key encoding is a widely-used method to express public keys, compatible with almost every Secure Sockets Layer library implementation.",
@@ -517,21 +503,21 @@
             },
             "additionalProperties" : false
         },
-        "Endorsement.Type" : {
+        "EndorsementDType" : {
             "description" : "...tbd (Class description)...",
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "type" : {
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "claim" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "issuer" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "issuedOn" : {
                     "description" : "Model Primitive Datatype = DateTime. Timestamp of when the endorsement was published.",
@@ -539,32 +525,32 @@
                     "format" : "date-time"
                 },
                 "verification" : {
-                    "$ref" : "#/definitions/VerificationObject.Type"
+                    "$ref" : "#/definitions/VerificationObjectDType"
                 }
             },
             "required" : [ "id","type","issuer","issuedOn","verification" ],
             "additionalProperties" : false
         },
-        "ErrorResponse.Type" : {
+        "ErrorResponseDType" : {
             "description" : "...tbd (Class description)...",
             "type" : "object",
             "properties" : {
                 "status" : {
-                    "$ref" : "#/definitions/Status.Type"
+                    "$ref" : "#/definitions/StatusDType"
                 }
             },
             "required" : [ "status" ],
             "additionalProperties" : false
         },
-        "Evidence.Type" : {
+        "EvidenceDType" : {
             "description" : "Descriptive metadata about evidence related to the issuance of an Assertion.",
             "type" : "object",
             "properties" : {
                 "type" : {
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "id" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "narrative" : {
                     "description" : "Model Primitive Datatype = String. A narrative that describes the evidence and process of achievement that led to an Assertion.",
@@ -589,7 +575,7 @@
             },
             "additionalProperties" : false
         },
-        "IdentityObject.Type" : {
+        "IdentityObjectDType" : {
             "description" : "A collection of information about the recipient of a badge.",
             "type" : "object",
             "properties" : {
@@ -598,7 +584,7 @@
                     "type" : "string"
                 },
                 "type" : {
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "hashed" : {
                     "description" : "Model Primitive Datatype = Boolean. Whether or not the identity value is hashed.",
@@ -612,36 +598,36 @@
             "required" : [ "identity","type","hashed" ],
             "additionalProperties" : false
         },
-        "Image.Type" : {
+        "ImageDType" : {
             "description" : "Metadata about images that represent Assertions, BadgeClasses or Profiles.",
             "type" : "object",
             "properties" : {
                 "type" : {
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "id" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "caption" : {
                     "description" : "Model Primitive Datatype = String. The caption for the image.",
                     "type" : "string"
                 },
                 "author" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 }
             },
             "required" : [ "id" ],
             "additionalProperties" : false
         },
-        "Profile.Type" : {
+        "ProfileDType" : {
             "description" : "A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address. An Issuer Profile is a subclass of the general Profile with some additional requirements.",
             "type" : "object",
             "properties" : {
                 "id" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "type" : {
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "name" : {
                     "description" : "Model Primitive Datatype = String. The name of the entity or organization.",
@@ -661,78 +647,78 @@
                     "type" : "string"
                 },
                 "image" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "email" : {
                     "description" : "Model Primitive Datatype = String. Contact address for the individual or organization.",
                     "type" : "string"
                 },
                 "publicKey" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "verification" : {
-                    "$ref" : "#/definitions/VerificationObject.Type"
+                    "$ref" : "#/definitions/VerificationObjectDType"
                 },
                 "revocationList" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "endorsement" : {
                     "description" : "...tbd (ComplexType property description)...",
                     "type" : "array",
                     "minItems" : 0,
                     "items" : {
-                        "$ref" : "#/definitions/Endorsement.Type"
+                        "$ref" : "#/definitions/EndorsementDType"
                     }
                 }
             },
             "required" : [ "id","type" ],
             "additionalProperties" : true
         },
-        "ProfilesResponse.Type" : {
-            "description" : "Responses from all APIs in this document are wrapped in a JSON envelope.",
+        "ResponseEnvelopeDType" : {
+            "description" : "...tbd (Class description)...",
             "type" : "object",
             "properties" : {
                 "status" : {
-                    "$ref" : "#/definitions/Status.Type"
+                    "$ref" : "#/definitions/StatusDType"
                 },
                 "results" : {
-                    "description" : "A list of zero or more profiles responsive to the request.",
+                    "description" : "Can be a list containing a combination of Assertion objects and JWT strings representing signed assertions in response to Assertion endpoints, or a set with only one Profile object in response to Profile endpoints.",
                     "type" : "array",
-                    "minItems" : 0,
+                    "minItems" : 1,
                     "items" : {
-                        "$ref" : "#/definitions/Profile.Type"
+                        "$ref" : "#/definitions/AnyDType"
                     }
                 }
             },
-            "required" : [ "status" ],
+            "required" : [ "status","results" ],
             "additionalProperties" : false
         },
-        "RevocationList.Type" : {
+        "RevocationListDType" : {
             "description" : "The Revocation List is a document that describes badges an Issuer has revoked that used the signed verification method.",
             "type" : "object",
             "properties" : {
                 "type" : {
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "id" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "issuer" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "revokedAssertions" : {
                     "description" : "A string id or UID-based identification of a badge object that has been revoked.",
                     "type" : "array",
                     "minItems" : 1,
                     "items" : {
-                        "$ref" : "#/definitions/id.Type"
+                        "$ref" : "#/definitions/idDType"
                     }
                 }
             },
             "required" : [ "type","revokedAssertions" ],
             "additionalProperties" : false
         },
-        "Status.Type" : {
+        "StatusDType" : {
             "description" : "Response status.",
             "type" : "object",
             "properties" : {
@@ -755,15 +741,15 @@
             "required" : [ "statusCode" ],
             "additionalProperties" : false
         },
-        "VerificationObject.Type" : {
+        "VerificationObjectDType" : {
             "description" : "A collection of information allowing an inspector to verify an Assertion.",
             "type" : "object",
             "properties" : {
                 "type" : {
-                    "$ref" : "#/definitions/type.Type"
+                    "$ref" : "#/definitions/typeDType"
                 },
                 "verificationProperty" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 },
                 "startsWith" : {
                     "description" : "Model Primitive Datatype = String. The URI fragment that the verification property must start with.",
@@ -782,12 +768,12 @@
                     }
                 },
                 "creator" : {
-                    "$ref" : "#/definitions/id.Type"
+                    "$ref" : "#/definitions/idDType"
                 }
             },
             "additionalProperties" : false
         },
-        "context.Type" : {
+        "contextDType" : {
             "description" : "JSON-LD @context.",
             "type" : "object",
             "properties" : {
@@ -795,7 +781,7 @@
             },
             "additionalProperties" : false
         },
-        "id.Type" : {
+        "idDType" : {
             "description" : "JSON-LD @id.",
             "type" : "object",
             "properties" : {
@@ -803,7 +789,7 @@
             },
             "additionalProperties" : false
         },
-        "type.Type" : {
+        "typeDType" : {
             "description" : "JSON-LD @type.",
             "type" : "object",
             "properties" : {

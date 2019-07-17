@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DunelmUMLBasev1p0="http://profile/schemas/DunelmUMLBasev1p0/_1P4GILqOEeiTeoGK9emzxg/54" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://profile/schemas/DunelmUMLBasev1p0/_1P4GILqOEeiTeoGK9emzxg/54 /DunelmUMLProfile/model.profile.uml#_1P6iYLqOEeiTeoGK9emzxg">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DunelmUMLBasev1p0="http://profile/schemas/DunelmUMLBasev1p0/_kOUdMIYvEemITO7puOFXLQ/55" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://profile/schemas/DunelmUMLBasev1p0/_kOUdMIYvEemITO7puOFXLQ/55 /DunelmUMLProfile/model.profile.uml#_kOXggIYvEemITO7puOFXLQ">
   <uml:Model xmi:id="_d2h40Fr6Eemah4rv1IhOJg" name="OBv2p1_PSM">
     <packagedElement xmi:type="uml:Package" xmi:id="_Cad-wFsaEemah4rv1IhOJg" name="Status">
       <packagedElement xmi:type="uml:Class" xmi:id="_IDsREFsaEemah4rv1IhOJg" name="Status">
@@ -62,34 +62,12 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_HyERYFshEemah4rv1IhOJg" name="NormalizedString"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_9ERAAFsiEemah4rv1IhOJg" name="AnyURI"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_esxM8FutEemah4rv1IhOJg" name="Boolean"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_inbu4FuxEemah4rv1IhOJg" name="AnyType"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_0l1cEFvbEemah4rv1IhOJg" name="DateTime"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_phwfAFypEemEApipHzfrZQ" name="Namespace"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_KZyFsF0-EemKA8ueSq5-Tg" name="Integer"/>
       <packagedElement xmi:type="uml:Class" xmi:id="__h7HIF1EEemKA8ueSq5-Tg" name="PositiveInteger"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_Fs4NgF1FEemKA8ueSq5-Tg" name="NonNegativeInteger"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_erW9EIyUEem_UKY2IsbfeQ" name="Void"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_K8wBgFsdEemah4rv1IhOJg" name="ProfilesResponse">
-      <packagedElement xmi:type="uml:Class" xmi:id="_RiSyIFsdEemah4rv1IhOJg" name="ProfilesResponse">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_bjGiwFusEemah4rv1IhOJg">
-          <body>Responses from all APIs in this document are wrapped in a JSON envelope.</body>
-        </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_YbFO4FsdEemah4rv1IhOJg" name="status" visibility="private" type="_IDsREFsaEemah4rv1IhOJg">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_DzAxsFusEemah4rv1IhOJg">
-            <body>The 'status' property MUST appear on all responses.</body>
-          </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aRWM8FsdEemah4rv1IhOJg" value="1"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aRbFcFsdEemah4rv1IhOJg" value="1"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_x0UIAFsdEemah4rv1IhOJg" name="results" visibility="private" type="_s0ibUFsdEemah4rv1IhOJg">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_YJdtcFusEemah4rv1IhOJg">
-            <body>A list of zero or more profiles responsive to the request.</body>
-          </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1D8swFsdEemah4rv1IhOJg"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1EA-MFsdEemah4rv1IhOJg" value="*"/>
-        </ownedAttribute>
-      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_mIkSkFsdEemah4rv1IhOJg" name="Profile">
       <packagedElement xmi:type="uml:Class" xmi:id="_s0ibUFsdEemah4rv1IhOJg" name="Profile">
@@ -288,27 +266,7 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7uvFcFysEemEApipHzfrZQ" value="*"/>
         </ownedAttribute>
       </packagedElement>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_VOUigFseEemah4rv1IhOJg" name="AssertionsResponse">
-      <packagedElement xmi:type="uml:Class" xmi:id="_iEotoFseEemah4rv1IhOJg" name="AssertionsResponse">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_hyyYIFusEemah4rv1IhOJg">
-          <body>Responses from all APIs in this document are wrapped in a JSON envelope.</body>
-        </ownedComment>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_ntOGwFseEemah4rv1IhOJg" name="status" visibility="private" type="_IDsREFsaEemah4rv1IhOJg">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_lksjgFusEemah4rv1IhOJg">
-            <body>The 'status' property MUST appear on all responses.</body>
-          </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_o2c_sFseEemah4rv1IhOJg" value="1"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_o2h4MFseEemah4rv1IhOJg" value="1"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_pZpMUFseEemah4rv1IhOJg" name="results" visibility="private" type="_MqQPsFseEemah4rv1IhOJg">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_pStGUFusEemah4rv1IhOJg">
-            <body>A list of zero or more assertions responsive to the request.</body>
-          </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sI8rMFseEemah4rv1IhOJg"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sJBjsFseEemah4rv1IhOJg" value="*"/>
-        </ownedAttribute>
-      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_I7XZ0JntEemnAvA_WHueag" name="Assertions"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_SGYZ0FshEemah4rv1IhOJg" name="DerivedTypes">
       <packagedElement xmi:type="uml:Class" xmi:id="_ZBGJMFshEemah4rv1IhOJg" name="IRI">
@@ -671,24 +629,26 @@
           <ownedComment xmi:type="uml:Comment" xmi:id="_sJGgAF0-EemKA8ueSq5-Tg">
             <body>Fetch Assertions for the supplied parameters and authentication token.</body>
           </ownedComment>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_z9Rm8F0-EemKA8ueSq5-Tg" name="response" type="_iEotoFseEemah4rv1IhOJg" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_z9Rm8F0-EemKA8ueSq5-Tg" name="response" type="_bdlwIJnzEemnAvA_WHueag" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_YFoUMF1KEemKA8ueSq5-Tg" name="postAssertion">
           <ownedComment xmi:type="uml:Comment" xmi:id="_ffb94F1LEemKA8ueSq5-Tg">
             <body>Create or update an Assertion.</body>
           </ownedComment>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_pg0YsF1KEemKA8ueSq5-Tg" name="assertion" type="_MqQPsFseEemah4rv1IhOJg">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_pg0YsF1KEemKA8ueSq5-Tg" name="assertions" type="_MqQPsFseEemah4rv1IhOJg">
             <ownedComment xmi:type="uml:Comment" xmi:id="_t5PVAF1LEemKA8ueSq5-Tg">
-              <body>The Assertion to be created or updated.</body>
+              <body>The Assertion to be created or updated. Data MUST be a list exactly one Assertion long.</body>
             </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QX__8JnsEemnAvA_WHueag" value="1"/>
+            <upperValue xmi:type="uml:LiteralString" xmi:id="_vaJCUJnsEemnAvA_WHueag" value="*"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_tb2D0F1KEemKA8ueSq5-Tg" name="response" type="_iEotoFseEemah4rv1IhOJg" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_tb2D0F1KEemKA8ueSq5-Tg" name="response" type="_bdlwIJnzEemnAvA_WHueag" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_gqqkkFvPEemah4rv1IhOJg" name="getProfile">
           <ownedComment xmi:type="uml:Comment" xmi:id="_fvY4AFvjEemah4rv1IhOJg">
             <body>Fetch the profile for the supplied authentication token.</body>
           </ownedComment>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_u55qcFvPEemah4rv1IhOJg" name="result" type="_RiSyIFsdEemah4rv1IhOJg" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_u55qcFvPEemah4rv1IhOJg" name="result" type="_bdlwIJnzEemnAvA_WHueag" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_6egP0FywEemEApipHzfrZQ" name="postProfile">
           <ownedComment xmi:type="uml:Comment" xmi:id="_uOvR4FyxEemEApipHzfrZQ">
@@ -699,7 +659,7 @@
               <body>The authenticated user's profile.</body>
             </ownedComment>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_P0puAFyxEemEApipHzfrZQ" type="_RiSyIFsdEemah4rv1IhOJg" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_P0puAFyxEemEApipHzfrZQ" type="_bdlwIJnzEemnAvA_WHueag" direction="return"/>
         </ownedOperation>
       </packagedElement>
     </packagedElement>
@@ -714,7 +674,7 @@
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_kTX7MFvQEemah4rv1IhOJg" name="getProfileResponses">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="__3SCQFx3EemEApipHzfrZQ" name="200" type="_RiSyIFsdEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__3SCQFx3EemEApipHzfrZQ" name="200" type="_bdlwIJnzEemnAvA_WHueag">
           <ownedComment xmi:type="uml:Comment" xmi:id="_5X8K0Fx4EemEApipHzfrZQ">
             <body>This is the response when the request has been completed successfully.</body>
           </ownedComment>
@@ -725,28 +685,28 @@
           <ownedComment xmi:type="uml:Comment" xmi:id="_3oqlkFx4EemEApipHzfrZQ">
             <body>An invalid request was made.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_I_Bp4Fx4EemEApipHzfrZQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_I_Bp4Fx4EemEApipHzfrZQ"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_I_JlsFx4EemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_JwDeMFx4EemEApipHzfrZQ" name="401" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_14JDIFx4EemEApipHzfrZQ">
             <body>The request was not correctly authorized.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LuEqEFx4EemEApipHzfrZQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LuEqEFx4EemEApipHzfrZQ"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LuL-0Fx4EemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_MSBEoFx4EemEApipHzfrZQ" name="404" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_ztrWsFx4EemEApipHzfrZQ">
             <body>The requested resource does not exist.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OKGnoFx4EemEApipHzfrZQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OKGnoFx4EemEApipHzfrZQ"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OKN8YFx4EemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_PIxPUFx4EemEApipHzfrZQ" name="405" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_xBoAIFx4EemEApipHzfrZQ">
             <body>This method is not allowed on the endpoint.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UY8vgFx4EemEApipHzfrZQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UY8vgFx4EemEApipHzfrZQ"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UZEEQFx4EemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_VcIDwFx4EemEApipHzfrZQ" name="500" type="_erW9EIyUEem_UKY2IsbfeQ">
@@ -771,7 +731,7 @@
         <ownedAttribute xmi:type="uml:Property" xmi:id="_nsgwcFywEemEApipHzfrZQ" name="responses" type="_OsFq0FyuEemEApipHzfrZQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_OsFq0FyuEemEApipHzfrZQ" name="postProfileResponses">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_WO4t4FyuEemEApipHzfrZQ" name="200" type="_RiSyIFsdEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WO4t4FyuEemEApipHzfrZQ" name="200" type="_bdlwIJnzEemnAvA_WHueag">
           <ownedComment xmi:type="uml:Comment" xmi:id="_DlZtcFyyEemEApipHzfrZQ">
             <body>This is the response when the request has been completed successfully.</body>
           </ownedComment>
@@ -782,28 +742,28 @@
           <ownedComment xmi:type="uml:Comment" xmi:id="_FZsVkFyyEemEApipHzfrZQ">
             <body>An invalid request was made.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Aot_0HMtEemIM-6B0skAFA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Aot_0HMtEemIM-6B0skAFA"/>
           <upperValue xmi:type="uml:LiteralInteger" xmi:id="_Bma-MHMtEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_cJgSMFyuEemEApipHzfrZQ" name="401" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_HPCtoFyyEemEApipHzfrZQ">
             <body>The request was not correctly authorized.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DCM_sHMtEemIM-6B0skAFA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DCM_sHMtEemIM-6B0skAFA"/>
           <upperValue xmi:type="uml:LiteralInteger" xmi:id="_D_qGcHMtEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_e5H6IFyuEemEApipHzfrZQ" name="404" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_J-ogYFyyEemEApipHzfrZQ">
             <body>The requested resource does not exist.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jArlYFyuEemEApipHzfrZQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jArlYFyuEemEApipHzfrZQ"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jA1WYFyuEemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_jmx8EFyuEemEApipHzfrZQ" name="405" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_LCZqgFyyEemEApipHzfrZQ">
             <body>This method is not allowed on the endpoint.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l85e4FyuEemEApipHzfrZQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l85e4FyuEemEApipHzfrZQ"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_l9DP4FyuEemEApipHzfrZQ" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_mbkX4FyuEemEApipHzfrZQ" name="500" type="_erW9EIyUEem_UKY2IsbfeQ">
@@ -1079,7 +1039,7 @@
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_Hnu8MF07EemKA8ueSq5-Tg" name="getAssertionsResponses">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_hj9YMF08EemKA8ueSq5-Tg" name="200" type="_iEotoFseEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hj9YMF08EemKA8ueSq5-Tg" name="200" type="_bdlwIJnzEemnAvA_WHueag">
           <ownedComment xmi:type="uml:Comment" xmi:id="_bd3uQF09EemKA8ueSq5-Tg">
             <body>This is the response when the request has been completed successfully.</body>
           </ownedComment>
@@ -1090,28 +1050,28 @@
           <ownedComment xmi:type="uml:Comment" xmi:id="_Y76u4F09EemKA8ueSq5-Tg">
             <body>An invalid request was made.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n-40QF08EemKA8ueSq5-Tg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n-40QF08EemKA8ueSq5-Tg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n_DMUF08EemKA8ueSq5-Tg" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_okQyMF08EemKA8ueSq5-Tg" name="401" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_Wk8QcF09EemKA8ueSq5-Tg">
             <body>The request was not correctly authorized.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qyMpYF08EemKA8ueSq5-Tg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qyMpYF08EemKA8ueSq5-Tg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qyXBcF08EemKA8ueSq5-Tg" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_rWSN4F08EemKA8ueSq5-Tg" name="404" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_UlAZAF09EemKA8ueSq5-Tg">
             <body>The requested resource does not exist.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tD4_MF08EemKA8ueSq5-Tg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tD4_MF08EemKA8ueSq5-Tg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tEDXQF08EemKA8ueSq5-Tg" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_tqg6UF08EemKA8ueSq5-Tg" name="405" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_S0BjkF09EemKA8ueSq5-Tg">
             <body>This method is not allowed on the endpoint.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vj7TAF08EemKA8ueSq5-Tg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vj7TAF08EemKA8ueSq5-Tg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vkFEAF08EemKA8ueSq5-Tg" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_ww-U8F08EemKA8ueSq5-Tg" name="500" type="_erW9EIyUEem_UKY2IsbfeQ">
@@ -1159,39 +1119,32 @@
         <ownedAttribute xmi:type="uml:Property" xmi:id="_M7rkQF1KEemKA8ueSq5-Tg" name="responses" type="_HxfMwF1JEemKA8ueSq5-Tg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_HxfMwF1JEemKA8ueSq5-Tg" name="postAssertionResponses">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_ThDLMF1JEemKA8ueSq5-Tg" name="200" type="_iEotoFseEemah4rv1IhOJg">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ThDLMF1JEemKA8ueSq5-Tg" name="200" type="_bdlwIJnzEemnAvA_WHueag">
           <ownedComment xmi:type="uml:Comment" xmi:id="_Iu1JUF1KEemKA8ueSq5-Tg">
             <body>The Assertion was updated successfully.</body>
           </ownedComment>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mueEUHMsEemIM-6B0skAFA" value="1"/>
           <upperValue xmi:type="uml:LiteralInteger" xmi:id="_oA-1EHMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_f-qicF1JEemKA8ueSq5-Tg" name="201" type="_iEotoFseEemah4rv1IhOJg">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_FpUw8F1KEemKA8ueSq5-Tg">
-            <body>The Assertion was created successfully.</body>
-          </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qKYKgHMsEemIM-6B0skAFA" value="1"/>
-          <upperValue xmi:type="uml:LiteralInteger" xmi:id="_rcIGQHMsEemIM-6B0skAFA" value="1"/>
-        </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_idQr0F1JEemKA8ueSq5-Tg" name="400" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="__ZPS8F1JEemKA8ueSq5-Tg">
             <body>An invalid request was made.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tdQQgHMsEemIM-6B0skAFA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tdQQgHMsEemIM-6B0skAFA"/>
           <upperValue xmi:type="uml:LiteralInteger" xmi:id="_ulQaYHMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_k3Oz4F1JEemKA8ueSq5-Tg" name="401" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_9n0YoF1JEemKA8ueSq5-Tg">
             <body>The request was not correctly authorized.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_v1qSUHMsEemIM-6B0skAFA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_v1qSUHMsEemIM-6B0skAFA"/>
           <upperValue xmi:type="uml:LiteralInteger" xmi:id="_w6XQkHMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_mzyAIF1JEemKA8ueSq5-Tg" name="404" type="_69zx0F07EemKA8ueSq5-Tg">
           <ownedComment xmi:type="uml:Comment" xmi:id="_74Uw8F1JEemKA8ueSq5-Tg">
             <body>The requested resource does not exist.</body>
           </ownedComment>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yJy4IHMsEemIM-6B0skAFA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yJy4IHMsEemIM-6B0skAFA"/>
           <upperValue xmi:type="uml:LiteralInteger" xmi:id="_zExSoHMsEemIM-6B0skAFA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_o350AF1JEemKA8ueSq5-Tg" name="405" type="_69zx0F07EemKA8ueSq5-Tg">
@@ -1290,29 +1243,75 @@
         </ownedComment>
       </packagedElement>
     </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_UsdakJnzEemnAvA_WHueag" name="ResponseEnvelope">
+      <packagedElement xmi:type="uml:Class" xmi:id="_bdlwIJnzEemnAvA_WHueag" name="ResponseEnvelope">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_genaAJnzEemnAvA_WHueag" name="status" visibility="private" type="_IDsREFsaEemah4rv1IhOJg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ib2iwJnzEemnAvA_WHueag" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_icElMJnzEemnAvA_WHueag" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jJz08JnzEemnAvA_WHueag" name="results" visibility="private" type="_cb5gkJn1EemnAvA_WHueag">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_or5IAJn0EemnAvA_WHueag">
+            <body>Can be a list containing a combination of Assertion objects and JWT strings representing signed assertions in response to Assertion endpoints, or a set with only one Profile object in response to Profile endpoints.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p-kGQJnzEemnAvA_WHueag" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_p-sCEJnzEemnAvA_WHueag" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_cb5gkJn1EemnAvA_WHueag" name="Any">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_j3-3oJn1EemnAvA_WHueag">
+          <body>Generic object.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BVs54Jn2EemnAvA_WHueag" name="extensions" type="_phwfAFypEemEApipHzfrZQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DHY58Jn2EemnAvA_WHueag"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DHhc0Jn2EemnAvA_WHueag" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_G0iuoJ0LEemqKZjsete4xQ" name="CLR-Service">
+      <packagedElement xmi:type="uml:Class" xmi:id="_Uewb4J0LEemqKZjsete4xQ" name="assertion.readonly">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_n5AOEJ0LEemqKZjsete4xQ" name="ScopeLabel" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_qBRiIJ0LEemqKZjsete4xQ" value="https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.readonly"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_ztFgIJ0LEemqKZjsete4xQ" name="assertion.create">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_7eEJIJ0LEemqKZjsete4xQ" name="ScopeLabel" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_9042kJ0LEemqKZjsete4xQ" value="https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.create"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_B4bkgJ0MEemqKZjsete4xQ" name="profile.readonly">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IBktAJ0MEemqKZjsete4xQ" name="ScopeLabel" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_KD6_QJ0MEemqKZjsete4xQ" value="https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.readonly"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_L0ioUJ0MEemqKZjsete4xQ" name="profile.update">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Ufb74J0MEemqKZjsete4xQ" name="ScopeLabel" type="_d5nbgFsaEemah4rv1IhOJg">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_XQIh4J0MEemqKZjsete4xQ" value="https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.update"/>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_eHS4sFr6Eemah4rv1IhOJg">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_v9HSoFsZEemah4rv1IhOJg" source="PapyrusVersion">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v9HSoVsZEemah4rv1IhOJg" key="Version" value="0.4.24"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v9HSolsZEemah4rv1IhOJg" key="Comment" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v9HSo1sZEemah4rv1IhOJg" key="Copyright" value="Dunelm Services Limited"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v9HSpFsZEemah4rv1IhOJg" key="Date" value="2018-09-17"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v9HSpVsZEemah4rv1IhOJg" key="Author" value="Colin SMythe"/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MLYAwJnnEemnAvA_WHueag" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MLYAwZnnEemnAvA_WHueag" key="Version" value="0.4.25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MLYAwpnnEemnAvA_WHueag" key="Comment" value="Addition of support for the definition of scopes."/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MLYAw5nnEemnAvA_WHueag" key="Copyright" value="Dunelm Services Limited"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MLYAxJnnEemnAvA_WHueag" key="Date" value="2019-06-03"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MLYAxZnnEemnAvA_WHueag" key="Author" value="Colin Smythe"/>
       </eAnnotations>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_eIGxAFr6Eemah4rv1IhOJg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="/DunelmUMLProfile/model.profile.uml#_1PwKULqOEeiTeoGK9emzxg"/>
+        <references xmi:type="ecore:EPackage" href="/DunelmUMLProfile/model.profile.uml#_kOL6UIYvEemITO7puOFXLQ"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="/DunelmUMLProfile/model.profile.uml#_FjzYgKceEeKfD8eDIAR8lQ"/>
     </profileApplication>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_v9H5sFsZEemah4rv1IhOJg">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_v9H5slsZEemah4rv1IhOJg" source="PapyrusVersion">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v9H5s1sZEemah4rv1IhOJg" key="Version" value="0.4.24"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v9H5tFsZEemah4rv1IhOJg" key="Comment" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v9H5tVsZEemah4rv1IhOJg" key="Copyright" value="Dunelm Services Limited"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v9H5tlsZEemah4rv1IhOJg" key="Date" value="2018-09-17"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v9H5t1sZEemah4rv1IhOJg" key="Author" value="Colin SMythe"/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MMUb8JnnEemnAvA_WHueag" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MMUb8ZnnEemnAvA_WHueag" key="Version" value="0.4.25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MMUb8pnnEemnAvA_WHueag" key="Comment" value="Addition of support for the definition of scopes."/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MMUb85nnEemnAvA_WHueag" key="Copyright" value="Dunelm Services Limited"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MMUb9JnnEemnAvA_WHueag" key="Date" value="2019-06-03"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MMUb9ZnnEemnAvA_WHueag" key="Author" value="Colin Smythe"/>
       </eAnnotations>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_v9H5sVsZEemah4rv1IhOJg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="/DunelmUMLProfile/model.profile.uml#_1P6iYLqOEeiTeoGK9emzxg"/>
+        <references xmi:type="ecore:EPackage" href="/DunelmUMLProfile/model.profile.uml#_kOXggIYvEemITO7puOFXLQ"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="/DunelmUMLProfile/model.profile.uml#_LJBUkKceEeKfD8eDIAR8lQ"/>
     </profileApplication>
@@ -1329,14 +1328,10 @@
   <DunelmUMLBasev1p0:PrimitiveType xmi:id="_f1stsFsaEemah4rv1IhOJg" base_Class="_d5nbgFsaEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:PrimitiveType xmi:id="_BUKokFsbEemah4rv1IhOJg" base_Class="_9FqAwFsaEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:Enumeration xmi:id="_W_9moFsbEemah4rv1IhOJg" base_Class="_TNjE8FsbEemah4rv1IhOJg"/>
-  <DunelmUMLBasev1p0:DataModel xmi:id="_PpgrkFsdEemah4rv1IhOJg" base_Package="_K8wBgFsdEemah4rv1IhOJg"/>
-  <DunelmUMLBasev1p0:Unordered xmi:id="_VcAOoFsdEemah4rv1IhOJg" base_Class="_RiSyIFsdEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:DataModel xmi:id="_r1CtMFsdEemah4rv1IhOJg" base_Package="_mIkSkFsdEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:Unordered xmi:id="_u3ACUFsdEemah4rv1IhOJg" base_Class="_s0ibUFsdEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:DataModel xmi:id="_KOQHUFseEemah4rv1IhOJg" base_Package="_HZW90FseEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:Unordered xmi:id="_O57MQFseEemah4rv1IhOJg" base_Class="_MqQPsFseEemah4rv1IhOJg"/>
-  <DunelmUMLBasev1p0:DataModel xmi:id="_ZGDpEFseEemah4rv1IhOJg" base_Package="_VOUigFseEemah4rv1IhOJg"/>
-  <DunelmUMLBasev1p0:Unordered xmi:id="_kZvj0FseEemah4rv1IhOJg" base_Class="_iEotoFseEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:PrimitiveType xmi:id="_OAneUFshEemah4rv1IhOJg" base_Class="_HyERYFshEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:DataModel xmi:id="_VlQ7gFshEemah4rv1IhOJg" base_Package="_SGYZ0FshEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:DerivedType xmi:id="_b_WqEFshEemah4rv1IhOJg" base_Class="_ZBGJMFshEemah4rv1IhOJg"/>
@@ -1355,7 +1350,6 @@
   <DunelmUMLBasev1p0:Unordered xmi:id="_JbQsQFuvEemah4rv1IhOJg" base_Class="_Gl3zgFuvEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:DataModel xmi:id="_owNV4FuvEemah4rv1IhOJg" base_Package="_lrwtcFuvEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:Unordered xmi:id="_tY9psFuvEemah4rv1IhOJg" base_Class="_rRRkcFuvEemah4rv1IhOJg"/>
-  <DunelmUMLBasev1p0:PrimitiveType xmi:id="_nkdCgFuxEemah4rv1IhOJg" base_Class="_inbu4FuxEemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:Legend xmi:id="_wpvLAFu8Eemah4rv1IhOJg" base_Class="_uK2GsFu8Eemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:Binding xmi:id="_OKXXUFu9Eemah4rv1IhOJg" base_Class="_LU7bQFu9Eemah4rv1IhOJg"/>
   <DunelmUMLBasev1p0:ServiceModel xmi:id="_kTIVgFvOEemah4rv1IhOJg" base_Package="_fO6NsFvOEemah4rv1IhOJg"/>
@@ -1396,8 +1390,6 @@
   <DunelmUMLBasev1p0:Parameter xmi:id="_VdJ9cF1HEemKA8ueSq5-Tg" base_Class="_PwKlcF1HEemKA8ueSq5-Tg"/>
   <DunelmUMLBasev1p0:Operation xmi:id="_-xQiYF1IEemKA8ueSq5-Tg" base_Class="_5rFSwF1IEemKA8ueSq5-Tg"/>
   <DunelmUMLBasev1p0:Responses xmi:id="_LOPngF1JEemKA8ueSq5-Tg" base_Class="_HxfMwF1JEemKA8ueSq5-Tg"/>
-  <DunelmUMLBasev1p0:Update xmi:id="_IUxOEF1LEemKA8ueSq5-Tg" base_Operation="_YFoUMF1KEemKA8ueSq5-Tg"/>
-  <DunelmUMLBasev1p0:CreateBP xmi:id="_PB1jAF1LEemKA8ueSq5-Tg" base_Operation="_YFoUMF1KEemKA8ueSq5-Tg"/>
   <DunelmUMLBasev1p0:DataModel xmi:id="_Q7r3QHKZEemIM-6B0skAFA" base_Package="_IL8f8HKZEemIM-6B0skAFA"/>
   <DunelmUMLBasev1p0:Legend xmi:id="_XgN7QHKZEemIM-6B0skAFA" base_Class="_Sg2eQHKZEemIM-6B0skAFA"/>
   <DunelmUMLBasev1p0:Binding xmi:id="_Mdn7EHKaEemIM-6B0skAFA" base_Class="_KAmfAHKaEemIM-6B0skAFA"/>
@@ -1409,4 +1401,13 @@
   <DunelmUMLBasev1p0:DerivedType xmi:id="_hQZBgHNtEemIM-6B0skAFA" base_Class="_a_H3wHNtEemIM-6B0skAFA"/>
   <DunelmUMLBasev1p0:PrimitiveType xmi:id="_rlHZoHNtEemIM-6B0skAFA" base_Class="_nxKm4HNtEemIM-6B0skAFA"/>
   <DunelmUMLBasev1p0:PrimitiveType xmi:id="_iVwLMIyUEem_UKY2IsbfeQ" base_Class="_erW9EIyUEem_UKY2IsbfeQ"/>
+  <DunelmUMLBasev1p0:Update xmi:id="_uFDwoJnqEemnAvA_WHueag" base_Operation="_YFoUMF1KEemKA8ueSq5-Tg"/>
+  <DunelmUMLBasev1p0:DataModel xmi:id="_aavMAJnzEemnAvA_WHueag" base_Package="_UsdakJnzEemnAvA_WHueag"/>
+  <DunelmUMLBasev1p0:Unordered xmi:id="_fC30wJnzEemnAvA_WHueag" base_Class="_bdlwIJnzEemnAvA_WHueag"/>
+  <DunelmUMLBasev1p0:Unordered xmi:id="_hOPOMJn1EemnAvA_WHueag" base_Class="_cb5gkJn1EemnAvA_WHueag"/>
+  <DunelmUMLBasev1p0:SecurityModel xmi:id="_NWG-MJ0LEemqKZjsete4xQ" base_Package="_G0iuoJ0LEemqKZjsete4xQ"/>
+  <DunelmUMLBasev1p0:Scope xmi:id="_mVtPUJ0LEemqKZjsete4xQ" base_Class="_Uewb4J0LEemqKZjsete4xQ"/>
+  <DunelmUMLBasev1p0:Scope xmi:id="_6OuBIJ0LEemqKZjsete4xQ" base_Class="_ztFgIJ0LEemqKZjsete4xQ"/>
+  <DunelmUMLBasev1p0:Scope xmi:id="_GPPzwJ0MEemqKZjsete4xQ" base_Class="_B4bkgJ0MEemqKZjsete4xQ"/>
+  <DunelmUMLBasev1p0:Scope xmi:id="_OeaNkJ0MEemqKZjsete4xQ" base_Class="_L0ioUJ0MEemqKZjsete4xQ"/>
 </xmi:XMI>

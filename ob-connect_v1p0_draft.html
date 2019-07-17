@@ -55,6 +55,16 @@
             <tr id="usecases-host-host-transfer">
               <td>A user wishes to move their badges from one Host to another Host.</td>
             </tr>
+            <tr id="usecases-issuer-get-profile">
+              <td>A Relying Party wishes to obtain plaintext recipient
+              identifier, to clearly understand the recipient profile in
+              their badges.</td>
+            </tr>
+            <tr id="usecases-issuer-post-profile">
+              <td>An Issuer platform wishes to register a new recipient
+              identifier on a recipient profile to which it would award
+              badges.</td>
+            </tr>
           </tbody>
         </table>
       </section>
@@ -169,62 +179,75 @@ Host: badge-host.example.com
   "scope": "YOUR_REQUESTED_SPACE_SEPARATED_LIST_OF_SCOPES"
 }
 </code></pre>
-          <p>The properties of the JSON body MUST be implemented as described in the following table. All listed properties MUST be present in the registration request in order for it to be accepted by the Host.</p>
+          <p>The properties of the JSON body MUST be implemented as described in the following table. All required properties MUST be present in the registration request in order for it to be accepted by the Host.</p>
           <table title="Properties in the client registration request">
             <thead>
               <tr>
                 <td>Name</td>
+                <td>Required</td>
                 <td>Description</td>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>client_name</td>
+                <td>Yes</td>
                 <td>The human-readable name of the Relying Party.</td>
               </tr>
               <tr>
                 <td>client_uri</td>
+                <td>Yes</td>
                 <td>A page that which describes the Relying Party.</td>
               </tr>
               <tr>
                 <td>logo_uri</td>
+                <td>Yes</td>
                 <td>The logo of the Relying Party.</td>
               </tr>
               <tr>
                 <td>tos_uri</td>
+                <td>Yes</td>
                 <td>The Terms of Service of the Relying Party.</td>
               </tr>
               <tr>
                 <td>policy_uri</td>
+                <td>Yes</td>
                 <td>The Privacy Policy of the Relying Party.</td>
               </tr>
               <tr>
                 <td>software_id</td>
+                <td>Yes</td>
                 <td>A unique idenfitier assigned by the client developer. As described in [[!RFC7591]], it SHOULD remain the same for all instances of the client software.</td>
               </tr>
               <tr>
                 <td>software_version</td>
+                <td>Yes</td>
                 <td>A version identifier string for the client software. The value SHOULD change on any update to the client software.</td>
               </tr>
               <tr>
                 <td>redirect_uris</td>
+                <td>Yes</td>
                 <td>Array of redirection URI strings for use in the Oauth 2.0 flow.</td>
               </tr>
               <tr>
                 <td>token_endpoint_auth_method</td>
-                <td>String indicator of the requested authentication method for the token endpoint, the value MUST be <code>client_secret_basic</code>.</td>
+                <td>No</td>
+                <td>String indicator of the requested authentication method for the token endpoint. If omitted the default value is <code>client_secret_basic</code>.</td>
               </tr>
               <tr>
                 <td>grant_types</td>
-                <td>Array of Oauth 2.0 grant type strings. The values MUST include <code>authorization_code</code> and <code>refresh_token</code>.</td>
+                <td>No</td>
+                <td>Array of Oauth 2.0 grant type strings. If omitted, the default behavior is that the client will use only the <code>authorization_code</code> Grant Type.</td>
               </tr>
               <tr>
                 <td>response_types</td>
-                <td>Array of Oauth 2.0 response type strings. The values MUST include <code>code</code>.</td>
+                <td>No</td>
+                <td>Array of Oauth 2.0 response type strings. If omitted, the default is that the client will use only the <code>code</code> response type.</td>
               </tr>
               <tr>
                 <td>scope</td>
-                <td>String containing a space-separated list of scope values that this client is permitted to use when requesting access tokens.</td>
+                <td>No</td>
+                <td>String containing a space-separated list of scope values that this client is permitted to use when requesting access tokens. If omitted, the Host MAY register a client with a default set of scopes.</td>
               </tr>
             </tbody>
           </table>
@@ -321,6 +344,18 @@ Pragma: no-cache
             to the registrationUrl endpoint.
           </p>
 
+          <p>An example authorization request (line breaks for display purposes only):</p>
+<pre><code>GET /authorize?
+response_type=code
+&client_id=BADGECONNECT_s6BhdRkqt3
+&state=xyzjklabc
+&scope=SPACE_SEPARATED_STRING_OF_REQUESTED_SCOPES
+&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM
+&code_challange_method=S256
+&redirect_uri=https%3A%2F%2Fbadgehost.example.com%2Fo%2Fredirect HTTP/1.1
+Host: www.example.com
+</code></pre>
+
           <p>If the Host does not recognize the Relying Party's redirection endpoint from a prior
             connection with this Relying Party, the Host SHOULD throw an error specifying that
             the redirection endpoint is not applicable to any registered client and registration
@@ -353,7 +388,7 @@ Pragma: no-cache
                 <dd>The code verifier.</dd>
             </dl>
           </p>
-            <p>An example token request:</p>
+          <p>An example token request:</p>
 <pre><code>POST /badge/connect/auth/token HTTP/1.1
 Host: www.example.com
 Authorization: Basic QkFER0VDT05ORUNUX3M2QmhkUmtxdDM6Y3paQ2FHUlNhM0YwTXpvM1JtcG1jREJhUW5JeFMzUkVVbUp1Wmxaa2JVbDM=
@@ -421,20 +456,24 @@ grant_type=authorization_code
           </thead>
           <tbody>
             <tr>
-              <td>assertion.readonly</td>
+              <td>https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.readonly</td>
               <td>Permission to read assertions for the authenticated entity.</td>
             </tr>
             <tr>
-              <td>assertion.create</td>
+              <td>https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.create</td>
               <td>Permission to create assertions for the authenticated entity.</td>
             </tr>
             <tr>
-              <td>profile.readonly</td>
+              <td>https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.readonly</td>
               <td>Permission to read the profile for the authenticated entity.</td>
             </tr>
             <tr>
-              <td>profile.update</td>
+              <td>https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.update</td>
               <td>Permission to update the profile for the authenticated entity.</td>
+            </tr>
+            <tr>
+              <td>offline_access</td>
+              <td>Permission to issue a <code>refresh_token</code> along with the <code>access_token</code>.</td>
             </tr>
           </tbody>
         </table>
@@ -484,10 +523,10 @@ grant_type=authorization_code
     "termsOfServiceUrl": "https://badgehost.example.com/terms",
     "privacyPolicyUrl": "https://badgehost.example.com/privacy",
     "scopesOffered": [
-      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/assertion.readonly",
-      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/assertion.create",
-      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/profile.readonly",
-      "https://purl.imsglobal.org/spec/obc/v1p0/oauth2scope/profile.patch"
+      "https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.readonly",
+      "https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.create",
+      "https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.readonly",
+      "https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.update"
     ],
     "registrationUrl": "https://badgehost.example.com/o/register",
     "authorizationUrl": "https://badgehost.example.com/o/auth",
