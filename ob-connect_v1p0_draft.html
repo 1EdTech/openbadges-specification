@@ -481,17 +481,17 @@ grant_type=authorization_code
 
     <section id="api-manifest">
         <h3>Manifest</h3>
-        <p>All Hosts and Relying Parties MUST implement a JSON manifest file
+        <p>All Hosts MUST implement a JSON manifest file
           which contains configuration information about their implementation,
           such as scope support, redirect URIs, and branding information.</p>
-        <p>Platforms MUST serve the manifest at the path
+        <p>Hosts MUST serve the manifest at the path
           <code>/.well-known/badgeconnect.json</code> on the relevant service
           domain. The manifest MUST be provided over secure TLS protocol
             e.g. <code>https://YOUR_DOMAIN/.well-known/badgeconnect.json</code>.
         </p>
 
         <h4>Requesting Manifests</h4>
-        <p>Upon requesting a Manifest file from either a Host or Relying Party,
+        <p>Upon requesting a Manifest file from a Host,
           the requester SHOULD respect the <code>Cache-Control</code> and
           <code>Expires</code> headers if present in the response and configure
           local cache to match the directives it declares. If directives include
@@ -531,10 +531,7 @@ grant_type=authorization_code
     "registrationUrl": "https://badgehost.example.com/o/register",
     "authorizationUrl": "https://badgehost.example.com/o/auth",
     "tokenUrl": "https://badgehost.example.com/o/token",
-    "tokenRevocationUrl": "https://badgehost.example.com/o/revoke_token",
-    "redirectUris": [
-      "https://badgehost.example.com/o/redirect"
-    ]
+    "tokenRevocationUrl": "https://badgehost.example.com/o/revoke_token"
   }]
 }
         </pre>
@@ -584,34 +581,29 @@ grant_type=authorization_code
             </tr>
             <tr>
               <td><code>scopesOffered</code></td>
-              <td>Yes*</td>
-              <td><strong>Applies to Hosts only.</strong> An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the scope descriptors.</td>
+              <td>Yes</td>
+              <td>An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the scope descriptors.</td>
             </tr>
             <tr>
               <td><code>registrationUrl</code></td>
-              <td>Yes*</td>
-              <td><strong>Applies to Hosts only.</strong> A fully qualified URL to which the Relying Party would
+              <td>Yes</td>
+              <td>A fully qualified URL to which the Relying Party would
               make the client registration request to before performing the authorization flow.</td>
             </tr>
             <tr>
               <td><code>authorizationUrl</code></td>
-              <td>Yes*</td>
-              <td><strong>Applies to Hosts only.</strong> A fully qualified URL to the host's authorization endpoint.</td>
+              <td>Yes</td>
+              <td>A fully qualified URL to the host's authorization endpoint.</td>
             </tr>
             <tr>
               <td><code>tokenUrl</code></td>
-              <td>Yes*</td>
-              <td><strong>Applies to Hosts only.</strong> A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</td>
+              <td>Yes</td>
+              <td>A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</td>
             </tr>
             <tr>
               <td><code>tokenRevocationUrl</code></td>
               <td>No</td>
-              <td><strong>Applies to Hosts only.</strong> A fully qualified URL to the host's token revocation endpoint for invalidating an existing refresh token or access token.</td>
-            </tr>
-            <tr>
-              <td><code>redirectUris</code></td>
-              <td>Yes*</td>
-              <td><strong>Applies to Relying Parties only.</strong> An array of one or more fully qualified URIs representing the valid redirect values for authorization requests. The HOST MUST reject any authorization requests with redirect URIs that are not an exact match of a registered URI</td>
+              <td>A fully qualified URL to the host's token revocation endpoint for invalidating an existing refresh token or access token.</td>
             </tr>
           </tbody>
         </table>
