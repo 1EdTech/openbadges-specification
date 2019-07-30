@@ -347,12 +347,12 @@ Pragma: no-cache
           <p>The user starts on the Relying Party service and is offered the chance to connect that
             service to their chosen Host. The user supplies the Relying Party with the Host domain
             authority or selects their Host from a list. The Relying Party MUST make a request to the Host's
-            registrationUrl as declared in the Host's Badge Connect Manifest following the process
+            registrationUrl as declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a> following the process
             in [[!RFC7591]].</p>
           <p>
             The Relying Party then MAY initiate an authorization request as described in Section 4.2
             of the IMS Security Framework [[SEC-10]] by redirecting the user to the Host's authorizationUrl as
-            declared in the Host's Badge Connect Manifest. All required properties must be included in
+            declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a>. All required properties must be included in
             the authorization request.
           </p>
           <table title="Properties in the authorization request">
@@ -551,9 +551,9 @@ grant_type=authorization_code
         <p>All Hosts MUST implement a JSON manifest file
           which contains configuration information about their implementation,
           such as scope support, redirect URIs, and branding information.</p>
-        <p>Hosts MUST serve the manifest at the path
+        <p>Hosts MUST serve the manifest at the well-known path
           <code>/.well-known/badgeconnect.json</code> on the relevant service
-          domain. The manifest MUST be provided over secure TLS 1.2 or 1.3 protocol
+          domain compliant with [[RFC5785]]. The manifest MUST be provided over secure TLS 1.2 or 1.3 protocol
             e.g. <code>https://YOUR_DOMAIN/.well-known/badgeconnect.json</code>.
         </p>
 
