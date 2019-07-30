@@ -183,14 +183,15 @@ Host: badge-host.example.com
 </code></pre>
           <p>
             The properties of the JSON body MUST be implemented as described in the following table. 
+            All URLs MUST use HTTPS (e.g. https://example.com/logo.png) and all URLs MUST have the same hostname.
             All required properties MUST be present in the registration request in order for it to be accepted by the Host.
           </p>
           <table title="Properties in the client registration request">
             <thead>
               <tr>
-                <td>Name</td>
-                <td>Required</td>
-                <td>Description</td>
+                <th>Name</th>
+                <th>Required</th>
+                <th>Description</th>
               </tr>
             </thead>
             <tbody>
@@ -238,35 +239,35 @@ Host: badge-host.example.com
                 <td>token_endpoint_auth_method</td>
                 <td>No</td>
                 <td>
-                  String indicator of the requested authentication method for the token endpoint. In this specification only <code>client_secret_basic</code>
+                  String indicator of the requested authentication method for the token endpoint. In this specification only "client_secret_basic"
                   is allowed:
                   <ul>
-                    <li><code>client_secret_basic</code>: The relying party uses the HTTP Basic authentication method as defined in OAuth 2.0.</li>
+                    <li>"client_secret_basic": The relying party uses the HTTP Basic authentication method as defined in OAuth 2.0.</li>
                   </ul>
-                  If omitted, the default is <code>client_secret_basic</code>.
+                  If omitted, the default is "client_secret_basic".
                 </td>
               </tr>
               <tr>
                 <td>grant_types</td>
                 <td>No</td>
                 <td>
-                  Array of OAuth 2.0 grant type strings. In this specification only <code>authorization_code</code> and <code>refresh_token</code> are allowed:
+                  Array of OAuth 2.0 grant type strings. In this specification only "authorization_code" and refresh_token" are allowed:
                   <ul>
-                    <li><code>authorization_code</code>: The authorization code grant type defined in OAuth 2.0.</li>
-                    <li><code>refresh_token</code>: The refresh token grant type defined in OAuth 2.0.</li>
+                    <li>"authorization_code": The authorization code grant type defined in OAuth 2.0.</li>
+                    <li>"refresh_token": The refresh token grant type defined in OAuth 2.0.</li>
                   </ul>
-                  If omitted, the default behavior is that the client will use only the <code>authorization_code</code> grant type.
+                  If omitted, the default behavior is that the client will use only the "authorization_code" grant type.
                 </td>
               </tr>
               <tr>
                 <td>response_types</td>
                 <td>No</td>
                 <td>
-                  Array of OAuth 2.0 response type strings. In this specification only <code>code</code> is allowed:
+                  Array of OAuth 2.0 response type strings. In this specification only "code" is allowed:
                   <ul>
-                    <li><code>code</code>: The authorization code response type defined in OAuth 2.0.</li>
+                    <li>"code": The authorization code response type defined in OAuth 2.0.</li>
                   </ul>
-                  If omitted, the default is that the client will use only the <code>code</code> response type.
+                  If omitted, the default is that the client will use only the "code" response type.
                 </td>
               </tr>
               <tr>
@@ -317,8 +318,8 @@ Pragma: no-cache
           <table title="Properties in the client registration response">
             <thead>
               <tr>
-                <td>Name</td>
-                <td>Description</td>
+                <th>Name</th>
+                <th>Description</th>
               </tr>
             </thead>
             <tbody>
@@ -348,30 +349,68 @@ Pragma: no-cache
             authority or selects their Host from a list. The Relying Party MUST make a request to the Host's
             registrationUrl as declared in the Host's Badge Connect Manifest following the process
             in [[!RFC7591]].</p>
-          <p>The Relying Party then MAY initiate an authorization request as described in Section 4.2
+          <p>
+            The Relying Party then MAY initiate an authorization request as described in Section 4.2
             of the IMS Security Framework [[SEC-10]] by redirecting the user to the Host's authorizationUrl as
-            declared in the Host's Badge Connect Manifest. This HTTP GET request MUST include the following
-            query parameters:
-            <dl>
-                <dt>response_type</dt>
-                <dd>Value MUST be set to "code".</dd>
-                <dt>client_id</dt>
-                <dd>The client identifier.</dd>
-                <dt>redirect_uri</dt>
-                <dd>The relying party's redirection endpoint.</dd>
-                <dt>scope</dt>
-                <dd>The scope of the access request.</dd>
-                <dt>state</dt>
-                <dd>An opaque value used by the client to maintain state between the request and callback.</dd>
-                <dt>code_challenge</dt>
-                <dd>This is BASE64URL-ENCODE(SHA256(ASCII(code_verifier))).</dd>
-                <dt>code_challenge_method</dt>
-                <dd>This MUST have a value of S256 i.e. the SHA256 code verifier transformation method is used.</dd>
-            </dl>
-            The required <code>client_id</code> parameter MUST be the <code>client_id</code> provided by the response 
-            to the registrationUrl endpoint.
+            declared in the Host's Badge Connect Manifest. All required properties must be included in
+            the authorization request.
           </p>
-
+          <table title="Properties in the authorization request">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Required</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>response_type</td>
+                  <td>Yes</td>
+                  <td>Value MUST be set to "code".</td>
+                </tr>
+                <tr>
+                  <td>client_id</td>
+                  <td>Yes</td>
+                  <td>
+                    The client identifier. MUST be <code>client_id</code> provided in the 
+                    <a href="#oauth-registration">Registration</a> response.
+                  </td>
+                </tr>
+                <tr>
+                  <td>redirect_uri</td>
+                  <td>Yes</td>
+                  <td>
+                    The relying party's redirection endpoint. MUST match one of the <code>redirect_uris</code>
+                    in the <a href="#oauth-registration">Registration</a> request. Although this is optional in
+                    the IMS Security Framework [[SEC-10]], it is REQUIRED by this specification.
+                  </td>
+                </tr>
+                <tr>
+                  <td>scope</td>
+                  <td>Yes</td>
+                  <td>
+                    The scope of the authorization request. This is a space delimited list of 
+                    <a href="#api-scopes">scopes</a>.
+                  </td>
+                </tr>
+                <tr>
+                  <td>state</td>
+                  <td>Yes</td>
+                  <td>An opaque value used by the client to maintain state between the request and callback.</td>
+                </tr>
+                <tr>
+                  <td>code_challenge</td>
+                  <td>Yes</td>
+                  <td>This is BASE64URL-ENCODE(SHA256(ASCII(code_verifier))).</td>
+                </tr>
+                <tr>
+                  <td>code_challenge_method</td>
+                  <td>Yes</td>
+                  <td>This MUST have a value of S256 i.e. the SHA256 code verifier transformation method is used.</td>
+                </tr>
+              </tbody>
+            </table>
           <p>An example authorization request (line breaks for display purposes only):</p>
 <pre><code>GET /authorize?
 response_type=code
@@ -478,8 +517,8 @@ grant_type=authorization_code
         <table title="Scopes for the Badge Connect API endpoints." summary="Scopes for the Badge Connect API endpoints.">
           <thead>
             <tr>
-              <td>Name</td>
-              <td>Description</td>
+              <th>Name</th>
+              <th>Description</th>
             </tr>
           </thead>
           <tbody>
@@ -569,9 +608,9 @@ grant_type=authorization_code
         <table title="Properties for the manifest file." summary="Properties for the manifest file.">
           <thead>
             <tr>
-              <td>Property</td>
-              <td>Required</td>
-              <td>Description</td>
+              <th>Property</th>
+              <th>Required</th>
+              <th>Description</th>
             </tr>
           </thead>
           <tbody>
@@ -671,8 +710,8 @@ grant_type=authorization_code
           <table>
             <thead>
               <tr>
-                <td>Name</td>
-                <td>Description</td>
+                <th>Name</th>
+                <th>Description</th>
               </tr>
             </thead>
             <tbody>
@@ -709,8 +748,8 @@ Link:
           <table>
             <thead>
               <tr>
-                <td>Name</td>
-                <td>Description</td>
+                <th>Name</th>
+                <th>Description</th>
               </tr>
             </thead>
             <tbody>
