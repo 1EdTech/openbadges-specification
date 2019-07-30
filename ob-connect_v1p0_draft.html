@@ -227,27 +227,50 @@ Host: badge-host.example.com
               <tr>
                 <td>redirect_uris</td>
                 <td>Yes</td>
-                <td>Array of redirection URI strings for use in the Oauth 2.0 flow.</td>
+                <td>Array of redirection URI strings for use in the OAuth 2.0 flow.</td>
               </tr>
               <tr>
                 <td>token_endpoint_auth_method</td>
                 <td>No</td>
-                <td>String indicator of the requested authentication method for the token endpoint. If omitted the default value is <code>client_secret_basic</code>.</td>
+                <td>
+                  String indicator of the requested authentication method for the token endpoint. In this specification only <code>client_secret_basic</code>
+                  is allowed:
+                  <ul>
+                    <li><code>client_secret_basic</code>: The relying party uses the HTTP Basic authentication method as defined in OAuth 2.0.</li>
+                  </ul>
+                  If omitted, the default is <code>client_secret_basic</code>.
+                </td>
               </tr>
               <tr>
                 <td>grant_types</td>
                 <td>No</td>
-                <td>Array of OAuth 2.0 grant type strings. If omitted, the default behavior is that the client will use only the <code>authorization_code</code> Grant Type.</td>
+                <td>
+                  Array of OAuth 2.0 grant type strings. In this specification only <code>authorization_code</code> and <code>refresh_token</code> are allowed:
+                  <ul>
+                    <li><code>authorization_code</code>: The authorization code grant type defined in OAuth 2.0.</li>
+                    <li><code>refresh_token</code>: The refresh token grant type defined in OAuth 2.0.</li>
+                  </ul>
+                  If omitted, the default behavior is that the client will use only the <code>authorization_code</code> grant type.
+                </td>
               </tr>
               <tr>
                 <td>response_types</td>
                 <td>No</td>
-                <td>Array of OAuth 2.0 response type strings. If omitted, the default is that the client will use only the <code>code</code> response type.</td>
+                <td>
+                  Array of OAuth 2.0 response type strings. In this specification only <code>code</code> is allowed:
+                  <ul>
+                    <li><code>code</code>: The authorization code response type defined in OAuth 2.0.</li>
+                  </ul>
+                  If omitted, the default is that the client will use only the <code>code</code> response type.
+                </td>
               </tr>
               <tr>
                 <td>scope</td>
                 <td>No</td>
-                <td>String containing a space-separated list of scope values that this client is permitted to use when requesting access tokens. If omitted, the Host MAY register a client with a default set of scopes.</td>
+                <td>
+                  String containing a space-separated list of scope values that this client is permitted to use when requesting access tokens. 
+                  Scopes are defined in <a href="#api-scopes">Scopes</a>.
+                  If omitted, the Host MAY register a client with a default set of scopes.</td>
               </tr>
             </tbody>
           </table>
