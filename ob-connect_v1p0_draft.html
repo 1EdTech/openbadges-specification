@@ -150,7 +150,7 @@
           <h3>Registration</h3>
           <p>When presented with a new target Host by which the Relying Party is attempting to gain
           an access token from, it MUST register itself with the Host and receive client credentials
-          in order to proceed with the Oauth 2.0 token exchange. The Relying Party and Host MUST implement [[!RFC7591]].</p>
+          in order to proceed with the OAuth 2.0 token exchange. The Relying Party and Host MUST implement [[!RFC7591]].</p>
           <p>An example registration request may look like:</p>
 <pre><code>POST /o/register HTTP/1.1
 Content-Type: application/json
@@ -237,12 +237,12 @@ Host: badge-host.example.com
               <tr>
                 <td>grant_types</td>
                 <td>No</td>
-                <td>Array of Oauth 2.0 grant type strings. If omitted, the default behavior is that the client will use only the <code>authorization_code</code> Grant Type.</td>
+                <td>Array of OAuth 2.0 grant type strings. If omitted, the default behavior is that the client will use only the <code>authorization_code</code> Grant Type.</td>
               </tr>
               <tr>
                 <td>response_types</td>
                 <td>No</td>
-                <td>Array of Oauth 2.0 response type strings. If omitted, the default is that the client will use only the <code>code</code> response type.</td>
+                <td>Array of OAuth 2.0 response type strings. If omitted, the default is that the client will use only the <code>code</code> response type.</td>
               </tr>
               <tr>
                 <td>scope</td>
@@ -296,11 +296,11 @@ Pragma: no-cache
             <tbody>
               <tr>
                 <td>client_id</td>
-                <td>REQUIRED. An Oauth 2.0 client identifier string. The value SHOULD NOT be currently valid for any other registered client.</td>
+                <td>REQUIRED. An OAuth 2.0 client identifier string. The value SHOULD NOT be currently valid for any other registered client.</td>
               </tr>
               <tr>
                 <td>client_secret</td>
-                <td>REQUIRED. An Oauth 2.0 client secret string.</td>
+                <td>REQUIRED. An OAuth 2.0 client secret string.</td>
               </tr>
               <tr>
                 <td>client_id_issued_at</td>
