@@ -141,10 +141,10 @@
         <h3>Authentication</h3>
         <p>A Relying Party requests a token scoped for access to Open Badges Assertions on a Host
           that belong to a user (resource owner) of that Host service, using an OAuth 2.0
-          Authorization Code Grant as described in the [[[SEC-10]]].
-          Once a Relying Party obtains a code, it exchanges the code for a token. Subsequent API requests are
-          authenticated with the access token until its expiration, after which it MAY be renewed if the
-          Host supports and previously provided a refresh token.
+          Authorization Code Grant as described in Section 4.2 of the IMS Security Framework [[SEC-10]].
+          Once a Relying Party obtains a code, it exchanges the code for an access token and optionally
+          a refresh token. Subsequent API requests are authenticated with the access token until its 
+          expiration. If the Host previously provided a refresh token, the access token can be renewed.
         </p>
         <section id="oauth-registration">
           <h3>Registration</h3>
