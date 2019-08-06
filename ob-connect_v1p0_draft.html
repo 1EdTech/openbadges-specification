@@ -138,11 +138,48 @@
     <p>Badge Connect defines a JSON API protocol to be implemented by applications serving in the
       roles of Host and Relying Party. Typically Relying Parties SHOULD be certified Open Badges
       services in the Open Badges roles of Displayer or Issuer, though Hosts may also be relying
-      parties to serve the <a href="#usecases-host-host-transfer">Host to Host transfer use case
-      </a>. Badge Connect API uses OAuth 2.0 for authentication, granular resource-based permission
+      parties to serve the <a href="#usecases-host-host-transfer">Host to Host transfer use case</a>. 
+      Badge Connect API uses OAuth 2.0 for authentication, granular resource-based permission
       scopes, and offers a number of required endpoints that MUST be implemented by Hosts and
       Relying Parties or both.
     </p>
+
+    <section id="api-architecture">
+      <h3>Architecture</h3>
+      <figure id="ad-architecture">
+        <img src="images/OBC_Architecture.svg" />
+        <figcaption>Architecture</figcaption>
+      </figure>
+      <p>
+        There are five key components to the Badge Connect API architecture.
+        <dl>
+          <dt>Resource Owner</dt>
+          <dd>This is the user that owns the resources (badges) that are on the Host.</dd>
+          <dt>Web Browser</dt>
+          <dd>This is the web browser application that the user interacts with.</dd>
+          <dt>Relying Party</dt>
+          <dd>
+            This is the web application that interacts with the Host on behalf of
+            the resource owner. This component is called the Consumer in the
+            IMS Security Framework [[SEC-10]].
+          </dd>
+          <dt>Authorization Server</dt>
+          <dd>
+            This is a server that implements the OAuth 2.0 endpoints on behalf of
+            the Host. In many systems, the Authorization Server and the Host are
+            combined.
+          </dd>
+          <dt>Host</dt>
+          <dd>
+            This is the resource server that has the protected resources (badges).
+            This component is called the Provider in the IMS Security Framework [[SEC-10]].
+          </dd>
+        </dl>
+        The role of each component during <a href="#oauth-registration">Registration</a>,
+        <a href="#oauth-token">Obtaining Tokens</a>, and <a href="#oauth-auth">Authenticating with Tokens</a>
+        are described below.
+      </p>
+    </section>
 
     <section id="api-authentication">
       <h3>Authentication</h3>
@@ -168,7 +205,7 @@
         </p>
         <p>
           If the Relying Party does not know the Host's registration URL, it MUST request the
-          <a href="#api-manifest">Manifest</a> as shown this <a href="#sd-registration">sequence diagram:
+          <a href="#api-manifest">Manifest</a> as shown this sequence diagram:
         </p>
         <figure id="sd-registration">
           <img src="images/OBC_DynamicClientRegistrationSequenceDiagram.svg" alt="" />
@@ -374,11 +411,11 @@ Pragma: no-cache
           </tbody>
         </table>
       </section>
+
       <section id="oauth-token">
         <h3>Obtaining Tokens</h3>
         <p>
-          After the Relying Party is registered with the Host as described in <a
-            href="#oauth-registration">Registration</a>,
+          After the Relying Party is registered with the Host as described in <a href="#oauth-registration">Registration</a>,
           the Relying Party then MAY initiate an authorization request as described in Section 4.2
           of the IMS Security Framework [[SEC-10]] by redirecting the user to the Host's authorizationUrl as
           declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a>.
