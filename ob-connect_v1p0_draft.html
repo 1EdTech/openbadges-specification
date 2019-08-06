@@ -1,174 +1,181 @@
 <!DOCTYPE html lang="en">
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <script src='https://purl.imsglobal.org/spec/respec-ims-default.js' async class='remove'></script>
-    <script src='./shared/local-biblio.js' class='remove'></script>
-    <script src='local-biblio.js' class='remove'></script>
-    <script class='remove'>
-      var respecConfig = {
-        specTitle: "Badge Connect API",
-        shortName: "ob-connect",
-        specStatus: "IMS Base Document",
-        specDate: "Month Day, 2018",
-        specVersion: "1.0",
-        specNature: "normative",
-        specType: "spec",
-        contributors: [
-          {name: "Alexander Hripak", company: "Credly", companyURL: "https://credly.com", role: "Editor"},
-          {name: "Nate Otto", company: "Concentric Sky", companyURL: "https://concentricsky.com", role: "Contributor"},
-          {name: "Justin Pitcher", company: "Campus Labs", companyURL: "https://www.campuslabs.com/", role: "Contributor"},
-          {name: "Chris Houston", company: "Capella University", companyURL: "https://www.capella.edu/", role: "Contributor"}
-        ],
-        //localBiblio is used to store bib entries not yet in the online imsBiblio or on specref.org
-        localBiblio: _localBiblio
-      };
-    </script>
-  </head>
-  <body>
 
-    <section class="introductory" id="abstract">
-        <h2>Abstract</h2>
+<head>
+  <meta charset='utf-8'>
+  <script src='https://purl.imsglobal.org/spec/respec-ims-default.js' async class='remove'></script>
+  <script src='./shared/local-biblio.js' class='remove'></script>
+  <script src='local-biblio.js' class='remove'></script>
+  <script class='remove'>
+    var respecConfig = {
+      specTitle: "Badge Connect API",
+      shortName: "ob-connect",
+      specStatus: "IMS Base Document",
+      specDate: "Month Day, 2018",
+      specVersion: "1.0",
+      specNature: "normative",
+      specType: "spec",
+      contributors: [
+        { name: "Alexander Hripak", company: "Credly", companyURL: "https://credly.com", role: "Editor" },
+        { name: "Nate Otto", company: "Concentric Sky", companyURL: "https://concentricsky.com", role: "Contributor" },
+        { name: "Justin Pitcher", company: "Campus Labs", companyURL: "https://www.campuslabs.com/", role: "Contributor" },
+        { name: "Chris Houston", company: "Capella University", companyURL: "https://www.capella.edu/", role: "Contributor" }
+      ],
+      //localBiblio is used to store bib entries not yet in the online imsBiblio or on specref.org
+      localBiblio: _localBiblio
+    };
+  </script>
+</head>
+
+<body>
+
+  <section class="introductory" id="abstract">
+    <h2>Abstract</h2>
+  </section>
+
+  <section>
+    <h2>Overview</h2>
+    <section class="informative">
+      <h3>Design Goals and Rationale</h3>
+      <p>The Badge Connect API is a specification that allows badge recipients to easily move their Assertions between
+        platforms to streamline the experience of earning and using Open Badges. The initial scope for this
+        specification will cover Assertions and Profiles, with potential additions in future versions of other types of
+        data held by applications in the various Open Badges ecosystem roles of Issuer, Displayer, and Host.</p>
     </section>
 
-    <section>
-      <h2>Overview</h2>
-      <section class="informative">
-        <h3>Design Goals and Rationale</h3>
-        <p>The Badge Connect API is a specification that allows badge recipients to easily move their Assertions between platforms to streamline the experience of earning and using Open Badges. The initial scope for this specification will cover Assertions and Profiles, with potential additions in future versions of other types of data held by applications in the various Open Badges ecosystem roles of Issuer, Displayer, and Host.</p>
-      </section>
-
-      <section class="informative" id="usecases">
-        <h3>Use cases</h3>
-        <p>The following use cases are supported by this specification:</p>
-        <table>
-          <tbody>
-            <tr id="usecases-issuer-host-import">
-              <td>A recipient of an Assertion wants to import historically-issued badges into a chosen Host from an Issuer platform.</td>
-            </tr>
-            <tr id="usecases-issuer-host-award">
-              <td>A user wishes to authorize an Issuer to push awarded Assertions to their chosen Host upon issue.</td>
-            </tr>
-            <tr id="usecases-host-displayer-transfer">
-              <td>A user wishes to connect their Assertions to a recruiting platform.</td>
-            </tr>
-            <tr id="usecases-host-host-transfer">
-              <td>A user wishes to move their badges from one Host to another Host.</td>
-            </tr>
-            <tr id="usecases-issuer-get-profile">
-              <td>A Relying Party wishes to obtain plaintext recipient
+    <section class="informative" id="usecases">
+      <h3>Use cases</h3>
+      <p>The following use cases are supported by this specification:</p>
+      <table>
+        <tbody>
+          <tr id="usecases-issuer-host-import">
+            <td>A recipient of an Assertion wants to import historically-issued badges into a chosen Host from an Issuer
+              platform.</td>
+          </tr>
+          <tr id="usecases-issuer-host-award">
+            <td>A user wishes to authorize an Issuer to push awarded Assertions to their chosen Host upon issue.</td>
+          </tr>
+          <tr id="usecases-host-displayer-transfer">
+            <td>A user wishes to connect their Assertions to a recruiting platform.</td>
+          </tr>
+          <tr id="usecases-host-host-transfer">
+            <td>A user wishes to move their badges from one Host to another Host.</td>
+          </tr>
+          <tr id="usecases-issuer-get-profile">
+            <td>A Relying Party wishes to obtain plaintext recipient
               identifier, to clearly understand the recipient profile in
               their badges.</td>
-            </tr>
-            <tr id="usecases-issuer-post-profile">
-              <td>An Issuer platform wishes to register a new recipient
+          </tr>
+          <tr id="usecases-issuer-post-profile">
+            <td>An Issuer platform wishes to register a new recipient
               identifier on a recipient profile to which it would award
               badges.</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-      <section id="terminology">
-        <h3>Terminology</h3>
-        <!-- add each term as a dt/dd pair with attrs as below; then use <a> in when referencing back to a term -->
-        <!-- use data-sort to automatically sort the terms -->
-        <!-- note that the terminology can be shared between docs using script class=transclude -->
-        <dl class="termlist" data-sort id="terms">
-          <dt><dfn data-lt="term1">term1</dfn></dt>
-          <dd>Definition</dd>
-          <dt><dfn data-lt="term2">term2</dfn></dt>
-          <dd>Definition</dd>
-        </dl>
-      </section>
-      <section id="conformance">
-        <h3>Conformance Statements</h3>
-        <!-- RFC 2119 text is inserted at the top of this section.
+    <section id="terminology">
+      <h3>Terminology</h3>
+      <!-- add each term as a dt/dd pair with attrs as below; then use <a> in when referencing back to a term -->
+      <!-- use data-sort to automatically sort the terms -->
+      <!-- note that the terminology can be shared between docs using script class=transclude -->
+      <dl class="termlist" data-sort id="terms">
+        <dt><dfn data-lt="term1">term1</dfn></dt>
+        <dd>Definition</dd>
+        <dt><dfn data-lt="term2">term2</dfn></dt>
+        <dd>Definition</dd>
+      </dl>
+    </section>
+    <section id="conformance">
+      <h3>Conformance Statements</h3>
+      <!-- RFC 2119 text is inserted at the top of this section.
             If you want, add additional paragraphs below this comment.
         -->
-      </section>
-      <section id="documentset">
-        <h3>Document Set</h3>
-        <!-- a complete list of documents in the Specification document set.
+    </section>
+    <section id="documentset">
+      <h3>Document Set</h3>
+      <!-- a complete list of documents in the Specification document set.
         Includes both normative and informative references. All documents
         referenced here also occur in the bibliography-->
-        <section>
-          <h4>Normative Documents</h4>
-          <dl>
+      <section>
+        <h4>Normative Documents</h4>
+        <dl>
           <dt>Conformance and Certification guide</dt>
           <dd>The conformance and certification guide
-          that accompanies this specification [[!EXAMPLE-CERT]] defines
-          the requirements for template service consumers and providers.
+            that accompanies this specification [[!EXAMPLE-CERT]] defines
+            the requirements for template service consumers and providers.
           </dd>
           <dt>JSON Schema</dt>
           <dd>The JSON [[!EXAMPLE-JSONSCH]] schema is provided hendrerit est.
-          Proin tempor, quam vitae consequat congue, est sapien pharetra odio,
-          sed rhoncus metus sem in turpis. </dd>
+            Proin tempor, quam vitae consequat congue, est sapien pharetra odio,
+            sed rhoncus metus sem in turpis. </dd>
           <dt>Errata</dt>
           <dd>The errata [[!EXAMPLE-ERRATA]] details any erratum registered for
             this version of this specification since its publication.</dd>
-          </dl>
-        </section>
-        <section class="informative">
-          <h4>Informative Documents</h4>
-          <dl>
-          <dt>Implementation Guide</dt> <dd>The implementation guide
-          that accompanies this specification [[EXAMPLE-IMPL]] contains
-          informtative guidance on facilisis hendrerit est. Nullam ultrices
-          non libero sed tristique. Proin tempor, quam vitae consequat congue,
-          est sapien pharetra odio, sed rhoncus metus sem in turpis. </dd>
-          </dl>
-          <dl>
+        </dl>
+      </section>
+      <section class="informative">
+        <h4>Informative Documents</h4>
+        <dl>
+          <dt>Implementation Guide</dt>
+          <dd>The implementation guide
+            that accompanies this specification [[EXAMPLE-IMPL]] contains
+            informtative guidance on facilisis hendrerit est. Nullam ultrices
+            non libero sed tristique. Proin tempor, quam vitae consequat congue,
+            est sapien pharetra odio, sed rhoncus metus sem in turpis. </dd>
+        </dl>
+        <dl>
           <dt>OpenAPI Swagger View</dt>
           <dd>A browseable view of the OpenAPI definition is available at...</dd>
-          </dl>
-        </section>
+        </dl>
       </section>
-    </section> <!-- /overview -->
+    </section>
+  </section> <!-- /overview -->
 
-    <section>
-      <h2>API</h2>
-      <p>Badge Connect defines a JSON API protocol to be implemented by applications serving in the
-        roles of Host and Relying Party. Typically Relying Parties SHOULD be certified Open Badges
-        services in the Open Badges roles of Displayer or Issuer, though Hosts may also be relying
-        parties to serve the <a href="#usecases-host-host-transfer">Host to Host transfer use case
-        </a>. Badge Connect API uses OAuth 2.0 for authentication, granular resource-based permission
-        scopes, and offers a number of required endpoints that MUST be implemented by Hosts and
-        Relying Parties or both.
+  <section>
+    <h2>API</h2>
+    <p>Badge Connect defines a JSON API protocol to be implemented by applications serving in the
+      roles of Host and Relying Party. Typically Relying Parties SHOULD be certified Open Badges
+      services in the Open Badges roles of Displayer or Issuer, though Hosts may also be relying
+      parties to serve the <a href="#usecases-host-host-transfer">Host to Host transfer use case
+      </a>. Badge Connect API uses OAuth 2.0 for authentication, granular resource-based permission
+      scopes, and offers a number of required endpoints that MUST be implemented by Hosts and
+      Relying Parties or both.
+    </p>
+
+    <section id="api-authentication">
+      <h3>Authentication</h3>
+      <p>A Relying Party requests a token scoped for access to Open Badges Assertions on a Host
+        that belong to a user (resource owner) of that Host service, using an OAuth 2.0
+        Authorization Code Grant as described in Section 4.2 of the IMS Security Framework [[SEC-10]].
+        Once a Relying Party obtains a code, it exchanges the code for an access token and optionally
+        a refresh token. Subsequent API requests are authenticated with the access token until its
+        expiration. If the Host previously provided a refresh token, the access token can be renewed.
       </p>
-
-      <section id="api-authentication">
-        <h3>Authentication</h3>
-        <p>A Relying Party requests a token scoped for access to Open Badges Assertions on a Host
-          that belong to a user (resource owner) of that Host service, using an OAuth 2.0
-          Authorization Code Grant as described in Section 4.2 of the IMS Security Framework [[SEC-10]].
-          Once a Relying Party obtains a code, it exchanges the code for an access token and optionally
-          a refresh token. Subsequent API requests are authenticated with the access token until its 
-          expiration. If the Host previously provided a refresh token, the access token can be renewed.
+      <section id="oauth-registration">
+        <h3>Registration</h3>
+        <p>
+          The user starts on the Relying Party application and is offered the chance to connect that
+          application to their chosen Host. The user supplies the Relying Party with the Host domain
+          authority or selects their Host from a list.
         </p>
-        <section id="oauth-registration">
-          <h3>Registration</h3>
-          <p>
-            The user starts on the Relying Party application and is offered the chance to connect that
-            application to their chosen Host. The user supplies the Relying Party with the Host domain
-            authority or selects their Host from a list.
-          </p>
-          <p>
-            When presented with a new target Host by which the Relying Party is attempting to gain
-            an access token from, it MUST register itself with the Host and receive client credentials
-            in order to proceed with the OAuth 2.0 token exchange. The Relying Party and Host MUST
-            implement [[!RFC7591]].
-          </p>
-          <p>
-            If the Relying Party does not know the Host's registration URL, it MUST request the
-            <a href="#api-manifest">Manifest</a> as shown this <a href="#sd-registration">sequence diagram</a>.
-          </p>
-          <figure id="sd-registration">
-            <img src="images/OBC_DynamicClientRegistrationSequenceDiagram.svg" alt=""/>
-            <figcaption>Dynamic Client Registration Sequence Diagram</figcaption>
-          </figure>
-          <p>The registration request MUST use HTTPS (TLS 1.2 or 1.3). An example registration request may look like:</p>
-<pre><code>POST /o/register HTTP/1.1
+        <p>
+          When presented with a new target Host by which the Relying Party is attempting to gain
+          an access token from, it MUST register itself with the Host and receive client credentials
+          in order to proceed with the OAuth 2.0 token exchange. The Relying Party and Host MUST
+          implement [[!RFC7591]].
+        </p>
+        <p>
+          If the Relying Party does not know the Host's registration URL, it MUST request the
+          <a href="#api-manifest">Manifest</a> as shown this <a href="#sd-registration">sequence diagram:
+        </p>
+        <figure id="sd-registration">
+          <img src="images/OBC_DynamicClientRegistrationSequenceDiagram.svg" alt="" />
+          <figcaption>Dynamic Client Registration Sequence Diagram</figcaption>
+        </figure>
+        <p>The registration request MUST use HTTPS (TLS 1.2 or 1.3). An example registration request may look like:</p>
+        <pre>POST /o/register HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Host: badge-host.example.com
@@ -194,109 +201,118 @@ Host: badge-host.example.com
   ],
   "scope": "YOUR_REQUESTED_SPACE_SEPARATED_LIST_OF_SCOPES"
 }
-</code></pre>
-          <p>
-            The properties of the JSON body MUST be implemented as described in the following table. 
-            All URLs MUST use HTTPS (e.g. https://example.com/logo.png) and all URLs MUST have the same hostname.
-            All required properties MUST be present in the registration request in order for it to be accepted by the Host.
-          </p>
-          <table title="Properties in the client registration request">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Required</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>client_name</td>
-                <td>Yes</td>
-                <td>The human-readable name of the Relying Party.</td>
-              </tr>
-              <tr>
-                <td>client_uri</td>
-                <td>Yes</td>
-                <td>A page that which describes the Relying Party.</td>
-              </tr>
-              <tr>
-                <td>logo_uri</td>
-                <td>Yes</td>
-                <td>The logo of the Relying Party.</td>
-              </tr>
-              <tr>
-                <td>tos_uri</td>
-                <td>Yes</td>
-                <td>The Terms of Service of the Relying Party.</td>
-              </tr>
-              <tr>
-                <td>policy_uri</td>
-                <td>Yes</td>
-                <td>The Privacy Policy of the Relying Party.</td>
-              </tr>
-              <tr>
-                <td>software_id</td>
-                <td>Yes</td>
-                <td>A unique idenfitier assigned by the client developer. As described in [[!RFC7591]], it SHOULD remain the same for all instances of the client software.</td>
-              </tr>
-              <tr>
-                <td>software_version</td>
-                <td>Yes</td>
-                <td>A version identifier string for the client software. The value SHOULD change on any update to the client software.</td>
-              </tr>
-              <tr>
-                <td>redirect_uris</td>
-                <td>Yes</td>
-                <td>Array of redirection URI strings for use in the OAuth 2.0 flow.</td>
-              </tr>
-              <tr>
-                <td>token_endpoint_auth_method</td>
-                <td>No</td>
-                <td>
-                  String indicator of the requested authentication method for the token endpoint. In this specification only "client_secret_basic"
-                  is allowed:
-                  <ul>
-                    <li>"client_secret_basic": The relying party uses the HTTP Basic authentication method as defined in OAuth 2.0.</li>
-                  </ul>
-                  If omitted, the default is "client_secret_basic".
-                </td>
-              </tr>
-              <tr>
-                <td>grant_types</td>
-                <td>No</td>
-                <td>
-                  Array of OAuth 2.0 grant type strings. In this specification only "authorization_code" and refresh_token" are allowed:
-                  <ul>
-                    <li>"authorization_code": The authorization code grant type defined in OAuth 2.0.</li>
-                    <li>"refresh_token": The refresh token grant type defined in OAuth 2.0.</li>
-                  </ul>
-                  If omitted, the default behavior is that the client will use only the "authorization_code" grant type.
-                </td>
-              </tr>
-              <tr>
-                <td>response_types</td>
-                <td>No</td>
-                <td>
-                  Array of OAuth 2.0 response type strings. In this specification only "code" is allowed:
-                  <ul>
-                    <li>"code": The authorization code response type defined in OAuth 2.0.</li>
-                  </ul>
-                  If omitted, the default is that the client will use only the "code" response type.
-                </td>
-              </tr>
-              <tr>
-                <td>scope</td>
-                <td>No</td>
-                <td>
-                  String containing a space-separated list of scope values that this client is permitted to use when requesting access tokens. 
-                  Scopes are defined in <a href="#api-scopes">Scopes</a>.
-                  If omitted, the Host MAY register a client with a default set of scopes.</td>
-              </tr>
-            </tbody>
-          </table>
-          <p>If the Host accepts the registration request, it will store the information provided in the request and generate a set of client credentials for the Relying Party to use when requesting access tokens.</p>
-          <p>All the information provided by the Relying Party MUST be returned to the Relying Party, including modifications to the properties as the Host deems necessary.</p>
-<pre><code>
+</pre>
+        <p>
+          The properties of the JSON body MUST be implemented as described in the following table.
+          All URLs MUST use HTTPS (e.g. https://example.com/logo.png) and all URLs MUST have the same hostname.
+          All required properties MUST be present in the registration request in order for it to be accepted by the
+          Host.
+        </p>
+        <table title="Properties in the client registration request">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>client_name</td>
+              <td>Yes</td>
+              <td>The human-readable name of the Relying Party.</td>
+            </tr>
+            <tr>
+              <td>client_uri</td>
+              <td>Yes</td>
+              <td>A page that which describes the Relying Party.</td>
+            </tr>
+            <tr>
+              <td>logo_uri</td>
+              <td>Yes</td>
+              <td>The logo of the Relying Party.</td>
+            </tr>
+            <tr>
+              <td>tos_uri</td>
+              <td>Yes</td>
+              <td>The Terms of Service of the Relying Party.</td>
+            </tr>
+            <tr>
+              <td>policy_uri</td>
+              <td>Yes</td>
+              <td>The Privacy Policy of the Relying Party.</td>
+            </tr>
+            <tr>
+              <td>software_id</td>
+              <td>Yes</td>
+              <td>A unique idenfitier assigned by the client developer. As described in [[!RFC7591]], it SHOULD remain
+                the same for all instances of the client software.</td>
+            </tr>
+            <tr>
+              <td>software_version</td>
+              <td>Yes</td>
+              <td>A version identifier string for the client software. The value SHOULD change on any update to the
+                client software.</td>
+            </tr>
+            <tr>
+              <td>redirect_uris</td>
+              <td>Yes</td>
+              <td>Array of redirection URI strings for use in the OAuth 2.0 flow.</td>
+            </tr>
+            <tr>
+              <td>token_endpoint_auth_method</td>
+              <td>No</td>
+              <td>
+                String indicator of the requested authentication method for the token endpoint. In this specification
+                only "client_secret_basic"
+                is allowed:
+                <ul>
+                  <li>"client_secret_basic": The relying party uses the HTTP Basic authentication method as defined in
+                    OAuth 2.0.</li>
+                </ul>
+                If omitted, the default is "client_secret_basic".
+              </td>
+            </tr>
+            <tr>
+              <td>grant_types</td>
+              <td>No</td>
+              <td>
+                Array of OAuth 2.0 grant type strings. In this specification only "authorization_code" and
+                refresh_token" are allowed:
+                <ul>
+                  <li>"authorization_code": The authorization code grant type defined in OAuth 2.0.</li>
+                  <li>"refresh_token": The refresh token grant type defined in OAuth 2.0.</li>
+                </ul>
+                If omitted, the default behavior is that the client will use only the "authorization_code" grant type.
+              </td>
+            </tr>
+            <tr>
+              <td>response_types</td>
+              <td>No</td>
+              <td>
+                Array of OAuth 2.0 response type strings. In this specification only "code" is allowed:
+                <ul>
+                  <li>"code": The authorization code response type defined in OAuth 2.0.</li>
+                </ul>
+                If omitted, the default is that the client will use only the "code" response type.
+              </td>
+            </tr>
+            <tr>
+              <td>scope</td>
+              <td>No</td>
+              <td>
+                String containing a space-separated list of scope values that this client is permitted to use when
+                requesting access tokens.
+                Scopes are defined in <a href="#api-scopes">Scopes</a>.
+                If omitted, the Host MAY register a client with a default set of scopes.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>If the Host accepts the registration request, it will store the information provided in the request and
+          generate a set of client credentials for the Relying Party to use when requesting access tokens.</p>
+        <p>All the information provided by the Relying Party MUST be returned to the Relying Party, including
+          modifications to the properties as the Host deems necessary.</p>
+        <pre>
 HTTP/1.1 201 Created
 Content-Type: application/json
 Cache-Control: no-store
@@ -327,108 +343,111 @@ Pragma: no-cache
   ],
   "scope": "YOUR_REQUESTED_SPACE_SEPARATED_LIST_OF_SCOPES"
 }
-</code></pre>
-          <p>The following table describes the properties present in the client registration response that were not included in the request. These are all REQUIRED properties.</p>
-          <table title="Properties in the client registration response">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>client_id</td>
-                <td>REQUIRED. An OAuth 2.0 client identifier string. The value SHOULD NOT be currently valid for any other registered client.</td>
-              </tr>
-              <tr>
-                <td>client_secret</td>
-                <td>REQUIRED. An OAuth 2.0 client secret string.</td>
-              </tr>
-              <tr>
-                <td>client_id_issued_at</td>
-                <td>REQUIRED. The time at which the client_id was issued.</td>
-              </tr>
-              <tr>
-                <td>client_secret_expires_at</td>
-                <td>REQUIRED. The time at which the client_secret will expire. MAY be 0 for no expiration.</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section id="oauth-token">
-          <h3>Obtaining Tokens</h3>
-          <p>
-            After the Relying Party is registered with the Host as described in <a href="#oauth-registration">Registration</a>,
-            the Relying Party then MAY initiate an authorization request as described in Section 4.2
-            of the IMS Security Framework [[SEC-10]] by redirecting the user to the Host's authorizationUrl as
-            declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a>.
-          </p>
-          <figure id="sd-authorization">
-            <img src="images/OBC_AuthenticationSequenceDiagram.svg" alt=""/>
-            <figcaption>Authorization Sequence Diagram</figcaption>
-          </figure>
-          <p>
-            All required properties must be included in the authorization request.
-          </p>
-          <table title="Properties in the authorization request">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Required</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>response_type</td>
-                  <td>Yes</td>
-                  <td>Value MUST be set to "code".</td>
-                </tr>
-                <tr>
-                  <td>client_id</td>
-                  <td>Yes</td>
-                  <td>
-                    The client identifier. MUST be <code>client_id</code> provided in the 
-                    <a href="#oauth-registration">Registration</a> response.
-                  </td>
-                </tr>
-                <tr>
-                  <td>redirect_uri</td>
-                  <td>Yes</td>
-                  <td>
-                    The relying party's redirection endpoint. MUST match one of the <code>redirect_uris</code>
-                    in the <a href="#oauth-registration">Registration</a> request. Although this is optional in
-                    the IMS Security Framework [[SEC-10]], it is REQUIRED by this specification.
-                  </td>
-                </tr>
-                <tr>
-                  <td>scope</td>
-                  <td>Yes</td>
-                  <td>
-                    The scope of the authorization request. This is a space delimited list of 
-                    <a href="#api-scopes">scopes</a>.
-                  </td>
-                </tr>
-                <tr>
-                  <td>state</td>
-                  <td>Yes</td>
-                  <td>An opaque value used by the client to maintain state between the request and callback.</td>
-                </tr>
-                <tr>
-                  <td>code_challenge</td>
-                  <td>Yes</td>
-                  <td>This is BASE64URL-ENCODE(SHA256(ASCII(code_verifier))).</td>
-                </tr>
-                <tr>
-                  <td>code_challenge_method</td>
-                  <td>Yes</td>
-                  <td>This MUST have a value of S256 i.e. the SHA256 code verifier transformation method is used.</td>
-                </tr>
-              </tbody>
-            </table>
-          <p>An example authorization request (line breaks for display purposes only):</p>
-<pre><code>GET /authorize?
+</pre>
+        <p>The following table describes the properties present in the client registration response that were not
+          included in the request. These are all REQUIRED properties.</p>
+        <table title="Properties in the client registration response">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>client_id</td>
+              <td>REQUIRED. An OAuth 2.0 client identifier string. The value SHOULD NOT be currently valid for any other
+                registered client.</td>
+            </tr>
+            <tr>
+              <td>client_secret</td>
+              <td>REQUIRED. An OAuth 2.0 client secret string.</td>
+            </tr>
+            <tr>
+              <td>client_id_issued_at</td>
+              <td>REQUIRED. The time at which the client_id was issued.</td>
+            </tr>
+            <tr>
+              <td>client_secret_expires_at</td>
+              <td>REQUIRED. The time at which the client_secret will expire. MAY be 0 for no expiration.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section id="oauth-token">
+        <h3>Obtaining Tokens</h3>
+        <p>
+          After the Relying Party is registered with the Host as described in <a
+            href="#oauth-registration">Registration</a>,
+          the Relying Party then MAY initiate an authorization request as described in Section 4.2
+          of the IMS Security Framework [[SEC-10]] by redirecting the user to the Host's authorizationUrl as
+          declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a>.
+        </p>
+        <figure id="sd-authorization">
+          <img src="images/OBC_AuthenticationSequenceDiagram.svg" alt="" />
+          <figcaption>Authorization Sequence Diagram</figcaption>
+        </figure>
+        <p>
+          All required properties must be included in the authorization request.
+        </p>
+        <table title="Properties in the authorization request">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>response_type</td>
+              <td>Yes</td>
+              <td>Value MUST be set to "code".</td>
+            </tr>
+            <tr>
+              <td>client_id</td>
+              <td>Yes</td>
+              <td>
+                The client identifier. MUST be <code>client_id</code> provided in the
+                <a href="#oauth-registration">Registration</a> response.
+              </td>
+            </tr>
+            <tr>
+              <td>redirect_uri</td>
+              <td>Yes</td>
+              <td>
+                The relying party's redirection endpoint. MUST match one of the <code>redirect_uris</code>
+                in the <a href="#oauth-registration">Registration</a> request. Although this is optional in
+                the IMS Security Framework [[SEC-10]], it is REQUIRED by this specification.
+              </td>
+            </tr>
+            <tr>
+              <td>scope</td>
+              <td>Yes</td>
+              <td>
+                The scope of the authorization request. This is a space delimited list of
+                <a href="#api-scopes">scopes</a>.
+              </td>
+            </tr>
+            <tr>
+              <td>state</td>
+              <td>Yes</td>
+              <td>An opaque value used by the client to maintain state between the request and callback.</td>
+            </tr>
+            <tr>
+              <td>code_challenge</td>
+              <td>Yes</td>
+              <td>This is BASE64URL-ENCODE(SHA256(ASCII(code_verifier))).</td>
+            </tr>
+            <tr>
+              <td>code_challenge_method</td>
+              <td>Yes</td>
+              <td>This MUST have a value of S256 i.e. the SHA256 code verifier transformation method is used.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>An example authorization request (line breaks for display purposes only):</p>
+        <pre>GET /authorize?
 response_type=code
 &client_id=BADGECONNECT_s6BhdRkqt3
 &state=xyzjklabc
@@ -437,66 +456,66 @@ response_type=code
 &code_challange_method=S256
 &redirect_uri=https%3A%2F%2Fbadgehost.example.com%2Fo%2Fredirect HTTP/1.1
 Host: www.example.com
-</code></pre>
+</pre>
 
-          <p>If the Host does not recognize the Relying Party's redirection endpoint from a prior
-            connection with this Relying Party, the Host SHOULD throw an error specifying that
-            the redirection endpoint is not applicable to any registered client and registration
-            should be made before proceeding. If the <code>redirect_uri</code> matches the known 
-            <code>client_id</code>,
-            the Host MAY honor the request to present the
-            user or resource owner with the option to authorize the request. If the Host recognizes
-            the Relying Party, the Host MAY skip the need to register the client again.
-            If the user authorizes the Relying Party to access their resources with the
-            requested scopes, the Host MUST redirect the user back to the <code>redirect_uri</code> 
-            with a <code>code</code> query string parameter.
-          </p>
+        <p>If the Host does not recognize the Relying Party's redirection endpoint from a prior
+          connection with this Relying Party, the Host SHOULD throw an error specifying that
+          the redirection endpoint is not applicable to any registered client and registration
+          should be made before proceeding. If the <code>redirect_uri</code> matches the known
+          <code>client_id</code>,
+          the Host MAY honor the request to present the
+          user or resource owner with the option to authorize the request. If the Host recognizes
+          the Relying Party, the Host MAY skip the need to register the client again.
+          If the user authorizes the Relying Party to access their resources with the
+          requested scopes, the Host MUST redirect the user back to the <code>redirect_uri</code>
+          with a <code>code</code> query string parameter.
+        </p>
 
-          <p>With the supplied code, the Relying Party SHOULD attempt to exchange the code for a
-            token. The Relying Party makes an authorization grant POST request to the Host's
-            tokenUrl, as declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a>.
-            The HTTP POST request MUST include a Basic authorization header with the <code>client_id</code>
-            and <code>client_secret</code> provided by the response to the registrationUrl endpoint.
-            The body of the request MUST include the following form fields:
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Required</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>grant_type</td>
-                  <td>Yes</td>
-                  <td>Value MUST be set to "authorization_code".</td>
-                </tr>
-                <tr>
-                  <td>code</td>
-                  <td>Yes</td>
-                  <td>The authorization code received from the authorization server.</td>
-                </tr>
-                <tr>
-                  <td>redirect_uri</td>
-                  <td>Yes</td>
-                  <td>The relying party's redirection endpoint.</td>
-                </tr>
-                <tr>
-                  <td>scope</td>
-                  <td>Yes</td>
-                  <td>The scope of the access request.</td>
-                </tr>
-                <tr>
-                  <td>code_verifier</td>
-                  <td>Yes</td>
-                  <td>The PKCE code verifier.</td>
-                </tr>
-              </tbody>
-            </table>
-          </p>
-          <p>An example token request:</p>
-<code><pre>POST /badge/connect/auth/token HTTP/1.1
+        <p>With the supplied code, the Relying Party SHOULD attempt to exchange the code for a
+          token. The Relying Party makes an authorization grant POST request to the Host's
+          tokenUrl, as declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a>.
+          The HTTP POST request MUST include a Basic authorization header with the <code>client_id</code>
+          and <code>client_secret</code> provided by the response to the registrationUrl endpoint.
+          The body of the request MUST include the following form fields:
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Required</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>grant_type</td>
+                <td>Yes</td>
+                <td>Value MUST be set to "authorization_code".</td>
+              </tr>
+              <tr>
+                <td>code</td>
+                <td>Yes</td>
+                <td>The authorization code received from the authorization server.</td>
+              </tr>
+              <tr>
+                <td>redirect_uri</td>
+                <td>Yes</td>
+                <td>The relying party's redirection endpoint.</td>
+              </tr>
+              <tr>
+                <td>scope</td>
+                <td>Yes</td>
+                <td>The scope of the access request.</td>
+              </tr>
+              <tr>
+                <td>code_verifier</td>
+                <td>Yes</td>
+                <td>The PKCE code verifier.</td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <p>An example token request:</p>
+        <pre>POST /badge/connect/auth/token HTTP/1.1
 Host: www.example.com
 Authorization: Basic QkFER0VDT05ORUNUX3M2QmhkUmtxdDM6Y3paQ2FHUlNhM0YwTXpvM1JtcG1jREJhUW5JeFMzUkVVbUp1Wmxaa2JVbDM=
 Content-Type: application/x-www-form-urlencoded
@@ -506,123 +525,132 @@ grant_type=authorization_code
 &redirect_uri=https://badgehost.example.com/o/redirect
 &scope=SPACE_SEPARATED_STRING_OF_REQUESTED_SCOPES
 &code_verifier=YOUR_GENERATED_CODE_VERIFIER
-</pre></code>
-          <p>If the authorization server finds the request to be a valid, it generates
+</pre>
+        <p>If the authorization server finds the request to be a valid, it generates
           and returns an access token and optionally a refresh token.</p>
 
-          <p>If the request is invalid, the Host MUST return an error message with an HTTP 400 (Bad Request) status
+        <p>If the request is invalid, the Host MUST return an error message with an HTTP 400 (Bad Request) status
           code and a body matching the Badge Connect response <a href="#api-envelope">envelope</a>.
-          </p>
-        </section>
-        <section id="oauth-auth">
-          <h3>Authenticating with Tokens</h3>
-          <p>After obtaining a token using the method above, a Relying Party MAY request resources
-            controlled by the resource owner from Host endpoints using the token in the HTTP
-            Authorization header. An example follows, where <code>2YotnFZFEjr1zCsicMWpAA</code> is
-            the token:</p>
-          <pre>Authorization: Bearer 2YotnFZFEjr1zCsicMWpAA</pre>
-          <figure id="sd-accessresource">
-            <img src="images/OBC_AccessProtectedResource.svg" alt=""/>
-            <figcaption>Access Protected Resource Sequence Diagram</figcaption>
-          </figure>
-        </section>
-        <section id="oauth-ro-revocation">
-            <h3>Revocation by Resource Owner</h3>
-            <p>Host platforms MUST provide a list of authorized clients to the resource owner for review. The list SHOULD identify the relying party and when the grant was created. From this list the resource owner MUST be able to revoke the relying party's access.</p>
-            <p>Subsequent attempts to use the relevant revoked access or refresh tokens SHOULD result in a 401 UNAUTHENTICATED error.</p>
-        </section>
-        <section id="oauth-rp-revocation">
-            <h3>Revocation by Relying Party</h3>
-            <p>Host platforms MAY provide a mechanism to revoke both types of tokens by providing a token revocation endpoint in their manifest file [[!RFC7009]]. This revocation endpoint allows a Relying Party to invalidate its tokens if the end-user logs out, changes identity, or removes the respective Host.</p>
-            <p>Token revocation endpoints MUST support the revocation of refresh tokens and SHOULD support the revocation of access tokens.</p>
-            <h4>Revocation Request</h4>
-            <p>The Relying Party makes a POST request to the Host's token revocation URL, as declared in the Host's Badge Connect <a href="#api-manifest">Manifest</a>.
-            The HTTP request entity-body MUST contain a <code>token</code> parameter containing the refresh token or access token.</p>
-            <p>Relying Parties MAY also pass a <code>token_type_hint</code> parameter with a value of <code>access_token</code> or <code>refresh_token</code>.</p>
-            <p>An example revocation request:</p>
-  <code><pre>
+        </p>
+      </section>
+      <section id="oauth-auth">
+        <h3>Authenticating with Tokens</h3>
+        <p>After obtaining a token using the method above, a Relying Party MAY request resources
+          controlled by the resource owner from Host endpoints using the token in the HTTP
+          Authorization header. An example follows, where <code>2YotnFZFEjr1zCsicMWpAA</code> is
+          the token:</p>
+        <pre>Authorization: Bearer 2YotnFZFEjr1zCsicMWpAA</pre>
+        <figure id="sd-accessresource">
+          <img src="images/OBC_AccessProtectedResource.svg" alt="" />
+          <figcaption>Access Protected Resource Sequence Diagram</figcaption>
+        </figure>
+      </section>
+      <section id="oauth-ro-revocation">
+        <h3>Revocation by Resource Owner</h3>
+        <p>Host platforms MUST provide a list of authorized clients to the resource owner for review. The list SHOULD
+          identify the relying party and when the grant was created. From this list the resource owner MUST be able to
+          revoke the relying party's access.</p>
+        <p>Subsequent attempts to use the relevant revoked access or refresh tokens SHOULD result in a 401
+          UNAUTHENTICATED error.</p>
+      </section>
+      <section id="oauth-rp-revocation">
+        <h3>Revocation by Relying Party</h3>
+        <p>Host platforms MAY provide a mechanism to revoke both types of tokens by providing a token revocation
+          endpoint in their manifest file [[!RFC7009]]. This revocation endpoint allows a Relying Party to invalidate
+          its tokens if the end-user logs out, changes identity, or removes the respective Host.</p>
+        <p>Token revocation endpoints MUST support the revocation of refresh tokens and SHOULD support the revocation of
+          access tokens.</p>
+        <h4>Revocation Request</h4>
+        <p>The Relying Party makes a POST request to the Host's token revocation URL, as declared in the Host's Badge
+          Connect <a href="#api-manifest">Manifest</a>.
+          The HTTP request entity-body MUST contain a <code>token</code> parameter containing the refresh token or
+          access token.</p>
+        <p>Relying Parties MAY also pass a <code>token_type_hint</code> parameter with a value of
+          <code>access_token</code> or <code>refresh_token</code>.</p>
+        <p>An example revocation request:</p>
+        <pre>
   POST /badge/connect/auth/revoke_token HTTP/1.1
   Host: www.example.com
   Content-Type: application/x-www-form-urlencoded
 
   token=n0esc3NRze7LTCu7iYzS6a5acc3f0ogp4
   &token_type_hint=access_token
-  </pre></code>
-            <p>
-        </section>
+  </pre>
+        <p>
       </section>
+    </section>
 
-      <section id="api-scopes">
-        <h3>Scopes</h3>
-        <p>Access to resources in the Badge Connect API require an access token. These access
-          tokens have a permissioned scope when they are created and inform the responding
-          application which resources the entity has access to.
-        </p>
-        <table title="Scopes for the Badge Connect API endpoints." summary="Scopes for the Badge Connect API endpoints.">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.readonly</td>
-              <td>Permission to read assertions for the authenticated entity.</td>
-            </tr>
-            <tr>
-              <td>https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.create</td>
-              <td>Permission to create assertions for the authenticated entity.</td>
-            </tr>
-            <tr>
-              <td>https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.readonly</td>
-              <td>Permission to read the profile for the authenticated entity.</td>
-            </tr>
-            <tr>
-              <td>https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.update</td>
-              <td>Permission to update the profile for the authenticated entity.</td>
-            </tr>
-            <tr>
-              <td>offline_access</td>
-              <td>Permission to issue a <code>refresh_token</code> along with the <code>access_token</code>.</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+    <section id="api-scopes">
+      <h3>Scopes</h3>
+      <p>Access to resources in the Badge Connect API require an access token. These access
+        tokens have a permissioned scope when they are created and inform the responding
+        application which resources the entity has access to.
+      </p>
+      <table title="Scopes for the Badge Connect API endpoints." summary="Scopes for the Badge Connect API endpoints.">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.readonly</td>
+            <td>Permission to read assertions for the authenticated entity.</td>
+          </tr>
+          <tr>
+            <td>https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.create</td>
+            <td>Permission to create assertions for the authenticated entity.</td>
+          </tr>
+          <tr>
+            <td>https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.readonly</td>
+            <td>Permission to read the profile for the authenticated entity.</td>
+          </tr>
+          <tr>
+            <td>https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.update</td>
+            <td>Permission to update the profile for the authenticated entity.</td>
+          </tr>
+          <tr>
+            <td>offline_access</td>
+            <td>Permission to issue a <code>refresh_token</code> along with the <code>access_token</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
     <section id="api-manifest">
-        <h3>Manifest</h3>
-        <p>All Hosts MUST implement a JSON manifest file
-          which contains configuration information about their implementation,
-          such as scope support, redirect URIs, and branding information.</p>
-        <p>Hosts MUST serve the manifest at the well-known path
-          <code>/.well-known/badgeconnect.json</code> on the relevant service
-          domain compliant with [[RFC5785]]. The manifest MUST be provided over secure TLS 1.2 or 1.3 protocol
-            e.g. <code>https://YOUR_DOMAIN/.well-known/badgeconnect.json</code>.
-        </p>
+      <h3>Manifest</h3>
+      <p>All Hosts MUST implement a JSON manifest file
+        which contains configuration information about their implementation,
+        such as scope support, redirect URIs, and branding information.</p>
+      <p>Hosts MUST serve the manifest at the well-known path
+        <code>/.well-known/badgeconnect.json</code> on the relevant service
+        domain compliant with [[RFC5785]]. The manifest MUST be provided over secure TLS 1.2 or 1.3 protocol
+        e.g. <code>https://YOUR_DOMAIN/.well-known/badgeconnect.json</code>.
+      </p>
 
-        <h4>Requesting Manifests</h4>
-        <p>Upon requesting a Manifest file from a Host,
-          the requester SHOULD respect the <code>Cache-Control</code> and
-          <code>Expires</code> headers if present in the response and configure
-          local cache to match the directives it declares. If directives include
-          one of <code>no-cache, no-store</code>, the requester SHOULD NOT cache
-          the data for future interactions. If directives include
-          <code>max-age</code> or if an <code>Expires</code> header is present,
-          the requester SHOULD cache the manifest file data, if valid, up to the
-          expiration indicated, either at the time indicated by the Expires
-          header or max-age seconds from request time.
-        </p>
-        <p>An <code>Etag</code> header MAY be offered with the Manifest file
-          response. If so, after a resource's declared expiration, a requester
-          MAY include an <code>If-None-Match</code> header containing the value
-          of the Etag to check if the resource is still fresh. If so the server
-          may return a <code>304 Not Modified</code> response status code, and a
-          new <code>Expires</code> or <code>Cache-Control</code> header MAY be
-          included, which the requester SHOULD use to update the cache expiration.
-        </p>
-        <h4>Manifest Structure</h4>
-        <pre>
+      <h4>Requesting Manifests</h4>
+      <p>Upon requesting a Manifest file from a Host,
+        the requester SHOULD respect the <code>Cache-Control</code> and
+        <code>Expires</code> headers if present in the response and configure
+        local cache to match the directives it declares. If directives include
+        one of <code>no-cache, no-store</code>, the requester SHOULD NOT cache
+        the data for future interactions. If directives include
+        <code>max-age</code> or if an <code>Expires</code> header is present,
+        the requester SHOULD cache the manifest file data, if valid, up to the
+        expiration indicated, either at the time indicated by the Expires
+        header or max-age seconds from request time.
+      </p>
+      <p>An <code>Etag</code> header MAY be offered with the Manifest file
+        response. If so, after a resource's declared expiration, a requester
+        MAY include an <code>If-None-Match</code> header containing the value
+        of the Etag to check if the resource is still fresh. If so the server
+        may return a <code>304 Not Modified</code> response status code, and a
+        new <code>Expires</code> or <code>Cache-Control</code> header MAY be
+        included, which the requester SHOULD use to update the cache expiration.
+      </p>
+      <h4>Manifest Structure</h4>
+      <pre>
 {
   "@context": "to/be/determined/location/context.json",
   "id": "https://badgehost.example.com/.well-known/badgeconnect.json",
@@ -647,84 +675,92 @@ grant_type=authorization_code
 }
         </pre>
 
-        <h4>Manifest Properties</h4>
+      <h4>Manifest Properties</h4>
 
-        <table title="Properties for the manifest file." summary="Properties for the manifest file.">
-          <thead>
-            <tr>
-              <th>Property</th>
-              <th>Required</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>name</code></td>
-              <td>Yes</td>
-              <td>The name of the platform supporting the API. This SHOULD reflect the user-facing identity of the platform requesting authorization.</td>
-            </tr>
-            <tr>
-              <td><code>image</code></td>
-              <td>No</td>
-              <td>An image representing the platform. May be a URI to a hosted image or a Data URI.</td>
-            </tr>
-            <tr>
-              <td><code>apiBase</code></td>
-              <td>Yes</td>
-              <td>Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing slash "/". <br />
-                  E.g. <code>apiBase + "/assertions"</code>
-              </td>
-            </tr>
-            <tr>
-              <td><code>version</code></td>
-              <td>Yes</td>
-              <td>A string representing the implemented version. MUST be in the format of <code>vMAJORpMINOR</code> where <strong>MAJOR</strong> and <strong>MINOR</strong> are integers.</td>
-            </tr>
-            <tr>
-              <td><code>termsOfServiceUrl</code></td>
-              <td>Yes</td>
-              <td>Fully qualified URL to the platform's terms of service. Other platforms SHOULD link to this resource as part of their authorization interface.</td>
-            </tr>
-            <tr>
-              <td><code>privacyPolicyUrl</code></td>
-              <td>Yes</td>
-              <td>Fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as part of their authorization interface.</td>
-            </tr>
-            <tr>
-              <td><code>scopesOffered</code></td>
-              <td>Yes</td>
-              <td>An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the scope descriptors.</td>
-            </tr>
-            <tr>
-              <td><code>registrationUrl</code></td>
-              <td>Yes</td>
-              <td>A fully qualified URL to which the Relying Party would
+      <table title="Properties for the manifest file." summary="Properties for the manifest file.">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>name</code></td>
+            <td>Yes</td>
+            <td>The name of the platform supporting the API. This SHOULD reflect the user-facing identity of the
+              platform requesting authorization.</td>
+          </tr>
+          <tr>
+            <td><code>image</code></td>
+            <td>No</td>
+            <td>An image representing the platform. May be a URI to a hosted image or a Data URI.</td>
+          </tr>
+          <tr>
+            <td><code>apiBase</code></td>
+            <td>Yes</td>
+            <td>Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing
+              slash "/". <br />
+              E.g. <code>apiBase + "/assertions"</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>version</code></td>
+            <td>Yes</td>
+            <td>A string representing the implemented version. MUST be in the format of <code>vMAJORpMINOR</code> where
+              <strong>MAJOR</strong> and <strong>MINOR</strong> are integers.</td>
+          </tr>
+          <tr>
+            <td><code>termsOfServiceUrl</code></td>
+            <td>Yes</td>
+            <td>Fully qualified URL to the platform's terms of service. Other platforms SHOULD link to this resource as
+              part of their authorization interface.</td>
+          </tr>
+          <tr>
+            <td><code>privacyPolicyUrl</code></td>
+            <td>Yes</td>
+            <td>Fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as
+              part of their authorization interface.</td>
+          </tr>
+          <tr>
+            <td><code>scopesOffered</code></td>
+            <td>Yes</td>
+            <td>An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the
+              scope descriptors.</td>
+          </tr>
+          <tr>
+            <td><code>registrationUrl</code></td>
+            <td>Yes</td>
+            <td>A fully qualified URL to which the Relying Party would
               make the client registration request to before performing the authorization flow.</td>
-            </tr>
-            <tr>
-              <td><code>authorizationUrl</code></td>
-              <td>Yes</td>
-              <td>A fully qualified URL to the host's authorization endpoint.</td>
-            </tr>
-            <tr>
-              <td><code>tokenUrl</code></td>
-              <td>Yes</td>
-              <td>A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</td>
-            </tr>
-            <tr>
-              <td><code>tokenRevocationUrl</code></td>
-              <td>No</td>
-              <td>A fully qualified URL to the host's token revocation endpoint for invalidating an existing refresh token or access token.</td>
-            </tr>
-          </tbody>
-        </table>
+          </tr>
+          <tr>
+            <td><code>authorizationUrl</code></td>
+            <td>Yes</td>
+            <td>A fully qualified URL to the host's authorization endpoint.</td>
+          </tr>
+          <tr>
+            <td><code>tokenUrl</code></td>
+            <td>Yes</td>
+            <td>A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a
+              bearer token.</td>
+          </tr>
+          <tr>
+            <td><code>tokenRevocationUrl</code></td>
+            <td>No</td>
+            <td>A fully qualified URL to the host's token revocation endpoint for invalidating an existing refresh token
+              or access token.</td>
+          </tr>
+        </tbody>
+      </table>
 
     </section>
 
-      <section id="api-envelope">
-        <h3>Envelope</h3>
-        <p>Responses from all APIs in this document are wrapped in a JSON envelope.</p>
-          <pre>
+    <section id="api-envelope">
+      <h3>Envelope</h3>
+      <p>Responses from all APIs in this document are wrapped in a JSON envelope.</p>
+      <pre>
 {
     "status": {
         "error": null,
@@ -741,368 +777,400 @@ grant_type=authorization_code
     ]
 }
           </pre>
-        <section id="api-envelope-pagination">
-          <h4>Pagination</h4>
-          <p>Pagination is controlled by two query string parameters appended to the request.</p>
-          <ul>
-            <li><code>limit</code> - the number of results to return</li>
-            <li><code>offset</code> - the index of the first record to return (zero indexed)</li>
-          </ul>
-          <p>The HTTP <code>Link</code> header MUST appear when a list response is incomplete and MAY appear for complete responses.</p>
-          <p>It is RECOMMENDED that Host implementations pass the total result count back to the requester. When the total result count is not known, this MUST be omitted. The value MUST be provided in the custom HTTP header: <code>X-Total-Count</code>.</p>
-          <p>The header MUST support all of the following link relations (<code>rel</code> values):</p>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>next</td>
-                <td>The link relation for the immediate next page of results. This MUST appear when the current list response is incomplete.</td>
-              </tr>
-              <tr>
-                <td>last</td>
-                <td>The link relation for the last page of results. This MUST always appear.</td>
-              </tr>
-              <tr>
-                <td>first</td>
-                <td>The link relation for the first page of results. This MUST always appear.</td>
-              </tr>
-              <tr>
-                <td>prev</td>
-                <td>The link relation for the immediate previous page of results. This MUST appear when the offset is greater than zero.</td>
-              </tr>
-            </tbody>
-          </table>
-          <p>An example of Link header pagination, line breaks added for readability:</p>
-          <pre>
+      <section id="api-envelope-pagination">
+        <h4>Pagination</h4>
+        <p>Pagination is controlled by two query string parameters appended to the request.</p>
+        <ul>
+          <li><code>limit</code> - the number of results to return</li>
+          <li><code>offset</code> - the index of the first record to return (zero indexed)</li>
+        </ul>
+        <p>The HTTP <code>Link</code> header MUST appear when a list response is incomplete and MAY appear for complete
+          responses.</p>
+        <p>It is RECOMMENDED that Host implementations pass the total result count back to the requester. When the total
+          result count is not known, this MUST be omitted. The value MUST be provided in the custom HTTP header:
+          <code>X-Total-Count</code>.</p>
+        <p>The header MUST support all of the following link relations (<code>rel</code> values):</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>next</td>
+              <td>The link relation for the immediate next page of results. This MUST appear when the current list
+                response is incomplete.</td>
+            </tr>
+            <tr>
+              <td>last</td>
+              <td>The link relation for the last page of results. This MUST always appear.</td>
+            </tr>
+            <tr>
+              <td>first</td>
+              <td>The link relation for the first page of results. This MUST always appear.</td>
+            </tr>
+            <tr>
+              <td>prev</td>
+              <td>The link relation for the immediate previous page of results. This MUST appear when the offset is
+                greater than zero.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>An example of Link header pagination, line breaks added for readability:</p>
+        <pre>
 Link:
 &lt;https://host.example.com/v1/assertions?limit=10&offset=20&gt;; rel="next",
 &lt;https://host.example.com/v1/assertions?limit=3&offset=500&gt;; rel="last",
 &lt;https://host.example.com/v1/assertions?limit=10&offset=0&gt;; rel="first",
 &lt;https://host.example.com/v1/assertions?limit=10&offset=0&gt;; rel="prev"
           </pre>
-        </section>
-        <section id="api-envelope-status">
-          <h4>Status</h4>
-          <p>The "status" property MUST appear on all responses.</p>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>error</td>
-                <td>A nullable string and the human-readable message describing the problem.</td>
-              </tr>
-              <tr>
-                <td>statusCode</td>
-                <td>The HTTP status code of the response.</td>
-              </tr>
-              <tr>
-                <td>statusText</td>
-                <td>A string matching one of the enumerated and allowed values for the given endpoint.</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section id="api-envelope-results">
-          <h4>Results</h4>
-          <p>A list of zero or more documents responsive to the request.</p>
-        </section>
       </section>
-      <section id="api-endpoints">
-        <h3>Endpoints</h3>
-        <section id="api-endpoints-assertion">
-          <h4>Assertions</h4>
-          <table class="openAPIPathsTable" title="The Set of HTTP Verbs and Parameters for the '/assertions' Path" summary="The permitted set of HTTP verbs and path/query parameters for the '/assertions' path.">
-            <thead>
-                <tr>
-                    <th colspan="2">GET /assertions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Description</td>
-                    <td>Fetch Assertions for the supplied parameters and authentication token. The result parameter MUST be a list of zero or more matching Assertions which may be JSON-LD Assertion documents or JSON Web Signatures. There SHOULD be only one result for a particular requested ID as the IDs are intended to be globally unique. The Host SHOULD return Assertions ordered by last update, descending and SHOULD return only Assertions updated after the timestamp requested if supplied.</td>
-                </tr>
-                <tr>
-                    <td>Query Parameters</td>
-                    <td>
-                      <table class="openAPIResponsesTable" title="GET /assertions Permitted Query Parameters" summary="The description of the permitted query parameters for the GET /assertions operation.">
-                        <thead>
-                          <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>limit</td>
-                            <td>Integer</td>
-                            <td>Indicate how many results should be retrieved in a single page.</td>
-                          </tr>
-                          <tr>
-                            <td>offset</td>
-                            <td>Integer</td>
-                            <td>Indicate the index of the first record to return (zero indexed).</td>
-                          </tr>
-                          <tr>
-                            <td>since</td>
-                            <td>An <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> compatible timestamp with a time zone indicator.</td>
-                            <td>Retrieve Assertions that were created or updated after the provided timestamp.</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Responses</td>
-                    <td>
-                        <table class="openAPIResponsesTable" title="GET /assertions Permitted Endpoint Responses" summary="The description of the permitted endpoint responses for the GET /assertions operation.">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>200</td>
-                                    <td><a href="#api-responses-get-assertions-200">Assertions Response</a></td>
-                                    <td>This is the response when the request has been completed successfully.</td>
-                                </tr>
-                                <tr>
-                                    <td>400</td>
-                                    <td><a href="#api-responses-400">400 Response</a></td>
-                                    <td>An invalid request was made.</td>
-                                </tr>
-                                <tr>
-                                    <td>401</td>
-                                    <td><a href="#api-responses-401">401 Response</a></td>
-                                    <td>The request was not correctly authorized.</td>
-                                </tr>
-                                <tr>
-                                    <td>404</td>
-                                    <td><a href="#api-responses-404">404 Response</a></td>
-                                    <td>The requested resource does not exist.</td>
-                                </tr>
-                                <tr>
-                                    <td>405</td>
-                                    <td><a href="#api-responses-405">405 Response</a></td>
-                                    <td>This method is not allowed on the endpoint.</td>
-                                </tr>
-                                <tr>
-                                    <td>500</td>
-                                    <td>-</td>
-                                    <td>This code should be used only if there is catastrophic error.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-            </tbody>
-          </table>
-          <table class="openAPIPathsTable" title="The Set of HTTP Verbs and Parameters for the '/assertions' Path" summary="The permitted set of HTTP verbs and path/query parameters for the '/assertions' path.">
-            <thead>
-                <tr>
-                    <th colspan="2">POST /assertions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Description</td>
-                    <td>Create or update an Assertion. Multiple Assertions are not allowed. Data MUST be a list exactly one Assertion long. JWS-signed Assertions must be represented in the JSON serialization option.</td>
-                </tr>
-                <tr>
-                    <td>Responses</td>
-                    <td>
-                        <table class="openAPIResponsesTable" title="POST /assertions Permitted Endpoint Responses" summary="The description of the permitted endpoint responses for the POST /assertions operation.">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>200</td>
-                                    <td><a href="#api-responses-post-assertions-200">Assertion Response</a></td>
-                                    <td>This is the response when the request has been completed successfully.</td>
-                                </tr>
-                                <tr>
-                                    <td>400</td>
-                                    <td><a href="#api-responses-400">400 Response</a></td>
-                                    <td>An invalid request was made.</td>
-                                </tr>
-                                <tr>
-                                    <td>401</td>
-                                    <td><a href="#api-responses-401">401 Response</a></td>
-                                    <td>The request was not correctly authorized.</td>
-                                </tr>
-                                <tr>
-                                    <td>404</td>
-                                    <td><a href="#api-responses-404">404 Response</a></td>
-                                    <td>The requested resource does not exist.</td>
-                                </tr>
-                                <tr>
-                                    <td>405</td>
-                                    <td><a href="#api-responses-405">405 Response</a></td>
-                                    <td>This method is not allowed on the endpoint.</td>
-                                </tr>
-                                <tr>
-                                    <td>500</td>
-                                    <td>-</td>
-                                    <td>This code should be used only if there is catastrophic error.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-            </tbody>
-          </table>
-        </section>
-        <section id="api-endpoints-profile">
-          <h4>Profile</h4>
-          <table class="openAPIPathsTable" title="The Set of HTTP Verbs and Parameters for the '/profile' Path" summary="The permitted set of HTTP verbs and path/query parameters for the '/profile' path.">
-            <thead>
-                <tr>
-                    <th colspan="2">GET /profile</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Description</td>
-                    <td>Fetch the profile for the supplied authentication token. For a successful result, the Host MUST return exactly one entry in the results list that is a valid OB Profile instance. Multiple values MAY be present for each of the profile identifier properties other than "id": email, url, and telephone.</td>
-                </tr>
-                <tr>
-                    <td>Responses</td>
-                    <td>
-                        <table class="openAPIResponsesTable" title="GET /profile Permitted Endpoint Responses" summary="The description of the permitted endpoint responses for the GET /profile operation.">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>200</td>
-                                    <td><a href="#api-responses-get-profile-200">Profile Response</a></td>
-                                    <td>This is the response when the request has been completed successfully.</td>
-                                </tr>
-                                <tr>
-                                    <td>400</td>
-                                    <td><a href="#api-responses-400">400 Response</a></td>
-                                    <td>An invalid request was made.</td>
-                                </tr>
-                                <tr>
-                                    <td>401</td>
-                                    <td><a href="#api-responses-401">401 Response</a></td>
-                                    <td>The request was not correctly authorized.</td>
-                                </tr>
-                                <tr>
-                                    <td>404</td>
-                                    <td><a href="#api-responses-404">404 Response</a></td>
-                                    <td>The requested resource does not exist.</td>
-                                </tr>
-                                <tr>
-                                    <td>405</td>
-                                    <td><a href="#api-responses-405">405 Response</a></td>
-                                    <td>This method is not allowed on the endpoint.</td>
-                                </tr>
-                                <tr>
-                                    <td>500</td>
-                                    <td>-</td>
-                                    <td>This code should be used only if there is catastrophic error.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-            </tbody>
-          </table>
-          <table class="openAPIPathsTable" title="The Set of HTTP Verbs and Parameters for the '/profile' Path" summary="The permitted set of HTTP verbs and path/query parameters for the '/profile' path.">
-            <thead>
-                <tr>
-                    <th colspan="2">POST /profile</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Description</td>
-                    <td>Update the profile for the authenticate entity. The request SHOULD only include profile identifier properties to be added to the profile, not any existing data. Successful request responses will be the same as GET Profile and may not include the patched values (as the Host may be waiting for asynchronous processes to complete before accepting the value). The value may never become part of the published profile. A Host MAY respond with 400 BAD_REQUEST to reject data that is known immediately to not be acceptable by the platform, e.g. to reject a "telephone" property if the Host cannot validate telephone numbers.</td>
-                </tr>
-                <tr>
-                    <td>Responses</td>
-                    <td>
-                        <table class="openAPIResponsesTable" title="POST /profile Permitted Endpoint Responses" summary="The description of the permitted endpoint responses for the POST /profile operation.">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>200</td>
-                                    <td><a href="#api-responses-post-profile-200">Profile Response</a></td>
-                                    <td>This is the response when the request has been completed successfully.</td>
-                                </tr>
-                                <tr>
-                                    <td>400</td>
-                                    <td><a href="#api-responses-400">400 Response</a></td>
-                                    <td>An invalid request was made.</td>
-                                </tr>
-                                <tr>
-                                    <td>401</td>
-                                    <td><a href="#api-responses-401">401 Response</a></td>
-                                    <td>The request was not correctly authorized.</td>
-                                </tr>
-                                <tr>
-                                    <td>404</td>
-                                    <td><a href="#api-responses-404">404 Response</a></td>
-                                    <td>The requested resource does not exist.</td>
-                                </tr>
-                                <tr>
-                                    <td>405</td>
-                                    <td><a href="#api-responses-405">405 Response</a></td>
-                                    <td>This method is not allowed on the endpoint.</td>
-                                </tr>
-                                <tr>
-                                    <td>500</td>
-                                    <td>-</td>
-                                    <td>This code should be used only if there is catastrophic error.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-            </tbody>
-          </table>
-        </section>
+      <section id="api-envelope-status">
+        <h4>Status</h4>
+        <p>The "status" property MUST appear on all responses.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>error</td>
+              <td>A nullable string and the human-readable message describing the problem.</td>
+            </tr>
+            <tr>
+              <td>statusCode</td>
+              <td>The HTTP status code of the response.</td>
+            </tr>
+            <tr>
+              <td>statusText</td>
+              <td>A string matching one of the enumerated and allowed values for the given endpoint.</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
-      <section id="api-retrybehavior">
-        <h3>Retry Behavior</h3>
-        <p>Receivers of requests MAY implement a <strong>Retry-After</strong> header to indicate a period of time to wait before attempting the request again.</p>
-        <p>If no <strong>Retry-After</strong> header is present and the response is non-2XX, it is recommended to retry the request in 30 minutes for an additional two attempts. After which, it MAY be desirable to alert the recipient that there is an issue with the connection (e.g. perhaps they need to reauthenticate or manually trigger the request when they believe services are back up).</p>
+      <section id="api-envelope-results">
+        <h4>Results</h4>
+        <p>A list of zero or more documents responsive to the request.</p>
       </section>
-      <section id="api-responses">
-        <h3>Responses</h3>
-        <section id="api-responses-get-assertions-200">
-          <h4>200 GET Assertions Response</h4>
-          <pre>
+    </section>
+    <section id="api-endpoints">
+      <h3>Endpoints</h3>
+      <section id="api-endpoints-assertion">
+        <h4>Assertions</h4>
+        <table class="openAPIPathsTable" title="The Set of HTTP Verbs and Parameters for the '/assertions' Path"
+          summary="The permitted set of HTTP verbs and path/query parameters for the '/assertions' path.">
+          <thead>
+            <tr>
+              <th colspan="2">GET /assertions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Description</td>
+              <td>Fetch Assertions for the supplied parameters and authentication token. The result parameter MUST be a
+                list of zero or more matching Assertions which may be JSON-LD Assertion documents or JSON Web
+                Signatures. There SHOULD be only one result for a particular requested ID as the IDs are intended to be
+                globally unique. The Host SHOULD return Assertions ordered by last update, descending and SHOULD return
+                only Assertions updated after the timestamp requested if supplied.</td>
+            </tr>
+            <tr>
+              <td>Query Parameters</td>
+              <td>
+                <table class="openAPIResponsesTable" title="GET /assertions Permitted Query Parameters"
+                  summary="The description of the permitted query parameters for the GET /assertions operation.">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>limit</td>
+                      <td>Integer</td>
+                      <td>Indicate how many results should be retrieved in a single page.</td>
+                    </tr>
+                    <tr>
+                      <td>offset</td>
+                      <td>Integer</td>
+                      <td>Indicate the index of the first record to return (zero indexed).</td>
+                    </tr>
+                    <tr>
+                      <td>since</td>
+                      <td>An <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> compatible timestamp with a
+                        time zone indicator.</td>
+                      <td>Retrieve Assertions that were created or updated after the provided timestamp.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>Responses</td>
+              <td>
+                <table class="openAPIResponsesTable" title="GET /assertions Permitted Endpoint Responses"
+                  summary="The description of the permitted endpoint responses for the GET /assertions operation.">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>200</td>
+                      <td><a href="#api-responses-get-assertions-200">Assertions Response</a></td>
+                      <td>This is the response when the request has been completed successfully.</td>
+                    </tr>
+                    <tr>
+                      <td>400</td>
+                      <td><a href="#api-responses-400">400 Response</a></td>
+                      <td>An invalid request was made.</td>
+                    </tr>
+                    <tr>
+                      <td>401</td>
+                      <td><a href="#api-responses-401">401 Response</a></td>
+                      <td>The request was not correctly authorized.</td>
+                    </tr>
+                    <tr>
+                      <td>404</td>
+                      <td><a href="#api-responses-404">404 Response</a></td>
+                      <td>The requested resource does not exist.</td>
+                    </tr>
+                    <tr>
+                      <td>405</td>
+                      <td><a href="#api-responses-405">405 Response</a></td>
+                      <td>This method is not allowed on the endpoint.</td>
+                    </tr>
+                    <tr>
+                      <td>500</td>
+                      <td>-</td>
+                      <td>This code should be used only if there is catastrophic error.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="openAPIPathsTable" title="The Set of HTTP Verbs and Parameters for the '/assertions' Path"
+          summary="The permitted set of HTTP verbs and path/query parameters for the '/assertions' path.">
+          <thead>
+            <tr>
+              <th colspan="2">POST /assertions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Description</td>
+              <td>Create or update an Assertion. Multiple Assertions are not allowed. Data MUST be a list exactly one
+                Assertion long. JWS-signed Assertions must be represented in the JSON serialization option.</td>
+            </tr>
+            <tr>
+              <td>Responses</td>
+              <td>
+                <table class="openAPIResponsesTable" title="POST /assertions Permitted Endpoint Responses"
+                  summary="The description of the permitted endpoint responses for the POST /assertions operation.">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>200</td>
+                      <td><a href="#api-responses-post-assertions-200">Assertion Response</a></td>
+                      <td>This is the response when the request has been completed successfully.</td>
+                    </tr>
+                    <tr>
+                      <td>400</td>
+                      <td><a href="#api-responses-400">400 Response</a></td>
+                      <td>An invalid request was made.</td>
+                    </tr>
+                    <tr>
+                      <td>401</td>
+                      <td><a href="#api-responses-401">401 Response</a></td>
+                      <td>The request was not correctly authorized.</td>
+                    </tr>
+                    <tr>
+                      <td>404</td>
+                      <td><a href="#api-responses-404">404 Response</a></td>
+                      <td>The requested resource does not exist.</td>
+                    </tr>
+                    <tr>
+                      <td>405</td>
+                      <td><a href="#api-responses-405">405 Response</a></td>
+                      <td>This method is not allowed on the endpoint.</td>
+                    </tr>
+                    <tr>
+                      <td>500</td>
+                      <td>-</td>
+                      <td>This code should be used only if there is catastrophic error.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section id="api-endpoints-profile">
+        <h4>Profile</h4>
+        <table class="openAPIPathsTable" title="The Set of HTTP Verbs and Parameters for the '/profile' Path"
+          summary="The permitted set of HTTP verbs and path/query parameters for the '/profile' path.">
+          <thead>
+            <tr>
+              <th colspan="2">GET /profile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Description</td>
+              <td>Fetch the profile for the supplied authentication token. For a successful result, the Host MUST return
+                exactly one entry in the results list that is a valid OB Profile instance. Multiple values MAY be
+                present for each of the profile identifier properties other than "id": email, url, and telephone.</td>
+            </tr>
+            <tr>
+              <td>Responses</td>
+              <td>
+                <table class="openAPIResponsesTable" title="GET /profile Permitted Endpoint Responses"
+                  summary="The description of the permitted endpoint responses for the GET /profile operation.">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>200</td>
+                      <td><a href="#api-responses-get-profile-200">Profile Response</a></td>
+                      <td>This is the response when the request has been completed successfully.</td>
+                    </tr>
+                    <tr>
+                      <td>400</td>
+                      <td><a href="#api-responses-400">400 Response</a></td>
+                      <td>An invalid request was made.</td>
+                    </tr>
+                    <tr>
+                      <td>401</td>
+                      <td><a href="#api-responses-401">401 Response</a></td>
+                      <td>The request was not correctly authorized.</td>
+                    </tr>
+                    <tr>
+                      <td>404</td>
+                      <td><a href="#api-responses-404">404 Response</a></td>
+                      <td>The requested resource does not exist.</td>
+                    </tr>
+                    <tr>
+                      <td>405</td>
+                      <td><a href="#api-responses-405">405 Response</a></td>
+                      <td>This method is not allowed on the endpoint.</td>
+                    </tr>
+                    <tr>
+                      <td>500</td>
+                      <td>-</td>
+                      <td>This code should be used only if there is catastrophic error.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="openAPIPathsTable" title="The Set of HTTP Verbs and Parameters for the '/profile' Path"
+          summary="The permitted set of HTTP verbs and path/query parameters for the '/profile' path.">
+          <thead>
+            <tr>
+              <th colspan="2">POST /profile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Description</td>
+              <td>Update the profile for the authenticate entity. The request SHOULD only include profile identifier
+                properties to be added to the profile, not any existing data. Successful request responses will be the
+                same as GET Profile and may not include the patched values (as the Host may be waiting for asynchronous
+                processes to complete before accepting the value). The value may never become part of the published
+                profile. A Host MAY respond with 400 BAD_REQUEST to reject data that is known immediately to not be
+                acceptable by the platform, e.g. to reject a "telephone" property if the Host cannot validate telephone
+                numbers.</td>
+            </tr>
+            <tr>
+              <td>Responses</td>
+              <td>
+                <table class="openAPIResponsesTable" title="POST /profile Permitted Endpoint Responses"
+                  summary="The description of the permitted endpoint responses for the POST /profile operation.">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>200</td>
+                      <td><a href="#api-responses-post-profile-200">Profile Response</a></td>
+                      <td>This is the response when the request has been completed successfully.</td>
+                    </tr>
+                    <tr>
+                      <td>400</td>
+                      <td><a href="#api-responses-400">400 Response</a></td>
+                      <td>An invalid request was made.</td>
+                    </tr>
+                    <tr>
+                      <td>401</td>
+                      <td><a href="#api-responses-401">401 Response</a></td>
+                      <td>The request was not correctly authorized.</td>
+                    </tr>
+                    <tr>
+                      <td>404</td>
+                      <td><a href="#api-responses-404">404 Response</a></td>
+                      <td>The requested resource does not exist.</td>
+                    </tr>
+                    <tr>
+                      <td>405</td>
+                      <td><a href="#api-responses-405">405 Response</a></td>
+                      <td>This method is not allowed on the endpoint.</td>
+                    </tr>
+                    <tr>
+                      <td>500</td>
+                      <td>-</td>
+                      <td>This code should be used only if there is catastrophic error.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+    <section id="api-retrybehavior">
+      <h3>Retry Behavior</h3>
+      <p>Receivers of requests MAY implement a <strong>Retry-After</strong> header to indicate a period of time to wait
+        before attempting the request again.</p>
+      <p>If no <strong>Retry-After</strong> header is present and the response is non-2XX, it is recommended to retry
+        the request in 30 minutes for an additional two attempts. After which, it MAY be desirable to alert the
+        recipient that there is an issue with the connection (e.g. perhaps they need to reauthenticate or manually
+        trigger the request when they believe services are back up).</p>
+    </section>
+    <section id="api-responses">
+      <h3>Responses</h3>
+      <section id="api-responses-get-assertions-200">
+        <h4>200 GET Assertions Response</h4>
+        <pre>
 {
     "status": {
         "error": null,
@@ -1120,10 +1188,10 @@ Link:
     ]
 }
           </pre>
-        </section>
-        <section id="api-responses-post-assertions-200">
-          <h4>200 POST Assertion Response</h4>
-          <pre>
+      </section>
+      <section id="api-responses-post-assertions-200">
+        <h4>200 POST Assertion Response</h4>
+        <pre>
 {
     "status": {
         "error": null,
@@ -1132,10 +1200,10 @@ Link:
     }
 }
           </pre>
-        </section>
-        <section id="api-responses-get-profile-200">
-          <h4>200 GET Profile Response</h4>
-          <pre>
+      </section>
+      <section id="api-responses-get-profile-200">
+        <h4>200 GET Profile Response</h4>
+        <pre>
 {
     "status": {
         "error": null,
@@ -1155,10 +1223,10 @@ Link:
     ]
 }
           </pre>
-        </section>
-        <section id="api-responses-post-profile-200">
-          <h4>200 POST Profile Response</h4>
-          <pre>
+      </section>
+      <section id="api-responses-post-profile-200">
+        <h4>200 POST Profile Response</h4>
+        <pre>
 {
     "status": {
         "error": null,
@@ -1178,48 +1246,45 @@ Link:
     ]
 }
           </pre>
-        </section>
-        <section id="api-responses-400">
-          <h4>400 Response</h4>
-          <pre>
-  {
-      "status": {
-          "error": "Additional information regarding the error in human readable format.",
-          "statusCode": 400,
-          "statusText": "BAD_REQUEST"
-      }
-  }
-          </pre>
-          <p>Allowed values for the statusText property by endpoint:</p>
-          <ul>
-            <li>
-              <p>POST /assertions</li>
-              <ul>
-                <li>REQUEST_VALIDATION_ERROR (data validation of the request failed)</li>
-                <li>RECIPIENT_PROFILE_MISMATCH (profile match failed)</li>
-                <li>INVALID_BADGE (badge validation failed)</li>
-                <li>BAD_REQUEST (all other errors)</li>
-              </ul>
-            </li>
-            <li>
-              <p>GET /assertions</li>
-              <ul>
-                <li>REQUEST_VALIDATION_ERROR (data validation of the request failed)</li>
-                <li>BAD_REQUEST (all other errors)</li>
-              </ul>
-            </li>
-            <li>
-              <p>POST /profile</li>
-              <ul>
-                <li>REQUEST_VALIDATION_ERROR (data validation of the request failed)</li>
-                <li>BAD_REQUEST (all other errors)</li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-        <section id="api-responses-401">
-          <h4>401 Response</h4>
-          <pre>
+      </section>
+      <section id="api-responses-400">
+        <h4>400 Response</h4>
+        <pre>
+        {
+            "status": {
+                "error": "Additional information regarding the error in human readable format.",
+                "statusCode": 400,
+                "statusText": "BAD_REQUEST"
+            }
+        }
+        </pre>
+        <p>Allowed values for the statusText property by endpoint:</p>
+        <ul>
+          <li>POST /assertions
+            <ul>
+              <li>REQUEST_VALIDATION_ERROR (data validation of the request failed)</li>
+              <li>RECIPIENT_PROFILE_MISMATCH (profile match failed)</li>
+              <li>INVALID_BADGE (badge validation failed)</li>
+              <li>BAD_REQUEST (all other errors)</li>
+            </ul>
+          </li>
+          <li>GET /assertions
+            <ul>
+              <li>REQUEST_VALIDATION_ERROR (data validation of the request failed)</li>
+              <li>BAD_REQUEST (all other errors)</li>
+            </ul>
+          </li>
+          <li>POST /profile
+            <ul>
+              <li>REQUEST_VALIDATION_ERROR (data validation of the request failed)</li>
+              <li>BAD_REQUEST (all other errors)</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section id="api-responses-401">
+        <h4>401 Response</h4>
+        <pre>
   {
       "status": {
           "error": "Additional information regarding the error in human readable format.",
@@ -1228,11 +1293,12 @@ Link:
       }
   }
           </pre>
-          <p>PERMISSION_DENIED is another acceptable value for statusText in the event that the request was authenticated but the scope does not include the requested resource.</p>
-        </section>
-        <section id="api-responses-404">
-          <h4>404 Response</h4>
-          <pre>
+        <p>PERMISSION_DENIED is another acceptable value for statusText in the event that the request was authenticated
+          but the scope does not include the requested resource.</p>
+      </section>
+      <section id="api-responses-404">
+        <h4>404 Response</h4>
+        <pre>
   {
       "status": {
           "error": null,
@@ -1241,10 +1307,10 @@ Link:
       }
   }
           </pre>
-        </section>
-        <section id="api-responses-405">
-          <h4>405 Response</h4>
-          <pre>
+      </section>
+      <section id="api-responses-405">
+        <h4>405 Response</h4>
+        <pre>
   {
       "status": {
           "error": "Additional information regarding the error in human readable format.",
@@ -1253,35 +1319,39 @@ Link:
       }
   }
           </pre>
-        </section>
       </section>
     </section>
+  </section>
 
-    <section class="appendix informative" id="revisionhistory">
-      <h2>Revision History</h2>
-      <section>
-        <h3>Version History</h3>
-        <table title="Revision History"
-          summary="Publication history and revision details for this specification.">
-          <thead>
-            <tr><th>Version No.</th><th>Release Date</th><th>Comments</th></tr>
-          </thead>
-            <tbody>
-                <tr>
-                    <td>IMS Base Document 1.0</td>
-                    <td>Month Day, 2018</td>
-                    <td>The first draft release. This document.</td>
-                </tr>
-            </tbody>
-        </table>
-       </section>
-       <section>
-         <h3>Changes in this version</h3>
-         <p>Changes in this version of Example Specification are detailed below.</p>
-         <p><em>Table with list of changes since previous version</em></p>
-       </section>
-    </section> <!-- /revision history -->
+  <section class="appendix informative" id="revisionhistory">
+    <h2>Revision History</h2>
+    <section>
+      <h3>Version History</h3>
+      <table title="Revision History" summary="Publication history and revision details for this specification.">
+        <thead>
+          <tr>
+            <th>Version No.</th>
+            <th>Release Date</th>
+            <th>Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>IMS Base Document 1.0</td>
+            <td>Month Day, 2018</td>
+            <td>The first draft release. This document.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Changes in this version</h3>
+      <p>Changes in this version of Example Specification are detailed below.</p>
+      <p><em>Table with list of changes since previous version</em></p>
+    </section>
+  </section> <!-- /revision history -->
 
-    <!-- a footer is inserted by the script -->
-  </body>
+  <!-- a footer is inserted by the script -->
+</body>
+
 </html>
