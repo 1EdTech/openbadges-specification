@@ -242,8 +242,7 @@
             <body>Open Badges Connect Service manifest read operation.</body>
           </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_G_XllbrOEemXRtBEfaUhug" name="manifest" type="_G_SF8LrOEemXRtBEfaUhug" direction="out"/>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_G_XllrrOEemXRtBEfaUhug" direction="return">
-            <type xmi:type="uml:Class" href="../OBv2p1_Manifest_PSM/OBv2p1_Manifest_PSM.uml#_kvcKAFr9Eemah4rv1IhOJg"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_G_XllrrOEemXRtBEfaUhug" type="_erW9EIyUEem_UKY2IsbfeQ" direction="return">
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G_Xll7rOEemXRtBEfaUhug"/>
             <upperValue xmi:type="uml:LiteralInteger" xmi:id="_G_XlmLrOEemXRtBEfaUhug" value="1"/>
           </ownedParameter>
@@ -691,8 +690,7 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_vpbZ0LrNEemXRtBEfaUhug" name="REST">
       <packagedElement xmi:type="uml:Class" xmi:id="_vpbZ0brNEemXRtBEfaUhug" name="getManifest">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_vpbZ0rrNEemXRtBEfaUhug" name="endpoint" visibility="private">
-          <type xmi:type="uml:Class" href="../OBv2p1_Manifest_PSM/OBv2p1_Manifest_PSM.uml#_kvcKAFr9Eemah4rv1IhOJg"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_vpbZ0rrNEemXRtBEfaUhug" name="endpoint" visibility="private" type="_d5nbgFsaEemah4rv1IhOJg">
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_vpbZ07rNEemXRtBEfaUhug" value="/.well-known/badgeconnect.json"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_vpbZ1LrNEemXRtBEfaUhug" name="responses" visibility="private" type="_vpbZ17rNEemXRtBEfaUhug">
@@ -722,11 +720,10 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vpbZ4rrNEemXRtBEfaUhug"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vpbZ47rNEemXRtBEfaUhug" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_vpbZ5LrNEemXRtBEfaUhug" name="default" visibility="private">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_vpbZ5LrNEemXRtBEfaUhug" name="default" visibility="private" type="_erW9EIyUEem_UKY2IsbfeQ">
           <ownedComment xmi:type="uml:Comment" xmi:id="_vpbZ5brNEemXRtBEfaUhug">
             <body>This is the response when some other error has occured.</body>
           </ownedComment>
-          <type xmi:type="uml:Class" href="../OBv2p1_Manifest_PSM/OBv2p1_Manifest_PSM.uml#_Y1rZkIyIEem_UKY2IsbfeQ"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vpbZ5rrNEemXRtBEfaUhug"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vpbZ57rNEemXRtBEfaUhug" value="1"/>
         </ownedAttribute>
