@@ -791,12 +791,15 @@ grant_type=authorization_code
           </tr>
         </tbody>
       </table>
-
     </section>
 
     <section id="api-envelope">
-      <h3>Envelope</h3>
-      <p>Responses from all APIs in this document are wrapped in a JSON envelope.</p>
+      <h3>Response Envelope</h3>
+      <p>
+        Responses from all APIs in this document are wrapped in a JSON envelope. The type of each result in the
+        <code>results</code> array is specified by the result <code>type</code>. Allowable types are defined
+        in the <a href="#api-endpoints">Endpoints</a> section.
+      </p>
       <pre>
 {
     "status": {
@@ -895,6 +898,50 @@ Link:
         <p>A list of zero or more documents responsive to the request.</p>
       </section>
     </section>
+    <section id="api-signedbadge">
+      <h3>SignedBadge Object</h3>
+      <p>
+        SignedBadge is a JSON-LD document that contains a signed badge as defined in Open Badges 2.0 [[OB-20]].
+        An example may look like this:
+      </p>
+      <pre>
+        {
+          "id": "urn:uuid:3d339b63-cab3-4951-a574-8faf45d1b802",
+          "type": "SignedBadge",
+          "compactJws": "eyJhbGciOiJSUzI1NiJ9.ew0KICAiQGNvbnRleHQiOiAiaHR0cHM6Ly93M2lkLm9yZy9vcGVuYmFkZ2VzL3YyIiwNCiAgInR5cGUiOiAiQXNzZXJ0aW9uIiwNCiAgImlkIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3RpY3MtYmFkZ2UuanNvbiIsDQogICJyZWNpcGllbnQiOiB7DQogICAgInR5cGUiOiAiZW1haWwiLA0KICAgICJoYXNoZWQiOiB0cnVlLA0KICAgICJzYWx0IjogImRlYWRzZWEiLA0KICAgICJpZGVudGl0eSI6ICJzaGEyNTYkYzdlZjg2NDA1YmE3MWI4NWFjZDhlMmU5NTE2NmM0YjExMTQ0ODA4OWYyZTE1OTlmNDJmZTFiYmE0NmU4NjVjNSINCiAgfSwNCiAgImltYWdlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3QtYmFkZ2UucG5nIiwNCiAgImV2aWRlbmNlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3Qtd29yay5odG1sIiwNCiAgImlzc3VlZE9uIjogIjIwMTYtMTItMzFUMjM6NTk6NTlaIiwNCiAgImJhZGdlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvcm9ib3RpY3MtYmFkZ2UuanNvbiIsDQogICJ2ZXJpZnkiOiB7DQogICAgInR5cGUiOiAiU2lnbmVkQmFkZ2UiLA0KICAgICJjcmVhdG9yIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvcHVibGljS2V5Ig0KICB9DQp9.Liv4CLviFH20_6RciUWf-jrUvMAecxT4KZ_gLHAeT_chrsCvBEE1uwgtwiarIs9acFfMi0FJzrGye6mhdHf3Kjv_6P7BsG3RPkYgK6-5i9uZv4QAIlvfNclWAoWUt4j0_Kip2ftzzWwc5old01nJRtudZHxo5eGosSPlztGRE9G_g_cTj32tz3fG92E2azPmbt7026G91rq80Mi-9c4bZm2EgrcwNBjO0p1mbKYXLIAAkOMuJZ_8S4Go8S0Sg3xC6ZCn03zWuXCP6bdY_jJx2BpmvqC3H55xWIU8p5c9RxI8YifPMmJq8ZQhjld0pl-L8kHolJx7KGfTjQSegANUPg"
+        }
+      </pre>
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Expected Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>id</code></td>
+            <td>IRI</td>
+            <td>No</td>
+            <td>Unique IRI for the Assertion. If present, this MUST match the <code>id</code> of the signed badge.</td>
+          </tr>
+          <tr>
+            <td><code>type</code></td>
+            <td>JSON-LD type</td>
+            <td>No</td>
+            <td>If present, must be the string "SignedBadge".</td>
+          </tr>
+          <tr>
+            <td><code>compactJws</code></td>
+            <td>JWS</td>
+            <td>Yes</td>
+            <td>The signed badge as defined in Open Badges 2.0 [[OB-20]].</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
     <section id="api-endpoints">
       <h3>Endpoints</h3>
       <section id="api-endpoints-assertion">
@@ -910,8 +957,9 @@ Link:
             <tr>
               <td>Description</td>
               <td>Fetch Assertions for the supplied parameters and authentication token. The result parameter MUST be a
-                list of zero or more matching Assertions which may be JSON-LD Assertion documents or JSON Web
-                Signatures. There SHOULD be only one result for a particular requested ID as the IDs are intended to be
+                list of zero or more matching Assertions which may be Open Badges 2.0 Assertion documents or 
+                <a href="#api-signedbadge">Signed Badges</a>. 
+                There SHOULD be only one result for a particular requested ID as the IDs are intended to be
                 globally unique. The Host SHOULD return Assertions ordered by last update, descending and SHOULD return
                 only Assertions updated after the timestamp requested if supplied.</td>
             </tr>
@@ -1217,11 +1265,16 @@ Link:
 
     "results": [
         {
-          "@context":"https://w3id.org/openbadges/v2",
-          "id":"https://issuer.example.com/api/v20/assertion/1234567",
-          "type":"Assertion"
+          "@context": "https://w3id.org/openbadges/v2",
+          "id": "https://issuer.example.com/api/v20/assertion/1234567",
+          "type": "Assertion"
         },
-        "eyJhbGciOiJSUzI1NiJ9.ew0KICAiQGNvbnRleHQiOiAiaHR0cHM6Ly93M2lkLm9yZy9vcGVuYmFkZ2VzL3YyIiwNCiAgInR5cGUiOiAiQXNzZXJ0aW9uIiwNCiAgImlkIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3RpY3MtYmFkZ2UuanNvbiIsDQogICJyZWNpcGllbnQiOiB7DQogICAgInR5cGUiOiAiZW1haWwiLA0KICAgICJoYXNoZWQiOiB0cnVlLA0KICAgICJzYWx0IjogImRlYWRzZWEiLA0KICAgICJpZGVudGl0eSI6ICJzaGEyNTYkYzdlZjg2NDA1YmE3MWI4NWFjZDhlMmU5NTE2NmM0YjExMTQ0ODA4OWYyZTE1OTlmNDJmZTFiYmE0NmU4NjVjNSINCiAgfSwNCiAgImltYWdlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3QtYmFkZ2UucG5nIiwNCiAgImV2aWRlbmNlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3Qtd29yay5odG1sIiwNCiAgImlzc3VlZE9uIjogIjIwMTYtMTItMzFUMjM6NTk6NTlaIiwNCiAgImJhZGdlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvcm9ib3RpY3MtYmFkZ2UuanNvbiIsDQogICJ2ZXJpZnkiOiB7DQogICAgInR5cGUiOiAiU2lnbmVkQmFkZ2UiLA0KICAgICJjcmVhdG9yIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvcHVibGljS2V5Ig0KICB9DQp9.Liv4CLviFH20_6RciUWf-jrUvMAecxT4KZ_gLHAeT_chrsCvBEE1uwgtwiarIs9acFfMi0FJzrGye6mhdHf3Kjv_6P7BsG3RPkYgK6-5i9uZv4QAIlvfNclWAoWUt4j0_Kip2ftzzWwc5old01nJRtudZHxo5eGosSPlztGRE9G_g_cTj32tz3fG92E2azPmbt7026G91rq80Mi-9c4bZm2EgrcwNBjO0p1mbKYXLIAAkOMuJZ_8S4Go8S0Sg3xC6ZCn03zWuXCP6bdY_jJx2BpmvqC3H55xWIU8p5c9RxI8YifPMmJq8ZQhjld0pl-L8kHolJx7KGfTjQSegANUPg"
+        {
+          "@context": "https://purl.imsglobal.org/spec/ob/v2p1/ob_v2p1.jsonld"
+          "id": "urn:uuid:3d339b63-cab3-4951-a574-8faf45d1b802",
+          "type": "SignedBadge",
+          "compactJws": "eyJhbGciOiJSUzI1NiJ9.ew0KICAiQGNvbnRleHQiOiAiaHR0cHM6Ly93M2lkLm9yZy9vcGVuYmFkZ2VzL3YyIiwNCiAgInR5cGUiOiAiQXNzZXJ0aW9uIiwNCiAgImlkIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3RpY3MtYmFkZ2UuanNvbiIsDQogICJyZWNpcGllbnQiOiB7DQogICAgInR5cGUiOiAiZW1haWwiLA0KICAgICJoYXNoZWQiOiB0cnVlLA0KICAgICJzYWx0IjogImRlYWRzZWEiLA0KICAgICJpZGVudGl0eSI6ICJzaGEyNTYkYzdlZjg2NDA1YmE3MWI4NWFjZDhlMmU5NTE2NmM0YjExMTQ0ODA4OWYyZTE1OTlmNDJmZTFiYmE0NmU4NjVjNSINCiAgfSwNCiAgImltYWdlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3QtYmFkZ2UucG5nIiwNCiAgImV2aWRlbmNlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvYmV0aHMtcm9ib3Qtd29yay5odG1sIiwNCiAgImlzc3VlZE9uIjogIjIwMTYtMTItMzFUMjM6NTk6NTlaIiwNCiAgImJhZGdlIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvcm9ib3RpY3MtYmFkZ2UuanNvbiIsDQogICJ2ZXJpZnkiOiB7DQogICAgInR5cGUiOiAiU2lnbmVkQmFkZ2UiLA0KICAgICJjcmVhdG9yIjogImh0dHBzOi8vZXhhbXBsZS5vcmcvcHVibGljS2V5Ig0KICB9DQp9.Liv4CLviFH20_6RciUWf-jrUvMAecxT4KZ_gLHAeT_chrsCvBEE1uwgtwiarIs9acFfMi0FJzrGye6mhdHf3Kjv_6P7BsG3RPkYgK6-5i9uZv4QAIlvfNclWAoWUt4j0_Kip2ftzzWwc5old01nJRtudZHxo5eGosSPlztGRE9G_g_cTj32tz3fG92E2azPmbt7026G91rq80Mi-9c4bZm2EgrcwNBjO0p1mbKYXLIAAkOMuJZ_8S4Go8S0Sg3xC6ZCn03zWuXCP6bdY_jJx2BpmvqC3H55xWIU8p5c9RxI8YifPMmJq8ZQhjld0pl-L8kHolJx7KGfTjQSegANUPg"
+        }
     ]
 }
           </pre>
