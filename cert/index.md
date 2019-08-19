@@ -50,6 +50,12 @@ The following participating organizations have made explicit license commitments
     <td>&nbsp;Type</td>
     </tr>
   <tr>
+    <td>Campus Labs</td>
+    <td>March 20, 2019</td>
+    <td>No</td>
+    <td>RF RAND (Required &amp; Optional Elements)</td>
+    </tr>
+  <tr>
     <td>Credly</td>
     <td>March 14, 2019</td>
     <td>No</td>
