@@ -35,44 +35,62 @@ layout: page_sub
 <div class="iprDistribution">
 	
 **IPR and Distribution Notices**
-
 Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the specification set forth in this document, and to provide supporting documentation.
 
 IMS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on IMS's procedures with respect to rights in IMS specifications can be found at the IMS Intellectual Property Rights web page: [http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf](http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf).
 
-The Consortium draws attention to the fact that it is claimed that compliance with this specification may involve the use of a patent concerning  [https://patents.google.com/patent/US10033536B2/en](US10033536B2) and [https://patents.google.com/patent/US10068074B2/en] (US10068074B2). The Consortium takes no position concerning the evidence, validity or scope of such patent rights.
-
-The patent holder has assured the Consortium that it is willing to license patent rights it owns or controls which would necessarily be infringed by any implementation of this specification to those licensees (Members and non-Members alike) desiring to implement this specification. The statement of the patent holder to such effect has been filed with the Consortium. Information may be obtained from:
-Credly
-349 Fifth Avenue,Suite 726
-New York, NY 10016
-
-Attention is also drawn to the possibility that some of the elements of this specification may be the subject of patent rights other than those identified above. The Consortium shall not be responsible for identifying any or all such patent rights.
-
 The following participating organizations have made explicit license commitments to this specification:
 
 <table width="100%" border="1">
-    <tr>
-      <td>Org  name </td>
-      <td>&nbsp;Date license made</td>
-      <td>Patent or other description</td>
-      <td>&nbsp;Type</td>
+  <tr>
+    <td>Org  name </td>
+    <td>Date election made</td>
+    <td>Necessary Claims</td>
+    <td>&nbsp;Type</td>
     </tr>
-    <tr>
-      <td>Credly</td>
-      <td>March 18, 2018</td>
-      <td><a href="https://patents.google.com/patent/US10033536B2/en">US10033536B2</a> and <a href="https://patents.google.com/patent/US10068074B2/en">US10068074B2</a></td>
-      <td>RF RAND (Required Elements)</td>
+  <tr>
+    <td>Campus Labs</td>
+    <td>March 20, 2019</td>
+    <td>No</td>
+    <td>RF RAND (Required &amp; Optional Elements)</td>
     </tr>
-    <tr>
-      <td>Pearson </td>
-      <td>November 21, 2017</td>
-      <td>&nbsp;</td>
-      <td>RF RAND (Required Elements)</td>
+  <tr>
+    <td>Credly</td>
+    <td>March 14, 2019</td>
+    <td>No</td>
+    <td>RF RAND (Required &amp; Optional Elements)</td>
     </tr>
-  </table>
-
-
+  <tr>
+    <td>Mozilla Foundation</td>
+    <td>March 14, 2019</td>
+    <td>No</td>
+    <td>RF RAND (Required &amp; Optional Elements)</td>
+  </tr>
+   <tr>
+    <td>Digitalme</td>
+    <td>March 11, 2019</td>
+    <td>No</td>
+    <td>RF RAND (Required &amp; Optional Elements)</td>
+  </tr>
+  <tr>
+    <td>D2L Corporation</td>
+    <td>March 10, 2019</td>
+    <td>No</td>
+    <td>RF RAND (Required &amp; Optional Elements)</td>
+  </tr>
+  <tr>
+    <td>Credly</td>
+    <td>March 18, 2018</td>
+    <td>No</td>
+    <td>RF RAND (Required Elements)</td>
+  </tr>
+  <tr>
+    <td>Pearson </td>
+    <td>November 21, 2017</td>
+    <td>No</td>
+    <td>RF RAND (Required  Elements)</td>
+  </tr>
+</table>
 
 Copyright © 2018 IMS Global Learning Consortium. All Rights Reserved.
 
