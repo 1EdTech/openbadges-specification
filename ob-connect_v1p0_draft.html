@@ -20,8 +20,29 @@
         { name: "Andy Miller", company: "IMS Global", companyURL: "https://www.imsglobal.org" },
         { name: "Nate Otto", company: "Concentric Sky", companyURL: "https://concentricsky.com" },
         { name: "Justin Pitcher", company: "Campus Labs", companyURL: "https://www.campuslabs.com" },
-      ]
-
+      ],
+      localBiblio: {
+          "OB-JSON-21": {
+              title: "OpenAPI Files for Open Badges 2.1 Badge Connect API",
+              href: "https://purl.imsglobal.org/spec/ob/v2p1/schema/json/",
+              date: "August 29, 2019",
+              publisher: "IMS Global",
+              "authors": [
+                "Jeff Bohrer",
+        		    "Andy Miller"
+              ]
+          },
+          "OB-JSONLD-21": {
+              title: "JSON-LD Context File for Open Badges 2.1 Badge Connect API",
+              href: "https://purl.imsglobal.org/spec/ob/v2p1/context/",
+              date: "August 29, 2019",
+              publisher: "IMS Global",
+              "authors": [
+                "Jeff Bohrer",
+        		    "Andy Miller"
+              ]
+          },
+        }
     };
   </script>
 </head>
@@ -98,33 +119,14 @@
       <section>
         <h4>Normative Documents</h4>
         <dl>
-          <dt>Conformance and Certification guide</dt>
-          <dd>The conformance and certification guide
-            that accompanies this specification [[!EXAMPLE-CERT]] defines
-            the requirements for template service consumers and providers.
-          </dd>
           <dt>JSON Schema</dt>
-          <dd>The JSON [[!EXAMPLE-JSONSCH]] schema is provided hendrerit est.
-            Proin tempor, quam vitae consequat congue, est sapien pharetra odio,
-            sed rhoncus metus sem in turpis. </dd>
-          <dt>Errata</dt>
-          <dd>The errata [[!EXAMPLE-ERRATA]] details any erratum registered for
-            this version of this specification since its publication.</dd>
-        </dl>
-      </section>
-      <section class="informative">
-        <h4>Informative Documents</h4>
-        <dl>
-          <dt>Implementation Guide</dt>
-          <dd>The implementation guide
-            that accompanies this specification [[EXAMPLE-IMPL]] contains
-            informtative guidance on facilisis hendrerit est. Nullam ultrices
-            non libero sed tristique. Proin tempor, quam vitae consequat congue,
-            est sapien pharetra odio, sed rhoncus metus sem in turpis. </dd>
-        </dl>
-        <dl>
-          <dt>OpenAPI Swagger View</dt>
-          <dd>A browseable view of the OpenAPI definition is available at...</dd>
+          <dd>
+            JSON Schema for all API responses. [[OB-JSON-21]]
+          </dd>
+          <dt>JSON-LD Context</dt>
+          <dd>
+            JSON-LD context file. [[OB-JSONLD-21]]
+          </dd>
         </dl>
       </section>
     </section>
