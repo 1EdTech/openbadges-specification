@@ -1,0 +1,18 @@
+{
+  "@context": {
+    "obi": "https://w3id.org/openbadges#",
+    "schema": "http://schema.org/",
+    "extensions": "https://w3id.org/openbadges/extensions#",
+    "geo": "schema:geo",
+    "name": "schema:name",
+    "description": "schema:description",
+    "latitude": "schema:latitude",
+    "longitude": "schema:longitude"
+  },
+  "obi:validation": [
+    {
+      "obi:validatesType": "extensions:GeoCoordinates",
+      "obi:validationSchema": "https://w3id.org/openbadges/extensions/geoCoordinatesExtension/schema.json"
+    }
+  ]
+}

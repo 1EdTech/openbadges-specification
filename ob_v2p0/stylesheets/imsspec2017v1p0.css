@@ -1,0 +1,2028 @@
+/**
+OB2.0 specifics
+**/
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+th, td {
+  text-align:left;
+  padding:5px 10px;
+  border-bottom:1px solid #e5e5e5;
+}
+
+dt {
+  color:#444;
+  font-weight:700;
+}
+
+th {
+  color:#444;
+  white-space: nowrap;
+}
+
+strong {
+  color:#222;
+  font-weight:700;
+}
+
+a {
+  color: #0000EE
+  font-weight:400;
+  text-decoration:none;
+}
+
+a small {
+  font-size:11px;
+  color:#777;
+  margin-top:-0.6em;
+  display:block;
+}
+
+.wrapper {
+  width:1060px;
+  margin:0 auto;
+}
+
+blockquote {
+  border-left:1px solid #e5e5e5;
+  margin:0;
+  padding:0 0 0 20px;
+  font-style:italic;
+}
+
+code, pre {
+  font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, monospace;
+  color:#333;
+  font-size:12px;
+}
+
+pre {
+  padding:8px 15px;
+  background: #f8f8f8;  
+  border-radius:5px;
+  border:1px solid #e5e5e5;
+  overflow-x: auto;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+th, td {
+  text-align:left;
+  padding:5px 10px;
+  border-bottom:1px solid #e5e5e5;
+}
+
+dt {
+  color:#444;
+  font-weight:700;
+}
+
+th {
+  color:#444;
+}
+
+img {
+  max-width:100%;
+}
+
+img#imslogo {
+	border:0;
+}
+
+strong {
+  color:#222;
+  font-weight:700;
+}
+/**
+section {
+  width:700px;
+  float:right;
+  padding-bottom:50px;
+} **/
+
+small {
+  font-size:11px;
+}
+
+hr {
+  border:0;
+  background:#e5e5e5;
+  height:1px;
+  margin:0 0 20px;
+}
+
+@media print, screen and (max-width: 1160px) {
+  
+  div.wrapper {
+    width:auto;
+    margin:0;
+  }
+  
+}
+
+@media print, screen and (max-width: 720px) {
+  body {
+    word-wrap:break-word;
+  }
+  
+  header {
+    padding:0;
+  }
+    
+  pre, code {
+    word-wrap:normal;
+    max-width: 100%;
+    overflow-x: scroll;
+  }
+  
+  table {
+    max-width: 100%;
+    overflow-x: scroll;
+  }
+}
+
+@media print, screen and (max-width: 480px) {
+  body {
+    padding:15px;
+  }
+}
+
+@media print {
+  body {
+    padding:0.4in;
+    font-size:12pt;
+    color:#444;
+  }
+}
+
+.ims-footer {
+	margin-top: 5em;
+	text-align:center;
+}
+
+.ims-footer * {
+	font-size:10pt !important;
+}
+
+
+/**
+end OB2.0 specifics
+**/
+
+/**
+IMS general
+**/
+
+BODY {
+	font-family: sans-serif;
+	padding-left: 6em;
+	padding-right: 6em;
+}
+
+H1 {
+	font-size: 170%;
+	font-weight: normal;
+}
+
+.subtitle {
+  font-size: 130%;
+  margin-bottom: 1em;
+}
+
+H1, H2, H3, .subtitle {
+  color: #336699;
+  font-weight: normal;
+  margin-top:2em;
+}
+
+H2 {
+	font-size: 150%;
+}
+
+H3.rdfType {
+	margin-top: 0.5in;
+	font-weight: normal;
+	padding-left: 0.5em;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border-style: double;
+	border-color: #FFC425;
+	background-color: #336699;
+	color: white;
+}
+
+HR {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+TABLE.propertiesTable {
+	margin-top: 1em;
+}
+
+TABLE.propertiesTable TH, TABLE.enumTable TH  {
+	background-color: #D4D4D4;
+	padding: 5px;
+    border: 1px solid #9B9B9B;
+}
+
+TABLE.about TH, TABLE.about TD {
+	text-align: left;
+	font-family: times;
+	font-size: 12pt;
+	padding-right: 1em;
+}
+
+TABLE.about TD:nth-child(2) {
+	padding-right: 4em;
+}
+
+TABLE.propertiesTable TD, TABLE.enumTable TD:first-child {
+	padding: 5px;
+  border: 1px solid #9B9B9B;
+}
+
+TABLE.enumTable TD {
+  border: 1px solid #9B9B9B;
+}
+
+.enumText {
+	margin-top: 10px;
+	padding: 5px;
+}
+
+#toc ul {
+	list-style-type: none;
+}
+
+#toc a {
+	text-decoration: none;
+}
+
+#toc a:hover {
+	text-decoration: underline;
+}
+
+.overviewDiagram {
+	margin-top: 3%;
+	margin-left: 2%;
+	width: 90%;
+	height: 600px;
+	overflow: scroll;
+	border: 1px solid #9B9B9B;
+	background-color: #EEF3FA;
+	padding: 5px;
+}
+
+.jsonSample {
+  border: 1px solid #9B9B9B;
+  padding-left: 1em;
+  background-color: #EEF3FA;
+  margin-left: 2%;
+  width: 90%;
+  margin-top: 2em;
+}
+
+.jsonSnippet {
+	margin-left: 1em;
+	margin-right: 2em;
+  border: 1px solid #9B9B9B;
+  padding-left: 1em;
+  background-color: #EEF3FA;
+  float: right;	
+}
+
+.mediaTypeProperties {
+  margin-top: 2em;
+}
+
+TABLE.mediaTypeProperties TH {
+  background-color: #D4D4D4;
+  padding: 5px;
+  border: 1px solid #9B9B9B;
+}
+
+TABLE.mediaTypeProperties TD {
+  padding: 5px;
+  border: 1px solid #9B9B9B;
+}
+
+TABLE {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+DL.reservedTerms DT {
+	color: red;
+	font-family: Courier;
+	margin-top: 0.25em;
+}
+
+DL.references DT {
+	color: black;
+	font-weight: bold;
+	margin-top: 0.5em;
+}
+
+OL.uncondensed LI {
+	margin-top: 0.5em;
+}
+
+.classDiagram {
+	margin-bottom: 20px;
+	padding-left: 3%;
+}
+
+.figure {
+	margin-top: 0.25in;
+	margin-left: 0.5in;
+	margin-bottom: 0.25in;
+}
+
+.caption {
+	margin-top: 10px;
+	font-size: 75%;
+	font-style: italic;
+}
+
+.classComment{
+	margin-left: 3%;
+	margin-bottom: 3%;
+}
+
+.contributorLabel {
+	font-weight: bold;
+	margin-top: 0.5em;
+}
+
+.contributor {
+	margin-left: 2em;
+}
+
+.list-heading {
+  font-weight: bold;
+  color: #336699;
+}
+
+.running-list {
+  margin-left: 2em;
+  margin-bottom: 1em;
+  font-family: courier;
+}
+
+.qualifier {
+	font-style: italic;
+	font-size: 70%;
+}
+
+.individual-uri {
+	padding: 3px;
+	font-family: courier;
+	font-size: 75%;
+	background-color: #F0F0F0;
+}
+
+.titlePageData, .legal {
+	font-family: times;
+	font-size: 9.0pt;
+}
+
+.status {
+  position: fixed;
+  display: block;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 30px;
+  text-align: right;
+  padding-top: 2px;
+  padding-right: 2em;
+  background-color: red;
+  color: white;
+  font-size: 18px;
+  transform-origin: left top;
+  transform: rotate(-90deg) translate(-100%, 0%);
+  -ms-transform-origin: left top;
+  -ms-transform: rotate(90deg);
+  -webkit-transform-origin: left top;
+  -webkit-transform: rotate(-90deg) translate(-100%, 0%);
+  -moz-transform-origin: left top;
+  -moz-transform: rotate(-90deg) translate(-100%, 0%);
+  -o-transform-origin: left top;
+  -o-transform: rotate(-90deg) translate(-100%, 0%);
+}
+
+.statusFinal {
+  position: fixed;
+  display: block;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 30px;
+  text-align: right;
+  padding-top: 2px;
+  padding-right: 2em;
+  background-color: blue;
+  color: white;
+  font-size: 20px;
+  transform-origin: left top;
+  transform: rotate(-90deg) translate(-100%, 0%);
+  -ms-transform-origin: left top;
+  -ms-transform: rotate(90deg);
+  -webkit-transform-origin: left top;
+  -webkit-transform: rotate(-90deg) translate(-100%, 0%);
+  -moz-transform-origin: left top;
+  -moz-transform: rotate(-90deg) translate(-100%, 0%);
+  -o-transform-origin: left top;
+  -o-transform: rotate(-90deg) translate(-100%, 0%);
+}
+
+/* ============================= CS ADDITIONS ====================================== */
+
+H1.infoModelTitle {
+    color:navy;
+}
+
+H4 {
+	color: #336699;
+    font-weight: normal;
+}
+
+H5 {
+	color: #336699;
+    font-weight: bold;
+}
+
+P.logoImage {
+}
+
+IMG.logoImage {
+    margin-top: 10px;
+    margin-left: 1em;
+    border: 0;
+    width: 300px;
+    height: 81px;
+}
+
+P, LI {
+    /* font-family: times; */
+	font-size: 12pt; 
+}
+
+P.figureCaption {
+    font-family: times;
+	font-size: 10pt;
+	text-align: center;
+	font-weight: bold;
+	width:80%;
+}
+
+P.figureLayout {
+    border: 2px solid;
+    width:80%;
+}
+
+P.tocLevel1 {
+    font-family: times;
+	font-size: 12pt;
+	text-indent: 2em;
+	font-weight: bold;
+}
+
+P.tocLevel2 {
+    font-family: times;
+	font-size: 12pt;
+	text-indent: 4em;
+	line-height: 0.5;
+}
+
+P.tocLevel3 {
+    font-family: times;
+	font-size: 10pt;
+	text-indent: 7em;
+	line-height: 0.5;
+}
+
+P.tocLevel4 {
+    font-family: times;
+	font-size: 8pt;
+	text-indent: 12em;
+	line-height: 0.5;
+}
+
+P.tocLevel5 {
+    font-family: times;
+	font-size: 8pt;
+	text-indent: 15em;
+	line-height: 0.5;
+}
+
+P.tocCaptionLevel1 {
+    font-family: times;
+	font-size: 12pt;
+	text-indent: 2em;
+	line-height: 0.5;
+}
+
+P.tocCaptionLevel2 {
+    font-family: times;
+	font-size: 10pt;
+	text-indent: 4em;
+	line-height: 0.5;
+}
+
+P.tocCaptionLevel3 {
+    font-family: times;
+	font-size: 8pt;
+	text-indent: 7em;
+	line-height: 0.5;
+}
+
+P.iprDistributionHdr {
+    font-size: 10.0pt;
+    font-weight: bold;
+}
+
+P.iprDistribution, DIV.iprDistribution p {
+    font-size: 10.0pt;
+}
+
+P.copyright {
+    font-size: 14.0pt !important;
+    color:navy;
+    text-align: center;
+}
+
+P.endWarranty {
+    text-align: center;
+    font-size: 10.0pt;
+    font-style: italic;
+}
+
+IMG.imageCenter {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+TABLE CAPTION {
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+TABLE.versionTable TR {
+	height: 24.0pt;
+	font-size: 10.0pt;
+	font-family: times;
+}
+
+TABLE.versionTable TD:first-child {
+	width: 150px;
+	text-align: left;
+}
+
+TABLE.aboutThisDoc {
+    width: 95%;
+	font-family: times;
+	font-size: 12pt;
+}
+
+TABLE.aboutThisDoc TR {
+	height: 24.0pt;
+}
+
+TABLE.aboutThisDoc TD:first-child {
+	width: 20%;
+	text-align: left;
+	font-weight: bold;
+	font-family: times;
+	font-size: 12pt;
+	padding-right: 1em;
+	vertical-align:top;
+}
+
+
+TABLE.aboutThisDoc TD {
+	text-align: left;
+	font-family: times;
+	font-size: 12pt;
+	padding-right: 1em;
+	vertical-align:top;
+}
+
+TABLE.referenceTable {
+	width: 95%;
+	font-family: times;
+	font-size: 12pt;
+}
+
+TABLE.referenceTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.referenceTable TD {
+	text-align: left;
+	vertical-align:top;
+}
+
+TABLE.referenceTable TD:first-child {
+	width: 125px;
+    font-weight: bold;
+}
+
+TABLE.nomenclatureTable {
+	width: 95%;
+	font-family: times;
+	font-size: 12pt;
+}
+
+TABLE.nomenclatureTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.nomenclatureTable TD {
+	text-align: left;
+	vertical-align:top;
+}
+
+TABLE.nomenclatureTable TD:first-child {
+	width: 200px;
+	font-weight: bold;
+}
+
+TABLE.contributors {
+	font-family: times;
+	font-size: 12pt;
+}
+
+#contributorLeft {
+    float: left;
+    width: 50%;
+}
+
+#contributorRight {
+    float: left;
+    width: 50%;
+}
+
+TABLE.contributors TR  {
+    height: 24.0pt;
+}
+
+TABLE.contributors TD:first-child {
+	width: 50%;
+	text-align: left;
+}
+
+TABLE.introStructureTable TR  {
+    height: 36.0pt;
+}
+
+TABLE.introStructureTable {
+	font-family: times;
+	font-size: 12pt;
+}
+
+TABLE.introStructureTable TD {
+    padding-left: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.introStructureTable TD:first-child {
+    width: 225px;
+    padding-left: 0.0em;
+    text-transform: uppercase;
+    padding-left: 15px ;
+    text-indent: -15px ;
+}
+
+TABLE.revisionHistory {
+    width: 95%;
+	font-family: times;
+	font-size: 12pt;
+}
+
+TABLE.revisionHistory TH.one  {
+    width: 15%;
+    border-bottom: 2px solid;
+}
+
+TABLE.revisionHistory TH.two  {
+    width: 20%;
+    border-left: 2px solid;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+}
+
+TABLE.revisionHistory TH.three  {
+    width: 65%;
+    border-bottom: 2px solid;
+}
+
+TABLE.revisionHistory TR  {
+    height: 24.0pt;
+}
+
+TABLE.revisionHistory TD.one  {
+    border-bottom: 1px dotted;
+    padding-left: 1em;
+}
+
+TABLE.revisionHistory TD.two  {
+    border-left: 2px solid;
+    border-right: 2px solid;
+    border-bottom: 1px dotted;
+    padding-left: 1em;
+}
+
+TABLE.revisionHistory TD.three  {
+    border-bottom: 1px dotted;
+    padding-left: 1em;
+}
+
+TABLE.operationListTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 95%;
+}
+
+TABLE.operationListTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.operationListTable TH {
+    border: 1px solid;
+}
+
+TABLE.operationListTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.operationListTable TD:first-child {
+    width: 250px;
+}
+
+TABLE.operationDescriptionTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 95%;
+}
+
+TABLE.operationDescriptionTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.operationDescriptionTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    vertical-align:top;
+    padding-top: 0.5em;
+}
+
+TABLE.operationDescriptionTable TD:first-child {
+    width: 225px;
+    font-weight: bold;
+}
+
+TABLE.vocabularyTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.vocabularyTable TH {
+    border: 1px solid;
+    padding-left: 0.5em;
+    height: 24.0pt;
+}
+
+TABLE.vocabularyTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.vocabularyTable TD:first-child {
+    width:50%;
+}
+
+TABLE.usecaseSummaryTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.usecaseSummaryTable TH {
+    border: 1px solid;
+    background-color: #ffd700;  /* Golden Hue */
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    text-align: left;
+}
+
+TABLE.usecaseSummaryTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.usecaseSummaryTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.usecaseSummaryTable TD:first-child {
+    width: 150px;
+    font-weight: bold;
+}
+
+TABLE.classDescriptionTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.classDescriptionTable TH {
+    border: 1px solid;
+    background-color: #cc0000;
+    color: white;
+}
+
+TABLE.classDescriptionTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.classDescriptionTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.classDescriptionTable TD:first-child {
+    width: 150px;
+    font-weight: bold;
+}
+
+TABLE.attributeDescriptionTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.attributeDescriptionTable CAPTION {
+    font-weight: bold;
+}
+
+TABLE.attributeDescriptionTable TH {
+    border: 1px solid;
+    background-color: #ff6262;
+    color: black;
+}
+
+TABLE.attributeDescriptionTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.attributeDescriptionTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.attributeDescriptionTable TD:first-child {
+    width: 150px;
+    font-weight: bold;
+}
+
+TABLE.importDescriptionTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.importDescriptionTable TH {
+    border: 1px solid;
+    background-color: #cc0000;
+    color: white;
+}
+
+TABLE.importDescriptionTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.importDescriptionTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.importDescriptionTable TD:first-child {
+    width: 150px;
+    font-weight: bold;
+}
+
+TABLE.enumerationDescriptionTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.enumerationDescriptionTable TH {
+    border: 1px solid;
+    background-color: #cc0000;
+    color: white;
+}
+
+TABLE.enumerationDescriptionTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.enumerationDescriptionTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.enumerationDescriptionTable TD:first-child {
+    width: 180px;
+}
+
+TABLE.xsdclassDescriptionTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.xsdclassDescriptionTable CAPTION {
+    font-weight: bold;
+}
+
+
+TABLE.xsdclassDescriptionTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.xsdclassDescriptionTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.xsdclassDescriptionTable TD:first-child {
+    width: 150px;
+    font-weight: bold;
+    background-color: #ccccff   /* Mauve */
+}
+
+TABLE.xsdclassDescriptionTable TD PRE {
+    display: block;
+    font-family: courier;
+    font-size: 10pt;
+    vertical-align:top;
+    white-space: pre;
+    margin: 1em 0;
+}
+
+TABLE.xsdbindtermcomplexTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.xsdbindtermcomplexTable TH {
+    border: 1px solid;
+    background-color: #ccccff   /* Mauve */
+}
+
+TABLE.xsdbindtermcomplexTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.xsdbindtermcomplexTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+}
+
+TABLE.xsdbindtermcomplexTable TD:first-child {
+    width: 200px;
+}
+
+TABLE.xsdattributeDescriptionTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.xsdattributeDescriptionTable CAPTION {
+    font-weight: bold;
+}
+
+
+TABLE.xsdattributeDescriptionTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.xsdattributeDescriptionTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.xsdattributeDescriptionTable TD:first-child {
+    width: 150px;
+    font-weight: bold;
+    background-color: #f7be81;  /* Orange Hue */
+}
+
+
+TABLE.xsdattributeDescriptionTable TD PRE {
+    display: block;
+    font-family: courier;
+    font-size: 10pt;
+    vertical-align:top;
+    white-space: pre;
+    margin: 1em 0;
+}
+
+TABLE.xsdbindtermattributeTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.xsdbindtermattributeTable TH {
+    border: 1px solid;
+    background-color: #f7be81;  /* Orange Hue */
+}
+
+TABLE.xsdbindtermattributeTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.xsdbindtermattributeTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+}
+
+TABLE.xsdbindtermattributeTable TD:first-child {
+    width: 200px;
+}
+
+TABLE.xsdelementDescriptionTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.xsdelementDescriptionTable CAPTION {
+    font-weight: bold;
+}
+
+
+TABLE.xsdelementDescriptionTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.xsdelementDescriptionTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.xsdelementDescriptionTable TD:first-child {
+    width: 150px;
+    font-weight: bold;
+    background-color: #70aaff;  /* Blue Hue */
+}
+
+TABLE.xsdelementDescriptionTable TD PRE {
+    display: block;
+    font-family: courier;
+    font-size: 10pt;
+    vertical-align:top;
+    white-space: pre;
+    margin: 1em 0;
+}
+
+TABLE.xsdbindtermelementTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.xsdbindtermelementTable TH {
+    border: 1px solid;
+    background-color: #70aaff;  /* Blue Hue */
+}
+
+TABLE.xsdbindtermelementTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.xsdbindtermelementTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+}
+
+TABLE.xsdbindtermelementTable TD:first-child {
+    width: 200px;
+}
+
+TABLE.xsdsimpletypeDescriptionTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.xsdsimpletypeDescriptionTable CAPTION {
+    font-weight: bold;
+}
+
+
+TABLE.xsdsimpletypeDescriptionTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.xsdsimpletypeDescriptionTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.xsdsimpletypeDescriptionTable TD:first-child {
+    width: 150px;
+    font-weight: bold;
+    background-color: #00ff99;  /* Green Hue */
+}
+
+TABLE.xsdsimpletypeDescriptionTable TD PRE {
+    display: block;
+    font-family: courier;
+    font-size: 10pt;
+    vertical-align:top;
+    white-space: pre;
+    margin: 1em 0;
+}
+
+TABLE.xsdbindtermsimpleTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.xsdbindtermsimpleTable TH {
+    border: 1px solid;
+    background-color: #00ff99;  /* Green Hue */
+}
+
+TABLE.xsdbindtermsimpleTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.xsdbindtermsimpleTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+}
+
+TABLE.xsdbindtermsimpleTable TD:first-child {
+    width: 200px;
+}
+
+TABLE.vdexbindtermvocabularyTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.vdexbindtermvocabularyTable TH {
+    border: 1px solid;
+    background-color:#cc6699;  /* Purple Hue */
+}
+
+TABLE.vdexbindtermvocabularyTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.vdexbindtermvocabularyTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+}
+
+TABLE.vdexbindtermvocabularyTable TD:first-child {
+    width: 200px;
+}
+
+TABLE.statusCodeTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.statusCodeTable TH {
+    border: 1px solid;
+    background-color: grey;
+}
+
+TABLE.statusCodeTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.statusCodeTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.statusCodeTable TD:first-child {
+    width: 150px;
+}
+
+TABLE.codeMajorSeverityMatrix  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.codeMajorSeverityMatrix TH {
+    border: 1px solid;
+    background-color: grey;
+}
+
+TABLE.codeMajorSeverityMatrix TR  {
+    height: 24.0pt;
+}
+
+TABLE.codeMajorSeverityMatrix TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+    width: 20%;
+}
+
+TABLE.codeMajorSeverityMatrix TD:first-child {
+    width: 20%;
+}
+
+TABLE.umlxsdmapTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.umlxsdmapTable TH {
+    border: 1px solid;
+    background-color: #ffcc00;
+}
+
+TABLE.umlxsdmapTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.umlxsdmapTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align: middle;
+}
+
+TABLE.umlxsdmapbindtermTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.umlxsdmapbindtermTable TH {
+    border: 1px solid;
+    background-color: #ffcc00;
+}
+
+TABLE.umlxsdmapbindtermTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.umlxsdmapbindtermTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+}
+
+TABLE.umlxsdmapbindtermTable TD:first-child {
+    width: 200px;
+}
+
+TABLE.umlxsdenumTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.umlxsdenumTable TH {
+    border: 1px solid;
+    background-color: #ffcc00;
+}
+
+TABLE.umlxsdenumTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.umlxsdenumTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align: middle;
+}
+
+TABLE.umlxsdenumTable TD:first-child {
+    width: 15%;
+}
+
+TABLE.primitiveTypeTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.primitiveTypeTable TH {
+    border: 1px solid;
+    background-color: #ffcc00;
+}
+
+TABLE.primitiveTypeTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.primitiveTypeTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align: middle;
+}
+
+TABLE.primitiveTypeTable TD:first-child {
+    width: 15%;
+}
+
+TABLE.primitiveTypeTable TD PRE {
+    display: block;
+    font-family: courier;
+    font-size: 10pt;
+    vertical-align:top;
+    white-space: pre;
+    margin: 1em 0;
+}
+
+TABLE.schematronTable  {
+    border-collapse: separate;
+    border-spacing: 2px;
+    font-family: times;
+	font-size: 12pt;
+	width: 95%;
+}
+
+TABLE.schematronTable TH {
+    background-color: #99ffff;  /* Light Blue */
+}
+
+TABLE.schematronTable TR  {
+    height: 24.0pt;
+    background-color: #dcdcdc   /* Gainsboro */
+}
+
+TABLE.schematronTable TD {
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.schematronTable TD:first-child {
+    width: 300px;
+    font-weight: bold;
+}
+
+TABLE.namespaceTable  {
+    border-collapse: separate;
+    border-spacing: 2px;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.namespaceTable TR  {
+    height: 24.0pt;
+    background-color: #dcdcdc   /* Gainsboro */
+}
+
+TABLE.namespaceTable TD {
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.namespaceTable TD:first-child {
+    width: 150px;
+    font-weight: bold;
+}
+
+TABLE.vdexDescriptionTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.vdexDescriptionTable CAPTION {
+    font-weight: bold;
+}
+
+
+TABLE.vdexDescriptionTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.vdexDescriptionTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.vdexDescriptionTable TD:first-child {
+    width: 150px;
+    font-weight: bold;
+    background-color: #cc6699;  /* Purple Hue */
+}
+
+TABLE.vdexTermsDescriptionSubTable {
+    border-collapse: separate;
+    border-spacing: 1px;
+    border-color: white;
+    font-family: times;
+	font-size: 10pt;
+	width: 99%;
+}
+
+TABLE.vdexTermsDescriptionSubTable TH {
+    background-color: #cc6699;  /* Purple Hue */
+}
+
+TABLE.vdexTermsDescriptionSubTable TR  {
+    background-color: #e2a9c6;   /* Purple Hue */
+}
+
+TABLE.vdexTermsDescriptionSubTable TD {
+    background-color: #e2a9c6;   /* Purple Hue */
+    border-color: white;
+}
+
+TABLE.vdexTermsDescriptionSubTable TD:first-child {
+    font-weight: normal;
+    background-color: #e2a9c6;   /* Purple Hue */
+}
+
+TABLE.vocabularyDescriptionSubTable {
+    border-collapse: separate;
+    border-spacing: 1px;
+    border-color: white;
+    font-family: times;
+	font-size: 12pt;
+}
+
+TABLE.vocabularyDescriptionSubTable TR  {
+    background-color: white;
+}
+
+TABLE.vocabularyDescriptionSubTable TD {
+    border-color: white;
+}
+
+TABLE.vocabularyDescriptionSubTable TD:first-child {
+    width: 100px;
+}
+
+TABLE.classXSDAttributeDescriptionSubTable {
+    border-collapse: separate;
+    border-spacing: 1px;
+    border-color: white;
+    font-family: times;
+	font-size: 10pt;
+	width: 80%;
+}
+
+TABLE.classXSDAttributeDescriptionSubTable TH {
+    background-color: #f7be81;  /* Orange Hue */
+}
+
+TABLE.classXSDAttributeDescriptionSubTable TR  {
+    background-color: #f5d089;   /* Orange Hue */
+}
+
+TABLE.classXSDAttributeDescriptionSubTable TD {
+    border-color: white;
+}
+
+TABLE.classXSDAttributeDescriptionSubTable TD:first-child {
+    background-color: #f5d089;   /* Orange Hue */
+    font-weight: normal;
+}
+
+TABLE.classXSDPropertiesDescriptionSubTable {
+    border-collapse: separate;
+    border-spacing: 1px;
+    border-color: white;
+    font-family: times;
+	font-size: 10pt;
+	width: 50%;
+}
+
+TABLE.classXSDPropertiesDescriptionSubTable TR  {
+    background-color: #c2ebff;   /* Blue Hue */
+}
+
+TABLE.classXSDPropertiesDescriptionSubTable TD {
+    border-color: white;
+}
+
+TABLE.classXSDPropertiesDescriptionSubTable TD:first-child {
+    background-color: #99ccff;   /* Blue Hue */
+    font-weight: bold;
+    width: 100px;
+}
+
+TABLE.classXSDSchematronDescriptionSubTable {
+    border-collapse: separate;
+    border-spacing: 1px;
+    border-color: white;
+    font-family: times;
+	font-size: 10pt;
+	width: 95%;
+}
+
+TABLE.classXSDSchematronDescriptionSubTable TR  {
+    background-color: #c2ebff;   /* Blue Hue */
+}
+
+TABLE.classXSDSchematronDescriptionSubTable TD {
+    border-color: white;
+}
+
+TABLE.classXSDSchematronDescriptionSubTable TD:first-child {
+    background-color: #99ccff;   /* Blue Hue */
+    font-weight: bold;
+    width: 100px;
+}
+
+TABLE.classXSDFacetsDescriptionSubTable {
+    border-collapse: separate;
+    border-spacing: 1px;
+    border-color: white;
+    font-family: times;
+	font-size: 10pt;
+	width: 50%;
+}
+
+TABLE.classXSDFacetsDescriptionSubTable TR  {
+    background-color: #c2ebff;   /* Blue Hue */
+}
+
+TABLE.classXSDFacetsDescriptionSubTable TD {
+    border-color: white;
+}
+
+TABLE.classXSDFacetsDescriptionSubTable TD:first-child {
+    background-color: #99ccff;   /* Blue Hue */
+    font-weight: bold;
+    width: 100px;
+}
+
+TABLE.classXSDUsedbyDescriptionSubTable {
+    border-collapse: separate;
+    border-spacing: 1px;
+    border-color: white;
+    font-family: times;
+	font-size: 10pt;
+	width: 95%;
+}
+
+TABLE.classXSDUsedbyDescriptionSubTable TR  {
+    background-color: #c2ebff;   /* Blue Hue */
+}
+
+TABLE.classXSDUsedbyDescriptionSubTable TD {
+    border-color: white;
+}
+
+TABLE.classXSDUsedbyDescriptionSubTable TD:first-child {
+    background-color: #99ccff;   /* Blue Hue */
+    font-weight: bold;
+    width: 100px;
+}
+
+SPAN.referenceTitle {
+    font-style: italic;
+}
+
+SPAN.referencePublisher {
+    text-decoration: underline;
+}
+
+/* Checklist Styles */
+
+TABLE.checklistSummary {
+    width: 80%;
+}
+
+TABLE.checklistSummary TR  {
+    height: 48.0pt;
+}
+
+TABLE.checklistSummary TD {
+    font-family: times;
+    padding-left: 1em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+    background-color: #dcdcdc;  /* Grey */
+}
+
+TABLE.checklistSummary TD:first-child {
+    font-family: times;
+    color: #336699;
+    font-weight: bold;
+    padding-left: 1em;
+    background-color: #99ffff;  /* Blue Hue */
+    width: 125px;
+}
+
+TABLE.checklistTable {
+    width: 100%;
+}
+
+TABLE.checklistTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.checklistTable TH {
+    font-family: times;
+    height: 36.0pt;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+    background-color: #ffd700;  /* Golden Hue */
+}
+
+TABLE.checklistTable TH.bone  {
+    width: 10%;
+}
+
+TABLE.checklistTable TH.pone  {
+    width: 10%;
+}
+
+TABLE.checklistTable TH.btwo  {
+    width: 25%;
+}
+
+TABLE.checklistTable TH.ptwo  {
+    width: 25%;
+}
+
+TABLE.checklistTable TH.bthree  {
+    width: 5%;
+}
+
+TABLE.checklistTable TH.pthree  {
+    width: 5%;
+}
+
+TABLE.checklistTable TH.bfour  {
+    width: 25%;
+}
+
+TABLE.checklistTable TH.pfour  {
+    width: 25%;
+}
+
+TABLE.checklistTable TH.bfive  {
+    width: 35%;
+}
+
+TABLE.checklistTable TH.pfive  {
+    width: 5%;
+}
+
+TABLE.checklistTable TH.psix  {
+    width: 30%;
+}
+
+TABLE.checklistTable TD {
+    font-family: times;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+}
+
+TABLE.checklistTable TD.bone  {
+    text-align: center;
+}
+
+TABLE.checklistTable TD.pone  {
+    text-align: center;
+}
+
+TABLE.checklistTable TD.btwo  {
+    padding-left: 0.5em;
+}
+
+TABLE.checklistTable TD.ptwo  {
+    padding-left: 0.5em;
+}
+
+TABLE.checklistTable TD.bthree  {
+    text-align: center;
+}
+
+TABLE.checklistTable TD.pthree  {
+    text-align: center;
+}
+
+TABLE.checklistTable TD.bfour  {
+    padding-left: 0.5em;
+}
+
+TABLE.checklistTable TD.pfour  {
+    padding-left: 0.5em;
+}
+
+TABLE.checklistTable TD.bfive  {
+    padding-left: 0.5em;
+}
+
+TABLE.checklistTable TD.pfive  {
+    text-align: center;
+}
+
+TABLE.checklistTable TD.psix  {
+    padding-left: 0.5em;
+}
+
+TABLE.checklistPDTypeTable {
+    width: 100%;
+}
+
+TABLE.checklistPDTypeTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.checklistPDTypeTable TH {
+    font-family: times;
+    height: 36.0pt;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+    background-color: #ffd700;  /* Golden Hue */
+}
+
+TABLE.checklistPDTypeTable TD {
+    font-family: times;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+    padding-left: 0.5em;
+    background-color: #dcdcdc;  /* Grey */
+}
+
+TABLE.checklistImportTable {
+    width: 100%;
+}
+
+TABLE.checklistImportTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.checklistImportTable TH {
+    font-family: times;
+    height: 36.0pt;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+    background-color: #ffd700;  /* Golden Hue */
+}
+
+TABLE.checklistImportTable TD {
+    font-family: times;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+    padding-left: 0.5em;
+}
+
+TABLE.checklistSchematronUnorderedTable {
+    width: 100%;
+}
+
+TABLE.checklistSchematronUnorderedTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.checklistSchematronUnorderedTable TH {
+    font-family: times;
+    height: 36.0pt;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+    background-color: #ffd700;  /* Golden Hue */
+}
+
+TABLE.checklistSchematronUnorderedTable TD {
+    font-family: times;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+    padding-left: 0.5em;
+}
+
+TABLE.restEndpointTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.restEndpointTable TH {
+    border: 1px solid;
+    background-color: #ffcc00;
+}
+
+TABLE.restEndpointTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.restEndpointTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align: middle;
+}
+
+TABLE.openAPITagsTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.openAPITagsTable TH {
+    border: 1px solid;
+    background-color: #ffcc00;
+}
+
+TABLE.openAPITagsTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.openAPITagsTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align: middle;
+}
+
+TABLE.openAPIGeneralTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.openAPIGeneralTable CAPTION {
+    font-weight: bold;
+}
+
+TABLE.openAPIGeneralTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.openAPIGeneralTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.openAPIGeneralTable TD:first-child {
+    width: 150px;
+    font-weight: bold;
+    background-color: #ccccff   /* Mauve */
+}
+
+TABLE.openAPIPathsTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.openAPIPathsTable CAPTION {
+    font-weight: bold;
+}
+
+TABLE.openAPIPathsTable TR  {
+    height: 24.0pt;
+}
+
+TABLE.openAPIPathsTable TH {
+    border: 1px solid;
+    background-color: #ffcc00;  /* Gold */
+}
+
+TABLE.openAPIPathsTable TD {
+    border: 1px solid;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.openAPIPathsTable TD:first-child {
+    width: 150px;
+    font-weight: bold;
+    background-color: #ccccff   /* Mauve */
+}
+
+TABLE.JSONSourceCodeTable  {
+    border: 1px solid;
+    font-family: times;
+	font-size: 12pt;
+	width: 80%;
+}
+
+TABLE.JSONSourceCodeTable TD {
+    padding-left: 0.5em;
+    vertical-align:top;
+}
+
+TABLE.JSONSourceCodeTable TD PRE {
+    display: block;
+    font-family: courier;
+    font-size: 10pt;
+    vertical-align:top;
+    white-space: pre;
+    margin: 1em 0;
+}
+
+TABLE.JSONSourceCodeTable CAPTION {
+    font-weight: bold;
+}
+
+/* ================================================================================= */
