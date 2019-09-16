@@ -807,27 +807,10 @@ grant_type=authorization_code
     <section id="api-envelope">
       <h3>Response Envelope</h3>
       <p>
-        Responses from all APIs in this document are wrapped in a JSON envelope. The type of each result in the
-        <code>results</code> array is specified by the result <code>type</code>. Allowable types are defined
-        in the <a href="#api-endpoints">Endpoints</a> section.
+        Responses from all APIs in this document are wrapped in a JSON envelope. All response envelopes have a 
+        <code>status</code> propperty and a <code>results</code> property. The type of each result in the
+        <code>results</code> array is defined in the <a href="#api-endpoints">Endpoints</a> section.
       </p>
-      <pre>
-{
-    "status": {
-        "error": null,
-        "statusCode": 200,
-        "statusText": "OK"
-    },
-
-    "results": [
-        {
-          "@context":"https://w3id.org/openbadges/v2",
-          "id":"https://issuer.example.com/api/v20/assertion/1234567",
-          "type":"Assertion"
-        }
-    ]
-}
-          </pre>
       <section id="api-envelope-pagination">
         <h4>Pagination</h4>
         <p>Pagination is controlled by two query string parameters appended to the request.</p>
@@ -1266,6 +1249,39 @@ Link:
       <h3>Responses</h3>
       <section id="api-responses-get-assertions-200">
         <h4>200 GET Assertions Response</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>status</code></td>
+              <td>Yes</td>
+              <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.</td>
+            </tr>
+            <tr>
+              <td><code>assertions</code></td>
+              <td>No</td>
+              <td>
+                The matching Assertions. The total number of assertions and signed baddges should not exceed the
+                [pageination limit](#api-envelope-pagination). Not required if the request was not processed successfully.
+              </td>
+            </tr>
+            <tr>
+              <td><code>signedBadges</code></td>
+              <td>No</td>
+              <td>
+                The matching <a href="#epi-signedbadge">SignedBadge</a> objects. The total number of assertions and signed
+                badges should not exceed the
+                [pageination limit](#api-envelope-pagination). Not required if the request was not processed successfully.
+              </td>
+            </tr>
+          </tbody>
+        </table>
         <pre>
 {
     "status": {
@@ -1273,13 +1289,15 @@ Link:
         "statusCode": 200,
         "statusText": "OK"
     },
-
-    "results": [
+    "assertions": [
         {
           "@context": "https://w3id.org/openbadges/v2",
           "id": "https://issuer.example.com/api/v20/assertion/1234567",
-          "type": "Assertion"
-        },
+          "type": "Assertion",
+          ...
+        }
+    ],
+    "signedBadges": [
         {
           "@context": "https://purl.imsglobal.org/spec/ob/v2p1/ob_v2p1.jsonld"
           "id": "urn:uuid:3d339b63-cab3-4951-a574-8faf45d1b802",
@@ -1292,6 +1310,22 @@ Link:
       </section>
       <section id="api-responses-post-assertions-200">
         <h4>200 POST Assertion Response</h4>
+        <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Required</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>status</code></td>
+                <td>Yes</td>
+                <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.</td>
+              </tr>
+            </tbody>
+        </table>
         <pre>
 {
     "status": {
@@ -1304,6 +1338,30 @@ Link:
       </section>
       <section id="api-responses-get-profile-200">
         <h4>200 GET Profile Response</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>status</code></td>
+              <td>Yes</td>
+              <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.</td>
+            </tr>
+            <tr>
+              <td><code>results</code></td>
+              <td>No</td>
+              <td>
+                The matching Profile in an array with exactly one element. Not required if the request was not
+                processed successfully.
+              </td>
+            </tr>
+          </tbody>
+        </table>
         <pre>
 {
     "status": {
@@ -1327,6 +1385,30 @@ Link:
       </section>
       <section id="api-responses-post-profile-200">
         <h4>200 POST Profile Response</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>status</code></td>
+              <td>Yes</td>
+              <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.</td>
+            </tr>
+            <tr>
+              <td><code>results</code></td>
+              <td>No</td>
+              <td>
+                The updated Profile in an array with exactly one element. Not required if the request was not
+                processed successfully.
+              </td>
+            </tr>
+          </tbody>
+        </table>
         <pre>
 {
     "status": {
