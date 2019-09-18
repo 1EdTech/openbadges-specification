@@ -808,8 +808,9 @@ grant_type=authorization_code
       <h3>Response Envelope</h3>
       <p>
         Responses from all APIs in this document are wrapped in a JSON envelope. All response envelopes have a 
-        <code>status</code> propperty and a <code>results</code> property. The type of each result in the
-        <code>results</code> array is defined in the <a href="#api-endpoints">Endpoints</a> section.
+        <code>status</code> property and one or more result properties. The property name(s) and expected
+        data types for values of each result property is defined in the <a href="#api-responses">Responses</a> 
+        section for each endpoint.
       </p>
       <section id="api-envelope-pagination">
         <h4>Pagination</h4>
@@ -1353,7 +1354,7 @@ Link:
               <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.</td>
             </tr>
             <tr>
-              <td><code>results</code></td>
+              <td><code>profile</code></td>
               <td>No</td>
               <td>
                 The matching Profile in an array with exactly one element. Not required if the request was not
@@ -1370,7 +1371,7 @@ Link:
         "statusText": "OK"
     },
 
-    "results": [
+    "profile": [
         {
             "@context": "https://w3id.org/openbadges/v2",
             "id": "https://host.example.com/profile/12345",
@@ -1400,7 +1401,7 @@ Link:
               <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.</td>
             </tr>
             <tr>
-              <td><code>results</code></td>
+              <td><code>profile</code></td>
               <td>No</td>
               <td>
                 The updated Profile in an array with exactly one element. Not required if the request was not
@@ -1417,7 +1418,7 @@ Link:
         "statusText": "OK"
     },
 
-    "results": [
+    "profile": [
         {
             "@context": "https://w3id.org/openbadges/v2",
             "id": "https://host.example.com/profile/12345",
