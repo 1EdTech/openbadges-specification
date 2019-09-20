@@ -1269,7 +1269,7 @@ Link:
               <td>No</td>
               <td>
                 The matching Assertions. The total number of assertions and signed baddges should not exceed the
-                [pageination limit](#api-envelope-pagination). Not required if the request was not processed successfully.
+                [pageination limit](#api-envelope-pagination). Not required if there are no unsigned assertions.
               </td>
             </tr>
             <tr>
@@ -1278,7 +1278,7 @@ Link:
               <td>
                 The matching <a href="#epi-signedbadge">SignedBadge</a> objects. The total number of assertions and signed
                 assertions should not exceed the
-                [pageination limit](#api-envelope-pagination). Not required if the request was not processed successfully.
+                [pageination limit](#api-envelope-pagination). Not required if there are no signed assertions.
               </td>
             </tr>
           </tbody>
@@ -1355,10 +1355,9 @@ Link:
             </tr>
             <tr>
               <td><code>profile</code></td>
-              <td>No</td>
+              <td>Yes</td>
               <td>
-                The matching Profile in an array with exactly one element. Not required if the request was not
-                processed successfully.
+                The matching Profile in an array with exactly one element.
               </td>
             </tr>
           </tbody>
@@ -1402,10 +1401,9 @@ Link:
             </tr>
             <tr>
               <td><code>profile</code></td>
-              <td>No</td>
+              <td>Yes</td>
               <td>
-                The updated Profile in an array with exactly one element. Not required if the request was not
-                processed successfully.
+                The updated Profile in an array with exactly one element.
               </td>
             </tr>
           </tbody>
