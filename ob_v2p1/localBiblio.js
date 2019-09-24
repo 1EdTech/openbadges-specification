@@ -1,13 +1,13 @@
 var _localBiblio = {
     "OB-BAKE-10": {
         title: "Open Badges Baking Specification v1.0",
-        href: "http://localhost:5000/ob_v2p1/ob-bake-v1p0.html",
+        href: "ob-bake-v1p0.html",
         date: "August 29, 2019",
         publisher: "IMS Global"
     },
     "OB-CERT-21": {
         title: "Open Badges v2.1 Conformance and Certification Guide",
-        href: "http://localhost:5000/ob_v2p1/ob-cert-v2p1.html",
+        href: "ob-cert-v2p1.html",
         date: "August 29, 2019",
         publisher: "IMS Global",
         authors: [
@@ -25,7 +25,7 @@ var _localBiblio = {
     },
     "OB-EXAMPLES": {
         title: "Open Badges Examples",
-        href: "http://localhost:5000/ob_v2p1/ob-examples.html",
+        href: "ob-examples.html",
         date: "August 29, 2019",
         publisher: "IMS Global"
     },
@@ -36,7 +36,7 @@ var _localBiblio = {
     },
     "OB-IMPL-21": {
         title: "Open Badges v2.1 Implementation Guide",
-        href: "http://localhost:5000/ob_v2p1/ob-impl-v2p1.html",
+        href: "ob-impl-v2p1.html",
         date: "August 29, 2019",
         publisher: "IMS Global",
         authors: [
@@ -86,7 +86,7 @@ var _localBiblio = {
     },
     "OB-SPEC-21": {
         title: "Open Badges v2.1",
-        href: "http://localhost:5000/ob_v2p1/ob-spec-v2p1.html",
+        href: "ob-spec-v2p1.html",
         date: "August 29, 2019",
         publisher: "IMS Global",
         authors: [
