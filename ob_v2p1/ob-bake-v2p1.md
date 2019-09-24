@@ -4,19 +4,21 @@ var md=`
 
 ## What Is Badge Baking?
 
-Open Badges may be transmitted as image files with badge Assertions encoded within. This allows Open Badges to be portable wherever image files may be stored or displayed. Each [Assertion](../index.html#Assertion) expresses verifiable information about an individual's achievement. 
+Open Badges may be transmitted as image files with badge Assertions encoded within. This allows Open Badges to be portable wherever image files may be stored or displayed. Each <a data-cite="OB-SPEC-21#assertion"><code>Assertion</code></a> as defined in [[[OB-SPEC-21]]] expresses verifiable information about an individual's achievement. 
 
-Badge Baking is the process of taking an Assertion and embedding it into the badge image, so that when a user displays a badge on a page, software that is OpenBadges-aware can automatically extract that Assertion data and perform the checks necessary to see if a person legitimately earned the badge. The [BadgeClass](../index.html#BadgeClass) image must be in either PNG or SVG format in order to support baking.
+Badge Baking is the process of taking an Assertion and embedding it into the badge image, so that when a user displays a badge on a page, software that is OpenBadges-aware can automatically extract that Assertion data and perform the checks necessary to see if a person legitimately earned the badge. The <a data-cite="OB-SPEC-21#badgeclass"><code>BadgeClass</code></a> image must be in either PNG or SVG format in order to support baking.
 
 ## Technical Details
 
 ### PNGs
 
+This section describes the method of baking and extracting OpenBadges in PNG image files as defined by [[[PNG]]].
+
 #### Baking
 
-An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with **keyword** <code>openbadges</code>. The **text** can either be a signed badge assertion or the raw JSON for the OpenBadges assertion. Compression **MUST NOT** be used. At the moment, *language tag* and *translated keyword* have no semantics related to badge baking.
+An <a data-cite="PNG#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with keyword <code>openbadges</code>. The text can either be a signed badge assertion or the raw JSON for the OpenBadges assertion. Compression MUST NOT be used. At the moment, *language tag* and *translated keyword* have no semantics related to badge baking.
 
-An example of creating a chunk (assuming an iTXt constructor):
+An example of creating a chunk (assuming an <code>iTXt</code> constructor):
 
 <pre>
 var chunk = new iTXt({
@@ -29,11 +31,11 @@ var chunk = new iTXt({
 })
 </pre>
 
-An iTXt chunk with the keyword “openbadges” **MUST NOT** appear in a PNG more than once. When baking a badge that already contains OpenBadges data, the implementor may choose whether to pass the user an error or overwrite the existing chunk.
+An <code>iTXt</code> chunk with the keyword <code>openbadges</code> MUST NOT appear in a PNG more than once. When baking a badge that already contains OpenBadges data, the implementor may choose whether to pass the user an error or overwrite the existing chunk.
 
 #### Extracting
 
-Parse the PNG datastream until the first <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> is found with the keyword <code>openbadges</code>. The rest of the stream can be safely discarded. The text portion of the iTXt will either be the JSON representation of an OpenBadges assertion or a signature.
+Parse the PNG datastream until the first <a data-cite="PNG#11iTXt"><code>iTXt</code></a> chunk is found with the keyword <code>openbadges</code>. The rest of the stream can be safely discarded. The text portion of the iTXt will either be the JSON representation of an OpenBadges assertion or a signature.
 
 #### Legacy PNGs
 
@@ -41,8 +43,11 @@ The pre-specified behavior of badge baking worked differently. Instead of baking
 
 ### SVGs
 
+This section describes the method of baking and extracting OpenBadges in SVG images as defined by [[[SVG11]]].
+
 #### Baking
-First, Add an <code>xmlns:openbadges</code> attribute to the <code>&lt;svg></code> tag with the value "http://openbadges.org". Directly after the <code>&lt;svg></code> tag, add an <code>&lt;openbadges:assertion></code> tag with a <code>verify</code> attribute. The value of <code>verify</code> should either be a signed OpenBadges assertion **or** the URL from <code>verify.url</code> in the badge assertion.
+
+First, add an <code>xmlns:openbadges</code> attribute to the <code>&lt;svg></code> tag with the value "http://openbadges.org". Directly after the <code>&lt;svg></code> tag, add an <code>&lt;openbadges:assertion></code> tag with a <code>verify</code> attribute. The value of <code>verify</code> should either be a signed OpenBadges assertion or the URL from <code>verify.url</code> in the badge assertion.
 
 If a signature is being baked, no tag body is necessary and the tag should be self closing.
 
@@ -97,7 +102,7 @@ An example of a well baked SVG with a hosted assertion:
 &lt;/svg>
 </pre>
 
-There **MUST** be only one <code>&lt;openbadges:assertion></code> tag in an SVG. When baking a badge that already contains OpenBadges data, the implementor may choose whether to pass the user an error or overwrite the existing tag.
+There MUST be only one <code>&lt;openbadges:assertion></code> tag in an SVG. When baking a badge that already contains OpenBadges data, the implementor may choose whether to pass the user an error or overwrite the existing tag.
 
 #### Extracting
 
@@ -105,24 +110,5 @@ Parse the SVG until you reach the first <code>&lt;openbadges:assertion></code> t
 
 If the tag has no body, the <code>verify</code> attribute will contain the signature of the badge. If there is a body, it will be the JSON representation of a badge assertion.
 
-## Baking Specification Changelog
-
-### 2018-04-16 Version 1.0.0 Final
-  * IMS Final Release, no material changes since last version
-	
-### 2017-02-13 Version 1.0.0
-  * Update SVG example to use Open Badges 2.0 syntax
-  * Fix typo in introduction
-  
-### 2013-11-05 Version 1.0.0
-  * Support for full assertions added
-  * Support for signed badges added
-  * Support for SVGs added
-  * PNG baking now uses <code>iTXt</code> chunk.
-
-### Pre-release
-  * Only PNGs supported: <code>tEXt</code> chunk used with keyword <code>openbadges</code>
-  * Only hosted badges supported
-  * Hosted URL embedded in PNG
-
-  `;
+<div></div>
+`;

@@ -13,11 +13,11 @@
             overrideCSSLocation: "ims-base.css",
             mainSpecTitle: "Open Badges v2.1",
             mainSpecBiblioKey: "OB-SPEC-21",
-            specTitle: "Open Badges Baking Specification",
+            specTitle: "Open Badges Conformance and Certification Guide",
             shortName: "ob",
-            specStatus: "IMS Final Release",
+            specStatus: "IMS Candidate Final",
             specDate: "August 29, 2019",
-            specVersion: "1.0",
+            specVersion: "2.1",
             specNature: "normative",
             specType: "spec",
             format: "markdown",
@@ -50,9 +50,13 @@
         <section id="document-set">
             <script class="transclude" src="ob-documents.md" data-id="documents"></script>
         </section>
+        
+        <section id="terminology">
+                <script class="transclude" src="ob-terms.md" data-id="terms"></script>
+        </section>    
     </section>
 
-    <script class="transclude" src="ob-bake-v2p1.md" data-id="md"></script>
+    <script class="transclude" src="ob-cert-v2p1.md" data-id="md"></script>
 
     <section class="appendix informative" id="revisionhistory">
         <h1>Revision History</h1>
@@ -68,48 +72,14 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Version 1.0 Final</td>
+                        <td>Version 2.1 IMS Candidate Final</td>
                         <td>August 29, 2019</td>
-                        <td>Re-released with Open Badges v2.1, no material changes since last release.</td>
+                        <td>Added Badge Connect API conformance tests.</td>
                     </tr>
                     <tr>
-                        <td>Version 1.0 Final</td>
-                        <td>April 16, 2018</td>
-                        <td>IMS Final Release, no material changes since last release.</td>
-                    </tr>
-                    <tr>
-                        <td>Version 1.0</td>
-                        <td>February 13, 2017</td>
-                        <td>
-                            <ul>
-                                <li>Update SVG example to use Open Badges 2.0 syntax</li>
-                                <li>Fix typo in introduction</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Version 1.0</td>
-                        <td>November 5, 2013</td>
-                        <td>
-                            <ul>
-                                <li>Support for full assertions added</li>
-                                <li>Support for signed badges added</li>
-                                <li>Support for SVGs added</li>
-                                <li>PNG baking now uses <code>iTXt chunk</code></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Pre-release</td>
-                        <td></td>
-                        <td>
-                            <ul>
-                                <li>Only PNGs supported: <code>tEXt</code> chunk used with keyboard
-                                    <code>openbadges</code></li>
-                                <li>Only hosted badges supported</li>
-                                <li>Hosted URL embedded in PNG</li>
-                            </ul>
-                        </td>
+                        <td>Version 2.0 IMS Final</td>
+                        <td>April 12, 2018</td>
+                        <td>Covers Issuer, Displayer, and Host conformance and certification.</td>
                     </tr>
                 </tbody>
             </table>
