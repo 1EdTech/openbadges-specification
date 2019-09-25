@@ -811,9 +811,35 @@ grant_type=authorization_code
         <code>status</code> property and one or more result properties. The result property name(s) and data types 
         are defined in the <a href="#api-responses">Responses</a> section for each endpoint.
       </p>
+      <section id="api-envelope-status">
+        <h4>Status</h4>
+        <p>The "status" property MUST appear on all responses.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>error</td>
+              <td>A nullable string and the human-readable message describing the problem.</td>
+            </tr>
+            <tr>
+              <td>statusCode</td>
+              <td>The HTTP status code of the response.</td>
+            </tr>
+            <tr>
+              <td>statusText</td>
+              <td>A string matching one of the enumerated and allowed values for the given endpoint.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
       <section id="api-envelope-pagination">
         <h4>Pagination</h4>
-        <p>Pagination is controlled by two query string parameters appended to the request.</p>
+        <p>Pagination of results is controlled by two query string parameters appended to the request.</p>
         <ul>
           <li><code>limit</code> - the number of results to return</li>
           <li><code>offset</code> - the index of the first record to return (zero indexed)</li>
@@ -860,36 +886,6 @@ Link:
 &lt;https://host.example.com/v1/assertions?limit=10&offset=0&gt;; rel="first",
 &lt;https://host.example.com/v1/assertions?limit=10&offset=0&gt;; rel="prev"
           </pre>
-      </section>
-      <section id="api-envelope-status">
-        <h4>Status</h4>
-        <p>The "status" property MUST appear on all responses.</p>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>error</td>
-              <td>A nullable string and the human-readable message describing the problem.</td>
-            </tr>
-            <tr>
-              <td>statusCode</td>
-              <td>The HTTP status code of the response.</td>
-            </tr>
-            <tr>
-              <td>statusText</td>
-              <td>A string matching one of the enumerated and allowed values for the given endpoint.</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      <section id="api-envelope-results">
-        <h4>Results</h4>
-        <p>A list of zero or more documents responsive to the request.</p>
       </section>
     </section>
     <section id="api-signedbadge">
