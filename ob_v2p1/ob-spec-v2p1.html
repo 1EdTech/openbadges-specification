@@ -808,9 +808,8 @@ grant_type=authorization_code
       <h3>Response Envelope</h3>
       <p>
         Responses from all APIs in this document are wrapped in a JSON envelope. All response envelopes have a 
-        <code>status</code> property and one or more result properties. The property name(s) and expected
-        data types for values of each result property is defined in the <a href="#api-responses">Responses</a> 
-        section for each endpoint.
+        <code>status</code> property and one or more result properties. The result property name(s) and data types 
+        are defined in the <a href="#api-responses">Responses</a> section for each endpoint.
       </p>
       <section id="api-envelope-pagination">
         <h4>Pagination</h4>
@@ -1268,8 +1267,8 @@ Link:
               <td><code>assertions</code></td>
               <td>No</td>
               <td>
-                The matching Assertions. The total number of assertions and signed baddges should not exceed the
-                [pageination limit](#api-envelope-pagination). Not required if there are no unsigned assertions.
+                The matching Assertions. The total number of assertions and signed assertions should not exceed the
+                <a href="#api-envelope-pagination">pagination limit</a>. Not required if there are no unsigned assertions.
               </td>
             </tr>
             <tr>
@@ -1278,7 +1277,7 @@ Link:
               <td>
                 The matching <a href="#epi-signedbadge">SignedBadge</a> objects. The total number of assertions and signed
                 assertions should not exceed the
-                [pageination limit](#api-envelope-pagination). Not required if there are no signed assertions.
+                <a href="#api-envelope-pagination">pagination limit</a>. Not required if there are no signed assertions.
               </td>
             </tr>
           </tbody>
