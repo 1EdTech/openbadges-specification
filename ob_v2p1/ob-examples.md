@@ -51,9 +51,7 @@ The BadgeClass is hosted at the URI identified in associated Assertions' <code>b
   "alignment": [
     { "targetName": "CCSS.ELA-Literacy.RST.11-12.3",
       "targetUrl": "http://www.corestandards.org/ELA-Literacy/RST/11-12/3",
-      "targetDescription": "Follow precisely a complex multistep procedure when 
-      carrying out experiments, taking measurements, or performing technical 
-      tasks; analyze the specific results based on explanations in the text.",
+      "targetDescription": "Follow precisely a complex multistep procedure when carrying out experiments, taking measurements, or performing technical tasks; analyze the specific results based on explanations in the text.",
       "targetCode": "CCSS.ELA-Literacy.RST.11-12.3"
     },
     { "targetName": "Problem-Solving",
@@ -277,9 +275,7 @@ Embedding criteria into the badge allows display platforms to render criteria in
   "id": "https://example.org/beths-robotics-badge.json",
   "criteria": {
     "id": "https://example.org/robotics-badge.html",
-    "narrative": "To earn the **Awesome Robotics Badge**, students must construct a
-    basic robot.\\n\\nThe robot must be able to:\\n\\n  * Move forward and backwards.\\n
-    * Pick up a bucket by its handle."
+    "narrative": "To earn the **Awesome Robotics Badge**, students must construct a basic robot.\\n\\nThe robot must be able to:\\n\\n * Move forward and backwards.\\n * Pick up a bucket by its handle."
   }
 }
 </pre>
@@ -291,10 +287,7 @@ The Criteria class may also appear without using an external URI to increase por
   "id": "https://example.org/beths-robotics-badge.json",
   "criteria": {
     "id": "https://example.org/robotics-badge.html",
-    "narrative": "To earn the **Awesome Robotics Badge**, students must construct a
-    basic robot.\\n\\nThe robot must be able to:\\n\\n  * Move forward and backwards 
-    [1](https://example.org/robot-skills/1).\\n  * Pick up a bucket by its handle
-    [2](https://example.org/robot-skills/2)."
+    "narrative": "To earn the **Awesome Robotics Badge**, students must construct a basic robot.\\n\\nThe robot must be able  to:\\n\\n  * Move forward and backwards [1](https://example.org/robot-skills/1).\\n  * Pick up a bucket by its handle [2](https://example.org/robot-skills/2)."
   },
   "alignment": [
     {
@@ -321,7 +314,7 @@ The issuer may provide a text/Markdown <code>narrative</code> describing the evi
 {
   "@context": "https://w3id.org/openbadges/v2",
   "id": "https://example.org/beths-robotics-badge.json",
-  "narrative": "This student invented her own type of robot. This included: \\n\\n  * Working robot arms\n  * Working robot legs"
+  "narrative": "This student invented her own type of robot. This included: \\n\\n  * Working robot arms\\n  * Working robot legs"
 }
 </pre>
 

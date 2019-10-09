@@ -7,7 +7,7 @@ var _localBiblio = {
     },
     "OB-CERT-21": {
         title: "Open Badges v2.1 Conformance and Certification Guide",
-        href: "ob-cert-v2p1.html",
+        href: "https://www.imsglobal.org/spec/ob/v2p1/cert/",
         date: "August 29, 2019",
         publisher: "IMS Global",
         authors: [
@@ -23,20 +23,26 @@ var _localBiblio = {
             "Jarin Schmidt"
         ]
     },
+    "OB-ERRATA": {
+        title: "Open Badges v2.1 Errata",
+        href: "https://www.imsglobal.org/spec/ob/v2p1/errata/",
+        date: "August 29, 2019",
+        publisher: "IMS Global"
+    },
     "OB-EXAMPLES": {
         title: "Open Badges Examples",
-        href: "ob-examples.html",
+        href: "https://www.imsglobal.org/spec/ob/v2p1/examples/",
         date: "August 29, 2019",
         publisher: "IMS Global"
     },
     "OB-EXTENSIONS": {
-        title: "Badge Extensions for Education",
-        href: "https://www.imsglobal.org/ims-badge-extensions-education",
+        title: "Open Badge Extensions",
+        href: "https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html",
         publisher: "IMS Global"
     },
     "OB-IMPL-21": {
         title: "Open Badges v2.1 Implementation Guide",
-        href: "ob-impl-v2p1.html",
+        href: "https://www.imsglobal.org/spec/ob/v2p1/impl/",
         date: "August 29, 2019",
         publisher: "IMS Global",
         authors: [
@@ -85,8 +91,8 @@ var _localBiblio = {
         ]
     },
     "OB-SPEC-21": {
-        title: "Open Badges v2.1",
-        href: "ob-spec-v2p1.html",
+        title: "Open Badges v2.1 Specification",
+        href: "https://www.imsglobal.com/spec/ob/v2p1/",
         date: "August 29, 2019",
         publisher: "IMS Global",
         authors: [

@@ -32,7 +32,7 @@ After IMS reviews your submitted information and notifies you that your applicat
 
 ### Issuer Role Conformance
 
-An Open Badges **Issuer** is an application that allows for the creation of <a data-cite="OB-SPEC-21#BadgeClass">BadgeClasses</a> and the subsequent delivery of <a data-cite="OB-SPEC-21#Assertion">Assertions</a> to recipients that conform to the [[[OB-SPEC-21]]]. Beginning with Open Badges 2.0, the candidate platform must issue a valid baked badge per the [[[OB-BAKE-10]]] and demonstrate how the badge is retrieved by the recipient. Beginning with Open Badges 2.1, the candidate platform must issue a badge using the Badge Connect API.
+An Open Badges **Issuer** is an application that allows for the creation of <a data-cite="OB-SPEC-21#BadgeClass">BadgeClasses</a> and the subsequent delivery of <a data-cite="OB-SPEC-21#Assertion">Assertions</a> to recipients that conform to the [[[OB-SPEC-21]]]. Beginning with Open Badges 2.0, the candidate platform must issue a valid baked badge per the [[[OB-BAKE-10]]] and demonstrate how the badge is retrieved by the recipient. Beginning with Open Badges 2.1, the candidate platform must support the transimission of a badge using the Badge Connect API.
 
 **Manual Tests**
 
