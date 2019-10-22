@@ -18,9 +18,9 @@ The roles and associated certification tests are defined below.
 
 The process for conformance testing role implementations of Open Badges includes the following:
 
+* First, go to the [IMS Conformance Test Suite for Open Badges 2.0](https://www.imsglobal.org/open-badges-certification-suite) and follow the instructions to create and submit an application for Open Badges 2.0 conformance certification.
+* Second, go to the [IMS Conformance Test Suite for Open Badges 2.1] and follow the instructions to create and submit an application for Open Badges 2.1 conformance certification described here.
 <aside class="issue">What is the URL for the Open Badges 2.1 certification suite?</aside>
-
-* Go to the [IMS Conformance Test Suite for Open Badges 2.0](https://www.imsglobal.org/open-badges-certification-suite) and follow the instructions to create and submit an application for conformance certification.
 
 To pass certification, you must take the following steps:
 
@@ -32,14 +32,9 @@ After IMS reviews your submitted information and notifies you that your applicat
 
 ### Issuer Role Conformance
 
-An Open Badges **Issuer** is an application that allows for the creation of <a data-cite="OB-SPEC-21#BadgeClass">BadgeClasses</a> and the subsequent delivery of <a data-cite="OB-SPEC-21#Assertion">Assertions</a> to recipients that conform to the [[[OB-SPEC-21]]]. Beginning with Open Badges 2.0, the candidate platform must issue a valid baked badge per the [[[OB-BAKE-10]]] and demonstrate how the badge is retrieved by the recipient. Beginning with Open Badges 2.1, the candidate platform must support the transimission of a badge using the Badge Connect API.
+An Open Badges **Issuer** is an application that allows for the creation of <a data-cite="OB-SPEC-21#BadgeClass">BadgeClasses</a> and the subsequent delivery of <a data-cite="OB-SPEC-21#Assertion">Assertions</a> to recipients that conform to the [[[OB-SPEC-21]]]. Beginning with Open Badges 2.1, the candidate platform must support the transimission of a badge using the Badge Connect API.
 
-**Manual Tests**
-
-1. Create a valid baked badge and issue it to the recipient <code>conformance@imsglobal.org</code>.
-2. Demonstrate through video the candidate platform's methodology for a recipient to retrieve their badge.
-
-**Automated Tests**
+**Tests**
 
 | Test | API | Requester | Responder | Endpoint | Required |
 | ---- | --- | --------- | --------- | -------- | -------- |
@@ -59,41 +54,9 @@ An Open Badges **Issuer** is an application that allows for the creation of <a d
 
 ### Displayer Role Conformance
 
-An Open Badges **Displayer** is an application that displays verified badges to viewers. Beginning with Open Badges 2.0, the candidate platform must display a minimum set of badge metadata and support viewer-initiated verification of a badge. Beginning with Open Badges 2.1, the candidate platform must be able to retrieve badges using the Badge Connect API.
+An Open Badges **Displayer** is an application that displays verified badges to viewers. Beginning with Open Badges 2.1, the candidate platform must be able to retrieve badges using the Badge Connect API.
 
-**Manual Tests**
-
-1. Demonstrate through separate videos that the platform allows viewers of badges to see the following data in three different badges. Note that IMS is not supplying these badges; you will have to supply them yourself.
-
-	**Badge 1**
-
-	1. <a data-cite="OB-SPEC-21#BadgeClass">BadgeClass</a> <code>image</code>, <code>name</code>, <code>description</code>
-		* <a data-cite="OB-SPEC-21#Profile">Issuer</a> <code>name</code>
-	3. <a data-cite="OB-SPEC-21#Assertion">Assertion</a> <code>issuedOn</code> date
-	4. **Neither expired nor revoked**
-
-	**Badge 2**
-
-	1. <a data-cite="OB-SPEC-21#BadgeClass">BadgeClass</a> <code>image</code>, <code>name</code>, <code>description</code>
-		* <a data-cite="OB-SPEC-21#Profile">Issuer</a> <code>name</code>
-	3. <a data-cite="OB-SPEC-21#Assertion">Assertion</a> <code>issuedOn</code> date
-	4. **Expired status** (display of expiration date optional)
-	5. Not revoked
-
-	**Badge 3**
-
-	1. <a data-cite="OB-SPEC-21#BadgeClass">BadgeClass</a> <code>image</code>, <code>name</code>, <code>description</code>
-		* <a data-cite="OB-SPEC-21#Profile">Issuer</a> <code>name</code>
-	3. <a data-cite="OB-SPEC-21#Assertion">Assertion</a> <code>issuedOn</code> date
-	4. Not expired
-	5. **Revoked status** (display of revocation reason optional)
-
-2. Demonstrate through video that the platform allows viewers of badges to do one or both of the following:
-
-	1. Trigger verification of the badge and retrieve results verifying that the badge assertion is not expired, and not revoked.
-	2. Consume pre-existing verification information that includes the results and timestamp of latest verification.
-
-**Automated Tests**
+**Tests**
 
 | Test | API | Requester | Responder | Endpoint | Required |
 | ---- | --- | --------- | --------- | -------- | -------- |
@@ -114,22 +77,9 @@ An Open Badges **Displayer** is an application that displays verified badges to 
 
 ### Host Role Conformance
 
-An Open Badges **Host** is an application that can aggregate and publicly host <a data-cite="OB-SPEC-21#Assertion">Assertions</a> for recipients. It also supports export of badges at user request. Beginning with Open Badges 2.0, the candidate platform must be able to import all formats of Open Badges as well as prove that badge metadata is not lost upon export of the badge. Beginning with Open Badges 2.1, the candidate platform must be able to send and receive assertions and profiles using the Badge Connect API.
+An Open Badges **Host** is an application that can aggregate and publicly host <a data-cite="OB-SPEC-21#Assertion">Assertions</a> for recipients. It also supports export of badges at user request. Beginning with Open Badges 2.1, the candidate platform must be able to send and receive assertions and profiles using the Badge Connect API.
 
-**Manual Tests**
-
-1. Using the artifacts provided below, demonstrate through video the ability to import each of the provided artifacts (baked PNG badge, baked SVG badge, and Assertion URL). Note that the applicant may be required to create a fake account in the candidate platform.
-2. Using one of the badge formats provided below, demonstrate through video the full process of importing the badge into your platform, exporting it out of your platform, and then submitting that badge to IMS for diff comparison with the original.
-
-	*Note - the recipient identity in these badges is <code>conformance@imsglobal.org</code>*.
-
-	| Required Badge Format | Use this resource for the demonstrations |
-	| --------------------- | ---------------------------------------- |
-	| Baked badge (PNG) format | https://openbadgesvalidator.imsglobal.org/SampleResources/OB20-assertion1-conformance.png |
-	| Baked badge (SVG) format | https://openbadgesvalidator.imsglobal.org/SampleResources/OB20-assertion-conformance-servicelearning.svg |
-	| Assertion URL | https://badges.imsglobal.org/public/assertions/1geQXkWnQnW0BkWcO3jSPA.json?v=2_0 |
-
-**Automated Tests**
+**Tests**
 
 | Test | API | Requester | Responder | Endpoint | Required |
 | ---- | --- | --------- | --------- | -------- | -------- |
