@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <script src='https://purl.imsglobal.org/spec/respec-ims-default.js' async class='remove'></script>
+    <script src='../shared/localBiblio.js' class="remove"></script>
+    <script src='../shared/contributors.js' class="remove"></script>
+    <script src='../shared/iprs.js' class="remove"></script>
+    <script class='remove'>
+        var respecConfig = {
+            mainSpecTitle: "Open Badges Specification",
+            mainSpecBiblioKey: "OB-20",
+            specTitle: "Open Badges Baking Specification",
+            shortName: "ob/baking",
+            specStatus: "IMS Final Release",
+            specDate: "April 16, 2018",
+            specVersion: "1.0",
+            specNature: "normative",
+            specType: "spec",
+            format: "markdown",
+            maxTocLevel: "3",
+            skipCertGuideConformanceRef: false,
+            contributors: _contributors,
+            iprs: _iprs,
+
+            /*
+            * Define a temporary localBiblio to resolve references to spec documents that don't exist
+            * on the IMS purl server. Once the documents exist, remove this localBiblio.
+            */
+            localBiblio: _localBiblio
+        };
+    </script>
+</head>
+
+<body>
+    <section class="introductory" id="abstract">
+        <script class="transclude" src="../shared/ob-abstract.md" data-id="abstract"></script>
+    </section>
+
+    <section>
+        <h2>Introduction</h2>
+
+        <section id="conformance">
+            <h3>Conformance and Certification</h3>
+        </section>
+
+        <section id="document-set">
+            <script class="transclude" src="../shared/ob-documents.md" data-id="documents"></script>
+        </section>
+    </section>
+
+    <script class="transclude" src="ob-bake-v1p0.md" data-id="md"></script>
+
+    <section class="appendix informative" id="revisionhistory">
+        <h1>Revision History</h1>
+        <section>
+            <h3>Version History</h3>
+            <table title="Revision History">
+                <thead>
+                    <tr>
+                        <th>Version No.</th>
+                        <th>Release Date</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Version 1.0 Final</td>
+                        <td>April 16, 2018</td>
+                        <td>IMS Final Release, no material changes since last release.</td>
+                    </tr>
+                    <tr>
+                        <td>Version 1.0</td>
+                        <td>February 13, 2017</td>
+                        <td>
+                            <ul>
+                                <li>Update SVG example to use Open Badges 2.0 syntax</li>
+                                <li>Fix typo in introduction</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Version 1.0</td>
+                        <td>November 5, 2013</td>
+                        <td>
+                            <ul>
+                                <li>Support for full assertions added</li>
+                                <li>Support for signed badges added</li>
+                                <li>Support for SVGs added</li>
+                                <li>PNG baking now uses <code>iTXt chunk</code></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pre-release</td>
+                        <td></td>
+                        <td>
+                            <ul>
+                                <li>Only PNGs supported: <code>tEXt</code> chunk used with keyboard
+                                    <code>openbadges</code></li>
+                                <li>Only hosted badges supported</li>
+                                <li>Hosted URL embedded in PNG</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </section>
+</body>
+
+</html>

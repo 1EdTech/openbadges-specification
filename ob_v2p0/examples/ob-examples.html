@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <script src='https://purl.imsglobal.org/spec/respec-ims-default.js' async class='remove'></script>
+    <script src='../shared/localBiblio.js' class="remove"></script>
+    <script src='../shared/contributors.js' class="remove"></script>
+    <script src='../shared/iprs.js' class="remove"></script>
+    <script class='remove'>
+        var respecConfig = {
+            mainSpecTitle: "Open Badges Specification",
+            mainSpecBiblioKey: "OB-20",
+            specTitle: "Open Badges Examples",
+            shortName: "ob",
+            specDate: "April 12, 2018",
+            specNature: "informative",
+            specType: "doc",
+            format: "markdown",
+            maxTocLevel: "3",
+            contributors: _contributors,
+            iprs: _iprs,
+
+            /*
+            * Define a temporary localBiblio to resolve references to spec documents that don't exist
+            * on the IMS purl server. Once the documents exist, remove this localBiblio.
+            */
+            localBiblio: _localBiblio
+        };
+    </script>
+</head>
+
+<body>
+    <section class="introductory" id="abstract">
+        <script class="transclude" src="../shared/ob-abstract.md" data-id="abstract"></script>
+    </section>
+
+    <section>
+        <h2>Introduction</h2>
+
+        <section id="conformance">
+            <h3>Conformance and Certification</h3>
+        </section>
+
+        <section id="document-set">
+            <script class="transclude" src="../shared/ob-documents.md" data-id="documents"></script>
+        </section>
+
+        <section id="terminology">
+            <script class="transclude" src="../shared/ob-terms.md" data-id="terms"></script>
+        </section>
+    </section>
+
+    <script class="transclude" src="ob-examples.md" data-id="md"></script>
+
+    <section class="appendix informative" id="revisionhistory">
+        <h1>Revision History</h1>
+        <section>
+            <h3>Version History</h3>
+            <table title="Revision History">
+                <thead>
+                    <tr>
+                        <th>Release Date</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>April 12, 2018</td>
+                        <td>No material changes since last release.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </section>
+</body>
+
+</html>
