@@ -4,10 +4,10 @@ var documents = `
 
 The full set of documents is comprised of the following documents:
 
-* [[[OB-SPEC-21]]]
+* [[[OB-21]]]
 * [[[OB-CERT-21]]]
 * [[[OB-OPEN-21]]]
 * [[[OB-JSON-21]]]
-* [[[OB-JSONLD]]]
+* [[[OB-JSONLD-21]]]
 
 `;        

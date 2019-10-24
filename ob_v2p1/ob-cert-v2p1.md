@@ -32,7 +32,7 @@ After IMS reviews your submitted information and notifies you that your applicat
 
 ### Issuer Role Conformance
 
-An Open Badges **Issuer** is an application that allows for the creation of <a data-cite="OB-SPEC-21#BadgeClass">BadgeClasses</a> and the subsequent delivery of <a data-cite="OB-SPEC-21#Assertion">Assertions</a> to recipients that conform to the [[[OB-SPEC-21]]]. Beginning with Open Badges 2.1, the candidate platform must support the transimission of a badge using the Badge Connect API.
+An Open Badges **Issuer** is an application that allows for the creation of <a data-cite="OB-21#BadgeClass">BadgeClasses</a> and the subsequent delivery of <a data-cite="OB-21#Assertion">Assertions</a> to recipients that conform to the [[[OB-21]]]. Beginning with Open Badges 2.1, the candidate platform must support the transimission of a badge using the Badge Connect API.
 
 **Tests**
 
@@ -45,12 +45,12 @@ An Open Badges **Issuer** is an application that allows for the creation of <a d
 | 5 | POST Assertion | Candidate | IMS | <code>/assertions</code> | Yes |
 | 6 | POST Profile | Candidate | IMS | <code>/profile</code> | No |
 
-1. GET the <a data-cite="OB-SPEC-21#api-Manifest">Manifest</a> from the IMS conformance testing platform.
+1. GET the <a data-cite="OB-21#api-Manifest">Manifest</a> from the IMS conformance testing platform.
 2. Request the IMS conformance testing platform dynamically register the candidate platform.
 3. Authorize the IMS conformance testing platform to create assertions and update profiles, and optionally offline access on behalf of the test user.
 4. Request an access token and optionally a refresh token from the IMS conformance testing platform in exchange for the authorization code provided in #3.
-5. POST a signed or unsigned <a data-cite="OB-SPEC-21#Assertion">Assertion</a> to the <code>/assertions</code> endpoint on the IMS conformance testing platform.
-6. (Optional) POST a <a data-cite="OB-SPEC-21#Profile">Profile</a> to the <code>/profile</code> endpoint on the IMS conformance testing platform.
+5. POST a signed or unsigned <a data-cite="OB-21#Assertion">Assertion</a> to the <code>/assertions</code> endpoint on the IMS conformance testing platform.
+6. (Optional) POST a <a data-cite="OB-21#Profile">Profile</a> to the <code>/profile</code> endpoint on the IMS conformance testing platform.
 
 ### Displayer Role Conformance
 
@@ -67,17 +67,17 @@ An Open Badges **Displayer** is an application that displays verified badges to 
 | 5 | GET Assertions | Candidate | IMS | <code>/assertions</code> | Yes |
 | 6 | GET Profile | Candidate | IMS | <code>/profile</code> | Yes |
 
-1. GET the <a data-cite="OB-SPEC-21#api-Manifest">Manifest</a> from the IMS conformance testing platform.
+1. GET the <a data-cite="OB-21#api-Manifest">Manifest</a> from the IMS conformance testing platform.
 2. Request the IMS conformance testing platform dynamically register the candidate platform.
 3. Authorize the IMS conformance testing platform to retrieve assertions and profiles, and optionally offline access on behalf of the test user.
 4. Request an access token and optionally a refresh token from the IMS conformance testing platform in exchange for the authorization code provided in #3.
-5. GET signed and unsigned <a data-cite="OB-SPEC-21#Assertion">Assertions</a> from the <code>/assertions</code> endpoint on the IMS conformance testing platform.
+5. GET signed and unsigned <a data-cite="OB-21#Assertion">Assertions</a> from the <code>/assertions</code> endpoint on the IMS conformance testing platform.
 	<aside class="issue">Test paging?</aside>
-6. GET a <a data-cite="OB-SPEC-21#Profile">Profile</a> from the <code>/profile</code> endpoint on the IMS conformance testing platform.
+6. GET a <a data-cite="OB-21#Profile">Profile</a> from the <code>/profile</code> endpoint on the IMS conformance testing platform.
 
 ### Host Role Conformance
 
-An Open Badges **Host** is an application that can aggregate and publicly host <a data-cite="OB-SPEC-21#Assertion">Assertions</a> for recipients. It also supports export of badges at user request. Beginning with Open Badges 2.1, the candidate platform must be able to send and receive assertions and profiles using the Badge Connect API.
+An Open Badges **Host** is an application that can aggregate and publicly host <a data-cite="OB-21#Assertion">Assertions</a> for recipients. It also supports export of badges at user request. Beginning with Open Badges 2.1, the candidate platform must be able to send and receive assertions and profiles using the Badge Connect API.
 
 **Tests**
 
@@ -100,24 +100,24 @@ An Open Badges **Host** is an application that can aggregate and publicly host <
 | 15 | POST Profile | Candidate | IMS | <code>/profile</code> | No |
 | 16 | POST Profile | IMS | Candidate | <code>/profile</code> | No |
 
-1. GET the <a data-cite="OB-SPEC-21#api-Manifest">Manifest</a> from the IMS conformance testing platform.
-2. Provide the candidate platform <a data-cite="OB-SPEC-21#api-Manifest">Manifest</a> to the IMS conformance testing platform when requested.
+1. GET the <a data-cite="OB-21#api-Manifest">Manifest</a> from the IMS conformance testing platform.
+2. Provide the candidate platform <a data-cite="OB-21#api-Manifest">Manifest</a> to the IMS conformance testing platform when requested.
 3. Request the IMS conformance testing platform dynamically register the candidate platform.
 4. Dynamically register the IMS conformance testing platform when requested.
 5. Request authorization for the IMS conformance testing platform to retrieve assertions and profiles, and optionally offline access on behalf of the test user.
 6. Provide authorization to the IMS conformance testing platform for the candidate platform to create assertions and update profiles, and optionally offline access on behalf of the test user.
 7. Request an access token and optionally a refresh token from the IMS conformance testing platform in exchange for the authorization code provided in #5.
 8. Provide an access token and optionally a refresh token to the IMS conformance testing platform in exchange for the authorization code provided in #6.
-9. GET signed and unsigned <a data-cite="OB-SPEC-21#Assertion">Assertions</a> from the <code>/assertions</code> endpoint on the IMS conformance testing platform.
+9. GET signed and unsigned <a data-cite="OB-21#Assertion">Assertions</a> from the <code>/assertions</code> endpoint on the IMS conformance testing platform.
 	<aside class="issue">Test paging?</aside>
-10. Provide signed and unsigned <a data-cite="OB-SPEC-21#Assertion">Assertions</a> from the <code>/assertions</code> endpoint to the IMS conformance testing platform.
+10. Provide signed and unsigned <a data-cite="OB-21#Assertion">Assertions</a> from the <code>/assertions</code> endpoint to the IMS conformance testing platform.
 	<aside class="issue">Test paging?</aside>
-11. POST a signed or unsigned <a data-cite="OB-SPEC-21#Assertion">Assertion</a> to the <code>/assertions</code> endpoint on the IMS conformance testing platform.
-12. Receive a signed or unsigned <a data-cite="OB-SPEC-21#Assertion">Assertion</a> posted to the <code>/assertions</code> endpoint by the IMS conformance testing platform.
-13. GET a profile <a data-cite="OB-SPEC-21#Profile"> from the <code>/profile</code> endpoint on the IMS conformance testing platform.
-14. Provide a profile <a data-cite="OB-SPEC-21#Profile"> from the <code>/profile</code> endpoint to the IMS conformance testing platform.
-15. (Optional) POST a <a data-cite="OB-SPEC-21#Profile"> to the <code>/profile</code> endpoint on the IMS conformance testing platform.
-16. (Optional) Receive a <a data-cite="OB-SPEC-21#Profile"> posted to the <code>/profile</code> endpoint by the IMS conformance testing platform.
+11. POST a signed or unsigned <a data-cite="OB-21#Assertion">Assertion</a> to the <code>/assertions</code> endpoint on the IMS conformance testing platform.
+12. Receive a signed or unsigned <a data-cite="OB-21#Assertion">Assertion</a> posted to the <code>/assertions</code> endpoint by the IMS conformance testing platform.
+13. GET a profile <a data-cite="OB-21#Profile"> from the <code>/profile</code> endpoint on the IMS conformance testing platform.
+14. Provide a profile <a data-cite="OB-21#Profile"> from the <code>/profile</code> endpoint to the IMS conformance testing platform.
+15. (Optional) POST a <a data-cite="OB-21#Profile"> to the <code>/profile</code> endpoint on the IMS conformance testing platform.
+16. (Optional) Receive a <a data-cite="OB-21#Profile"> posted to the <code>/profile</code> endpoint by the IMS conformance testing platform.
 
 <div></div>
 `;
