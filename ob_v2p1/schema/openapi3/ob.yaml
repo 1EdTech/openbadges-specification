@@ -53,7 +53,7 @@
 # Release:          1.0
 # Date:             31st July, 2017
 # Autogen Engineer: Colin Smythe (IMS Global, UK)
-# Autogen Date:     2019-08-22
+# Autogen Date:     2019-11-13
 # 
 # IMS Global Auto-generation Binding Tool-kit (I-BAT)
 # ===================================================
@@ -182,42 +182,38 @@ paths:
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/AssertionsResponseDType"
                 "400" : 
                     description: |
                         An invalid request was made.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "401" : 
                     description: |
                         The request was not correctly authorized.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "404" : 
                     description: |
                         The requested resource does not exist.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "405" : 
                     description: |
                         This method is not allowed on the endpoint.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "500" : 
                     description: |
                         This code should be used only if there is catastrophic error.
-                    content: 
-                        application/json: 
-                            schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
                 "default" : 
                     description: |
                         Any other response.
@@ -234,7 +230,7 @@ paths:
                 content: 
                     application/json: 
                         schema: 
-                            $ref: "#/components/schemas/AssertionDType"
+                            $ref: "#/components/schemas/DType"
                 required: true
             responses: 
                 "200" : 
@@ -243,42 +239,38 @@ paths:
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "400" : 
                     description: |
                         An invalid request was made.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "401" : 
                     description: |
                         The request was not correctly authorized.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "404" : 
                     description: |
                         The requested resource does not exist.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "405" : 
                     description: |
                         This method is not allowed on the endpoint.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "500" : 
                     description: |
                         This code should be used only if there is catastrophic error.
-                    content: 
-                        application/json: 
-                            schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
                 "default" : 
                     description: |
                         Any other response.
@@ -298,42 +290,38 @@ paths:
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/ProfileResponseDType"
                 "400" : 
                     description: |
                         An invalid request was made.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "401" : 
                     description: |
                         The request was not correctly authorized.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "404" : 
                     description: |
                         The requested resource does not exist.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "405" : 
                     description: |
                         This method is not allowed on the endpoint.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "500" : 
                     description: |
                         This code should be used only if there is catastrophic error.
-                    content: 
-                        application/json: 
-                            schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
                 "default" : 
                     description: |
                         Any other response.
@@ -359,35 +347,35 @@ paths:
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/ProfileResponseDType"
                 "400" : 
                     description: |
                         An invalid request was made.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "401" : 
                     description: |
                         The request was not correctly authorized.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "404" : 
                     description: |
                         The requested resource does not exist.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "405" : 
                     description: |
                         This method is not allowed on the endpoint.
                     content: 
                         application/json: 
                             schema: 
-                                $ref: "#/components/schemas/ResponseEnvelopeDType"
+                                $ref: "#/components/schemas/StatusResponseDType"
                 "500" : 
                     description: |
                         This code should be used only if there is catastrophic error.
@@ -420,18 +408,31 @@ components:
             description: |
                 Open Badges 2.0 Assertion object.
             type: object
-            required: 
-                - id
-                - type
-            properties: 
-                id: 
-                    description: Unique IRI for this object. Model Primitive Datatype = AnyURI.
-                    type: string
-                    format: uri
-                type: 
-                    description: JSON-LD type for this object. Model Primitive Datatype = String.
-                    type: string
+            properties: {}
             additionalProperties: true
+        AssertionsResponseDType:
+            description: |
+                Successfull response from the GET /assertions endpoint.
+            type: object
+            required: 
+                - status
+            properties: 
+                status: 
+                    $ref: "#/components/schemas/StatusDType"
+                assertions: 
+                    description: |
+                        The matching unsigned Assertions. The total number of unsigned and signed assertions should not exceed the pagination limit. Not required if there are no unsigned assertions.
+                    type: array
+                    minItems: 0
+                    items: 
+                        $ref: "#/components/schemas/AssertionDType"
+                signedAssertions: 
+                    description: The matching signed Assertions in JWS Compact Serializion format. The total number of unsigned and signed assertions should not exceed the pagination limit. Not required if there are no signed assertions. Model Primitive Datatype = String.
+                    type: array
+                    minItems: 0
+                    items: 
+                        type: string
+            additionalProperties: false
         BadgeConnectAPIDType:
             description: |
                 Configuration information about a single implementation.
@@ -448,13 +449,11 @@ components:
                 - version
             properties: 
                 id: 
-                    description: Unique IRI for the configuration. Model Primitive Datatype = AnyURI.
+                    description: Unique IRI for the configuration. Model Primitive Datatype = NormalizedString.
                     type: string
-                    format: uri
                 type: 
-                    description: JSON-LD type of the configuration object. Defaults to BadgeConnectAPI. Model Primitive Datatype = AnyURI.
+                    description: The JSON-LD type of this object. Normally 'BadgeConnectAPI'. Model Primitive Datatype = NormalizedString.
                     type: string
-                    format: uri
                 apiBase: 
                     description: Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing slash '/'. E.g. apiBase + '/assertions'. Model Primitive Datatype = AnyURI.
                     type: string
@@ -503,25 +502,17 @@ components:
             additionalProperties: false
         ManifestDType:
             description: |
-                Provider configuration information. A provider may support multiple implementations.
+                Host configuration information. A Host may support multiple implementations.
             type: object
             required: 
-                - @context
-                - id
                 - badgeConnectAPI
             properties: 
-                @context: 
-                    description: The URL of the JSON-LD @context file for the manifest. Model Primitive Datatype = AnyURI.
-                    type: string
-                    format: uri
                 id: 
-                    description: Unique IRI for the manifest. Model Primitive Datatype = AnyURI.
+                    description: Unique IRI for the manifest. Model Primitive Datatype = NormalizedString.
                     type: string
-                    format: uri
                 type: 
-                    description: The JSON-LD type of the manifest. Defaults to Manifest. Model Primitive Datatype = AnyURI.
+                    description: The JSON-LD type of this object. Normally 'Manifest'. Model Primitive Datatype = NormalizedString.
                     type: string
-                    format: uri
                     default: Manifest
                 badgeConnectAPI: 
                     description: |
@@ -535,54 +526,7 @@ components:
             description: |
                 Open Badges 2.0 Profile object.
             type: object
-            required: 
-                - id
-                - type
-            properties: 
-                id: 
-                    description: Unique IRI for this object. Model Primitive Datatype = AnyURI.
-                    type: string
-                    format: uri
-                type: 
-                    description: JSON-LD type for this object. Model Primitive Datatype = String.
-                    type: string
-            additionalProperties: true
-        ResponseEnvelopeDType:
-            description: |
-                Response payload all APIs in this specification.
-            type: object
-            required: 
-                - status
-            properties: 
-                status: 
-                    $ref: "#/components/schemas/StatusDType"
-                results: 
-                    description: |
-                        An array of Result objects. The array element types are defined by each endpoint.
-                    type: array
-                    minItems: 0
-                    items: 
-                        $ref: "#/components/schemas/ResultDType"
-            additionalProperties: false
-        ResultDType:
-            description: |
-                An element of the results array in the ResponseEnvelope. May be an Open Badges 2.0 Assertion, Open Badges 2.0 Profile, or SignedBadge as defined in this specification.
-            type: object
-            required: 
-                - type
-            properties: 
-                id: 
-                    description: Unique IRI for the object. Model Primitive Datatype = AnyURI.
-                    type: string
-                    format: uri
-                type: 
-                    description: |
-                        JSON-LD type for the result. Must be one of Assertion, Profile, or SignedBadge.
-                    type: string
-                    enum: 
-                       - Assertion
-                       - Profile
-                       - SignedBadge
+            properties: {}
             additionalProperties: true
         StatusDType:
             description: |
