@@ -34,7 +34,7 @@ var _localBiblio = {
         publisher: "IMS Global"
     },
     "OB-JSON-21": {
-        title: "JSON Schema Files for Open Badges Badge Connect API v2.1",
+        title: "JSON Schema Files for Open Badges Badge Connect(TM) API v2.1",
         href: "https://purl.imsglobal.org/spec/ob/v2p1/schema/json/",
         date: "August 29, 2019",
         publisher: "IMS Global",
@@ -56,7 +56,7 @@ var _localBiblio = {
         ]
     },
     "OB-OPEN-21": {
-        title: "OpenAPI 3.0 File for Open Badges Badge Connect API v2.1",
+        title: "OpenAPI 3.0 File for Open Badges Badge Connect(TM) API v2.1",
         href: "https://purl.imsglobal.org/spec/ob/v2p1/schema/openapi/imsob_v2p1.yaml",
         date: "August 29, 2019",
         publisher: "IMS Global",
