@@ -532,9 +532,8 @@ grant_type=authorization_code
         <p>If the authorization server finds the request to be a valid, it generates
           and returns an access token and optionally a refresh token.</p>
 
-        <p>If the request is invalid, the Host MUST return an error message with an HTTP 400 (Bad Request) status
-          code and a body matching the Badge Connect response <a href="#api-envelope">envelope</a>.
-        </p>
+        <p>If the request fails, the Host SHOULD return a response as described in 
+          <a data-cite="RFC6749#section-4.2.2.1">RFC6749</a>.</p>
       </section>
       <section id="oauth-auth">
         <h3>Authenticating with Tokens</h3>
