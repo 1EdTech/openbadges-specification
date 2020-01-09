@@ -32,7 +32,7 @@ After IMS reviews your submitted information and notifies you that your applicat
 
 ### Issuer Role Conformance
 
-An Open Badges **Issuer** is an application that allows for the creation of <a data-cite="OB-21#BadgeClass">BadgeClasses</a> and the subsequent delivery of <a data-cite="OB-21#Assertion">Assertions</a> to recipients that conform to the [[[OB-21]]]. Beginning with Open Badges 2.1, the candidate platform must support the transimission of a badge using the Badge Connect API.
+An Open Badges **Issuer** is an application that allows for the creation of <a data-cite="OB-21#BadgeClass">BadgeClasses</a> and the subsequent delivery of <a data-cite="OB-21#Assertion">Assertions</a> to recipients that conform to the [[[OB-21]]]. Beginning with Open Badges 2.1, the candidate platform must support the transimission of a badge using the Badge Connect&trade; API.
 
 **Tests**
 
@@ -54,7 +54,7 @@ An Open Badges **Issuer** is an application that allows for the creation of <a d
 
 ### Displayer Role Conformance
 
-An Open Badges **Displayer** is an application that displays verified badges to viewers. Beginning with Open Badges 2.1, the candidate platform must be able to retrieve badges using the Badge Connect API.
+An Open Badges **Displayer** is an application that displays verified badges to viewers. Beginning with Open Badges 2.1, the candidate platform must be able to retrieve badges using the Badge Connect&trade; API.
 
 **Tests**
 
@@ -77,7 +77,7 @@ An Open Badges **Displayer** is an application that displays verified badges to 
 
 ### Host Role Conformance
 
-An Open Badges **Host** is an application that can aggregate and publicly host <a data-cite="OB-21#Assertion">Assertions</a> for recipients. It also supports export of badges at user request. Beginning with Open Badges 2.1, the candidate platform must be able to send and receive assertions and profiles using the Badge Connect API.
+An Open Badges **Host** is an application that can aggregate and publicly host <a data-cite="OB-21#Assertion">Assertions</a> for recipients. It also supports export of badges at user request. Beginning with Open Badges 2.1, the candidate platform must be able to send and receive assertions and profiles using the Badge Connect&trade; API.
 
 **Tests**
 
