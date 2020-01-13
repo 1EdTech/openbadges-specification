@@ -1,0 +1,56 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id" : "postProfile-200-responsepayload-schema.json",
+    "title" : "Open Badges Version 2.1 IMS Candidate Final JSON Schema Binding (postProfile-200-responsepayload-schema)",
+    "description" : "Author-Alexander Hripak, Nate Otto, Justin Pitcher, and Chris Houston;  Version-2.1;  Release Date-August 29, 2019. ",
+    "type" : "object",
+    "properties" : {
+        "status" : {
+            "description" : "The Status object describing the success or failure of the request.",
+            "$ref" : "#/definitions/StatusDType"
+        },
+        "profile" : {
+            "description" : "The matching profile.",
+            "$ref" : "#/definitions/ProfileDType"
+        }
+    },
+    "required" : [ "status","profile" ],
+    "additionalProperties" : false,
+    "definitions" : {
+        "ProfileDType" : {
+            "description" : "Open Badges 2.0 Profile object.",
+            "type" : "object",
+            "properties" : {
+
+            },
+            "patternProperties" : {
+                "^[^:][^:]*:[^:][^:]*$" : {
+                    "oneOf": [{ "type": "string" }, { "type": "array" }, { "type": "boolean" }, { "type": "number" }, { "type": "integer" }]
+                }
+            },
+            "additionalProperties" : true
+        },
+        "StatusDType" : {
+            "description" : "Response status.",
+            "type" : "object",
+            "properties" : {
+                "error" : {
+                    "description" : "Model Primitive Datatype = String. A nullable string and the human-readable message describing the problem.",
+                    "type" : "string"
+                },
+                "statusCode" : {
+                    "description" : "Model Primitive Datatype = Integer. The HTTP status code of the response.",
+                    "type" : "integer",
+                    "format" : "int32"
+                },
+                "statusText" : {
+                    "description" : "A string matching one of the enumerated and allowed values for the given endpoint.",
+                    "type" : "string",
+                    "enum" : [ "OK","REQUEST_VALIDATION_ERROR","RECIPIENT_PROFILE_MISMATCH","INVALID_BADGE","BAD_REQUEST","UNAUTHENTICATED","PERMISSION_DENIED","NOT_FOUND","METHOD_NOT_ALLOWED" ]
+                }
+            },
+            "required" : [ "statusCode" ],
+            "additionalProperties" : false
+        }
+    }
+}
