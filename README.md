@@ -1,4 +1,4 @@
-# badge-connect-api
+# Badge Connect&trade; API
 This is the repository for the IMS Global Badge Connect&trade; specification. This specification will be released as Open Badges v2.1.
 
 ## Working Group Contact Information
