@@ -765,10 +765,11 @@ grant_type=authorization_code
     <section id="api-envelope">
       <h3>Response Envelope</h3>
       <p>
-        Responses from all APIs in this document are wrapped in a JSON envelope. All response envelopes have a 
+        Responses from all <b>Badge Connect-specific</b> APIs in this document are wrapped in a JSON envelope. All response envelopes have a 
         <code>status</code> property and one or more result properties. The result property name(s) and data types 
         are defined in the <a href="#api-responses">Responses</a> section for each endpoint.
       </p>
+      <p>Responses related to standarized OAuth requests should use the prescribed format in their respective RFC.</p>
       <section id="api-envelope-status">
         <h4>Status</h4>
         <p>The "status" property MUST appear on all responses.</p>
