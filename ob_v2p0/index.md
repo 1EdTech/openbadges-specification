@@ -725,7 +725,7 @@ To mark a badge as revoked, add an entry to the resource pointed at by the Issue
 
 
 # History <a id="History"></a>
- * [From 1.1 to 2.0](history/2.0.html)
+ * [From 1.1 to 2.0](history/2.0.html) (includes 2.0 errata)
  * [From 1.0 to 1.1](history/1.1.html) 
  * [From 0.5 to 1.0](https://github.com/mozilla/openbadges/wiki/Assertion-Specification-Changes)
  * [Early history of the specification](https://github.com/mozilla/openbadges-backpack/wiki/Assertions/_history)
