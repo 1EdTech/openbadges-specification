@@ -4,46 +4,47 @@
 <head>
   <meta charset='utf-8'>
   <script src='https://purl.imsglobal.org/spec/respec-ims-default.js' async class='remove'></script>
-    <script src='localBiblio.js' class="remove"></script>
-    <script src='contributors.js' class="remove"></script>
-    <script src='iprs.js' class="remove"></script>
+  <script src='localBiblio.js' class="remove"></script>
+  <script src='contributors.js' class="remove"></script>
+  <script src='iprs.js' class="remove"></script>
   <script class='remove'>
     var respecConfig = {
-            mainSpecTitle: "Open Badges Specification",
-            mainSpecBiblioKey: "OB-SPEC-21",
-            specTitle: "Open Badges Specification",
-            shortName: "ob",
-            specStatus: "IMS Candidate Final",
-            specDate: "August 29, 2019",
-            specVersion: "2.1",
-            specNature: "normative",
-            specType: "spec",
-            format: "markdown",
-            maxTocLevel: "2",
-            skipCertGuideConformanceRef: false,
-            contributors: _contributors,
-            iprs: _iprs,
+      mainSpecTitle: "Open Badges Specification",
+      mainSpecBiblioKey: "OB-SPEC-21",
+      specTitle: "Open Badges Specification",
+      shortName: "ob",
+      specStatus: "IMS Candidate Final",
+      specDate: "January 24, 2020",
+      specVersion: "2.1",
+      specNature: "normative",
+      specType: "spec",
+      format: "markdown",
+      maxTocLevel: "2",
+      skipCertGuideConformanceRef: false,
+      contributors: _contributors,
+      iprs: _iprs,
 
-            /*
-            * Define a temporary localBiblio to resolve references to spec documents that don't exist
-            * on the IMS purl server. Once the documents exist, remove this localBiblio.
-            */
-            localBiblio: _localBiblio
+      /*
+      * Define a temporary localBiblio to resolve references to spec documents that don't exist
+      * on the IMS purl server. Once the documents exist, remove this localBiblio.
+      */
+      localBiblio: _localBiblio
     };
   </script>
 </head>
 
 <body>
-    <section class="introductory" id="abstract">
-        <script class="transclude" src="ob-abstract.md" data-id="abstract"></script>
-    </section>
+  <section class="introductory" id="abstract">
+    <script class="transclude" src="ob-abstract.md" data-id="abstract"></script>
+  </section>
 
-    <section>
-        <h2>Introduction</h2>
+  <section>
+    <h2>Introduction</h2>
 
     <section class="informative">
       <h3>Design Goals and Rationale</h3>
-      <p>Open Badges 2.1 is a specification that adds the Badge Connect&trade; API to Open Badges that allows badge recipients
+      <p>Open Badges 2.1 is a specification that adds the Badge Connect&trade; API to Open Badges that allows badge
+        recipients
         to easily move their Assertions between
         platforms to streamline the experience of earning and using Open Badges. The initial scope for this
         specification will cover Assertions and Profiles, with potential additions in future versions of other types of
@@ -82,18 +83,18 @@
       </table>
     </section>
 
-        <section id="conformance">
-            <h3>Conformance and Certification</h3>
-        </section>
-
-        <section id="document-set">
-            <script class="transclude" src="ob-documents.md" data-id="documents"></script>
-        </section>
-
-        <section id="terminology">
-            <script class="transclude" src="ob-terms.md" data-id="terms"></script>
-        </section>
+    <section id="conformance">
+      <h3>Conformance and Certification</h3>
     </section>
+
+    <section id="document-set">
+      <script class="transclude" src="ob-documents.md" data-id="documents"></script>
+    </section>
+
+    <section id="terminology">
+      <script class="transclude" src="ob-terms.md" data-id="terms"></script>
+    </section>
+  </section>
 
   <section>
     <h2>API</h2>
@@ -112,31 +113,31 @@
         <img src="images/OBC_Architecture.svg" />
         <figcaption>Architecture</figcaption>
       </figure>
-            <p>There are five key components to the Badge Connect&trade; API architecture.</p>
-        <dl>
-          <dt>Resource Owner</dt>
-          <dd>This is the user that owns the resources (badges) that are on the Host.</dd>
-          <dt>Web Browser</dt>
-          <dd>This is the web browser application that the user interacts with.</dd>
-          <dt>Relying Party</dt>
-          <dd>
-            This is the web application that interacts with the Host on behalf of
-            the resource owner. This component is called the Consumer in the
-            IMS Security Framework [[SEC-10]].
-          </dd>
-          <dt>Authorization Server</dt>
-          <dd>
-            This is a server that implements the OAuth 2.0 endpoints on behalf of
-            the Host. In many systems, the Authorization Server and the Host are
-            combined.
-          </dd>
-          <dt>Host</dt>
-          <dd>
-            This is the resource server that has the protected resources (badges).
-            This component is called the Provider in the IMS Security Framework [[SEC-10]].
-          </dd>
-        </dl>
-            <p>
+      <p>There are five key components to the Badge Connect&trade; API architecture.</p>
+      <dl>
+        <dt>Resource Owner</dt>
+        <dd>This is the user that owns the resources (badges) that are on the Host.</dd>
+        <dt>Web Browser</dt>
+        <dd>This is the web browser application that the user interacts with.</dd>
+        <dt>Relying Party</dt>
+        <dd>
+          This is the web application that interacts with the Host on behalf of
+          the resource owner. This component is called the Consumer in the
+          IMS Security Framework [[SEC-10]].
+        </dd>
+        <dt>Authorization Server</dt>
+        <dd>
+          This is a server that implements the OAuth 2.0 endpoints on behalf of
+          the Host. In many systems, the Authorization Server and the Host are
+          combined.
+        </dd>
+        <dt>Host</dt>
+        <dd>
+          This is the resource server that has the protected resources (badges).
+          This component is called the Provider in the IMS Security Framework [[SEC-10]].
+        </dd>
+      </dl>
+      <p>
         The role of each component during <a href="#oauth-registration">Registration</a>,
         <a href="#oauth-token">Obtaining Tokens</a>, and <a href="#oauth-auth">Authenticating with Tokens</a>
         are described below.
@@ -174,7 +175,7 @@
           <figcaption>Dynamic Client Registration Sequence Diagram</figcaption>
         </figure>
         <p>The registration request MUST use HTTPS (TLS 1.2 or 1.3). An example registration request may look like:</p>
-<pre class="nohighlight">
+        <pre class="nohighlight">
 POST /o/register HTTP/1.1
 Content-Type: application/json
 Accept: application/json
@@ -230,7 +231,8 @@ Host: badge-host.example.com
             <tr>
               <td>logo_uri</td>
               <td>Yes</td>
-              <td>The logo of the Relying Party. The logo image uri should resolve to an image file with a square aspect ratio in either PNG or SVG format. Recommended resolution: 512x512px.</td>
+              <td>The logo of the Relying Party. The logo image uri should resolve to an image file with a square aspect
+                ratio in either PNG or SVG format. Recommended resolution: 512x512px.</td>
             </tr>
             <tr>
               <td>tos_uri</td>
@@ -312,7 +314,7 @@ Host: badge-host.example.com
           generate a set of client credentials for the Relying Party to use when requesting access tokens.</p>
         <p>All the information provided by the Relying Party MUST be returned to the Relying Party, including
           modifications to the properties as the Host deems necessary.</p>
-<pre class="nohighlight">
+        <pre class="nohighlight">
 HTTP/1.1 201 Created
 Content-Type: application/json
 Cache-Control: no-store
@@ -448,7 +450,7 @@ Pragma: no-cache
           </tbody>
         </table>
         <p>An example authorization request (line breaks for display purposes only):</p>
-<pre>
+        <pre>
 GET /authorize?
 response_type=code
 &client_id=BADGECONNECT_s6BhdRkqt3
@@ -517,7 +519,7 @@ Host: www.example.com
           </table>
         </p>
         <p>An example token request:</p>
-<pre class="nohighlight">
+        <pre class="nohighlight">
 POST /badge/connect/auth/token HTTP/1.1
 Host: www.example.com
 Authorization: Basic QkFER0VDT05ORUNUX3M2QmhkUmtxdDM6Y3paQ2FHUlNhM0YwTXpvM1JtcG1jREJhUW5JeFMzUkVVbUp1Wmxaa2JVbDM=
@@ -532,7 +534,7 @@ grant_type=authorization_code
         <p>If the authorization server finds the request to be a valid, it generates
           and returns an access token and optionally a refresh token.</p>
 
-        <p>If the request fails, the Host SHOULD return a response as described in 
+        <p>If the request fails, the Host SHOULD return a response as described in
           <a data-cite="RFC6749#section-4.2.2.1">RFC6749</a>.</p>
       </section>
       <section id="oauth-auth">
@@ -573,7 +575,7 @@ grant_type=authorization_code
         <p>Relying Parties MAY also pass a <code>token_type_hint</code> parameter with a value of
           <code>access_token</code> or <code>refresh_token</code>.</p>
         <p>An example revocation request:</p>
-<pre class="nohighlight">
+        <pre class="nohighlight">
   POST /badge/connect/auth/revoke_token HTTP/1.1
   Host: www.example.com
   Content-Type: application/x-www-form-urlencoded
@@ -591,7 +593,8 @@ grant_type=authorization_code
         tokens have a permissioned scope when they are created and inform the responding
         application which resources the entity has access to.
       </p>
-      <table title="Scopes for the Badge Connect&trade; API endpoints." summary="Scopes for the Badge Connect&trade; API endpoints.">
+      <table title="Scopes for the Badge Connect&trade; API endpoints."
+        summary="Scopes for the Badge Connect&trade; API endpoints.">
         <thead>
           <tr>
             <th>Name</th>
@@ -700,7 +703,9 @@ grant_type=authorization_code
           <tr>
             <td><code>image</code></td>
             <td>No</td>
-            <td>An image representing the platform. May be a URI to a hosted image or a Data URI.  The logo image uri should resolve to an image file with a square aspect ratio in either PNG or SVG format. Recommended resolution: 512x512px.</td>
+            <td>An image representing the platform. May be a URI to a hosted image or a Data URI. The logo image uri
+              should resolve to an image file with a square aspect ratio in either PNG or SVG format. Recommended
+              resolution: 512x512px.</td>
           </tr>
           <tr>
             <td><code>apiBase</code></td>
@@ -765,10 +770,12 @@ grant_type=authorization_code
     <section id="api-envelope">
       <h3>Response Envelope</h3>
       <p>
-        Responses from all APIs in this document are wrapped in a JSON envelope. All response envelopes have a 
-        <code>status</code> property and one or more result properties. The result property name(s) and data types 
+        Responses from all <b>Badge Connect-specific</b> APIs in this document are wrapped in a JSON envelope. All
+        response envelopes have a
+        <code>status</code> property and one or more result properties. The result property name(s) and data types
         are defined in the <a href="#api-responses">Responses</a> section for each endpoint.
       </p>
+      <p>Responses related to standarized OAuth requests should use the prescribed format in their respective RFC.</p>
       <section id="api-envelope-status">
         <h4>Status</h4>
         <p>The "status" property MUST appear on all responses.</p>
@@ -855,7 +862,7 @@ Link:
       <p>
         Three examples:
       </p>
-<pre>
+      <pre>
   {
     "assertion": { ... },
     "signedAssertion": null
@@ -910,10 +917,10 @@ Link:
             <tr>
               <td>Description</td>
               <td>Fetch Assertions for the supplied parameters and authentication token. The response envelope
-                contains a list of zero or more matching signed Assertions and a list of zero or more matching 
+                contains a list of zero or more matching signed Assertions and a list of zero or more matching
                 unsigned assertions. There SHOULD be only one assertion (signed or unsigned) for any particular
                 assertion ID as the IDs are intended to be globally unique. The Host SHOULD return Assertions
-                (signed and unsigned) ordered by last update, descending and SHOULD return only Assertions 
+                (signed and unsigned) ordered by last update, descending and SHOULD return only Assertions
                 (signed and unsigned) updated after the timestamp requested if supplied.</td>
             </tr>
             <tr>
@@ -1008,7 +1015,8 @@ Link:
           <tbody>
             <tr>
               <td>Description</td>
-              <td>Create or update an Assertion. The posted data MUST be an <a href="#api-assertionpayload">Assertion Payload</a>.</td>
+              <td>Create or update an Assertion. The posted data MUST be an <a href="#api-assertionpayload">Assertion
+                  Payload</a>.</td>
             </tr>
             <tr>
               <td>Responses</td>
@@ -1219,28 +1227,31 @@ Link:
             <tr>
               <td><code>status</code></td>
               <td>Yes</td>
-              <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.</td>
+              <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.
+              </td>
             </tr>
             <tr>
               <td><code>assertions</code></td>
               <td>No</td>
               <td>
-                The matching unsigned Assertions. The total number of unsigned and signed assertions should not exceed the
-                <a href="#api-envelope-pagination">pagination limit</a>. Not required if there are no unsigned assertions.
+                The matching unsigned Assertions. The total number of unsigned and signed assertions should not exceed
+                the
+                <a href="#api-envelope-pagination">pagination limit</a>. Not required if there are no unsigned
+                assertions.
               </td>
             </tr>
             <tr>
               <td><code>signedAssertions</code></td>
               <td>No</td>
               <td>
-                The matching signed Assertions in <a data-cite="RFC7515#section-3">JWS Compact Serializion</a> format. 
+                The matching signed Assertions in <a data-cite="RFC7515#section-3">JWS Compact Serializion</a> format.
                 The total number of unsigned and signed assertions should not exceed the
                 <a href="#api-envelope-pagination">pagination limit</a>. Not required if there are no signed assertions.
               </td>
             </tr>
           </tbody>
         </table>
-<pre class="json">
+        <pre class="json">
 {
     "status": {
         "error": null,
@@ -1264,20 +1275,21 @@ Link:
       <section id="api-responses-post-assertions-200">
         <h4>200 POST Assertion Response</h4>
         <table>
-            <thead>
-              <tr>
-                <th>Property</th>
-                <th>Required</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>status</code></td>
-                <td>Yes</td>
-                <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.</td>
-              </tr>
-            </tbody>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>status</code></td>
+              <td>Yes</td>
+              <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.
+              </td>
+            </tr>
+          </tbody>
         </table>
         <pre>
 {
@@ -1303,7 +1315,8 @@ Link:
             <tr>
               <td><code>status</code></td>
               <td>Yes</td>
-              <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.</td>
+              <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.
+              </td>
             </tr>
             <tr>
               <td><code>profile</code></td>
@@ -1347,7 +1360,8 @@ Link:
             <tr>
               <td><code>status</code></td>
               <td>Yes</td>
-              <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.</td>
+              <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.
+              </td>
             </tr>
             <tr>
               <td><code>profile</code></td>
@@ -1453,30 +1467,30 @@ Link:
     </section>
   </section>
 
-    <section class="appendix informative" id="revisionhistory">
-        <h1>Revision History</h1>
-        <section>
-            <h3>Changes</h3>
-            <ul>
-                <li>
-                    <a href="https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/history/2.0.html">
-                        From 1.1 to 2.0</a>
-                </li>
-                <li>
-                    <a href="https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/history/1.1.html">
-                        From 1.0 to 1.1</a>
-                </li>
-                <li>
-                    <a href="https://github.com/mozilla/openbadges/wiki/Assertion-Specification-Changes">
-                        From 0.5 to 1.0</a>
-                </li>
-                <li>
-                    <a href="https://github.com/mozilla/openbadges-backpack/wiki/Assertions/_history">
-                        Early history of the specification</a>
-                </li>
-            </ul>
-        </section>
-        <section>
+  <section class="appendix informative" id="revisionhistory">
+    <h1>Revision History</h1>
+    <section>
+      <h3>Changes</h3>
+      <ul>
+        <li>
+          <a href="https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/history/2.0.html">
+            From 1.1 to 2.0</a>
+        </li>
+        <li>
+          <a href="https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/history/1.1.html">
+            From 1.0 to 1.1</a>
+        </li>
+        <li>
+          <a href="https://github.com/mozilla/openbadges/wiki/Assertion-Specification-Changes">
+            From 0.5 to 1.0</a>
+        </li>
+        <li>
+          <a href="https://github.com/mozilla/openbadges-backpack/wiki/Assertions/_history">
+            Early history of the specification</a>
+        </li>
+      </ul>
+    </section>
+    <section>
       <h3>Version History</h3>
       <table title="Revision History" summary="Publication history and revision details for this specification.">
         <thead>
@@ -1487,6 +1501,11 @@ Link:
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>Version 2.1 IMS Candidate Final</td>
+            <td>January 24, 2020</td>
+            <td>Second coordinated release.</td>
+          </tr>
           <tr>
             <td>v2.1 Candidate Final</td>
             <td>August 29, 2019</td>
