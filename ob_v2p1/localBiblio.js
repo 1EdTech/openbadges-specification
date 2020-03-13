@@ -1,7 +1,7 @@
 var _localBiblio = {
     "OB-21": {
         title: "Open Badges Specification v2.1",
-        href: "https://www.imsglobal.com/spec/ob/v2p1/",
+        href: "https://www.imsglobal.org/spec/ob/v2p1/",
         date: "January 24, 2020",
         publisher: "IMS Global",
         authors: [
