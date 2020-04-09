@@ -285,7 +285,7 @@ Host: badge-host.example.com
                   <li>"authorization_code": The authorization code grant type defined in OAuth 2.0.</li>
                   <li>"refresh_token": The refresh token grant type defined in OAuth 2.0.</li>
                 </ul>
-                If omitted, the default behavior is that the client will use only the "authorization_code" grant type.
+                If omitted, the default is that the client will use only the "authorization_code" grant type.
               </td>
             </tr>
             <tr>
@@ -314,6 +314,8 @@ Host: badge-host.example.com
           generate a set of client credentials for the Relying Party to use when requesting access tokens.</p>
         <p>All the information provided by the Relying Party MUST be returned to the Relying Party, including
           modifications to the properties as the Host deems necessary.</p>
+        <p>The Host MAY reject a registration request if the value of one of the Relying Party's metadata fields is invalid. The Host MAY choose to substitute a valid value for any requested parameter of a Relying Party's metadata. Implementers should take note that substitution MAY include changes to the permitted scopes.</p>
+        <p>For the purposes of registering a Relying Party, a Host MAY limit the scopes it supports to those revelant to Badge Connect&trade;.</p>
         <pre class="nohighlight">
 HTTP/1.1 201 Created
 Content-Type: application/json
