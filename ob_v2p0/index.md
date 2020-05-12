@@ -263,7 +263,7 @@ Property | Expected Type | Description
 **type** | JSON-LD type ([Multiple values allowed](#array))| valid JSON-LD representation of the BadgeClass type. In most cases, this will simply be the string `BadgeClass`. An array including `BadgeClass` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 **name** | Text | The name of the achievement.
 **description** | Text | A short description of the achievement.
-**image** | @id: [Image](#Image) | IRI of an image representing the achievement. May be a [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme), or URI where the image may be found.
+**image** | @id: [Image](#Image) | IRI or document representing an image of the achievement. This must be a PNG or SVG image.
 <a id="criteria"></a>**criteria** | @id: [Criteria](#Criteria) | URI or embedded criteria document describing how to earn the achievement.
 **issuer** | @id: [Profile](#Profile) | IRI or document describing the individual, entity, or organization that issued the badge.
 alignment | [AlignmentObject](#Alignment) ([Multiple values allowed](#array))| An object describing which objectives or educational standards this badge aligns to, if any.
@@ -285,7 +285,7 @@ name | Text | The name of the entity or organization.
 url | IRI | The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP. ([examples](./examples/index.html#SocialMediaUrls)).
 telephone | Text | A phone number for the entity. For maximum compatibility, the value should be expressed as a `+` and country code followed by the number with no spaces or other punctuation, like `+16175551212` ([E.164 format](http://en.wikipedia.org/wiki/E.164)).
 description | Text | A short description of the issuer entity or organization.
-image | @id: [Image](#Image) | An image representing the issuer. May be a Data URI, or URI where the image may be found or an instance of the Image class.
+image | @id: [Image](#Image) | IRI or document representing an image of the issuer. This must be a PNG or SVG image.
 email | Text | Contact address for the individual or organization.
 publicKey | @id: [CryptographicKey](#CryptographicKey) | The key(s) an issuer uses to sign Assertions.
 verification | [VerificationObject](#VerificationObject) | Instructions for how to verify Assertions published by this Profile.
