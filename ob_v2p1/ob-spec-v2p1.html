@@ -858,7 +858,7 @@ Link:
     <section id="api-assertionpayload">
       <h3>Assertion Payload</h3>
       <p>
-        An Assertion Payload contains either a signed or unsigned Assertion. If both are specified,
+        An Assertion Payload contains either a signed or unsigned Assertion [[OB-20]]. If both are specified,
         the unsigned Assertion MUST be ignored. Null values MAY be omitted.
       </p>
       <p>
@@ -893,7 +893,7 @@ Link:
             <td><code>assertion</code></td>
             <td>Assertion</td>
             <td>No</td>
-            <td>An unsigned Assertion object in serialized JSON-LD.</td>
+            <td>An unsigned Assertion [[OB-20]] object in serialized JSON-LD.</td>
           </tr>
           <tr>
             <td><code>signedAssertion</code></td>
