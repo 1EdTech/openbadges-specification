@@ -10,10 +10,10 @@ Tasks define tangible work items that accomplish use cases and progress the time
 
  Task             | Notes          | Status   | 
 |-----------------|----------------|----------|
-| Document "What is a DID" | Present in [did-in-badges.md] | Draft |
-| Document "How to get a DID" | Present in [did-in-badges.md] | Draft |
-| Document DIDs in Badges Value Proposition | Present in [did-in-badges.md] | Draft |
-| Document Spec Changes | Present in [did-in-badges.md] | Draft |
+| Document "What is a DID" | Present in [did-in-badges](dids-in-badges.md) | Draft |
+| Document "How to get a DID" | Present in [did-in-badges](dids-in-badges.md) | Draft |
+| Document DIDs in Badges Value Proposition | Present in [did-in-badges](dids-in-badges.md) | Draft |
+| Document Spec Changes | Present in [did-in-badges](dids-in-badges.md) | Draft |
 | Pilot Program Proposal | Propose a pilot program with a pilot roadmap, check-ins with IMS staff and workgroup, identified low-risk high-reward items, and piloting principles | TODO |
 | Extension Example | Example Extension/Additional Properties Approach AND Example next version “pure OB 2.2” of what this could look like. | TODO |
 
