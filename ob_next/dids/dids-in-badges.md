@@ -102,15 +102,19 @@ Portability is the next important point. Most often, today, we see Badges in a B
 
 If we consider corporate email addresses, we find another portability benefit of moving to DIDs. With a corporate email address an individual may be issued an achievement in the form of a Badge that represents some training completed. Sometimes, this training may be useful to future employers; however, once an individual leaves a company they likely do not have access to their corporate email address, and consequently lose access to their Badge. If the Badge, instead, was issued to a DID, the individual would retain control of their DID and achievement independent of their employer. This is one such example, though many more can be imagined, that show the strength of user-centric identity that is decentralized and portable.
 
+Another strong benefits to DIDs is that they themselves are cryptographically verifiable. There are up-and-coming challenge protocols to better facilitate verifiability, but the concept is straight from a security textbook: if you claim to control a private key, I can challenge you to prove that control if I know your public key. DIDs expose public keys for exactly this purpose. Unlike email addresses, where other schemes like email-verification-links or seperate multi-factor-auth (MFA) solutions are needed, DIDs are verifiable out of the box.
+
 The last main benefit of adding DIDs to Open Badges is interoperability. Open Badges are an excellent technology for displaying achievement. There are other technologies that have complementary strengths like [Verifiable Credentials](https://w3c.github.io/vc-data-model), which aren't so user friendly or visually appealing, but do contain trusted data in a similar way to Badges. Verifiable Credentials are one of many technologies utilizing DIDs, that could interoperate with Open Badges should they share the same recipient type. Tie-ins to other DID-infrastructure both strengthens the capabilities and reach of Open Badges, while simultaneously building a stronger decentralized ecosystem.
 
 DIDs in Badges give new optionality to issuers and recipients operating in the Badging ecosystem, enabling, if one wishes, high-trust interactions, tie-in to other up-and-coming standards, and contributes to a narrative of user-centric data.
 
-## Drawbacks of DIDs in Open Badges
+## Considerations for DIDs in Open Badges
 
 Though Decentralized Identifiers are an official W3C specification, they have yet to see widespread adoption. Drawbacks in this sense are similar to drawbacks for all new, or up-and-coming technologies. We believe this drawback is minimized by the endorsement of the DID specification by the W3C, and a number of prominent technology companies and enthusiasts.
 
 Additionally, introducing DIDs welcomes complexity around trust interactions and dealing with cryptographic operations. It is not trivial to properly implement systems that handle key management, signing, and verification. Much dilligence and attention must be paid to properly adhereing to security standards and guidelines, and keeping an eye on the space for potential vulnerabilities, leaks, and the advancement of the technology at hand.
+
+Related to the previous point is the fact that not all DID methods are created equal. For example, if we take a look at the [did:key](https://w3c-ccg.github.io/did-method-key/) method we can see it is a fairly lightweight DID. The method is legitimate, and has appropriate uses, but, it lacks _key rotation_, _deactivation_, and numerous other properties of robustness that other DID methods offer. It may not be the best choice when advocating for _durable_ DIDs. This same scrutiny should be applied to all DID methods that implementers choose to support when incorporating DIDs in Badges.
 
 The proposal as it stands is an optional addition to the specification. Those who do not choose to uptake it will still be compliant with the Open Badge standard. However, as we see an increase in mobility for Badges, with the Connect API, there may be uptake required for Badging Platforms to support DIDs in Badges.
 
