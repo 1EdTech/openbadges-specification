@@ -60,7 +60,7 @@ The timeline proposed is broken into three stages of three month intervals. The 
 
 ### Stage 3
 
-**December 2020 - February 2020**
+**December 2020 - February 2021**
 
 - Look to standardize on technical standard for Open Badge stakeholders (Backpacks, Displayers, Consumers) to validate Recipient control of DID
 - Finalize specification
