@@ -10,11 +10,11 @@
     <script class='remove'>
         var respecConfig = {
             mainSpecTitle: "Open Badges Specification",
-            mainSpecBiblioKey: "OB-SPEC-21",
+            mainSpecBiblioKey: "OB-21",
             specTitle: "Open Badges Conformance and Certification Guide",
             shortName: "ob",
             specStatus: "IMS Candidate Final",
-            specDate: "January 24, 2020",
+            specDate: "July 24, 2020",
             specVersion: "2.1",
             specNature: "normative",
             specType: "cert",
@@ -31,10 +31,37 @@
             localBiblio: _localBiblio
         };
     </script>
+  <style>
+    tr.even {
+      background-color: #ccc;
+    }
+
+    tr.even td {
+      border-color: #fff;
+    }
+
+    tr.even td p {
+      margin-block-end: 0em;
+      margin-block-start: 0.5em;
+    }
+
+    tr.odd {
+      background-color: #fff;
+    }
+
+    tr.odd td p {
+      margin-block-end: 0em;
+      margin-block-start: 0.5em;
+    }
+
+    [align="center"] {
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
-    <section class="introductory" id="abstract">
+    <section class="introduction" id="abstract">
         <script class="transclude" src="ob-abstract.md" data-id="abstract"></script>
     </section>
 
@@ -45,11 +72,11 @@
             <h3>Conformance and Certification</h3>
         </section>
 
-        <section id="document-set">
+        <section class="informative" id="document-set">
             <script class="transclude" src="ob-documents.md" data-id="documents"></script>
         </section>
 
-        <section id="terminology">
+        <section class="informative" id="terminology">
             <script class="transclude" src="ob-terms.md" data-id="terms"></script>
         </section>
     </section>
@@ -67,6 +94,11 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>Version 2.1 IMS Candidate Final</td>
+                    <td>July 24, 2020</td>
+                    <td>Fourth draft. Replaced roles with features.</td>
+                </tr>
                 <tr>
                     <td>Version 2.1 IMS Candidate Final</td>
                     <td>January 24, 2020</td>
