@@ -4,6 +4,9 @@ This is an extension for [Open Badges](https://github.com/IMSGlobal/openbadges-s
 
 Description of what the extension does
 
+## Current Status
+
+Something easily understandable.
 
 ## Documents
 
