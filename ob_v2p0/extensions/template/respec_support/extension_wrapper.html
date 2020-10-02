@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Markdown template for an extension document.
+        If you change the filename of the.md file, you need to
+        change the name in the src attribute of the
+        <script class="transclude> element below.
+    -->
+
+  <meta charset='utf-8'>
+  <script src='https://purl.imsglobal.org/spec/respec-ims-default.js' async class='remove'></script>
+  <script class='remove'>
+    var respecConfig = {
+      mainSpecTitle: "Open Badges 2.0",
+      mainSpecBiblioKey: "ob-20",
+       // Change xxxx to the short name for this extension
+      shortName: "ob-xxxx",
+      specTitle: "Example Extension Document",
+      specNature: "normative",
+      specType: "spec",
+      specVersion: "0.1",
+      // Start with specStatus: IMS Base Document
+      specStatus: "IMS Base Document",
+      // No separate conformance guide required
+      skipCertGuideConformanceRef: true,
+      specDate: "Never 12th, 2240",
+      format: "markdown",
+      contributors: [
+        { name: "First Last", company: "Acme Co Inc (Sweden)", companyURL: "www.example.com", role: "Editor" },
+        { name: "Second Third", company: "Acme Co Inc (UK)", companyURL: "www.example.com", role: "Editor" }
+      ]
+    };
+  </script>
+</head>
+
+<body>
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <p>This is required.</p>
+  </section>
+  <section id="conformance">
+    <h2>Conformance</h2>
+  </section>
+  <script class="transclude remove" src="../extension.md" data-id="md"></script>
+</body>
+
+</html>
