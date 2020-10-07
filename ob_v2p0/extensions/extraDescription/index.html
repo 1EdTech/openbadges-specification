@@ -7,7 +7,7 @@
      var respecConfig = {
        specTitle: "Open Badges Extra Description Extension",
        shortName: "ob-exdesc",
-       specStatus: "IMS Base Document",
+       specStatus: "IMS Candidate Final Public",
        specDate: "April 12th, 2018",
        specNature: "normative",
        specVersion: "1.0",
@@ -96,7 +96,7 @@
         <table class="data">
           <tr><th>Property</th><th>Type</th><th>Value Description</th></tr>
           <tr><td>@context</td><td>IRI</td>
-            <td><code>http://purl.imsglobal.org/spec/ob-exdesc/v1p0/context/</code> 
+            <td><code>https://purl.imsglobal.org/spec/ob-exdesc/v1p0/context/</code> 
               (required)</td></tr>
           <tr><td>type</td><td>JSON-LD Type Array</td>
             <td><code>["Extension", "extensions:ExtraDescriptionExtension"]</code>
@@ -121,7 +121,7 @@
           <pre class="scroll"><code>
 {
   "extensions:extraDescription": {
-    "@context":"http://purl.imsglobal.org/spec/ob-exdesc/v1p0/context/",
+    "@context":"https://purl.imsglobal.org/spec/ob-exdesc/v1p0/context/",
     "type": ["Extension", "extensions:ExtraDescriptionExtension"],
     "name": "Related Roller Coasters",
     "narrative": "Here are two roller coasters that will give you a similar experience to undergoing assessment for this badge.\n\n* [Tempesto](https://www.youtube.com/watch?v=ZCKhkRPq8rI), Busch Gardens, Williamsburg\n* [Fantasia Mini Special Kiddie Roller Coaster](https://www.youtube.com/watch?v=bisz3CJZDpA), Tongdo Fantasia, South Korea"
@@ -142,12 +142,12 @@
           <pre class="scroll"><code>
 {
   "extensions:extraDescription": [{
-    "@context":"http://purl.imsglobal.org/spec/ob-exdesc/v1p0/context/",
+    "@context":"https://purl.imsglobal.org/spec/ob-exdesc/v1p0/context/",
     "type": ["Extension", "extensions:ExtraDescriptionExtension"],
     "name": "Related Roller Coasters",
     "narrative": "Here are two roller coasters that will give you a similar experience to undergoing assessment for this badge.\n\n* [Tempesto](https://www.youtube.com/watch?v=ZCKhkRPq8rI), Busch Gardens, Williamsburg\n* [Fantasia Mini Special Kiddie Roller Coaster](https://www.youtube.com/watch?v=bisz3CJZDpA), Tongdo Fantasia, South Korea"
   },{
-    "@context":"http://purl.imsglobal.org/spec/ob-exdesc/v1p0/context/",
+    "@context":"https://purl.imsglobal.org/spec/ob-exdesc/v1p0/context/",
     "type": ["Extension", "extensions:ExtraDescriptionExtension"],
     "name": "Related Poem",
     "narrative": "Badges may be round, \nmore commonly hexes, \nThey've got great illustrations, \nSometimes of T-Rexes.\n\nSee this [example badge image](http://hexb.in/hexagons/offline-trex.png)."
@@ -170,7 +170,12 @@
                   <tr><th>Version No.</th><th>Release Date</th><th>Comments</th></tr>
                 </thead>
                   <tbody>
-                      <tr>
+                     <tr>
+                          <td>Candidate Final Public</td>
+                          <td>October 7, 2020</td>
+                          <td>Release as public document.</td>
+                      </tr> 
+                    <tr>
                           <td>Base Document 1.0</td>
                           <td>April 12th, 2018</td>
                           <td>Initial release.</td>
