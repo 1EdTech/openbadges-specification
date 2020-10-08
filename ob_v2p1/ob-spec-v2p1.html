@@ -70,7 +70,7 @@
             <td>A user wishes to move their badges from one Host to another Host.</td>
           </tr>
           <tr id="usecases-issuer-get-profile">
-            <td>A Relying Party wishes to obtain plaintext recipient
+            <td>A Consumer wishes to obtain plaintext recipient
               identifier, to clearly understand the recipient profile in
               their badges.</td>
           </tr>
@@ -99,12 +99,12 @@
   <section>
     <h2>API</h2>
     <p>Badge Connect&trade; defines a JSON API protocol to be implemented by applications serving in the
-      roles of Host and Relying Party. Typically Relying Parties SHOULD be certified Open Badges
-      services in the Open Badges roles of Displayer or Issuer, though Hosts may also be relying
+      roles of Provider and Consumer. Typically Relying Parties SHOULD be certified Open Badges
+      services in the Open Badges roles of Displayer or Issuer, though Providers may also be relying
       parties to serve the <a href="#usecases-host-host-transfer">Host to Host transfer use case</a>.
       Badge Connect&trade; API uses OAuth 2.0 for authentication, granular resource-based permission
-      scopes, and offers a number of required endpoints that MUST be implemented by Hosts and
-      Relying Parties or both.
+      scopes, and offers a number of required endpoints that MUST be implemented by Providers and
+      Consumers or both.
     </p>
 
     <section id="api-architecture">
@@ -116,22 +116,22 @@
       <p>There are five key components to the Badge Connect&trade; API architecture.</p>
       <dl>
         <dt>Resource Owner</dt>
-        <dd>This is the user that owns the resources (badges) that are on the Host.</dd>
+        <dd>This is the user that owns the resources (badges) that are on the Provider.</dd>
         <dt>Web Browser</dt>
         <dd>This is the web browser application that the user interacts with.</dd>
-        <dt>Relying Party</dt>
+        <dt>Consumer</dt>
         <dd>
-          This is the web application that interacts with the Host on behalf of
+          This is the web application that interacts with the Provider on behalf of
           the resource owner. This component is called the Consumer in the
           IMS Security Framework [[SEC-10]].
         </dd>
         <dt>Authorization Server</dt>
         <dd>
           This is a server that implements the OAuth 2.0 endpoints on behalf of
-          the Host. In many systems, the Authorization Server and the Host are
+          the Provider. In many systems, the Authorization Server and the Provider are
           combined.
         </dd>
-        <dt>Host</dt>
+        <dt>Provider</dt>
         <dd>
           This is the resource server that has the protected resources (badges).
           This component is called the Provider in the IMS Security Framework [[SEC-10]].
@@ -146,28 +146,28 @@
 
     <section id="api-authentication">
       <h3>Authentication</h3>
-      <p>A Relying Party requests a token scoped for access to Open Badges Assertions on a Host
-        that belong to a user (resource owner) of that Host service, using an OAuth 2.0
+      <p>A Consumer requests a token scoped for access to Open Badges Assertions on a Provider
+        that belong to a user (resource owner) of that Provider service, using an OAuth 2.0
         Authorization Code Grant as described in Section 4.2 of the IMS Security Framework [[SEC-10]].
-        Once a Relying Party obtains a code, it exchanges the code for an access token and optionally
+        Once a Consumer obtains a code, it exchanges the code for an access token and optionally
         a refresh token. Subsequent API requests are authenticated with the access token until its
-        expiration. If the Host previously provided a refresh token, the access token can be renewed.
+        expiration. If the Provider previously provided a refresh token, the access token can be renewed.
       </p>
       <section id="oauth-registration">
         <h3>Registration</h3>
         <p>
-          The user starts on the Relying Party application and is offered the chance to connect that
-          application to their chosen Host. The user supplies the Relying Party with the Host domain
-          authority or selects their Host from a list.
+          The user starts on the Consumer application and is offered the chance to connect that
+          application to their chosen Provider. The user supplies the Consumer with the Provider domain
+          authority or selects their Provider from a list.
         </p>
         <p>
-          When presented with a new target Host by which the Relying Party is attempting to gain
-          an access token from, it MUST register itself with the Host and receive client credentials
-          in order to proceed with the OAuth 2.0 token exchange. The Relying Party and Host MUST
+          When presented with a new target Provider by which the Consumer is attempting to gain
+          an access token from, it MUST register itself with the Provider and receive client credentials
+          in order to proceed with the OAuth 2.0 token exchange. The Consumer and Provider MUST
           implement [[!RFC7591]].
         </p>
         <p>
-          If the Relying Party does not know the Host's registration URL, it MUST request the
+          If the Consumer does not know the Provider's registration URL, it MUST request the
           <a href="#api-manifest">Manifest</a> as shown this sequence diagram:
         </p>
         <figure id="sd-registration">
@@ -207,7 +207,7 @@ Host: badge-host.example.com
           The properties of the JSON body MUST be implemented as described in the following table.
           All URLs MUST use HTTPS (e.g. https://example.com/logo.png) and all URLs MUST have the same hostname.
           All required properties MUST be present in the registration request in order for it to be accepted by the
-          Host.
+          Provider.
         </p>
         <table title="Properties in the client registration request">
           <thead>
@@ -221,28 +221,28 @@ Host: badge-host.example.com
             <tr>
               <td>client_name</td>
               <td>Yes</td>
-              <td>The human-readable name of the Relying Party.</td>
+              <td>The human-readable name of the Consumer.</td>
             </tr>
             <tr>
               <td>client_uri</td>
               <td>Yes</td>
-              <td>A page that which describes the Relying Party.</td>
+              <td>A page that which describes the Consumer.</td>
             </tr>
             <tr>
               <td>logo_uri</td>
               <td>Yes</td>
-              <td>The logo of the Relying Party. The logo image uri should resolve to an image file with a square aspect
+              <td>The logo of the Consumer. The logo image uri should resolve to an image file with a square aspect
                 ratio in either PNG or SVG format. Recommended resolution: 512x512px.</td>
             </tr>
             <tr>
               <td>tos_uri</td>
               <td>Yes</td>
-              <td>The Terms of Service of the Relying Party.</td>
+              <td>The Terms of Service of the Consumer.</td>
             </tr>
             <tr>
               <td>policy_uri</td>
               <td>Yes</td>
-              <td>The Privacy Policy of the Relying Party.</td>
+              <td>The Privacy Policy of the Consumer.</td>
             </tr>
             <tr>
               <td>software_id</td>
@@ -269,7 +269,7 @@ Host: badge-host.example.com
                 only "client_secret_basic"
                 is allowed:
                 <ul>
-                  <li>"client_secret_basic": The relying party uses the HTTP Basic authentication method as defined in
+                  <li>"client_secret_basic": The Consumer uses the HTTP Basic authentication method as defined in
                     OAuth 2.0.</li>
                 </ul>
                 If omitted, the default is "client_secret_basic".
@@ -306,16 +306,16 @@ Host: badge-host.example.com
                 String containing a space-separated list of scope values that this client is permitted to use when
                 requesting access tokens.
                 Scopes are defined in <a href="#api-scopes">Scopes</a>.
-                If omitted, the Host MAY register a client with a default set of scopes.</td>
+                If omitted, the Provider MAY register a client with a default set of scopes.</td>
             </tr>
           </tbody>
         </table>
-        <p>If the Host accepts the registration request, it will store the information provided in the request and
-          generate a set of client credentials for the Relying Party to use when requesting access tokens.</p>
-        <p>All the information provided by the Relying Party MUST be returned to the Relying Party, including
-          modifications to the properties as the Host deems necessary.</p>
-        <p>The Host MAY reject a registration request if the value of one of the Relying Party's metadata fields is invalid. The Host MAY choose to substitute a valid value for any requested parameter of a Relying Party's metadata. Implementers should take note that substitution MAY include changes to the permitted scopes.</p>
-        <p>For the purposes of registering a Relying Party, a Host MAY limit the scopes it supports to those revelant to Badge Connect&trade;.</p>
+        <p>If the Provider accepts the registration request, it will store the information provided in the request and
+          generate a set of client credentials for the Consumer to use when requesting access tokens.</p>
+        <p>All the information provided by the Consumer MUST be returned to the Consumer, including
+          modifications to the properties as the Provider deems necessary.</p>
+        <p>The Provider MAY reject a registration request if the value of one of the Consumer's metadata fields is invalid. The Provider MAY choose to substitute a valid value for any requested parameter of a Consumer's metadata. Implementers should take note that substitution MAY include changes to the permitted scopes.</p>
+        <p>For the purposes of registering a Consumer, a Provider MAY limit the scopes it supports to those revelant to Badge Connect&trade;.</p>
         <pre class="nohighlight">
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -382,11 +382,11 @@ Pragma: no-cache
       <section id="oauth-token">
         <h3>Obtaining Tokens</h3>
         <p>
-          After the Relying Party is registered with the Host as described in <a
+          After the Consumer is registered with the Provider as described in <a
             href="#oauth-registration">Registration</a>,
-          the Relying Party then MAY initiate an authorization request as described in Section 4.2
-          of the IMS Security Framework [[SEC-10]] by redirecting the user to the Host's authorizationUrl as
-          declared in the Host's Badge Connect&trade; <a href="#api-manifest">Manifest</a>.
+          the Consumer then MAY initiate an authorization request as described in Section 4.2
+          of the IMS Security Framework [[SEC-10]] by redirecting the user to the Provider's authorizationUrl as
+          declared in the Provider's Badge Connect&trade; <a href="#api-manifest">Manifest</a>.
         </p>
         <figure id="sd-authorization">
           <img src="images/OBC_AuthenticationSequenceDiagram.svg" alt="" />
@@ -421,7 +421,7 @@ Pragma: no-cache
               <td>redirect_uri</td>
               <td>Yes</td>
               <td>
-                The relying party's redirection endpoint. MUST match one of the <code>redirect_uris</code>
+                The Consumer's redirection endpoint. MUST match one of the <code>redirect_uris</code>
                 in the <a href="#oauth-registration">Registration</a> request. Although this is optional in
                 the IMS Security Framework [[SEC-10]], it is REQUIRED by this specification.
               </td>
@@ -464,22 +464,22 @@ response_type=code
 Host: www.example.com
 </pre>
 
-        <p>If the Host does not recognize the Relying Party's redirection endpoint from a prior
-          connection with this Relying Party, the Host SHOULD throw an error specifying that
+        <p>If the Provider does not recognize the Consumer's redirection endpoint from a prior
+          connection with this Consumer, the Provider SHOULD throw an error specifying that
           the redirection endpoint is not applicable to any registered client and registration
           should be made before proceeding. If the <code>redirect_uri</code> matches the known
           <code>client_id</code>,
-          the Host MAY honor the request to present the
-          user or resource owner with the option to authorize the request. If the Host recognizes
-          the Relying Party, the Host MAY skip the need to register the client again.
-          If the user authorizes the Relying Party to access their resources with the
-          requested scopes, the Host MUST redirect the user back to the <code>redirect_uri</code>
+          the Provider MAY honor the request to present the
+          user or resource owner with the option to authorize the request. If the Provider recognizes
+          the Consumer, the Provider MAY skip the need to register the client again.
+          If the user authorizes the Consumer to access their resources with the
+          requested scopes, the Provider MUST redirect the user back to the <code>redirect_uri</code>
           with a <code>code</code> query string parameter.
         </p>
 
-        <p>With the supplied code, the Relying Party SHOULD attempt to exchange the code for a
-          token. The Relying Party makes an authorization grant POST request to the Host's
-          tokenUrl, as declared in the Host's Badge Connect&trade; <a href="#api-manifest">Manifest</a>.
+        <p>With the supplied code, the Consumer SHOULD attempt to exchange the code for a
+          token. The Consumer makes an authorization grant POST request to the Provider's
+          tokenUrl, as declared in the Provider's Badge Connect&trade; <a href="#api-manifest">Manifest</a>.
           The HTTP POST request MUST include a Basic authorization header with the <code>client_id</code>
           and <code>client_secret</code> provided by the response to the registrationUrl endpoint.
           The body of the request MUST include the following form fields:
@@ -505,7 +505,7 @@ Host: www.example.com
               <tr>
                 <td>redirect_uri</td>
                 <td>Yes</td>
-                <td>The relying party's redirection endpoint.</td>
+                <td>The Consumer's redirection endpoint.</td>
               </tr>
               <tr>
                 <td>scope</td>
@@ -536,13 +536,13 @@ grant_type=authorization_code
         <p>If the authorization server finds the request to be a valid, it generates
           and returns an access token and optionally a refresh token.</p>
 
-        <p>If the request fails, the Host SHOULD return a response as described in
+        <p>If the request fails, the Provider SHOULD return a response as described in
           <a data-cite="RFC6749#section-4.2.2.1">RFC6749</a>.</p>
       </section>
       <section id="oauth-auth">
         <h3>Authenticating with Tokens</h3>
-        <p>After obtaining a token using the method above, a Relying Party MAY request resources
-          controlled by the resource owner from Host endpoints using the token in the HTTP
+        <p>After obtaining a token using the method above, a Consumer MAY request resources
+          controlled by the resource owner from Provider endpoints using the token in the HTTP
           Authorization header. An example follows, where <code>2YotnFZFEjr1zCsicMWpAA</code> is
           the token:</p>
         <pre>Authorization: Bearer 2YotnFZFEjr1zCsicMWpAA</pre>
@@ -553,24 +553,24 @@ grant_type=authorization_code
       </section>
       <section id="oauth-ro-revocation">
         <h3>Revocation by Resource Owner</h3>
-        <p>Host platforms MUST provide a list of authorized clients to the resource owner for review. The list SHOULD
-          identify the relying party and when the grant was created. From this list the resource owner MUST be able to
-          revoke the relying party's access.</p>
+        <p>Provider platforms MUST provide a list of authorized clients to the resource owner for review. The list SHOULD
+          identify the Consumer and when the grant was created. From this list the resource owner MUST be able to
+          revoke the Consumer's access.</p>
         <p>Subsequent attempts to use the relevant revoked access or refresh tokens SHOULD result in a 401
           UNAUTHENTICATED error.</p>
       </section>
       <section id="oauth-rp-revocation">
-        <h3>Revocation by Relying Party</h3>
-        <p>Host platforms MAY provide a mechanism to revoke both types of tokens by providing a token revocation
-          endpoint in their manifest file [[!RFC7009]]. This revocation endpoint allows a Relying Party to invalidate
-          its tokens if the end-user logs out, changes identity, or removes the respective Host.</p>
+        <h3>Revocation by Consumer</h3>
+        <p>Provider platforms MAY provide a mechanism to revoke both types of tokens by providing a token revocation
+          endpoint in their manifest file [[!RFC7009]]. This revocation endpoint allows a Consumer to invalidate
+          its tokens if the end-user logs out, changes identity, or removes the respective Provider.</p>
         <p>If token revocation endpoints are implemented they MUST support the revocation of refresh tokens and SHOULD
           support the revocation of
           access tokens.</p>
-        <p>Revocation by Relying Party is not part of the IMS Security Framework [[SEC-10]]. If the implementer decides
+        <p>Revocation by Consumer is not part of the IMS Security Framework [[SEC-10]]. If the implementer decides
           to implement it, they SHOULD follow [[RFC7009]].</p>
         <h4>Revocation Request</h4>
-        <p>The Relying Party makes a POST request to the Host's token revocation URL, as declared in the Host's Badge
+        <p>The Consumer makes a POST request to the Provider's token revocation URL, as declared in the Provider's Badge
           Connect&trade; <a href="#api-manifest">Manifest</a>.
           The HTTP request entity-body MUST contain a <code>token</code> parameter containing the refresh token or
           access token.</p>
@@ -630,17 +630,17 @@ grant_type=authorization_code
 
     <section id="api-manifest">
       <h3>Manifest</h3>
-      <p>All Hosts MUST implement a JSON manifest file
+      <p>All Providers MUST implement a JSON manifest file
         which contains configuration information about their implementation,
         such as scope support, redirect URIs, and branding information.</p>
-      <p>Hosts MUST serve the manifest at the well-known path
+      <p>Providers MUST serve the manifest at the well-known path
         <code>/.well-known/badgeconnect.json</code> on the relevant service
         domain compliant with [[RFC5785]]. The manifest MUST be provided over secure TLS 1.2 or 1.3 protocol
         e.g. <code>https://YOUR_DOMAIN/.well-known/badgeconnect.json</code>.
       </p>
 
       <h4>Requesting Manifests</h4>
-      <p>Upon requesting a Manifest file from a Host,
+      <p>Upon requesting a Manifest file from a Provider,
         the requester SHOULD respect the <code>Cache-Control</code> and
         <code>Expires</code> headers if present in the response and configure
         local cache to match the directives it declares. If directives include
@@ -738,32 +738,32 @@ grant_type=authorization_code
           <tr>
             <td><code>scopesOffered</code></td>
             <td>Yes</td>
-            <td>An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the
+            <td>An array of strings listing the scopes supported by the Provider in the form of fully qualified URLs to the
               scope descriptors.</td>
           </tr>
           <tr>
             <td><code>registrationUrl</code></td>
             <td>Yes</td>
-            <td>A fully qualified URL to which the Relying Party would
+            <td>A fully qualified URL to which the Consumer would
               make the client registration request to before performing the authorization flow.</td>
           </tr>
           <tr>
             <td><code>authorizationUrl</code></td>
             <td>Yes</td>
-            <td>A fully qualified URL to the host's authorization endpoint.</td>
+            <td>A fully qualified URL to the Provider's authorization endpoint.</td>
           </tr>
           <tr>
             <td><code>tokenUrl</code></td>
             <td>Yes</td>
-            <td>A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a
+            <td>A fully qualified URL to the Provider's token request endpoint for exchanging an authorization code for a
               bearer token.</td>
           </tr>
           <tr>
             <td><code>tokenRevocationUrl</code></td>
             <td>No</td>
-            <td>A fully qualified URL to the host's token revocation endpoint for invalidating an existing refresh token
+            <td>A fully qualified URL to the Provider's token revocation endpoint for invalidating an existing refresh token
               or access token. When this property is omitted or has a <code>null</code> value, it will be assumed that
-              the Host does not support token revocation by a Relying Party.</td>
+              the Provider does not support token revocation by a Consumer.</td>
           </tr>
         </tbody>
       </table>
@@ -813,7 +813,7 @@ grant_type=authorization_code
         </ul>
         <p>The HTTP <code>Link</code> header MUST appear when a list response is incomplete and MAY appear for complete
           responses.</p>
-        <p>It is RECOMMENDED that Host implementations pass the total result count back to the requester. When the total
+        <p>It is RECOMMENDED that Provider implementations pass the total result count back to the requester. When the total
           result count is not known, this MUST be omitted. The value MUST be provided in the custom HTTP header:
           <code>X-Total-Count</code>.</p>
         <p>The header MUST support all of the following link relations (<code>rel</code> values):</p>
@@ -921,7 +921,7 @@ Link:
               <td>Fetch Assertions for the supplied parameters and authentication token. The response envelope
                 contains a list of zero or more matching signed Assertions and a list of zero or more matching
                 unsigned assertions. There SHOULD be only one assertion (signed or unsigned) for any particular
-                assertion ID as the IDs are intended to be globally unique. The Host SHOULD return Assertions
+                assertion ID as the IDs are intended to be globally unique. The Provider SHOULD return Assertions
                 (signed and unsigned) ordered by last update, descending and SHOULD return only Assertions
                 (signed and unsigned) updated after the timestamp requested if supplied.</td>
             </tr>
@@ -1082,7 +1082,7 @@ Link:
           <tbody>
             <tr>
               <td>Description</td>
-              <td>Fetch the profile for the supplied authentication token. For a successful result, the Host MUST return
+              <td>Fetch the profile for the supplied authentication token. For a successful result, the Provider MUST return
                 a valid OB Profile instance.
               </td>
             </tr>
@@ -1147,10 +1147,10 @@ Link:
               <td>Description</td>
               <td>Update the profile for the authenticate entity. The request SHOULD only include profile identifier
                 properties to be added to the profile, not any existing data. Successful request responses will be the
-                same as GET Profile and may not include the patched values (as the Host may be waiting for asynchronous
+                same as GET Profile and may not include the patched values (as the Provider may be waiting for asynchronous
                 processes to complete before accepting the value). The value may never become part of the published
-                profile. A Host MAY respond with 400 BAD_REQUEST to reject data that is known immediately to not be
-                acceptable by the platform, e.g. to reject a "telephone" property if the Host cannot validate telephone
+                profile. A Provider MAY respond with 400 BAD_REQUEST to reject data that is known immediately to not be
+                acceptable by the platform, e.g. to reject a "telephone" property if the Provider cannot validate telephone
                 numbers.</td>
             </tr>
             <tr>
