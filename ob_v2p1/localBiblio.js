@@ -1,4 +1,20 @@
 var _localBiblio = {
+    "OB-20": {
+        "title": "Open Badges v2.0",
+        "href": "https://www.imsglobal.org/spec/ob/v2p0/",
+        "publisher": "IMS Global Learning Consortium",
+        "date": "April 2018",
+        "status": "IMS Final Release",
+        "authors": [
+          "Otto, Nate",
+          "Bohrer, Jeff",
+          "Cook, Timothy",
+          "Gylling, Markus",
+          "Hripak, Alexander",
+          "Pitcher, Justin"
+        ]
+    },
+  
     "OB-21": {
         title: "Open Badges Specification v2.1",
         href: "https://www.imsglobal.org/spec/ob/v2p1/",
