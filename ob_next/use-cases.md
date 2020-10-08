@@ -30,7 +30,7 @@ Assertion identifies which ResultDescription it applies to and which achievedLev
 This introduces the concept that an assertion may recognize an achievement that has not yet "passed" a threshold
 "required level". The mere existence of an Assertion may no longer be enough to recognize that the Issuer's desired
 criteria have been met to the full satisfaction of the Issuer, only that at least some progress toward those criteria
-were made. This may pose complications with systems whose existing logic relies on the existence of an assertion.
+was made. This may pose complications with systems whose existing logic relies on the existence of an assertion.
 Specific guidance for interpretation by inspectors or consumers should be provided in the specification for how such
 assertions should be interpreted.
 
