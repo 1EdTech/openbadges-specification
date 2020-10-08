@@ -3,7 +3,7 @@
 The published version of Open Badges 2.0 is in master and develop. Version 2.1 is only in develop until Final.
 
 ## Branches
-* __master__: stable, deployable branch that stores the official release history.
+* __master__: stable, deployable branch that stores the official release history including releases designated as Candidate Final Public.
 * __develop__: unstable development branch. Current work that targets a future release is merged into this branch.
 * __feature/new-feature-name__: unstable feature branch. Work that may be approved for future release will be developed in here and branched from __develop__.
 
@@ -15,5 +15,6 @@ Please follow these steps to contribute a change to the openbadges-specification
 1. Push those changes to the core repository or your fork.
 1. Open a pull request with the target branch of __develop__ and the source of your branch. Please include the issue number when authoring a pull request.
 1. Make your changes aware to the workgroup by raising them during a workgroup meeting. This will typically involve putting the topic on the agenda by way of the workgroup chair and/or an IMS Global staff member.
+1. Pull request or general merges into the __develop__ branch generally require workgroup approval unless IMS Staff or the workgroup chair indicate otherwise.
 
 For information on how to use GitHub within IMS Global, please see: [Spec Central](https://github.com/IMSGlobal/spec-central/blob/master/github-getting-started.md).
