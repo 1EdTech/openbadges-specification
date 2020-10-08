@@ -4,6 +4,8 @@ subtitle: Community-developed additions to the Open Badges Specification
 show_sidebar: true
 layout: page2
 ---
+{::options parse_block_html="true" /}
+
 <div id="top">
 <a href="http://www.imsglobal.org"><img src="../images/imsglobal-logo.png" alt="IMS Global Logo" id="imslogo" /></a>
 </div>
@@ -12,6 +14,63 @@ layout: page2
 Open Badges is extensible through the use of extensions. Any issuer may define and publish extensions in order to include new types of metadata in badges. Any other Open Badges service may use these extensions to publish or consume similar information in a mutually recognizable way.
 
 There are two types of extensions, [IMS Extensions](#IMSExtensions) and [Community Extensions](#CommunityExtensions). IMS Extensions are developed through IMS Global workgroups that follow an established process for submission, technical review, intellectual property review, approval, and publishing. Community extensions may be developed and supported by non-IMS individuals or organizations, are not part of the core specification, and are governed by licensing and copyright terms of the authoring individuals and organizations. IMS will publish community extensions here for informational purposes.
+
+## Extension Definition
+
+Extension authors define and host a new [JSON-LD](http://json-ld.org) context file describing all the terms the extension covers. These context files may further define any [JSON-schema](http://json-schema.org/) that implementations of the extension should pass. If used, each schema is linked from the context and hosted as a separate JSON-schema files. Extensions are implemented in Open Badges as JSON objects inside an Assertion, BadgeClass or Issuer with their own link to the extension context and declaration of type.
+
+<div class="table-wrapper">
+
+Property | Expected Type | Description
+--------|------------|-----------
+**@context** | URL | JSON-LD context file shared among all implementations of the extension.
+**type** | IRI ([Multiple values allowed](#array)) | IRI or compact IRI within the OBI or extension context that describe the type of data contained in the extension. The IRI is used to map optional JSON-schema validation to the extension. Must include 'extension' as one element.
+\*anyProperties | Any | Any property names defined in the extension context may be used with any valid JSON value. 
+
+</div>
+
+An extension value should be included as a JSON object containing the `@context` and `@type` properties and any new properties whose names are mapped in the context file referenced by `@context`. 
+
+The property name for the extension should map to an IRI within the `@context` defined at the root of the extended Badge Object. It is possible to use a fully qualified IRI (e.g. `http://example.org/newBadgeExtension`) or a compact IRI within the extension namespace defined in the [OBI context](./v2/context.json), like `extension:newBadgeExtension`. In either case, the IRI should correspond to where a human-readable definition of the extension resides. For extensions using the `extension` namespace, this definition may be contributed to the community [extensions repository](./extensions/index.html) on this site.
+
+### Extension Validation <a id="validation"></a>
+
+Open Badges v1.1 implemented an optional JSON-schema based mechanism of ensuring badge objects conform to syntactic requirements of the specification. JSON-schema can ensure that required properties exist and that expected data types are used. From the [context](./v1/context.json)s for badge objects and extensions, a `validation` [array](#array) may contain links to various JSON-schema against which badge objects may be tested. There are two proposed methods of specifying which component of a badge object should be matched against the JSON-schema validator: TypeValidation and FrameValidation. As of 1.1, only TypeValidation is implemented.
+
+For example, this portion of the current Open Badges context links to a validator for Assertions. It indicates through TypeValidation that it should be run against JSON objects with the JSON-LD type of `Assertion` ([https://w3id.org/openbadges#Assertion]).
+{% highlight json %}
+{
+  ...
+  "validation": [
+    {
+      "type": "TypeValidation",
+      "validatesType": "Assertion",
+      "validationSchema": "https://openbadgespec.org/v1/schema/assertion.json"
+    },
+    ...
+  ]
+}
+{% endhighlight %}
+
+#### <a id="TypeValidation"></a>Type Validation 
+
+Validators using the TypeValidation method match the schema indicated by the validator's `validationSchema` property against a JSON badge object document or portion of such a document that matches the validator's `validatesType` JSON-LD `type`.
+
+<div class="table-wrapper">
+
+Property | Expected Type | Description/expected value
+--------|------------|-----------
+**type** | string/compact IRI ([Multiple values allowed](#array)) | `TypeValidation`.
+**validatesType** | string/compact IRI | Valid JSON-LD type for a badge component, such as `Assertion`, `extensions:ApplyLink`, or `https://w3id.org/openbadges/extensions#ApplyLink`. Compact forms preferred.
+**validationSchema** | URL | Location of a hosted JSON-schema.
+
+</div>
+
+#### <a id="FrameValidation"></a> Frame Validation
+_status: proposed_
+Validators that someday use the proposed FrameValidation method pass JSON-LD objects through the JSON-LD Frame indicated by the `validationFrame` property and test the result against the JSON-schema indicated by the validator's `validationSchema` property.
+
+## Example Extension
 
 Here's an example of an Open Badges extension:
 
@@ -52,6 +111,8 @@ Assertion, BadgeClass, Issuer
 2. [Assessment](https://www.imsglobal.org/spec/ob-assessment/v1p0/) - This extension allows issuers to embed metadata about assessment(s) performed in the badge awarding process, potentially including some questions and related rubric data. 
 
 3. [Extra Description](http://imsglobal.github.io/openbadges-specification/extensions/extraDescription/) - Allows issuers to add additional descriptive fields to a BadgeClass or Issuer Profile.
+
+If you are interested in proposing a new IMS Extension, please see the [extension template](https://github.com/IMSGlobal/openbadges-specification/tree/extension_template/ob_v2p0/extensions/template).
 
 ---
 
