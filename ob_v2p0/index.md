@@ -263,7 +263,7 @@ Property | Expected Type | Description
 **type** | JSON-LD type ([Multiple values allowed](#array))| valid JSON-LD representation of the BadgeClass type. In most cases, this will simply be the string `BadgeClass`. An array including `BadgeClass` and other string elements that are either URLs or compact IRIs within the current context are allowed.
 **name** | Text | The name of the achievement.
 **description** | Text | A short description of the achievement.
-**image** | @id: [Image](#Image) | IRI of an image representing the achievement. May be a [Data URI](http://en.wikipedia.org/wiki/Data_URI_scheme), or URI where the image may be found.
+**image** | @id: [Image](#Image) | IRI or document representing an image of the achievement. This must be a PNG or SVG image.
 <a id="criteria"></a>**criteria** | @id: [Criteria](#Criteria) | URI or embedded criteria document describing how to earn the achievement.
 **issuer** | @id: [Profile](#Profile) | IRI or document describing the individual, entity, or organization that issued the badge.
 alignment | [AlignmentObject](#Alignment) ([Multiple values allowed](#array))| An object describing which objectives or educational standards this badge aligns to, if any.
@@ -285,7 +285,7 @@ name | Text | The name of the entity or organization.
 url | IRI | The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP. ([examples](./examples/index.html#SocialMediaUrls)).
 telephone | Text | A phone number for the entity. For maximum compatibility, the value should be expressed as a `+` and country code followed by the number with no spaces or other punctuation, like `+16175551212` ([E.164 format](http://en.wikipedia.org/wiki/E.164)).
 description | Text | A short description of the issuer entity or organization.
-image | @id: [Image](#Image) | An image representing the issuer. May be a Data URI, or URI where the image may be found or an instance of the Image class.
+image | @id: [Image](#Image) | IRI or document representing an image of the issuer. This must be a PNG or SVG image.
 email | Text | Contact address for the individual or organization.
 publicKey | @id: [CryptographicKey](#CryptographicKey) | The key(s) an issuer uses to sign Assertions.
 verification | [VerificationObject](#VerificationObject) | Instructions for how to verify Assertions published by this Profile.
@@ -629,7 +629,7 @@ If a property would be useful beyond a publisher's internal use, an [Extension](
 * <a id="dateTime"></a>DateTime - Open Badges must express timestamps as strings compatible with [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) guidelines, including the time and a time zone indicator. It is recommended to publish all timestamps in UTC. Previous versions of Open Badges allowed Unix timestamps as integers. Open Badges v2.0 requires string ISO 8601 values with time zone indicators. For example, `2016-12-31T23:59:59+00:00` is a valid ISO 8601 timestamp. It contains the year, month, day, `T` separator, hour number 0-23, minute, optional seconds and decimal microsecond, and a time zone indicator (+/- an offset from UTC or the `Z` designator for UTC).
 * URL - Fully qualified URL, including protocol, host, port if applicable, and path. Interpreters are only expected to interpret URLs in either the `http` or `https` schemes.
 * IRI - In JSON-LD and Linked Data, IRIs (Internationalized Resource Identifiers) may look like fully qualified URLs or be namespaced within the JSON-LD context to be expanded to a full IRI. The only known supported IRI schemes are `http` and `https`.
-* <a id="identityHash"></a>IdentityHash - A hash string preceded by a dollar sign ("$") and the algorithm used to generate the hash. The supported algorithms are [MD5](https://www.ietf.org/rfc/rfc1321.txt) and [SHA-256](http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf), identified by the strings `md5` and `sha256` respectively. For example: `sha256$28d50415252ab6c689a54413da15b083034b66e5` represents the result of calculating a SHA-256 hash on the string "mayze". For more information, see [how to hash & salt in various languages](https://github.com/mozilla/openbadges/wiki/How-to-hash-&-salt-in-various-languages.).
+* <a id="identityHash"></a>IdentityHash - A hash string containing an algorithm identifier and a resulting hash of an identifier, separated by a dollar sign ("$") and the algorithm used to generate the hash. The only supported algorithms are [MD5](https://www.ietf.org/rfc/rfc1321.txt) and [SHA-256](http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf), identified by the strings `md5` and `sha256` respectively. Resulting hash for each of these algorithms MUST be expressed in hexadecimal using uppercase (A-F, 0-9) or lowercase character (a-f, 0-9) sets. For example: `sha256$7a1a1b3f7d40552e4299180e346e3add12bf9a751a43d9c4ca4518febc2c60c6` represents the result of calculating a SHA-256 hash on the string "mayze". For more information, see [how to hash & salt in various languages](https://github.com/mozilla/openbadges/wiki/How-to-hash-&-salt-in-various-languages.).
 * <a id="MarkdownText"></a> Markdown Text - Text that may contain formatting according to [Markdown syntax](https://daringfireball.net/projects/markdown/syntax). Due to uneven support in displayers, publishers are encouraged to limit usage to simple elements like links, emphasis, and lists. Displayers may choose a subset of Markdown formatting to support or how to render this field. Images and tables may or may not be supported.
 
 # Implementation
@@ -725,7 +725,7 @@ To mark a badge as revoked, add an entry to the resource pointed at by the Issue
 
 
 # History <a id="History"></a>
- * [From 1.1 to 2.0](history/2.0.html)
+ * [From 1.1 to 2.0](history/2.0.html) (includes 2.0 errata)
  * [From 1.0 to 1.1](history/1.1.html) 
  * [From 0.5 to 1.0](https://github.com/mozilla/openbadges/wiki/Assertion-Specification-Changes)
  * [Early history of the specification](https://github.com/mozilla/openbadges-backpack/wiki/Assertions/_history)
