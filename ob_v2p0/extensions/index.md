@@ -51,7 +51,7 @@ Assertion, BadgeClass, Issuer
 
 2. [Assessment](https://www.imsglobal.org/spec/ob-assessment/v1p0/) - This extension allows issuers to embed metadata about assessment(s) performed in the badge awarding process, potentially including some questions and related rubric data. 
 
-3. [Extra Description](http://imsglobal.github.io/openbadges-specification/extensions/extraDescription/) - Allows issuers to add additional descriptive fields to a BadgeClass or Issuer Profile.
+3. [Extra Description](https://www.imsglobal.org/spec/ob-exdesc/v1p0/) - Allows issuers to add additional descriptive fields to a BadgeClass or Issuer Profile.
 
 ---
 
