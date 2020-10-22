@@ -1018,7 +1018,9 @@ Link:
             <tr>
               <td>Description</td>
               <td>Create or update an Assertion. The posted data MUST be an <a href="#api-assertionpayload">Assertion
-                  Payload</a>. Assertions MAY be received multiple times, the most recently received instance of an Assertion SHOULD be considered as an updated instance and used over previous instances.</td>
+                  Payload</a>. Upon receiving any Assertion, the Host SHOULD verify the Assertion, whether it is the
+                  first time seen or a subsequent update. The data posted by the relying party SHOULD not be implicitly
+                  trusted to be an accurate representation of the Assertion.</td>
             </tr>
             <tr>
               <td>Responses</td>
