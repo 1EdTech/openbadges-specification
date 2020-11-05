@@ -18,7 +18,6 @@
             specVersion: "2.1",
             specNature: "normative",
             specType: "cert",
-            format: "markdown",
             maxTocLevel: "3",
             skipCertGuideConformanceRef: false,
             contributors: _contributors,
@@ -61,7 +60,7 @@
 </head>
 
 <body>
-    <section class="introduction" id="abstract">
+    <section class="introduction" id="abstract" data-format="markdown">
         <script class="transclude" src="ob-abstract.md" data-id="abstract"></script>
     </section>
 
@@ -72,16 +71,18 @@
             <h3>Conformance and Certification</h3>
         </section>
 
-        <section class="informative" id="document-set">
+        <section class="informative" id="document-set" data-format="markdown">
             <script class="transclude" src="ob-documents.md" data-id="documents"></script>
         </section>
 
-        <section class="informative" id="terminology">
+        <section class="informative" id="terminology" data-format="markdown">
             <script class="transclude" src="ob-terms.md" data-id="terms"></script>
         </section>
     </section>
 
-    <script class="transclude" src="ob-cert-v2p1.md" data-id="md"></script>
+    <section data-format="markdown">
+        <script class="transclude" src="ob-cert-v2p1.md" data-id="md"></script>
+    </section>
 
     <section class="appendix informative" id="revisionhistory">
         <h1>Revision History</h1>
