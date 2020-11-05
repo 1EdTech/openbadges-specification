@@ -30,11 +30,10 @@
         <h2><a name="toc">List of Classes</a></h2>
         <ul>
             <li><a href="#dtAssertion">dtAssertion</a></li>
-            <li><a href="#dtAssertionsResponse">dtAssertionsResponse</a></li>
             <li><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a></li>
+            <li><a href="#dtCompactJWS">dtCompactJWS</a></li>
             <li><a href="#dtIRI">dtIRI</a></li>
             <li><a href="#dtProfile">dtProfile</a></li>
-            <li><a href="#dtProfileResponse">dtProfileResponse</a></li>
             <li><a href="#dtStatus">dtStatus</a></li>
             <li><a href="#dtStatusResponse">dtStatusResponse</a></li>
             <li><a href="#dtURL">dtURL</a></li>
@@ -45,6 +44,7 @@
         <h2>List of Properties</h2>
         <ul>
             <li><a href="#apiBase">apiBase</a></li>
+            <li><a href="#assertion">assertion</a></li>
             <li><a href="#assertions">assertions</a></li>
             <li><a href="#authorizationUrl">authorizationUrl</a></li>
             <li><a href="#badgeConnectAPI">badgeConnectAPI</a></li>
@@ -56,6 +56,7 @@
             <li><a href="#profile">profile</a></li>
             <li><a href="#registrationUrl">registrationUrl</a></li>
             <li><a href="#scopesOffered">scopesOffered</a></li>
+            <li><a href="#signedAssertion">signedAssertion</a></li>
             <li><a href="#signedAssertions">signedAssertions</a></li>
             <li><a href="#status">status</a></li>
             <li><a href="#statusCode">statusCode</a></li>
@@ -73,19 +74,12 @@
         <p>Open Badges 2.0 Assertion object.</p>
             <p>The list and definition of the child properties is:-</p>
         <dl class="jsonldcontext">
+            <dt>id</dt>
+            <dd>Unique IRI for this object.</dd>
+            <dt>type</dt>
+            <dd>The JSON-LD type of this object. Normally 'Assertion'.</dd>
             <dt>extensions</dt>
-            <dd>The properties of the Open Badges 2.0 Assertion object.</dd>
-        </dl>
-        <h3><a name="dtAssertionsResponse">"dtAssertionsResponse" Class</a></h3>
-        <p>Successfull response from the GET /assertions endpoint.</p>
-            <p>The list and definition of the child properties is:-</p>
-        <dl class="jsonldcontext">
-            <dt>status</dt>
-            <dd>The Status object describing the success or failure of the request.</dd>
-            <dt>assertions</dt>
-            <dd>The matching unsigned Assertions. The total number of unsigned and signed assertions should not exceed the pagination limit. Not required if there are no unsigned assertions.</dd>
-            <dt>signedAssertions</dt>
-            <dd>The matching signed Assertions in JWS Compact Serializion format. The total number of unsigned and signed assertions should not exceed the pagination limit. Not required if there are no signed assertions.</dd>
+            <dd></dd>
         </dl>
         <h3><a name="dtBadgeConnectAPI">"dtBadgeConnectAPI" Class</a></h3>
         <p>Configuration information about a single implementation.</p>
@@ -118,23 +112,20 @@
             <dt>version</dt>
             <dd>A string representing the implemented version. MUST be in the format of vMAJORpMINOR where MAJOR and MINOR are integers.</dd>
         </dl>
+        <h3><a name="dtCompactJWS">"dtCompactJWS" Class</a></h3>
+        <p>A String in JWS Compact Serialization format.</p>
         <h3><a name="dtIRI">"dtIRI" Class</a></h3>
-        <p>Internationalized Resource Identifiers as defined by RFC3987.</p>
+        <p></p>
         <h3><a name="dtProfile">"dtProfile" Class</a></h3>
         <p>Open Badges 2.0 Profile object.</p>
             <p>The list and definition of the child properties is:-</p>
         <dl class="jsonldcontext">
+            <dt>id</dt>
+            <dd>Unique IRI for this object.</dd>
+            <dt>type</dt>
+            <dd>The JSON-LD type of this object. Normally 'Profile'.</dd>
             <dt>extensions</dt>
-            <dd>The properties of the Open Badges 2.0 Profile object.</dd>
-        </dl>
-        <h3><a name="dtProfileResponse">"dtProfileResponse" Class</a></h3>
-        <p>Successfull response from the GET /profile and POST /profile endpoints.</p>
-            <p>The list and definition of the child properties is:-</p>
-        <dl class="jsonldcontext">
-            <dt>status</dt>
-            <dd>The Status object describing the success or failure of the request.</dd>
-            <dt>profile</dt>
-            <dd>The matching profile.</dd>
+            <dd></dd>
         </dl>
         <h3><a name="dtStatus">"dtStatus" Class</a></h3>
         <p>Response status.</p>
@@ -148,22 +139,24 @@
             <dd>A string matching one of the enumerated and allowed values for the given endpoint.</dd>
         </dl>
         <h3><a name="dtStatusResponse">"dtStatusResponse" Class</a></h3>
-        <p>Response payload that only contains a Status object.</p>
+        <p>A status-only response.</p>
             <p>The list and definition of the child properties is:-</p>
         <dl class="jsonldcontext">
             <dt>status</dt>
-            <dd>The Status object describing the success or failure of the request.</dd>
+            <dd>The status of the request.</dd>
         </dl>
         <h3><a name="dtURL">"dtURL" Class</a></h3>
-        <p>Uniform Resource Identifier as defined by RFC1738.</p>
+        <p></p>
         <p />
         <div style="text-align: right; clear: both;"><a href="#toc">toc</a> | <a href="#top">top</a></div>
         <hr />
         <h2>Property Definitions</h2>
         <h3><a name="apiBase">"apiBase" Property</a></h3>
             <p>Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing slash '/'. E.g. apiBase + '/assertions'.</p>
+        <h3><a name="assertion">"assertion" Property</a></h3>
+            <p>An unsigned assertion in JSON-LD serialization format.</p>
         <h3><a name="assertions">"assertions" Property</a></h3>
-            <p>The matching unsigned Assertions. The total number of unsigned and signed assertions should not exceed the pagination limit. Not required if there are no unsigned assertions.</p>
+            <p>An array of unsigned assertions in JSON-LD serialization format.</p>
         <h3><a name="authorizationUrl">"authorizationUrl" Property</a></h3>
             <p>A fully qualified URL to the host's authorization endpoint.</p>
         <h3><a name="badgeConnectAPI">"badgeConnectAPI" Property</a></h3>
@@ -178,12 +171,12 @@
             <p>This property is used in the following classes:-</p>
         <dl class="jsonldcontext">
             <dt><a href="#dtAssertion">dtAssertion</a> Class</dt>
-            <dd>The properties of the Open Badges 2.0 Assertion object.</dd>
+            <dd></dd>
             <dt><a href="#dtProfile">dtProfile</a> Class</dt>
-            <dd>The properties of the Open Badges 2.0 Profile object.</dd>
+            <dd></dd>
         </dl>
         <h3><a name="id">"id" Property</a></h3>
-            <p>Unique IRI for the configuration.</p>
+            <p>Unique IRI for this object.</p>
         <h3><a name="image">"image" Property</a></h3>
             <p>This property is used in the following classes:-</p>
         <dl class="jsonldcontext">
@@ -199,7 +192,7 @@
         <h3><a name="privacyPolicyUrl">"privacyPolicyUrl" Property</a></h3>
             <p>A fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as part of their authorization interface.</p>
         <h3><a name="profile">"profile" Property</a></h3>
-            <p>The matching profile.</p>
+            <p>The profile.</p>
         <h3><a name="registrationUrl">"registrationUrl" Property</a></h3>
             <p>A fully qualified URL to the host's dynamic client registration endpoint.</p>
         <h3><a name="scopesOffered">"scopesOffered" Property</a></h3>
@@ -208,14 +201,12 @@
             <dt><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a> Class</dt>
             <dd>Applies to Hosts only. An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the scope descriptors.</dd>
         </dl>
+        <h3><a name="signedAssertion">"signedAssertion" Property</a></h3>
+            <p>A signed assertion in JWS Compact Serialization format.</p>
         <h3><a name="signedAssertions">"signedAssertions" Property</a></h3>
-            <p>This property is used in the following classes:-</p>
-        <dl class="jsonldcontext">
-            <dt><a href="#dtAssertionsResponse">dtAssertionsResponse</a> Class</dt>
-            <dd>The matching signed Assertions in JWS Compact Serializion format. The total number of unsigned and signed assertions should not exceed the pagination limit. Not required if there are no signed assertions.</dd>
-        </dl>
+            <p>An array of signed assertions in JWS Compact Serialization format.</p>
         <h3><a name="status">"status" Property</a></h3>
-            <p>The Status object describing the success or failure of the request.</p>
+            <p>The response status object.</p>
         <h3><a name="statusCode">"statusCode" Property</a></h3>
             <p>This property is used in the following classes:-</p>
         <dl class="jsonldcontext">
@@ -231,7 +222,17 @@
         <h3><a name="tokenUrl">"tokenUrl" Property</a></h3>
             <p>A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</p>
         <h3><a name="type">"type" Property</a></h3>
-            <p>The JSON-LD type of this object. Normally 'BadgeConnectAPI'.</p>
+            <p>This property is used in the following classes:-</p>
+        <dl class="jsonldcontext">
+            <dt><a href="#dtAssertion">dtAssertion</a> Class</dt>
+            <dd>The JSON-LD type of this object. Normally 'Assertion'.</dd>
+            <dt><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a> Class</dt>
+            <dd>The JSON-LD type of this object. Normally 'BadgeConnectAPI'.</dd>
+            <dt><a href="#dtManifest">dtManifest</a> Class</dt>
+            <dd>The JSON-LD type of this object. Normally 'Manifest'.</dd>
+            <dt><a href="#dtProfile">dtProfile</a> Class</dt>
+            <dd>The JSON-LD type of this object. Normally 'Profile'.</dd>
+        </dl>
         <h3><a name="version">"version" Property</a></h3>
             <p>This property is used in the following classes:-</p>
         <dl class="jsonldcontext">
