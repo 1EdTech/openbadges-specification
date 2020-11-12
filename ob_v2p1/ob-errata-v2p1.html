@@ -13,12 +13,11 @@
             mainSpecBiblioKey: "OB-SPEC-21",
             specTitle: "Open Badges Specification Errata",
             shortName: "ob",
-            specStatus: "IMS Candidate Final",
-            specDate: "January 24, 2020",
+            specStatus: "IMS Candidate Final Public",
+            specDate: "October 7, 2020",
             specVersion: "2.1",
             specNature: "normative",
             specType: "errata",
-            format: "markdown",
             maxTocLevel: "2",
             skipCertGuideConformanceRef: false,
             contributors: _contributors,
@@ -34,19 +33,23 @@
 </head>
 
 <body>
-    <section class="introductory" id="abstract">
+    <section class="introductory" id="abstract" data-format="markdown">
         <script class="transclude" src="ob-abstract.md" data-id="abstract"></script>
     </section>
 
     <section>
         <h2>Introduction</h2>
 
-        <section id="document-set">
+        <section id="document-set" data-format="markdown">
             <script class="transclude" src="ob-documents.md" data-id="documents"></script>
         </section>
     </section>
 
-    <script class="transclude" src="ob-errata-v2p1.md" data-id="md"></script>
+    <section data-format="markdown">
+        <h2>Errata</h2>
+        
+        <p>There is no errata.</p>
+    </section>
 
     <section class="appendix informative" id="revisionhistory">
         <h1>Revision History</h1>
@@ -59,6 +62,11 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>Version 2.1 IMS Candidate Final Public</td>
+                    <td>October 7, 2020</td>
+                    <td>Released as Candidate Final Public.</td>
+                </tr>
                 <tr>
                     <td>Version 2.1 IMS Candidate Final</td>
                     <td>January 24, 2020</td>

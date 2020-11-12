@@ -1,28 +1,48 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id" : "postProfile-200-responsepayload-schema.json",
-    "title" : "Open Badges Version 2.1 IMS Candidate Final JSON Schema Binding (postProfile-200-responsepayload-schema)",
+    "$id" : "getAssertions-200-responsepayload-schema.json",
+    "title" : "Open Badges Version 2.1 IMS Candidate Final JSON Schema Binding (getAssertions-200-responsepayload-schema)",
     "description" : "Author-Alexander Hripak, Nate Otto, Justin Pitcher, and Chris Houston;  Version-2.1;  Release Date-August 29, 2019. ",
     "type" : "object",
     "properties" : {
         "status" : {
-            "description" : "The Status object describing the success or failure of the request.",
+            "description" : "The response status object.",
             "$ref" : "#/definitions/StatusDType"
         },
-        "profile" : {
-            "description" : "The matching profile.",
-            "$ref" : "#/definitions/ProfileDType"
+        "assertions" : {
+            "description" : "An array of unsigned assertions in JSON-LD serialization format.",
+            "type" : "array",
+            "minItems" : 0,
+            "items" : {
+                "$ref" : "#/definitions/AssertionDType"
+            }
+        },
+        "signedAssertions" : {
+            "description" : "Model Primitive Datatype = String. An array of signed assertions in JWS Compact Serialization format.",
+            "type" : "array",
+            "minItems" : 0,
+            "items" : {
+                "type" : "string",
+            }
         }
     },
-    "required" : [ "status","profile" ],
+    "required" : [ "status" ],
     "additionalProperties" : false,
     "definitions" : {
-        "ProfileDType" : {
-            "description" : "Open Badges 2.0 Profile object.",
+        "AssertionDType" : {
+            "description" : "Open Badges 2.0 Assertion object.",
             "type" : "object",
             "properties" : {
-
+                "id" : {
+                    "description" : "Model Primitive Datatype = NormalizedString. Unique IRI for this object.",
+                    "type" : "string"
+                },
+                "type" : {
+                    "description" : "Model Primitive Datatype = String. The JSON-LD type of this object. Normally 'Assertion'.",
+                    "type" : "string"
+                }
             },
+            "required" : [ "id","type" ],
             "patternProperties" : {
                 "^[^:][^:]*:[^:][^:]*$" : {
                     "oneOf": [{ "type": "string" }, { "type": "array" }, { "type": "boolean" }, { "type": "number" }, { "type": "integer" }]

@@ -2,122 +2,159 @@ var md = `
 
 ## Open Badges Conformance
 
-The goal of IMS certification for Open Badges is to ensure interoperable implementations of badging systems that generate and issue digital badges as well as those that host and display badges.
+The goal of IMS certification for Open Badges [[OB-21]] is to ensure interoperable implementations of badging systems that generate and issue digital badges as well as those that host and display badges.
 
 IMS certification for Open Badges demands features and capabilities beyond those that are strictly required by the specification. These additional features are defined in this document. The specification is intentionally left very flexible to allow it to be used for many purposes. Gaining this certification is expected to be more difficult than simply meeting the minimum requirements for producing a valid Open Badge.
 
-Certification may be achieved in one or more of the following roles:
+Certification may be achieved for one or more of the following 4 features:
 
-* Issuer
-* Displayer
-* Host
+Consumer<br />(Initiates Requests) | Provider<br />(Responds to Requests)
+:--------------------------------: | :----------------------------------:
+[Service Consumer (Read)](#service-consumer-read) | [Service Provider (Read)](#service-provider-read)
+[Service Consumer (Write)](#service-consumer-write) | [Service Provider (Write)](#service-provider-write)
 
-The roles and associated certification tests are defined below.
+The features and associated certification tests are defined below.
 
 ### The Conformance Process
 
 The process for conformance testing role implementations of Open Badges includes the following:
 
-* First, go to the [IMS Conformance Test Suite for Open Badges 2.0](https://www.imsglobal.org/open-badges-certification-suite) and follow the instructions to create and submit an application for Open Badges 2.0 conformance certification.
-* Second, go to the [IMS Conformance Test Suite for Open Badges 2.1] and follow the instructions to create and submit an application for Open Badges 2.1 conformance certification described here.
-<aside class="issue">What is the URL for the Open Badges 2.1 certification suite?</aside>
+* First, go to the IMS Conformance Test Suite for Open Badges 2.1 and follow the onscreen instructions to run the tests.
+* Once the tests have been successfully run, submit your test results. A copy of your test results will be sent to your email address.
 
 To pass certification, you must take the following steps:
 
-* You must be an IMS Digital Credentials and Badges Alliance Member, an IMS Affiliate Member, or IMS Contributing Member. 
-* You must pass all the tests associated with the role you are applying for using the certification suite hosted on the IMS website. The roles and associated tests are specified below. 
+* You must be an IMS Digital Credentials and Badges Alliance Member, an IMS Affiliate Member, or IMS Contributing Member.
+* You must be certified for Open Badges 2.0.
+* You must pass all the tests associated with the features you are applying for using the certification suite hosted on the IMS website.
 * The tests must be completed by a designated representative of the IMS member organization, and you must agree that there is no misrepresentation or manipulation of results in the submitted information.
 
-After IMS reviews your submitted information and notifies you that your application is approved, you can claim certification to Open Badges and display the IMS certified logo on your website and in your software. The [IMS Global Certified Products Directory](https://site.imsglobal.org/certifications) will list your conformance details.
+After IMS reviews your submitted information and notifies you that your application is approved, you can claim certification to Open Badges 2.1 and display the IMS certified logo on your website and in your software. The IMS Global Certified Products Directory will list your conformance details.
 
-### Issuer Role Conformance
+## Service Consumer (Read) Conformance {#service-consumer-read}
 
-An Open Badges **Issuer** is an application that allows for the creation of <a data-cite="OB-21#BadgeClass">BadgeClasses</a> and the subsequent delivery of <a data-cite="OB-21#Assertion">Assertions</a> to recipients that conform to the [[[OB-21]]]. Beginning with Open Badges 2.1, the candidate platform must support the transimission of a badge using the Badge Connect&trade; API.
+A product that conforms to Service Consumer (Read) requirements can request badges from a product that conforms to Service Provider (Read) requirements. One example of such a product is a Host which requests your badges from another Host.
 
-**Tests**
+### Required Service Consumer (Read) Endpoint Support
 
-| Test | API | Requester | Responder | Endpoint | Required |
-| ---- | --- | --------- | --------- | -------- | -------- |
-| 1 | GET Manifest | Candidate | IMS | <code>.well-known/badgeconnect.json</code> | Yes |
-| 2 | OAuth2 Register | Candidate | IMS | <code>RegistrationUrl</code> | Yes |
-| 3 | OAuth2 Authorize | Candidate | IMS | <code>AuthorizationUrl</code> | Yes |
-| 4 | OAuth2 Token | Candidate | IMS | <code>TokenUrl</code> | Yes |
-| 5 | POST Assertion | Candidate | IMS | <code>/assertions</code> | Yes |
-| 6 | POST Profile | Candidate | IMS | <code>/profile</code> | No |
+The service endpoints that MUST be supported for Service Consumer (Read) are listed in the table below:
 
-1. GET the <a data-cite="OB-21#api-Manifest">Manifest</a> from the IMS conformance testing platform.
-2. Request the IMS conformance testing platform dynamically register the candidate platform.
-3. Authorize the IMS conformance testing platform to create assertions and update profiles, and optionally offline access on behalf of the test user.
-4. Request an access token and optionally a refresh token from the IMS conformance testing platform in exchange for the authorization code provided in #3.
-5. POST a signed or unsigned <a data-cite="OB-21#Assertion">Assertion</a> to the <code>/assertions</code> endpoint on the IMS conformance testing platform.
-6. (Optional) POST a <a data-cite="OB-21#Profile">Profile</a> to the <code>/profile</code> endpoint on the IMS conformance testing platform.
+Service Call | Endpoint | HTTP Verb | Mode | Authorization<br />Required
+------------ | -------- | --------- | ---- | ---------------------------
+getManifest | as configured | GET | Initiate | No
+OAuth 2.0 Registration | from manifest | GET | Initiate | No
+OAuth 2.0 Authorize | from manifest | GET | Initiate | No
+OAuth 2.0 Token | from manifest | POST | Initiate | No
+getAssertions | \`/ims/ob/v2p1/assertions\` | GET | Initiate | Yes
+getProfile | \`/ims/ob/v2p1/profile\` | GET | Initiate | Yes
 
-### Displayer Role Conformance
+### Service Consumer (Read) Compliance
 
-An Open Badges **Displayer** is an application that displays verified badges to viewers. Beginning with Open Badges 2.1, the candidate platform must be able to retrieve badges using the Badge Connect&trade; API.
+The functional capabilities of such systems are:
 
-**Tests**
+* They MUST support the required service endpoints
+* They MUST supply an access token with the appropriate scope to the service endpoints that require authorization
+* They MUST supply or 'handle' all of the required data fields in payloads
+* They MUST be capable of supplying or 'handling' all of the optional data fields in payloads
+* They MUST NOT provide extension data fields in the payloads
+* They MAY support the endpoint payload pagination query parameters. If supported, the corresponding response HTTP pagination headers MUST be supported
 
-| Test | API | Requester | Responder | Endpoint | Required |
-| ---- | --- | --------- | --------- | -------- | -------- |
-| 1 | GET Manifest | Candidate | IMS | <code>.well-known/badgeconnect.json</code> | Yes |
-| 2 | OAuth2 Register | Candidate | IMS | <code>RegistrationUrl</code> | Yes |
-| 3 | OAuth2 Authorize | Candidate | IMS | <code>AuthorizationUrl</code> | Yes |
-| 4 | OAuth2 Token | Candidate | IMS | <code>TokenUrl</code> | Yes |
-| 5 | GET Assertions | Candidate | IMS | <code>/assertions</code> | Yes |
-| 6 | GET Profile | Candidate | IMS | <code>/profile</code> | Yes |
+## Service Consumer (Write) Conformance {#service-consumer-write}
 
-1. GET the <a data-cite="OB-21#api-Manifest">Manifest</a> from the IMS conformance testing platform.
-2. Request the IMS conformance testing platform dynamically register the candidate platform.
-3. Authorize the IMS conformance testing platform to retrieve assertions and profiles, and optionally offline access on behalf of the test user.
-4. Request an access token and optionally a refresh token from the IMS conformance testing platform in exchange for the authorization code provided in #3.
-5. GET signed and unsigned <a data-cite="OB-21#Assertion">Assertions</a> from the <code>/assertions</code> endpoint on the IMS conformance testing platform.
-	<aside class="issue">Test paging?</aside>
-6. GET a <a data-cite="OB-21#Profile">Profile</a> from the <code>/profile</code> endpoint on the IMS conformance testing platform.
+A product that conforms to Service Consumer (Write) requirements can send an Assertion or a Profile to a product that conforms to Service Provider (Write) requirements. One example of such a product is an Issuer that sends an Assertion to a Host.
 
-### Host Role Conformance
+### Required Service Consumer (Write) Endpoint Support
 
-An Open Badges **Host** is an application that can aggregate and publicly host <a data-cite="OB-21#Assertion">Assertions</a> for recipients. It also supports export of badges at user request. Beginning with Open Badges 2.1, the candidate platform must be able to send and receive assertions and profiles using the Badge Connect&trade; API.
+The service endpoints that MUST be supported for Service Consumer (Write) are listed in the table below:
 
-**Tests**
+Service Call | Endpoint | HTTP Verb | Mode | Authorization<br />Required
+------------ | -------- | --------- | ---- | ---------------------------
+getManifest | as configured | GET | Initiate | No
+OAuth 2.0 Registration | from manifest | GET | Initiate | No
+OAuth 2.0 Authorize | from manifest | GET | Initiate | No
+OAuth 2.0 Token | from manifest | POST | Initiate | No
+postAssertion | \`/ims/ob/v2p1/assertions\` | POST | Initiate | Yes
 
-| Test | API | Requester | Responder | Endpoint | Required |
-| ---- | --- | --------- | --------- | -------- | -------- |
-| 1 | GET Manifest | Candidate | IMS | <code>.well-known/badgeconnect.json</code> | Yes |
-| 2 | GET Manifest | IMS | Candidate | <code>.well-known/badgeconnect.json</code> | Yes |
-| 3 | OAuth2 Register | Candidate | IMS | <code>RegistrationUrl</code> | Yes |
-| 4 | OAuth2 Register | IMS | Candidate | <code>RegistrationUrl</code> | Yes |
-| 5 | OAuth2 Authorize | Candidate | IMS | <code>AuthorizationUrl</code> | Yes |
-| 6 | OAuth2 Authorize | IMS | Candidate | <code>AuthorizationUrl</code> | Yes |
-| 7 | OAuth2 Token | Candidate | IMS | <code>TokenUrl</code> | Yes |
-| 8 | OAuth2 Token | IMS | Candidate | <code>TokenUrl</code> | Yes |
-| 9 | GET Assertions | Candidate | IMS | <code>/assertions</code> | Yes |
-| 10 | GET Assertions | IMS | Candidate | <code>/assertions</code> | Yes |
-| 11 | POST Assertion | Candidate | IMS | <code>/assertions</code> | Yes |
-| 12 | POST Assertion | IMS | Candidate | <code>/assertions</code> | Yes |
-| 13 | GET Profile | Candidate | IMS | <code>/profile</code> | Yes |
-| 14 | GET Profile | IMS | Candidate | <code>/profile</code> | Yes |
-| 15 | POST Profile | Candidate | IMS | <code>/profile</code> | No |
-| 16 | POST Profile | IMS | Candidate | <code>/profile</code> | No |
+### Optional Service Consumer (Write) Endpoint Support
 
-1. GET the <a data-cite="OB-21#api-Manifest">Manifest</a> from the IMS conformance testing platform.
-2. Provide the candidate platform <a data-cite="OB-21#api-Manifest">Manifest</a> to the IMS conformance testing platform when requested.
-3. Request the IMS conformance testing platform dynamically register the candidate platform.
-4. Dynamically register the IMS conformance testing platform when requested.
-5. Request authorization for the IMS conformance testing platform to retrieve assertions and profiles, and optionally offline access on behalf of the test user.
-6. Provide authorization to the IMS conformance testing platform for the candidate platform to create assertions and update profiles, and optionally offline access on behalf of the test user.
-7. Request an access token and optionally a refresh token from the IMS conformance testing platform in exchange for the authorization code provided in #5.
-8. Provide an access token and optionally a refresh token to the IMS conformance testing platform in exchange for the authorization code provided in #6.
-9. GET signed and unsigned <a data-cite="OB-21#Assertion">Assertions</a> from the <code>/assertions</code> endpoint on the IMS conformance testing platform.
-	<aside class="issue">Test paging?</aside>
-10. Provide signed and unsigned <a data-cite="OB-21#Assertion">Assertions</a> from the <code>/assertions</code> endpoint to the IMS conformance testing platform.
-	<aside class="issue">Test paging?</aside>
-11. POST a signed or unsigned <a data-cite="OB-21#Assertion">Assertion</a> to the <code>/assertions</code> endpoint on the IMS conformance testing platform.
-12. Receive a signed or unsigned <a data-cite="OB-21#Assertion">Assertion</a> posted to the <code>/assertions</code> endpoint by the IMS conformance testing platform.
-13. GET a profile <a data-cite="OB-21#Profile"> from the <code>/profile</code> endpoint on the IMS conformance testing platform.
-14. Provide a profile <a data-cite="OB-21#Profile"> from the <code>/profile</code> endpoint to the IMS conformance testing platform.
-15. (Optional) POST a <a data-cite="OB-21#Profile"> to the <code>/profile</code> endpoint on the IMS conformance testing platform.
-16. (Optional) Receive a <a data-cite="OB-21#Profile"> posted to the <code>/profile</code> endpoint by the IMS conformance testing platform.
+The service endpoints that MAY be supported for Service Consumer (Write) are listed in the table below:
 
-<div></div>
+Service Call | Endpoint | HTTP Verb | Mode | Authorization<br />Required
+------------ | -------- | --------- | ---- | ---------------------------
+postProfile | \`/ims/ob/v2p1/profile\` | POST | Initiate | Yes
+
+### Service Consumer (Write) Compliance
+
+The functional capabilities of such systems are:
+
+* They MUST support the required endpoints
+* They MAY support the optional endpoints
+* They MUST supply an access token with the appropriate scope to the service endpoints that require authorization
+* They MUST supply or 'handle' all of the required data fields in payloads
+* They MUST be capable of supplying or 'handling' all of the optional data fields in payloads
+* They MUST NOT provide extension data fields in the payloads
+
+## Service Provider (Read) Conformance {#service-provider-read}
+
+A product that conforms to Service Provider (Read) requirements can provide badges to a product that conforms to Service Consumer (Read) requirements. One example of such a product is a Host which provides your badges to another Host upon request.
+
+### Required Service Provider (Read) Endpoint Support
+
+The service endpoints that MUST be supported for Service Provider (Read) are listed in the table below:
+
+Service Call | Endpoint | HTTP Verb | Mode | Authorization<br />Required
+------------ | -------- | --------- | ---- | ---------------------------
+getManifest | as configured | GET | Respond | No
+OAuth 2.0 Registration | from manifest | Respond | Respond | No
+OAuth 2.0 Authorize | from manifest | GET | Respond | No
+OAuth 2.0 Token | from manifest | POST | Respond | No
+getAssertions | \`/ims/ob/v2p1/assertions\` | GET | Respond | Yes
+getProfile | \`/ims/ob/v2p1/profile\` | GET | Respond | Yes
+
+### Service Provider (Read) Compliance
+
+The functional capabilities of such systems are:
+
+* They MUST support the required service endpoints
+* They MUST require an access token with the appropriate scope for endpoints that require authorization
+* They MUST supply or 'handle' all of the required data fields in payloads
+* They MUST be capable of supplying or 'handling' all of the optional data fields in payloads
+* They MUST NOT provide extension data fields in the payloads
+* They MAY support the endpoint payload pagination query parameters. If supported, the corresponding response HTTP pagination headers MUST be supported
+
+## Service Provider (Write) Conformance {#service-provider-write}
+
+A product that conforms to Service Provider (Write) requirements can accept an Assertion or a Profile from a product that conforms to Service Consumer (Write) requirements. One example of such a product is a Host that accepts Assertions from an Issuer.
+
+### Required Service Provider (Write) Endpoint Support
+
+The service endpoints that MUST be supported for Service Provider (Write) are listed in the table below:
+
+Service Call | Endpoint | HTTP Verb | Mode | Authorization<br />Required
+------------ | -------- | --------- | ---- | ---------------------------
+getManifest | as configured | GET | Respond | No
+OAuth 2.0 Registration | from manifest | GET | Respond | No
+OAuth 2.0 Authorize | from manifest | GET | Respond | No
+OAuth 2.0 Token | from manifest | POST | Respond | No
+postAssertion | \`/ims/ob/v2p1/assertions\` | POST | Respond | Yes
+
+### Optional Service Provider (Write) Endpoint Support
+
+The service endpoints that MAY be supported for Service Provider (Write) are listed in the table below:
+
+Service Call | Endpoint | HTTP Verb | Mode | Authorization<br />Required
+------------ | -------- | --------- | ---- | ---------------------------
+postProfile | \`/ims/ob/v2p1/profile\` | POST | Respond | Yes
+
+### Service Provider (Write) Compliance
+
+The functional capabilities of such systems are:
+
+* They MUST support the required endpoints
+* They MAY support the optional endpoints
+* They MUST require an access token with the appropriate scope for the endpoints that require authorization
+* They MUST supply or 'handle' all of the required data fields in payloads
+* They MUST be capable of supplying or 'handling' all of the optional data fields in payloads
+* They MUST NOT provide extension data fields in the payloads
+
 `;

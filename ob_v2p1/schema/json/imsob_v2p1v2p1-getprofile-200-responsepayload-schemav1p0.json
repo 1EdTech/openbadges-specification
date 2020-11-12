@@ -1,40 +1,36 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id" : "getAssertions-200-responsepayload-schema.json",
-    "title" : "Open Badges Version 2.1 IMS Candidate Final JSON Schema Binding (getAssertions-200-responsepayload-schema)",
+    "$id" : "getProfile-200-responsepayload-schema.json",
+    "title" : "Open Badges Version 2.1 IMS Candidate Final JSON Schema Binding (getProfile-200-responsepayload-schema)",
     "description" : "Author-Alexander Hripak, Nate Otto, Justin Pitcher, and Chris Houston;  Version-2.1;  Release Date-August 29, 2019. ",
     "type" : "object",
     "properties" : {
         "status" : {
-            "description" : "The Status object describing the success or failure of the request.",
+            "description" : "The status of the request.",
             "$ref" : "#/definitions/StatusDType"
         },
-        "assertions" : {
-            "description" : "The matching unsigned Assertions. The total number of unsigned and signed assertions should not exceed the pagination limit. Not required if there are no unsigned assertions.",
-            "type" : "array",
-            "minItems" : 0,
-            "items" : {
-                "$ref" : "#/definitions/AssertionDType"
-            }
-        },
-        "signedAssertions" : {
-            "description" : "Model Primitive Datatype = String. The matching signed Assertions in JWS Compact Serializion format. The total number of unsigned and signed assertions should not exceed the pagination limit. Not required if there are no signed assertions.",
-            "type" : "array",
-            "minItems" : 0,
-            "items" : {
-                "type" : "string"
-            }
+        "profile" : {
+            "description" : "The profile.",
+            "$ref" : "#/definitions/ProfileDType"
         }
     },
     "required" : [ "status" ],
     "additionalProperties" : false,
     "definitions" : {
-        "AssertionDType" : {
-            "description" : "Open Badges 2.0 Assertion object.",
+        "ProfileDType" : {
+            "description" : "Open Badges 2.0 Profile object.",
             "type" : "object",
             "properties" : {
-
+                "id" : {
+                    "description" : "Model Primitive Datatype = NormalizedString. Unique IRI for this object.",
+                    "type" : "string"
+                },
+                "type" : {
+                    "description" : "Model Primitive Datatype = String. The JSON-LD type of this object. Normally 'Profile'.",
+                    "type" : "string"
+                }
             },
+            "required" : [ "id","type" ],
             "patternProperties" : {
                 "^[^:][^:]*:[^:][^:]*$" : {
                     "oneOf": [{ "type": "string" }, { "type": "array" }, { "type": "boolean" }, { "type": "number" }, { "type": "integer" }]

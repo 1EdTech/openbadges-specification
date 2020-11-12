@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id" : "postAssertion-requestpayload-schema.json",
+    "title" : "Open Badges Version 2.1 IMS Candidate Final JSON Schema Binding (postAssertion-requestpayload-schema)",
+    "description" : "Author-Alexander Hripak, Nate Otto, Justin Pitcher, and Chris Houston;  Version-2.1;  Release Date-August 29, 2019. ",
+    "type" : "object",
+    "properties" : {
+        "assertion" : {
+            "description" : "An unsigned assertion in JSON-LD serialization format.",
+            "$ref" : "#/definitions/AssertionDType"
+        },
+        "signedAssertion" : {
+            "description" : "Model Primitive Datatype = String. A signed assertion in JWS Compact Serialization format.",
+            "type" : "string"
+        }
+    },
+    "additionalProperties" : false,
+    "definitions" : {
+        "AssertionDType" : {
+            "description" : "Open Badges 2.0 Assertion object.",
+            "type" : "object",
+            "properties" : {
+                "id" : {
+                    "description" : "Model Primitive Datatype = NormalizedString. Unique IRI for this object.",
+                    "type" : "string"
+                },
+                "type" : {
+                    "description" : "Model Primitive Datatype = String. The JSON-LD type of this object. Normally 'Assertion'.",
+                    "type" : "string"
+                }
+            },
+            "required" : [ "id","type" ],
+            "patternProperties" : {
+                "^[^:][^:]*:[^:][^:]*$" : {
+                    "oneOf": [{ "type": "string" }, { "type": "array" }, { "type": "boolean" }, { "type": "number" }, { "type": "integer" }]
+                }
+            },
+            "additionalProperties" : true
+        }
+    }
+}

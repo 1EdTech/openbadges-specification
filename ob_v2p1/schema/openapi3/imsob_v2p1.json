@@ -74,6 +74,8 @@
                         "description" : "Indicate how many results should be retrieved in a single page.",
                         "required" : false,
                         "schema" : {
+                            "type" : "integer",
+                            "format" : "int32",
                             "minimum" : 1
                         },
                         "style" : "form",
@@ -85,6 +87,8 @@
                         "description" : "Indicate the index of the first record to return (zero indexed).",
                         "required" : false,
                         "schema" : {
+                            "type" : "integer",
+                            "format" : "int32",
                             "minimum" : 0
                         },
                         "style" : "form",
@@ -96,6 +100,8 @@
                         "description" : "Retrieve Assertions that were created or updated after the provided timestamp. Must be an ISO 8601 compatible timestamp with a time zone indicator.",
                         "required" : false,
                         "schema" : {
+                            "type" : "string",
+                            "format" : "date-time"
                         },
                         "style" : "form",
                         "allowEmptyValue" : false
@@ -108,6 +114,48 @@
                             "application/json" : {
                                 "schema" : {
                                     "$ref" : "#/components/schemas/AssertionsResponseDType"
+                                }
+                            }
+                        },
+                        "headers" : {
+                            "X-Total-Count" : {
+                                "description" : "The total number of resources that are available to be returned",
+                                "schema" : {
+                                    "type" : "integer"
+                                }
+                            }
+                        },
+                        "links" : {
+                            "next" : {
+                                "description" : "Get the next set of resources i.e. from offset to offset+limit",
+                                "operationId" : "getAssertions",
+                                "parameters" : {
+                                    "limit" : "$request.path.limit",
+                                    "offset" : "$request.path.offset"
+                                }
+                            },
+                            "last" : {
+                                "description" : "Get the last set of resources i.e. from offset to end",
+                                "operationId" : "getAssertions",
+                                "parameters" : {
+                                    "limit" : "$request.path.limit",
+                                    "offset" : "$request.path.offset"
+                                }
+                            },
+                            "first" : {
+                                "description" : "Get the first set of resources i.e. from first to limit",
+                                "operationId" : "getAssertions",
+                                "parameters" : {
+                                    "limit" : "$request.path.limit",
+                                    "offset" : "$request.path.offset"
+                                }
+                            },
+                            "prev" : {
+                                "description" : "Get the previous set of resources i.e. from last_offset to last_offset+limit",
+                                "operationId" : "getAssertions",
+                                "parameters" : {
+                                    "limit" : "$request.path.limit",
+                                    "offset" : "$request.path.offset"
                                 }
                             }
                         }
@@ -153,7 +201,14 @@
                         }
                     },
                     "500" : {
-                        "description" : "This code should be used only if there is catastrophic error."
+                        "description" : "This code should be used only if there is catastrophic error.",
+                        "content" : {
+                            "application/json" : {
+                                "schema" : {
+                                    "$ref" : "#/components/schemas/StatusResponseDType"
+                                }
+                            }
+                        }
                     },
                     "default" : {
                         "description" : "Any other response."
@@ -170,7 +225,7 @@
                     "content" : {
                         "application/json" : {
                             "schema" : {
-                                "$ref" : "#/components/schemas/DType"
+                                "$ref" : "#/components/schemas/AssertionPayloadDType"
                             }
                         }
                     },
@@ -228,7 +283,14 @@
                         }
                     },
                     "500" : {
-                        "description" : "This code should be used only if there is catastrophic error."
+                        "description" : "This code should be used only if there is catastrophic error.",
+                        "content" : {
+                            "application/json" : {
+                                "schema" : {
+                                    "$ref" : "#/components/schemas/StatusResponseDType"
+                                }
+                            }
+                        }
                     },
                     "default" : {
                         "description" : "Any other response."
@@ -294,7 +356,14 @@
                         }
                     },
                     "500" : {
-                        "description" : "This code should be used only if there is catastrophic error."
+                        "description" : "This code should be used only if there is catastrophic error.",
+                        "content" : {
+                            "application/json" : {
+                                "schema" : {
+                                    "$ref" : "#/components/schemas/StatusResponseDType"
+                                }
+                            }
+                        }
                     },
                     "default" : {
                         "description" : "Any other response."
@@ -382,7 +451,7 @@
         "securitySchemes" : {
             "OAuth2ACG" : {
                 "type" : "oauth2",
-                "description" : "",
+                "description" : "Authorization Code Grant (ACG) security scheme per IMS Security Framework.",
                 "flows" : {
                     "authorizationCode" : {
                         "tokenUrl" : "/token",
@@ -403,19 +472,41 @@
                 "description" : "Open Badges 2.0 Assertion object.",
                 "type" : "object",
                 "properties" : {
-
+                    "id" : {
+                        "description" : "Model Primitive Datatype = NormalizedString. Unique IRI for this object.",
+                        "type" : "string"
+                    },
+                    "type" : {
+                        "description" : "Model Primitive Datatype = String. The JSON-LD type of this object. Normally 'Assertion'.",
+                        "type" : "string"
+                    }
                 },
+                "required" : [ "id","type" ],
                 "additionalProperties" : true
             },
+            "AssertionPayloadDType" : {
+                "description" : "The payload for the POST /assertions endpoint.",
+                "type" : "object",
+                "properties" : {
+                    "assertion" : {
+                        "$ref" : "#/components/schemas/AssertionDType"
+                    },
+                    "signedAssertion" : {
+                        "description" : "Model Primitive Datatype = String. A signed assertion in JWS Compact Serialization format.",
+                        "type" : "string"
+                    }
+                },
+                "additionalProperties" : false
+            },
             "AssertionsResponseDType" : {
-                "description" : "Successfull response from the GET /assertions endpoint.",
+                "description" : "Response payload for the GET /assertions endpoint.",
                 "type" : "object",
                 "properties" : {
                     "status" : {
                         "$ref" : "#/components/schemas/StatusDType"
                     },
                     "assertions" : {
-                        "description" : "The matching unsigned Assertions. The total number of unsigned and signed assertions should not exceed the pagination limit. Not required if there are no unsigned assertions.",
+                        "description" : "An array of unsigned assertions in JSON-LD serialization format.",
                         "type" : "array",
                         "minItems" : 0,
                         "items" : {
@@ -423,11 +514,11 @@
                         }
                     },
                     "signedAssertions" : {
-                        "description" : "Model Primitive Datatype = String. The matching signed Assertions in JWS Compact Serializion format. The total number of unsigned and signed assertions should not exceed the pagination limit. Not required if there are no signed assertions.",
+                        "description" : "Model Primitive Datatype = String. An array of signed assertions in JWS Compact Serialization format.",
                         "type" : "array",
                         "minItems" : 0,
                         "items" : {
-                            "type" : "string"
+                            "type" : "string",
                         }
                     }
                 },
@@ -508,7 +599,7 @@
                 "additionalProperties" : false
             },
             "ManifestDType" : {
-                "description" : "Host configuration information. A Host may support multiple implementations.",
+                "description" : "Provider configuration information. A provider may support multiple implementations.",
                 "type" : "object",
                 "properties" : {
                     "id" : {
@@ -529,16 +620,38 @@
                         }
                     }
                 },
-                "required" : [ "badgeConnectAPI" ],
+                "required" : [ "id","badgeConnectAPI" ],
                 "additionalProperties" : false
             },
             "ProfileDType" : {
                 "description" : "Open Badges 2.0 Profile object.",
                 "type" : "object",
                 "properties" : {
-
+                    "id" : {
+                        "description" : "Model Primitive Datatype = NormalizedString. Unique IRI for this object.",
+                        "type" : "string"
+                    },
+                    "type" : {
+                        "description" : "Model Primitive Datatype = String. The JSON-LD type of this object. Normally 'Profile'.",
+                        "type" : "string"
+                    }
                 },
+                "required" : [ "id","type" ],
                 "additionalProperties" : true
+            },
+            "ProfileResponseDType" : {
+                "description" : "The response to both the GET /profile and POST /profile endpoints.",
+                "type" : "object",
+                "properties" : {
+                    "status" : {
+                        "$ref" : "#/components/schemas/StatusDType"
+                    },
+                    "profile" : {
+                        "$ref" : "#/components/schemas/ProfileDType"
+                    }
+                },
+                "required" : [ "status" ],
+                "additionalProperties" : false
             },
             "StatusDType" : {
                 "description" : "Response status.",
@@ -560,6 +673,17 @@
                     }
                 },
                 "required" : [ "statusCode" ],
+                "additionalProperties" : false
+            },
+            "StatusResponseDType" : {
+                "description" : "A status-only response.",
+                "type" : "object",
+                "properties" : {
+                    "status" : {
+                        "$ref" : "#/components/schemas/StatusDType"
+                    }
+                },
+                "required" : [ "status" ],
                 "additionalProperties" : false
             }
         }

@@ -10,15 +10,14 @@
     <script class='remove'>
         var respecConfig = {
             mainSpecTitle: "Open Badges Specification",
-            mainSpecBiblioKey: "OB-SPEC-21",
+            mainSpecBiblioKey: "OB-21",
             specTitle: "Open Badges Conformance and Certification Guide",
             shortName: "ob",
-            specStatus: "IMS Candidate Final",
-            specDate: "January 24, 2020",
+            specStatus: "IMS Candidate Final Public",
+            specDate: "October 7, 2020",
             specVersion: "2.1",
             specNature: "normative",
             specType: "cert",
-            format: "markdown",
             maxTocLevel: "3",
             skipCertGuideConformanceRef: false,
             contributors: _contributors,
@@ -31,10 +30,37 @@
             localBiblio: _localBiblio
         };
     </script>
+  <style>
+    tr.even {
+      background-color: #ccc;
+    }
+
+    tr.even td {
+      border-color: #fff;
+    }
+
+    tr.even td p {
+      margin-block-end: 0em;
+      margin-block-start: 0.5em;
+    }
+
+    tr.odd {
+      background-color: #fff;
+    }
+
+    tr.odd td p {
+      margin-block-end: 0em;
+      margin-block-start: 0.5em;
+    }
+
+    [align="center"] {
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
-    <section class="introductory" id="abstract">
+    <section class="introduction" id="abstract" data-format="markdown">
         <script class="transclude" src="ob-abstract.md" data-id="abstract"></script>
     </section>
 
@@ -45,16 +71,18 @@
             <h3>Conformance and Certification</h3>
         </section>
 
-        <section id="document-set">
+        <section class="informative" id="document-set" data-format="markdown">
             <script class="transclude" src="ob-documents.md" data-id="documents"></script>
         </section>
 
-        <section id="terminology">
+        <section class="informative" id="terminology" data-format="markdown">
             <script class="transclude" src="ob-terms.md" data-id="terms"></script>
         </section>
     </section>
 
-    <script class="transclude" src="ob-cert-v2p1.md" data-id="md"></script>
+    <section data-format="markdown">
+        <script class="transclude" src="ob-cert-v2p1.md" data-id="md"></script>
+    </section>
 
     <section class="appendix informative" id="revisionhistory">
         <h1>Revision History</h1>
@@ -67,6 +95,16 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>Version 2.1 IMS Candidate Final Public</td>
+                    <td>October 7, 2020</td>
+                    <td>Released as Candidate Final Public.</td>
+                </tr>
+                <tr>
+                    <td>Version 2.1 IMS Candidate Final</td>
+                    <td>July 24, 2020</td>
+                    <td>Fourth draft. Replaced roles with features.</td>
+                </tr>
                 <tr>
                     <td>Version 2.1 IMS Candidate Final</td>
                     <td>January 24, 2020</td>
