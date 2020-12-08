@@ -376,6 +376,8 @@ Pragma: no-cache
             </tr>
           </tbody>
         </table>
+
+        <p>Implementers are encouraged to use existing libraries as [[!RFC7591]] supports internationalization among other nuances that may not be realized in an in-house solution.</p>
       </section>
 
       <section id="oauth-token">
@@ -1017,7 +1019,9 @@ Link:
             <tr>
               <td>Description</td>
               <td>Create or update an Assertion. The posted data MUST be an <a href="#api-assertionpayload">Assertion
-                  Payload</a>.</td>
+                  Payload</a>. Upon receiving any Assertion, the Provider SHOULD verify the Assertion, whether it is the
+                  first time seen or a subsequent update. The data posted by the Consumer SHOULD not be implicitly
+                  trusted to be an accurate representation of the Assertion.</td>
             </tr>
             <tr>
               <td>Responses</td>
@@ -1083,6 +1087,7 @@ Link:
               <td>Description</td>
               <td>Fetch the profile for the supplied authentication token. For a successful result, the Provider MUST return
                 a valid OB Profile instance.
+                <p>Profiles that are received MAY contain attributes that a Host SHOULD authenticate before using in practice.</p>
               </td>
             </tr>
             <tr>
