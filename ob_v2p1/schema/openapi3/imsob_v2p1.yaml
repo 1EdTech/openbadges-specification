@@ -1,0 +1,659 @@
+# #####################################################################################
+# YAML File Information
+# #####################################################################################
+# 
+# Author:         Alexander Hripak, Nate Otto, Justin Pitcher, and Chris Houston
+# Date:           August 29, 2019
+# Version:        1.0
+# Status:         IMS Candidate Final
+# Description:    Open Badges Connect is a secure REST interface for exchanging Open Badges.
+# 
+# History:        This is the first release of Open Badges Connect Service definition.
+# 
+# License:        IPR and Distribution Notices
+# 
+#                 This machine readable file is derived from the IMS Open Badges Version 2.1
+#                 found at http://www.imsglobal.org/[xxx] and the original IMS Global schema binding or code base
+#                 http://www.imsglobal.org/[binding document].
+# 
+#                 Recipients of this document are requested to submit, with their comments, notification of any relevant 
+#                 patent claims or other intellectual property rights of which they may be aware that might be infringed by
+#                 any implementation of the specification set forth in this document, and to provide supporting documentation.
+# 
+#                 IMS takes no position regarding the validity or scope of any intellectual property or other rights that might
+#                 be claimed to pertain to the implementation or use of the technology described in this document or the extent 
+#                 to which any license under such rights might or might not be available; neither does it represent that it has 
+#                 made any effort to identify any such rights. Information on IMS procedures with respect to rights in IMS 
+#                 specifications can be found at the IMS Global Intellectual Property Rights web page: http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf.
+# 
+#                 Copyright (c) IMS Global Learning Consortium 1999-2020. All Rights Reserved.
+# 
+#                 Use of this specification to develop products or services is governed by the license with IMS found on the IMS website: http://www.imsglobal.org/license.html.
+# 
+#                 Permission is granted to all parties to use excerpts from this document as needed in producing requests for proposals.
+# 
+#                 The limited permissions granted above are perpetual and will not be revoked by IMS or its successors or assigns.
+# 
+#                 THIS SPECIFICATION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND IN PARTICULAR, ANY WARRANTY OF NONINFRINGEMENT IS
+#                 EXPRESSLY DISCLAIMED. ANY USE OF THIS SPECIFICATION SHALL BE MADE ENTIRELY AT THE IMPLEMENTERS OWN RISK, AND NEITHER THE CONSORTIUM
+#                 NOR ANY OF ITS MEMBERS OR SUBMITTERS, SHALL HAVE ANY LIABILITY WHATSOEVER TO ANY IMPLEMENTER OR THIRD PARTY FOR ANY DAMAGES OF
+#                 ANY NATURE WHATSOEVER, DIRECTLY OR INDIRECTLY, ARISING FROM THE USE OF THIS SPECIFICATION.
+# 
+# Source UML File Information
+# ===========================
+# The source file information must be supplied as an XMI file (without diagram layout information).
+# The supported UML authoring tools are:
+# (a) Poseidon - v6 (and later)
+# (b) Papyrus - v1.1.3 (and later)
+# 
+# Source XSLT File Information
+# ============================
+# XSL Generator:    Specificationv1p0_GenerationToolv1.xsl
+# XSLT Processor:   Saxon
+# Release:          1.0
+# Date:             31st July, 2017
+# Autogen Engineer: Colin Smythe (IMS Global, UK)
+# Autogen Date:     2020-04-15
+# 
+# IMS Global Auto-generation Binding Tool-kit (I-BAT)
+# ===================================================
+# This file was auto-generated using the IMS Global Binding Auto-generation Tool-kit (I-BAT).  While every
+# attempt has been made to ensure that this tool auto-generates the files correctly, users should be aware
+# that this is an experimental tool.  Permission is given to make use of this tool.  IMS Global makes no
+# claim on the materials created by third party users of this tool.  Details on how to use this tool
+# are contained in the IMS Global "I-BAT" documentation available at the IMS Global web-site:
+# http://www.imsglobal.org.
+# 
+# Tool Copyright:  2012-2020  (c) IMS Global Learning Consortium Inc.  All Rights Reserved.
+# 
+# #####################################################################################
+
+openapi: '3.0.0'
+
+#####################################################################################
+#                               API Information                                     #
+#####################################################################################
+info: 
+    version: '2.1'
+    title: Open Badges OpenAPI (YAML) Definition
+    description: Open Badges Connect is a secure REST interface for exchanging Open Badges.
+    termsOfService: https://www.imsglobal.org/license.html
+    contact: 
+        name: Lisa Mattson (COO), IMS Global
+        url: http://www.imsglobal.org
+        email: lmattson@imsglobal.org
+    license: 
+        name: IMS Global
+        url: https://www.imsglobal.org/license.html
+
+#####################################################################################
+#                                 Servers                                           #
+#####################################################################################
+servers: 
+    - url: www.imsglobal.org/ims/ob/v2p1/
+      description: The above Server URL should be changed to the actual server location.
+
+#####################################################################################
+#                                  Tags                                             #
+#####################################################################################
+tags: 
+    - name: OBC-Manifest
+      description: |
+        Open Badges Connect manifest interface.
+    - name: OBC-Service
+      description: |
+        Open Badges Connect service interface.
+
+#####################################################################################
+#                                   Paths                                           #
+#####################################################################################
+paths: 
+    /.well-known/badgeconnect.json:
+        get:
+            operationId: getManifest
+            summary: The REST read request message for the getManifest() API call.
+            tags: 
+                - OBC-Manifest
+            description: |
+                Open Badges Connect Service manifest read operation.
+            responses: 
+                "200" : 
+                    description: |
+                        This is the response when the request has been completed successfully.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/ManifestDType"
+                "404" : 
+                    description: |
+                        This is the response when the provider does not support the badge connect API.
+                "421" : 
+                    description: |
+                        This is the response when the request was not made over secure TLS protocol.
+                "default" : 
+                    description: |
+                        This is the response when some other error has occured.
+
+    /assertions:
+        get:
+            operationId: getAssertions
+            summary: The REST read request message for the getAssertions() API call.
+            tags: 
+                - OBC-Service
+            description: |
+                Fetch Assertions for the supplied parameters and authentication token.
+            parameters: 
+                - name: limit
+                  in: query
+                  description: |
+                      Indicate how many results should be retrieved in a single page.
+                  required: false
+                  schema: 
+                      type: integer
+                      format: int32
+                      minimum: 1
+                  allowEmptyValue: false
+                  style: form
+                - name: offset
+                  in: query
+                  description: |
+                      Indicate the index of the first record to return (zero indexed).
+                  required: false
+                  schema: 
+                      type: integer
+                      format: int32
+                      minimum: 0
+                  allowEmptyValue: false
+                  style: form
+                - name: since
+                  in: query
+                  description: |
+                      Retrieve Assertions that were created or updated after the provided timestamp. Must be an ISO 8601 compatible timestamp with a time zone indicator.
+                  required: false
+                  schema: 
+                      type: string
+                      format: date-time
+                  allowEmptyValue: false
+                  style: form
+            responses: 
+                "200" : 
+                    description: |
+                        This is the response when the request has been completed successfully.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/AssertionsResponseDType"
+                    headers: 
+                        "X-Total-Count" :
+                            description: |
+                                The total number of resources that are available to be returned
+                            schema: 
+                                type: integer
+                    links: 
+                        "next" :
+                            description: |
+                                Get the next set of resources i.e. from offset to offset+limit
+                            operationId: getAssertions
+                            parameters: 
+                                "limit" : "$request.path.limit"
+                                "offset" : "$request.path.offset"
+                        "last" :
+                            description: |
+                                Get the last set of resources i.e. from offset to end
+                            operationId: getAssertions
+                            parameters: 
+                                "limit" : "$request.path.limit"
+                                "offset" : "$request.path.offset"
+                        "first" :
+                            description: |
+                                Get the first set of resources i.e. from first to limit
+                            operationId: getAssertions
+                            parameters: 
+                                "limit" : "$request.path.limit"
+                                "offset" : "$request.path.offset"
+                        "prev" :
+                            description: |
+                                Get the previous set of resources i.e. from last_offset to last_offset+limit
+                            operationId: getAssertions
+                            parameters: 
+                                "limit" : "$request.path.limit"
+                                "offset" : "$request.path.offset"
+                "400" : 
+                    description: |
+                        An invalid request was made.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "401" : 
+                    description: |
+                        The request was not correctly authorized.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "404" : 
+                    description: |
+                        The requested resource does not exist.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "405" : 
+                    description: |
+                        This method is not allowed on the endpoint.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "500" : 
+                    description: |
+                        This code should be used only if there is catastrophic error.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "default" : 
+                    description: |
+                        Any other response.
+        post:
+            operationId: postAssertion
+            summary: The REST update request message for the postAssertion() API call.
+            tags: 
+                - OBC-Service
+            description: |
+                Create or update an Assertion.
+            requestBody:
+                description: |
+                    The Assertion to be created or updated. Data MUST be a list exactly one Assertion long.
+                content: 
+                    application/json: 
+                        schema: 
+                            $ref: "#/components/schemas/AssertionPayloadDType"
+                required: true
+            responses: 
+                "200" : 
+                    description: |
+                        The Assertion was updated successfully.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "400" : 
+                    description: |
+                        An invalid request was made.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "401" : 
+                    description: |
+                        The request was not correctly authorized.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "404" : 
+                    description: |
+                        The requested resource does not exist.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "405" : 
+                    description: |
+                        This method is not allowed on the endpoint.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "500" : 
+                    description: |
+                        This code should be used only if there is catastrophic error.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "default" : 
+                    description: |
+                        Any other response.
+
+    /profile:
+        get:
+            operationId: getProfile
+            summary: The REST read request message for the getProfile() API call.
+            tags: 
+                - OBC-Service
+            description: |
+                Fetch the profile for the supplied authentication token.
+            responses: 
+                "200" : 
+                    description: |
+                        This is the response when the request has been completed successfully.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/ProfileResponseDType"
+                "400" : 
+                    description: |
+                        An invalid request was made.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "401" : 
+                    description: |
+                        The request was not correctly authorized.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "404" : 
+                    description: |
+                        The requested resource does not exist.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "405" : 
+                    description: |
+                        This method is not allowed on the endpoint.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "500" : 
+                    description: |
+                        This code should be used only if there is catastrophic error.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "default" : 
+                    description: |
+                        Any other response.
+        post:
+            operationId: postProfile
+            summary: The REST update request message for the postProfile() API call.
+            tags: 
+                - OBC-Service
+            description: |
+                Update the profile for the authenticated user.
+            requestBody:
+                description: |
+                    The authenticated user's profile.
+                content: 
+                    application/json: 
+                        schema: 
+                            $ref: "#/components/schemas/ProfileDType"
+                required: true
+            responses: 
+                "200" : 
+                    description: |
+                        This is the response when the request has been completed successfully.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/ProfileResponseDType"
+                "400" : 
+                    description: |
+                        An invalid request was made.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "401" : 
+                    description: |
+                        The request was not correctly authorized.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "404" : 
+                    description: |
+                        The requested resource does not exist.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "405" : 
+                    description: |
+                        This method is not allowed on the endpoint.
+                    content: 
+                        application/json: 
+                            schema: 
+                                $ref: "#/components/schemas/StatusResponseDType"
+                "500" : 
+                    description: |
+                        This code should be used only if there is catastrophic error.
+                "default" : 
+                    description: |
+                        Any other response.
+
+
+#####################################################################################
+#                               Components                                          #
+#####################################################################################
+components:
+    securitySchemes:
+        OAuth2ACG:
+            type: oauth2
+            description: |
+                Authorization Code Grant (ACG) security scheme per IMS Security Framework.
+            flows:
+                authorizationCode:
+                    tokenUrl: /token
+                    authorizationUrl: /authorize
+                    refreshUrl: /token
+                    scopes: 
+                        https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.create: Permission to create assertions for the authenticated entity.
+                        https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.readonly: Permission to read assertions for the authenticated entity.
+                        https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.readonly: Permission to read the profile for the authenticated entity.
+                        https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.update: Permission to update the profile for the authenticated entity.
+    schemas: 
+        AssertionDType:
+            description: |
+                Open Badges 2.0 Assertion object.
+            type: object
+            required: 
+                - id
+                - type
+            properties: 
+                id: 
+                    description: Unique IRI for this object. Model Primitive Datatype = NormalizedString.
+                    type: string
+                type: 
+                    description: The JSON-LD type of this object. Normally 'Assertion'. Model Primitive Datatype = String.
+                    type: string
+            additionalProperties: true
+        AssertionPayloadDType:
+            description: |
+                The payload for the POST /assertions endpoint.
+            type: object
+            properties: 
+                assertion: 
+                    $ref: "#/components/schemas/AssertionDType"
+                signedAssertion: 
+                    description: A signed assertion in JWS Compact Serialization format. Model Primitive Datatype = String.
+                    type: string
+            additionalProperties: false
+        AssertionsResponseDType:
+            description: |
+                Response payload for the GET /assertions endpoint.
+            type: object
+            required: 
+                - status
+            properties: 
+                status: 
+                    $ref: "#/components/schemas/StatusDType"
+                assertions: 
+                    description: |
+                        An array of unsigned assertions in JSON-LD serialization format.
+                    type: array
+                    minItems: 0
+                    items: 
+                        $ref: "#/components/schemas/AssertionDType"
+                signedAssertions: 
+                    description: |
+                        An array of signed assertions in JWS Compact Serialization format. Model Primitive Datatype = String.
+                    type: array
+                    minItems: 0
+                    items: 
+                        type: string
+            additionalProperties: false
+        BadgeConnectAPIDType:
+            description: |
+                Configuration information about a single implementation.
+            type: object
+            required: 
+                - apiBase
+                - authorizationUrl
+                - name
+                - privacyPolicyUrl
+                - registrationUrl
+                - scopesOffered
+                - termsOfServiceUrl
+                - tokenUrl
+                - version
+            properties: 
+                id: 
+                    description: Unique IRI for the configuration. Model Primitive Datatype = NormalizedString.
+                    type: string
+                type: 
+                    description: The JSON-LD type of this object. Normally 'BadgeConnectAPI'. Model Primitive Datatype = NormalizedString.
+                    type: string
+                apiBase: 
+                    description: Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing slash '/'. E.g. apiBase + '/assertions'. Model Primitive Datatype = AnyURI.
+                    type: string
+                    format: uri
+                authorizationUrl: 
+                    description: A fully qualified URL to the host's authorization endpoint. Model Primitive Datatype = AnyURI.
+                    type: string
+                    format: uri
+                image: 
+                    description: An image representing the platform. May be a URI to a hosted image or a Data URI. Model Primitive Datatype = AnyURI.
+                    type: string
+                    format: uri
+                name: 
+                    description: The name of the platform supporting the API. This SHOULD reflect the user-facing identity of the platform requesting authorization. Model Primitive Datatype = String.
+                    type: string
+                privacyPolicyUrl: 
+                    description: A fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as part of their authorization interface. Model Primitive Datatype = AnyURI.
+                    type: string
+                    format: uri
+                registrationUrl: 
+                    description: A fully qualified URL to the host's dynamic client registration endpoint. Model Primitive Datatype = AnyURI.
+                    type: string
+                    format: uri
+                scopesOffered: 
+                    description: Applies to Hosts only. An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the scope descriptors. Model Primitive Datatype = AnyURI.
+                    type: array
+                    minItems: 1
+                    items: 
+                        type: string
+                        format: uri
+                termsOfServiceUrl: 
+                    description: A fully qualified URL to the platform's terms of service. Other platforms SHOULD link to this resource as part of their authorization interface. Model Primitive Datatype = AnyURI.
+                    type: string
+                    format: uri
+                tokenRevocationUrl: 
+                    description: A fully qualified URL to the host's token revocation endpoint. Model Primitive Datatype = AnyURI.
+                    type: string
+                    format: uri
+                tokenUrl: 
+                    description: A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token. Model Primitive Datatype = AnyURI.
+                    type: string
+                    format: uri
+                version: 
+                    description: A string representing the implemented version. MUST be in the format of vMAJORpMINOR where MAJOR and MINOR are integers. Model Primitive Datatype = String.
+                    type: string
+            additionalProperties: false
+        ManifestDType:
+            description: |
+                Provider configuration information. A provider may support multiple implementations.
+            type: object
+            required: 
+                - id
+                - badgeConnectAPI
+            properties: 
+                id: 
+                    description: Unique IRI for the manifest. Model Primitive Datatype = NormalizedString.
+                    type: string
+                type: 
+                    description: The JSON-LD type of this object. Normally 'Manifest'. Model Primitive Datatype = NormalizedString.
+                    type: string
+                    default: Manifest
+                badgeConnectAPI: 
+                    description: |
+                        Set of BadgeConnectAPI configurations.
+                    type: array
+                    minItems: 1
+                    items: 
+                        $ref: "#/components/schemas/BadgeConnectAPIDType"
+            additionalProperties: false
+        ProfileDType:
+            description: |
+                Open Badges 2.0 Profile object.
+            type: object
+            required: 
+                - id
+                - type
+            properties: 
+                id: 
+                    description: Unique IRI for this object. Model Primitive Datatype = NormalizedString.
+                    type: string
+                type: 
+                    description: The JSON-LD type of this object. Normally 'Profile'. Model Primitive Datatype = String.
+                    type: string
+            additionalProperties: true
+        ProfileResponseDType:
+            description: |
+                The response to both the GET /profile and POST /profile endpoints.
+            type: object
+            required: 
+                - status
+            properties: 
+                status: 
+                    $ref: "#/components/schemas/StatusDType"
+                profile: 
+                    $ref: "#/components/schemas/ProfileDType"
+            additionalProperties: false
+        StatusDType:
+            description: |
+                Response status.
+            type: object
+            required: 
+                - statusCode
+            properties: 
+                error: 
+                    description: A nullable string and the human-readable message describing the problem. Model Primitive Datatype = String.
+                    type: string
+                statusCode: 
+                    description: The HTTP status code of the response. Model Primitive Datatype = Integer.
+                    type: integer
+                    format: int32
+                statusText: 
+                    description: |
+                        A string matching one of the enumerated and allowed values for the given endpoint.
+                    type: string
+                    enum: 
+                       - OK
+                       - REQUEST_VALIDATION_ERROR
+                       - RECIPIENT_PROFILE_MISMATCH
+                       - INVALID_BADGE
+                       - BAD_REQUEST
+                       - UNAUTHENTICATED
+                       - PERMISSION_DENIED
+                       - NOT_FOUND
+                       - METHOD_NOT_ALLOWED
+            additionalProperties: false
+        StatusResponseDType:
+            description: |
+                A status-only response.
+            type: object
+            required: 
+                - status
+            properties: 
+                status: 
+                    $ref: "#/components/schemas/StatusDType"
+            additionalProperties: false

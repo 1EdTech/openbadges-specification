@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+    <head>
+        <title>OBC</title>
+        <meta name="language" content="en-US" />
+        <meta name="author" content="Alexander Hripak, Nate Otto, Justin Pitcher, and Chris Houston" />
+        <meta name="date" content="August 29, 2019" />
+        <meta name="status" content="IMS Candidate Final" />
+        <meta name="version" content="1.0" />
+        <meta name="publisher" content="IMS Global" />
+        <meta name="description" content="Open Badges Connect is a secure REST interface for exchanging Open Badges." />
+        <meta name="history" content="This is the first release of Open Badges Connect Service definition." />
+        <meta name="copyright" content="(c) IMS Global Learning Consortium" />
+        <link rel="icon" href="http://www.imsglobal.org/favicon.ico" type="image/x-icon" />
+        <link rel="StyleSheet" href="files/general/imsspec2018v1p0.css" type="text/css" />
+        <script src="files/general/imsspec2018v1p0.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+<!-- Top Level -->
+
+        <p class="logoImage">
+            <a name="top" />
+            <a href="http://www.imsglobal.org"><img class="logoImage" src="https://www.imsglobal.org/sites/default/files/logo.png" alt="IMS Global Logo" /></a>
+        </p>
+        <h1 class="infoModelTitle">IMS OBC Context Description Notes</h1>
+        <h1 class="infoModelTitle">IMS Candidate Final<br />Version 1.0</h1>
+        <p>This is the set of term definitions for the OBC context.</p>
+        <p>Open Badges Connect is a secure REST interface for exchanging Open Badges.</p>
+        <h2><a name="toc">List of Classes</a></h2>
+        <ul>
+            <li><a href="#dtAssertion">dtAssertion</a></li>
+            <li><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a></li>
+            <li><a href="#dtCompactJWS">dtCompactJWS</a></li>
+            <li><a href="#dtIRI">dtIRI</a></li>
+            <li><a href="#dtProfile">dtProfile</a></li>
+            <li><a href="#dtStatus">dtStatus</a></li>
+            <li><a href="#dtStatusResponse">dtStatusResponse</a></li>
+            <li><a href="#dtURL">dtURL</a></li>
+        </ul>
+        <p />
+        <div style="text-align: right; clear: both;"><a href="#toc">toc</a> | <a href="#top">top</a></div>
+        <hr />
+        <h2>List of Properties</h2>
+        <ul>
+            <li><a href="#apiBase">apiBase</a></li>
+            <li><a href="#assertion">assertion</a></li>
+            <li><a href="#assertions">assertions</a></li>
+            <li><a href="#authorizationUrl">authorizationUrl</a></li>
+            <li><a href="#badgeConnectAPI">badgeConnectAPI</a></li>
+            <li><a href="#error">error</a></li>
+            <li><a href="#extensions">extensions</a></li>
+            <li><a href="#image">image</a></li>
+            <li><a href="#name">name</a></li>
+            <li><a href="#privacyPolicyUrl">privacyPolicyUrl</a></li>
+            <li><a href="#profile">profile</a></li>
+            <li><a href="#registrationUrl">registrationUrl</a></li>
+            <li><a href="#scopesOffered">scopesOffered</a></li>
+            <li><a href="#signedAssertion">signedAssertion</a></li>
+            <li><a href="#signedAssertions">signedAssertions</a></li>
+            <li><a href="#status">status</a></li>
+            <li><a href="#statusCode">statusCode</a></li>
+            <li><a href="#statusText">statusText</a></li>
+            <li><a href="#termsOfServiceUrl">termsOfServiceUrl</a></li>
+            <li><a href="#tokenRevocationUrl">tokenRevocationUrl</a></li>
+            <li><a href="#tokenUrl">tokenUrl</a></li>
+            <li><a href="#version">version</a></li>
+        </ul>
+        <p />
+        <div style="text-align: right; clear: both;"><a href="#toc">toc</a> | <a href="#top">top</a></div>
+        <hr />
+        <h2>Class Definitions</h2>
+        <h3><a name="dtAssertion">"dtAssertion" Class</a></h3>
+        <p>Open Badges 2.0 Assertion object.</p>
+            <p>The list and definition of the child properties is:-</p>
+        <dl class="jsonldcontext">
+            <dt>id</dt>
+            <dd>Unique IRI for this object.</dd>
+            <dt>type</dt>
+            <dd>The JSON-LD type of this object. Normally 'Assertion'.</dd>
+            <dt>extensions</dt>
+            <dd></dd>
+        </dl>
+        <h3><a name="dtBadgeConnectAPI">"dtBadgeConnectAPI" Class</a></h3>
+        <p>Configuration information about a single implementation.</p>
+            <p>The list and definition of the child properties is:-</p>
+        <dl class="jsonldcontext">
+            <dt>id</dt>
+            <dd>Unique IRI for the configuration.</dd>
+            <dt>type</dt>
+            <dd>The JSON-LD type of this object. Normally 'BadgeConnectAPI'.</dd>
+            <dt>apiBase</dt>
+            <dd>Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing slash '/'. E.g. apiBase + '/assertions'.</dd>
+            <dt>authorizationUrl</dt>
+            <dd>A fully qualified URL to the host's authorization endpoint.</dd>
+            <dt>image</dt>
+            <dd>An image representing the platform. May be a URI to a hosted image or a Data URI.</dd>
+            <dt>name</dt>
+            <dd>The name of the platform supporting the API. This SHOULD reflect the user-facing identity of the platform requesting authorization.</dd>
+            <dt>privacyPolicyUrl</dt>
+            <dd>A fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as part of their authorization interface.</dd>
+            <dt>registrationUrl</dt>
+            <dd>A fully qualified URL to the host's dynamic client registration endpoint.</dd>
+            <dt>scopesOffered</dt>
+            <dd>Applies to Hosts only. An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the scope descriptors.</dd>
+            <dt>termsOfServiceUrl</dt>
+            <dd>A fully qualified URL to the platform's terms of service. Other platforms SHOULD link to this resource as part of their authorization interface.</dd>
+            <dt>tokenRevocationUrl</dt>
+            <dd>A fully qualified URL to the host's token revocation endpoint.</dd>
+            <dt>tokenUrl</dt>
+            <dd>A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</dd>
+            <dt>version</dt>
+            <dd>A string representing the implemented version. MUST be in the format of vMAJORpMINOR where MAJOR and MINOR are integers.</dd>
+        </dl>
+        <h3><a name="dtCompactJWS">"dtCompactJWS" Class</a></h3>
+        <p>A String in JWS Compact Serialization format.</p>
+        <h3><a name="dtIRI">"dtIRI" Class</a></h3>
+        <p></p>
+        <h3><a name="dtProfile">"dtProfile" Class</a></h3>
+        <p>Open Badges 2.0 Profile object.</p>
+            <p>The list and definition of the child properties is:-</p>
+        <dl class="jsonldcontext">
+            <dt>id</dt>
+            <dd>Unique IRI for this object.</dd>
+            <dt>type</dt>
+            <dd>The JSON-LD type of this object. Normally 'Profile'.</dd>
+            <dt>extensions</dt>
+            <dd></dd>
+        </dl>
+        <h3><a name="dtStatus">"dtStatus" Class</a></h3>
+        <p>Response status.</p>
+            <p>The list and definition of the child properties is:-</p>
+        <dl class="jsonldcontext">
+            <dt>error</dt>
+            <dd>A nullable string and the human-readable message describing the problem.</dd>
+            <dt>statusCode</dt>
+            <dd>The HTTP status code of the response.</dd>
+            <dt>statusText</dt>
+            <dd>A string matching one of the enumerated and allowed values for the given endpoint.</dd>
+        </dl>
+        <h3><a name="dtStatusResponse">"dtStatusResponse" Class</a></h3>
+        <p>A status-only response.</p>
+            <p>The list and definition of the child properties is:-</p>
+        <dl class="jsonldcontext">
+            <dt>status</dt>
+            <dd>The status of the request.</dd>
+        </dl>
+        <h3><a name="dtURL">"dtURL" Class</a></h3>
+        <p></p>
+        <p />
+        <div style="text-align: right; clear: both;"><a href="#toc">toc</a> | <a href="#top">top</a></div>
+        <hr />
+        <h2>Property Definitions</h2>
+        <h3><a name="apiBase">"apiBase" Property</a></h3>
+            <p>Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing slash '/'. E.g. apiBase + '/assertions'.</p>
+        <h3><a name="assertion">"assertion" Property</a></h3>
+            <p>An unsigned assertion in JSON-LD serialization format.</p>
+        <h3><a name="assertions">"assertions" Property</a></h3>
+            <p>An array of unsigned assertions in JSON-LD serialization format.</p>
+        <h3><a name="authorizationUrl">"authorizationUrl" Property</a></h3>
+            <p>A fully qualified URL to the host's authorization endpoint.</p>
+        <h3><a name="badgeConnectAPI">"badgeConnectAPI" Property</a></h3>
+            <p>Set of BadgeConnectAPI configurations.</p>
+        <h3><a name="error">"error" Property</a></h3>
+            <p>This property is used in the following classes:-</p>
+        <dl class="jsonldcontext">
+            <dt><a href="#dtStatus">dtStatus</a> Class</dt>
+            <dd>A nullable string and the human-readable message describing the problem.</dd>
+        </dl>
+        <h3><a name="extensions">"extensions" Property</a></h3>
+            <p>This property is used in the following classes:-</p>
+        <dl class="jsonldcontext">
+            <dt><a href="#dtAssertion">dtAssertion</a> Class</dt>
+            <dd></dd>
+            <dt><a href="#dtProfile">dtProfile</a> Class</dt>
+            <dd></dd>
+        </dl>
+        <h3><a name="id">"id" Property</a></h3>
+            <p>Unique IRI for this object.</p>
+        <h3><a name="image">"image" Property</a></h3>
+            <p>This property is used in the following classes:-</p>
+        <dl class="jsonldcontext">
+            <dt><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a> Class</dt>
+            <dd>An image representing the platform. May be a URI to a hosted image or a Data URI.</dd>
+        </dl>
+        <h3><a name="name">"name" Property</a></h3>
+            <p>This property is used in the following classes:-</p>
+        <dl class="jsonldcontext">
+            <dt><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a> Class</dt>
+            <dd>The name of the platform supporting the API. This SHOULD reflect the user-facing identity of the platform requesting authorization.</dd>
+        </dl>
+        <h3><a name="privacyPolicyUrl">"privacyPolicyUrl" Property</a></h3>
+            <p>A fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as part of their authorization interface.</p>
+        <h3><a name="profile">"profile" Property</a></h3>
+            <p>The profile.</p>
+        <h3><a name="registrationUrl">"registrationUrl" Property</a></h3>
+            <p>A fully qualified URL to the host's dynamic client registration endpoint.</p>
+        <h3><a name="scopesOffered">"scopesOffered" Property</a></h3>
+            <p>This property is used in the following classes:-</p>
+        <dl class="jsonldcontext">
+            <dt><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a> Class</dt>
+            <dd>Applies to Hosts only. An array of strings listing the scopes supported by the Host in the form of fully qualified URLs to the scope descriptors.</dd>
+        </dl>
+        <h3><a name="signedAssertion">"signedAssertion" Property</a></h3>
+            <p>A signed assertion in JWS Compact Serialization format.</p>
+        <h3><a name="signedAssertions">"signedAssertions" Property</a></h3>
+            <p>An array of signed assertions in JWS Compact Serialization format.</p>
+        <h3><a name="status">"status" Property</a></h3>
+            <p>The response status object.</p>
+        <h3><a name="statusCode">"statusCode" Property</a></h3>
+            <p>This property is used in the following classes:-</p>
+        <dl class="jsonldcontext">
+            <dt><a href="#dtStatus">dtStatus</a> Class</dt>
+            <dd>The HTTP status code of the response.</dd>
+        </dl>
+        <h3><a name="statusText">"statusText" Property</a></h3>
+            <p>A string matching one of the enumerated and allowed values for the given endpoint.</p>
+        <h3><a name="termsOfServiceUrl">"termsOfServiceUrl" Property</a></h3>
+            <p>A fully qualified URL to the platform's terms of service. Other platforms SHOULD link to this resource as part of their authorization interface.</p>
+        <h3><a name="tokenRevocationUrl">"tokenRevocationUrl" Property</a></h3>
+            <p>A fully qualified URL to the host's token revocation endpoint.</p>
+        <h3><a name="tokenUrl">"tokenUrl" Property</a></h3>
+            <p>A fully qualified URL to the host's token request endpoint for exchanging an authorization code for a bearer token.</p>
+        <h3><a name="type">"type" Property</a></h3>
+            <p>This property is used in the following classes:-</p>
+        <dl class="jsonldcontext">
+            <dt><a href="#dtAssertion">dtAssertion</a> Class</dt>
+            <dd>The JSON-LD type of this object. Normally 'Assertion'.</dd>
+            <dt><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a> Class</dt>
+            <dd>The JSON-LD type of this object. Normally 'BadgeConnectAPI'.</dd>
+            <dt><a href="#dtManifest">dtManifest</a> Class</dt>
+            <dd>The JSON-LD type of this object. Normally 'Manifest'.</dd>
+            <dt><a href="#dtProfile">dtProfile</a> Class</dt>
+            <dd>The JSON-LD type of this object. Normally 'Profile'.</dd>
+        </dl>
+        <h3><a name="version">"version" Property</a></h3>
+            <p>This property is used in the following classes:-</p>
+        <dl class="jsonldcontext">
+            <dt><a href="#dtBadgeConnectAPI">dtBadgeConnectAPI</a> Class</dt>
+            <dd>A string representing the implemented version. MUST be in the format of vMAJORpMINOR where MAJOR and MINOR are integers.</dd>
+        </dl>
+        <p />
+        <div style="text-align: right; clear: both;"><a href="#toc">toc</a> | <a href="#top">top</a></div>
+        <hr />
+    </body>
+</html>
