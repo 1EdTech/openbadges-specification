@@ -312,7 +312,7 @@ Host: badge-host.example.com
         <p>If the Provider accepts the registration request, it will store the information provided in the request and
           generate a set of client credentials for the Consumer to use when requesting access tokens.</p>
         <p>All the information provided by the Consumer MUST be returned to the Consumer, including
-          modifications to the properties as the Provider deems necessary.</p>
+          modifications to the properties as the Provider deems necessary. This MAY include changes to scopes that the Provider chooses to support. Consumers are encouraged to fail gracefully if a requested scope was not returned by the Provider by either supporting a subset of the intended functionality or by providing messaging to the Resource Owner.</p>
         <p>The Provider MAY reject a registration request if the value of one of the Consumer's metadata fields is invalid. The Provider MAY choose to substitute a valid value for any requested parameter of a Consumer's metadata. Implementers should take note that substitution MAY include changes to the permitted scopes.</p>
         <p>For the purposes of registering a Consumer, a Provider MAY limit the scopes it supports to those revelant to Badge Connect&trade;.</p>
         <pre class="nohighlight">
