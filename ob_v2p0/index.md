@@ -596,6 +596,7 @@ Endorsements use the `claim` property to identify another entity by its `id` and
  "type": "Endorsement",
  "id": "https://example.org/assertions/123",
  "issuer": "https://example.org/issuer",
+ "issuedOn": "2016-12-31T23:59:59+00:00",
  "claim": {
    "id": "https://otherissuer.example/1",
    "email": "contact@otherissuer.example",
