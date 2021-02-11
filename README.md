@@ -1,9 +1,9 @@
 # openbadges-specification
 ## Specification documents related to Open Badges
-The published version of Open Badges 2.0 is in master and develop. Version 2.1 is only in develop until Final.
+The published version of Open Badges 2.0 is in main and develop. Version 2.1 is only in develop until Final.
 
 ## Branches
-* __master__: stable, deployable branch that stores the official release history including releases designated as Candidate Final Public.
+* __main__: stable, deployable branch that stores the official release history including releases designated as Candidate Final Public.
 * __develop__: unstable development branch. Current work that targets a future release is merged into this branch.
 * __feature/new-feature-name__: unstable feature branch. Work that may be approved for future release will be developed in here and branched from __develop__.
 
