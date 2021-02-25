@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Markdown template for an extension document.
+        If you change the filename of the.md file, you need to
+        change the name in the src attribute of the
+        <script class="transclude> element below.
+    -->
+
+    <meta charset='utf-8'>
+    <script src='https://purl.imsglobal.org/spec/respec-ims-default.js' async class='remove'></script>
+    <script src='local-biblio.js' class='remove'></script>
+    <script src='contributors.js' class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+        specTitle: "ProperProjectName",
+        shortName: "ShortProjectName",
+        specNature: "normative", // spec nature is "normative" or "informative"
+        specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
+        specVersion: "0.1",
+        specStatus: "Draft Extension", // specStatus: IMS Base Document, IMS Candidate Final (Public) or IMS Final Release
+        specDate: "Never 12th, 2240",
+        format: "markdown",
+        contributors: _contributors,
+        localBiblio: _localBiblio,
+      };
+    </script>
+  </head>
+  <body>
+      <section id="abstract">
+        <h2>Abstract</h2>
+        <p>This is required.</p>
+      </section>
+      <script class="transclude remove" src="../specification.md" data-id="md"></script>
+  </body>
+</html>
