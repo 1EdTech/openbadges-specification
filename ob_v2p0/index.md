@@ -419,9 +419,9 @@ In order to render displays of alignment within badge services, `targetName` is 
 
 
 ### <a id="RevocationList"></a>Revocation List ([example](./examples/index.html#RevocationList))
-The Revocation List is a document that describes badges an Issuer has revoked that used the `signed` verification method. If you find the badge in the `revokedAssertions` list, it has been revoked.
+The Revocation List is a document that describes Assertions or Endorsements that an Issuer has revoked that used the `signed` verification method. If you find the badge in the `revokedAssertions` list, it has been revoked.
 
-An assertion reference may look like `{"id": "https://example.org/1", "revocationReason": "Violation of policy"}` or simply the string `"https://example.org/1"`. A UID-based reference may look like `{"uid": "abc123", "revocationReason": "Awarded in error"}`
+An revoked reference may look like `{"id": "https://example.org/1", "revocationReason": "Violation of policy"}` or simply the string `"https://example.org/1"`. A UID-based reference may look like `{"uid": "abc123", "revocationReason": "Awarded in error"}`
 
 <div class="table-wrapper">
 
@@ -432,12 +432,12 @@ id       | IRI           | The `id` of the RevocationList.
 issuer   | IRI: Profile  | The `id` of the Issuer.
 <a id="revokedAssertions"></a> **revokedAssertions** | `Assertion` ([Multiple values allowed](#array)) | A string `id` or UID-based identification of a badge object that has been revoked.
 
-**Revoked Assertions referenced by revokedAssertions array:** Properties from [Assertion](#Assertion) in scope for those that have been revoked. Implementers generally only include these properties, clearing out the values that were in place before revocation. An identifying property must be used, either `id` or (legacy) `uid`. If the issuer does not wish to declare a revocation reason or additional metadata, the `id` of the `Assertion` may be included alone either as a single string entry to the list or in an object that defines an `id` property.
+**Revoked Assertions referenced by revokedAssertions array:** Properties from [Assertion](#Assertion) or [Endorsement](#Endorsement) in scope for those that have been revoked. Implementers generally only include these properties, clearing out the values that were in place before revocation. An identifying property must be used, either `id` or (legacy) `uid`. If the issuer does not wish to declare a revocation reason or additional metadata, the `id` of the `Assertion` may be included alone either as a single string entry to the list or in an object that defines an `id` property.
 
 Property | Expected Type | Description
 ---------|---------------|-----------
 type     | JSON-LD Type ([Multiple values allowed](#array)) | Defaults to `Assertion`. May be omitted.
-id       | IRI           | The `id` of the revoked Assertion.
+id       | IRI           | The `id` of the revoked Assertion or Endorsement.
 uid      | Text          | Legacy identifier for pre-1.1 badges that did not use an IRI-based `id`.
 <a id="revoked"></a> revoked  | Boolean | `true` if the Assertion is revoked. Defaults to true if present in a `revokedAssertions` list and may be omitted.
 <a id="revocationReason"></a> revocationReason | Text | The published reason for revocation if desired.
@@ -575,6 +575,8 @@ Property | Expected Type | Description/expected value
 **issuer** | @id: Profile | The profile of the Endorsement's issuer.
 **issuedOn** | [DateTime](#dateTime) | Timestamp of when the endorsement was published.
 **verification** | [VerificationObject](#VerificationObject) | Instructions for third parties to verify this assertion of endorsement.
+revoked | Boolean | Defaults to `false` if `Endorsement` is not referenced from a [`revokedAssertions`](#revokedAssertions) list and may be omitted. See [RevocationList](#RevocationList). If `revoked` is true, only `revoked`, `issuer`, and `id` are required properties, and many issuers strip a hosted Assertion down to only those properties when revoked.
+revocationReason | Text | Optional published reason for revocation, if revoked.
 
 </div>
 

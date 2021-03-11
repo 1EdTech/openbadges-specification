@@ -604,3 +604,15 @@ The same method could be used to support a single recipient's achievement throug
  }
 }
 {% endhighlight %}
+
+An `Endorsement` may also be revoked by the Issuer. Here is an example of
+{% highlight json %}
+{
+ "@context": "https://w3id.org/openbadges/v2",
+ "type": "Endorsement",
+ "id": "https://example.org/endorsement-125.json",
+ "issuer": "https://example.org/issuer-5.json",
+ "revoked": true,
+ "revocationReason": "Issued in error."
+}
+{% endhighlight %}
