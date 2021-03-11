@@ -2,8 +2,6 @@
 
 ## Before you start your proposal
 
-LTI is a widely adopted specification, and as such, gets a lot of requests for new features to be added. Before you create a proposal, there are a few steps you need to follow. This is to make sure that all proposals fit well with LTI and that we don't end up with multiple features trying to solve the same problem.
-
 Open Badges is a stable and widely adopted specification. Before adding new features the workgroup must go through a process of documenting
 
 - Create a ticket to pitch your idea to the Open Badges working group. The ticket needs to be created in the [openbadges-specification](https://github.com/IMSGlobal/openbadges-specification/issues/new) repository.

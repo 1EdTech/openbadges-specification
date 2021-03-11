@@ -18,7 +18,7 @@
         specNature: "normative", // spec nature is "normative" or "informative"
         specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
         specVersion: "0.1",
-        specStatus: "Draft Extension", // specStatus: IMS Base Document, IMS Candidate Final (Public) or IMS Final Release
+        specStatus: "Draft Proposal", // specStatus: IMS Base Document, IMS Candidate Final (Public) or IMS Final Release
         specDate: "Never 12th, 2240",
         format: "markdown",
         contributors: _contributors,
@@ -27,10 +27,15 @@
     </script>
   </head>
   <body>
-      <section id="abstract">
-        <h2>Abstract</h2>
-        <p>This is required.</p>
-      </section>
-      <script class="transclude remove" src="../specification.md" data-id="md"></script>
+    <section class="introduction" id="abstract" data-format="markdown">
+      <h2>Abstract</h2>
+      <script class="transclude" src="../abstract.md" data-id="abstract"></script>
+    </section>
+    <section>
+      <script class="transclude" src="../introduction.md" data-id="introduction"></script>
+    </section>
+    <section>
+      <script class="transclude" src="../specification.md" data-id="specification"></script>
+    </section>
   </body>
 </html>
