@@ -542,12 +542,13 @@ For example, this portion of the current Open Badges context links to a validato
 
 Validators using the TypeValidation method match the schema indicated by the validator's `validationSchema` property against a JSON badge object document or portion of such a document that matches the validator's `validatesType` JSON-LD `type`.
 
+It is important that the value of the `validatesType` property be a valid JSON-LD type (an IRI), as that IRI appears when compacted into the Open Badges context, because validation matches this type value here against compacted values as they appear in an extension implementation. In order to correctly identify the extension within the badge object that includes it, an exact match here is expected.
 <div class="table-wrapper">
 
 Property | Expected Type | Description/expected value
 --------|------------|-----------
 **type** | string/compact IRI ([Multiple values allowed](#array)) | `TypeValidation`.
-**validatesType** | string/compact IRI | Valid JSON-LD type for a badge component, such as `Assertion`, `extensions:ApplyLink`, or `https://w3id.org/openbadges/extensions#ApplyLink`. Compact forms preferred.
+**validatesType** | string/compact IRI | JSON-LD type as it appears compacted into the Open Badges context.
 **validationSchema** | URL | Location of a hosted JSON-schema.
 
 </div>
