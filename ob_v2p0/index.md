@@ -693,7 +693,7 @@ Verification of hosted assertions may be performed starting with the verificatio
 #### Revoking Hosted Assertions ([example](./examples/index.html#revoked-hosted-assertion))
 To mark a hosted assertion as revoked, respond with an HTTP Status of `410 Gone`. The response may include an `Assertion` body containing some additional metadata, such as a `revocationReason`, but it is not required to meet all normal property presence requirements. For revoked Assertions, only `id` and `revoked` are required.
 
-If either the `410 Gone` status or a response body declaring `revoked` true is returned, the Assertion should be treated as revoked and thus invalid.
+If either the `410 Gone` status or a response body declaring `revoked` true is returned, the Assertion should be treated as revoked.
 
 ### <a id="SignedBadge"></a>SignedBadge Verification ([example](./examples/index.html#SignedBadge))
 
