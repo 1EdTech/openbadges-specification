@@ -107,6 +107,13 @@
                         "allowEmptyValue" : false
                     }
                 ],
+                "security" : [
+                    {
+                        "OAuth2ACG" : [
+                            "https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.readonly"
+                        ]
+                    }
+                ],
                 "responses" : {
                     "200" : {
                         "description" : "This is the response when the request has been completed successfully.",
@@ -220,6 +227,13 @@
                 "summary" : "The REST update request message for the postAssertion() API call.",
                 "tags" : [ "OBC-Service" ],
                 "description" : "Create or update an Assertion.",
+                "security" : [
+                    {
+                        "OAuth2ACG" : [
+                            "https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.create"
+                        ]
+                    }
+                ],
                 "requestBody" : {
                     "description" : "The Assertion to be created or updated. Data MUST be a list exactly one Assertion long.",
                     "content" : {
@@ -304,6 +318,13 @@
                 "summary" : "The REST read request message for the getProfile() API call.",
                 "tags" : [ "OBC-Service" ],
                 "description" : "Fetch the profile for the supplied authentication token.",
+                "security" : [
+                    {
+                        "OAuth2ACG" : [
+                            "https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.readonly"
+                        ]
+                    }
+                ],
                 "responses" : {
                     "200" : {
                         "description" : "This is the response when the request has been completed successfully.",
@@ -375,6 +396,13 @@
                 "summary" : "The REST update request message for the postProfile() API call.",
                 "tags" : [ "OBC-Service" ],
                 "description" : "Update the profile for the authenticated user.",
+                "security" : [
+                    {
+                        "OAuth2ACG" : [
+                            "https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.update"
+                        ]
+                    }
+                ],
                 "requestBody" : {
                     "description" : "The authenticated user's profile.",
                     "content" : {
@@ -518,7 +546,7 @@
                         "type" : "array",
                         "minItems" : 0,
                         "items" : {
-                            "type" : "string",
+                            "type" : "string"
                         }
                     }
                 },

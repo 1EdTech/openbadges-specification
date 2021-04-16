@@ -26,7 +26,7 @@
 #                 made any effort to identify any such rights. Information on IMS procedures with respect to rights in IMS 
 #                 specifications can be found at the IMS Global Intellectual Property Rights web page: http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf.
 # 
-#                 Copyright (c) IMS Global Learning Consortium 1999-2020. All Rights Reserved.
+#                 Copyright (c) IMS Global Learning Consortium 1999-2021. All Rights Reserved.
 # 
 #                 Use of this specification to develop products or services is governed by the license with IMS found on the IMS website: http://www.imsglobal.org/license.html.
 # 
@@ -51,9 +51,9 @@
 # XSL Generator:    Specificationv1p0_GenerationToolv1.xsl
 # XSLT Processor:   Saxon
 # Release:          1.0
-# Date:             31st July, 2017
+# Date:             31st January, 2021
 # Autogen Engineer: Colin Smythe (IMS Global, UK)
-# Autogen Date:     2020-04-15
+# Autogen Date:     2021-04-16
 # 
 # IMS Global Auto-generation Binding Tool-kit (I-BAT)
 # ===================================================
@@ -64,7 +64,7 @@
 # are contained in the IMS Global "I-BAT" documentation available at the IMS Global web-site:
 # http://www.imsglobal.org.
 # 
-# Tool Copyright:  2012-2020  (c) IMS Global Learning Consortium Inc.  All Rights Reserved.
+# Tool Copyright:  2012-2021  (c) IMS Global Learning Consortium Inc.  All Rights Reserved.
 # 
 # #####################################################################################
 
@@ -175,6 +175,9 @@ paths:
                       format: date-time
                   allowEmptyValue: false
                   style: form
+            security:
+                - OAuth2ACG:
+                    - https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.readonly
             responses: 
                 "200" : 
                     description: |
@@ -263,6 +266,9 @@ paths:
                 - OBC-Service
             description: |
                 Create or update an Assertion.
+            security:
+                - OAuth2ACG:
+                    - https://purl.imsglobal.org/spec/ob/v2p1/scope/assertion.create
             requestBody:
                 description: |
                     The Assertion to be created or updated. Data MUST be a list exactly one Assertion long.
@@ -326,6 +332,9 @@ paths:
                 - OBC-Service
             description: |
                 Fetch the profile for the supplied authentication token.
+            security:
+                - OAuth2ACG:
+                    - https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.readonly
             responses: 
                 "200" : 
                     description: |
@@ -379,6 +388,9 @@ paths:
                 - OBC-Service
             description: |
                 Update the profile for the authenticated user.
+            security:
+                - OAuth2ACG:
+                    - https://purl.imsglobal.org/spec/ob/v2p1/scope/profile.update
             requestBody:
                 description: |
                     The authenticated user's profile.
