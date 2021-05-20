@@ -557,6 +557,7 @@ Here, an endorser claims to have verified the email address published in the Pro
  "type": "Endorsement",
  "id": "https://example.org/endorsement-123.json",
  "issuer": "https://example.org/issuer-5.json",
+ "issuedOn": "2016-12-31T23:59:59+00:00",
  "claim": {
    "id": "https://example.org/organization.json",
    "email": "contact@example.org",
@@ -574,6 +575,7 @@ Another prominent use of Endorsements is to provide a comment expressing approva
  "type": "Endorsement",
  "id": "https://example.org/endorsement-124.json",
  "issuer": "https://example.org/issuer-5.json",
+ "issuedOn": "2016-12-31T23:59:59+00:00",
  "claim": {
    "id": "https://example.org/robotics-badge.json",
    "endorsementComment": "This badge and its associated learning material are great examples of beginning robotics education."
@@ -591,6 +593,7 @@ The same method could be used to support a single recipient's achievement throug
  "type": "Endorsement",
  "id": "https://example.org/endorsement-125.json",
  "issuer": "https://example.org/issuer-5.json",
+ "issuedOn": "2016-12-31T23:59:59+00:00",
  "claim": {
    "id": "https://example.org/beths-robotics-badge.json",
    "endorsementComment": "This student built a great robot.",
@@ -599,5 +602,17 @@ The same method could be used to support a single recipient's achievement throug
  "verification": {
    "type": "hosted"
  }
+}
+{% endhighlight %}
+
+An `Endorsement` may also be revoked by the Issuer. Here is an example of
+{% highlight json %}
+{
+ "@context": "https://w3id.org/openbadges/v2",
+ "type": "Endorsement",
+ "id": "https://example.org/endorsement-125.json",
+ "issuer": "https://example.org/issuer-5.json",
+ "revoked": true,
+ "revocationReason": "Issued in error."
 }
 {% endhighlight %}
