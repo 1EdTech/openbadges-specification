@@ -171,7 +171,7 @@ Join the [Badge Alliance Standard Working Group](https://groups.google.com/forum
 
 Official proposals are made by contributing a pull request on GitHub. Pull requests let you tell others about changes you've pushed to a GitHub repository. 
 
-Go to the [Open Badges spec repository](https://github.com/openbadges/openbadges-specification), then fork the code, modify it, and save it back to your forked repository. Submit a pull request to the origin repository master branch to initiate a review of the proposed changes.
+Go to the [Open Badges spec repository](https://github.com/openbadges/openbadges-specification), then fork the code, modify it, and save it back to your forked repository. Submit a pull request to the origin repository main branch to initiate a review of the proposed changes.
 
 Once a pull request is sent, interested parties can review the set of changes and discuss potential modifications before deciding whether and how to integrate them. The Standard Working Group makes a call for consensus, and if successful, merges the proposed changes.
 
