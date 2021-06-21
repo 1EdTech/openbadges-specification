@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Markdown template for an extension document.
+        If you change the filename of the.md file, you need to
+        change the name in the src attribute of the
+        <script class="transclude> element below.
+    -->
+
+    <meta charset='utf-8'>
+    <script src='https://purl.imsglobal.org/spec/respec-ims-default.js' async class='remove'></script>
+    <script src='local-biblio.js' class='remove'></script>
+    <script src='contributors.js' class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+        mainSpecTitle: "Open Badges",
+        mainSpecBiblioKey: "OB-20",
+        specTitle: "Open Badges 2.0 VC Packaging Extension",
+        shortName: "vc-packaging",
+        specNature: "normative", // spec nature is "normative" or "informative"
+        specType: "proposal", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
+        specVersion: "0.1",
+        specStatus: "IMS Base Document", // specStatus: IMS Base Document, IMS Candidate Final (Public) or IMS Final Release
+        specDate: "June 21, 2021",
+        contributors: _contributors,
+        localBiblio: _localBiblio
+      };
+    </script>
+  </head>
+  <body>
+
+    <section class="introductory" id="abstract" data-format="markdown">
+      <script class="transclude" data-id="abstract" src="../abstract.md"></script>
+    </section>
+
+    <section class="introductory" id="conformance">
+      <h2>Conformance</h2>
+    </section>
+
+    <section data-format="markdown">
+      <script class="transclude" data-id="introduction" src="../introduction.md"></script>
+    </section>
+
+    <section data-format="markdown">
+      <script class="transclude" data-id="specification" src="../specification.md"></script>
+    </section>
+
+  </body>
+</html>

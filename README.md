@@ -5,6 +5,8 @@ The published version of Open Badges 2.0 is in main and develop. Version 2.1 is 
 ## Proposals
 For information about how to propose a new feature or material change to the specification, please see `proposals/README.md`.
 
+| [Open Badges 2.0 VC Packaging Extension](https://github.com/IMSGlobal/openbadges-specification/tree/develop/proposals/vc-packaging/specification.md) | Extension | JSON packaging for OB 2.0 VC |
+
 ## Branches
 * __main__: stable, deployable branch that stores the official release history including releases designated as Candidate Final Public.
 * __develop__: unstable development branch. Current work that targets a future release is merged into this branch.
