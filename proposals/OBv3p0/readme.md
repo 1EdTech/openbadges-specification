@@ -1,14 +1,21 @@
 # Open Badges 3.0
 
-This is a change for [Open Badges](https://www.imsglobal.org/activity/digital-badges).
+This is a change for [Open Badges](https://openbadgespec.org) adapt the Open Badges Specification to the conventions of the [Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/) for the use cases of Defined Achievement Claim and a Skill Claim.
 
-Proposed version change to Open Badges to 1) use the W3C Verifiable Credentials data model  in place of 2.0 verification model, 2) add properties that align with CLR such as AchievementType and ResultDescriptions, 3) add properties to allow for badge creator to be distinguished from badge issuer and convey allowed issuers for situations when the creator and the issuer(s) are not the same entity, 4) introduce the concept of a verifiable skill assertion.
+This consists of several specific proposed changes to Open Badges to:
+1. use the W3C Verifiable Credentials data model for assertion format, using a `schema:hasCredential` claim to link the credential subject to the defined achievement that they have earned.
+2. add properties that align with CLR such as AchievementType and ResultDescriptions.
+3. add properties to allow for the issuer of a Assertion/Credential issuer to be a separate entity from the BadgeClass creator, where the creator may define eligibility for issuers.
+4. introduce the complementary use case of a skill assertion.
+5. introduce conventions for using Decentralized Identifiers (DIDs) for issuer and/or recipient identification.
+
+The credentials that would be produced under this proposal could easily be bundled into Comprehensive Learner Records and Verifiable Presentations. Portability and learner data privacy may be improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.
 
 <!--- Temporary Setup-only Section --->
 # Extension folder setup process
 
   - [x] Free space
-  - [x] Name the service/message/extension: `Open Badges 3.0`
+  - [x] Name the service/message/extension: `Open Badges 3.0 as an implementation of Verifiable Credentials`
   - [x] Create a short name/code name: `OBv3p0`
   - [x] Copy `proposals/a-template` directory to a new directory with the short name `proposals/OBv3p0`
   - [x] In new proposal directory find & replace: `ProperProjectName` with the actual name
@@ -22,7 +29,7 @@ Proposed version change to Open Badges to 1) use the W3C Verifiable Credentials 
 ## Proposal readme table row
 
 ```md
-| [ProperProjectName](https://github.com/IMSGlobal/openbadges-specification/tree/develop/proposals/OBv3p0/specification.md) | Proposal | Open Badges 3.0 |
+| [Open Badges 3.0](https://github.com/IMSGlobal/openbadges-specification/tree/develop/proposals/OBv3p0/specification.md) | Proposal | Open Badges 3.0 |
 ```
 <!--- End Setup Section --->
 
@@ -32,7 +39,7 @@ Proposed version change to Open Badges to 1) use the W3C Verifiable Credentials 
 
 ### Current Status
 
-Proposal
+Proposal Draft in Progress
 
 ## Process
 

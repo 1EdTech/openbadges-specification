@@ -2,6 +2,6 @@ var abstract = `
 
 ## Abstract
 
-Here you will describe the proposal from a high-level to set the tone of the document.
+Applies the concepts of Defined Achievement Claim and a Skill Claim and the conventions of the Verifiable Credentials Data Model to adapt the Open Badges Specification to these conventions.
 
 `;
