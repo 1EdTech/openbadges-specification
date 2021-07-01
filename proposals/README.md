@@ -16,3 +16,7 @@ Open Badges is a stable and widely adopted specification. Before adding new feat
 - Once you are happy with your proposal, or if you wish to get feedback from the working group, create a pull request against the `develop` branch, then link it in your ticket so that the working group knows you wish for them to review it.
 - Discuss your proposal in the working group and on the pull request.
 - At this point your proposal will continue to be iterated upon until it is approved by the working group for wider review.
+
+```md
+| [ProperProjectName](https://github.com/IMSGlobal/openbadges-specification/tree/develop/proposals/OBv3p0/specification.md) | Proposal | Open Badges 3.0 |
+```
