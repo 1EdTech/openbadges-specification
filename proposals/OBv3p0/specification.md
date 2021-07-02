@@ -17,11 +17,11 @@ This proposal is for a small but critical change to the structure of the Open Ba
 
 An existing Open Badges Assertion structures its objects like this:
 An Assertion identifies a recipient with a "recipient" relationship to an IdentityObject that contains identifying properties. It identifies which badge it represents with a "badge" relationship to a BadgeClass. It identifies its verification information with a "verification" relationship to a VerificationObject. It identifies its issuer with an "issuer" relationship between the BadgeClass and the Issuer.
-[!Open Badges 2.0 Diagram](./figure01-openbadges-2.0-diagram.png)
+![Open Badges 2.0 Diagram](./figure01-openbadges-2.0-diagram.png)
 
 The proposed Verifiable Credentials structure offers the same information with a slightly different structure:
 A Verifiable Credential identifies its recipient with a "credentialSubject" relationship to a subject class that is identified by an identifier. It identifies its issuer with an "issuer" relationship to an Issuer. The Credential claims the subject has met the criteria of a specific BadgeClass (also known by its CLR alias as an "Achievement") with a "hasCredential" relationship to that defined achievement. It identifies its verification information with a "proof" relationship to an instance of a proof that follows a standardized schema.
-[!Open Badges 3.0 proposed diagram](./figure02-openbadges-3.0-diagram.png)
+![Open Badges 3.0 proposed diagram](./figure02-openbadges-3.0-diagram.png)
 
 #### Digital Wallets, Verifiable Presentations, and Learner Experiences
 Open Badges as VCs are designed to be issued and offered to learners who may accept them into their digital wallet. Wallets are software that runs on either the web or as a native app on a mobile device or desktop environment. A web wallet is another term to describe the application role known under 2.0 as a "Host". There is an existing and growing ecosystem of deployed technology; integration with these becomes possible if Open Badges adopts VCs along the lines of this proposal. For example, a number of generic Verifiable Credentials wallet implementations are available from a variety of vendors as native mobile apps. From a wallet, recipients may package their badges along with their other VCs into verifiable presentations. A presentation contains the credentials that the learner wishes to share with a relying party. The digital wallet application digitally signs the presentation using the key of the learner. The verifying third-parties can cryptographically verify that the presentation came unmodified directly from the credential holder as well as the integrity of each of the VCs included in the presentation as credentials signed by each of their respective issuers.
