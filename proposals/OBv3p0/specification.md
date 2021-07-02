@@ -98,7 +98,7 @@ Several changes to the Open Badges 2.0 data model are proposed, in order to acco
 
 * **credentialSubject.schema:hasCredential.achievementType:** This property is taken from the CLR and may contain the same string values as proposed by the CLR.
 
-* **credentialSubject.schema:hasCredential.creator** Open Badges as native VCs should continue to be one issuer of one claim about one recipient. With Open Badges, the issuer profile has been referenced in the BadgeClass. With Open Badges as VCs, the issuer is the entity that signs the credential. The issuer may be different from the creator of the badge being issued. As depicted in the example below, with Open Badges as VCs, the issuer profile may still include name, description, url, image, email, etc.
+* **credentialSubject.schema:hasCredential.creator:** Open Badges as native VCs should continue to be one issuer of one claim about one recipient. With Open Badges, the issuer profile has been referenced in the BadgeClass. With Open Badges as VCs, the issuer is the entity that signs the credential. The issuer may be different from the creator of the badge being issued. As depicted in the example below, with Open Badges as VCs, the issuer profile may still include name, description, url, image, email, etc.
 
 * **credentialSubject.evidence:** With OpenBadges <= 2.0, the evidence has been an assertion property. This proposal suggests that evidence should be included in the credentialSubject object so that the evidence is related to the claim, not the verification of the claim.
 
@@ -127,6 +127,7 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
 ## Examples
 
 <figure class="example">
+  <figcaption><span>Example of Open Badge as a Verifiable Credential</span></figcaption>
   <pre>
   {
     "@context": [
@@ -205,10 +206,10 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
       }
     }
   </pre>
-  <figcaption><span>Example of Open Badge as a Verifiable Credential</span></figcaption>
 </figure>
 
 <figure class="example">
+  <figcaption><span>Example of two Open Badges as a Verifiable Credentials in a verifiable presentation by the learner.</span></figcaption>
   <pre>
   {
     "@context": [
@@ -340,10 +341,10 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
           }
         }
   </pre>
-  <figcaption><span>Example of two Open Badges as a Verifiable Credentials in a verifiable presentation  by the learner.</span></figcaption>
 </figure>
 
 <figure class="example">
+<figcaption><span>Example of a Skill Assertion</span></figcaption>
   <pre>
   {
     "@context": [
@@ -375,7 +376,6 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
       }
     }
   </pre>
-  <figcaption><span>Example of a Skill Assertion</span></figcaption>
 </figure>
 
 
