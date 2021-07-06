@@ -30,11 +30,11 @@ Below are use cases illustrating the power of Open Badges as Verifiable Credenti
 
 * _Decentralized Identifiers_: A type of identifier for people, organizations and any other entity, where each identifier is controlled independently of centralized registries. See [DID Use Cases Intro](https://www.w3.org/TR/did-use-cases/#intro).
 
-* _Relying Third-Party_: Also preferred to as the "verifer" of a VC. This entity requests, verifies, and may consume data being presented.
+* _Relying Third-Party_: Also referred to as the "verifier" of a VC. This entity requests, verifies, and may consume data being presented.
 
 * _Rich Skill Descriptors (RSD)_: A machine readable reference to a description of a skill located at a unique URL. See [Rich Skill Descriptor (RSD)](https://rsd.osmt.dev).
 
-* _resultDescription_: A CLR property being proposed as an addition to Open Badges 3.0 which describes a posisble achievement result. See ["dtResultDescription" Class](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtResultDescription).
+* _resultDescription_: A CLR property being proposed as an addition to Open Badges 3.0 which describes a possible achievement result. See ["dtResultDescription" Class](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtResultDescription).
 
 * _Skill Assertion_: an Open Badges assertion that contains a "skill result."
 

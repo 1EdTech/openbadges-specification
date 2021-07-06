@@ -42,7 +42,7 @@ The credentials that would be produced under this proposal could easily be bundl
 
 ### Current Status
 
-Proposal Draft in Progress
+Proposal Draft ready for discussion by the Open Badges and CLR Workgroups.
 
 ## Process
 
