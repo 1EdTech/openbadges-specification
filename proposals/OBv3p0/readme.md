@@ -1,8 +1,9 @@
 # Open Badges 3.0
 
-This is a change to adapt the [IMS Global Open Badges Specification](https://openbadgespec.org) to the conventions of the [W3C Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/) for the use cases of Defined Achievement Claim and a Skill Claim.
+This is a change to align the [IMS Global Open Badges Specification](https://openbadgespec.org) to the conventions of the [W3C Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/) for the use cases of Defined Achievement Claim and a Skill Claim.
 
 This consists of several specific proposed changes to Open Badges to:
+
 1. use the W3C Verifiable Credentials data model for assertion format, using a `schema:hasCredential` claim to link the credential subject to the defined achievement that they have earned.
 2. introduce conventions for using Decentralized Identifiers (DIDs) for issuer and/or recipient identification.
 3. add properties to allow for the issuer of an Assertion/Credential issuer to be a separate entity from the BadgeClass creator, where the creator may define eligibility for issuers.
@@ -35,6 +36,8 @@ The credentials that would be produced under this proposal could easily be bundl
 
 ## Documents
 
+- [Abstract](abstract.md)
+- [Introduction](introduction.md)
 - [The Open Badges 3.0 Specification](specification.md)
 
 ### Current Status
