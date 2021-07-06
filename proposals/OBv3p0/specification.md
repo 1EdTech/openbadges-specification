@@ -1,17 +1,12 @@
-var specification=`
+var specification = `
 
 ## Specification
 
 ### What is the problem this solves for?
-This proposal describes how to integrate Open Badges with the next generation of general-purpose digital credentials, the [W3C Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/), within which Open Badges can take its place as the leading schema for educational achievement claims within a growing world of widely interoperable digital credentials.
 
 Verifiable Credentials (VCs) are a format that is used to publish a limitless variety of claims about a subject person or other entity, typically through a cryptographic proof. VCs can be collected and delivered as part of a [presentation](https://www.w3.org/TR/vc-imp-guide/#dfn-verifiable-presentations) whereby authorship of each VC from the same or multiple issuers can be trusted via cryptographic verification. The presentation can also be cryptographically signed to demonstrate that the holder has assembled and sent the collection of VCs.
 
 These layers of cryptographic proof can provide security and privacy enhancements to Open Badges that are not yet available in version 2.0. Adoption of Verifiable Credentials can increase market penetration and use of Open Badges by addressing market needs for trustworthy machine-ready data to power connected ecosystems in education and workforce. This can unlock the door for Open Badges credentials to be included in a growing number of multi-purpose digital credential wallets entering the market. Stepping further into signed VCs and another associated technology, decentralized identifiers (DIDs), unlocks increased longevity and resilience of Open Badges that can describe achievements even more expressively than they do today.
-
-This proposal for a 3.0 version of Open Badges also makes important steps to integrate innovations from the Comprehensive Learner Record (CLR) 1.0 specification by including recent additions made to the CLR parallel to the Open Badges Assertion and BadgeClass data classes. This enables concepts like achievement types (beyond just "Badge") and result descriptions to be expressed in a BadgeClass.
-
-Introducing a new major capability to Open Badges is also on the table: Skill Assertions are a proposed method for issuers to make claims about the achievement of skills more directly without requiring the creation of a BadgeClass in order to recognize skills that are important to a particular industry or discipline.
 
 ### What does adopting Verifiable Credentials entail?
 This proposal is for a reasonable change to the structure of the Open Badges Assertion class, to adopt the conventions of the [Verifiable Credential Data Model](https://w3c.github.io/vc-data-model/). This means that badges issued under the proposed version would not be conformant to all of the existing 2.x data model requirements.
@@ -377,13 +372,5 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
     }
   </pre>
 </figure>
-
-
-### Example Admonitions
-
-<aside class="note">Example of text content of note aside</aside>
-<aside class="warning">Example of text content of warning aside</aside>
-<aside class="issue">Example of text content of issue aside</aside>
-
 
 `;

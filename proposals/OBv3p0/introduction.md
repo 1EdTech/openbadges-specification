@@ -10,8 +10,6 @@ This proposal also makes important steps to integrate innovations from the Compr
 
 Introducing a new major capability to Open Badges is also on the table: skill assertions are a proposed method for issuers to make claims about the achievement of skills more directly without requiring the creation of a BadgeClass in order to recognize skills that are important to a particular industry or discipline.
 
-Technologies and the education and workforce markets have evolved since Open Badges 2.0 was released 4 years ago. Machine learning and AI uses have expanded alongside blockchain and other decentralized technologies creating opportunity for connecting learners to opportunities, more accurate skills-based hiring, and updated curricula more equitably reflecting the needs of students. The market is demanding that the achievement data be trustworthy. This means that it should be accessible, protected, have integrity, and communicate what was intended including that the issuer and subjects of the data can be authenticated and that the data has not been tampered with since it was issued. Shifting Open Badges to align with the VC conventions to verify learner achievements meets these expectations and provides learners with more agency over their achievement data by giving them immediate access to it for as long as they need it, allowing them to choose which data they share, protecting it, and making it work with other credentials in and outside of education and workforce.
-
 ### Use Cases
 
 Below are use cases illustrating the power of Open Badges as Verifiable Credentials.
@@ -22,7 +20,7 @@ Below are use cases illustrating the power of Open Badges as Verifiable Credenti
 
 * **Mapping Skills**: Sid is shifting careers after many years working in construction. In his digital wallet he had several skill badges describing his mastery of several skills in construction but also in teamwork, communication, and organizational skills. Sid also had badges from some courses he'd taken in science and math over the last few years. After he uploaded the skill and course badges from his wallet to a career planning site, he was offered several opportunities to apply for work in software sales and cybersecurity.
 
- * **Verifying Continuing Ed**: Denise was offered a new job at a hospital as a physician assistant. Before starting, her continuing education training and license to practice needed to be verified. The last time she switched hospitals, the verification process took three weeks. This time, she was able to provide her badges to prove her her training and license. Within minutes her credentials were verified and she was issued a new digital staff credential.
+* **Verifying Continuing Ed**: Denise was offered a new job at a hospital as a physician assistant. Before starting, her continuing education training and license to practice needed to be verified. The last time she switched hospitals, the verification process took three weeks. This time, she was able to provide her badges to prove her her training and license. Within minutes her credentials were verified and she was issued a new digital staff credential.
 
 ### Terms
 
