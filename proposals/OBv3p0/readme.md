@@ -36,6 +36,8 @@ The credentials that would be produced under this proposal could easily be bundl
 
 ## Documents
 
+- [Abstract](abstract.md)
+- [Introduction](introduction.md)
 - [The Open Badges 3.0 Specification](specification.md)
 
 ### Current Status
