@@ -207,133 +207,123 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
   <figcaption><span>Example of two Open Badges as a Verifiable Credentials in a verifiable presentation by the learner</span></figcaption>
   <pre>
   {
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1"
+  ],
+  "type": "VerifiablePresentation",
+  "verifiableCredential": [{
     "@context": [
-      "https://www.w3.org/2018/credentials/v1"
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/openbadges/v3"
     ],
-    "type": "VerifiablePresentation",
-    "verifiableCredential": [{
+    "type": [
+      "VerifiableCredential",
+      "Open Badge"
+    ],
+    "id": "https://website-that-supports-or-displays-the-badge.html",
+      "issuer": {
+        "id": "did:example:issuer",
+        "name": "An Example Issuer",
+        "image": "https://example.org/logo.png",
+        "url": "https://example.org",
+        "email": "contact@example.org"
+      },
+      "issuanceDate": "2010-01-01T19:23:24Z",
+      "credentialSubject": {
+        "id": "did:example:learner",
+        "schema:hasCredential": {
+          "id": "https://example.org/achievements/123",
+          "type": "BadgeClass",
+          "achievementType": "Certificate",
+          "name": "Robotic Drones Analysis",
+          "description": "Learn to analyze and present the different types of robotic drones",
+          "image": "https://example.org/drone-image.png",
+          "creator": "did:example:issuer",
+          "criteria": "https://example.org/robotics-drone-analysis.html",
+          "tags": ["robots", "not birds"],
+          "alignment": [{
+            "targetName": "CCSS.ELA-Literacy.RST.11-12.3",
+            "targetUrl": "http://www.corestandards.org/ELA-Literacy/RST/11-12/3",
+            "targetDescription": "Follow precisely a complex multistep procedure when carrying out experiments, taking measurements, or performing technical tasks; analyze the specific results based on explanations in the text.",
+            "targetCode": "CCSS.ELA-Literacy.RST.11-12.3"
+          }]
+        },
+        "evidence": {
+          "id": "https://example.org/my-robot-drones-analysis.html",
+          "name": "My Robot Drones Analysis",
+          "description": "A paper in APA format analyzing five different types of robot drones that look like birds.",
+          "narrative": "This research paper compared different types of robot drones that are sometimes mistaken for birds and their impacts on the environment.",
+          "genre": "Journal Article"
+        }
+      },
+      "proof": {
+        "type": "RsaSignature2018",
+        "created": "2017-06-18T21:19:10Z",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:example:issuer#keys/1",
+        "jws": "eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5X"
+      }
+    },
+    {
       "@context": [
         "https://www.w3.org/2018/credentials/v1",
         "https://w3id.org/openbadges/v3"
-        ],
-        "type": [
-          "VerifiableCredential",
-          "Open Badge"
-        ],
-        "id": "https://website-that-supports-or-displays-the-badge.html",
-        "issuer": {
-          "id": "did:example:issuer",
-          "name": "An Example Issuer",
-          "image": "https://example.org/logo.png",
-          "url": "https://example.org",
-          "email": "contact@example.org"
-        },
-        "issuanceDate": "2010-01-01T19:23:24Z",
-        "credentialSubject": {
-          "id": "did:example:learner",
-          "schema:hasCredential": {
-            "id": "https://example.org/achievements/123",
-            "type": "BadgeClass",
-            "achievementType": "Certificate",
-            "name": "Robotic Drones Analysis",
-            "description": "Learn to analyze and present the different types of robotic drones",
-            "image": "https://example.org/drone-image.png",
-            "creator": "did:example:issuer",
-            "criteria": "https://example.org/robotics-drone-analysis.html",
-            "tags": ["robots", "not birds"],
-            "alignment": [{
-              "targetName": "CCSS.ELA-Literacy.RST.11-12.3",
-              "targetUrl": "http://www.corestandards.org/ELA-Literacy/RST/11-12/3",
-              "targetDescription": "Follow precisely a complex multistep procedure when carrying out experiments, taking measurements, or performing technical tasks; analyze the specific results based on explanations in the text.",
-              "targetCode": "CCSS.ELA-Literacy.RST.11-12.3"
-            }]
-          },
-        },
-        "evidence": {
-            "id": "https://example.org/my-robot-drones-analysis.html",
-            "name": "My Robot Drones Analysis",
-            "description": "A paper in APA format analyzing five different types of robot drones that look like birds.",
-            "narrative": "This research paper compared different types of robot drones that are sometimes mistaken for birds and their impacts on the environment.",
-            "genre": "Journal Article"
-          },
-        },
-        "proof": {
-          "type": "RsaSignature2018",
-          "created": "2017-06-18T21:19:10Z",
-          "proofPurpose": "assertionMethod",
-          "verificationMethod": "did:example:issuer#keys/1",
-          "jws": "eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5X
-          sITJX1CxPCT8yAV-TVkIEq_PbChOMqsLfRoPsnsgw5WEuts01mq-pQy7UJiN5mgRxD-WUc
-          X16dUEMGlv50aqzpqh4Qktb3rk-BuQy72IFLOqV0G_zS245-kronKb78cPN25DGlcTwLtj
-          PAYuNzVBAh4vGHSrQyHUdBBPM"
-        }
+      ],
+      "type": [
+        "VerifiableCredential",
+        "Open Badge"
+      ],
+      "id": "https://website-that-supports-or-displays-the-badge.html",
+      "issuer": {
+        "id": "did:example:issuer",
+        "name": "An Example Issuer",
+        "image": "https://example.org/logo.png",
+        "url": "https://example.org",
+        "email": "contact@example.org"
       },
-      {
-        "@context": [
-          "https://www.w3.org/2018/credentials/v1",
-          "https://w3id.org/openbadges/v3"
-          ],
-            "type": [
-              "VerifiableCredential",
-              "Open Badge"
-            ],
-            "id": "https://website-that-supports-or-displays-the-badge.html",
-            "issuer": {
-              "id": "did:example:issuer",
-              "name": "An Example Issuer",
-              "image": "https://example.org/logo.png",
-              "url": "https://example.org",
-              "email": "contact@example.org"
-            },
-            "issuanceDate": "2010-01-01T19:23:24Z",
-            "credentialSubject": {
-              "id": "did:example:learner",
-                "schema:hasCredential": {
-                  "id": "https://example.org/robot-badge/123",
-                  "type": "BadgeClass",
-                  "achievementType": "Badge",
-                  "name": "Awesome Robotics Badge",
-                  "description": "For doing awesome things with robots that people think is pretty great.",
-                  "image": "https://example.org/robotics-badge.png",
-                  "creator": "did:example:issuer",
-                  "criteria": "https://example.org/robotics-badge.html"
-                },
-              },
-              "evidence": [{
-                "id": "https://example.org/beths-robot-photos.html",
-                "name": "Robot Photoshoot",
-                "description": "A gallery of photos of the student's robot",
-                "genre": "Photography"
-                },
-                {
-                  "id": "https://example.org/beths-robot-work.html",
-                  "name": "Robotics Reflection 1",
-                  "description": "Reflective writing about the first week of a robotics learning journey."
-              }],
-              "proof": {
-                "type": "RsaSignature2018",
-                "created": "2017-06-18T21:19:10Z",
-                "proofPurpose": "assertionMethod",
-                "verificationMethod": "did:example:issuer#keys/1",
-                "jws": "eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5X
-                sITJX1CxPCT8yAV-TVkIEq_PbChOMqsLfRoPsnsgw5WEuts01mq-pQy7UJiN5mgRxD-WUc
-                X16dUEMGlv50aqzpqh4Qktb3rk-BuQy72IFLOqV0G_zS245-kronKb78cPN25DGlcTwLtj
-                PAYuNzVBAh4vGHSrQyHUdBBPM"
-              },
-            }],    
-          "proof": {
-            "type": "RsaSignature2018",
-            "created": "2018-09-14T21:19:10Z",
-            "proofPurpose": "authentication",
-            "verificationMethod": "did:example:learner#keys-1",
-            "challenge": "1f44d55f-f161-4938-a659-f8026467f126",
-            "domain": "4jt78h47fh47",
-            "jws": "eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..kTCYt5
-            XsITJX1CxPCT8yAV-TVIw5WEuts01mq-pQy7UJiN5mgREEMGlv50aqzpqh4Qq_PbChOMqs
-            LfRoPsnsgxD-WUcX16dUOqV0G_zS245-kronKb78cPktb3rk-BuQy72IFLN25DYuNzVBAh
-            4vGHSrQyHUGlcTwLtjPAnKb78"
-          }
-        }
+      "issuanceDate": "2010-01-01T19:23:24Z",
+      "credentialSubject": {
+        "id": "did:example:learner",
+        "schema:hasCredential": {
+          "id": "https://example.org/robot-badge/123",
+          "type": "BadgeClass",
+          "achievementType": "Badge",
+          "name": "Awesome Robotics Badge",
+          "description": "For doing awesome things with robots that people think is pretty great.",
+          "image": "https://example.org/robotics-badge.png",
+          "creator": "did:example:issuer",
+          "criteria": "https://example.org/robotics-badge.html"
+        },
+        "evidence": [{
+          "id": "https://example.org/beths-robot-photos.html",
+          "name": "Robot Photoshoot",
+          "description": "A gallery of photos of the student's robot",
+          "genre": "Photography"
+        },
+        {
+          "id": "https://example.org/beths-robot-work.html",
+          "name": "Robotics Reflection 1",
+          "description": "Reflective writing about the first week of a robotics learning journey."
+        }]
+      },
+      "proof": {
+        "type": "RsaSignature2018",
+        "created": "2017-06-18T21:19:10Z",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:example:issuer#keys/1",
+        "jws": "eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5X"
+      }
+  }],  
+  "proof": {
+    "type": "RsaSignature2018",
+    "created": "2018-09-14T21:19:10Z",
+    "proofPurpose": "authentication",
+    "verificationMethod": "did:example:learner#keys-1",
+    "challenge": "1f44d55f-f161-4938-a659-f8026467f126",
+    "domain": "4jt78h47fh47",
+    "jws": "eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..kTCYt5"
+  }
+}
   </pre>
 </figure>
 
