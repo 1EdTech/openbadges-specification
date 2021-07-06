@@ -13,10 +13,16 @@ This proposal is for a reasonable change to the structure of the Open Badges Ass
 
 An existing Open Badges Assertion, illustrated in the graphic below, structures its objects like this:
 An Assertion identifies a recipient with a "recipient" relationship to an IdentityObject that contains identifying properties. It identifies which badge it represents with a "badge" relationship to a BadgeClass. It identifies its verification information with a "verification" relationship to a VerificationObject. It identifies its issuer with an "issuer" relationship between the BadgeClass and the Issuer.
-![Open Badges 2.0 Diagram](./figure01-openbadges-2.0-diagram.png)
+<figure>
+  <img src="../figure01-openbadges-2.0-diagram.png" width="100%" alt="Open Badges 2.0 Diagram" />
+  <figcaption>Open Badges 2.0 Diagram</figcaption>
+</figure>
 
 The proposed Verifiable Credentials structure depicted below offers the same information with a slightly different structure: A Verifiable Credential identifies its recipient with a "credentialSubject" relationship to a subject class that is identified by an identifier. It identifies its issuer with an "issuer" relationship directly to an Issuer. The Credential claims the subject has met the criteria of a specific BadgeClass (also known by its CLR alias as an "Achievement") with a "hasCredential" relationship to that defined achievement. It identifies its verification information with a "proof" relationship to an instance of a proof that follows a standardized schema.
-![Open Badges 3.0 proposed diagram](./figure02-openbadges-3.0-diagram.png)
+<figure>
+  <img src="../figure02-openbadges-3.0-diagram.png" width="100%" alt="Open Badges 3.0 Proposed Diagram" />
+  <figcaption>Open Badges 3.0 Proposed Diagram</figcaption>
+</figure>
 
 ## Benefits and Opportunities
 It can be risky to make breaking changes to a specification used as broadly as Open Badges, but there are a range of benefits to making this move now while the Verifiable Credentials ecosystem is young and growing fast. There are strong use cases for digital credentials for learning and skill achievements across the nexus of education and employment, as we have seen from the broad adoption of Open Badges and the proliferation of industry groups making connections between educational institutions and the employment market around digital credentials. Technical compatibility is in a more favorable position when faced with rapid ecosystem growth than competition between large communities issuing these learning credentials and other communities focused on different market verticals from government identity documents, commercial payments, and international trade, to name a few.
@@ -70,10 +76,18 @@ Many of the use cases for Open Badges and CLR involve describing "defined achiev
 A Skill Assertion is an Open Badges assertion that contains a "skill result." The idea of a skill result fits perfectly with the concept from CLR of a Result that is paired against the ResultDescription defined in an Achievement/BadgeClass, but a skill result targets a skill that may have been defined by a third-party organization, such as an industry group. This is a separate claim that may be composed alongside a "hasCredential" claim that identifies which Achievement/BadgeClass criteria has been met, or it could appear in an Open Badges Verifiable Credential without the defined achievement claim. This means that an issuer could easily make an assertion that a learner has achieved the criteria of a certain badge, or that they have achieved a specific skill, or both (whether or not the skill is specifically identified in the alignments of the badge).
 
 The following diagram shows how these concepts are connected for a use case in which an issuer asserts that a credential subject has achieved a particular skill, using a "results" claim to establish a relationship with a Result class that identifies which skill is recognized and may describe other aspects of the skill achievement, such as the level at which it was assessed and a degree of confidence. Specific use cases for how this data needs to be consumed will drive the specific skill-specific properties of the Result class that may be added to give issuers the options they need. In this example, a Skill Definition that is identified by a unique URL at which information about the skill is published is referenced by the Result. This pattern, named by the [Open Skills Network](https://openskillsnetwork.org) as a [Rich Skill Descriptor (RSD)](https://rsd.osmt.dev), makes it possible for skills to be precisely referenced in other entities, such as credentials. Here, the RSD was published by an industry organization, and included in this credential by a different issuer. There is no need for the skill author and the credential issuer to have a pre-existing or discoverable relationship in order for a Skill Assertion to be valid. Evidence may also be included, just like in any Assertion.
-![Figure 3: Skill Assertion with Evidence Diagram](./figure03-skill-assertion-with-evidence.png)
+
+<figure>
+  <img src="../figure03-skill-assertion-with-evidence.png" width="100%" alt="Skill Assertion with Evidence Diagram" />
+  <figcaption>Skill Assertion with Evidence Diagram</figcaption>
+</figure>
 
 The notion of skill results can be combined with a defined achievement assertion claim "hasCredential". In this example, the same Skill Assertion appears, but additional criteria that the learner has met is described in the Achievement/BadgeClass as in many of our other examples. The Achievement aligns to the same skill that is recognized, but the Result allows the issuer to describe specifics about the assessment results relative to the skill.
-![Figure 4: Defined Achievement Assertion with Skill Result Diagram](./figure04-defined-achievement-with-skill.png)
+
+<figure>
+  <img src="../figure04-defined-achievement-with-skill.png" width="100%" alt="Defined Achievement Assertion with Skill Result Diagram" />
+  <figcaption>Defined Achievement Assertion with Skill Result Diagram</figcaption>
+</figure>
 
 The inclusion of Skill Assertion claims makes a natural, ergonomic fit with defined achievement claims and evidence claims. Business logic to process each of the available claims can look for just the data a relying party needs, and extraneous claims do not get in the way.
 
@@ -81,29 +95,29 @@ The inclusion of Skill Assertion claims makes a natural, ergonomic fit with defi
 ## Changes to the Data Model
 Several changes to the Open Badges 2.0 data model are proposed, in order to accomplish the alignment with Verifiable Credentials and the above goals:
 
-* **Align existing Open Badges VerificationObject properties with Verifiable Credential data model properties:** Verifiable Credentials have properties to describe an assertion of a claim and the instructions for cryptographically proving the claim. As seen in the examples below, some VC properties should replace the VerificationObject properties of Open Badges. For example, issuedOn will be replaced by [issuanceDate](https://www.w3.org/TR/vc-data-model/#issuance-date), expires by [expirationDate](https://www.w3.org/TR/vc-data-model/#expiration), and verification by [proof](https://www.w3.org/TR/vc-data-model/#proofs-signatures).
+* _Align existing Open Badges VerificationObject properties with Verifiable Credential data model properties_: Verifiable Credentials have properties to describe an assertion of a claim and the instructions for cryptographically proving the claim. As seen in the examples below, some VC properties should replace the VerificationObject properties of Open Badges. For example, issuedOn will be replaced by [issuanceDate](https://www.w3.org/TR/vc-data-model/#issuance-date), expires by [expirationDate](https://www.w3.org/TR/vc-data-model/#expiration), and verification by [proof](https://www.w3.org/TR/vc-data-model/#proofs-signatures).
 
-* **Image:** The Open Badges assertion has an optional image property which is expected to contain the badge metadata baked into an image. The 2.0 specification references the image in the BadgeClass and historically it has been expected that the baked image uses the BadgeClass image. In this model, the baking should continue to be optional as it is less needed with VCs. However, it is critical to note that the VC community is discussing methods of embedding verifiable data into files such as images, QR codes, and PDFs. This may not be ready for 3.0 but could be ready for a future version and referenced to encourage piloting. The BadgeClass image is required in 2.0. In 3.0, it should be optional. The baking of the badge was a proposed method of transporting Open Badges. This is not required with VCs. Some badge issuers may wish to include images in their badges for when they are being displayed online and some wallets may wish to put the images to use. Open Badges 3.0 should continue support for images to enable new uses for them to be adopted in future releases.
+* _Image_: The Open Badges assertion has an optional image property which is expected to contain the badge metadata baked into an image. The 2.0 specification references the image in the BadgeClass and historically it has been expected that the baked image uses the BadgeClass image. In this model, the baking should continue to be optional as it is less needed with VCs. However, it is critical to note that the VC community is discussing methods of embedding verifiable data into files such as images, QR codes, and PDFs. This may not be ready for 3.0 but could be ready for a future version and referenced to encourage piloting. The BadgeClass image is required in 2.0. In 3.0, it should be optional. The baking of the badge was a proposed method of transporting Open Badges. This is not required with VCs. Some badge issuers may wish to include images in their badges for when they are being displayed online and some wallets may wish to put the images to use. Open Badges 3.0 should continue support for images to enable new uses for them to be adopted in future releases.
 
-* **Add recipient to the credentialSubject.id:** VCs have credentialSubject which references the claim being being verified. The credentialSubject ID property can reference the subject of the credential. This property can contain a URI representing the subject which may be a URL or a DID. It should be discussed whether other profile properties could be optionally included in the credentialSubject.
+* _Add recipient to the credentialSubject.id_: VCs have credentialSubject which references the claim being being verified. The credentialSubject ID property can reference the subject of the credential. This property can contain a URI representing the subject which may be a URL or a DID. It should be discussed whether other profile properties could be optionally included in the credentialSubject.
 
-* **Issuer & Credential Subject Identities:** With VCs, [issuer](https://www.w3.org/TR/vc-data-model/#issuer) and [credentialSubject](https://www.w3.org/TR/vc-data-model/#credential-subject) id properties must be a URI. This could be an HTTP-based URL or a [Decentralized Identifier](https://www.w3.org/TR/did-use-cases/#intro).
+* _Issuer & Credential Subject Identities_: With VCs, [issuer](https://www.w3.org/TR/vc-data-model/#issuer) and [credentialSubject](https://www.w3.org/TR/vc-data-model/#credential-subject) id properties must be a URI. This could be an HTTP-based URL or a [Decentralized Identifier](https://www.w3.org/TR/did-use-cases/#intro).
 
-* **credentialSubject.schema:hasCredential:** The hasCredential property from schema.org is intended to contain the BadgeClass properties including name, description, criteria, etc. schema:hasCredential.id should contain the canonical url for the BadgeClass. schema:hasCredential.type identifies the properties as belonging to the BadgeClass.
+* _credentialSubject.schema:hasCredential_: The hasCredential property from schema.org is intended to contain the BadgeClass properties including name, description, criteria, etc. schema:hasCredential.id should contain the canonical url for the BadgeClass. schema:hasCredential.type identifies the properties as belonging to the BadgeClass.
 
-* **credentialSubject.schema:hasCredential.achievementType:** This property is taken from the CLR and may contain the same string values as proposed by the CLR.
+* _credentialSubject.schema:hasCredential.achievementType_: This property is taken from the CLR and may contain the same string values as proposed by the CLR.
 
-* **credentialSubject.schema:hasCredential.creator:** Open Badges as native VCs should continue to be one issuer of one claim about one recipient. With Open Badges, the issuer profile has been referenced in the BadgeClass. With Open Badges as VCs, the issuer is the entity that signs the credential. The issuer may be different from the creator of the badge being issued. As depicted in the example below, with Open Badges as VCs, the issuer profile may still include name, description, url, image, email, etc.
+* _credentialSubject.schema:hasCredential.creator_: Open Badges as native VCs should continue to be one issuer of one claim about one recipient. With Open Badges, the issuer profile has been referenced in the BadgeClass. With Open Badges as VCs, the issuer is the entity that signs the credential. The issuer may be different from the creator of the badge being issued. As depicted in the example below, with Open Badges as VCs, the issuer profile may still include name, description, url, image, email, etc.
 
-* **credentialSubject.evidence:** With OpenBadges up to 2.0, the evidence has been an assertion property. This proposal suggests that evidence should be included in the credentialSubject object so that the evidence is related to the claim, not the verification of the claim.
+* _credentialSubject.evidence_: With OpenBadges up to 2.0, the evidence has been an assertion property. This proposal suggests that evidence should be included in the credentialSubject object so that the evidence is related to the claim, not the verification of the claim.
 
-* **credentialSubject.resultDescription:** This property is taken from the CLR and may follow the same recommendations. As with evidence, this property should be included in the credentialSubject object.
+* _credentialSubject.resultDescription_: This property is taken from the CLR and may follow the same recommendations. As with evidence, this property should be included in the credentialSubject object.
 
-* **Revoked Credentials:** VCs have a [credentialStatus](https://www.w3.org/TR/vc-data-model/#status) object. The id property must be a URL and the type property describes how the status of the credential may be checked.
+* _Revoked Credentials_: VCs have a [credentialStatus](https://www.w3.org/TR/vc-data-model/#status) object. The id property must be a URL and the type property describes how the status of the credential may be checked.
 
-* **Skill Assertion:** As depicted in the example below, this new type of Open Badge verifies a claim that a subject has attained a skill. In this instance, a credentialSubject.resultDescription would be required because it would reference the skill descriptor of the achieved skill. Evidence may be included to support the claim.
+* _Skill Assertion_: As depicted in the example below, this new type of Open Badge verifies a claim that a subject has attained a skill. In this instance, a credentialSubject.resultDescription would be required because it would reference the skill descriptor of the achieved skill. Evidence may be included to support the claim.
 
-* **Verifiable Presentations:** One or more VCs can be combined into a [verifiable presentation](https://www.w3.org/TR/vc-data-model/#presentations) which is digitally signed by the presenter (typically the subject). A verifiable presentation is presented at the request of the verifier.  
+* _Verifiable Presentations_: One or more VCs can be combined into a [verifiable presentation](https://www.w3.org/TR/vc-data-model/#presentations) which is digitally signed by the presenter (typically the subject). A verifiable presentation is presented at the request of the verifier.  
 
 ### Changes to the Official Open Source Validator
 
@@ -121,8 +135,8 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
 
 ## Examples
 
-<figure class="example">
-  <figcaption><span>Example of Open Badge as a Verifiable Credential</span></figcaption>
+### Example of an Open Badge as a Verifiable Credential
+
   <pre>
   {
     "@context": [
@@ -201,10 +215,8 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
       }
     }
   </pre>
-</figure>
 
-<figure class="example">
-  <figcaption><span>Example of two Open Badges as a Verifiable Credentials in a verifiable presentation by the learner</span></figcaption>
+### Example of a Verifiable Presentation by the Learner
   <pre>
   {
   "@context": [
@@ -325,10 +337,9 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
   }
 }
   </pre>
-</figure>
 
-<figure class="example">
-<figcaption><span>Example of a Skill Assertion</span></figcaption>
+### Example of a Skill Assertion
+
   <pre>
   {
     "@context": [
@@ -360,6 +371,4 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
       }
     }
   </pre>
-</figure>
-
 `;
