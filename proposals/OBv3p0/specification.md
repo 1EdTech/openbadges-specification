@@ -1,4 +1,4 @@
-var specification = `
+var specification  = `
 
 ## Specification
 
@@ -211,7 +211,6 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
       "https://www.w3.org/2018/credentials/v1"
     ],
     "type": "VerifiablePresentation",
-
     "verifiableCredential": [{
       "@context": [
         "https://www.w3.org/2018/credentials/v1",
@@ -308,7 +307,7 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
                 },
                 {
                   "id": "https://example.org/beths-robot-work.html",
-                  "name": "Robotics Reflection #1",
+                  "name": "Robotics Reflection 1",
                   "description": "Reflective writing about the first week of a robotics learning journey."
               }],
               "proof": {
