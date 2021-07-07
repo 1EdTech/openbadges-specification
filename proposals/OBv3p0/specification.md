@@ -103,11 +103,11 @@ Several changes to the Open Badges 2.0 data model are proposed, in order to acco
 
 * _Issuer & Credential Subject Identities_: With VCs, [issuer](https://www.w3.org/TR/vc-data-model/#issuer) and [credentialSubject](https://www.w3.org/TR/vc-data-model/#credential-subject) id properties must be a URI. This could be an HTTP-based URL or a [Decentralized Identifier](https://www.w3.org/TR/did-use-cases/#intro).
 
-* _credentialSubject.schema:hasCredential_: The hasCredential property from schema.org is intended to contain the BadgeClass properties including name, description, criteria, etc. schema:hasCredential.id should contain the canonical url for the BadgeClass. schema:hasCredential.type identifies the properties as belonging to the BadgeClass.
+* _credentialSubject.hasCredential_: The hasCredential property from schema.org is intended to contain the BadgeClass properties including name, description, criteria, etc. hasCredential.id should contain the canonical url for the BadgeClass. hasCredential.type identifies the properties as belonging to the BadgeClass.
 
-* _credentialSubject.schema:hasCredential.achievementType_: This property is taken from the CLR and may contain the same string values as proposed by the CLR.
+* _credentialSubject.hasCredential.achievementType_: This property is taken from the CLR and may contain the same string values as proposed by the CLR.
 
-* _credentialSubject.schema:hasCredential.creator_: Open Badges as native VCs should continue to be one issuer of one claim about one recipient. With Open Badges, the issuer profile has been referenced in the BadgeClass. With Open Badges as VCs, the issuer is the entity that signs the credential. The issuer may be different from the creator of the badge being issued. As depicted in the example below, with Open Badges as VCs, the issuer profile may still include name, description, url, image, email, etc.
+* _credentialSubject.hasCredential.creator_: Open Badges as native VCs should continue to be one issuer of one claim about one recipient. With Open Badges, the issuer profile has been referenced in the BadgeClass. With Open Badges as VCs, the issuer is the entity that signs the credential. The issuer may be different from the creator of the badge being issued. As depicted in the example below, with Open Badges as VCs, the issuer profile may still include name, description, url, image, email, etc.
 
 * _credentialSubject.evidence_: With OpenBadges up to 2.0, the evidence has been an assertion property. This proposal suggests that evidence should be included in the credentialSubject object so that the evidence is related to the claim, not the verification of the claim.
 
@@ -158,7 +158,7 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
       "issuanceDate": "2010-01-01T19:23:24Z",
       "credentialSubject": {
         "id": "did:example:learner",
-        "schema:hasCredential": {
+        "hasCredential": {
           "id": "https://example.org/achievements/123",
           "type": "BadgeClass",
           "achievementType": "Certificate",
@@ -243,7 +243,7 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
       "issuanceDate": "2010-01-01T19:23:24Z",
       "credentialSubject": {
         "id": "did:example:learner",
-        "schema:hasCredential": {
+        "hasCredential": {
           "id": "https://example.org/achievements/123",
           "type": "BadgeClass",
           "achievementType": "Certificate",
@@ -296,7 +296,7 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
       "issuanceDate": "2010-01-01T19:23:24Z",
       "credentialSubject": {
         "id": "did:example:learner",
-        "schema:hasCredential": {
+        "hasCredential": {
           "id": "https://example.org/robot-badge/123",
           "type": "BadgeClass",
           "achievementType": "Badge",
