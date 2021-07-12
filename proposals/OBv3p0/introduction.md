@@ -20,7 +20,7 @@ Below are use cases illustrating the power of Open Badges as Verifiable Credenti
 
 * _Mapping Skills_: Sid is shifting careers after many years working in construction. In his digital wallet he had several skill badges describing his mastery of several skills in construction but also in teamwork, communication, and organizational skills. Sid also had badges from some courses he'd taken in science and math over the last few years. After he uploaded the skill and course badges from his wallet to a career planning site, he was offered several opportunities to apply for work in software sales and cybersecurity.
 
-* _Verifying Continuing Ed_: Denise was offered a new job at a hospital as a physician assistant. Before starting, her continuing education training and license to practice needed to be verified. The last time she switched hospitals, the verification process took three weeks. This time, she was able to provide her badges to prove her her training and license. Within minutes her credentials were verified and she was issued a new digital staff credential.
+* _Verifying Continuing Ed_: Denise was offered a new job at a hospital as a physician assistant. Before starting, her continuing education training and license to practice needed to be verified. The last time she switched hospitals, the verification process took three weeks. This time, she was able to provide her badges to prove her training and license. Within minutes her credentials were verified and she was issued a new digital staff credential.
 
 ### Terms
 
