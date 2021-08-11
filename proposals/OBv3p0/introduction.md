@@ -4,9 +4,9 @@ var introduction = `
 
 ### Design Goals and Rationale
 
-This proposal for a 3.0 version of Open Badges describes how to align Open Badges with the next generation of general-purpose digital credentials, the [W3C Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/), within which Open Badges can take its place as the leading schema for educational achievement claims within a growing world of widely interoperable digital credentials.
+This proposal to charter the development of a 3.0 version of Open Badges describes how to align Open Badges with the next generation of general-purpose digital credentials, the [W3C Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/), within which Open Badges can take its place as the leading schema for educational achievement claims within a growing world of widely interoperable digital credentials.
 
-This proposal also suggests important steps to align Open Badges and the Comprehensive Learner Record (CLR) 1.0 specification by describing the scopes and compatibility that is possible when both models have been aligned with the W3C Verifiable Credentials Data Model. When both models share concepts of an Assertion and an Achievement, consistency can be reached whether single achievements or collections of achievements are being asserted as Verifiable Credentials.
+This proposal also suggests important steps to align Open Badges and the Comprehensive Learner Record (CLR) specification by describing the scopes and compatibility that is possible when both models have been aligned with the W3C Verifiable Credentials Data Model. When both models share concepts of an Assertion and an Achievement, consistency can be reached whether single achievements or collections of achievements are being asserted as Verifiable Credentials.
 
 Introducing a new major capability to Open Badges is also on the table: skill assertions are a proposed method for issuers to make claims about the achievement of skills more directly without requiring the creation of a BadgeClass in order to recognize skills that are important to a particular industry or discipline.
 
@@ -28,7 +28,7 @@ Below are use cases illustrating the power of Open Badges as Verifiable Credenti
 
 * _achievementType_: A CLR property being proposed as an addition to Open Badges 3.0 which describes the type of achievement. See ["dtExtensibleAchievementType" Class](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtExtensibleAchievementType).
 
-* _Assertion: The core of both Open Badges and CLR is the assertion about achievement(s). Assertion properties are specific to one learner's achievements and specify metadata such as issuer, date of achievement, expiration data, as well as results and evidence that support the assertion. A Verifiable Credential more broadly asserts a claim about a credentialSubject which can be applied to education and occupational achievements.
+* _Assertion: The core of both Open Badges and CLR is the assertion about achievement(s). Assertion properties are specific to one learner's achievement and specify metadata such as issuer, date of achievement, expiration data, as well as results and evidence that support the assertion. A Verifiable Credential more broadly asserts a claim about a credentialSubject which can be applied to education and occupational achievements.
 
 * _credentialSubject_: Describes the claims being made by the Verifiable Credential. See [Credential Subject](https://www.w3.org/TR/vc-data-model/#credential-subject).
 
