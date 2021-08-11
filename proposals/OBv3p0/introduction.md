@@ -38,7 +38,7 @@ Below are use cases illustrating the power of Open Badges as Verifiable Credenti
 
 * _Rich Skill Descriptors (RSD)_: A machine readable reference to a description of a skill located at a unique URL. See [Rich Skill Descriptor (RSD)](https://rsd.osmt.dev).
 
-* _result_: A property which describes a possible achievement result. See ["dtResultDescription" Class](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtResult).
+* _result_: A property which describes a possible achievement result. See ["dtResult" Class](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtResult).
 
 * _resultDescription_: A CLR property being proposed as an addition to Open Badges 3.0 which describes a possible achievement result. See ["dtResultDescription" Class](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtResultDescription).
 
