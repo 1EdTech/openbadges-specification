@@ -59,16 +59,19 @@ Verification of control of identifiers is an important concept within any type o
 
 DIDs typically offer cryptographic proof of control, based on authorized keys or other verification methods expressed in the associated DID Document. While these protocols are not broadly implemented across domains today, the structure provides a forward-looking flexible and extensible mechanism to build the types of protocols needed to connect credentials back to the identities of their issuers and subjects. The Open Badges community may ultimately recommend use of only a small number of these capabilities in early releases or recommend them only for experimental use, like with cryptographic proof methods. But this is still an important step, because there is no reason for the Open Badges community to be closed to interoperability through the protocols being developed for use by the wallets and services coming into being elsewhere by delaying the option to use DIDs for recipient and issuer identifiers.
 
+### Aligning Open Badges and CLR
+As described below, it is possible for Open Badges and CLR to produce coordinated specs particularly if both specs are aligned with Verifiable Credentials. Discussion of the components of individual achievements can occur within the Open Badges workgroup, and discussion of more complex use cases necessitating needs for bundling and association of multiple achievements on behalf of a publisher can occur within the CLR group. The cross-polination of members of each effort will create opportunities to coordinate and ensure that all important use cases for single assertions and bundles of associated assertions are well-handled. The openness of the Open Badges Specification can be preserved so that the broader community can continue to be aware of and connected to the official developments.
+
+### Common Assertion Model
+At the core, Open Badges and CLR have similar objectives with the primary difference being single vs a collection of credentials. A common assertion model ensures that Open Badges can be included in CLR collections and that both CLRs and Open Badges can be held separately by learners in their Verifiable Credential wallets.
+
+### Common Achievement Model
+Both Open Badges and CLR make assertions about achievements and conceptually share many similar properties. With some judicial analysis and renaming of some properties, it is possible to have cross-alignment of achievement properties served by Open Badges and used by CLR. Examples include but are not limited to [achievementType](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtExtensibleAchievementType) which describes the type of achievement being represented, and [ResultDescription](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtResultDescription) which can describe possible levels of mastery associated to specific achievements. This will enrich Open Badges data and increase the perceived significance and usage of Open Badges to deliver verifiable single achievements such as certifications, licenses, courses, etc. This will also free the CLR to focus on the more complex requirements of collected assertions.
+
 ### Differentiating Issuers and Creators
-In Open Badges 2.0, the issuer is assumed to be the creator. Over the years, the Open Badges community has requested capabilities to distinguish between the issuer and creator of a badge. This is because there are plenty of examples where the assessor is the issuer but not the creator of the badge. The [Original Creator Extensions](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#OriginalCreator) is a step in this direction but provides no properties to describe the eligibility of issuers trusted by the original creator to duplicate and issue their own assertions of the badge.
+In Open Badges and CLR, the issuer is assumed to be the creator. Over the years, the Open Badges community has requested capabilities to distinguish between the issuer and creator of a badge. This is because there are plenty of examples where the assessor is the issuer but not the creator of the badge. The [Original Creator Extensions](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#OriginalCreator) is a step in this direction but provides no properties to describe the eligibility of issuers trusted by the original creator to duplicate and issue their own assertions of the badge.
 
 In order to open up a wide swath of use cases for shared issuing responsibility of common credentials, we must do more. Conveniently, an issuer property for the entity that is digitally signing the credential is included in the VC assertion. Because of this, the issuer property referenced in the BadgeClass is redundant. This property is a logical placement for new properties to describe a creator(s) and the eligibility of potential outside issuers to share or have delegated responsibility for badge issuance. This will enable the use cases and give relying third-parties more contextual information about the achievement and the parties involved.
-
-### Achievement Types: Open Badges are More than Just Micro-credentials
-The CLR provides a property, [achievementType](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtExtensibleAchievementType), that describes the type of achievement being represented. Open Badges 2.0 does not have a property to describe what type of achievement is being recognized. This has led to misconceptions that Open Badges are always micro-credentials. Including achievementType as property of the BadgeClass can clarify this misconception and refine interpretations of Open Badges by relying third-parties. This will increase the perceived significance and usage of Open Badges to deliver verifiable single achievements such as certifications, licenses, courses, etc.
-
-### Results and Result Descriptions
-The CLR Achievement class provides a property called [ResultDescription](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtResultDescription) which can describe possible levels of mastery associated to specific achievements. The Assertion class offers a "results" property which describes which of the possible outcomes was recognized. These levels of mastery may be aligned with rubrics and other rich skill descriptors hosted on networks such as IMS CASE, EMSI, and OSMT. Adding result descriptions to Open Badges can serve to associate single achievements with levels of mastery and skill descriptors to provide more contextual information about the achievements.
 
 ### Skill Assertions
 Many of the use cases for Open Badges and CLR involve describing "defined achievements" with the Achievement/BadgeClass data class. These achievements may sometimes be aligned to skills or competencies, as a means of indicating that those who earn them have achieved the aligned skills. As part of this proposal, we also introduce the concept of a Skill Assertion, showing how the Open Badges Specification can be expanded to assert achievement of single skills in a more flexible manner that is complementary to these use cases and that opens up a wide range of new use cases. A Skill Assertion offers a lightweight structure for issuers to make a claim that a learner has a skill, with a particular assessment result if desired.
@@ -93,7 +96,7 @@ The inclusion of Skill Assertion claims makes a natural, ergonomic fit with defi
 
 
 ## Changes to the Data Model
-Several changes to the Open Badges 2.0 data model are proposed, in order to accomplish the alignment with Verifiable Credentials and the above goals:
+Several changes to the Open Badges 2.0 data model are proposed, in order to accomplish the alignment with Verifiable Credentials and the above goals. This may include but is not limited to the following:
 
 * _Align existing Open Badges VerificationObject properties with Verifiable Credential data model properties_: Verifiable Credentials have properties to describe an assertion of a claim and the instructions for cryptographically proving the claim. As seen in the examples below, some VC properties should replace the VerificationObject properties of Open Badges. For example, issuedOn will be replaced by [issuanceDate](https://www.w3.org/TR/vc-data-model/#issuance-date), expires by [expirationDate](https://www.w3.org/TR/vc-data-model/#expiration), and verification by [proof](https://www.w3.org/TR/vc-data-model/#proofs-signatures).
 
@@ -103,15 +106,17 @@ Several changes to the Open Badges 2.0 data model are proposed, in order to acco
 
 * _Issuer & Credential Subject Identities_: With VCs, [issuer](https://www.w3.org/TR/vc-data-model/#issuer) and [credentialSubject](https://www.w3.org/TR/vc-data-model/#credential-subject) id properties must be a URI. This could be an HTTP-based URL or a [Decentralized Identifier](https://www.w3.org/TR/did-use-cases/#intro).
 
-* _credentialSubject.hasCredential_: The hasCredential property from schema.org is intended to contain the BadgeClass properties including name, description, criteria, etc. hasCredential.id should contain the canonical url for the BadgeClass. hasCredential.type identifies the properties as belonging to the BadgeClass.
+* _credentialSubject.achievement_: The achievement property is taken from the CLR and can contain metadata that describes the accomplishment such as name, description, criteria, etc. The achievement.id should contain the canonical url for the achievement.
 
-* _credentialSubject.hasCredential.achievementType_: This property is taken from the CLR and may contain the same string values as proposed by the CLR.
+* _credentialSubject.achievement.achievementType_: This property is taken from the CLR and may contain the same string values as proposed by the CLR.
 
-* _credentialSubject.hasCredential.creator_: Open Badges as native VCs should continue to be one issuer of one claim about one recipient. With Open Badges, the issuer profile has been referenced in the BadgeClass. With Open Badges as VCs, the issuer is the entity that signs the credential. The issuer may be different from the creator of the badge being issued. As depicted in the example below, with Open Badges as VCs, the issuer profile may still include name, description, url, image, email, etc.
+* _credentialSubject.achievement.creator_: Open Badges as native VCs should continue to be one issuer of one claim about one recipient. With Open Badges, the issuer profile has been referenced in the BadgeClass. With Open Badges as VCs, the issuer is the entity that signs the credential. The issuer may be different from the creator of the badge being issued. As depicted in the example below, with Open Badges as VCs, the issuer profile may still include name, description, url, image, email, etc.
+
+* _credentialSubject.achievement.resultDescription_: This property is taken from the CLR and may follow the same recommendations.
 
 * _credentialSubject.evidence_: With OpenBadges up to 2.0, the evidence has been an assertion property. This proposal suggests that evidence should be included in the credentialSubject object so that the evidence is related to the claim, not the verification of the claim.
 
-* _credentialSubject.resultDescription_: This property is taken from the CLR and may follow the same recommendations. As with evidence, this property should be included in the credentialSubject object.
+* _credentialSubject.result_: This property is taken from the CLR and may follow the same recommendations. As with evidence, this property should be included in the credentialSubject object.
 
 * _Revoked Credentials_: VCs have a [credentialStatus](https://www.w3.org/TR/vc-data-model/#status) object. The id property must be a URL and the type property describes how the status of the credential may be checked.
 
@@ -132,6 +137,8 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
 * Learners may still share their badges online as HTML as they have in every version of Open Badges. Open Badges as VCs will be presented in response to verifiers requesting them from learner wallets. In addition to using badges for online portfolios, badges as VCs can be exchanged and evaluated as data.
 
 * Issuers will need to adopt cryptographic signature strategies as recommended by the VC community.
+
+* This [Comparison Analysis of OB/CLR Alignment spreadsheet] (https://docs.google.com/spreadsheets/d/16Am1eBGR-tLlRwXwTvSphMqjYdPeD76cpX3uJX6Pc74/edit#gid=0) may be used as a starting point to discuss coordinated Open Badges & CLR properties
 
 ## Examples
 
@@ -158,9 +165,9 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
       "issuanceDate": "2010-01-01T19:23:24Z",
       "credentialSubject": {
         "id": "did:example:learner",
-        "hasCredential": {
+        "achievement": {
           "id": "https://example.org/achievements/123",
-          "type": "BadgeClass",
+          "type": "Achievement",
           "achievementType": "Certificate",
           "name": "Robotic Drones Analysis",
           "description": "Learn to analyze and present the different types of robotic drones",
@@ -173,31 +180,37 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
             "targetUrl": "http://www.corestandards.org/ELA-Literacy/RST/11-12/3",
             "targetDescription": "Follow precisely a complex multistep procedure when carrying out experiments, taking measurements, or performing technical tasks; analyze the specific results based on explanations in the text.",
             "targetCode": "CCSS.ELA-Literacy.RST.11-12.3"
-          }]
+          }],
+          "resultDescriptions": [{
+            "id": "urn:uuid:da72e42e-9f38-4c42-83ac-33f6cb9bb3b1",
+            "name": "Mastery",
+            "resultType": "PerformanceLevel",
+            "rubricCriterionLevels": [{
+              "id": "urn:uuid:24df3f14-4b9b-41b9-9e6b-d48798442425",
+              "name": "Below Basic",
+              "level": "Below Basic",
+              "description": "The student made fewer than 3 citations"
+              },
+              {
+              "id": "urn:uuid:c225be08-c67d-4ec8-ae8e-4860e83588ef",
+              "name": "Basic",
+              "level": "Basic",
+              "description": "The student made 3-5 citations"
+              },
+              {
+              "id": "urn:uuid:f256d3a9-c117-43bf-9e25-dc69691e18a1",
+              "name": "Exceeds",
+              "level": "Exceeds",
+              "description": "The student made more than 5 citations"
+            }]
+          }],
         },
-        "resultDescriptions": [{
-          "id": "urn:uuid:da72e42e-9f38-4c42-83ac-33f6cb9bb3b1",
-          "name": "Mastery",
-          "resultType": "PerformanceLevel",
-          "rubricCriterionLevels": [{
-            "id": "urn:uuid:24df3f14-4b9b-41b9-9e6b-d48798442425",
-            "name": "Below Basic",
-            "level": "Below Basic",
-            "description": "The student made fewer than 3 citations"
-            },
-            {
-            "id": "urn:uuid:c225be08-c67d-4ec8-ae8e-4860e83588ef",
-            "name": "Basic",
-            "level": "Basic",
-            "description": "The student made 3-5 citations"
-            },
-            {
-            "id": "urn:uuid:f256d3a9-c117-43bf-9e25-dc69691e18a1",
-            "name": "Exceeds",
-            "level": "Exceeds",
-            "description": "The student made more than 5 citations"
-          }]
-        }],
+        "results": [
+          {
+            "resultDescription": "urn:uuid:da72e42e-9f38-4c42-83ac-33f6cb9bb3b1",
+            "achievedLevel": "urn:uuid:f256d3a9-c117-43bf-9e25-dc69691e18a1"
+          }
+        ],
         "evidence": {
           "id": "https://example.org/my-robot-drones-analysis.html",
           "name": "My Robot Drones Analysis",
@@ -243,9 +256,9 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
       "issuanceDate": "2010-01-01T19:23:24Z",
       "credentialSubject": {
         "id": "did:example:learner",
-        "hasCredential": {
+        "achievement": {
           "id": "https://example.org/achievements/123",
-          "type": "BadgeClass",
+          "type": "Achievement",
           "achievementType": "Certificate",
           "name": "Robotic Drones Analysis",
           "description": "Learn to analyze and present the different types of robotic drones",
@@ -296,9 +309,9 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
       "issuanceDate": "2010-01-01T19:23:24Z",
       "credentialSubject": {
         "id": "did:example:learner",
-        "hasCredential": {
+        "achievement": {
           "id": "https://example.org/robot-badge/123",
-          "type": "BadgeClass",
+          "type": "Achievement",
           "achievementType": "Badge",
           "name": "Awesome Robotics Badge",
           "description": "For doing awesome things with robots that people think is pretty great.",
@@ -358,9 +371,11 @@ As with the validator, the BadgeConnect API will require adjustments to accommod
       "issuanceDate": "2010-01-01T19:23:24Z",
       "credentialSubject": {
         "id": "did:example:learner",
-        "resultDescriptions": [{
-          "id": "urn:uuid:da72e42e-9f38-4c42-83ac-33f6cb9bb3b1"
-        }]
+        "results": [
+          {
+            "resultDescription": "urn:uuid:da72e42e-9f38-4c42-83ac-33f6cb9bb3b1"
+          }
+        ],
       },
       "proof": {
         "type": "RsaSignature2018",
