@@ -50,5 +50,20 @@ Below are use cases illustrating the power of Open Badges as Verifiable Credenti
 
 * _Native VC_: Term used to describe the alignment of the existing Open Badges [VerificationObject] (https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/index.html#VerificationObject) properties with Verifiable Credential data model properties.
 
+### Document Set
+
+* [[[OB-30]]] (this document)
+* [[[OB-INFO-30]]]
+* [[[OB-IMAGE-30]]]
+* [[[OB-REST-30]]]
+* [[[OB-OPEN-30]]]
+  * [JSON](https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/openapi.json)
+  * [YAML](https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/openapi.yaml)
+* [[[OB-JSON-30]]]
+  * [Assertion](https://www.imsglobal.org/spec/ob/v3p0/schema/json/assertion.json)
+  * [Achievement](https://www.imsglobal.org/spec/ob/v3p0/schema/json/achievement.json)
+  * ... and so on ...
+* [[[OB-JSONLD-30]]]
+  * [Context File](https://www.imsglobal.org/spec/ob/v3p0/context.json)
 
 `;

@@ -5,6 +5,7 @@
     <script src='https://purl.imsglobal.org/spec/respec-ims-default.js' async class='remove'></script>
     <script src='local-biblio.js' class='remove'></script>
     <script src='contributors.js' class='remove'></script>
+    <script src='iprs.js' class='remove'></script>
     <script class='remove'>
       var respecConfig = {
         mainSpecTitle: "Open Badges",
@@ -18,7 +19,8 @@
         specStatus: "IMS Base Document", // specStatus: IMS Base Document, IMS Candidate Final (Public) or IMS Final Release
         specDate: "September 15, 2021",
         contributors: _contributors,
-        localBiblio: _localBiblio
+        localBiblio: _localBiblio,
+        iprs: _iprs
       };
     </script>
   </head>
@@ -36,8 +38,46 @@
       <script class="transclude" data-id="introduction" src="../introduction.md"></script>
     </section>
 
-    <section data-format="markdown">
-      <script class="transclude" data-id="specification" src="../specification.md"></script>
+    <section class="informative" data-format="markdown">
+      <script class="transclude" data-id="overview" src="../overview.md"></script>
+    </section>
+
+    <section class="informative" data-format="markdown">
+      <script class="transclude" data-id="datamodel" src="../datamodel.md"></script>
+    </section>
+
+    <script class="transclude" data-id="api" src="../api.html"></script>
+
+    <section>
+      <h2>Issuing a Badge</h2>
+
+      <section>
+        <h3>As an Image</h3>
+      </section>
+
+      <section>
+        <h3>Using the API</h3>
+      </section>
+    </section>
+
+    <section>
+      <h2>Verifying a Badge</h2>
+    </section>
+
+    <section>
+      <h2>Extending the Specificaiton</h2>
+    </section>
+
+    <section>
+      <h2>Conformance Testing</h2>
+    </section>
+    
+    <section class="appendix" data-format="markdown">
+      <script class="transclude" data-id="examples" src="../examples.md"></script>
+    </section>
+
+    <section class="appendix">
+      <h1>Revision History</h1>
     </section>
 
   </body>
