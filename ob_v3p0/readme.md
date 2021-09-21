@@ -12,53 +12,17 @@ This consists of several specific proposed changes to Open Badges to:
 
 The credentials that would be produced under this proposal could easily be bundled into Comprehensive Learner Records and Verifiable Presentations. Portability and learner data privacy may be improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.
 
-<!--- Temporary Setup-only Section --->
-# Extension folder setup process
-
-  - [x] Free space
-  - [x] Name the service/message/extension: `Open Badges 3.0 as an implementation of Verifiable Credentials`
-  - [x] Create a short name/code name: `OBv3p0`
-  - [x] Copy `proposals/a-template` directory to a new directory with the short name `proposals/OBv3p0`
-  - [x] In new proposal directory find & replace: `ProperProjectName` with the actual name
-  - [x] In new proposal directory find & replace: `ShortProjectName` with the actual short name
-  - [x] Add a short description of the proposal at the top of this readme
-  - [x] Update this readme with other details as needed
-  - [x] Update the table in `proposals/readme.md` with the snippet below this checklist
-  - [ ] (process decision needed) - See `GitHub Workflow Decisions below`
-  - [ ] Delete this setup section and move onto work steps :)
-
-## Proposal readme table row
-
-```md
-| [Open Badges 3.0](https://github.com/IMSGlobal/openbadges-specification/tree/develop/proposals/OBv3p0/specification.md) | Proposal | Open Badges 3.0 |
-```
-<!--- End Setup Section --->
-
 ## Documents
 
-- [Abstract](abstract.md)
-- [Introduction](introduction.md)
-- [The Open Badges 3.0 Specification](specification.md)
+- [The Main OB 3.0 Specification](ob_v3p0.html)
+  - [Abstract](abstract.md)
+  - [Introduction](introduction.md)
+  - [Overview](overview.md)
+  - [Understanding the Data Model](datamodel.md)
+  - [Understanding the API](api.html)
+  - [Syntaxes](syntaxes.md)
+  - [Conformance Testing](certification.md)
 
 ### Current Status
 
-Proposal Draft ready for discussion by the Open Badges and CLR Workgroups.
-
-## Process
-
-### Work steps
-
-  - Update `specification.md` with the proposal
-  - Push changes to feature branch `OBv3p0` as appropriate
-  - Discuss with Open Badges workgroup
-  - Tag issues with `OBv3p0`
-  - Do work
-  - GOTO 1
-
-### Documentation finalization steps
-
-- [ ] Update `respec-support/contributors.js`
-- [ ] Update `respec-support/local-biblio.js`
-- [ ] Access respec document via `respec-support/specification-wrapper.html` (needs web server to work properly)
-- [ ] Clean up any respec errors in `specification.md` ([common markdown problems in respec](https://github.com/IMSGlobal/spec-central/blob/master/markdown-notes.md))
-- [ ] Make sure the final respec formatting and structure works well for `specification.md`
+IMS Base Document - The specification is being developed by the work group.
