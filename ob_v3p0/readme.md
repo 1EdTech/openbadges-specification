@@ -12,9 +12,9 @@ This consists of several specific proposed changes to Open Badges to:
 
 The credentials that would be produced under this proposal could easily be bundled into Comprehensive Learner Records and Verifiable Presentations. Portability and learner data privacy may be improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.
 
-## Documents
+## Files
 
-- [The Main OB 3.0 Specification](ob_v3p0.html)
+- [Main OB 3.0 Specification Respec File](ob_v3p0.html) which pulls in (transcludes) the following section files:
   - [Abstract](abstract.md)
   - [Introduction](introduction.md)
   - [Overview](overview.md)
