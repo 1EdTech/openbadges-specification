@@ -5,20 +5,26 @@ var _localBiblio = {
         "status": "IMS Base Document",
         "publisher": "IMS Global Learning Consortium"
     },
+    "OB-CERT-30": {
+        "title": "Open Badges Specification Conformance and Certification Guide v3.0",
+        "href": "https://www.imsglobal.org/spec/ob/v3p0/cert/",
+        "status": "IMS Base Document",
+        "publisher": "IMS Global Learning Consortium"
+    },
     "OB-INFO-30": {
         "title": "Open Badges Specification Information Model v3.0",
         "href": "https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html",
         "status": "IMS Base Document",
         "publisher": "IMS Global Learning Consortium"
     },
-    "OB-IMAGE-30": {
-        "title": "Open Badges Specification Image File Binding v3.0",
+    "OB-BAKE-30": {
+        "title": "Open Badges Specification Baking a Badge v3.0",
         "href": "https://www.imsglobal.org/spec/ob/v3p0/ImageBinding/ob_ImageBinding.html",
         "status": "IMS Base Document",
         "publisher": "IMS Global Learning Consortium"
     },
     "OB-REST-30": {
-        "title": "Open Badges Specification REST/JSON Binding v3.0",
+        "title": "Open Badges Specification REST/JSON API v3.0",
         "href": "https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html",
         "status": "IMS Base Document",
         "publisher": "IMS Global Learning Consortium"

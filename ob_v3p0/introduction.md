@@ -2,6 +2,38 @@ var introduction = `
 
 ## Introduction
 
+### Document Set
+
+The Open Badges Specification has several related documents and artifacts shown below. Together
+they make up the specification.
+
+#### Informative Documents
+
+Informative documents do not specify requirements.
+
+* [[[?OB-30]]] (this document) - Intended to be the first, and
+possibly only document you need to understand the specification and even implement a simple
+prototype. Many examples are included which you can copy to issue, display, or verify your
+first open badge.
+
+#### Normative Documents
+
+Normative documents specify requirements. Normative documents may include informative sections.
+
+* [[[OB-BAKE-30]]] - Specifies how to embed Open Badge JSON inside a PNG or SVG image file.
+* [[[OB-REST-30]]] - Specifies the REST API used to exchange Open Badges between systems over the wire.
+* [[[OB-OPEN-30]]] - Specifies the OpenAPI files you can use to generate template code that implements the consumer or server API. These links go directly to the corresponding OpenAPI file:
+  * [JSON](https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/openapi.json)
+  * [YAML](https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/openapi.yaml)
+* [[[OB-JSON-30]]] - Specifies the JSON Schema files which define the JSON serialization of the classes and properties in the Open Badges Data Model. These links go directly to the corresponding JSON Schema file:
+  * [Assertion](https://www.imsglobal.org/spec/ob/v3p0/schema/json/assertion.json)
+  * [Achievement](https://www.imsglobal.org/spec/ob/v3p0/schema/json/achievement.json)
+  * ... and so on ...
+* [[[OB-JSONLD-30]]] - Specifies the JSON-LD Context file for this specification. This link goes directly to the context file:
+  * [Context File](https://www.imsglobal.org/spec/ob/v3p0/context.json)
+* [[[OB-CERT-30]]] - Specifies the conformance tests and certification requirements for this specification.
+* [[[OB-INFO-30]]] - Specifies the abstract data model of this specification and its relationship to the IMS Common Data Model, the logical data model, and extension methods available to this specification. This is a reference document for all the other documents that make up this specification.
+
 ### Design Goals and Rationale
 
 This proposal to charter the development of a 3.0 version of Open Badges describes how to align Open Badges with the next generation of general-purpose digital credentials, the [W3C Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/), within which Open Badges can take its place as the leading schema for educational achievement claims within a growing world of widely interoperable digital credentials.
@@ -44,26 +76,10 @@ Below are use cases illustrating the power of Open Badges as Verifiable Credenti
 
 * _Skill Assertion_: an Open Badges assertion that contains a "skill result."
 
-* _Verifiable Credential (VC)_: W3C data model that describes how claims can be cryptographically verified. See [W3C Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).
+* _<dfn>Verifiable Credential</dfn> (VC)_: W3C data model that describes how claims can be cryptographically verified. See [[[vc-data-model]]].
 
 * _Verifiable Presentation_: A [Verifiable Presentation](https://www.w3.org/TR/vc-imp-guide/#presentations) is a tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data.
 
 * _Native VC_: Term used to describe the alignment of the existing Open Badges [VerificationObject] (https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/index.html#VerificationObject) properties with Verifiable Credential data model properties.
-
-### Document Set
-
-* [[[OB-30]]] (this document)
-* [[[OB-INFO-30]]]
-* [[[OB-IMAGE-30]]]
-* [[[OB-REST-30]]]
-* [[[OB-OPEN-30]]]
-  * [JSON](https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/openapi.json)
-  * [YAML](https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/openapi.yaml)
-* [[[OB-JSON-30]]]
-  * [Assertion](https://www.imsglobal.org/spec/ob/v3p0/schema/json/assertion.json)
-  * [Achievement](https://www.imsglobal.org/spec/ob/v3p0/schema/json/achievement.json)
-  * ... and so on ...
-* [[[OB-JSONLD-30]]]
-  * [Context File](https://www.imsglobal.org/spec/ob/v3p0/context.json)
 
 `;
