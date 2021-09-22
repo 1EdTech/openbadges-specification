@@ -21,17 +21,17 @@ first open badge.
 Normative documents specify requirements. Normative documents may include informative sections.
 
 * [[[OB-BAKE-30]]] - Specifies how to embed Open Badge JSON inside a PNG or SVG image file.
-* [[[OB-REST-30]]] - Specifies the REST API used to exchange Open Badges between systems over the wire.
-* [[[OB-OPEN-30]]] - Specifies the OpenAPI files you can use to generate template code that implements the consumer or server API. These links go directly to the corresponding OpenAPI file:
+* OpenAPI files you can use to generate template code that implements the consumer or server API. These links go directly to the corresponding OpenAPI file:
   * [JSON](https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/openapi.json)
   * [YAML](https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/openapi.yaml)
-* [[[OB-JSON-30]]] - Specifies the JSON Schema files which define the JSON serialization of the classes and properties in the Open Badges Data Model. These links go directly to the corresponding JSON Schema file:
+* JSON Schema files which define the JSON serialization of the classes and properties in the Open Badges Data Model. These links go directly to the corresponding JSON Schema file:
   * [Assertion](https://www.imsglobal.org/spec/ob/v3p0/schema/json/assertion.json)
   * [Achievement](https://www.imsglobal.org/spec/ob/v3p0/schema/json/achievement.json)
   * ... and so on ...
-* [[[OB-JSONLD-30]]] - Specifies the JSON-LD Context file for this specification. This link goes directly to the context file:
+* JSON-LD Context file for this specification. This link goes directly to the context file:
   * [Context File](https://www.imsglobal.org/spec/ob/v3p0/context.json)
 * [[[OB-CERT-30]]] - Specifies the conformance tests and certification requirements for this specification.
+* [[[OB-REST-30]]] - Specifies the REST API used to exchange Open Badges between systems over the wire.
 * [[[OB-INFO-30]]] - Specifies the abstract data model of this specification and its relationship to the IMS Common Data Model, the logical data model, and extension methods available to this specification. This is a reference document for all the other documents that make up this specification.
 
 ### Design Goals and Rationale
