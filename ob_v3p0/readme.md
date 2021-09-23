@@ -1,6 +1,6 @@
 # Open Badges 3.0
 
-This is a change to align the [IMS Global Open Badges Specification](https://openbadgespec.org) to the conventions of the [W3C Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/) for the use cases of Defined Achievement Claim and a Skill Claim.
+This version aligns IMS Open Badges Specification to the conventions of the [W3C Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/) for the use cases of Defined Achievement Claim and a Skill Claim.
 
 This consists of several specific proposed changes to Open Badges to:
 
