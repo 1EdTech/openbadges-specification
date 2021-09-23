@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Preview Spec
+name: Preview OB 3.0 Spec
 
 # Controls when the workflow will run
 on:
@@ -35,6 +35,7 @@ jobs:
           git checkout ob_v3p0 -- ob_v3p0
           
       - name: Commit changes to pages
+        run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
           git commit -m "Published ob_v3p0 preview"
