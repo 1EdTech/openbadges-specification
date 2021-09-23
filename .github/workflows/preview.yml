@@ -26,15 +26,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: pages
-
-      - name: Checkout ob_v3p0/ob_v3p0
-        uses: actions/checkout@v2
-        with:
-          ref: ob_v3p0
-          path: ob_v3p0
-          
-      - name: Track ob_v3p0/
-        run: git add ob_v3p0/\*
+        
+      - name: Get ob_v3p0/ob_v3p0
+        run: |
+          git checkout ob_v3p0 -- ob_v3p0
       
       - name: Git Status
         run: git status
