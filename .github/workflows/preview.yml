@@ -27,9 +27,11 @@ jobs:
         with:
           ref: pages
         
-      - name: Get ob_v3p0/ob_v3p0
-        run: |
-          git checkout ob_v3p0 -- ob_v3p0
+      #- name: Get ob_v3p0/ob_v3p0
+      #  run: |
+      #    git checkout ob_v3p0 -- ob_v3p0
       
       - name: Git Status
-        run: git status
+        run: |
+          git branch
+          git status
