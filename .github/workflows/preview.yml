@@ -31,6 +31,8 @@ jobs:
       - name: Get ob_v3p0/ob_v3p0
         run: |
           git checkout -B ob_v3p0 --track origin/ob_v3p0
+          git checkout pages
+          git checkout ob_v3p0 -- ob_v3p0
       
       - name: Git Status
         run: |
