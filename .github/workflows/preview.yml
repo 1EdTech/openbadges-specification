@@ -27,7 +27,7 @@ jobs:
           
       - name: Update ob_v3p0 Pages
         run: |
-          git checkout pages
-          git checkout ob_v3p0 -- ob_v3p0
+          git checkout pages refs/remotes/origin/pages
+          git checkout ob_v3p0 refs/remotes/origin/ob_v3p0 -- ob_v3p0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
