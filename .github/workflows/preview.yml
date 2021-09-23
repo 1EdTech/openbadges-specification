@@ -33,6 +33,8 @@ jobs:
           git checkout -B ob_v3p0 --track origin/ob_v3p0
           git checkout pages
           git checkout ob_v3p0 -- ob_v3p0
+          
+      - name: Commit changes to pages
           git config user.name github-actions
           git config user.email github-actions@github.com
           git commit -m "Published ob_v3p0 preview"
