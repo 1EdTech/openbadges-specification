@@ -212,6 +212,7 @@ Host: badge-host.example.com
           <thead>
             <tr>
               <th>Name</th>
+              <th>Type</th>
               <th>Required</th>
               <th>Description</th>
             </tr>
@@ -219,49 +220,58 @@ Host: badge-host.example.com
           <tbody>
             <tr>
               <td>client_name</td>
+              <td>String</td>
               <td>Yes</td>
               <td>The human-readable name of the Consumer.</td>
             </tr>
             <tr>
               <td>client_uri</td>
+              <td>URI</td>
               <td>Yes</td>
               <td>A page that which describes the Consumer.</td>
             </tr>
             <tr>
               <td>logo_uri</td>
+              <td>URI</td>
               <td>Yes</td>
               <td>The logo of the Consumer. The logo image uri should resolve to an image file with a square aspect
                 ratio in either PNG or SVG format. Recommended resolution: 512x512px.</td>
             </tr>
             <tr>
               <td>tos_uri</td>
+              <td>URI</td>
               <td>Yes</td>
               <td>The Terms of Service of the Consumer.</td>
             </tr>
             <tr>
               <td>policy_uri</td>
+              <td>URI</td>
               <td>Yes</td>
               <td>The Privacy Policy of the Consumer.</td>
             </tr>
             <tr>
               <td>software_id</td>
+              <td>String</td>
               <td>Yes</td>
               <td>A unique idenfitier assigned by the client developer. As described in [[!RFC7591]], it SHOULD remain
                 the same for all instances of the client software.</td>
             </tr>
             <tr>
               <td>software_version</td>
+              <td>String</td>
               <td>Yes</td>
               <td>A version identifier string for the client software. The value SHOULD change on any update to the
                 client software.</td>
             </tr>
             <tr>
               <td>redirect_uris</td>
+              <td>URI</td>
               <td>Yes</td>
               <td>Array of redirection URI strings for use in the OAuth 2.0 flow.</td>
             </tr>
             <tr>
               <td>token_endpoint_auth_method</td>
+              <td>String</td>
               <td>No</td>
               <td>
                 String indicator of the requested authentication method for the token endpoint. In this specification
@@ -276,6 +286,7 @@ Host: badge-host.example.com
             </tr>
             <tr>
               <td>grant_types</td>
+              <td>String</td>
               <td>No</td>
               <td>
                 Array of OAuth 2.0 grant type strings. In this specification only "authorization_code" and
@@ -289,6 +300,7 @@ Host: badge-host.example.com
             </tr>
             <tr>
               <td>response_types</td>
+              <td>String</td>
               <td>No</td>
               <td>
                 Array of OAuth 2.0 response type strings. In this specification only "code" is allowed:
@@ -300,6 +312,7 @@ Host: badge-host.example.com
             </tr>
             <tr>
               <td>scope</td>
+              <td>String</td>
               <td>No</td>
               <td>
                 String containing a space-separated list of scope values that this client is permitted to use when
@@ -1471,6 +1484,15 @@ Link:
           </pre>
       </section>
     </section>
+  </section>
+
+  <section class="appendix">
+    <h1>Data Types</h1>
+    <p>The following primitive data types are referenced in this standard.</p>
+    <ul>
+      <li>String - normalized string</li>
+      <li>URI - absolute or relative URI</li>
+    </ul>
   </section>
 
   <section class="appendix informative" id="revisionhistory">
