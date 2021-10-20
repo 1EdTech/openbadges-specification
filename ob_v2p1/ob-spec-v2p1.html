@@ -257,7 +257,7 @@ Host: badge-host.example.com
             </tr>
             <tr>
               <td>redirect_uris</td>
-              <td>Yes</td>
+              <td>Yes (Array)</td>
               <td>Array of redirection URI strings for use in the OAuth 2.0 flow.</td>
             </tr>
             <tr>
@@ -276,7 +276,7 @@ Host: badge-host.example.com
             </tr>
             <tr>
               <td>grant_types</td>
-              <td>No</td>
+              <td>No (Array)</td>
               <td>
                 Array of OAuth 2.0 grant type strings. In this specification only "authorization_code" and
                 refresh_token" are allowed:
@@ -289,7 +289,7 @@ Host: badge-host.example.com
             </tr>
             <tr>
               <td>response_types</td>
-              <td>No</td>
+              <td>No (Array)</td>
               <td>
                 Array of OAuth 2.0 response type strings. In this specification only "code" is allowed:
                 <ul>
@@ -353,26 +353,31 @@ Pragma: no-cache
           <thead>
             <tr>
               <th>Name</th>
+              <th>Required</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>client_id</td>
-              <td>REQUIRED. An OAuth 2.0 client identifier string. The value SHOULD NOT be currently valid for any other
+              <td>Yes</td>
+              <td>An OAuth 2.0 client identifier string. The value SHOULD NOT be currently valid for any other
                 registered client.</td>
             </tr>
             <tr>
               <td>client_secret</td>
-              <td>REQUIRED. An OAuth 2.0 client secret string.</td>
+              <td>Yes</td>
+              <td>An OAuth 2.0 client secret string.</td>
             </tr>
             <tr>
               <td>client_id_issued_at</td>
-              <td>REQUIRED. The time at which the client_id was issued.</td>
+              <td>Yes</td>
+              <td>The time at which the client_id was issued.</td>
             </tr>
             <tr>
               <td>client_secret_expires_at</td>
-              <td>REQUIRED. The time at which the client_secret will expire. MAY be 0 for no expiration.</td>
+              <td>Yes</td>
+              <td>The time at which the client_secret will expire. MAY be 0 for no expiration.</td>
             </tr>
           </tbody>
         </table>
@@ -738,7 +743,7 @@ grant_type=authorization_code
           </tr>
           <tr>
             <td><code>scopesOffered</code></td>
-            <td>Yes</td>
+            <td>Yes (Array)</td>
             <td>An array of strings listing the scopes supported by the Provider in the form of fully qualified URLs to the
               scope descriptors.</td>
           </tr>
@@ -786,20 +791,24 @@ grant_type=authorization_code
           <thead>
             <tr>
               <th>Name</th>
+              <th>Required</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>error</td>
+              <td>Yes</td>
               <td>A nullable string and the human-readable message describing the problem.</td>
             </tr>
             <tr>
               <td>statusCode</td>
+              <td>Yes</td>
               <td>The HTTP status code of the response.</td>
             </tr>
             <tr>
               <td>statusText</td>
+              <td>Yes</td>
               <td>A string matching one of the enumerated and allowed values for the given endpoint.</td>
             </tr>
           </tbody>
@@ -822,25 +831,30 @@ grant_type=authorization_code
           <thead>
             <tr>
               <th>Name</th>
+              <th>Required</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>next</td>
+              <td>Yes</td>
               <td>The link relation for the immediate next page of results. This MUST appear when the current list
                 response is incomplete.</td>
             </tr>
             <tr>
               <td>last</td>
+              <td>Yes</td>
               <td>The link relation for the last page of results. This MUST always appear.</td>
             </tr>
             <tr>
               <td>first</td>
+              <td>Yes</td>
               <td>The link relation for the first page of results. This MUST always appear.</td>
             </tr>
             <tr>
               <td>prev</td>
+              <td>Yes</td>
               <td>The link relation for the immediate previous page of results. This MUST appear when the offset is
                 greater than zero.</td>
             </tr>
@@ -935,6 +949,7 @@ Link:
                     <tr>
                       <th>Name</th>
                       <th>Type</th>
+                      <th>Required</th>
                       <th>Description</th>
                     </tr>
                   </thead>
@@ -942,17 +957,20 @@ Link:
                     <tr>
                       <td>limit</td>
                       <td>Integer</td>
+                      <td>No</td>
                       <td>Indicate how many results should be retrieved in a single page.</td>
                     </tr>
                     <tr>
                       <td>offset</td>
                       <td>Integer</td>
+                      <td>No</td>
                       <td>Indicate the index of the first record to return (zero indexed).</td>
                     </tr>
                     <tr>
                       <td>since</td>
                       <td>An <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> compatible timestamp with a
                         time zone indicator.</td>
+                      <td>No</td>
                       <td>Retrieve Assertions that were created or updated after the provided timestamp.</td>
                     </tr>
                   </tbody>
@@ -1238,7 +1256,7 @@ Link:
             </tr>
             <tr>
               <td><code>assertions</code></td>
-              <td>No</td>
+              <td>No (Array)</td>
               <td>
                 The matching unsigned Assertions. The total number of unsigned and signed assertions should not exceed
                 the
@@ -1248,7 +1266,7 @@ Link:
             </tr>
             <tr>
               <td><code>signedAssertions</code></td>
-              <td>No</td>
+              <td>No (Array)</td>
               <td>
                 The matching signed Assertions in <a data-cite="RFC7515#section-3">JWS Compact Serializion</a> format.
                 The total number of unsigned and signed assertions should not exceed the
