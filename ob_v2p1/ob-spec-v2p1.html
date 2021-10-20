@@ -668,7 +668,7 @@ grant_type=authorization_code
   "badgeConnectAPI": [{
     "name": "A Badge Host",
     "image": "https://badgehost.example.com/logo.png",
-    "apiBase": "https://badgehost.example.com/api/obc/v1",
+    "apiBase": "https://badgehost.example.com/api/ims/ob/v2p1",
     "version": "v1p0",
     "termsOfServiceUrl": "https://badgehost.example.com/terms",
     "privacyPolicyUrl": "https://badgehost.example.com/privacy",
@@ -713,8 +713,9 @@ grant_type=authorization_code
           <tr>
             <td><code>apiBase</code></td>
             <td>Yes</td>
-            <td>Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing
-              slash "/". <br />
+            <td>Fully qualified URL that will be concatenated with the API endpoints. It must end with the path
+              fragment "/ims/ob/v2p1". It SHOULD NOT have a trailing slash "/".
+              <br />
               E.g. <code>apiBase + "/assertions"</code>
             </td>
           </tr>
