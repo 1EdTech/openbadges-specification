@@ -65,7 +65,7 @@ var _localBiblio = {
     },
     "OB-OPEN-21": {
         title: "Open Badges Specification v2.1: OpenAPI Files",
-        href: "https://purl.imsglobal.org/spec/ob/v2p1/schema/openapi/imsob_v2p1.yaml",
+        href: "https://purl.imsglobal.org/spec/ob/v2p1/schema/openapi/",
         date: "January 24, 2020",
         publisher: "IMS Global",
         authors: [
