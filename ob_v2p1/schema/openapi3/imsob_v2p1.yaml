@@ -53,7 +53,7 @@
 # Release:          1.0
 # Date:             31st January, 2021
 # Autogen Engineer: Colin Smythe (IMS Global, UK)
-# Autogen Date:     2021-04-16
+# Autogen Date:     2021-11-09
 # 
 # IMS Global Auto-generation Binding Tool-kit (I-BAT)
 # ===================================================
@@ -90,8 +90,17 @@ info:
 #                                 Servers                                           #
 #####################################################################################
 servers: 
-    - url: www.imsglobal.org/ims/ob/v2p1/
-      description: The above Server URL should be changed to the actual server location.
+    - url: https://{hostName}{basePath}
+      description: The pattern for the Server URL should be configured for the actual server location.
+      variables: 
+          "hostName": 
+              description: This is the hostname for the server and MUST be set to the actual service provider (the IMS url is given as a default value).
+              default: www.imsglobal.org
+          "basePath": 
+              description: This is the base-path for the full URL and MUST be a part of the service endpoints.
+              enum: 
+                - /ims/ob/v2p1/
+              default: /ims/ob/v2p1/
 
 #####################################################################################
 #                                  Tags                                             #
