@@ -384,13 +384,18 @@ Pragma: no-cache
             </tr>
             <tr>
               <td>client_id_issued_at</td>
-              <td>DateTime</td>
-              <td>REQUIRED. The time at which the client_id was issued.</td>
+              <td>Integer</td>
+              <td>REQUIRED. The time at which the client_id was issued. The
+                time is represented as the number of seconds from
+                1970-01-01T00:00:00Z as measured in UTC until the date/time of
+                issuance.</td>
             </tr>
             <tr>
               <td>client_secret_expires_at</td>
-              <td>DateTime</td>
-              <td>REQUIRED. The time at which the client_secret will expire. MAY be 0 for no expiration.</td>
+              <td>Integer</td>
+              <td>REQUIRED. The time at which the client_secret will expire. MAY be 0 for no expiration. The time is
+                represented as the number of seconds from 1970-01-01T00:00:00Z as
+                measured in UTC until the date/time of expiration.</td>
             </tr>
           </tbody>
         </table>
