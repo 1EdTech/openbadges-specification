@@ -814,6 +814,8 @@ grant_type=authorization_code
         </ul>
         <p>The HTTP <code>Link</code> header MUST appear when a list response is incomplete and MAY appear for complete
           responses.</p>
+        <p>It is RECOMMENDED that Provider implementations honor the <code>limit</code> when forming the response,
+          but MAY use any limit, or no limit.</p>
         <p>It is RECOMMENDED that Provider implementations pass the total result count back to the requester. When the total
           result count is not known, this MUST be omitted. The value MUST be provided in the custom HTTP header:
           <code>X-Total-Count</code>.</p>
