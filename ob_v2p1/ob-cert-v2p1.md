@@ -120,7 +120,7 @@ The functional capabilities of such systems are:
 * They MUST supply or 'handle' all of the required data fields in payloads
 * They MUST be capable of supplying or 'handling' all of the optional data fields in payloads
 * They MUST NOT provide extension data fields in the payloads
-* They MAY support the endpoint payload pagination query parameters. If supported, the corresponding response HTTP pagination headers MUST be supported
+* They MUST support the endpoint payload pagination query parameters. The corresponding response HTTP pagination headers MUST be supported.
 
 ## Service Provider (Write) Conformance {#service-provider-write}
 
