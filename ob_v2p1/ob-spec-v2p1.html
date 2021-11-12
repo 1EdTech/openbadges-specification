@@ -212,6 +212,7 @@ Host: badge-host.example.com
           <thead>
             <tr>
               <th>Name</th>
+              <th>Type</th>
               <th>Required</th>
               <th>Description</th>
             </tr>
@@ -219,49 +220,58 @@ Host: badge-host.example.com
           <tbody>
             <tr>
               <td>client_name</td>
+              <td>String</td>
               <td>Yes</td>
               <td>The human-readable name of the Consumer.</td>
             </tr>
             <tr>
               <td>client_uri</td>
+              <td>URI</td>
               <td>Yes</td>
               <td>A page that which describes the Consumer.</td>
             </tr>
             <tr>
               <td>logo_uri</td>
+              <td>URI</td>
               <td>Yes</td>
               <td>The logo of the Consumer. The logo image uri should resolve to an image file with a square aspect
                 ratio in either PNG or SVG format. Recommended resolution: 512x512px.</td>
             </tr>
             <tr>
               <td>tos_uri</td>
+              <td>URI</td>
               <td>Yes</td>
               <td>The Terms of Service of the Consumer.</td>
             </tr>
             <tr>
               <td>policy_uri</td>
+              <td>URI</td>
               <td>Yes</td>
               <td>The Privacy Policy of the Consumer.</td>
             </tr>
             <tr>
               <td>software_id</td>
+              <td>String</td>
               <td>Yes</td>
               <td>A unique idenfitier assigned by the client developer. As described in [[!RFC7591]], it SHOULD remain
                 the same for all instances of the client software.</td>
             </tr>
             <tr>
               <td>software_version</td>
+              <td>String</td>
               <td>Yes</td>
               <td>A version identifier string for the client software. The value SHOULD change on any update to the
                 client software.</td>
             </tr>
             <tr>
               <td>redirect_uris</td>
-              <td>Yes</td>
+              <td>URI</td>
+              <td>Yes (Array)</td>
               <td>Array of redirection URI strings for use in the OAuth 2.0 flow.</td>
             </tr>
             <tr>
               <td>token_endpoint_auth_method</td>
+              <td>String</td>
               <td>No</td>
               <td>
                 String indicator of the requested authentication method for the token endpoint. In this specification
@@ -276,7 +286,8 @@ Host: badge-host.example.com
             </tr>
             <tr>
               <td>grant_types</td>
-              <td>No</td>
+              <td>String</td>
+              <td>No (Array)</td>
               <td>
                 Array of OAuth 2.0 grant type strings. In this specification only "authorization_code" and
                 refresh_token" are allowed:
@@ -289,7 +300,8 @@ Host: badge-host.example.com
             </tr>
             <tr>
               <td>response_types</td>
-              <td>No</td>
+              <td>String</td>
+              <td>No (Array)</td>
               <td>
                 Array of OAuth 2.0 response type strings. In this specification only "code" is allowed:
                 <ul>
@@ -300,6 +312,7 @@ Host: badge-host.example.com
             </tr>
             <tr>
               <td>scope</td>
+              <td>String</td>
               <td>No</td>
               <td>
                 String containing a space-separated list of scope values that this client is permitted to use when
@@ -353,26 +366,41 @@ Pragma: no-cache
           <thead>
             <tr>
               <th>Name</th>
+              <th>Type</th>
+              <th>Required</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>client_id</td>
-              <td>REQUIRED. An OAuth 2.0 client identifier string. The value SHOULD NOT be currently valid for any other
+              <td>String</td>
+              <td>Yes</td>
+              <td>An OAuth 2.0 client identifier string. The value SHOULD NOT be currently valid for any other
                 registered client.</td>
             </tr>
             <tr>
               <td>client_secret</td>
-              <td>REQUIRED. An OAuth 2.0 client secret string.</td>
+              <td>String</td>
+              <td>Yes</td>
+              <td>An OAuth 2.0 client secret string.</td>
             </tr>
             <tr>
               <td>client_id_issued_at</td>
-              <td>REQUIRED. The time at which the client_id was issued.</td>
+              <td>Integer</td>
+              <td>Yes</td>
+              <td>The time at which the client_id was issued. The
+                time is represented as the number of seconds from
+                1970-01-01T00:00:00Z as measured in UTC until the date/time of
+                issuance.</td>
             </tr>
             <tr>
               <td>client_secret_expires_at</td>
-              <td>REQUIRED. The time at which the client_secret will expire. MAY be 0 for no expiration.</td>
+              <td>Integer</td>
+              <td>Yes</td>
+              <td>The time at which the client_secret will expire. MAY be 0 for no expiration. The time is
+                represented as the number of seconds from 1970-01-01T00:00:00Z as
+                measured in UTC until the date/time of expiration.</td>
             </tr>
           </tbody>
         </table>
@@ -400,6 +428,7 @@ Pragma: no-cache
           <thead>
             <tr>
               <th>Name</th>
+              <th>Type</th>
               <th>Required</th>
               <th>Description</th>
             </tr>
@@ -407,11 +436,13 @@ Pragma: no-cache
           <tbody>
             <tr>
               <td>response_type</td>
+              <td>String</td>
               <td>Yes</td>
               <td>Value MUST be set to "code".</td>
             </tr>
             <tr>
               <td>client_id</td>
+              <td>String</td>
               <td>Yes</td>
               <td>
                 The client identifier. MUST be <code>client_id</code> provided in the
@@ -420,6 +451,7 @@ Pragma: no-cache
             </tr>
             <tr>
               <td>redirect_uri</td>
+              <td>URI</td>
               <td>Yes</td>
               <td>
                 The Consumer's redirection endpoint. MUST match one of the <code>redirect_uris</code>
@@ -429,6 +461,7 @@ Pragma: no-cache
             </tr>
             <tr>
               <td>scope</td>
+              <td>String</td>
               <td>Yes</td>
               <td>
                 The scope of the authorization request. This is a space delimited list of
@@ -437,16 +470,19 @@ Pragma: no-cache
             </tr>
             <tr>
               <td>state</td>
+              <td>String</td>
               <td>Yes</td>
               <td>An opaque value used by the client to maintain state between the request and callback.</td>
             </tr>
             <tr>
               <td>code_challenge</td>
+              <td>String</td>
               <td>Yes</td>
               <td>This is BASE64URL-ENCODE(SHA256(ASCII(code_verifier))).</td>
             </tr>
             <tr>
               <td>code_challenge_method</td>
+              <td>String</td>
               <td>Yes</td>
               <td>This MUST have a value of S256 i.e. the SHA256 code verifier transformation method is used.</td>
             </tr>
@@ -488,6 +524,7 @@ Host: www.example.com
             <thead>
               <tr>
                 <th>Name</th>
+                <th>Type</th>
                 <th>Required</th>
                 <th>Description</th>
               </tr>
@@ -495,26 +532,31 @@ Host: www.example.com
             <tbody>
               <tr>
                 <td>grant_type</td>
+                <td>String</td>
                 <td>Yes</td>
                 <td>Value MUST be set to "authorization_code".</td>
               </tr>
               <tr>
                 <td>code</td>
+                <td>String</td>
                 <td>Yes</td>
                 <td>The authorization code received from the authorization server.</td>
               </tr>
               <tr>
                 <td>redirect_uri</td>
+                <td>URI</td>
                 <td>Yes</td>
                 <td>The Consumer's redirection endpoint.</td>
               </tr>
               <tr>
                 <td>scope</td>
+                <td>String</td>
                 <td>Yes</td>
                 <td>The scope of the access request.</td>
               </tr>
               <tr>
                 <td>code_verifier</td>
+                <td>String</td>
                 <td>Yes</td>
                 <td>The PKCE code verifier.</td>
               </tr>
@@ -692,6 +734,7 @@ grant_type=authorization_code
         <thead>
           <tr>
             <th>Property</th>
+            <th>Type</th>
             <th>Required</th>
             <th>Description</th>
           </tr>
@@ -699,12 +742,14 @@ grant_type=authorization_code
         <tbody>
           <tr>
             <td><code>name</code></td>
+            <td>String</td>
             <td>Yes</td>
             <td>The name of the platform supporting the API. This SHOULD reflect the user-facing identity of the
               platform requesting authorization.</td>
           </tr>
           <tr>
             <td><code>image</code></td>
+            <td>URI</td>
             <td>No</td>
             <td>An image representing the platform. May be a URI to a hosted image or a Data URI. The logo image uri
               should resolve to an image file with a square aspect ratio in either PNG or SVG format. Recommended
@@ -712,6 +757,7 @@ grant_type=authorization_code
           </tr>
           <tr>
             <td><code>apiBase</code></td>
+            <td>URI</td>
             <td>Yes</td>
             <td>Fully qualified URL that will be concatenated with the API endpoints. It SHOULD NOT have a trailing
               slash "/". <br />
@@ -720,47 +766,55 @@ grant_type=authorization_code
           </tr>
           <tr>
             <td><code>version</code></td>
+            <td>String</td>
             <td>Yes</td>
             <td>A string representing the implemented version. MUST be in the format of <code>vMAJORpMINOR</code> where
               <strong>MAJOR</strong> and <strong>MINOR</strong> are integers.</td>
           </tr>
           <tr>
             <td><code>termsOfServiceUrl</code></td>
+            <td>URI</td>
             <td>Yes</td>
             <td>Fully qualified URL to the platform's terms of service. Other platforms SHOULD link to this resource as
               part of their authorization interface.</td>
           </tr>
           <tr>
             <td><code>privacyPolicyUrl</code></td>
+            <td>URI</td>
             <td>Yes</td>
             <td>Fully qualified URL to the platform's privacy policy. Other platforms SHOULD link to this resource as
               part of their authorization interface.</td>
           </tr>
           <tr>
             <td><code>scopesOffered</code></td>
-            <td>Yes</td>
+            <td>String</td>
+            <td>Yes (Array)</td>
             <td>An array of strings listing the scopes supported by the Provider in the form of fully qualified URLs to the
               scope descriptors.</td>
           </tr>
           <tr>
             <td><code>registrationUrl</code></td>
+            <td>URI</td>
             <td>Yes</td>
             <td>A fully qualified URL to which the Consumer would
               make the client registration request to before performing the authorization flow.</td>
           </tr>
           <tr>
             <td><code>authorizationUrl</code></td>
+            <td>URI</td>
             <td>Yes</td>
             <td>A fully qualified URL to the Provider's authorization endpoint.</td>
           </tr>
           <tr>
             <td><code>tokenUrl</code></td>
+            <td>URI</td>
             <td>Yes</td>
             <td>A fully qualified URL to the Provider's token request endpoint for exchanging an authorization code for a
               bearer token.</td>
           </tr>
           <tr>
             <td><code>tokenRevocationUrl</code></td>
+            <td>URI</td>
             <td>No</td>
             <td>A fully qualified URL to the Provider's token revocation endpoint for invalidating an existing refresh token
               or access token. When this property is omitted or has a <code>null</code> value, it will be assumed that
@@ -786,20 +840,28 @@ grant_type=authorization_code
           <thead>
             <tr>
               <th>Name</th>
+              <th>Type</th>
+              <th>Required</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>error</td>
+              <td>String</td>
+              <td>Yes</td>
               <td>A nullable string and the human-readable message describing the problem.</td>
             </tr>
             <tr>
               <td>statusCode</td>
+              <td>Integer</td>
+              <td>Yes</td>
               <td>The HTTP status code of the response.</td>
             </tr>
             <tr>
               <td>statusText</td>
+              <td>String</td>
+              <td>Yes</td>
               <td>A string matching one of the enumerated and allowed values for the given endpoint.</td>
             </tr>
           </tbody>
@@ -822,25 +884,30 @@ grant_type=authorization_code
           <thead>
             <tr>
               <th>Name</th>
+              <th>Required</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>next</td>
+              <td>Yes</td>
               <td>The link relation for the immediate next page of results. This MUST appear when the current list
                 response is incomplete.</td>
             </tr>
             <tr>
               <td>last</td>
+              <td>Yes</td>
               <td>The link relation for the last page of results. This MUST always appear.</td>
             </tr>
             <tr>
               <td>first</td>
+              <td>Yes</td>
               <td>The link relation for the first page of results. This MUST always appear.</td>
             </tr>
             <tr>
               <td>prev</td>
+              <td>Yes</td>
               <td>The link relation for the immediate previous page of results. This MUST appear when the offset is
                 greater than zero.</td>
             </tr>
@@ -935,6 +1002,7 @@ Link:
                     <tr>
                       <th>Name</th>
                       <th>Type</th>
+                      <th>Required</th>
                       <th>Description</th>
                     </tr>
                   </thead>
@@ -942,17 +1010,19 @@ Link:
                     <tr>
                       <td>limit</td>
                       <td>Integer</td>
+                      <td>No</td>
                       <td>Indicate how many results should be retrieved in a single page.</td>
                     </tr>
                     <tr>
                       <td>offset</td>
                       <td>Integer</td>
+                      <td>No</td>
                       <td>Indicate the index of the first record to return (zero indexed).</td>
                     </tr>
                     <tr>
                       <td>since</td>
-                      <td>An <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> compatible timestamp with a
-                        time zone indicator.</td>
+                      <td>DateTime</td>
+                      <td>No</td>
                       <td>Retrieve Assertions that were created or updated after the provided timestamp.</td>
                     </tr>
                   </tbody>
@@ -1225,6 +1295,7 @@ Link:
           <thead>
             <tr>
               <th>Property</th>
+              <th>Type</th>
               <th>Required</th>
               <th>Description</th>
             </tr>
@@ -1232,13 +1303,15 @@ Link:
           <tbody>
             <tr>
               <td><code>status</code></td>
+              <td>Status</td>
               <td>Yes</td>
               <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.
               </td>
             </tr>
             <tr>
               <td><code>assertions</code></td>
-              <td>No</td>
+              <td>Assertion</td>
+              <td>No (Array)</td>
               <td>
                 The matching unsigned Assertions. The total number of unsigned and signed assertions should not exceed
                 the
@@ -1248,7 +1321,8 @@ Link:
             </tr>
             <tr>
               <td><code>signedAssertions</code></td>
-              <td>No</td>
+              <td>String</td>
+              <td>No (Array)</td>
               <td>
                 The matching signed Assertions in <a data-cite="RFC7515#section-3">JWS Compact Serializion</a> format.
                 The total number of unsigned and signed assertions should not exceed the
@@ -1284,6 +1358,7 @@ Link:
           <thead>
             <tr>
               <th>Property</th>
+              <th>Type</th>
               <th>Required</th>
               <th>Description</th>
             </tr>
@@ -1291,6 +1366,7 @@ Link:
           <tbody>
             <tr>
               <td><code>status</code></td>
+              <td>Status</td>
               <td>Yes</td>
               <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.
               </td>
@@ -1313,6 +1389,7 @@ Link:
           <thead>
             <tr>
               <th>Property</th>
+              <th>Type</th>
               <th>Required</th>
               <th>Description</th>
             </tr>
@@ -1320,12 +1397,14 @@ Link:
           <tbody>
             <tr>
               <td><code>status</code></td>
+              <td>Status</td>
               <td>Yes</td>
               <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.
               </td>
             </tr>
             <tr>
               <td><code>profile</code></td>
+              <td>Profile</td>
               <td>Yes</td>
               <td>
                 The matching Profile.
@@ -1358,6 +1437,7 @@ Link:
           <thead>
             <tr>
               <th>Property</th>
+              <th>Type</th>
               <th>Required</th>
               <th>Description</th>
             </tr>
@@ -1365,12 +1445,14 @@ Link:
           <tbody>
             <tr>
               <td><code>status</code></td>
+              <td>Status</td>
               <td>Yes</td>
               <td>The <a href="#api-envelope-status">Status</a> object describing the success or failure of the request.
               </td>
             </tr>
             <tr>
               <td><code>profile</code></td>
+              <td>Profile</td>
               <td>Yes</td>
               <td>
                 The updated Profile.
@@ -1471,6 +1553,26 @@ Link:
           </pre>
       </section>
     </section>
+  </section>
+
+  <section class="appendix">
+    <h1>Handling Null Values</h1>
+    <p>
+      This standard allows the use of the JSON <code>null</code> data type, and empty arrays
+      such as <code>[]</code> in serialized JSON. Your code should be designed to deserialize 
+      JSON with null values and empty arrays even if your code does not serialize them.
+    </p>
+  </section>
+
+  <section class="appendix">
+    <h1>Data Types</h1>
+    <p>The following primitive data types are referenced in this standard.</p>
+    <ul>
+      <li>DateTime - the date/time (using the [[ISO8601]] format</li>
+      <li>Integer - the integer data-type</li>
+      <li>String - normalized string</li>
+      <li>URI - absolute or relative URI</li>
+    </ul>
   </section>
 
   <section class="appendix informative" id="revisionhistory">
