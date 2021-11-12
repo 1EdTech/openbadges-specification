@@ -50,17 +50,5 @@ var _localBiblio = {
             "Jeff Bohrer",
             "Andy Miller"
         ]
-    },
-    "OB-JSONLD-21": {
-        title: "Open Badges Specification v2.1: JSON-LD Context Files",
-        href: "https://purl.imsglobal.org/spec/ob/v2p1/context/",
-        date: "January 24, 2020",
-        publisher: "IMS Global",
-        authors: [
-            "Jeff Bohrer",
-            "Alex Hripak",
-            "Andy Miller",
-            "Nate Otto"
-        ]
     }
 };
