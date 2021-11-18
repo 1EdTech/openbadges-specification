@@ -1,0 +1,122 @@
+var api = `
+
+<h2>Understanding the API</h2>
+
+<p>This specification defines a JSON API ([[OB-REST-30]]) protocol to be implemented by applications serving in the
+  roles of Provider and Consumer. The API uses OAuth 2.0 for authentication, granular resource-based permission
+  scopes, and offers a number of required endpoints that MUST be implemented by Providers and
+  Consumers or both.
+</p>
+
+<section id="api-architecture">
+  <h3>Architecture</h3>
+  <figure id="ad-architecture">
+    <img src="images/OBC_Architecture.svg" />
+    <figcaption>Architecture</figcaption>
+  </figure>
+  <p>There are five key components to the API architecture.</p>
+  <dl>
+    <dt>Resource Owner</dt>
+    <dd>This is the user that owns the resources (badges) that are on the Provider.</dd>
+    <dt>Web Browser</dt>
+    <dd>This is the web browser application that the user interacts with.</dd>
+    <dt>Consumer</dt>
+    <dd>
+      This is the web application that interacts with the Provider on behalf of
+      the resource owner. This component is called the Consumer in the
+      IMS Security Framework [[SEC-10]].
+    </dd>
+    <dt>Authorization Server</dt>
+    <dd>
+      This is a server that implements the OAuth 2.0 endpoints on behalf of
+      the Provider. In many systems, the Authorization Server and the Provider are
+      combined.
+    </dd>
+    <dt>Provider</dt>
+    <dd>
+      This is the resource server that has the protected resources (badges).
+      This component is called the Provider in the IMS Security Framework [[SEC-10]].
+    </dd>
+  </dl>
+  <p>
+    The role of each component during <a href="#oauth-registration">Registration</a>,
+    <a href="#oauth-token">Obtaining Tokens</a>, and <a href="#oauth-auth">Authenticating with Tokens</a>
+    are described below.
+  </p>
+</section>
+
+<section id="api-authentication">
+  <h3>Authentication</h3>
+  <p>A Consumer requests a token scoped for access to Open Badges Assertions on a Provider
+    that belong to a user (resource owner) of that Provider service, using an OAuth 2.0
+    Authorization Code Grant as described in Section 4.2 of the IMS Security Framework [[SEC-10]].
+    Once a Consumer obtains a code, it exchanges the code for an access token and optionally
+    a refresh token. Subsequent API requests are authenticated with the access token until its
+    expiration. If the Provider previously provided a refresh token, the access token can be renewed.
+  </p>
+</section>
+
+<section id="api-endpoints">
+  <h3>Endpoints</h3>
+  <section id="api-endpoints-assertion">
+    <h4>Assertions</h4>
+    <table class="openAPIPathsTable">
+      <thead>
+        <tr>
+          <th colspan="2">GET .../ims/ob/v3p0/assertions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Description</td>
+          <td>Fetch Assertions for the supplied parameters and authentication token.</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="openAPIPathsTable">
+      <thead>
+        <tr>
+          <th colspan="2">POST .../ims/ob/v3p0/assertions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Description</td>
+          <td>Create or update an Assertion.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section id="api-endpoints-profile">
+    <h4>Profile</h4>
+    <table class="openAPIPathsTable">
+      <thead>
+        <tr>
+          <th colspan="2">GET .../ims/ob/v3p0/profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Description</td>
+          <td>Fetch the profile for the supplied authentication token.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="openAPIPathsTable">
+      <thead>
+        <tr>
+          <th colspan="2">POST .../ims/ob/v3p0/profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Description</td>
+          <td>Update the profile for the authenticate entity..</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</section>
+
+`;
