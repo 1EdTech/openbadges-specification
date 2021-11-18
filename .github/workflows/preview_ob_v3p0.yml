@@ -6,42 +6,29 @@ name: Build OB 3.0 Spec Preview
 on:
   # Triggers the workflow on push or pull request events but only for the develop branch
   push:
-    branches: [ ob_v3p0 ]
+    branches: [ develop ]
+    paths: [ ob_v3p0 ]
   pull_request:
-    branches: [ ob_v3p0 ]
+    branches: [ develop ]
+    paths: [ ob_v3p0 ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+  # This workflow contains a single job called "publish"
+  publish:
+    name: Deploy to GitHub Pages
+
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Checkout pages branch
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - uses: w3c/spec-prod@v2
         with:
-          ref: pages
-          fetch-depth: 0
-        
-      - name: Get ob_v3p0/ob_v3p0
-        run: |
-          git checkout -B ob_v3p0 --track origin/ob_v3p0
-          git checkout pages
-          git checkout ob_v3p0 -- ob_v3p0
-          
-      - name: Commit changes to pages
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git commit -m "Published ob_v3p0 preview"
-          git push
-      
-      - name: Git Status
-        run: |
-          git branch
-          git status
+          GH_PAGES_BRANCH: gh-pages
+          SOURCE: ob_v3p0/ob_v3p0.html
+          DESTINATION: docs/ob_v3p0.html
