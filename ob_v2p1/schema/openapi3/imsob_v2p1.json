@@ -17,8 +17,19 @@
     },
     "servers" : [
         {
-            "url" : "www.imsglobal.org/ims/ob/v2p1/",
-            "description" : "The above Server URL should be changed to the actual server location."
+            "url" : "https://{hostName}{basePath}",
+            "description" : "The pattern for the Server URL should be configured for the actual server location.",
+            "variables" : {
+                "hostName" : {
+                    "description" : "This is the hostname for the server and MUST be set to the actual service provider (the IMS url is given as a default value).",
+                    "default" : "www.imsglobal.org"
+                },
+                "basePath" : {
+                    "description" : "This is the base-path for the full URL and MUST be a part of the service endpoints.",
+                    "enum" : ["/ims/ob/v2p1/"],
+                    "default" : "/ims/ob/v2p1/"
+                }
+            }
         }
     ],
     "tags" : [
