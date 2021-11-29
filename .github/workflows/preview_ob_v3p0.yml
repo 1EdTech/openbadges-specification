@@ -15,28 +15,13 @@ on:
     branches: 
       - develop
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-
-#  merge-branch:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: everlytic/branch-merge@1.1.2
-#        with:
-#          github_token: ${{ github.token }}
-#          source_ref: ${{ github.ref }}
-#          target_branch: "gh-pages"
-#          commit_message_template: "[Automated] Merged {source_ref} into target {target_branch}"
-  
-
   # This workflow contains a single job called "publish"
   publish:
     name: Deploy to GitHub Pages
 
     # The type of runner that the job will run on
-    #runs-on: ubuntu-latest
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
