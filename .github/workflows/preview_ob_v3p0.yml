@@ -17,8 +17,8 @@ on:
 
 jobs:
   # This workflow contains a single job called "publish"
-  publish:
-    name: Deploy to GitHub Pages
+  build:
+    name: Build a static version of the Respec document
 
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -34,7 +34,7 @@ jobs:
           GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
       - uses: w3c/spec-prod@v2
         with:
-          GH_PAGES_BRANCH: "gh-pages"
+#         GH_PAGES_BRANCH: "gh-pages"
           SOURCE: "ob_v3p0/ob_v3p0.html"
           DESTINATION: "docs/ob_v3p0.html"
           TOOLCHAIN: respec
@@ -42,3 +42,11 @@ jobs:
           VALIDATE_WEBIDL: false
           VALIDATE_LINKS: false
           BUILD_FAIL_ON: nothing
+
+  publish:
+    name: Publish to GH pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: "gh-pages"
