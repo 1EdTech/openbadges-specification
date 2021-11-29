@@ -1,73 +1,127 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <script src='https://purl.imsglobal.org/spec/respec-ims-default.js' async class='remove'></script>
-    <script src='respec-support/local-biblio.js' class='remove'></script>
-    <script src='respec-support/contributors.js' class='remove'></script>
-    <script src='respec-support/iprs.js' class='remove'></script>
-    <script class='remove'>
-      var respecConfig = {
-        mainSpecTitle: "Open Badges Specification",
-        mainSpecBiblioKey: "OB-30",
-        specTitle: "Open Badges Specification",
-        shortName: "ob",
-        specNature: "informative", // spec nature is "normative" or "informative"
-        specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
-        specVersion: "3.0",
-        docVersion: "1.0",
-        specStatus: "IMS Base Document", // specStatus: IMS Base Document, IMS Candidate Final (Public) or IMS Final Release
-        specDate: "September 23, 2021",
-        contributors: _contributors,
-        localBiblio: _localBiblio,
-        iprs: _iprs
-      };
-    </script>
-  </head>
-  <body>
 
-    <section class="introductory" id="abstract" data-format="markdown">
-      <script class="transclude" data-id="abstract" src="abstract.md"></script>
+<head>
+  <meta charset='utf-8'>
+  <script src='https://purl.imsglobal.org/spec/respec-dev/respec-ims-default.js' async class='remove'></script>
+  <script src='respec-support/local-biblio.js' class='remove'></script>
+  <script src='respec-support/contributors.js' class='remove'></script>
+  <script src='respec-support/iprs.js' class='remove'></script>
+
+  <!-- Load Digital Bazaar VC add-on -->
+  <script class="remove" src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-vc@1.0.0/dist/main.js"></script>
+
+  <!-- Read the CDM configuration -->
+  <script class="remove" src="cdm-config.js"></script>
+
+  <script class='remove'>
+    var respecConfig = {
+      mainSpecTitle: "Open Badges Specification",
+      mainSpecBiblioKey: "OB-30",
+      specTitle: "Open Badges Specification",
+      shortName: "ob",
+      specNature: "informative", // spec nature is "normative" or "informative"
+      specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
+      specVersion: "3.0",
+      docVersion: "1.0",
+      specStatus: "IMS Base Document", // specStatus: IMS Base Document, IMS Candidate Final (Public) or IMS Final Release
+      specDate: "September 23, 2021",
+      contributors: _contributors,
+      localBiblio: _localBiblio,
+      iprs: _iprs,
+
+      // Add the CDM configuration to respecConfig
+      cdm: _cdm,
+
+      // Add VC proof examples
+
+      postProcess: [
+        window.respecVc.createVcExamples
+      ],
+
+    };
+  </script>
+</head>
+
+<body>
+
+  <section class="introductory" id="abstract" data-format="markdown">
+    <script class="transclude" data-id="abstract" src="abstract.md"></script>
+  </section>
+
+  <section class="introductory" id="conformance">
+    <h2>Conformance</h2>
+  </section>
+
+  <section data-format="markdown">
+    <script class="transclude" data-id="introduction" src="introduction.md"></script>
+  </section>
+
+  <section data-format="markdown">
+    <script class="transclude" data-id="overview" src="overview.md"></script>
+  </section>
+
+  <section data-model id="org.1edtech.ob.v3p0.model">
+    <section data-class id="org.1edtech.ob.v3p0.assertion.class">
+      <aside class="example" title="Sample Assertion">
+        <pre class="nohighlight vc">
+      {
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
+        ],
+        "id": "http://example.edu/credentials/3732",
+        "type": ["VerifiableCredential", "OpenBadge"],
+        "issuer": {
+          "id": "https://example.edu/issuers/565049",
+          "name": "Example University"
+        "issuanceDate": "2010-01-01T00:00:00Z",
+        "credentialSubject": {
+          "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+        }
+      }
+      </pre>
+      </aside>
     </section>
-
-    <section class="introductory" id="conformance">
-      <h2>Conformance</h2>
+    <section data-class id="org.1edtech.ob.v3p0.achievement.class">
+      <aside data-sample class="example" title="Sample achievement (Generated)"></aside>
     </section>
+    <section data-class id="org.1edtech.ob.v3p0.profile.class"></section>
+    <section data-class id="org.1edtech.ob.v3p0.evidence.class"></section>
+    <section data-class id="org.1edtech.ob.v3p0.image.class"></section>
+    <section data-class id="org.1edtech.ob.v3p0.criteria.class"></section>
+    <section data-class id="org.1edtech.ob.v3p0.alignmentobject.class"></section>
+    <section data-class id="org.1edtech.ob.v3p0.endorsement.class"></section>
+    <section data-class id="org.1edtech.ob.v3p0.credentialsubject.class"></section>
+    <section data-class id="org.1edtech.ob.v3p0.creator.class"></section>
+    <section data-class id="org.1edtech.ob.v3p0.proof.class"></section>
+    <section data-class id="org.1edtech.ob.v3p0.credentialstatus.class"></section>
+    <section data-class id="org.1edtech.ob.v3p0.result.class"></section>
+  </section>
 
-    <section data-format="markdown">
-      <script class="transclude" data-id="introduction" src="introduction.md"></script>
-    </section>
+  <section>
+    <script class="transclude" data-id="api" src="api.html"></script>
+  </section>
 
-    <section data-format="markdown">
-      <script class="transclude" data-id="overview" src="overview.md"></script>
-    </section>
+  <section data-format="markdown">
+    <script class="transclude" data-id="syntaxes" src="syntaxes.md"></script>
+  </section>
 
-    <section data-format="markdown">
-      <script class="transclude" data-id="datamodel" src="datamodel.md"></script>
-    </section>
+  <section data-format="markdown">
+    <script class="transclude" data-id="certification" src="certification.md"></script>
+  </section>
 
-    <section>
-      <script class="transclude" data-id="api" src="api.html"></script>
-    </section>
+  <section class="appendix">
+    <h1>Revision History</h1>
+  </section>
 
-    <section data-format="markdown">
-      <script class="transclude" data-id="syntaxes" src="syntaxes.md"></script>
-    </section>
+  <details class="annoying-warning" open="">
+    <summary>This is a preview of the IMS Open Badges Specification v3.0</summary>
+    <p>Do not attempt to implement this version of the specification. Do not
+      reference this version as authoritative in any way.
+    </p>
+  </details>
 
-    <section data-format="markdown">
-      <script class="transclude" data-id="certification" src="certification.md"></script>
-    </section>
+</body>
 
-    <section class="appendix">
-      <h1>Revision History</h1>
-    </section>
-    
-    <details class="annoying-warning" open="">
-      <summary>This is a preview of the IMS Open Badges Specification v3.0</summary>
-      <p>Do not attempt to implement this version of the specification. Do not
-        reference this version as authoritative in any way.
-      </p>
-    </details>
-
-  </body>
 </html>

@@ -15,13 +15,13 @@ This proposal is for a reasonable change to the structure of the Open Badges Ass
 An existing Open Badges Assertion, illustrated in the graphic below, structures its objects like this:
 An Assertion identifies a recipient with a "recipient" relationship to an IdentityObject that contains identifying properties. It identifies which badge it represents with a "badge" relationship to a BadgeClass. It identifies its verification information with a "verification" relationship to a VerificationObject. It identifies its issuer with an "issuer" relationship between the BadgeClass and the Issuer.
 <figure>
-  <img src="images/figure01-openbadges-2.0-diagram.png" width="100%" alt="Open Badges 2.0 Diagram" />
+  <img src="images/figure01-openbadges-2.0-diagram.png" width="640" alt="Open Badges 2.0 Diagram" />
   <figcaption>Open Badges 2.0 Diagram</figcaption>
 </figure>
 
 The proposed Verifiable Credentials structure depicted below offers the same information with a slightly different structure: A Verifiable Credential identifies its recipient with a "credentialSubject" relationship to a subject class that is identified by an identifier. It identifies its issuer with an "issuer" relationship directly to an Issuer. The Credential claims the subject has met the criteria of a specific BadgeClass (also known by its CLR alias as an "Achievement") with a "hasCredential" relationship to that defined achievement. It identifies its verification information with a "proof" relationship to an instance of a proof that follows a standardized schema.
 <figure>
-  <img src="images/figure02-openbadges-3.0-diagram.png" width="100%" alt="Open Badges 3.0 Proposed Diagram" />
+  <img src="images/figure02-openbadges-3.0-diagram.png" width="640" alt="Open Badges 3.0 Proposed Diagram" />
   <figcaption>Open Badges 3.0 Proposed Diagram</figcaption>
 </figure>
 
@@ -86,14 +86,14 @@ A Skill Assertion is an Open Badges assertion that contains a "skill result." Th
 The following diagram shows how these concepts are connected for a use case in which an issuer asserts that a credential subject has achieved a particular skill, using a "results" claim to establish a relationship with a Result class that identifies which skill is recognized and may describe other aspects of the skill achievement, such as the level at which it was assessed and a degree of confidence. Specific use cases for how this data needs to be consumed will drive the specific skill-specific properties of the Result class that may be added to give issuers the options they need. In this example, a Skill Definition that is identified by a unique URL at which information about the skill is published is referenced by the Result. This pattern, named by the [Open Skills Network](https://openskillsnetwork.org) as a [Rich Skill Descriptor (RSD)](https://rsd.osmt.dev), makes it possible for skills to be precisely referenced in other entities, such as credentials. Here, the RSD was published by an industry organization, and included in this credential by a different issuer. There is no need for the skill author and the credential issuer to have a pre-existing or discoverable relationship in order for a Skill Assertion to be valid. Evidence may also be included, just like in any Assertion.
 
 <figure>
-  <img src="images/figure03-skill-assertion-with-evidence.png" width="100%" alt="Skill Assertion with Evidence Diagram" />
+  <img src="images/figure03-skill-assertion-with-evidence.png" width="640" alt="Skill Assertion with Evidence Diagram" />
   <figcaption>Skill Assertion with Evidence Diagram</figcaption>
 </figure>
 
 The notion of skill results can be combined with a defined achievement assertion claim "hasCredential". In this example, the same Skill Assertion appears, but additional criteria that the learner has met is described in the Achievement/BadgeClass as in many of our other examples. The Achievement aligns to the same skill that is recognized, but the Result allows the issuer to describe specifics about the assessment results relative to the skill.
 
 <figure>
-  <img src="images/figure04-defined-achievement-with-skill.png" width="100%" alt="Defined Achievement Assertion with Skill Result Diagram" />
+  <img src="images/figure04-defined-achievement-with-skill.png" width="640" alt="Defined Achievement Assertion with Skill Result Diagram" />
   <figcaption>Defined Achievement Assertion with Skill Result Diagram</figcaption>
 </figure>
 

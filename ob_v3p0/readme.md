@@ -25,4 +25,4 @@ The credentials that would be produced under this proposal could easily be bundl
 
 ### Current Status
 
-IMS Base Document - The specification is being developed by the work group.
+[IMS Base Document](http://imsglobal.github.io/openbadges-specification/ob_v3p0.html) - The specification is being developed by the work group
