@@ -54,6 +54,4 @@ jobs:
       - uses: actions/download-artifact@v2
         with: 
           name: spec-prod-result
-      - shell: bash
-        run: |
-          mv spec-prod-result docs/spec-prod-result
+      - run: ls -R
