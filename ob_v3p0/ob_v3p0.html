@@ -9,10 +9,10 @@
   <script src='respec-support/iprs.js' class='remove'></script>
 
   <!-- Load Digital Bazaar VC add-on -->
-  <script class="remove" src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-vc@1.0.0/dist/main.js"></script>
+  <!-- <script class="remove" src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-vc@1.0.0/dist/main.js"></script> -->
 
   <!-- Read the CDM configuration -->
-  <script class="remove" src="cdm-config.js"></script>
+  <!-- <script class="remove" src="cdm-config.js"></script> -->
 
   <script class='remove'>
     var respecConfig = {
@@ -23,21 +23,20 @@
       specNature: "informative", // spec nature is "normative" or "informative"
       specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
       specVersion: "3.0",
-      docVersion: "1.0",
+      docVersion: "1",
       specStatus: "IMS Base Document", // specStatus: IMS Base Document, IMS Candidate Final (Public) or IMS Final Release
-      specDate: "September 23, 2021",
       contributors: _contributors,
       localBiblio: _localBiblio,
       iprs: _iprs,
 
-      // Add the CDM configuration to respecConfig
-      cdm: _cdm,
+      // // Add the CDM configuration to respecConfig
+      // cdm: _cdm,
 
-      // Add VC proof examples
+      // // Add VC proof examples
 
-      postProcess: [
-        window.respecVc.createVcExamples
-      ],
+      // postProcess: [
+      //   window.respecVc.createVcExamples
+      // ],
 
     };
   </script>
@@ -60,7 +59,7 @@
   <section data-format="markdown">
     <script class="transclude" data-id="overview" src="overview.md"></script>
   </section>
-
+<!-- 
   <section data-model id="org.1edtech.ob.v3p0.model">
     <section data-class id="org.1edtech.ob.v3p0.assertion.class">
       <aside class="example" title="Sample Assertion">
@@ -97,7 +96,7 @@
     <section data-class id="org.1edtech.ob.v3p0.proof.class"></section>
     <section data-class id="org.1edtech.ob.v3p0.credentialstatus.class"></section>
     <section data-class id="org.1edtech.ob.v3p0.result.class"></section>
-  </section>
+  </section> -->
 
   <section>
     <script class="transclude" data-id="api" src="api.html"></script>
