@@ -48,11 +48,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout gh-pages
+        uses: actions/checkout@v2
         with:
           ref: gh-pages
-      - uses: actions/download-artifact@v2
+      - run: ls docs -l -R
+      - name: Download artifact created by build job
+        uses: actions/download-artifact@v2
         with: 
           name: spec-prod-result
-      - run: mv ob_v3p0.html docs/ob_v3p0.html
-      - run: ls -a -R
+          path: docs
+      - run: ls docs -l -R
