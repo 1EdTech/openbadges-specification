@@ -15,38 +15,23 @@ on:
     branches: 
       - develop
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-
-#  merge-branch:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: everlytic/branch-merge@1.1.2
-#        with:
-#          github_token: ${{ github.token }}
-#          source_ref: ${{ github.ref }}
-#          target_branch: "gh-pages"
-#          commit_message_template: "[Automated] Merged {source_ref} into target {target_branch}"
-  
-
   # This workflow contains a single job called "publish"
   publish:
     name: Deploy to GitHub Pages
 
     # The type of runner that the job will run on
-    #runs-on: ubuntu-latest
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
 #        with:
 #          ref: "gh-pages"
-#      - name: Unlock secrets
-#        uses: sliteteam/github-action-git-crypt-unlock@1.2.0
-#        env:
-#          GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
+      - name: Unlock secrets
+        uses: sliteteam/github-action-git-crypt-unlock@1.2.0
+        env:
+          GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
       - uses: w3c/spec-prod@v2
         with:
           GH_PAGES_BRANCH: "gh-pages"
