@@ -76,6 +76,15 @@ dd{margin-left:0}
 }
 </style>
 <style>
+span.example-title{text-transform:none}
+:is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
+div.illegal-example{color:red}
+div.illegal-example p{color:#000}
+:is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
+aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
+.example pre{background-color:rgba(0,0,0,.03)}
+</style>
+<style>
 dfn{cursor:pointer}
 .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
@@ -1086,7 +1095,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "necessaryClaims": "No",
       "type": "RF RAND (Required & Optional Elements)"
     }
-  ]
+  ],
+  "cdm": {
+    "apiKey": "5dWQ^Q96WG.N?TaH",
+    "serverUrl": "https://imsum2.herokuapp.com",
+    "source": "SANDBOX"
+  }
 }</script></head>
 
 <body><header>
@@ -1312,6 +1326,45 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   <figcaption>Figure <bdi class="figno">4</bdi> <span class="fig-title">Defined Achievement Assertion with Skill Result Diagram</span></figcaption>
 </figure><p>The inclusion of Skill Assertion claims makes a natural, ergonomic fit with defined achievement claims and evidence claims. Business logic to process each of the available claims can look for just the data a relying party needs, and extraneous claims do not get in the way.</p></section></section>
 
+  <section data-model="" id="org.1edtech.ob.v3p0.model" class="respec-offending-element" title="All sections must start with a `h2-6` element.">
+    <section data-class="" id="org.1edtech.ob.v3p0.assertion.class" class="respec-offending-element" title="All sections must start with a `h2-6` element.">
+      <aside class="example" id="example-sample-assertion"><div class="marker">
+    <a class="self-link" href="#example-sample-assertion">Example<bdi> 1</bdi></a><span class="example-title">: Sample Assertion</span>
+  </div>
+        <pre class="nohighlight vc">{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": ["VerifiableCredential", "OpenBadge"],
+  "issuer": {
+    "id": "https://example.edu/issuers/565049",
+    "name": "Example University"
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+  }
+}</pre>
+      </aside>
+    </section>
+    <section data-class="" id="org.1edtech.ob.v3p0.achievement.class" class="respec-offending-element" title="All sections must start with a `h2-6` element.">
+      <aside data-sample="" class="example" id="example-sample-achievement-generated"><div class="marker">
+    <a class="self-link" href="#example-sample-achievement-generated">Example<bdi> 2</bdi></a><span class="example-title">: Sample achievement (Generated)</span>
+  </div></aside>
+    </section>
+    <section data-class="" id="org.1edtech.ob.v3p0.profile.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.evidence.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.image.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.criteria.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.alignmentobject.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.endorsement.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.credentialsubject.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.creator.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.proof.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.credentialstatus.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.result.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
+  </section>
 
   <section id="understanding-the-api-0">
     
@@ -1327,7 +1380,7 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
 <section id="api-architecture">
   <h3 id="architecture"><bdi class="secno">3.1 </bdi>Architecture<a class="self-link" aria-label="§" href="#api-architecture"></a><a class="self-link" aria-label="§" href="#architecture"></a></h3>
   <figure id="ad-architecture">
-    <img src="images/OBC_Architecture.svg">
+    <img src="images/OBC_Architecture.svg" height="280" width="1160">
     <figcaption>Figure <bdi class="figno">5</bdi> <span class="fig-title">Architecture</span></figcaption>
   </figure>
   <p>There are five key components to the API architecture.</p>
