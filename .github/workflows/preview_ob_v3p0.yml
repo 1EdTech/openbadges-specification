@@ -58,5 +58,6 @@ jobs:
           name: spec-prod-result
           path: docs
       - name: Update gh-pages
-        run: git commit -m "Update ob_v3p0.html"
+        uses: zwaldowski/git-commit-action@v1
+      - run: echo "${{ steps.git_commit.outputs.sha }}"
       - run: git push origin
