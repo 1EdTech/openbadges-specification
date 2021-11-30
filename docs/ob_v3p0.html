@@ -2,431 +2,98 @@
 <meta charset="utf-8">
 <meta name="generator" content="ReSpec 26.16.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    
-    
-    
-    
-    
   
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
 <style id="respec-mainstyle">
-
-@keyframes pop {
-  0% {
-    transform: scale(1, 1);
-  }
-  25% {
-    transform: scale(1.25, 1.25);
-    opacity: 0.75;
-  }
-  100% {
-    transform: scale(1, 1);
-  }
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
 }
-
-/* Override code highlighter background */
-.hljs {
-  background: transparent !important;
+.hljs{background:0 0!important}
+:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
+dfn{font-weight:700}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
-
-/* --- INLINES --- */
-:is(h1, h2, h3, h4, h5, h6, a) abbr {
-  border: none;
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+code{color:#c63501}
+th code{color:inherit}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+.toc a,.tof a{text-decoration:none}
+a .figno,a .secno{color:#000}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
+.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+.simple th a{color:#fff;padding:3px 5px;text-align:left}
+.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+.simple td{padding:3px 10px;border-top:1px solid #ddd}
+.simple tr:nth-child(even){background:#f0f6ff}
+.section dd>p:first-child{margin-top:0}
+.section dd>p:last-child{margin-bottom:0}
+.section dd{margin-bottom:1em}
+.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+h2,h3,h4,h5,h6{position:relative}
+aside.example .marker>a.self-link{color:inherit}
+:is(h2,h3,h4,h5,h6)>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
+:is(h2,h3,h4,h5,h6)>a.self-link::before{content:"§";display:block}
+@media (max-width:767px){
+dd{margin-left:0}
+:is(h2,h3,h4,h5,h6)>a.self-link{left:auto;top:auto}
 }
-
-dfn {
-  font-weight: bold;
+@media print{
+.removeOnSave{display:none}
 }
-
-a.internalDFN {
-  color: inherit;
-  border-bottom: 1px solid #99c;
-  text-decoration: none;
-}
-
-a.externalDFN {
-  color: inherit;
-  border-bottom: 1px dotted #ccc;
-  text-decoration: none;
-}
-
-a.bibref {
-  text-decoration: none;
-}
-
-.respec-offending-element:target {
-  animation: pop 0.25s ease-in-out 0s 1;
-}
-
-.respec-offending-element,
-a[href].respec-offending-element {
-  text-decoration: red wavy underline;
-}
-@supports not (text-decoration: red wavy underline) {
-  .respec-offending-element:not(pre) {
-    display: inline-block;
-  }
-  .respec-offending-element {
-    /* Red squiggly line */
-    background: url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=)
-      bottom repeat-x;
-  }
-}
-
-#references :target {
-  background: #eaf3ff;
-  animation: pop 0.4s ease-in-out 0s 1;
-}
-
-cite .bibref {
-  font-style: normal;
-}
-
-code {
-  color: #c63501;
-}
-
-th code {
-  color: inherit;
-}
-
-a[href].orcid {
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-a[href].orcid > svg {
-  margin-bottom: -2px;
-}
-
-/* --- TOC --- */
-
-.toc a,
-.tof a {
-  text-decoration: none;
-}
-
-a .secno,
-a .figno {
-  color: #000;
-}
-
-ul.tof,
-ol.tof {
-  list-style: none outside none;
-}
-
-.caption {
-  margin-top: 0.5em;
-  font-style: italic;
-}
-
-/* --- TABLE --- */
-
-table.simple {
-  border-spacing: 0;
-  border-collapse: collapse;
-  border-bottom: 3px solid #005a9c;
-}
-
-.simple th {
-  background: #005a9c;
-  color: #fff;
-  padding: 3px 5px;
-  text-align: left;
-}
-
-.simple th a {
-  color: #fff;
-  padding: 3px 5px;
-  text-align: left;
-}
-
-.simple th[scope="row"] {
-  background: inherit;
-  color: inherit;
-  border-top: 1px solid #ddd;
-}
-
-.simple td {
-  padding: 3px 10px;
-  border-top: 1px solid #ddd;
-}
-
-.simple tr:nth-child(even) {
-  background: #f0f6ff;
-}
-
-/* --- DL --- */
-
-.section dd > p:first-child {
-  margin-top: 0;
-}
-
-.section dd > p:last-child {
-  margin-bottom: 0;
-}
-
-.section dd {
-  margin-bottom: 1em;
-}
-
-.section dl.attrs dd,
-.section dl.eldef dd {
-  margin-bottom: 0;
-}
-
-#issue-summary > ul {
-  column-count: 2;
-}
-
-#issue-summary li {
-  list-style: none;
-  display: inline-block;
-}
-
-details.respec-tests-details {
-  margin-left: 1em;
-  display: inline-block;
-  vertical-align: top;
-}
-
-details.respec-tests-details > * {
-  padding-right: 2em;
-}
-
-details.respec-tests-details[open] {
-  z-index: 999999;
-  position: absolute;
-  border: thin solid #cad3e2;
-  border-radius: 0.3em;
-  background-color: white;
-  padding-bottom: 0.5em;
-}
-
-details.respec-tests-details[open] > summary {
-  border-bottom: thin solid #cad3e2;
-  padding-left: 1em;
-  margin-bottom: 1em;
-  line-height: 2em;
-}
-
-details.respec-tests-details > ul {
-  width: 100%;
-  margin-top: -0.3em;
-}
-
-details.respec-tests-details > li {
-  padding-left: 1em;
-}
-
-a[href].self-link:hover {
-  opacity: 1;
-  text-decoration: none;
-  background-color: transparent;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  position: relative;
-}
-
-aside.example .marker > a.self-link {
-  color: inherit;
-}
-
-:is(h2, h3, h4, h5, h6) > a.self-link {
-  border: none;
-  color: inherit;
-  font-size: 83%;
-  height: 2em;
-  left: -1.6em;
-  opacity: 0.5;
-  position: absolute;
-  text-align: center;
-  text-decoration: none;
-  top: 0;
-  transition: opacity 0.2s;
-  width: 2em;
-}
-
-:is(h2, h3, h4, h5, h6) > a.self-link::before{
-  content: "§";
-  display: block;
-}
-
-@media (max-width: 767px) {
-  dd {
-    margin-left: 0;
-  }
-
-  /* Don't position self-link in headings off-screen */
-  :is(h2, h3, h4, h5, h6) > a.self-link {
-    left: auto;
-    top: auto;
-  }
-}
-
-@media print {
-  .removeOnSave {
-    display: none;
-  }
-}
-
 </style>
 <style>
-
-span.example-title {
-  text-transform: none;
-}
-
-:is(aside,div).example,
-div.illegal-example {
-  padding: 0.5em;
-  margin: 1em 0;
-  position: relative;
-  clear: both;
-}
-
-div.illegal-example {
-  color: red;
-}
-
-div.illegal-example p {
-  color: black;
-}
-
-:is(aside,div).example {
-  border-left-width: 0.5em;
-  border-left-style: solid;
-  border-color: #e0cb52;
-  background: #fcfaee;
-}
-
-aside.example div.example {
-  border-left-width: 0.1em;
-  border-color: #999;
-  background: #fff;
-}
-
-
-.example pre {
-  background-color: rgba(0, 0, 0, 0.03);
-}
-
-</style>
-<style>
-
-dfn {
-  cursor: pointer;
-}
-
-.dfn-panel {
-  position: absolute;
-  z-index: 35;
-  min-width: 300px;
-  max-width: 500px;
-  padding: 0.5em 0.75em;
-  margin-top: 0.6em;
-  font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
-  background: #fff;
-  color: black;
-  box-shadow: 0 1em 3em -0.4em rgba(0, 0, 0, 0.3),
-    0 0 1px 1px rgba(0, 0, 0, 0.05);
-  border-radius: 2px;
-}
-/* Triangle/caret */
-.dfn-panel:not(.docked) > .caret {
-  position: absolute;
-  top: -9px;
-}
-.dfn-panel:not(.docked) > .caret::before,
-.dfn-panel:not(.docked) > .caret::after {
-  content: "";
-  position: absolute;
-  border: 10px solid transparent;
-  border-top: 0;
-  border-bottom: 10px solid #fff;
-  top: 0;
-}
-.dfn-panel:not(.docked) > .caret::before {
-  border-bottom: 9px solid #a2a9b1;
-}
-
-.dfn-panel * {
-  margin: 0;
-}
-
-.dfn-panel b {
-  display: block;
-  color: #000;
-  margin-top: 0.25em;
-}
-
-.dfn-panel ul a[href] {
-  color: #333;
-}
-
-.dfn-panel > div {
-  display: flex;
-}
-
-.dfn-panel a.self-link {
-  font-weight: bold;
-  margin-right: auto;
-}
-
-.dfn-panel .marker {
-  padding: 0.1em;
-  margin-left: 0.5em;
-  border-radius: 0.2em;
-  text-align: center;
-  white-space: nowrap;
-  font-size: 90%;
-  color: #040b1c;
-}
-
-.dfn-panel .marker.dfn-exported {
-  background: #d1edfd;
-  box-shadow: 0 0 0 0.125em #1ca5f940;
-}
-.dfn-panel .marker.idl-block {
-  background: #8ccbf2;
-  box-shadow: 0 0 0 0.125em #0670b161;
-}
-
-.dfn-panel a:not(:hover) {
-  text-decoration: none !important;
-  border-bottom: none !important;
-}
-
-.dfn-panel a[href]:hover {
-  border-bottom-width: 1px;
-}
-
-.dfn-panel ul {
-  padding: 0;
-}
-
-.dfn-panel li {
-  margin-left: 1em;
-}
-
-.dfn-panel.docked {
-  position: fixed;
-  left: 0.5em;
-  top: unset;
-  bottom: 2em;
-  margin: 0 auto;
-  /* 0.75em from padding (x2), 0.5em from left position, 0.2em border (x2) */
-  max-width: calc(100vw - 0.75em * 2 - 0.5em - 0.2em * 2);
-  max-height: 30vh;
-  overflow: auto;
-}
-
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;margin-top:.25em}
+.dfn-panel ul a[href]{color:#333}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
 <link rel="stylesheet" href="https://purl.imsglobal.org/spec/ims-base.css">
@@ -435,134 +102,11 @@ dfn {
 <meta name="description" content="This is a proposal to recharter the Open Badges Workgroup to develop a new version of the IMS Global Open Badges Specification to align it to the conventions of the W3C Verifiable Credentials Data Model for the use cases of Defined Achievement Claim and a Skill Claim. The credentials that would be produced under this proposal could easily be bundled into Comprehensive Learner Records and Verifiable Presentations. Portability and learner data privacy may be improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.">
 <link rel="canonical" href="https://www.imsglobal.org/spec/ob/v3p0/main/">
 <style>
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  color: #383a42;
-  background: #fafafa;
-}
-
-.hljs-comment,
-.hljs-quote {
-  color: #717277;
-  font-style: italic;
-}
-
-.hljs-doctag,
-.hljs-keyword,
-.hljs-formula {
-  color: #a626a4;
-}
-
-.hljs-section,
-.hljs-name,
-.hljs-selector-tag,
-.hljs-deletion,
-.hljs-subst {
-  color: #ca4706;
-  font-weight: bold;
-}
-
-.hljs-literal {
-  color: #0b76c5;
-}
-
-.hljs-string,
-.hljs-regexp,
-.hljs-addition,
-.hljs-attribute,
-.hljs-meta-string {
-  color: #42803c;
-}
-
-.hljs-built_in,
-.hljs-class .hljs-title {
-  color: #9a6a01;
-}
-
-.hljs-attr,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-type,
-.hljs-selector-class,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-number {
-  color: #986801;
-}
-
-.hljs-symbol,
-.hljs-bullet,
-.hljs-link,
-.hljs-meta,
-.hljs-selector-id,
-.hljs-title {
-  color: #336ae3;
-}
-
-.hljs-emphasis {
-  font-style: italic;
-}
-
-.hljs-strong {
-  font-weight: bold;
-}
-
-.hljs-link {
-  text-decoration: underline;
-}
-
-</style>
-<style>
-
-var {
-  position: relative;
-  cursor: pointer;
-}
-
-var[data-type]::before,
-var[data-type]::after {
-  position: absolute;
-  left: 50%;
-  top: -6px;
-  opacity: 0;
-  transition: opacity 0.4s;
-  pointer-events: none;
-}
-
-/* the triangle or arrow or caret or whatever */
-var[data-type]::before {
-  content: "";
-  transform: translateX(-50%);
-  border-width: 4px 6px 0 6px;
-  border-style: solid;
-  border-color: transparent;
-  border-top-color: #000;
-}
-
-/* actual text */
-var[data-type]::after {
-  content: attr(data-type);
-  transform: translateX(-50%) translateY(-100%);
-  background: #000;
-  text-align: center;
-  /* additional styling */
-  font-family: "Dank Mono", "Fira Code", monospace;
-  font-style: normal;
-  padding: 6px;
-  border-radius: 3px;
-  color: #daca88;
-  text-indent: 0;
-  font-weight: normal;
-}
-
-var[data-type]:hover::after,
-var[data-type]:hover::before {
-  opacity: 1;
-}
-
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </style>
 <script id="initialUserConfig" type="application/json">{
   "mainSpecTitle": "Open Badges Specification",
@@ -572,9 +116,8 @@ var[data-type]:hover::before {
   "specNature": "informative",
   "specType": "main",
   "specVersion": "3.0",
-  "docVersion": "1.0",
+  "docVersion": "1",
   "specStatus": "IMS Base Document",
-  "specDate": "September 23, 2021",
   "contributors": [
     {
       "name": "Nate Otto",
@@ -1545,7 +1088,8 @@ var[data-type]:hover::before {
     }
   ]
 }</script></head>
-  <body><header>
+
+<body><header>
     <div class="header-top">
       <h1 class="title" id="title">Open Badges Specification</h1>
       <a href="https://www.imsglobal.org" id="ims-logo">
@@ -1559,11 +1103,11 @@ var[data-type]:hover::before {
     <tbody>
       <tr>
         <td>Document Version:</td>
-        <td>1.0</td>
+        <td>1</td>
       </tr>
       <tr>
         <td>Date Issued:</td>
-        <td>September 23, 2021</td>
+        <td>2021-11-30</td>
       </tr>
       <tr>
         <td>Status:</td>
@@ -1676,11 +1220,11 @@ var[data-type]:hover::before {
   </div>
   </header>
 
-    <section class="introductory" id="abstract" data-format="markdown"><h2>Abstract</h2><p>This is a proposal to recharter the Open Badges Workgroup to develop a new version of the <a href="https://openbadgespec.org">IMS Global Open Badges Specification</a> to align it to the conventions of the <a href="https://w3c.github.io/vc-data-model/">W3C Verifiable Credentials Data Model</a> for the use cases of Defined Achievement Claim and a Skill Claim. The credentials that would be produced under this proposal could easily be bundled into Comprehensive Learner Records and Verifiable Presentations. Portability and learner data privacy may be improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformance</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#document-set"><bdi class="secno">1.1 </bdi>Document Set<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-documents"><bdi class="secno">1.1.1 </bdi>Informative Documents<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#normative-documents"><bdi class="secno">1.1.2 </bdi>Normative Documents<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#design-goals-and-rationale"><bdi class="secno">1.2 </bdi>Design Goals and Rationale<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">1.3 </bdi>Use Cases<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#terms"><bdi class="secno">1.4 </bdi>Terms<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">2. </bdi>Overview<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#what-is-the-problem-this-solves-for"><bdi class="secno">2.1 </bdi>What is the problem this solves for?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#what-does-adopting-verifiable-credentials-entail"><bdi class="secno">2.2 </bdi>What does adopting Verifiable Credentials entail?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#benefits-and-opportunities"><bdi class="secno">2.3 </bdi>Benefits and Opportunities<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#interoperability-with-digital-wallets-verifiable-presentations-and-learner-experiences"><bdi class="secno">2.3.1 </bdi>Interoperability with Digital Wallets, Verifiable Presentations, and Learner Experiences<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiable-credentials-support-increases-learner-data-privacy-and-trustworthiness-of-open-badges"><bdi class="secno">2.3.2 </bdi>Verifiable Credentials Support Increases Learner Data Privacy and Trustworthiness of Open Badges<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#decentralized-identifiers-and-self-sovereign-identity"><bdi class="secno">2.3.3 </bdi>Decentralized Identifiers and Self-Sovereign Identity<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#aligning-open-badges-and-clr-with-common-assertion-and-achievement-models"><bdi class="secno">2.3.4 </bdi>Aligning Open Badges and CLR with Common Assertion and Achievement Models<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#differentiating-issuers-and-creators"><bdi class="secno">2.3.5 </bdi>Differentiating Issuers and Creators<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#skill-assertions"><bdi class="secno">2.4 </bdi>Skill Assertions<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#understanding-the-data-model"><bdi class="secno">3. </bdi>Understanding the Data Model<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#asserting-an-achievement"><bdi class="secno">3.1 </bdi>Asserting an Achievement<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#asserting-a-skill"><bdi class="secno">3.2 </bdi>Asserting a Skill<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#presenting-a-set-of-badges"><bdi class="secno">3.3 </bdi>Presenting a Set of Badges<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#including-extra-data"><bdi class="secno">3.4 </bdi>Including Extra Data<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#understanding-the-api"><bdi class="secno">4. </bdi>Understanding the API<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">4.1 </bdi>Architecture<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#authentication"><bdi class="secno">4.2 </bdi>Authentication<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endpoints"><bdi class="secno">4.3 </bdi>Endpoints<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#assertions"><bdi class="secno">4.3.1 </bdi>Assertions<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#profile"><bdi class="secno">4.3.2 </bdi>Profile<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#syntaxes"><bdi class="secno">5. </bdi>Syntaxes<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#conformance-testing"><bdi class="secno">6. </bdi>Conformance Testing<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#revision-history"><bdi class="secno">A. </bdi>Revision History</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">B.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">B.2 </bdi>Informative references</a></li></ol></li><li class="tocline"><a class="tocxref" href="#contributors"><bdi class="secno">C. </bdi>List of Contributors</a></li></ol></nav>
+  <section class="introductory" id="abstract" data-format="markdown"><h2>Abstract</h2><p>This is a proposal to recharter the Open Badges Workgroup to develop a new version of the <a href="https://openbadgespec.org">IMS Global Open Badges Specification</a> to align it to the conventions of the <a href="https://w3c.github.io/vc-data-model/">W3C Verifiable Credentials Data Model</a> for the use cases of Defined Achievement Claim and a Skill Claim. The credentials that would be produced under this proposal could easily be bundled into Comprehensive Learner Records and Verifiable Presentations. Portability and learner data privacy may be improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformance</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#document-set"><bdi class="secno">1.1 </bdi>Document Set<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-documents"><bdi class="secno">1.1.1 </bdi>Informative Documents<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#normative-documents"><bdi class="secno">1.1.2 </bdi>Normative Documents<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#design-goals-and-rationale"><bdi class="secno">1.2 </bdi>Design Goals and Rationale<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">1.3 </bdi>Use Cases<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#terms"><bdi class="secno">1.4 </bdi>Terms<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">2. </bdi>Overview<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#what-is-the-problem-this-solves-for"><bdi class="secno">2.1 </bdi>What is the problem this solves for?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#what-does-adopting-verifiable-credentials-entail"><bdi class="secno">2.2 </bdi>What does adopting Verifiable Credentials entail?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#benefits-and-opportunities"><bdi class="secno">2.3 </bdi>Benefits and Opportunities<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#interoperability-with-digital-wallets-verifiable-presentations-and-learner-experiences"><bdi class="secno">2.3.1 </bdi>Interoperability with Digital Wallets, Verifiable Presentations, and Learner Experiences<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiable-credentials-support-increases-learner-data-privacy-and-trustworthiness-of-open-badges"><bdi class="secno">2.3.2 </bdi>Verifiable Credentials Support Increases Learner Data Privacy and Trustworthiness of Open Badges<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#decentralized-identifiers-and-self-sovereign-identity"><bdi class="secno">2.3.3 </bdi>Decentralized Identifiers and Self-Sovereign Identity<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#aligning-open-badges-and-clr-with-common-assertion-and-achievement-models"><bdi class="secno">2.3.4 </bdi>Aligning Open Badges and CLR with Common Assertion and Achievement Models<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#differentiating-issuers-and-creators"><bdi class="secno">2.3.5 </bdi>Differentiating Issuers and Creators<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#skill-assertions"><bdi class="secno">2.4 </bdi>Skill Assertions<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#understanding-the-api"><bdi class="secno">3. </bdi>Understanding the API<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">3.1 </bdi>Architecture<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#authentication"><bdi class="secno">3.2 </bdi>Authentication<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endpoints"><bdi class="secno">3.3 </bdi>Endpoints<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#assertions"><bdi class="secno">3.3.1 </bdi>Assertions<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#profile"><bdi class="secno">3.3.2 </bdi>Profile<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#syntaxes"><bdi class="secno">4. </bdi>Syntaxes<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#conformance-testing"><bdi class="secno">5. </bdi>Conformance Testing<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#revision-history"><bdi class="secno">A. </bdi>Revision History</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">B.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">B.2 </bdi>Informative references</a></li></ol></li><li class="tocline"><a class="tocxref" href="#contributors"><bdi class="secno">C. </bdi>List of Contributors</a></li></ol></nav>
 
-    <section class="introductory" id="conformance">
-      <h2>Conformance</h2>
-    
+  <section class="introductory" id="conformance">
+    <h2>Conformance</h2>
+  
     This document is an informative resource in the Document Set of the
     Open Badges Specification specification
     [<cite><a class="bibref" data-link-type="biblio" href="#bib-ob-30" title="Open Badges Specification v3.0">OB-30</a></cite>].
@@ -1689,7 +1233,7 @@ var[data-type]:hover::before {
     impact on the conformance criteria for implementors of this specification.
   </section>
 
-    <section data-format="markdown" id="introduction-0"><h2 id="introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a><a class="self-link" aria-label="§" href="#introduction"></a></h2><section id="document-set-0"><h3 id="document-set"><bdi class="secno">1.1 </bdi>Document Set<a class="self-link" aria-label="§" href="#document-set"></a><a class="self-link" aria-label="§" href="#document-set"></a></h3><p>The Open Badges Specification has several related documents and artifacts shown below. Together
+  <section data-format="markdown" id="introduction-0"><h2 id="introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a><a class="self-link" aria-label="§" href="#introduction"></a></h2><section id="document-set-0"><h3 id="document-set"><bdi class="secno">1.1 </bdi>Document Set<a class="self-link" aria-label="§" href="#document-set"></a><a class="self-link" aria-label="§" href="#document-set"></a></h3><p>The Open Badges Specification has several related documents and artifacts shown below. Together
 they make up the specification.</p><section id="informative-documents-0"><h4 id="informative-documents"><bdi class="secno">1.1.1 </bdi>Informative Documents<a class="self-link" aria-label="§" href="#informative-documents"></a><a class="self-link" aria-label="§" href="#informative-documents"></a></h4><p>Informative documents do not specify requirements.</p><ul>
 <li><cite><a href="https://www.imsglobal.org/spec/ob/v3p0/">Open Badges Specification v3.0</a></cite> (this document) - Intended to be the first, and
 possibly only document you need to understand the specification and even implement a simple
@@ -1753,7 +1297,7 @@ first open badge.</li>
 </li>
 </ul></section></section>
 
-    <section data-format="markdown" id="overview-0"><h2 id="overview"><bdi class="secno">2. </bdi>Overview<a class="self-link" aria-label="§" href="#overview"></a><a class="self-link" aria-label="§" href="#overview"></a></h2><section id="what-is-the-problem-this-solves-for-0"><h3 id="what-is-the-problem-this-solves-for"><bdi class="secno">2.1 </bdi>What is the problem this solves for?<a class="self-link" aria-label="§" href="#what-is-the-problem-this-solves-for"></a><a class="self-link" aria-label="§" href="#what-is-the-problem-this-solves-for"></a></h3><p>Verifiable Credentials (VCs) are a format that is used to publish a limitless variety of claims about a subject person or other entity, typically through a cryptographic proof. VCs can be collected and delivered as part of a <a href="https://www.w3.org/TR/vc-imp-guide/#dfn-verifiable-presentations">presentation</a> whereby authorship of each VC from the same or multiple issuers can be trusted via cryptographic verification. The presentation can also be cryptographically signed to demonstrate that the holder has assembled and sent the collection of VCs.</p><p>These layers of cryptographic proof can provide security and privacy enhancements to Open Badges that are not yet available in version 2.0. Adoption of Verifiable Credentials can increase market penetration and use of Open Badges by addressing market needs for trustworthy machine-ready data to power connected ecosystems in education and workforce. This can unlock the door for Open Badges credentials to be included in a growing number of multi-purpose digital credential wallets entering the market. Stepping further into signed VCs and another associated technology, decentralized identifiers (DIDs), unlocks increased longevity and resilience of Open Badges that can describe achievements even more expressively than they do today.</p></section><section id="what-does-adopting-verifiable-credentials-entail-0"><h3 id="what-does-adopting-verifiable-credentials-entail"><bdi class="secno">2.2 </bdi>What does adopting Verifiable Credentials entail?<a class="self-link" aria-label="§" href="#what-does-adopting-verifiable-credentials-entail"></a><a class="self-link" aria-label="§" href="#what-does-adopting-verifiable-credentials-entail"></a></h3><p>This proposal is for a reasonable change to the structure of the Open Badges Assertion class, to adopt the conventions of the <a href="https://w3c.github.io/vc-data-model/">Verifiable Credential Data Model</a>. This means that badges issued under the proposed version would not be conformant to all of the existing 2.x data model requirements.</p><p>An existing Open Badges Assertion, illustrated in the graphic below, structures its objects like this:
+  <section data-format="markdown" id="overview-0"><h2 id="overview"><bdi class="secno">2. </bdi>Overview<a class="self-link" aria-label="§" href="#overview"></a><a class="self-link" aria-label="§" href="#overview"></a></h2><section id="what-is-the-problem-this-solves-for-0"><h3 id="what-is-the-problem-this-solves-for"><bdi class="secno">2.1 </bdi>What is the problem this solves for?<a class="self-link" aria-label="§" href="#what-is-the-problem-this-solves-for"></a><a class="self-link" aria-label="§" href="#what-is-the-problem-this-solves-for"></a></h3><p>Verifiable Credentials (VCs) are a format that is used to publish a limitless variety of claims about a subject person or other entity, typically through a cryptographic proof. VCs can be collected and delivered as part of a <a href="https://www.w3.org/TR/vc-imp-guide/#dfn-verifiable-presentations">presentation</a> whereby authorship of each VC from the same or multiple issuers can be trusted via cryptographic verification. The presentation can also be cryptographically signed to demonstrate that the holder has assembled and sent the collection of VCs.</p><p>These layers of cryptographic proof can provide security and privacy enhancements to Open Badges that are not yet available in version 2.0. Adoption of Verifiable Credentials can increase market penetration and use of Open Badges by addressing market needs for trustworthy machine-ready data to power connected ecosystems in education and workforce. This can unlock the door for Open Badges credentials to be included in a growing number of multi-purpose digital credential wallets entering the market. Stepping further into signed VCs and another associated technology, decentralized identifiers (DIDs), unlocks increased longevity and resilience of Open Badges that can describe achievements even more expressively than they do today.</p></section><section id="what-does-adopting-verifiable-credentials-entail-0"><h3 id="what-does-adopting-verifiable-credentials-entail"><bdi class="secno">2.2 </bdi>What does adopting Verifiable Credentials entail?<a class="self-link" aria-label="§" href="#what-does-adopting-verifiable-credentials-entail"></a><a class="self-link" aria-label="§" href="#what-does-adopting-verifiable-credentials-entail"></a></h3><p>This proposal is for a reasonable change to the structure of the Open Badges Assertion class, to adopt the conventions of the <a href="https://w3c.github.io/vc-data-model/">Verifiable Credential Data Model</a>. This means that badges issued under the proposed version would not be conformant to all of the existing 2.x data model requirements.</p><p>An existing Open Badges Assertion, illustrated in the graphic below, structures its objects like this:
 An Assertion identifies a recipient with a "recipient" relationship to an IdentityObject that contains identifying properties. It identifies which badge it represents with a "badge" relationship to a BadgeClass. It identifies its verification information with a "verification" relationship to a VerificationObject. It identifies its issuer with an "issuer" relationship between the BadgeClass and the Issuer.</p><figure id="fig-open-badges-2-0-diagram">
   <img src="images/figure01-openbadges-2.0-diagram.png" width="640" alt="Open Badges 2.0 Diagram">
   <figcaption>Figure <bdi class="figno">1</bdi> <span class="fig-title">Open Badges 2.0 Diagram</span></figcaption>
@@ -1768,257 +1312,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   <figcaption>Figure <bdi class="figno">4</bdi> <span class="fig-title">Defined Achievement Assertion with Skill Result Diagram</span></figcaption>
 </figure><p>The inclusion of Skill Assertion claims makes a natural, ergonomic fit with defined achievement claims and evidence claims. Business logic to process each of the available claims can look for just the data a relying party needs, and extraneous claims do not get in the way.</p></section></section>
 
-    <section data-format="markdown" id="understanding-the-data-model-0"><h2 id="understanding-the-data-model"><bdi class="secno">3. </bdi>Understanding the Data Model<a class="self-link" aria-label="§" href="#understanding-the-data-model"></a><a class="self-link" aria-label="§" href="#understanding-the-data-model"></a></h2><section id="asserting-an-achievement-0"><h3 id="asserting-an-achievement"><bdi class="secno">3.1 </bdi>Asserting an Achievement<a class="self-link" aria-label="§" href="#asserting-an-achievement"></a><a class="self-link" aria-label="§" href="#asserting-an-achievement"></a></h3><p>A badge is represented as a single <a href="https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html#assertion">Assertion</a>.
-An Assertion is an extension of <a href="#dfn-verifiable-credential" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-verifiable-credential-1" title="Verifiable Credential (VC): W3C data model that describes how claims can be cryptographically verified. See Verifiable Credentials Data Model v1.1.">Verifiable Credential</a> as defined in the <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite>. The <a class="respec-offending-element" title="Linking error: not matching `<dfn>`" id="respec-offender-linking-error-not-matching-dfn">recipient</a> is
-identified by the <code>id</code> property of the <code>credentialSubject</code>. And the
-<a href="https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html#assertion">Achievement</a> is defined by the
-<code>achievement</code> property of the <code>credentialSubject</code>.</p><div class="example" id="example-example-of-an-open-badge-as-a-verifiable-credential">
-        <div class="marker">
-    <a class="self-link" href="#example-example-of-an-open-badge-as-a-verifiable-credential">Example<bdi> 1</bdi></a><span class="example-title">: Example of an Open Badge as a Verifiable Credential</span>
-  </div> <pre aria-busy="false"><code class="hljs json">{
-  <span class="hljs-attr">"@context"</span>: [
-    <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-    <span class="hljs-string">"https://w3id.org/openbadges/v3"</span>
-    ],
-    <span class="hljs-attr">"type"</span>: [
-      <span class="hljs-string">"VerifiableCredential"</span>,
-      <span class="hljs-string">"Open Badge"</span>
-    ],
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://website-that-supports-or-displays-the-badge.html"</span>,
-    <span class="hljs-attr">"issuer"</span>: {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:issuer"</span>,
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"An Example Issuer"</span>,
-      <span class="hljs-attr">"image"</span>: <span class="hljs-string">"https://example.org/logo.png"</span>,
-      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://example.org"</span>,
-      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"contact@example.org"</span>
-    },
-    <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T19:23:24Z"</span>,
-    <span class="hljs-attr">"credentialSubject"</span>: {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:learner"</span>,
-      <span class="hljs-attr">"achievement"</span>: {
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.org/achievements/123"</span>,
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Achievement"</span>,
-        <span class="hljs-attr">"achievementType"</span>: <span class="hljs-string">"Certificate"</span>,
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Robotic Drones Analysis"</span>,
-        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Learn to analyze and present the different types of robotic drones"</span>,
-        <span class="hljs-attr">"image"</span>: <span class="hljs-string">"https://example.org/drone-image.png"</span>,
-        <span class="hljs-attr">"creator"</span>: <span class="hljs-string">"did:example:issuer"</span>,
-        <span class="hljs-attr">"criteria"</span>: <span class="hljs-string">"https://example.org/robotics-drone-analysis.html"</span>,
-        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"robots"</span>, <span class="hljs-string">"not birds"</span>],
-        <span class="hljs-attr">"alignment"</span>: [{
-          <span class="hljs-attr">"targetName"</span>: <span class="hljs-string">"CCSS.ELA-Literacy.RST.11-12.3"</span>,
-          <span class="hljs-attr">"targetUrl"</span>: <span class="hljs-string">"http://www.corestandards.org/ELA-Literacy/RST/11-12/3"</span>,
-          <span class="hljs-attr">"targetDescription"</span>: <span class="hljs-string">"Follow precisely a complex multistep procedure when carrying out experiments, taking measurements, or performing technical tasks; analyze the specific results based on explanations in the text."</span>,
-          <span class="hljs-attr">"targetCode"</span>: <span class="hljs-string">"CCSS.ELA-Literacy.RST.11-12.3"</span>
-        }],
-        <span class="hljs-attr">"resultDescription"</span>: [{
-          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"urn:uuid:da72e42e-9f38-4c42-83ac-33f6cb9bb3b1"</span>,
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Mastery"</span>,
-          <span class="hljs-attr">"resultType"</span>: <span class="hljs-string">"PerformanceLevel"</span>,
-          <span class="hljs-attr">"rubricCriterionLevels"</span>: [{
-            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"urn:uuid:24df3f14-4b9b-41b9-9e6b-d48798442425"</span>,
-            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Below Basic"</span>,
-            <span class="hljs-attr">"level"</span>: <span class="hljs-string">"Below Basic"</span>,
-            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The student made fewer than 3 citations"</span>
-            },
-            {
-            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"urn:uuid:c225be08-c67d-4ec8-ae8e-4860e83588ef"</span>,
-            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Basic"</span>,
-            <span class="hljs-attr">"level"</span>: <span class="hljs-string">"Basic"</span>,
-            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The student made 3-5 citations"</span>
-            },
-            {
-            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"urn:uuid:f256d3a9-c117-43bf-9e25-dc69691e18a1"</span>,
-            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Exceeds"</span>,
-            <span class="hljs-attr">"level"</span>: <span class="hljs-string">"Exceeds"</span>,
-            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The student made more than 5 citations"</span>
-          }]
-        }],
-      },
-      <span class="hljs-attr">"results"</span>: [
-        {
-          <span class="hljs-attr">"resultDescription"</span>: <span class="hljs-string">"urn:uuid:da72e42e-9f38-4c42-83ac-33f6cb9bb3b1"</span>,
-          <span class="hljs-attr">"achievedLevel"</span>: <span class="hljs-string">"urn:uuid:f256d3a9-c117-43bf-9e25-dc69691e18a1"</span>
-        }
-      ],
-      <span class="hljs-attr">"evidence"</span>: {
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.org/my-robot-drones-analysis.html"</span>,
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"My Robot Drones Analysis"</span>,
-        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"A paper in APA format analyzing five different types of robot drones that look like birds."</span>,
-        <span class="hljs-attr">"narrative"</span>: <span class="hljs-string">"This research paper compared different types of robot drones that are sometimes mistaken for birds and their impacts on the environment."</span>,
-        <span class="hljs-attr">"genre"</span>: <span class="hljs-string">"Journal Article"</span>
-      }
-    },
-    <span class="hljs-attr">"proof"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"RsaSignature2018"</span>,
-      <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2017-06-18T21:19:10Z"</span>,
-      <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"assertionMethod"</span>,
-      <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"did:example:issuer#keys/1"</span>,
-      <span class="hljs-attr">"jws"</span>: <span class="hljs-string">"eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5X"</span>
-    }
-  }</code></pre>
-      </div></section><section id="asserting-a-skill-0"><h3 id="asserting-a-skill"><bdi class="secno">3.2 </bdi>Asserting a Skill<a class="self-link" aria-label="§" href="#asserting-a-skill"></a><a class="self-link" aria-label="§" href="#asserting-a-skill"></a></h3><p>A <a class="respec-offending-element" title="Linking error: not matching `<dfn>`" id="respec-offender-linking-error-not-matching-dfn-0">skill</a> can be directly asserted without an achievement using the <code>results</code> property
-of <code>credentialSubject</code>.</p><div class="example" id="example-example-of-a-skill-assertion">
-        <div class="marker">
-    <a class="self-link" href="#example-example-of-a-skill-assertion">Example<bdi> 2</bdi></a><span class="example-title">: Example of a Skill Assertion</span>
-  </div> <pre aria-busy="false"><code class="hljs json">{
-  <span class="hljs-attr">"@context"</span>: [
-    <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-    <span class="hljs-string">"https://w3id.org/openbadges/v3"</span>
-    ],
-    <span class="hljs-attr">"type"</span>: [
-      <span class="hljs-string">"VerifiableCredential"</span>,
-      <span class="hljs-string">"Open Badge"</span>
-    ],
-    <span class="hljs-attr">"issuer"</span>: {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:issuer"</span>,
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"An Example Issuer"</span>,
-      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://example.org"</span>
-    },
-    <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T19:23:24Z"</span>,
-    <span class="hljs-attr">"credentialSubject"</span>: {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:learner"</span>,
-      <span class="hljs-attr">"results"</span>: [
-        {
-          <span class="hljs-attr">"resultDescription"</span>: <span class="hljs-string">"urn:uuid:da72e42e-9f38-4c42-83ac-33f6cb9bb3b1"</span>
-        }
-      ],
-    },
-    <span class="hljs-attr">"proof"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"RsaSignature2018"</span>,
-      <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2017-06-18T21:19:10Z"</span>,
-      <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"assertionMethod"</span>,
-      <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"did:example:issuer#keys/1"</span>,
-      <span class="hljs-attr">"jws"</span>: <span class="hljs-string">"eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5X"</span>
-    }
-  }</code></pre>
-      </div></section><section id="presenting-a-set-of-badges-0"><h3 id="presenting-a-set-of-badges"><bdi class="secno">3.3 </bdi>Presenting a Set of Badges<a class="self-link" aria-label="§" href="#presenting-a-set-of-badges"></a><a class="self-link" aria-label="§" href="#presenting-a-set-of-badges"></a></h3><p>The <a class="respec-offending-element" title="Linking error: not matching `<dfn>`" id="respec-offender-linking-error-not-matching-dfn-1">recipient</a> can share their badges with others using a <a class="respec-offending-element" title="Linking error: not matching `<dfn>`" id="respec-offender-linking-error-not-matching-dfn-2">Verifiable Presentation</a> as defined by <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite>.</p><div class="example" id="example-example-of-a-verifiable-presentation-by-the-recipient">
-        <div class="marker">
-    <a class="self-link" href="#example-example-of-a-verifiable-presentation-by-the-recipient">Example<bdi> 3</bdi></a><span class="example-title">: Example of a Verifiable Presentation by the Recipient</span>
-  </div> <pre aria-busy="false"><code class="hljs json">  {
-  <span class="hljs-attr">"@context"</span>: [
-    <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>
-  ],
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"VerifiablePresentation"</span>,
-  <span class="hljs-attr">"verifiableCredential"</span>: [{
-    <span class="hljs-attr">"@context"</span>: [
-      <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-      <span class="hljs-string">"https://w3id.org/openbadges/v3"</span>
-    ],
-    <span class="hljs-attr">"type"</span>: [
-      <span class="hljs-string">"VerifiableCredential"</span>,
-      <span class="hljs-string">"Open Badge"</span>
-    ],
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://website-that-supports-or-displays-the-badge.html"</span>,
-      <span class="hljs-attr">"issuer"</span>: {
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:issuer"</span>,
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"An Example Issuer"</span>,
-        <span class="hljs-attr">"image"</span>: <span class="hljs-string">"https://example.org/logo.png"</span>,
-        <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://example.org"</span>,
-        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"contact@example.org"</span>
-      },
-      <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T19:23:24Z"</span>,
-      <span class="hljs-attr">"credentialSubject"</span>: {
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:learner"</span>,
-        <span class="hljs-attr">"achievement"</span>: {
-          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.org/achievements/123"</span>,
-          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Achievement"</span>,
-          <span class="hljs-attr">"achievementType"</span>: <span class="hljs-string">"Certificate"</span>,
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Robotic Drones Analysis"</span>,
-          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Learn to analyze and present the different types of robotic drones"</span>,
-          <span class="hljs-attr">"image"</span>: <span class="hljs-string">"https://example.org/drone-image.png"</span>,
-          <span class="hljs-attr">"creator"</span>: <span class="hljs-string">"did:example:issuer"</span>,
-          <span class="hljs-attr">"criteria"</span>: <span class="hljs-string">"https://example.org/robotics-drone-analysis.html"</span>,
-          <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"robots"</span>, <span class="hljs-string">"not birds"</span>],
-          <span class="hljs-attr">"alignment"</span>: [{
-            <span class="hljs-attr">"targetName"</span>: <span class="hljs-string">"CCSS.ELA-Literacy.RST.11-12.3"</span>,
-            <span class="hljs-attr">"targetUrl"</span>: <span class="hljs-string">"http://www.corestandards.org/ELA-Literacy/RST/11-12/3"</span>,
-            <span class="hljs-attr">"targetDescription"</span>: <span class="hljs-string">"Follow precisely a complex multistep procedure when carrying out experiments, taking measurements, or performing technical tasks; analyze the specific results based on explanations in the text."</span>,
-            <span class="hljs-attr">"targetCode"</span>: <span class="hljs-string">"CCSS.ELA-Literacy.RST.11-12.3"</span>
-          }]
-        },
-        <span class="hljs-attr">"evidence"</span>: {
-          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.org/my-robot-drones-analysis.html"</span>,
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"My Robot Drones Analysis"</span>,
-          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"A paper in APA format analyzing five different types of robot drones that look like birds."</span>,
-          <span class="hljs-attr">"narrative"</span>: <span class="hljs-string">"This research paper compared different types of robot drones that are sometimes mistaken for birds and their impacts on the environment."</span>,
-          <span class="hljs-attr">"genre"</span>: <span class="hljs-string">"Journal Article"</span>
-        }
-      },
-      <span class="hljs-attr">"proof"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"RsaSignature2018"</span>,
-        <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2017-06-18T21:19:10Z"</span>,
-        <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"assertionMethod"</span>,
-        <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"did:example:issuer#keys/1"</span>,
-        <span class="hljs-attr">"jws"</span>: <span class="hljs-string">"eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5X"</span>
-      }
-    },
-    {
-      <span class="hljs-attr">"@context"</span>: [
-        <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-        <span class="hljs-string">"https://w3id.org/openbadges/v3"</span>
-      ],
-      <span class="hljs-attr">"type"</span>: [
-        <span class="hljs-string">"VerifiableCredential"</span>,
-        <span class="hljs-string">"Open Badge"</span>
-      ],
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://website-that-supports-or-displays-the-badge.html"</span>,
-      <span class="hljs-attr">"issuer"</span>: {
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:issuer"</span>,
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"An Example Issuer"</span>,
-        <span class="hljs-attr">"image"</span>: <span class="hljs-string">"https://example.org/logo.png"</span>,
-        <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://example.org"</span>,
-        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"contact@example.org"</span>
-      },
-      <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T19:23:24Z"</span>,
-      <span class="hljs-attr">"credentialSubject"</span>: {
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:learner"</span>,
-        <span class="hljs-attr">"achievement"</span>: {
-          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.org/robot-badge/123"</span>,
-          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Achievement"</span>,
-          <span class="hljs-attr">"achievementType"</span>: <span class="hljs-string">"Badge"</span>,
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Awesome Robotics Badge"</span>,
-          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"For doing awesome things with robots that people think is pretty great."</span>,
-          <span class="hljs-attr">"image"</span>: <span class="hljs-string">"https://example.org/robotics-badge.png"</span>,
-          <span class="hljs-attr">"creator"</span>: <span class="hljs-string">"did:example:issuer"</span>,
-          <span class="hljs-attr">"criteria"</span>: <span class="hljs-string">"https://example.org/robotics-badge.html"</span>
-        },
-        <span class="hljs-attr">"evidence"</span>: [{
-          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.org/beths-robot-photos.html"</span>,
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Robot Photoshoot"</span>,
-          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"A gallery of photos of the student's robot"</span>,
-          <span class="hljs-attr">"genre"</span>: <span class="hljs-string">"Photography"</span>
-        },
-        {
-          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.org/beths-robot-work.html"</span>,
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Robotics Reflection 1"</span>,
-          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Reflective writing about the first week of a robotics learning journey."</span>
-        }]
-      },
-      <span class="hljs-attr">"proof"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"RsaSignature2018"</span>,
-        <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2017-06-18T21:19:10Z"</span>,
-        <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"assertionMethod"</span>,
-        <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"did:example:issuer#keys/1"</span>,
-        <span class="hljs-attr">"jws"</span>: <span class="hljs-string">"eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5X"</span>
-      }
-  }],  
-  <span class="hljs-attr">"proof"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"RsaSignature2018"</span>,
-    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2018-09-14T21:19:10Z"</span>,
-    <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"authentication"</span>,
-    <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"did:example:learner#keys-1"</span>,
-    <span class="hljs-attr">"challenge"</span>: <span class="hljs-string">"1f44d55f-f161-4938-a659-f8026467f126"</span>,
-    <span class="hljs-attr">"domain"</span>: <span class="hljs-string">"4jt78h47fh47"</span>,
-    <span class="hljs-attr">"jws"</span>: <span class="hljs-string">"eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..kTCYt5"</span>
-  }
-}</code></pre>
-      </div></section><section id="including-extra-data-0"><h3 id="including-extra-data"><bdi class="secno">3.4 </bdi>Including Extra Data<a class="self-link" aria-label="§" href="#including-extra-data"></a><a class="self-link" aria-label="§" href="#including-extra-data"></a></h3><p>TBD</p></section></section>
 
-    <section id="understanding-the-api-0">
-      
+  <section id="understanding-the-api-0">
+    
 
-<h2 id="understanding-the-api"><bdi class="secno">4. </bdi>Understanding the API<a class="self-link" aria-label="§" href="#understanding-the-api"></a><a class="self-link" aria-label="§" href="#understanding-the-api"></a></h2>
+<h2 id="understanding-the-api"><bdi class="secno">3. </bdi>Understanding the API<a class="self-link" aria-label="§" href="#understanding-the-api"></a><a class="self-link" aria-label="§" href="#understanding-the-api"></a></h2>
 
 <p>This specification defines a JSON API ([<cite><a class="bibref" data-link-type="biblio" href="#bib-ob-rest-30" title="Open Badges Specification REST/JSON API v3.0">OB-REST-30</a></cite>]) protocol to be implemented by applications serving in the
   roles of Provider and Consumer. The API uses OAuth 2.0 for authentication, granular resource-based permission
@@ -2027,7 +1325,7 @@ of <code>credentialSubject</code>.</p><div class="example" id="example-example-o
 </p>
 
 <section id="api-architecture">
-  <h3 id="architecture"><bdi class="secno">4.1 </bdi>Architecture<a class="self-link" aria-label="§" href="#api-architecture"></a><a class="self-link" aria-label="§" href="#architecture"></a></h3>
+  <h3 id="architecture"><bdi class="secno">3.1 </bdi>Architecture<a class="self-link" aria-label="§" href="#api-architecture"></a><a class="self-link" aria-label="§" href="#architecture"></a></h3>
   <figure id="ad-architecture">
     <img src="images/OBC_Architecture.svg">
     <figcaption>Figure <bdi class="figno">5</bdi> <span class="fig-title">Architecture</span></figcaption>
@@ -2057,14 +1355,13 @@ of <code>credentialSubject</code>.</p><div class="example" id="example-example-o
     </dd>
   </dl>
   <p>
-    The role of each component during <a href="#oauth-registration" class="respec-offending-element" title="Broken local reference found in document." id="respec-offender-broken-local-reference-found-in-document">Registration</a>,
-    <a href="#oauth-token" class="respec-offending-element" title="Broken local reference found in document." id="respec-offender-broken-local-reference-found-in-document-0">Obtaining Tokens</a>, and <a href="#oauth-auth" class="respec-offending-element" title="Broken local reference found in document." id="respec-offender-broken-local-reference-found-in-document-1">Authenticating with Tokens</a>
+    The role of each component during Registration, Obtaining Tokens, and Authenticating with Tokens
     are described below.
   </p>
 </section>
 
 <section id="api-authentication">
-  <h3 id="authentication"><bdi class="secno">4.2 </bdi>Authentication<a class="self-link" aria-label="§" href="#api-authentication"></a><a class="self-link" aria-label="§" href="#authentication"></a></h3>
+  <h3 id="authentication"><bdi class="secno">3.2 </bdi>Authentication<a class="self-link" aria-label="§" href="#api-authentication"></a><a class="self-link" aria-label="§" href="#authentication"></a></h3>
   <p>A Consumer requests a token scoped for access to Open Badges Assertions on a Provider
     that belong to a user (resource owner) of that Provider service, using an OAuth 2.0
     Authorization Code Grant as described in Section 4.2 of the IMS Security Framework [<cite><a class="bibref" data-link-type="biblio" href="#bib-sec-10" title="IMS Global Security Framework v1.0">SEC-10</a></cite>].
@@ -2075,9 +1372,9 @@ of <code>credentialSubject</code>.</p><div class="example" id="example-example-o
 </section>
 
 <section id="api-endpoints">
-  <h3 id="endpoints"><bdi class="secno">4.3 </bdi>Endpoints<a class="self-link" aria-label="§" href="#api-endpoints"></a><a class="self-link" aria-label="§" href="#endpoints"></a></h3>
+  <h3 id="endpoints"><bdi class="secno">3.3 </bdi>Endpoints<a class="self-link" aria-label="§" href="#api-endpoints"></a><a class="self-link" aria-label="§" href="#endpoints"></a></h3>
   <section id="api-endpoints-assertion">
-    <h4 id="assertions"><bdi class="secno">4.3.1 </bdi>Assertions<a class="self-link" aria-label="§" href="#api-endpoints-assertion"></a><a class="self-link" aria-label="§" href="#assertions"></a></h4>
+    <h4 id="assertions"><bdi class="secno">3.3.1 </bdi>Assertions<a class="self-link" aria-label="§" href="#api-endpoints-assertion"></a><a class="self-link" aria-label="§" href="#assertions"></a></h4>
     <table class="openAPIPathsTable">
       <thead>
         <tr>
@@ -2106,7 +1403,7 @@ of <code>credentialSubject</code>.</p><div class="example" id="example-example-o
     </table>
   </section>
   <section id="api-endpoints-profile">
-    <h4 id="profile"><bdi class="secno">4.3.2 </bdi>Profile<a class="self-link" aria-label="§" href="#api-endpoints-profile"></a><a class="self-link" aria-label="§" href="#profile"></a></h4>
+    <h4 id="profile"><bdi class="secno">3.3.2 </bdi>Profile<a class="self-link" aria-label="§" href="#api-endpoints-profile"></a><a class="self-link" aria-label="§" href="#profile"></a></h4>
     <table class="openAPIPathsTable">
       <thead>
         <tr>
@@ -2138,27 +1435,27 @@ of <code>credentialSubject</code>.</p><div class="example" id="example-example-o
 </section>
 
 
-    </section>
+  </section>
 
-    <section data-format="markdown" id="syntaxes-0"><h2 id="syntaxes"><bdi class="secno">5. </bdi>Syntaxes<a class="self-link" aria-label="§" href="#syntaxes"></a><a class="self-link" aria-label="§" href="#syntaxes"></a></h2><p>As <a href="https://www.w3.org/TR/vc-data-model/#syntaxes">described</a> in <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite> verifiable credentials
+  <section data-format="markdown" id="syntaxes-0"><h2 id="syntaxes"><bdi class="secno">4. </bdi>Syntaxes<a class="self-link" aria-label="§" href="#syntaxes"></a><a class="self-link" aria-label="§" href="#syntaxes"></a></h2><p>As <a href="https://www.w3.org/TR/vc-data-model/#syntaxes">described</a> in <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite> verifiable credentials
 are represented as JSON ([<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8259" title="The JavaScript Object Notation (JSON) Data Interchange Format">rfc8259</a></cite>]) and JSON-LD ([<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld11" title="JSON-LD 1.1">json-ld11</a></cite>]). In general, the requirements and allowances described there
 apply to this specification. Please see [<cite><a class="bibref" data-link-type="biblio" href="#bib-ob-info-30" title="Open Badges Specification Information Model v3.0">OB-INFO-30</a></cite>] for exceptions.</p></section>
 
-    <section data-format="markdown" id="conformance-testing-0"><h2 id="conformance-testing"><bdi class="secno">6. </bdi>Conformance Testing<a class="self-link" aria-label="§" href="#conformance-testing"></a><a class="self-link" aria-label="§" href="#conformance-testing"></a></h2><p>While this document does not provide any conformance criteria, readers might be curious
+  <section data-format="markdown" id="conformance-testing-0"><h2 id="conformance-testing"><bdi class="secno">5. </bdi>Conformance Testing<a class="self-link" aria-label="§" href="#conformance-testing"></a><a class="self-link" aria-label="§" href="#conformance-testing"></a></h2><p>While this document does not provide any conformance criteria, readers might be curious
 about what conformance testing is available and how certification ([<cite><a class="bibref" data-link-type="biblio" href="#bib-ob-cert-30" title="Open Badges Specification Conformance and Certification Guide v3.0">OB-CERT-30</a></cite>]) works.</p><p>... more description ...</p></section>
 
-    <section class="appendix" id="revision-history">
-      <h2 id="a-revision-history"><bdi class="secno">A. </bdi>Revision History<a class="self-link" aria-label="§" href="#revision-history"></a></h2>
-    </section>
-    
-    <details class="annoying-warning" open="">
-      <summary>This is a preview of the IMS Open Badges Specification v3.0</summary>
-      <p>Do not attempt to implement this version of the specification. Do not
-        reference this version as authoritative in any way.
-      </p>
-    </details>
+  <section class="appendix" id="revision-history">
+    <h2 id="a-revision-history"><bdi class="secno">A. </bdi>Revision History<a class="self-link" aria-label="§" href="#revision-history"></a></h2>
+  </section>
 
-  
+  <details class="annoying-warning" open="">
+    <summary>This is a preview of the IMS Open Badges Specification v3.0</summary>
+    <p>Do not attempt to implement this version of the specification. Do not
+      reference this version as authoritative in any way.
+    </p>
+  </details>
+
+
 
 <section id="references" class="appendix"><h2 id="b-references"><bdi class="secno">B. </bdi>References<a class="self-link" aria-label="§" href="#references"></a></h2><section id="normative-references">
     <h3 id="b-1-normative-references"><bdi class="secno">B.1 </bdi>Normative references<a class="self-link" aria-label="§" href="#normative-references"></a></h3>
@@ -2189,10 +1486,8 @@ about what conformance testing is available and how certification ([<cite><a cla
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
-    <li>
-    <a href="#ref-for-dfn-verifiable-credential-1" title="§ 3.1 Asserting an Achievement">§ 3.1 Asserting an Achievement</a> 
-  </li>
-  </ul>
+      <li>Not referenced in this document.</li>
+    </ul>
     </div><script id="respec-dfn-panel">(() => {
 // @ts-check
 if (document.respec) {
@@ -2446,7 +1741,7 @@ function hidePanel(panel) {
         Please refer to Document Name: Open Badges Specification
         3.0
       </p>
-      <p>Date: September 23, 2021</p>
+      <p>Date: 2021-11-30</p>
       <div></div>
     </div>
   </footer></body></html>
