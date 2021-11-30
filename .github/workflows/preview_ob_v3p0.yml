@@ -1,8 +1,5 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Build OB 3.0 Spec Preview
 
-# Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the develop branch
   push:
@@ -16,25 +13,17 @@ on:
       - develop
 
 jobs:
-  # This workflow contains a single job called "publish"
   build:
     name: Build a static version of the Respec document
-
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
-#        with:
-#          ref: "gh-pages"
       - name: Unlock secrets
         uses: sliteteam/github-action-git-crypt-unlock@1.2.0
         env:
           GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
       - uses: w3c/spec-prod@v2
         with:
-#         GH_PAGES_BRANCH: "gh-pages"
           SOURCE: "ob_v3p0/ob_v3p0.html"
           DESTINATION: "docs/ob_v3p0.html"
           TOOLCHAIN: respec
@@ -59,5 +48,4 @@ jobs:
           path: docs
       - name: Update gh-pages
         uses: zwaldowski/git-commit-action@v1
-      - run: echo "${{ steps.git_commit.outputs.sha }}"
       - run: git push origin
