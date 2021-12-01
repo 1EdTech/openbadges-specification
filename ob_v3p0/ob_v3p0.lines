@@ -113,6 +113,32 @@ Package OpenBadge DataModel
 		Property value String 0..1
 		Property extensions Namespace 0..1 
 
+	Class ResultDescription Unordered false []			"d:[ED: from CLR]
+		Property id URI 1
+		Property type URI 0..1
+		Property alignments AlignmentObject 0..*
+		Property allowedValues String 0..*
+		Property name String 1
+		Property requiredLevel URI 0..1
+		Property requiredValue String 0..1
+		Property resultType ExtensibleResultType 1
+		Property rubricCriterionLevels RubricCriterionLevel 0..*
+		Property valueMax String 0..1
+		Property valueMin String 0..1
+		Property extensions Namespace 0..1 
+
+	Class RubricCriterionLevel Unordered false []		"d:[ED: from CLR]
+		Property id URI 1
+		Property type URI 0..1
+		Property alignments AlignmentObject 0..*
+		Property description String 0..1
+		Property level String 0..1
+		Property name String 1
+		Property points String 0..1
+		Property extensions Namespace 0..1 
+
+	// Enumerations
+
 	Class ResultStatusType Enumeration false []			"d:[ED: from CLR]
 		Property Completed Term 1
 		Property Enrolled Term 1
@@ -120,6 +146,22 @@ Package OpenBadge DataModel
 		Property InProgress Term 1
 		Property OnHold Term 1
 		Property Withdrew Term 1
+
+	Class ResultType Enumeration false []				"d:[ED: from CLR]
+		Property GradePointAverage Term 1
+		Property LetterGrade Term 1
+		Property Percent Term 1
+		Property PerformanceLevel Term 1
+		Property PredictedScore Term 1
+		Property RawScore Term 1
+		Property Result Term 1
+		Property RubricCriterion Term 1
+		Property RubricCriterionLevel Term 1
+		Property RubricScore Term 1
+		Property ScaledScore Term 1
+		Property Status Term 1
+
+	Class ExtensibleResultType Union false [ResultType, EnumExtString]
 
 	Class TargetType Enumeration false []				"d:[ED: from CLR]
 		Property CFItem Term 1
