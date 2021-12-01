@@ -17,10 +17,10 @@ Informative documents do not specify requirements.
 
 Normative documents specify requirements. Normative documents may include informative sections.
 
-* [[[OB-30]]] - Intended to be the first, and possibly only document you need to understand the specification and even implement a simple
+* [[[!OB-30]]] - Intended to be the first, and possibly only document you need to understand the specification and even implement a simple
 prototype. Many examples are included which you can copy to issue, display, or verify your
 first open badge.
-* [[[OB-BAKE-30]]] - Specifies how to embed Open Badge JSON inside a PNG or SVG image file.
+* [[[!OB-BAKE-30]]] - Specifies how to embed Open Badge JSON inside a PNG or SVG image file.
 * OpenAPI files you can use to generate template code that implements the consumer or server API. These links go directly to the corresponding OpenAPI file:
   * [JSON](https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/openapi.json)
   * [YAML](https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/openapi.yaml)

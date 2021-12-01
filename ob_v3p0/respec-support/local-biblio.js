@@ -29,12 +29,6 @@ var _localBiblio = {
         "status": "IMS Base Document",
         "publisher": "IMS Global Learning Consortium"
     },
-    "OB-30": {
-        "title": "Open Badges Specification v3.0",
-        "href": "https://www.imsglobal.org/spec/ob/v3p0/",
-        "status": "IMS Base Document",
-        "publisher": "IMS Global Learning Consortium"
-    },
     "OB-OPEN-30": {
         "title": "Open Badges Specification OpenAPI Schema v3.0",
         "href": "https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/",
@@ -53,5 +47,4 @@ var _localBiblio = {
         "status": "IMS Base Document",
         "publisher": "IMS Global Learning Consortium"
     },
-
 };
