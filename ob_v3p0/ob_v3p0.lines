@@ -23,8 +23,8 @@ Package OpenBadge DataModel
 		Property extensions Namespace 0..1 
 
 	Class Achievement Unordered false []					"d:A collection of information about the accomplishment recognized by the Open Badge. Many assertions may be created corresponding to one BadgeClass."
-		Property id	IRI	1  								"d:Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid."
-		Property type String 1 "v:BadgeClass"			"d:Valid representation of the BadgeClass type. In most cases, this will simply be the string BadgeClass."
+		Property id	URI	1  								"d:Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid."
+		Property type URI 1 "v:BadgeClass"			"d:Valid representation of the BadgeClass type. In most cases, this will simply be the string BadgeClass."
 		Property achievementType String 0..1
 		Property creator Creator 1
 		Property name String 1  						"d:The name of the achievement."
@@ -52,8 +52,8 @@ Package OpenBadge DataModel
 		Property extensions Namespace 0..1 
 
 	Class Evidence Unordered false []					"d:Descriptive metadata about evidence related to the issuance of an Assertion. Each instance of the Evidence class present in an Assertion corresponds to one entity, though a single entry can describe a set of items collectively. There may be multiple evidence entries referenced from an Assertion. The narrative property is also in scope of the Assertion class to provide an overall description of the achievement related to the badge in rich text. It is used here to provide a narrative of achievement of the specific entity described. If both the description and narrative properties are present, displayers can assume the narrative value goes into more detail and is not simply a recapitulation of description."	
-		Property type String 1 "v:Evidence"				"d:Defaults to Evidence."
-		Property id	IRI 0..1 							"d:The URI of a webpage presenting evidence of achievement."
+		Property type URI 1 "v:Evidence"				"d:Defaults to Evidence."
+		Property id	URI 0..1 							"d:The URI of a webpage presenting evidence of achievement."
 		Property narrative String 0..1 					"d:A narrative that describes the evidence and process of achievement that led to an Assertion."
 		Property name String 0..1 						"d:A descriptive title of the evidence."
 		Property description String 0..1  				"d:A longer description of the evidence."
@@ -62,32 +62,34 @@ Package OpenBadge DataModel
 		Property extensions Namespace 0..1 
 
 	Class Image Unordered false []						"d:Metadata about images that represent Assertions, BadgeClasses or Profiles. These properties can typically be represented as just the id string of the image, but using a fleshed-out document allows for including captions and other applicable metadata."
-		Property id	IRI	1 								"d:The URI or Data URI of the image."
-		Property type String 1 "v:Image"				"d:Defaults to schema:ImageObject."		
+		Property id	URI	1 								"d:The URI or Data URI of the image."
+		Property type URI 1 "v:Image"				"d:Defaults to schema:ImageObject."		
 		Property caption String 0..1 					"d:The caption for the image."
-//		Property author	Profile 0..1  					"d:The author of the image, if desired."
+		Property author	Profile 0..1  					"d:The author of the image, if desired."
 		Property extensions Namespace 0..1 
 
 	Class Criteria Unordered false []					"d:Descriptive metadata about the achievements necessary to be recognized with an Assertion of a particular BadgeClass. This data is added to the BadgeClass so that it may be rendered when that BadgeClass is displayed, instead of simply a link to human-readable criteria external to the badge. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an Assertion of a particular BadgeClass. It is also used after the Assertion is awarded to a recipient to let those inspecting earned badges know the general requirements that the recipients met in order to earn it."
-		Property id	IRI	0..1 							"d:The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass."
-		Property type String 1 "v:Criteria"				"d:Defaults to Criteria."		
+		Property id	URI	0..1 							"d:The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass."
+		Property type URI 1 "v:Criteria"				"d:Defaults to Criteria."		
 		Property narrative String 0..1 					"d:A narrative of what is needed to earn the badge."
 		Property extensions Namespace 0..1 
 
 	Class AlignmentObject Unordered false []			"d:The AlignmentObject is an alias for schema.org’s AlignmentObject and uses IRIs from that vocabulary."
-		Property targetName	String 1 					"d:Name of the alignment."
-		Property targetUrl	URL 1 						"d:URL linking to the official description of the alignment target, for example an individual standard within an educational framework."
-		Property targetDescription String 0..1 			"d:Short description of the alignment target."
-		Property targetFramework String	0..1  			"d:Name of the framework the alignment target."
+		Property id	URI 0..1 							"d:The URI of a webpage presenting evidence of achievement."
+		Property type URI 0..1
 		Property targetCode String 0..1 				"d:If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl."
+		Property targetDescription String 0..1 			"d:Short description of the alignment target."
+		Property targetName	String 1 					"d:Name of the alignment."
+		Property targetFramework String	0..1  			"d:Name of the framework the alignment target."
+		Property targetType ExtensibleAlignmentTargetType 0..1 	"d:[ED: from CLR]"
+		Property targetUrl	URL 1 						"d:URL linking to the official description of the alignment target, for example an individual standard within an educational framework."
 		Property extensions Namespace 0..1 
 
 	Class Endorsement Unordered false []				"d:Open Badges are trustworthy records of achievement. The vocabulary defined above, combined with the validation and verification procedures for badge Assertions, establish Open Badges as a reliable method for expressing and verifying achievements online. However, these procedures don’t answer questions like, “Who trusts this BadgeClass to be a good certification of the competency it describes?” or, “Is this Profile’s email address verified?” For these questions, there is Endorsement."
-		Property id	IRI	1  								"d:Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace."
+		Property id	URI	1  								"d:Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace."
 		Property claim IRI 1 							"d:An entity, identified by an id and additional properties that the endorser would like to claim about that entity."
-//		Property issuer	Profile  1 						"d:The profile of the Endorsement’s issuer."
-//		Property issuedOn DateTime 1 					"d:Timestamp of when the endorsement was published."
-//		Property verification VerificationObject 1 		"d:Instructions for third parties to verify this assertion of endorsement."
+		Property issuer	Profile  1 						"d:The profile of the Endorsement’s issuer."
+		Property issuedOn DateTime 1 					"d:Timestamp of when the endorsement was published."
 		Property endorsementComment String 0..1 		"d:Allows endorsers to make a simple claim in writing about the entity."
 		Property extensions Namespace 0..1 		
 
@@ -96,20 +98,32 @@ Package OpenBadge DataModel
 
 	Class Profile Unordered false []					"d:A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address."
 		Property id	URI	1  								"d:Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs."		
-		Property type String 1 "v:Profile"				"d:Valid representation of Profile type. In most cases, this will simply be the string Profile."
+		Property type URI 1 "v:Profile"				"d:Valid representation of Profile type. In most cases, this will simply be the string Profile."
 		Property name String 0..1 						"d:The name of the entity or organization."
 		Property url IRI 0..1 							"d:The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP."
 		Property telephone String 0..1 					"d:A phone number for the entity. For maximum compatibility, the value should be expressed as a + and country code followed by the number with no spaces or other punctuation, like +16175551212 (E.164 format)."
 		Property description String	0..1 				"d:A short description of the issuer entity or organization."
 		Property image Image 0..1 						"d:An image representing the issuer. This must be a PNG or SVG image."
 		Property email String 0..1 						"d:Contact address for the individual or organization."
-		Property extensions Namespace 0..1 		
+		Property extensions Namespace 0..1
+
+	Class TargetType Enumeration false []				"d:[ED: from CLR]
+		Property CFItem Term 1
+		Property CFRubric Term 1
+		Property CFRubricCriterion Term 1
+		Property CFRubricCriterionLevel Term 1
+		Property CTDL Term 1
+
+	Class ExtensibleAlignmentTargetType Union false [TargetType, EnumExtString]
 
 Package DerivedTypes DataModel
 	Classes [IRI, URL, URI] DerivedType [AnyURI]
+//	Classes [Term] DerivedType [Token]
+	Includes [EnumExtString, Term]
+//	Classes [EnumExtString] DerivedType [NormalizedString]
 
 Package PrimitiveTypes DataModel
-	Includes [String, Boolean, AnyURI, Namespace]
+	Includes [AnyURI, String, Boolean, Namespace, NormalizedString, Token]
 	Class DateTime PrimitiveType false [] 				"d:An [[ISO8601]] time using the syntax YYYY-MM-DDThh:mm:ss."
 
 		
