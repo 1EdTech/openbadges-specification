@@ -17,6 +17,9 @@
   
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.8.2/ajv2019.bundle.min.js" integrity="sha512-9CfeXrjdW9wxGntWtQ4wE0k9RD8avpYxoPEKAGu+EP87RyqXYVQjed0l872XkNtQeIyYavZeqY+jzm69pmjEDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  
+
 <style id="respec-mainstyle">
 @keyframes pop{
 0%{transform:scale(1,1)}
@@ -105,9 +108,6 @@ dfn{cursor:pointer}
 .dfn-panel li{margin-left:1em}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
-
-  
-
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
 <link rel="stylesheet" href="https://purl.imsglobal.org/spec/ims-base.css">
 <title>Open Badges Specification 3.0 
@@ -1422,7 +1422,7 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
 </figure><p>The inclusion of Skill Assertion claims makes a natural, ergonomic fit with defined achievement claims and evidence claims. Business logic to process each of the available claims can look for just the data a relying party needs, and extraneous claims do not get in the way.</p></section></section>
 
   <section data-model="" id="org.1edtech.ob.v3p0.model"><h2 id="open-badges-data-model"><bdi class="secno">3. </bdi>Open Badges Data Model<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.model"></a><a class="self-link" aria-label="§" href="#open-badges-data-model"></a></h2><p>Open Badges are visual symbols of accomplishments packed with verifiable metadata according to the Open Badges specification. The Open Badges specification defines the properties necessary to define an achievement and award it to a recipient, as well as procedures for verifying badge authenticity and “baking” badge information into portable image files. It includes term definitions for representations of data in Open Badges.</p>
-    <section data-class="" id="org.1edtech.ob.v3p0.assertion.class"><h3 id="assertion"><bdi class="secno">3.1 </bdi>Assertion<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertion.class"></a><a class="self-link" aria-label="§" href="#assertion"></a></h3><p>Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner. Assertions have all the properties needed to conform with a Verifiable Credential as defined in the [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>] specification.</p><table>
+    <section data-class="" id="org.1edtech.ob.v3p0.assertion.class"><h3 id="assertion"><bdi class="secno">3.1 </bdi>Assertion<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertion.class"></a><a class="self-link" aria-label="§" href="#assertion"></a></h3><p>Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner. Assertions have all the properties needed to conform with a Verifiable Credential as defined in the [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>] specification. Therefore you can say, 'An Open Badges Assertion is a Verifiable Credential.'</p><table>
         <thead>
           <tr>
             <th>Property</th>
@@ -1526,12 +1526,12 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.iri.class">IRI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
       <td>Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid.</td>
       <td>Required</td>
     </tr><tr>
       <td>type</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
       <td>Valid representation of the BadgeClass type. In most cases, this will simply be the string BadgeClass.</td>
       <td>Required</td>
     </tr><tr>
@@ -1588,12 +1588,12 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
     <a class="self-link" href="#example-sample-achievement-generated">Example<bdi> 2</bdi></a><span class="example-title">: Sample achievement (Generated)</span>
   </div><pre class="nohighlight">{
   "id": null,
-  "type": "...string...",
+  "type": null,
   "creator": {},
   "name": "...string...",
   "description": "...string...",
   "criteria": {
-    "type": "...string..."
+    "type": null
   }
 }</pre></aside>
     </section>
@@ -1614,7 +1614,7 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
       <td>Required</td>
     </tr><tr>
       <td>type</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
       <td>Valid representation of Profile type. In most cases, this will simply be the string Profile.</td>
       <td>Required</td>
     </tr><tr>
@@ -1663,18 +1663,18 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
         </thead>
         <tbody>
           <tr>
-      <td>type</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-      <td>Defaults to Evidence.</td>
-      <td>Required</td>
-    </tr><tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.iri.class">IRI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
       <td>The URI of a webpage presenting evidence of achievement.</td>
       <td>Optional</td>
     </tr><tr>
+      <td>type</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td>Defaults to Evidence.</td>
+      <td>Required</td>
+    </tr><tr>
       <td>narrative</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.markdown.class">Markdown</a></td>
       <td>A narrative that describes the evidence and process of achievement that led to an Assertion.</td>
       <td>Optional</td>
     </tr><tr>
@@ -1698,6 +1698,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
       <td>A description of the intended audience for a piece of evidence.</td>
       <td>Optional</td>
     </tr><tr>
+      <td>artifacts</td>
+      <td><a href="#org.1edtech.ob.v3p0.artifact.class" class="respec-offending-element" title="Broken local reference found in document." id="respec-offender-broken-local-reference-found-in-document">Artifact[]</a></td>
+      <td>[ED: from CLR]</td>
+      <td>Optional</td>
+    </tr><tr>
       <td colspan="4">This class can be extended.</td>
     </tr>
         </tbody>
@@ -1714,18 +1719,23 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.iri.class">IRI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
       <td>The URI or Data URI of the image.</td>
       <td>Required</td>
     </tr><tr>
       <td>type</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
       <td>Defaults to schema:ImageObject.</td>
       <td>Required</td>
     </tr><tr>
       <td>caption</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
       <td>The caption for the image.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>author</td>
+      <td><a href="#org.1edtech.ob.v3p0.profile.class">Profile</a></td>
+      <td>The author of the image, if desired.</td>
       <td>Optional</td>
     </tr><tr>
       <td colspan="4">This class can be extended.</td>
@@ -1744,12 +1754,12 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.iri.class">IRI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
       <td>The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass.</td>
       <td>Optional</td>
     </tr><tr>
       <td>type</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
       <td>Defaults to Criteria.</td>
       <td>Required</td>
     </tr><tr>
@@ -1773,30 +1783,45 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
         </thead>
         <tbody>
           <tr>
-      <td>targetName</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-      <td>Name of the alignment.</td>
-      <td>Required</td>
-    </tr><tr>
-      <td>targetUrl</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
-      <td>URL linking to the official description of the alignment target, for example an individual standard within an educational framework.</td>
-      <td>Required</td>
-    </tr><tr>
-      <td>targetDescription</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-      <td>Short description of the alignment target.</td>
+      <td>id</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td>The URI of a webpage presenting evidence of achievement.</td>
       <td>Optional</td>
     </tr><tr>
-      <td>targetFramework</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-      <td>Name of the framework the alignment target.</td>
+      <td>type</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td></td>
       <td>Optional</td>
     </tr><tr>
       <td>targetCode</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
       <td>If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl.</td>
       <td>Optional</td>
+    </tr><tr>
+      <td>targetDescription</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>Short description of the alignment target.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>targetName</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>Name of the alignment.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>targetFramework</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>Name of the framework the alignment target.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>targetType</td>
+      <td><a href="#org.1edtech.ob.v3p0.extensiblealignmenttargettype.class" class="respec-offending-element" title="Broken local reference found in document." id="respec-offender-broken-local-reference-found-in-document-0">ExtensibleAlignmentTargetType</a></td>
+      <td>[ED: from CLR]</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>targetUrl</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+      <td>URL linking to the official description of the alignment target, for example an individual standard within an educational framework.</td>
+      <td>Required</td>
     </tr><tr>
       <td colspan="4">This class can be extended.</td>
     </tr>
@@ -1814,13 +1839,23 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.iri.class">IRI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
       <td>Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.</td>
       <td>Required</td>
     </tr><tr>
       <td>claim</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.iri.class">IRI</a></td>
       <td>An entity, identified by an id and additional properties that the endorser would like to claim about that entity.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>issuer</td>
+      <td><a href="#org.1edtech.ob.v3p0.profile.class">Profile</a></td>
+      <td>The profile of the Endorsement’s issuer.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>issuedOn</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class">DateTime</a></td>
+      <td>Timestamp of when the endorsement was published.</td>
       <td>Required</td>
     </tr><tr>
       <td>endorsementComment</td>
@@ -1953,6 +1988,36 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
         </thead>
         <tbody>
           <tr>
+      <td>id</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td></td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>type</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td></td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>achievedLevel</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td></td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>resultDescription</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td></td>
+      <td>Required</td>
+    </tr><tr>
+      <td>status</td>
+      <td><a href="#org.1edtech.ob.v3p0.resultstatustype.class" class="respec-offending-element" title="Broken local reference found in document." id="respec-offender-broken-local-reference-found-in-document-1">ResultStatusType</a></td>
+      <td></td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>value</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td></td>
+      <td>Optional</td>
+    </tr><tr>
       <td colspan="4">This class can be extended.</td>
     </tr>
         </tbody>
@@ -2122,6 +2187,15 @@ about what conformance testing is available and how certification ([<cite><a cla
           </tr><tr>
             <td id="org.1edtech.ob.v3p0.derived.uri.class">URI</td>
             <td></td>
+          </tr><tr>
+            <td id="org.1edtech.ob.v3p0.derived.enumextstring.class">EnumExtString</td>
+            <td>The data-type that enables an enumerated vocabulary to be extended.</td>
+          </tr><tr>
+            <td id="org.1edtech.ob.v3p0.derived.term.class">Term</td>
+            <td>A term in an enumeration. The lexical constraints are the same as for <code>Token</code>.</td>
+          </tr><tr>
+            <td id="org.1edtech.ob.v3p0.derived.markdown.class">Markdown</td>
+            <td>A string that may contain Markdown</td>
           </tr>
       </tbody>
     </table>
@@ -2136,17 +2210,23 @@ about what conformance testing is available and how certification ([<cite><a cla
       </thead>
       <tbody>
         <tr>
+            <td id="org.1edtech.ob.v3p0.primitive.anyuri.class">AnyURI</td>
+            <td></td>
+          </tr><tr>
             <td id="org.1edtech.ob.v3p0.primitive.string.class">String</td>
             <td></td>
           </tr><tr>
             <td id="org.1edtech.ob.v3p0.primitive.boolean.class">Boolean</td>
             <td></td>
           </tr><tr>
-            <td id="org.1edtech.ob.v3p0.primitive.anyuri.class">AnyURI</td>
-            <td></td>
-          </tr><tr>
             <td id="org.1edtech.ob.v3p0.primitive.namespace.class">Namespace</td>
             <td></td>
+          </tr><tr>
+            <td id="org.1edtech.ob.v3p0.primitive.normalizedstring.class">NormalizedString</td>
+            <td>A <code>String</code> conforming to the <code>normalizedString</code> definition in [<cite><a class="bibref" data-link-type="biblio" href="#bib-xmlschema-2" title="XML Schema Part 2: Datatypes Second Edition">XMLSCHEMA-2</a></cite>].</td>
+          </tr><tr>
+            <td id="org.1edtech.ob.v3p0.primitive.token.class">Token</td>
+            <td>A <code>String</code> conforming to the <code>token</code> definition in [<cite><a class="bibref" data-link-type="biblio" href="#bib-xmlschema-2" title="XML Schema Part 2: Datatypes Second Edition">XMLSCHEMA-2</a></cite>].</td>
           </tr><tr>
             <td id="org.1edtech.ob.v3p0.primitive.datetime.class">DateTime</td>
             <td>An [<cite><a class="bibref" data-link-type="biblio" href="#bib-iso8601" title="Representation of dates and times. ISO 8601:2004.">ISO8601</a></cite>] time using the syntax YYYY-MM-DDThh:mm:ss.</td>
@@ -2155,7 +2235,7 @@ about what conformance testing is available and how certification ([<cite><a cla
     </table>
   </section><section id="references" class="appendix"><h2 id="d-references"><bdi class="secno">D. </bdi>References<a class="self-link" aria-label="§" href="#references"></a></h2><section id="normative-references">
     <h3 id="d-1-normative-references"><bdi class="secno">D.1 </bdi>Normative references<a class="self-link" aria-label="§" href="#normative-references"></a></h3>
-    <dl class="bibliography"><dt id="bib-iso8601">[ISO8601]</dt><dd><a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874"><cite>Representation of dates and times. ISO 8601:2004.</cite></a>.  International Organization for Standardization (ISO). 2004. ISO 8601:2004. URL: <a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874">http://www.iso.org/iso/catalogue_detail?csnumber=40874</a></dd><dt id="bib-json-ld11">[json-ld11]</dt><dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave Longley.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a></dd><dt id="bib-ob-cert-30">[OB-CERT-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/cert/"><cite>Open Badges Specification Conformance and Certification Guide v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/cert/">https://www.imsglobal.org/spec/ob/v3p0/cert/</a></dd><dt id="bib-ob-info-30">[OB-INFO-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html"><cite>Open Badges Specification Information Model v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html">https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html</a></dd><dt id="bib-ob-rest-30">[OB-REST-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html"><cite>Open Badges Specification REST/JSON API v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html">https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html</a></dd><dt id="bib-rfc2119">[RFC2119]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a></dd><dt id="bib-rfc8259">[rfc8259]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8259"><cite>The JavaScript Object Notation (JSON) Data Interchange Format</cite></a>. T. Bray, Ed..  IETF. December 2017. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a></dd><dt id="bib-sec-10">[SEC-10]</dt><dd><a href="https://www.imsglobal.org/spec/security/v1p0/"><cite>IMS Global Security Framework v1.0</cite></a>. C. Smythe; C. Vervoort; M. McKell; N. Mills.  IMS Global Learning Consortium. April 2019. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/security/v1p0/">https://www.imsglobal.org/spec/security/v1p0/</a></dd><dt id="bib-vc-data-model">[vc-data-model]</dt><dd><a href="https://www.w3.org/TR/vc-data-model/"><cite>Verifiable Credentials Data Model v1.1</cite></a>. Manu Sporny; Grant Noble; Dave Longley; Daniel Burnett; Brent Zundel; Kyle Den Hartog.  W3C. 9 November 2021. W3C Recommendation. URL: <a href="https://www.w3.org/TR/vc-data-model/">https://www.w3.org/TR/vc-data-model/</a></dd></dl>
+    <dl class="bibliography"><dt id="bib-iso8601">[ISO8601]</dt><dd><a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874"><cite>Representation of dates and times. ISO 8601:2004.</cite></a>.  International Organization for Standardization (ISO). 2004. ISO 8601:2004. URL: <a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874">http://www.iso.org/iso/catalogue_detail?csnumber=40874</a></dd><dt id="bib-json-ld11">[json-ld11]</dt><dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave Longley.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a></dd><dt id="bib-ob-cert-30">[OB-CERT-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/cert/"><cite>Open Badges Specification Conformance and Certification Guide v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/cert/">https://www.imsglobal.org/spec/ob/v3p0/cert/</a></dd><dt id="bib-ob-info-30">[OB-INFO-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html"><cite>Open Badges Specification Information Model v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html">https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html</a></dd><dt id="bib-ob-rest-30">[OB-REST-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html"><cite>Open Badges Specification REST/JSON API v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html">https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html</a></dd><dt id="bib-rfc2119">[RFC2119]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a></dd><dt id="bib-rfc8259">[rfc8259]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8259"><cite>The JavaScript Object Notation (JSON) Data Interchange Format</cite></a>. T. Bray, Ed..  IETF. December 2017. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a></dd><dt id="bib-sec-10">[SEC-10]</dt><dd><a href="https://www.imsglobal.org/spec/security/v1p0/"><cite>IMS Global Security Framework v1.0</cite></a>. C. Smythe; C. Vervoort; M. McKell; N. Mills.  IMS Global Learning Consortium. April 2019. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/security/v1p0/">https://www.imsglobal.org/spec/security/v1p0/</a></dd><dt id="bib-vc-data-model">[vc-data-model]</dt><dd><a href="https://www.w3.org/TR/vc-data-model/"><cite>Verifiable Credentials Data Model v1.1</cite></a>. Manu Sporny; Grant Noble; Dave Longley; Daniel Burnett; Brent Zundel; Kyle Den Hartog.  W3C. 9 November 2021. W3C Recommendation. URL: <a href="https://www.w3.org/TR/vc-data-model/">https://www.w3.org/TR/vc-data-model/</a></dd><dt id="bib-xmlschema-2">[XMLSCHEMA-2]</dt><dd><a href="https://www.w3.org/TR/xmlschema-2/"><cite>XML Schema Part 2: Datatypes Second Edition</cite></a>. Paul V. Biron; Ashok Malhotra.  W3C. 28 October 2004. W3C Recommendation. URL: <a href="https://www.w3.org/TR/xmlschema-2/">https://www.w3.org/TR/xmlschema-2/</a></dd></dl>
   </section><section id="informative-references">
     <h3 id="d-2-informative-references"><bdi class="secno">D.2 </bdi>Informative references<a class="self-link" aria-label="§" href="#informative-references"></a></h3>
     <dl class="bibliography"><dt id="bib-ob-30">[OB-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/"><cite>Open Badges Specification v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/">https://www.imsglobal.org/spec/ob/v3p0/</a></dd><dt id="bib-ob-bake-30">[OB-BAKE-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/ImageBinding/ob_ImageBinding.html"><cite>Open Badges Specification Baking a Badge v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/ImageBinding/ob_ImageBinding.html">https://www.imsglobal.org/spec/ob/v3p0/ImageBinding/ob_ImageBinding.html</a></dd></dl>
