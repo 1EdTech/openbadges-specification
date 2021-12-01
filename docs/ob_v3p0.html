@@ -15,6 +15,10 @@
   
 
   
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.8.2/ajv2019.bundle.min.js" integrity="sha512-9CfeXrjdW9wxGntWtQ4wE0k9RD8avpYxoPEKAGu+EP87RyqXYVQjed0l872XkNtQeIyYavZeqY+jzm69pmjEDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  
 
 <style id="respec-mainstyle">
 @keyframes pop{
@@ -110,6 +114,20 @@ dfn{cursor:pointer}
     IMS Base Document</title>
 <meta name="description" content="This is a proposal to recharter the Open Badges Workgroup to develop a new version of the IMS Global Open Badges Specification to align it to the conventions of the W3C Verifiable Credentials Data Model for the use cases of Defined Achievement Claim and a Skill Claim. The credentials that would be produced under this proposal could easily be bundled into Comprehensive Learner Records and Verifiable Presentations. Portability and learner data privacy may be improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.">
 <link rel="canonical" href="https://www.imsglobal.org/spec/ob/v3p0/main/">
+<style>
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
+.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
+.hljs-literal{color:#0b76c5}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
 <style>
 var{position:relative;cursor:pointer}
 var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
@@ -1116,7 +1134,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </tr>
       <tr>
         <td>Date Issued:</td>
-        <td>2021-11-30</td>
+        <td>2021-12-01</td>
       </tr>
       <tr>
         <td>Status:</td>
@@ -1326,21 +1344,23 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
       <aside class="example" id="example-sample-assertion"><div class="marker">
     <a class="self-link" href="#example-sample-assertion">Example<bdi> 1</bdi></a><span class="example-title">: Sample Assertion</span>
   </div>
-        <pre class="nohighlight vc">{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
+        <pre data-schema="org.1edtech.ob.v3p0.assertion.class" aria-busy="false"><code class="hljs json">{
+  <span class="hljs-attr">"@context"</span>: [
+    <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
+    <span class="hljs-string">"https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"</span>
   ],
-  "id": "http://example.edu/credentials/3732",
-  "type": ["VerifiableCredential", "OpenBadge"],
-  "issuer": {
-    "id": "https://example.edu/issuers/565049",
-    "name": "Example University"
-  "issuanceDate": "2010-01-01T00:00:00Z",
-  "credentialSubject": {
-    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://example.edu/credentials/3732"</span>,
+  <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"VerifiableCredential"</span>, <span class="hljs-string">"OpenBadge"</span>],
+  <span class="hljs-attr">"issuer"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.edu/issuers/565049"</span>,
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"IssuerProfile"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University"</span>
+  },
+  <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
+  <span class="hljs-attr">"credentialSubject"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:ebfeb1f712ebc6f1c276e12ec21"</span>
   }
-}</pre>
+}</code></pre>
       </aside>
     </section>
     <section data-class="" id="org.1edtech.ob.v3p0.achievement.class" class="respec-offending-element" title="All sections must start with a `h2-6` element.">
@@ -1789,7 +1809,7 @@ function hidePanel(panel) {
         Please refer to Document Name: Open Badges Specification
         3.0
       </p>
-      <p>Date: 2021-11-30</p>
+      <p>Date: 2021-12-01</p>
       <div></div>
     </div>
   </footer></body></html>
