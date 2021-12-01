@@ -17,9 +17,6 @@
   
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.8.2/ajv2019.bundle.min.js" integrity="sha512-9CfeXrjdW9wxGntWtQ4wE0k9RD8avpYxoPEKAGu+EP87RyqXYVQjed0l872XkNtQeIyYavZeqY+jzm69pmjEDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  
-
 <style id="respec-mainstyle">
 @keyframes pop{
 0%{transform:scale(1,1)}
@@ -108,6 +105,9 @@ dfn{cursor:pointer}
 .dfn-panel li{margin-left:1em}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
+
+  
+
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
 <link rel="stylesheet" href="https://purl.imsglobal.org/spec/ims-base.css">
 <title>Open Badges Specification 3.0 
@@ -140,7 +140,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "mainSpecBiblioKey": "OB-30",
   "specTitle": "Open Badges Specification",
   "shortName": "ob",
-  "specNature": "informative",
+  "specNature": "normative",
   "specType": "main",
   "specVersion": "3.0",
   "docVersion": "1",
@@ -1144,7 +1144,13 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <td>This version:</td>
         <td><a href="https://www.imsglobal.org/spec/ob/v3p0/main/">https://www.imsglobal.org/spec/ob/v3p0/main/</a></td>
       </tr>
-      
+      <tr>
+                <td>Latest version:</td>
+                <td><a href="https://www.imsglobal.org/spec/ob/latest/main/">https://www.imsglobal.org/spec/ob/latest/main/</a></td>
+              </tr><tr>
+                <td>Errata:</td>
+                <td><a href="https://www.imsglobal.org/spec/ob/v3p0/errata/">https://www.imsglobal.org/spec/ob/v3p0/errata/</a></td>
+              </tr>
       
     </tbody>
   </table> <div id="ipr">
@@ -1247,26 +1253,37 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </div>
   </header>
 
-  <section class="introductory" id="abstract" data-format="markdown"><h2>Abstract</h2><p>This is a proposal to recharter the Open Badges Workgroup to develop a new version of the <a href="https://openbadgespec.org">IMS Global Open Badges Specification</a> to align it to the conventions of the <a href="https://w3c.github.io/vc-data-model/">W3C Verifiable Credentials Data Model</a> for the use cases of Defined Achievement Claim and a Skill Claim. The credentials that would be produced under this proposal could easily be bundled into Comprehensive Learner Records and Verifiable Presentations. Portability and learner data privacy may be improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformance</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#document-set"><bdi class="secno">1.1 </bdi>Document Set<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-documents"><bdi class="secno">1.1.1 </bdi>Informative Documents<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#normative-documents"><bdi class="secno">1.1.2 </bdi>Normative Documents<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#design-goals-and-rationale"><bdi class="secno">1.2 </bdi>Design Goals and Rationale<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">1.3 </bdi>Use Cases<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#terms"><bdi class="secno">1.4 </bdi>Terms<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">2. </bdi>Overview<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#what-is-the-problem-this-solves-for"><bdi class="secno">2.1 </bdi>What is the problem this solves for?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#what-does-adopting-verifiable-credentials-entail"><bdi class="secno">2.2 </bdi>What does adopting Verifiable Credentials entail?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#benefits-and-opportunities"><bdi class="secno">2.3 </bdi>Benefits and Opportunities<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#interoperability-with-digital-wallets-verifiable-presentations-and-learner-experiences"><bdi class="secno">2.3.1 </bdi>Interoperability with Digital Wallets, Verifiable Presentations, and Learner Experiences<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiable-credentials-support-increases-learner-data-privacy-and-trustworthiness-of-open-badges"><bdi class="secno">2.3.2 </bdi>Verifiable Credentials Support Increases Learner Data Privacy and Trustworthiness of Open Badges<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#decentralized-identifiers-and-self-sovereign-identity"><bdi class="secno">2.3.3 </bdi>Decentralized Identifiers and Self-Sovereign Identity<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#aligning-open-badges-and-clr-with-common-assertion-and-achievement-models"><bdi class="secno">2.3.4 </bdi>Aligning Open Badges and CLR with Common Assertion and Achievement Models<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#differentiating-issuers-and-creators"><bdi class="secno">2.3.5 </bdi>Differentiating Issuers and Creators<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#skill-assertions"><bdi class="secno">2.4 </bdi>Skill Assertions<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model"><bdi class="secno">3. </bdi>org.1edtech.ob.v3p0.model<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#understanding-the-api"><bdi class="secno">4. </bdi>Understanding the API<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">4.1 </bdi>Architecture<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#authentication"><bdi class="secno">4.2 </bdi>Authentication<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endpoints"><bdi class="secno">4.3 </bdi>Endpoints<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#assertions"><bdi class="secno">4.3.1 </bdi>Assertions<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#profile"><bdi class="secno">4.3.2 </bdi>Profile<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#syntaxes"><bdi class="secno">5. </bdi>Syntaxes<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#conformance-testing"><bdi class="secno">6. </bdi>Conformance Testing<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#revision-history"><bdi class="secno">A. </bdi>Revision History</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">B.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">B.2 </bdi>Informative references</a></li></ol></li><li class="tocline"><a class="tocxref" href="#contributors"><bdi class="secno">C. </bdi>List of Contributors</a></li></ol></nav>
+  <section class="introductory" id="abstract" data-format="markdown"><h2>Abstract</h2><p>This is a proposal to recharter the Open Badges Workgroup to develop a new version of the <a href="https://openbadgespec.org">IMS Global Open Badges Specification</a> to align it to the conventions of the <a href="https://w3c.github.io/vc-data-model/">W3C Verifiable Credentials Data Model</a> for the use cases of Defined Achievement Claim and a Skill Claim. The credentials that would be produced under this proposal could easily be bundled into Comprehensive Learner Records and Verifiable Presentations. Portability and learner data privacy may be improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformance</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#document-set"><bdi class="secno">1.1 </bdi>Document Set<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-documents"><bdi class="secno">1.1.1 </bdi>Informative Documents<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#normative-documents"><bdi class="secno">1.1.2 </bdi>Normative Documents<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#design-goals-and-rationale"><bdi class="secno">1.2 </bdi>Design Goals and Rationale<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#terms"><bdi class="secno">1.3 </bdi>Terms<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">1.4 </bdi>Use Cases<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#revocation-of-an-issued-credential"><bdi class="secno">1.4.1 </bdi>Revocation of an Issued Credential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#online-course-completion-assertion-issuance-to-wallet"><bdi class="secno">1.4.2 </bdi>Online Course Completion Assertion Issuance to Wallet<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#assertion-issuance-without-mobile-vc-wallet-email"><bdi class="secno">1.4.3 </bdi>Assertion Issuance without mobile VC Wallet (email)<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#assertion-issuance-to-custodian-guardian-wallet-custodian-guardian"><bdi class="secno">1.4.4 </bdi>Assertion Issuance to Custodian/Guardian Wallet (custodian/guardian)<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#assertion-issuance-without-wallet-qr-code"><bdi class="secno">1.4.5 </bdi>Assertion Issuance without Wallet (QR code)<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#recipient-presentation-of-assertion"><bdi class="secno">1.4.6 </bdi>Recipient Presentation of Assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#license-issuance"><bdi class="secno">1.4.7 </bdi>License Issuance<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#mapping-skills"><bdi class="secno">1.4.8 </bdi>Mapping Skills<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifying-continuing-education"><bdi class="secno">1.4.9 </bdi>Verifying Continuing Education<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#self-assertion"><bdi class="secno">1.4.10 </bdi>Self-assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsement"><bdi class="secno">1.4.11 </bdi>Endorsement<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#single-skill-assertion"><bdi class="secno">1.4.12 </bdi>Single Skill Assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#re-issue-a-3-0-badge-to-a-3-0-badge"><bdi class="secno">1.4.13 </bdi>Re-issue a &lt;= 3.0 Badge to a 3.0 Badge<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#badge-class-status"><bdi class="secno">1.4.14 </bdi>Badge Class Status<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#authorization-to-issue-given-by-creator-to-issuer"><bdi class="secno">1.4.15 </bdi>Authorization to Issue Given by Creator to Issuer<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">2. </bdi>Overview<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#what-is-the-problem-this-solves-for"><bdi class="secno">2.1 </bdi>What is the problem this solves for?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#what-does-adopting-verifiable-credentials-entail"><bdi class="secno">2.2 </bdi>What does adopting Verifiable Credentials entail?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#benefits-and-opportunities"><bdi class="secno">2.3 </bdi>Benefits and Opportunities<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#interoperability-with-digital-wallets-verifiable-presentations-and-learner-experiences"><bdi class="secno">2.3.1 </bdi>Interoperability with Digital Wallets, Verifiable Presentations, and Learner Experiences<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiable-credentials-support-increases-learner-data-privacy-and-trustworthiness-of-open-badges"><bdi class="secno">2.3.2 </bdi>Verifiable Credentials Support Increases Learner Data Privacy and Trustworthiness of Open Badges<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#decentralized-identifiers-and-self-sovereign-identity"><bdi class="secno">2.3.3 </bdi>Decentralized Identifiers and Self-Sovereign Identity<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#aligning-open-badges-and-clr-with-common-assertion-and-achievement-models"><bdi class="secno">2.3.4 </bdi>Aligning Open Badges and CLR with Common Assertion and Achievement Models<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#differentiating-issuers-and-creators"><bdi class="secno">2.3.5 </bdi>Differentiating Issuers and Creators<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#skill-assertions"><bdi class="secno">2.4 </bdi>Skill Assertions<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#open-badges-data-model"><bdi class="secno">3. </bdi>Open Badges Data Model<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#assertion"><bdi class="secno">3.1 </bdi>Assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#achievement"><bdi class="secno">3.2 </bdi>Achievement<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#profile"><bdi class="secno">3.3 </bdi>Profile<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#evidence"><bdi class="secno">3.4 </bdi>Evidence<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#image"><bdi class="secno">3.5 </bdi>Image<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#criteria"><bdi class="secno">3.6 </bdi>Criteria<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#alignmentobject"><bdi class="secno">3.7 </bdi>AlignmentObject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsement-0"><bdi class="secno">3.8 </bdi>Endorsement<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#credentialsubject"><bdi class="secno">3.9 </bdi>CredentialSubject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#creator"><bdi class="secno">3.10 </bdi>Creator<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#proof"><bdi class="secno">3.11 </bdi>Proof<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#credentialstatus"><bdi class="secno">3.12 </bdi>CredentialStatus<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#result"><bdi class="secno">3.13 </bdi>Result<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#understanding-the-api"><bdi class="secno">4. </bdi>Understanding the API<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">4.1 </bdi>Architecture<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#authentication"><bdi class="secno">4.2 </bdi>Authentication<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endpoints"><bdi class="secno">4.3 </bdi>Endpoints<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#assertions"><bdi class="secno">4.3.1 </bdi>Assertions<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#profile-0"><bdi class="secno">4.3.2 </bdi>Profile<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#syntaxes"><bdi class="secno">5. </bdi>Syntaxes<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#conformance-testing"><bdi class="secno">6. </bdi>Conformance Testing<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#revision-history"><bdi class="secno">A. </bdi>Revision History</a></li><li class="tocline"><a class="tocxref" href="#open-badges-derived-types"><bdi class="secno">B. </bdi>Open Badges Derived Types</a></li><li class="tocline"><a class="tocxref" href="#open-badges-primitive-types"><bdi class="secno">C. </bdi>Open Badges Primitive Types</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">D. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">D.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">D.2 </bdi>Informative references</a></li></ol></li><li class="tocline"><a class="tocxref" href="#contributors"><bdi class="secno">E. </bdi>List of Contributors</a></li></ol></nav>
 
   <section class="introductory" id="conformance">
     <h2>Conformance</h2>
-  
-    This document is an informative resource in the Document Set of the
-    Open Badges Specification specification
-    [<cite><a class="bibref" data-link-type="biblio" href="#bib-ob-30" title="Open Badges Specification v3.0">OB-30</a></cite>].
-    As such, it does not include any normative requirements. Occurrences in this
-    document of terms such as MAY, MUST, MUST NOT, SHOULD or RECOMMENDED have no
-    impact on the conformance criteria for implementors of this specification.
-  </section>
+  <p>
+      As well as sections marked as non-normative, all authoring guidelines,
+      diagrams, examples, and notes in this specification are non-normative.
+      Everything else in this specification is normative.
+    </p><p>
+            The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, <em class="rfc2119">MUST NOT</em>, <em class="rfc2119">OPTIONAL</em>, <em class="rfc2119">RECOMMENDED</em>, <em class="rfc2119">REQUIRED</em>, <em class="rfc2119">SHALL</em>, <em class="rfc2119">SHALL NOT</em>, <em class="rfc2119">SHOULD</em>, and <em class="rfc2119">SHOULD NOT</em> in this document
+            are to be interpreted as described in
+            [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>].
+          </p><p>
+      An implementation of this specification that fails to implement a
+      MUST/REQUIRED/SHALL requirement or fails to abide by a MUST NOT/SHALL NOT
+      prohibition is considered nonconformant. SHOULD/SHOULD NOT/RECOMMENDED
+      statements constitute a best practice. Ignoring a best practice does not
+      violate conformance but a decision to disregard such guidance should be
+      carefully considered. MAY/OPTIONAL statements indicate that implementers
+      are entirely free to choose whether or not to implement the option.
+    </p><p>
+      The <a href="#document-set">Conformance and Certification Guide</a>
+      for this specification may introduce greater normative constraints than
+      those defined here for specific service or implementation categories.
+    </p></section>
 
-  <section data-format="markdown" id="introduction-0"><h2 id="introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a><a class="self-link" aria-label="§" href="#introduction"></a></h2><section id="document-set-0"><h3 id="document-set"><bdi class="secno">1.1 </bdi>Document Set<a class="self-link" aria-label="§" href="#document-set"></a><a class="self-link" aria-label="§" href="#document-set"></a></h3><p>The Open Badges Specification has several related documents and artifacts shown below. Together
-they make up the specification.</p><section id="informative-documents-0"><h4 id="informative-documents"><bdi class="secno">1.1.1 </bdi>Informative Documents<a class="self-link" aria-label="§" href="#informative-documents"></a><a class="self-link" aria-label="§" href="#informative-documents"></a></h4><p>Informative documents do not specify requirements.</p><ul>
-<li><cite><a href="https://www.imsglobal.org/spec/ob/v3p0/">Open Badges Specification v3.0</a></cite> (this document) - Intended to be the first, and
-possibly only document you need to understand the specification and even implement a simple
+  <section data-format="markdown" class="informative" id="introduction-0"><h2 id="introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a><a class="self-link" aria-label="§" href="#introduction"></a></h2><p><em>This section is non-normative.</em></p><section id="document-set-0"><h3 id="document-set"><bdi class="secno">1.1 </bdi>Document Set<a class="self-link" aria-label="§" href="#document-set"></a><a class="self-link" aria-label="§" href="#document-set"></a></h3><p>The Open Badges Specification has several related documents and artifacts shown below. Together
+they make up the specification.</p><section id="informative-documents-0"><h4 id="informative-documents"><bdi class="secno">1.1.1 </bdi>Informative Documents<a class="self-link" aria-label="§" href="#informative-documents"></a><a class="self-link" aria-label="§" href="#informative-documents"></a></h4><p>Informative documents do not specify requirements.</p><div class="admonition ednote">None at this time</div></section><section id="normative-documents-0"><h4 id="normative-documents"><bdi class="secno">1.1.2 </bdi>Normative Documents<a class="self-link" aria-label="§" href="#normative-documents"></a><a class="self-link" aria-label="§" href="#normative-documents"></a></h4><p>Normative documents specify requirements. Normative documents may include informative sections.</p><ul>
+<li><cite><a href="https://www.imsglobal.org/spec/ob/v3p0/">Open Badges Specification v3.0</a></cite> - Intended to be the first, and possibly only document you need to understand the specification and even implement a simple
 prototype. Many examples are included which you can copy to issue, display, or verify your
 first open badge.</li>
-</ul></section><section id="normative-documents-0"><h4 id="normative-documents"><bdi class="secno">1.1.2 </bdi>Normative Documents<a class="self-link" aria-label="§" href="#normative-documents"></a><a class="self-link" aria-label="§" href="#normative-documents"></a></h4><p>Normative documents specify requirements. Normative documents may include informative sections.</p><ul>
 <li><cite><a href="https://www.imsglobal.org/spec/ob/v3p0/ImageBinding/ob_ImageBinding.html">Open Badges Specification Baking a Badge v3.0</a></cite> - Specifies how to embed Open Badge JSON inside a PNG or SVG image file.</li>
 <li>OpenAPI files you can use to generate template code that implements the consumer or server API. These links go directly to the corresponding OpenAPI file:<ul>
 <li><a href="https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/openapi.json">JSON</a></li>
@@ -1286,16 +1303,7 @@ first open badge.</li>
 <li><cite><a href="https://www.imsglobal.org/spec/ob/v3p0/cert/">Open Badges Specification Conformance and Certification Guide v3.0</a></cite> - Specifies the conformance tests and certification requirements for this specification.</li>
 <li><cite><a href="https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html">Open Badges Specification REST/JSON API v3.0</a></cite> - Specifies the REST API used to exchange Open Badges between systems over the wire.</li>
 <li><cite><a href="https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html">Open Badges Specification Information Model v3.0</a></cite> - Specifies the abstract data model of this specification and its relationship to the IMS Common Data Model, the logical data model, and extension methods available to this specification. This is a reference document for all the other documents that make up this specification.</li>
-</ul></section></section><section id="design-goals-and-rationale-0"><h3 id="design-goals-and-rationale"><bdi class="secno">1.2 </bdi>Design Goals and Rationale<a class="self-link" aria-label="§" href="#design-goals-and-rationale"></a><a class="self-link" aria-label="§" href="#design-goals-and-rationale"></a></h3><p>This proposal to charter the development of a 3.0 version of Open Badges describes how to align Open Badges with the next generation of general-purpose digital credentials, the <a href="https://w3c.github.io/vc-data-model/">W3C Verifiable Credentials Data Model</a>, within which Open Badges can take its place as the leading schema for educational achievement claims within a growing world of widely interoperable digital credentials.</p><p>This proposal also suggests important steps to align Open Badges and the Comprehensive Learner Record (CLR) specification by describing the scopes and compatibility that is possible when both models have been aligned with the W3C Verifiable Credentials Data Model. When both models share concepts of an Assertion and an Achievement, consistency can be reached whether single achievements or collections of achievements are being asserted as Verifiable Credentials.</p><p>Introducing a new major capability to Open Badges is also on the table: skill assertions are a proposed method for issuers to make claims about the achievement of skills more directly without requiring the creation of a BadgeClass in order to recognize skills that are important to a particular industry or discipline.</p></section><section id="use-cases-0"><h3 id="use-cases"><bdi class="secno">1.3 </bdi>Use Cases<a class="self-link" aria-label="§" href="#use-cases"></a><a class="self-link" aria-label="§" href="#use-cases"></a></h3><p>Below are use cases illustrating the power of Open Badges as Verifiable Credentials.</p><ul>
-<li><p><em>Online Course Completion</em>: Maya completed an online course for an "Introduction to Web QA" at her local community college. The community college issued her a course completion badge which she stored in her digital wallet with her other credentials. This course was a prerequisite for a more advanced course being offered online by a MOOC. When Maya registers for the advanced course, she is asked to provide the proof that she completed the prerequisite course. From her wallet, Maya provides the course badge and upon verification, she is registered for the MOOC.</p>
-</li>
-<li><p><em>License Issuance</em>: After Jeremy takes his electrician licensure exam, he accesses the online system for his states licensure department to see his results and download his license. After he proves his identity by sharing his government issued ID from his digital wallet, he is informed that he passed the exam and is issued his electricians license badge which he stores in his digital wallet with his other digital credentials.</p>
-</li>
-<li><p><em>Mapping Skills</em>: Syd is shifting careers after many years working in construction. In their digital wallet they had several skill badges describing their mastery of several skills in construction but also in teamwork, communication, and organizational skills. Syd also had badges from some courses they'd taken in science and math over the last few years. After they uploaded the skill and course badges from their wallet to a career planning site, they were offered several opportunities to apply for work in software sales and cybersecurity.</p>
-</li>
-<li><p><em>Verifying Continuing Ed</em>: Denise was offered a new job at a hospital as a physician assistant. Before starting, her continuing education training and license to practice needed to be verified. The last time she switched hospitals, the verification process took three weeks. This time, she was able to provide her badges to prove her training and license. Within minutes her credentials were verified and she was issued a new digital staff credential.</p>
-</li>
-</ul></section><section id="terms-0"><h3 id="terms"><bdi class="secno">1.4 </bdi>Terms<a class="self-link" aria-label="§" href="#terms"></a><a class="self-link" aria-label="§" href="#terms"></a></h3><ul>
+</ul></section></section><section id="design-goals-and-rationale-0"><h3 id="design-goals-and-rationale"><bdi class="secno">1.2 </bdi>Design Goals and Rationale<a class="self-link" aria-label="§" href="#design-goals-and-rationale"></a><a class="self-link" aria-label="§" href="#design-goals-and-rationale"></a></h3><p>This proposal to charter the development of a 3.0 version of Open Badges describes how to align Open Badges with the next generation of general-purpose digital credentials, the <a href="https://w3c.github.io/vc-data-model/">W3C Verifiable Credentials Data Model</a>, within which Open Badges can take its place as the leading schema for educational achievement claims within a growing world of widely interoperable digital credentials.</p><p>This proposal also suggests important steps to align Open Badges and the Comprehensive Learner Record (CLR) specification by describing the scopes and compatibility that is possible when both models have been aligned with the W3C Verifiable Credentials Data Model. When both models share concepts of an Assertion and an Achievement, consistency can be reached whether single achievements or collections of achievements are being asserted as Verifiable Credentials.</p><p>Introducing a new major capability to Open Badges is also on the table: skill assertions are a proposed method for issuers to make claims about the achievement of skills more directly without requiring the creation of a BadgeClass in order to recognize skills that are important to a particular industry or discipline.</p></section><section id="terms-0"><h3 id="terms"><bdi class="secno">1.3 </bdi>Terms<a class="self-link" aria-label="§" href="#terms"></a><a class="self-link" aria-label="§" href="#terms"></a></h3><ul>
 <li><p><em>Achievement</em>: This is the content description of a credential that an assertion references. It contaoins metadata such as the name of the achievement, description, alignment of skills, etc. An Open Badge asserts a single achievement. CLRs may have a collection of assertions containing a collection of achievements.</p>
 </li>
 <li><p><em>achievementType</em>: A CLR property being proposed as an addition to Open Badges 3.0 which describes the type of achievement. See <a href="https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtExtensibleAchievementType">"dtExtensibleAchievementType" Class</a>.</p>
@@ -1316,15 +1324,89 @@ first open badge.</li>
 </li>
 <li><p><em>Skill Assertion</em>: an Open Badges assertion that contains a "skill result."</p>
 </li>
-<li><p><em><dfn id="dfn-verifiable-credential" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Verifiable Credential</dfn> (VC)</em>: W3C data model that describes how claims can be cryptographically verified. See <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite>.</p>
+<li><p><em>Verifiable Credential (VC)</em>: W3C data model that describes how claims can be cryptographically verified. See <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite>.</p>
 </li>
 <li><p><em>Verifiable Presentation</em>: A <a href="https://www.w3.org/TR/vc-imp-guide/#presentations">Verifiable Presentation</a> is a tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data.</p>
 </li>
 <li><p><em>Native VC</em>: Term used to describe the alignment of the existing Open Badges [VerificationObject] (<a href="https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/index.html#VerificationObject">https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/index.html#VerificationObject</a>) properties with Verifiable Credential data model properties.</p>
 </li>
-</ul></section></section>
+</ul></section><section id="use-cases-0"><h3 id="use-cases"><bdi class="secno">1.4 </bdi>Use Cases<a class="self-link" aria-label="§" href="#use-cases"></a><a class="self-link" aria-label="§" href="#use-cases"></a></h3><p>The use cases below drive the design of Open Badges 3.0 specification.</p><section id="revocation-of-an-issued-credential-0"><h4 id="revocation-of-an-issued-credential"><bdi class="secno">1.4.1 </bdi>Revocation of an Issued Credential<a class="self-link" aria-label="§" href="#revocation-of-an-issued-credential"></a><a class="self-link" aria-label="§" href="#revocation-of-an-issued-credential"></a></h4><p>Gigantic State University is a badge issuer. It has awarded a badge to a student in the form of a verifiable credential. Some time after issuing the credential, GSU discovers academic misconduct on the part of the student and needs to revoke the credential's status. GSU updates a list of revoked credential IDs, noting the reason why it was revoked. Future verifications of the issued badge by consumers detect that the credential is now revoked and do not erroneously accept it.</p><p><strong>Goal of the Primary Actor</strong>: Revoke a credential they have already awarded.</p><p><strong>Actors</strong>: Credential issuer, Credential Subject, Consumer/Verifier</p><p><strong>Preconditions for this Use Case</strong>:</p><ol>
+<li>Issuer creates a badge class</li>
+<li>Issuer issues a credential to a subject</li>
+<li>Credential references a revocation list<ol>
+<li>Uses the credentialStatus property</li>
+<li>OB 3.0 standard comes to consensus on what to use.</li>
+</ol>
+</li>
+<li>Issuer has access to a revocation list to update</li>
+<li>Verification process of badge credentials checks associated list</li>
+</ol><p><strong>Flow of Events</strong>:</p><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p></section><section id="online-course-completion-assertion-issuance-to-wallet-0"><h4 id="online-course-completion-assertion-issuance-to-wallet"><bdi class="secno">1.4.2 </bdi>Online Course Completion Assertion Issuance to Wallet<a class="self-link" aria-label="§" href="#online-course-completion-assertion-issuance-to-wallet"></a><a class="self-link" aria-label="§" href="#online-course-completion-assertion-issuance-to-wallet"></a></h4><p>Maya has completed an online course for an "Introduction to Web QA" at her local community college. The community college issues a course completion assertion. When Maya is ready to accept the assertion, she presents her wallet's location to the community college, which generates a request that Maya approves to receive the credential. Maya stores the assertion in her Verifiable Credentials enabled digital wallet with her other credentials.</p><p><strong>Goal of the Primary Actor</strong>: Issue a verifiable credential to a student that she can use to take the next steps in her education journey.</p><p><strong>Actors</strong>: Community college, Maya (student)</p><p><strong>Preconditions for this Use Case</strong>:</p><ol>
+<li>Community college creates badge for course completion</li>
+<li>Maya completes the course</li>
+<li>Maya downloads and installs a VC enabled digital wallet</li>
+<li>Maya has an identifier she uses for educational badges</li>
+<li>Maya is able to connect her wallet to the community college's issuing platform (assuming community college is using a platform) through authentication with the platform</li>
+<li>The community college has established an issuer profile, relevant cryptographic keys, and has published an Achievement corresponding to completion of the "Introduction to Web QA" course.</li>
+<li>Maya has provided an identifier to the college that it has accepted (or controls an identifier that the college has assigned to her)</li>
+</ol><p><strong>Flow of Events</strong>:</p><ol>
+<li>Maya completes course requirements, receives a grade and is marked as complete for the "Introduction to Web QA" course.</li>
+<li>Maya provides or selects an identifier to use as her identifier for badges while enrolled at the community college, and proves the  identifier represents her to the college if necessary, and through mechanisms appropriate to the identifier type.</li>
+<li>The community college issues an assertion of the previously defined achievement to Maya's identifier and cryptographically signs it</li>
+<li>Maya accepts the credential into her wallet.</li>
+</ol><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p></section><section id="assertion-issuance-without-mobile-vc-wallet-email-0"><h4 id="assertion-issuance-without-mobile-vc-wallet-email"><bdi class="secno">1.4.3 </bdi>Assertion Issuance without mobile VC Wallet (email)<a class="self-link" aria-label="§" href="#assertion-issuance-without-mobile-vc-wallet-email"></a><a class="self-link" aria-label="§" href="#assertion-issuance-without-mobile-vc-wallet-email"></a></h4><p>A professional development/training vendor Training, Inc. recognizes Dawson's mastery of a competency by issuing an assertion to Dawson's email address.</p><p><strong>Goal of the Primary Actor</strong>: Training, Inc. wishes to provide a verifiable record that Dawson may use to present proof of competency-based professional development.</p><p><strong>Actors</strong>: Training, Inc (professional development/training vendor), Dawson (student)</p><p><strong>Preconditions for this Use Case</strong>:</p><ol>
+<li>Dawson is authenticated, associated with a particular email address to the vendor's platform.</li>
+<li>The vendor has established an issuer profile, defined an Achievement and has the capability to create and deliver assertions to Dawson via Badge Connect</li>
+</ol><p><strong>Flow of Events</strong>:</p><ol>
+<li>Dawson authenticates to the vendor platform, proving control of a chosen email address.</li>
+<li>Dawson connects a Badge Connect backpack to the vendor platform, resulting in the platform holding an auth token on his behalf scoped to allow pushing assertions to his backpack.</li>
+<li>Dawson engages with a learning opportunity, gains new knowledge, skills, and abilities, and successfully completes an assessment demonstrating mastery of a specific competency.</li>
+<li>Training, Inc. creates an assertion of the achievement that recognizes the competency.</li>
+<li>Training, Inc. transmits the assertion to Dawson's backpack via Badge Connect API.</li>
+</ol><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p></section><section id="assertion-issuance-to-custodian-guardian-wallet-custodian-guardian-0"><h4 id="assertion-issuance-to-custodian-guardian-wallet-custodian-guardian"><bdi class="secno">1.4.4 </bdi>Assertion Issuance to Custodian/Guardian Wallet (custodian/guardian)<a class="self-link" aria-label="§" href="#assertion-issuance-to-custodian-guardian-wallet-custodian-guardian"></a><a class="self-link" aria-label="§" href="#assertion-issuance-to-custodian-guardian-wallet-custodian-guardian"></a></h4><p>Kalamazoo Elementary School holds a schoolwide spelling bee and  recognizes the achievement of a minor student, Maddie, for winning third place in said spelling bee. Kalamazoo delivers the assertion to Maddie's guardian, Cole, to maintain the assertion until such a time that Maddie can take control of that assertion. </p><p><strong>Goal of the Primary Actor</strong>: Kalamazoo K-12 wishes to award an assertion that Maddie may eventually use, with the understanding that she may not be able to control a wallet on her own behalf today.</p><p><strong>Actors</strong>: Kalamazoo K-12 district (issuer), Maddie (student), Cole (guardian)</p><p><strong>Preconditions for this Use Case</strong>:</p><p><strong>Flow of Events</strong>:</p><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p></section><section id="assertion-issuance-without-wallet-qr-code-0"><h4 id="assertion-issuance-without-wallet-qr-code"><bdi class="secno">1.4.5 </bdi>Assertion Issuance without Wallet (QR code)<a class="self-link" aria-label="§" href="#assertion-issuance-without-wallet-qr-code"></a><a class="self-link" aria-label="§" href="#assertion-issuance-without-wallet-qr-code"></a></h4><p>Jade takes a Standard First Aid course offered by a Red Cross authorized training company, ABC Corp., and receives a printed certificate including their name and certificate number to show that they are certified for SFA + CPR valid for 3 years.  The certificate also includes a QR code that is a representation of an OB 3.0 assertion embedded with Jade's name, certificate number, and expiry date. Jade's employer then scans the QR code and verifies that Jade is now qualified to be a first aid attendant in the office (which gives Jade a $2/hr raise).</p><p><strong>Goal of the Primary Actor</strong>: To be able to show that they hold current certification for SFA from the Red Cross which qualifies them to be a workplace first aid attendant and gives them a raise for the extra job role.</p><p><strong>Actors</strong>: Organisation that does Red Cross training, course participant, participant's employer</p><p><strong>Preconditions for this Use Case</strong>:</p><ol>
+<li>The Red Cross has defined an Achievement for the certification.</li>
+<li>The vendor is authorized by the Red Cross to do training and issue certification certificates for the SFA and CPR courses.</li>
+<li>The vendor has established an issuer profile and has the capability to create and print certificates.</li>
+<li>The participant's employer has an application that can view and verify VCs that are printed as QR codes.</li>
+</ol><p><strong>Flow of Events</strong>:</p><ol>
+<li>Jade shows a piece of government issued ID to the vendor while taking the course.</li>
+<li>Jade completes and passes the SFA + CPR first aid course.</li>
+<li>ABC Corp. prints out a wallet sized and wall sized certificate to say that Jade is certified.</li>
+<li>The certificate is presented to Jade's employer and Jade gets an additional work role due to being qualified as a workplace first aid attendant.</li>
+</ol><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p></section><section id="recipient-presentation-of-assertion-0"><h4 id="recipient-presentation-of-assertion"><bdi class="secno">1.4.6 </bdi>Recipient Presentation of Assertion<a class="self-link" aria-label="§" href="#recipient-presentation-of-assertion"></a><a class="self-link" aria-label="§" href="#recipient-presentation-of-assertion"></a></h4><p>Maya registers for an advanced course and she is asked to provide proof that she completed a prerequisite course. From her wallet, Maya presents the course assertion as a verifiable presentation to the MOOC, which cryptographically verifies the issuer of the assertion, that Maya is the recipient, and that the assertion data has not been altered since it was issued. Upon verification, she is registered for the MOOC.</p><div class="admonition ednote">
+<em>New to v3.0</em>: Verifiable Credentials (VC) is a W3C specification that describes how to issue tamper-evident credentials that can be cryptographically verified. Maya's digital wallet has the capabilities to create a DID, read the VC data, and store it. From the wallet, Maya can present her credentials and prove that she is the recipient because it was issued to a DID that she created and has the digital keys that demonstrates her control of the  Verifiable Credential (VC). This functionality is not specific to the Open Badges standard but using this verification functionality and using a decentralized identifier (DID) to identify the badge recipient instead of an email address is part of the v3.0 update. Maya's badge recognizes a course completion and being able to specify that in the badge is a new aspect of v3.0. As with the CLR, v3.0 will be able to specify the type of achievement that a badge is representing.
+</div><p><strong>Goal of the Primary Actor</strong>: Register for advanced "Web QA" course</p><p><strong>Actors</strong>: Maya, MOOC</p><p><strong>Preconditions for this Use Case</strong>:</p><ol>
+<li>Maya completed prerequisite course</li>
+<li>Issuer issued a verifiable assertion (i.e. completion of prerequisite course) to Maya</li>
+<li>Maya has a VC-compatible wallet</li>
+<li>Maya has received the VC representing her competion of the prerequisite course</li>
+<li>The MOOC is capable of receiving the verifiable presentation of the badge</li>
+</ol><p><strong>Flow of Events</strong>:</p><ol>
+<li>Maya authenticates to the MOOC platform</li>
+<li>The MOOC platform requests a credential matching a certain criteria (completion of a prerequisite course option)</li>
+<li>Maya prepares and transmits a presentation of her assertion to the MOOC platform</li>
+<li>The MOOC platform verifies the assertion is valid and fitting its needs</li>
+<li>The MOOC platform grants the authenticated user Maya access to the advanced course</li>
+</ol><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p><ol>
+<li>Maya's wallet and the MOOC platform must be capable of establishing a transmission channel for the assertion.</li>
+<li>The MOOC platform must be capable of expressing a request for a credential that matches the assertion that Maya holds.</li>
+<li>There must be a mutual capability between the wallet and the MOOC platform to prove Maya's is represented by recipient identifier</li>
+</ol></section><section id="license-issuance-0"><h4 id="license-issuance"><bdi class="secno">1.4.7 </bdi>License Issuance<a class="self-link" aria-label="§" href="#license-issuance"></a><a class="self-link" aria-label="§" href="#license-issuance"></a></h4><p>After Jeremy takes his electrician licensure exam, he accesses the online system for his state's licensure department to see his results and download his license. After he proves his identity by presenting his government issued ID from his digital wallet, he is informed that he passed the exam. The electrician license badge is issued to the DID Jeremy provided and is stored in his digital wallet with his other digital credentials.</p><div class="admonition ednote">
+<em>New to v3.0</em>: Similar to Maya's course completion badge, Jeremy's electrician license badge is also issued to a DID that Jeremy provides from his wallet and can also be cryptographically verified following the Verifiable Credentials model. The government issued ID in this use case is not an Open Badge but because it is a Verifiable Credential it can be stored in the same wallet as the electrician's license badge demonstrating interoperability of the verification models.
+</div><p><strong>Goal of the Primary Actor</strong>:</p><p><strong>Actors</strong>:</p><p><strong>Preconditions for this Use Case</strong>:</p><p><strong>Flow of Events</strong>:</p><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p></section><section id="mapping-skills-0"><h4 id="mapping-skills"><bdi class="secno">1.4.8 </bdi>Mapping Skills<a class="self-link" aria-label="§" href="#mapping-skills"></a><a class="self-link" aria-label="§" href="#mapping-skills"></a></h4><p>Syd is shifting careers after many years working in construction. In their digital wallet they had several skill badges describing their mastery of skills in construction but also in teamwork, communication, and organizational skills. Syd also had badges from some courses they'd taken in science and math over the last few years. After they uploaded the skill and course badges from their wallet to a career planning site, they were offered several opportunities to apply for work in software sales and cybersecurity.</p><div class="admonition ednote">
+<em>New to v3.0</em>: In addition to badges recognizing courses, this use case mentions skill badges. In v3.0, a badge can claim that the recipient has attained a single skill. The assertion references a Rich Skill Descriptor (RSD) instead of a badge class. Skill badges can also be cryptographically verified following the Verifiable Credentials model and stored in digital wallets.
+</div><p><strong>Goal of the Primary Actor</strong>:</p><p><strong>Actors</strong>:</p><p><strong>Preconditions for this Use Case</strong>:</p><p><strong>Flow of Events</strong>:</p><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p></section><section id="verifying-continuing-education-0"><h4 id="verifying-continuing-education"><bdi class="secno">1.4.9 </bdi>Verifying Continuing Education<a class="self-link" aria-label="§" href="#verifying-continuing-education"></a><a class="self-link" aria-label="§" href="#verifying-continuing-education"></a></h4><p>Denise was offered a new job at a hospital as a physician's assistant. Before starting, her continuing education training and license to practice needed to be verified. The last time she switched hospitals, the verification process took three weeks. This time, she was able to provide her badges to prove her training and license. Within minutes her credentials were verified and she was issued a new digital staff credential.</p><div class="admonition ednote">
+<em>New to v3.0</em>: As with the other use case, this use case emphasizes that Open Badges v3.0 can recognize many different achievement types and be cryptographically verified following the Verifiable Credentials model.
+</div><p><strong>Goal of the Primary Actor</strong>:</p><p><strong>Actors</strong>:</p><p><strong>Preconditions for this Use Case</strong>:</p><p><strong>Flow of Events</strong>:</p><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p></section><section id="self-assertion-0"><h4 id="self-assertion"><bdi class="secno">1.4.10 </bdi>Self-assertion<a class="self-link" aria-label="§" href="#self-assertion"></a><a class="self-link" aria-label="§" href="#self-assertion"></a></h4><p>Stacy has created a mobile app that demonstrates her abilities as a coder, designer, and product manager. She creates an account on a badging platform and designs the badge to include alignments to the skills that the badge recognizes. With her digital wallet app, she connects to the badging platform and issues this badge to herself which includes screenshots and a link to the mobile app as evidence. Stacy uses this badge and others like it as verifiable portfolio items.</p><div class="admonition ednote">
+<em>New to v3.0</em>: In previous versions of Open Badges, it was possible to make self-assertion badges and issue badges to peers, however the issuer profile properties were organization specific. With 3.0, the issue properties can be modified to reference either an organization or an individual. It could be considered that both the issuer and recipient profile have similar optional properties so that there is flexibility in describing both profiles. This way, an organization could also be described as the recipient.
+</div><p><strong>Goal of the Primary Actor</strong>:</p><p><strong>Actors</strong>:</p><p><strong>Preconditions for this Use Case</strong>:</p><p><strong>Flow of Events</strong>:</p><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p></section><section id="endorsement-1"><h4 id="endorsement"><bdi class="secno">1.4.11 </bdi>Endorsement<a class="self-link" aria-label="§" href="#endorsement"></a><a class="self-link" aria-label="§" href="#endorsement"></a></h4><p>Ralph has been issued a verifiable credential badge for his most recent position at the hospital where he works by the hospital. The badge contains alignments to the skills related to his role. He requests that his peers endorse the skills he has acquired. A platform is able to communicate this request to peers,  facilitate review of the skills, and process the issuance of endorsement VC badges that reference the original badge, colleagues as endorsers, and Ralph as the recipient.</p><div class="admonition ednote">
+<em>New to v3.0</em>: In 2.0, an endorsement is its own type of badge. This could be the same in 3.0 but also, an endorsement could be a response from a verifier. In the example above, the platform verifies the badge the data and then acts as an issuer of endorsements on behalf of its users. This would be closer to how endorsements are used in 2.0 but applicable to 3.0. It could also be that the platform uses AI to process the badge and sends an endorsement back to Ralph as a proof of acceptance and an evaluation of his badge.
+</div><p><strong>Goal of the Primary Actor</strong>:</p><p><strong>Actors</strong>:</p><p><strong>Preconditions for this Use Case</strong>:</p><p><strong>Flow of Events</strong>:</p><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p></section><section id="single-skill-assertion-0"><h4 id="single-skill-assertion"><bdi class="secno">1.4.12 </bdi>Single Skill Assertion<a class="self-link" aria-label="§" href="#single-skill-assertion"></a><a class="self-link" aria-label="§" href="#single-skill-assertion"></a></h4><p>From her school's LMS, Dr. Cara chooses which skills and competencies will be taught in her class. These skills and competencies are aligned with the rubric in the syllabus that is presented to her students. Once the students have successfully completed the course, Dr. Cara assesses each student's assignments and participation and selects which skills and competencies were met and at what level. The selection of skills and competencies triggers an issuing of a skill assertion for each one and includes the assessment results in the evidence and results. The skill assertions are associated with the student's IDs, the students are notified and informed how they can use these skill assessments to inform their choice of classes in the future.</p><div class="admonition ednote">
+<em>New to v3.0</em>: Single skill assertions are new to 3.0. They do not require a badge class, badge image, etc.
+</div><p><strong>Goal of the Primary Actor</strong>:</p><p><strong>Actors</strong>:</p><p><strong>Preconditions for this Use Case</strong>:</p><p><strong>Flow of Events</strong>:</p><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p></section><section id="re-issue-a-3-0-badge-to-a-3-0-badge-0"><h4 id="re-issue-a-3-0-badge-to-a-3-0-badge"><bdi class="secno">1.4.13 </bdi>Re-issue a &lt;= 3.0 Badge to a 3.0 Badge<a class="self-link" aria-label="§" href="#re-issue-a-3-0-badge-to-a-3-0-badge"></a><a class="self-link" aria-label="§" href="#re-issue-a-3-0-badge-to-a-3-0-badge"></a></h4><p>Leo earned several badges while in highschool and graduates soon. The email address used as the recipient identity for these badges was an email address provided by his high school and he will no longer have access to it. Leo downloads a digital wallet and requests that the school reissue the badges to the identifier he created in the wallet.</p><div class="admonition ednote">
+<em>New to v3.0</em>: The use of VC wallets, and decentralized identifiers are different in 3.0.
+</div><p><strong>Goal of the Primary Actor</strong>:</p><p><strong>Actors</strong>:</p><p><strong>Preconditions for this Use Case</strong>:</p><p><strong>Flow of Events</strong>:</p><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p></section><section id="badge-class-status-0"><h4 id="badge-class-status"><bdi class="secno">1.4.14 </bdi>Badge Class Status<a class="self-link" aria-label="§" href="#badge-class-status"></a><a class="self-link" aria-label="§" href="#badge-class-status"></a></h4><p>An institution has issued hundreds of badges in the form of VCs. A situation has arisen that requires the badge class to be effectively deleted or purged from the ecosystem. It is impractical (and arguably inaccurate) to revoke each assertion with individual records in perpetuity. The institution would like to set a status such that the badge class itself is treated as invalid.</p><p><strong>Goal of the Primary Actor</strong>:</p><p><strong>Actors</strong>:</p><p><strong>Preconditions for this Use Case</strong>:</p><p><strong>Flow of Events</strong>:</p><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p></section><section id="authorization-to-issue-given-by-creator-to-issuer-0"><h4 id="authorization-to-issue-given-by-creator-to-issuer"><bdi class="secno">1.4.15 </bdi>Authorization to Issue Given by Creator to Issuer<a class="self-link" aria-label="§" href="#authorization-to-issue-given-by-creator-to-issuer"></a><a class="self-link" aria-label="§" href="#authorization-to-issue-given-by-creator-to-issuer"></a></h4><p>The data model attributes the issuer of a VC and the creator of the badge class separately.</p><p>Standards Organization X (SOX) has created a number of badges related to competencies they certify. SOX wants to authorize an accredited, certified training organization (CTO) to issue their credentials. An Open Badge Platform manages the granting of issuing rights to CTO by SOX and can issue verifiable credentials where CTO is the issuer and SOX is the creator inside the badge class.</p><p>Employer receives a credential from a graduate. Employer, in addition to verifying the VC in general, can review and verify that SOX did in fact authorize CTO to issue this badge.</p><p><strong>Goal of the Primary Actor</strong>:</p><p><strong>Actors</strong>:</p><p><strong>Preconditions for this Use Case</strong>:</p><p><strong>Flow of Events</strong>:</p><p><strong>Post-Conditions/Success Criteria</strong>:</p><p><strong>Points of Failure</strong>:</p></section></section></section>
 
-  <section data-format="markdown" id="overview-0"><h2 id="overview"><bdi class="secno">2. </bdi>Overview<a class="self-link" aria-label="§" href="#overview"></a><a class="self-link" aria-label="§" href="#overview"></a></h2><section id="what-is-the-problem-this-solves-for-0"><h3 id="what-is-the-problem-this-solves-for"><bdi class="secno">2.1 </bdi>What is the problem this solves for?<a class="self-link" aria-label="§" href="#what-is-the-problem-this-solves-for"></a><a class="self-link" aria-label="§" href="#what-is-the-problem-this-solves-for"></a></h3><p>Verifiable Credentials (VCs) are a format that is used to publish a limitless variety of claims about a subject person or other entity, typically through a cryptographic proof. VCs can be collected and delivered as part of a <a href="https://www.w3.org/TR/vc-imp-guide/#dfn-verifiable-presentations">presentation</a> whereby authorship of each VC from the same or multiple issuers can be trusted via cryptographic verification. The presentation can also be cryptographically signed to demonstrate that the holder has assembled and sent the collection of VCs.</p><p>These layers of cryptographic proof can provide security and privacy enhancements to Open Badges that are not yet available in version 2.0. Adoption of Verifiable Credentials can increase market penetration and use of Open Badges by addressing market needs for trustworthy machine-ready data to power connected ecosystems in education and workforce. This can unlock the door for Open Badges credentials to be included in a growing number of multi-purpose digital credential wallets entering the market. Stepping further into signed VCs and another associated technology, decentralized identifiers (DIDs), unlocks increased longevity and resilience of Open Badges that can describe achievements even more expressively than they do today.</p></section><section id="what-does-adopting-verifiable-credentials-entail-0"><h3 id="what-does-adopting-verifiable-credentials-entail"><bdi class="secno">2.2 </bdi>What does adopting Verifiable Credentials entail?<a class="self-link" aria-label="§" href="#what-does-adopting-verifiable-credentials-entail"></a><a class="self-link" aria-label="§" href="#what-does-adopting-verifiable-credentials-entail"></a></h3><p>This proposal is for a reasonable change to the structure of the Open Badges Assertion class, to adopt the conventions of the <a href="https://w3c.github.io/vc-data-model/">Verifiable Credential Data Model</a>. This means that badges issued under the proposed version would not be conformant to all of the existing 2.x data model requirements.</p><p>An existing Open Badges Assertion, illustrated in the graphic below, structures its objects like this:
+  <section data-format="markdown" class="informative" id="overview-0"><h2 id="overview"><bdi class="secno">2. </bdi>Overview<a class="self-link" aria-label="§" href="#overview"></a><a class="self-link" aria-label="§" href="#overview"></a></h2><p><em>This section is non-normative.</em></p><section id="what-is-the-problem-this-solves-for-0"><h3 id="what-is-the-problem-this-solves-for"><bdi class="secno">2.1 </bdi>What is the problem this solves for?<a class="self-link" aria-label="§" href="#what-is-the-problem-this-solves-for"></a><a class="self-link" aria-label="§" href="#what-is-the-problem-this-solves-for"></a></h3><p>Verifiable Credentials (VCs) are a format that is used to publish a limitless variety of claims about a subject person or other entity, typically through a cryptographic proof. VCs can be collected and delivered as part of a <a href="https://www.w3.org/TR/vc-imp-guide/#dfn-verifiable-presentations">presentation</a> whereby authorship of each VC from the same or multiple issuers can be trusted via cryptographic verification. The presentation can also be cryptographically signed to demonstrate that the holder has assembled and sent the collection of VCs.</p><p>These layers of cryptographic proof can provide security and privacy enhancements to Open Badges that are not yet available in version 2.0. Adoption of Verifiable Credentials can increase market penetration and use of Open Badges by addressing market needs for trustworthy machine-ready data to power connected ecosystems in education and workforce. This can unlock the door for Open Badges credentials to be included in a growing number of multi-purpose digital credential wallets entering the market. Stepping further into signed VCs and another associated technology, decentralized identifiers (DIDs), unlocks increased longevity and resilience of Open Badges that can describe achievements even more expressively than they do today.</p></section><section id="what-does-adopting-verifiable-credentials-entail-0"><h3 id="what-does-adopting-verifiable-credentials-entail"><bdi class="secno">2.2 </bdi>What does adopting Verifiable Credentials entail?<a class="self-link" aria-label="§" href="#what-does-adopting-verifiable-credentials-entail"></a><a class="self-link" aria-label="§" href="#what-does-adopting-verifiable-credentials-entail"></a></h3><p>This proposal is for a reasonable change to the structure of the Open Badges Assertion class, to adopt the conventions of the <a href="https://w3c.github.io/vc-data-model/">Verifiable Credential Data Model</a>. This means that badges issued under the proposed version would not be conformant to all of the existing 2.x data model requirements.</p><p>An existing Open Badges Assertion, illustrated in the graphic below, structures its objects like this:
 An Assertion identifies a recipient with a "recipient" relationship to an IdentityObject that contains identifying properties. It identifies which badge it represents with a "badge" relationship to a BadgeClass. It identifies its verification information with a "verification" relationship to a VerificationObject. It identifies its issuer with an "issuer" relationship between the BadgeClass and the Issuer.</p><figure id="fig-open-badges-2-0-diagram">
   <img src="images/figure01-openbadges-2.0-diagram.png" width="640" alt="Open Badges 2.0 Diagram">
   <figcaption>Figure <bdi class="figno">1</bdi> <span class="fig-title">Open Badges 2.0 Diagram</span></figcaption>
@@ -1339,8 +1421,77 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   <figcaption>Figure <bdi class="figno">4</bdi> <span class="fig-title">Defined Achievement Assertion with Skill Result Diagram</span></figcaption>
 </figure><p>The inclusion of Skill Assertion claims makes a natural, ergonomic fit with defined achievement claims and evidence claims. Business logic to process each of the available claims can look for just the data a relying party needs, and extraneous claims do not get in the way.</p></section></section>
 
-  <section data-model="" id="org.1edtech.ob.v3p0.model"><h2 id="org-1edtech-ob-v3p0-model"><bdi class="secno">3. </bdi>org.1edtech.ob.v3p0.model<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.model"></a><a class="self-link" aria-label="§" href="#org-1edtech-ob-v3p0-model"></a></h2>
-    <section data-class="" id="org.1edtech.ob.v3p0.assertion.class" class="respec-offending-element" title="All sections must start with a `h2-6` element.">
+  <section data-model="" id="org.1edtech.ob.v3p0.model"><h2 id="open-badges-data-model"><bdi class="secno">3. </bdi>Open Badges Data Model<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.model"></a><a class="self-link" aria-label="§" href="#open-badges-data-model"></a></h2><p>Open Badges are visual symbols of accomplishments packed with verifiable metadata according to the Open Badges specification. The Open Badges specification defines the properties necessary to define an achievement and award it to a recipient, as well as procedures for verifying badge authenticity and “baking” badge information into portable image files. It includes term definitions for representations of data in Open Badges.</p>
+    <section data-class="" id="org.1edtech.ob.v3p0.assertion.class"><h3 id="assertion"><bdi class="secno">3.1 </bdi>Assertion<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertion.class"></a><a class="self-link" aria-label="§" href="#assertion"></a></h3><p>Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner.</p><table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+      <td>@context</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI[]</a></td>
+      <td>The value of the @context property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value https://www.w3.org/2018/credentials/v1. The second item is a URI with the value https://purl.imsglobal.org/spec/ob/v2p1/context/ob_v3p0.jsonld.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>id</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td>Unambiguous reference to the assertion. [ED: changed required to optional]</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>type</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI[]</a></td>
+      <td>The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI Verifiable Credential, and one of the items <em class="rfc2119">MUST</em> be the URI ImsAssertionCredential. [ED: Review more specific verifiable credential type]</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>issuer</td>
+      <td><a href="#org.1edtech.ob.v3p0.profile.class">Profile</a></td>
+      <td>A description of the individual, entity, or organization that issued the badge. [ED: consider using CDM Organization]</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>issuanceDate</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class">DateTime</a></td>
+      <td>Timestamp of when the achievement was awarded.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>credentialSubject</td>
+      <td><a href="#org.1edtech.ob.v3p0.credentialsubject.class">CredentialSubject</a></td>
+      <td>The recipient of the achievement.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>image</td>
+      <td><a href="#org.1edtech.ob.v3p0.image.class">Image</a></td>
+      <td>An image representing this user’s achievement. This must be a PNG or SVG image, and should be prepared via the Baking specification. An ‘unbaked’ image for the badge is defined in the BadgeClass and should not be duplicated here.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>narrative</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>expirationDate</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class">DateTime</a></td>
+      <td>If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. After this time, the badge should be considered expired.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>proof</td>
+      <td><a href="#org.1edtech.ob.v3p0.proof.class">Proof[]</a></td>
+      <td></td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>credentialStatus</td>
+      <td><a href="#org.1edtech.ob.v3p0.credentialstatus.class">CredentialStatus</a></td>
+      <td></td>
+      <td>Optional</td>
+    </tr><tr>
+      <td colspan="4">This class can be extended.</td>
+    </tr>
+        </tbody>
+      </table>
       <aside class="example" id="example-sample-assertion"><div class="marker">
     <a class="self-link" href="#example-sample-assertion">Example<bdi> 1</bdi></a><span class="example-title">: Sample Assertion</span>
   </div>
@@ -1363,22 +1514,449 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
 }</code></pre>
       </aside>
     </section>
-    <section data-class="" id="org.1edtech.ob.v3p0.achievement.class" class="respec-offending-element" title="All sections must start with a `h2-6` element.">
+    <section data-class="" id="org.1edtech.ob.v3p0.achievement.class"><h3 id="achievement"><bdi class="secno">3.2 </bdi>Achievement<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.achievement.class"></a><a class="self-link" aria-label="§" href="#achievement"></a></h3><p>A collection of information about the accomplishment recognized by the Open Badge. Many assertions may be created corresponding to one BadgeClass.</p><table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+      <td>id</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.iri.class">IRI</a></td>
+      <td>Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>type</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>Valid representation of the BadgeClass type. In most cases, this will simply be the string BadgeClass.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>achievementType</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td></td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>creator</td>
+      <td><a href="#org.1edtech.ob.v3p0.creator.class">Creator</a></td>
+      <td></td>
+      <td>Required</td>
+    </tr><tr>
+      <td>name</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>The name of the achievement.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>description</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>A short description of the achievement.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>image</td>
+      <td><a href="#org.1edtech.ob.v3p0.image.class">Image</a></td>
+      <td>An image of the achievement. This must be a PNG or SVG image.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>criteria</td>
+      <td><a href="#org.1edtech.ob.v3p0.criteria.class">Criteria</a></td>
+      <td>Criteria document describing how to earn the achievement.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>alignment</td>
+      <td><a href="#org.1edtech.ob.v3p0.alignmentobject.class">AlignmentObject[]</a></td>
+      <td>An object describing which objectives or educational standards this badge aligns to, if any.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>tags</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String[]</a></td>
+      <td>A tag that describes the type of achievement.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>endorsement</td>
+      <td><a href="#org.1edtech.ob.v3p0.endorsement.class">Endorsement[]</a></td>
+      <td>A claim made about this entity. Note: As endorsements must be published after the publication of the entity they endorse, it will not always be possible to establish a two-way linkage with this property.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td colspan="4">This class can be extended.</td>
+    </tr>
+        </tbody>
+      </table>
       <aside data-sample="" class="example" id="example-sample-achievement-generated"><div class="marker">
     <a class="self-link" href="#example-sample-achievement-generated">Example<bdi> 2</bdi></a><span class="example-title">: Sample achievement (Generated)</span>
-  </div></aside>
+  </div><pre class="nohighlight">{
+  "id": null,
+  "type": "...string...",
+  "creator": {},
+  "name": "...string...",
+  "description": "...string...",
+  "criteria": {
+    "type": "...string..."
+  }
+}</pre></aside>
     </section>
-    <section data-class="" id="org.1edtech.ob.v3p0.profile.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
-    <section data-class="" id="org.1edtech.ob.v3p0.evidence.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
-    <section data-class="" id="org.1edtech.ob.v3p0.image.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
-    <section data-class="" id="org.1edtech.ob.v3p0.criteria.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
-    <section data-class="" id="org.1edtech.ob.v3p0.alignmentobject.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
-    <section data-class="" id="org.1edtech.ob.v3p0.endorsement.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
-    <section data-class="" id="org.1edtech.ob.v3p0.credentialsubject.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
-    <section data-class="" id="org.1edtech.ob.v3p0.creator.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
-    <section data-class="" id="org.1edtech.ob.v3p0.proof.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
-    <section data-class="" id="org.1edtech.ob.v3p0.credentialstatus.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
-    <section data-class="" id="org.1edtech.ob.v3p0.result.class" class="respec-offending-element" title="All sections must start with a `h2-6` element."></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.profile.class"><h3 id="profile"><bdi class="secno">3.3 </bdi>Profile<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.profile.class"></a><a class="self-link" aria-label="§" href="#profile"></a></h3><p>A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address.</p><table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+      <td>id</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td>Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>type</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>Valid representation of Profile type. In most cases, this will simply be the string Profile.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>name</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>The name of the entity or organization.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>url</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.iri.class">IRI</a></td>
+      <td>The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>telephone</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>A phone number for the entity. For maximum compatibility, the value should be expressed as a + and country code followed by the number with no spaces or other punctuation, like +16175551212 (E.164 format).</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>description</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>A short description of the issuer entity or organization.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>image</td>
+      <td><a href="#org.1edtech.ob.v3p0.image.class">Image</a></td>
+      <td>An image representing the issuer. This must be a PNG or SVG image.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>email</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>Contact address for the individual or organization.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td colspan="4">This class can be extended.</td>
+    </tr>
+        </tbody>
+      </table></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.evidence.class"><h3 id="evidence"><bdi class="secno">3.4 </bdi>Evidence<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.evidence.class"></a><a class="self-link" aria-label="§" href="#evidence"></a></h3><p>Descriptive metadata about evidence related to the issuance of an Assertion. Each instance of the Evidence class present in an Assertion corresponds to one entity, though a single entry can describe a set of items collectively. There may be multiple evidence entries referenced from an Assertion. The narrative property is also in scope of the Assertion class to provide an overall description of the achievement related to the badge in rich text. It is used here to provide a narrative of achievement of the specific entity described. If both the description and narrative properties are present, displayers can assume the narrative value goes into more detail and is not simply a recapitulation of description.</p><table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+      <td>type</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>Defaults to Evidence.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>id</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.iri.class">IRI</a></td>
+      <td>The URI of a webpage presenting evidence of achievement.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>narrative</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>A narrative that describes the evidence and process of achievement that led to an Assertion.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>name</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>A descriptive title of the evidence.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>description</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>A longer description of the evidence.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>genre</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>A string that describes the type of evidence. For example, Poetry, Prose, Film.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>audience</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>A description of the intended audience for a piece of evidence.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td colspan="4">This class can be extended.</td>
+    </tr>
+        </tbody>
+      </table></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.image.class"><h3 id="image"><bdi class="secno">3.5 </bdi>Image<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.image.class"></a><a class="self-link" aria-label="§" href="#image"></a></h3><p>Metadata about images that represent Assertions, BadgeClasses or Profiles. These properties can typically be represented as just the id string of the image, but using a fleshed-out document allows for including captions and other applicable metadata.</p><table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+      <td>id</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.iri.class">IRI</a></td>
+      <td>The URI or Data URI of the image.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>type</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>Defaults to schema:ImageObject.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>caption</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>The caption for the image.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td colspan="4">This class can be extended.</td>
+    </tr>
+        </tbody>
+      </table></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.criteria.class"><h3 id="criteria"><bdi class="secno">3.6 </bdi>Criteria<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.criteria.class"></a><a class="self-link" aria-label="§" href="#criteria"></a></h3><p>Descriptive metadata about the achievements necessary to be recognized with an Assertion of a particular BadgeClass. This data is added to the BadgeClass so that it may be rendered when that BadgeClass is displayed, instead of simply a link to human-readable criteria external to the badge. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an Assertion of a particular BadgeClass. It is also used after the Assertion is awarded to a recipient to let those inspecting earned badges know the general requirements that the recipients met in order to earn it.</p><table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+      <td>id</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.iri.class">IRI</a></td>
+      <td>The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>type</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>Defaults to Criteria.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>narrative</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>A narrative of what is needed to earn the badge.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td colspan="4">This class can be extended.</td>
+    </tr>
+        </tbody>
+      </table></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.alignmentobject.class"><h3 id="alignmentobject"><bdi class="secno">3.7 </bdi>AlignmentObject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.alignmentobject.class"></a><a class="self-link" aria-label="§" href="#alignmentobject"></a></h3><p>The AlignmentObject is an alias for schema.org’s AlignmentObject and uses IRIs from that vocabulary.</p><table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+      <td>targetName</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>Name of the alignment.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>targetUrl</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+      <td>URL linking to the official description of the alignment target, for example an individual standard within an educational framework.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>targetDescription</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>Short description of the alignment target.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>targetFramework</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>Name of the framework the alignment target.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>targetCode</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td colspan="4">This class can be extended.</td>
+    </tr>
+        </tbody>
+      </table></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.endorsement.class"><h3 id="endorsement-0"><bdi class="secno">3.8 </bdi>Endorsement<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.endorsement.class"></a><a class="self-link" aria-label="§" href="#endorsement-0"></a></h3><p>Open Badges are trustworthy records of achievement. The vocabulary defined above, combined with the validation and verification procedures for badge Assertions, establish Open Badges as a reliable method for expressing and verifying achievements online. However, these procedures don’t answer questions like, “Who trusts this BadgeClass to be a good certification of the competency it describes?” or, “Is this Profile’s email address verified?” For these questions, there is Endorsement.</p><table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+      <td>id</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.iri.class">IRI</a></td>
+      <td>Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>claim</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.iri.class">IRI</a></td>
+      <td>An entity, identified by an id and additional properties that the endorser would like to claim about that entity.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>endorsementComment</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>Allows endorsers to make a simple claim in writing about the entity.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td colspan="4">This class can be extended.</td>
+    </tr>
+        </tbody>
+      </table></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.credentialsubject.class"><h3 id="credentialsubject"><bdi class="secno">3.9 </bdi>CredentialSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.credentialsubject.class"></a><a class="self-link" aria-label="§" href="#credentialsubject"></a></h3><p>A collection of information about the recipient of a badge.</p><table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+      <td>id</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.iri.class">IRI</a></td>
+      <td></td>
+      <td>Required</td>
+    </tr><tr>
+      <td>achievement</td>
+      <td><a href="#org.1edtech.ob.v3p0.achievement.class">Achievement</a></td>
+      <td></td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>evidence</td>
+      <td><a href="#org.1edtech.ob.v3p0.evidence.class">Evidence[]</a></td>
+      <td>A description of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>result</td>
+      <td><a href="#org.1edtech.ob.v3p0.result.class">Result[]</a></td>
+      <td></td>
+      <td>Optional</td>
+    </tr><tr>
+      <td colspan="4">This class can be extended.</td>
+    </tr>
+        </tbody>
+      </table></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.creator.class"><h3 id="creator"><bdi class="secno">3.10 </bdi>Creator<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.creator.class"></a><a class="self-link" aria-label="§" href="#creator"></a></h3><p></p><table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+      <td colspan="4">This class can be extended.</td>
+    </tr>
+        </tbody>
+      </table></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.proof.class"><h3 id="proof"><bdi class="secno">3.11 </bdi>Proof<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.proof.class"></a><a class="self-link" aria-label="§" href="#proof"></a></h3><p></p><table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+      <td>type</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td></td>
+      <td>Required</td>
+    </tr><tr>
+      <td>proofPurpose</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><em class="rfc2119">MUST</em> be 'assertionMethod'</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>verificationMethod</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String[]</a></td>
+      <td>A set of parameters required to independently verify the proof, such as an identifier for a public/private key pair that would be used in the proof. [ED: are key/value pairs required?]</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>created</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class">DateTime</a></td>
+      <td>The string value of an [<cite><a class="bibref" data-link-type="biblio" href="#bib-iso8601" title="Representation of dates and times. ISO 8601:2004.">ISO8601</a></cite>] combined date and time string generated by the Proof Algorithm.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td>domain</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>A string value specifying the restricted domain of the proof.</td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>proofValue</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td>One of any number of valid representations of proof value generated by the Proof Algorithm.</td>
+      <td>Required</td>
+    </tr><tr>
+      <td colspan="4">This class can be extended.</td>
+    </tr>
+        </tbody>
+      </table></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.credentialstatus.class"><h3 id="credentialstatus"><bdi class="secno">3.12 </bdi>CredentialStatus<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.credentialstatus.class"></a><a class="self-link" aria-label="§" href="#credentialstatus"></a></h3><p></p><table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+      <td colspan="4">This class can be extended.</td>
+    </tr>
+        </tbody>
+      </table></section>
+    <section data-class="" id="org.1edtech.ob.v3p0.result.class"><h3 id="result"><bdi class="secno">3.13 </bdi>Result<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.result.class"></a><a class="self-link" aria-label="§" href="#result"></a></h3><p></p><table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+      <td colspan="4">This class can be extended.</td>
+    </tr>
+        </tbody>
+      </table></section>
   </section>
 
   <section id="understanding-the-api-0">
@@ -1471,7 +2049,7 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
     </table>
   </section>
   <section id="api-endpoints-profile">
-    <h4 id="profile"><bdi class="secno">4.3.2 </bdi>Profile<a class="self-link" aria-label="§" href="#api-endpoints-profile"></a><a class="self-link" aria-label="§" href="#profile"></a></h4>
+    <h4 id="profile-0"><bdi class="secno">4.3.2 </bdi>Profile<a class="self-link" aria-label="§" href="#api-endpoints-profile"></a><a class="self-link" aria-label="§" href="#profile-0"></a></h4>
     <table class="openAPIPathsTable">
       <thead>
         <tr>
@@ -1525,14 +2103,64 @@ about what conformance testing is available and how certification ([<cite><a cla
 
 
 
-<section id="references" class="appendix"><h2 id="b-references"><bdi class="secno">B. </bdi>References<a class="self-link" aria-label="§" href="#references"></a></h2><section id="normative-references">
-    <h3 id="b-1-normative-references"><bdi class="secno">B.1 </bdi>Normative references<a class="self-link" aria-label="§" href="#normative-references"></a></h3>
-    <dl class="bibliography"><dt id="bib-json-ld11">[json-ld11]</dt><dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave Longley.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a></dd><dt id="bib-ob-bake-30">[OB-BAKE-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/ImageBinding/ob_ImageBinding.html"><cite>Open Badges Specification Baking a Badge v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/ImageBinding/ob_ImageBinding.html">https://www.imsglobal.org/spec/ob/v3p0/ImageBinding/ob_ImageBinding.html</a></dd><dt id="bib-ob-cert-30">[OB-CERT-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/cert/"><cite>Open Badges Specification Conformance and Certification Guide v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/cert/">https://www.imsglobal.org/spec/ob/v3p0/cert/</a></dd><dt id="bib-ob-info-30">[OB-INFO-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html"><cite>Open Badges Specification Information Model v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html">https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html</a></dd><dt id="bib-ob-rest-30">[OB-REST-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html"><cite>Open Badges Specification REST/JSON API v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html">https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html</a></dd><dt id="bib-rfc2119">[RFC2119]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a></dd><dt id="bib-rfc8259">[rfc8259]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8259"><cite>The JavaScript Object Notation (JSON) Data Interchange Format</cite></a>. T. Bray, Ed..  IETF. December 2017. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a></dd><dt id="bib-sec-10">[SEC-10]</dt><dd><a href="https://www.imsglobal.org/spec/security/v1p0/"><cite>IMS Global Security Framework v1.0</cite></a>. C. Smythe; C. Vervoort; M. McKell; N. Mills.  IMS Global Learning Consortium. April 2019. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/security/v1p0/">https://www.imsglobal.org/spec/security/v1p0/</a></dd><dt id="bib-vc-data-model">[vc-data-model]</dt><dd><a href="https://www.w3.org/TR/vc-data-model/"><cite>Verifiable Credentials Data Model v1.1</cite></a>. Manu Sporny; Grant Noble; Dave Longley; Daniel Burnett; Brent Zundel; Kyle Den Hartog.  W3C. 9 November 2021. W3C Recommendation. URL: <a href="https://www.w3.org/TR/vc-data-model/">https://www.w3.org/TR/vc-data-model/</a></dd></dl>
+<section class="appendix" id="open-badges-derived-types">
+    <h2 id="b-open-badges-derived-types"><bdi class="secno">B. </bdi>Open Badges Derived Types<a class="self-link" aria-label="§" href="#open-badges-derived-types"></a></h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td id="org.1edtech.ob.v3p0.derived.iri.class">IRI</td>
+            <td></td>
+          </tr><tr>
+            <td id="org.1edtech.ob.v3p0.derived.url.class">URL</td>
+            <td></td>
+          </tr><tr>
+            <td id="org.1edtech.ob.v3p0.derived.uri.class">URI</td>
+            <td></td>
+          </tr>
+      </tbody>
+    </table>
+  </section><section class="appendix" id="open-badges-primitive-types">
+    <h2 id="c-open-badges-primitive-types"><bdi class="secno">C. </bdi>Open Badges Primitive Types<a class="self-link" aria-label="§" href="#open-badges-primitive-types"></a></h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td id="org.1edtech.ob.v3p0.primitive.string.class">String</td>
+            <td></td>
+          </tr><tr>
+            <td id="org.1edtech.ob.v3p0.primitive.boolean.class">Boolean</td>
+            <td></td>
+          </tr><tr>
+            <td id="org.1edtech.ob.v3p0.primitive.anyuri.class">AnyURI</td>
+            <td></td>
+          </tr><tr>
+            <td id="org.1edtech.ob.v3p0.primitive.namespace.class">Namespace</td>
+            <td></td>
+          </tr><tr>
+            <td id="org.1edtech.ob.v3p0.primitive.datetime.class">DateTime</td>
+            <td>An [<cite><a class="bibref" data-link-type="biblio" href="#bib-iso8601" title="Representation of dates and times. ISO 8601:2004.">ISO8601</a></cite>] time using the syntax YYYY-MM-DDThh:mm:ss.</td>
+          </tr>
+      </tbody>
+    </table>
+  </section><section id="references" class="appendix"><h2 id="d-references"><bdi class="secno">D. </bdi>References<a class="self-link" aria-label="§" href="#references"></a></h2><section id="normative-references">
+    <h3 id="d-1-normative-references"><bdi class="secno">D.1 </bdi>Normative references<a class="self-link" aria-label="§" href="#normative-references"></a></h3>
+    <dl class="bibliography"><dt id="bib-iso8601">[ISO8601]</dt><dd><a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874"><cite>Representation of dates and times. ISO 8601:2004.</cite></a>.  International Organization for Standardization (ISO). 2004. ISO 8601:2004. URL: <a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874">http://www.iso.org/iso/catalogue_detail?csnumber=40874</a></dd><dt id="bib-json-ld11">[json-ld11]</dt><dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave Longley.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a></dd><dt id="bib-ob-cert-30">[OB-CERT-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/cert/"><cite>Open Badges Specification Conformance and Certification Guide v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/cert/">https://www.imsglobal.org/spec/ob/v3p0/cert/</a></dd><dt id="bib-ob-info-30">[OB-INFO-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html"><cite>Open Badges Specification Information Model v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html">https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html</a></dd><dt id="bib-ob-rest-30">[OB-REST-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html"><cite>Open Badges Specification REST/JSON API v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html">https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html</a></dd><dt id="bib-rfc2119">[RFC2119]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a></dd><dt id="bib-rfc8259">[rfc8259]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8259"><cite>The JavaScript Object Notation (JSON) Data Interchange Format</cite></a>. T. Bray, Ed..  IETF. December 2017. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a></dd><dt id="bib-sec-10">[SEC-10]</dt><dd><a href="https://www.imsglobal.org/spec/security/v1p0/"><cite>IMS Global Security Framework v1.0</cite></a>. C. Smythe; C. Vervoort; M. McKell; N. Mills.  IMS Global Learning Consortium. April 2019. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/security/v1p0/">https://www.imsglobal.org/spec/security/v1p0/</a></dd><dt id="bib-vc-data-model">[vc-data-model]</dt><dd><a href="https://www.w3.org/TR/vc-data-model/"><cite>Verifiable Credentials Data Model v1.1</cite></a>. Manu Sporny; Grant Noble; Dave Longley; Daniel Burnett; Brent Zundel; Kyle Den Hartog.  W3C. 9 November 2021. W3C Recommendation. URL: <a href="https://www.w3.org/TR/vc-data-model/">https://www.w3.org/TR/vc-data-model/</a></dd></dl>
   </section><section id="informative-references">
-    <h3 id="b-2-informative-references"><bdi class="secno">B.2 </bdi>Informative references<a class="self-link" aria-label="§" href="#informative-references"></a></h3>
-    <dl class="bibliography"><dt id="bib-ob-30">[OB-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/"><cite>Open Badges Specification v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/">https://www.imsglobal.org/spec/ob/v3p0/</a></dd></dl>
+    <h3 id="d-2-informative-references"><bdi class="secno">D.2 </bdi>Informative references<a class="self-link" aria-label="§" href="#informative-references"></a></h3>
+    <dl class="bibliography"><dt id="bib-ob-30">[OB-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/"><cite>Open Badges Specification v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/">https://www.imsglobal.org/spec/ob/v3p0/</a></dd><dt id="bib-ob-bake-30">[OB-BAKE-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/ImageBinding/ob_ImageBinding.html"><cite>Open Badges Specification Baking a Badge v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/ImageBinding/ob_ImageBinding.html">https://www.imsglobal.org/spec/ob/v3p0/ImageBinding/ob_ImageBinding.html</a></dd></dl>
   </section></section><section id="contributors" class="appendix">
-    <h2 id="c-list-of-contributors"><bdi class="secno">C. </bdi>List of Contributors<a class="self-link" aria-label="§" href="#contributors"></a></h2>
+    <h2 id="e-list-of-contributors"><bdi class="secno">E. </bdi>List of Contributors<a class="self-link" aria-label="§" href="#contributors"></a></h2>
     <p>The following individuals contributed to the development of this document:</p>
     <table class="contributors" title="List of Contributors" summary="The list of contributors to this work.">
       <thead>
@@ -1546,17 +2174,7 @@ about what conformance testing is available and how certification ([<cite><a cla
     </table>
     </section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
-  </p><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-verifiable-credential" aria-label="Links in this document to definition: Verifiable Credential">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-verifiable-credential" aria-label="Permalink for definition: Verifiable Credential. Activate to close this dialog.">Permalink</a>
-         
-      </div>
-      <p><b>Referenced in:</b></p>
-      <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
-    </div><script id="respec-dfn-panel">(() => {
+  </p><script id="respec-dfn-panel">(() => {
 // @ts-check
 if (document.respec) {
   document.respec.ready.then(setupPanel);
