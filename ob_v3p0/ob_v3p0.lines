@@ -23,7 +23,7 @@ Package OpenBadge DataModel
 		Property extensions Namespace 0..1 
 
 	Class Achievement Unordered false []					"d:A collection of information about the accomplishment recognized by the Open Badge. Many assertions may be created corresponding to one BadgeClass."
-		Property id	URI	1  								"d:Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid."
+			Property id	URI	1  								"d:Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid."
 		Property type URI 1 "v:BadgeClass"			"d:Valid representation of the BadgeClass type. In most cases, this will simply be the string BadgeClass."
 		Property achievementType String 0..1
 		Property creator Creator 1
@@ -93,9 +93,6 @@ Package OpenBadge DataModel
 		Property endorsementComment String 0..1 		"d:Allows endorsers to make a simple claim in writing about the entity."
 		Property extensions Namespace 0..1 		
 
-	Class Result Unordered false []
-		Property extensions Namespace 0..1 
-
 	Class Profile Unordered false []					"d:A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address."
 		Property id	URI	1  								"d:Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs."		
 		Property type URI 1 "v:Profile"				"d:Valid representation of Profile type. In most cases, this will simply be the string Profile."
@@ -106,6 +103,23 @@ Package OpenBadge DataModel
 		Property image Image 0..1 						"d:An image representing the issuer. This must be a PNG or SVG image."
 		Property email String 0..1 						"d:Contact address for the individual or organization."
 		Property extensions Namespace 0..1
+
+	Class Result Unordered false []						"d:[ED: from CLR]
+		Property id URI 0..1
+		Property type URI 0..1
+		Property achievedLevel URI 0..1
+		Property resultDescription URI 1
+		Property status ResultStatusType 0..1
+		Property value String 0..1
+		Property extensions Namespace 0..1 
+
+	Class ResultStatusType Enumeration false []			"d:[ED: from CLR]
+		Property Completed Term 1
+		Property Enrolled Term 1
+		Property Failed Term 1
+		Property InProgress Term 1
+		Property OnHold Term 1
+		Property Withdrew Term 1
 
 	Class TargetType Enumeration false []				"d:[ED: from CLR]
 		Property CFItem Term 1
