@@ -52,13 +52,14 @@ Package OpenBadge DataModel
 		Property extensions Namespace 0..1 
 
 	Class Evidence Unordered false []					"d:Descriptive metadata about evidence related to the issuance of an Assertion. Each instance of the Evidence class present in an Assertion corresponds to one entity, though a single entry can describe a set of items collectively. There may be multiple evidence entries referenced from an Assertion. The narrative property is also in scope of the Assertion class to provide an overall description of the achievement related to the badge in rich text. It is used here to provide a narrative of achievement of the specific entity described. If both the description and narrative properties are present, displayers can assume the narrative value goes into more detail and is not simply a recapitulation of description."	
-		Property type URI 1 "v:Evidence"				"d:Defaults to Evidence."
 		Property id	URI 0..1 							"d:The URI of a webpage presenting evidence of achievement."
-		Property narrative String 0..1 					"d:A narrative that describes the evidence and process of achievement that led to an Assertion."
+		Property type URI 1 "v:Evidence"				"d:Defaults to Evidence."
+		Property narrative Markdown 0..1 					"d:A narrative that describes the evidence and process of achievement that led to an Assertion."
 		Property name String 0..1 						"d:A descriptive title of the evidence."
 		Property description String 0..1  				"d:A longer description of the evidence."
 		Property genre String 0..1  					"d:A string that describes the type of evidence. For example, Poetry, Prose, Film."
 		Property audience String 0..1  					"d:A description of the intended audience for a piece of evidence."
+		Property artifacts Artifact 0..*				"d:[ED: from CLR]"
 		Property extensions Namespace 0..1 
 
 	Class Image Unordered false []						"d:Metadata about images that represent Assertions, BadgeClasses or Profiles. These properties can typically be represented as just the id string of the image, but using a fleshed-out document allows for including captions and other applicable metadata."
@@ -83,6 +84,13 @@ Package OpenBadge DataModel
 		Property targetFramework String	0..1  			"d:Name of the framework the alignment target."
 		Property targetType ExtensibleAlignmentTargetType 0..1 	"d:[ED: from CLR]"
 		Property targetUrl	URL 1 						"d:URL linking to the official description of the alignment target, for example an individual standard within an educational framework."
+		Property extensions Namespace 0..1 
+
+	Class Artifact Unordered false []					"d:[ED: from CLR]
+		Property type URI 0..1
+		Property description String 0..1
+		Property name String 0..1
+		Property url URI 0..1
 		Property extensions Namespace 0..1 
 
 	Class Endorsement Unordered false []				"d:Open Badges are trustworthy records of achievement. The vocabulary defined above, combined with the validation and verification procedures for badge Assertions, establish Open Badges as a reliable method for expressing and verifying achievements online. However, these procedures don’t answer questions like, “Who trusts this BadgeClass to be a good certification of the competency it describes?” or, “Is this Profile’s email address verified?” For these questions, there is Endorsement."
@@ -137,7 +145,7 @@ Package OpenBadge DataModel
 		Property points String 0..1
 		Property extensions Namespace 0..1 
 
-	// Enumerations
+// Enumerations
 
 	Class ResultStatusType Enumeration false []			"d:[ED: from CLR]
 		Property Completed Term 1
@@ -172,11 +180,14 @@ Package OpenBadge DataModel
 
 	Class ExtensibleAlignmentTargetType Union false [TargetType, EnumExtString]
 
+// Derived Types	
+
 Package DerivedTypes DataModel
 	Classes [IRI, URL, URI] DerivedType [AnyURI]
-//	Classes [Term] DerivedType [Token]
 	Includes [EnumExtString, Term]
-//	Classes [EnumExtString] DerivedType [NormalizedString]
+	Class Markdown DerivedType false [String]					"d:A string that may contain Markdown"
+
+// PrimitiveTypes
 
 Package PrimitiveTypes DataModel
 	Includes [AnyURI, String, Boolean, Namespace, NormalizedString, Token]
