@@ -11,13 +11,13 @@ Package OpenBadge DataModel
 		Property image Image 0..1  						"d:An image representing this user’s achievement. This must be a PNG or SVG image, and should be prepared via the Baking specification. An ‘unbaked’ image for the badge is defined in the BadgeClass and should not be duplicated here."
 		Property narrative String 0..1  				"d:A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array."
 		Property expirationDate DateTime 0..1  				"d:If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. After this time, the badge should be considered expired."
-		Property proof Proof 1..*
+		Property proof Proof 0..*
 		Property credentialStatus CredentialStatus 0..1
 		Property extensions Namespace 0..1 	
 
 	Class CredentialSubject Unordered false []				"d:A collection of information about the recipient of a badge."
 		Property id IRI 1
-		Property achievement Achievement 1
+		Property achievement Achievement 0..1
 		Property evidence Evidence 0..*  				"d:A description of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible."
 		Property result Result 0..*
 		Property extensions Namespace 0..1 

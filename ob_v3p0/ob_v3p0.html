@@ -11,8 +11,13 @@
   <!-- Load Digital Bazaar VC add-on -->
   <!-- <script class="remove" src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-vc@1.0.0/dist/main.js"></script> -->
 
-  <!-- Read the CDM configuration -->
+  <!-- Load the CDM configuration -->
   <script class="remove" src="cdm-config.js"></script>
+
+  <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.8.2/ajv2019.bundle.min.js" 
+          integrity="sha512-9CfeXrjdW9wxGntWtQ4wE0k9RD8avpYxoPEKAGu+EP87RyqXYVQjed0l872XkNtQeIyYavZeqY+jzm69pmjEDw==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script class='remove'>
     var respecConfig = {
@@ -63,23 +68,25 @@
   <section data-model id="org.1edtech.ob.v3p0.model">
     <section data-class id="org.1edtech.ob.v3p0.assertion.class">
       <aside class="example" title="Sample Assertion">
-        <pre class="nohighlight vc">
-      {
-        "@context": [
-          "https://www.w3.org/2018/credentials/v1",
-          "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
-        ],
-        "id": "http://example.edu/credentials/3732",
-        "type": ["VerifiableCredential", "OpenBadge"],
-        "issuer": {
-          "id": "https://example.edu/issuers/565049",
-          "name": "Example University"
-        "issuanceDate": "2010-01-01T00:00:00Z",
-        "credentialSubject": {
-          "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
-        }
-      }
-      </pre>
+        <pre class="json" data-schema="org.1edtech.ob.v3p0.assertion.class">
+          {
+            "@context": [
+              "https://www.w3.org/2018/credentials/v1",
+              "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
+            ],
+            "id": "http://example.edu/credentials/3732",
+            "type": ["VerifiableCredential", "OpenBadge"],
+            "issuer": {
+              "id": "https://example.edu/issuers/565049",
+              "type": "IssuerProfile",
+              "name": "Example University"
+            },
+            "issuanceDate": "2010-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+            }
+          }
+        </pre>
       </aside>
     </section>
     <section data-class id="org.1edtech.ob.v3p0.achievement.class">
