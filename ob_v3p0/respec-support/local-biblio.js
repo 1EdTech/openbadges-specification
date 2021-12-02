@@ -47,4 +47,11 @@ var _localBiblio = {
         "status": "IMS Base Document",
         "publisher": "IMS Global Learning Consortium"
     },
+    "ld-proofs": {
+        "title": "Linked Data Proofs 1.0",
+        "href": "https://w3c-ccg.github.io/ld-proofs/",
+        "status": "Draft Community Group Report",
+        "date": "03 June 2021",
+        "publisher": "W3C Credentials Community Group"
+    },
 };
