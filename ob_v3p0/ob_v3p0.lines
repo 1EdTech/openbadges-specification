@@ -16,14 +16,14 @@ Package OpenBadge DataModel
 		Property extensions Namespace 0..1 	
 
 	Class CredentialSubject Unordered false []				"d:A collection of information about the recipient of a badge."
-		Property id IRI 1
+		Property id URI 1
 		Property achievement Achievement 0..1
 		Property evidence Evidence 0..*  				"d:A description of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible."
 		Property result Result 0..*
 		Property extensions Namespace 0..1 
 
 	Class Achievement Unordered false []					"d:A collection of information about the accomplishment recognized by the Open Badge. Many assertions may be created corresponding to one BadgeClass."
-			Property id	URI	1  								"d:Unique IRI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid."
+		Property id	URI	1  								"d:Unique URI for the BadgeClass. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid."
 		Property type URI 1 "v:BadgeClass"			"d:Valid representation of the BadgeClass type. In most cases, this will simply be the string BadgeClass."
 		Property achievementType String 0..1
 		Property creator Creator 1
@@ -82,7 +82,7 @@ Package OpenBadge DataModel
 		Property targetDescription String 0..1 			"d:Short description of the alignment target."
 		Property targetName	String 1 					"d:Name of the alignment."
 		Property targetFramework String	0..1  			"d:Name of the framework the alignment target."
-		Property targetType ExtensibleAlignmentTargetType 0..1 	"d:[ED: from CLR]"
+		Property targetType TargetType 0..1 	"d:[ED: from CLR]"
 		Property targetUrl	URL 1 						"d:URL linking to the official description of the alignment target, for example an individual standard within an educational framework."
 		Property extensions Namespace 0..1 
 
@@ -94,18 +94,18 @@ Package OpenBadge DataModel
 		Property extensions Namespace 0..1 
 
 	Class Endorsement Unordered false []				"d:Open Badges are trustworthy records of achievement. The vocabulary defined above, combined with the validation and verification procedures for badge Assertions, establish Open Badges as a reliable method for expressing and verifying achievements online. However, these procedures don’t answer questions like, “Who trusts this BadgeClass to be a good certification of the competency it describes?” or, “Is this Profile’s email address verified?” For these questions, there is Endorsement."
-		Property id	URI	1  								"d:Unique IRI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace."
-		Property claim IRI 1 							"d:An entity, identified by an id and additional properties that the endorser would like to claim about that entity."
+		Property id	URI	1  								"d:Unique URI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace."
+		Property claim URI 1 							"d:An entity, identified by an id and additional properties that the endorser would like to claim about that entity."
 		Property issuer	Profile  1 						"d:The profile of the Endorsement’s issuer."
 		Property issuedOn DateTime 1 					"d:Timestamp of when the endorsement was published."
 		Property endorsementComment String 0..1 		"d:Allows endorsers to make a simple claim in writing about the entity."
 		Property extensions Namespace 0..1 		
 
 	Class Profile Unordered false []					"d:A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address."
-		Property id	URI	1  								"d:Unique IRI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs."		
+		Property id	URI	1  								"d:Unique URI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs."		
 		Property type URI 1 "v:Profile"				"d:Valid representation of Profile type. In most cases, this will simply be the string Profile."
 		Property name String 0..1 						"d:The name of the entity or organization."
-		Property url IRI 0..1 							"d:The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP."
+		Property url URI 0..1 							"d:The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP."
 		Property telephone String 0..1 					"d:A phone number for the entity. For maximum compatibility, the value should be expressed as a + and country code followed by the number with no spaces or other punctuation, like +16175551212 (E.164 format)."
 		Property description String	0..1 				"d:A short description of the issuer entity or organization."
 		Property image Image 0..1 						"d:An image representing the issuer. This must be a PNG or SVG image."
@@ -129,7 +129,7 @@ Package OpenBadge DataModel
 		Property name String 1
 		Property requiredLevel URI 0..1
 		Property requiredValue String 0..1
-		Property resultType ExtensibleResultType 1
+		Property resultType ResultType 1
 		Property rubricCriterionLevels RubricCriterionLevel 0..*
 		Property valueMax String 0..1
 		Property valueMin String 0..1
@@ -155,7 +155,7 @@ Package OpenBadge DataModel
 		Property OnHold Term 1
 		Property Withdrew Term 1
 
-	Class ResultType Enumeration false []				"d:[ED: from CLR]
+	Class ResultType EnumExt false []				"d:[ED: from CLR]
 		Property GradePointAverage Term 1
 		Property LetterGrade Term 1
 		Property Percent Term 1
@@ -169,25 +169,21 @@ Package OpenBadge DataModel
 		Property ScaledScore Term 1
 		Property Status Term 1
 
-	Class ExtensibleResultType Union false [ResultType, EnumExtString]
-
-	Class TargetType Enumeration false []				"d:[ED: from CLR]
+	Class TargetType EnumExt false []				"d:[ED: from CLR]
 		Property CFItem Term 1
 		Property CFRubric Term 1
 		Property CFRubricCriterion Term 1
 		Property CFRubricCriterionLevel Term 1
 		Property CTDL Term 1
 
-	Class ExtensibleAlignmentTargetType Union false [TargetType, EnumExtString]
-
 // Derived Types	
 
 Package DerivedTypes DataModel
-	Includes [EnumExtString, Term]
-	Class IRI DerivedType false [NormalizedString]				"A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI)."
+	Includes [Term]
+//	Class URI DerivedType false [NormalizedString]				"A `NormalizedString` that represents an Internationalized Resource Identifier (URI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI)."
 	Class URI DerivedType false [NormalizedString]				"A `NormalizedString` that respresents a Uniform Resource Identifier (URI)."
 	Class URL DerivedType false [URI]							"A `URI` that represents a Uniform Resource Locator (URL)."
-	Class Markdown DerivedType false [String]					"A string that may contain Markdown"
+	Class Markdown DerivedType false [String]					"A `String` that may contain Markdown."
 
 // PrimitiveTypes
 
