@@ -16,6 +16,17 @@ Package OpenBadge DataModel
 		Property endorsement Endorsement 0..* 			"d:A claim made about this entity. Note: As endorsements must be published after the publication of the entity they endorse, it will not always be possible to establish a two-way linkage with this property."		
 		Property extensions Namespace 0..1  
 
+	Class Address Unordered false []					"[ED: from CLR]"
+		Property id URI 0..1
+		Property type URI 0..1
+		Property addressCountry String 0..1
+		Property addressLocality String 0..1
+		Property addressRegion String 0..1
+		Property postalCode String 0..1
+		Property postOfficeBoxNumber String 0..1
+		Property streetAddress String 0..1
+		Property extensions Namespace 0..1  
+
 	Class AlignmentObject Unordered false []			"d:The AlignmentObject is an alias for schema.org’s AlignmentObject and uses IRIs from that vocabulary."
 		Property id	URI 0..1 							"d:The URI of a webpage presenting evidence of achievement."
 		Property type URI 0..1
@@ -102,6 +113,17 @@ Package OpenBadge DataModel
 		Property description String	0..1 				"d:A short description of the issuer entity or organization."
 		Property image Image 0..1 						"d:An image representing the issuer. This must be a PNG or SVG image."
 		Property email String 0..1 						"d:Contact address for the individual or organization."
+		Property address Address 0..1					"[ED: from CLR]"
+		Property additionalName String 0..1				"[ED: from CLR]"
+		Property birthDate Date 0..1					"[ED: from CLR]"
+		Property endorsements Endorsement 0..*			"[ED: from CLR]"
+		Property familyName String 0..1					"[ED: from CLR]"
+		Property givenName String 0..1					"[ED: from CLR]"
+		Property identifiers SystemIdentifier 0..*		"[ED: from CLR]"
+		Property official String 0..1					"[ED: from CLR]"
+		Property parentOrg Profile 0..1					"[ED: from CLR]"
+		Property sourcedId String 0..1					"[ED: from CLR]"
+		Property studentId String 0..1					"[ED: from CLR]"
 		Property extensions Namespace 0..1
 
 	Class Proof Unordered false []						"From [[ld-proofs]]"
@@ -146,6 +168,11 @@ Package OpenBadge DataModel
 		Property points String 0..1
 		Property extensions Namespace 0..1 
 
+	Class SystemIdentifier Unordered false []			"[ED: from CLR]"
+		Property type URI 0..1
+		Property identifier String 1
+		Property identifierType IdentifierType 1
+
 // Enumerations
 
 	Class AchievementType EnumExt false []				"[ED: from CLR]"
@@ -188,6 +215,10 @@ Package OpenBadge DataModel
 		Property ScaledScore Term 1						"The result is a scaled score."
 		Property Status Term 1							"The result conveys the status of the achievement."
 
+	Class IdentifierType EnumExt false []				"[ED: from CLR]"
+		Property LisSourcedId Term 1					"The IMS LIS sourcedId for the achievement represented by the Achievement instance or the IMS LIS sourcedId for the person or organization represented by the Profile instance."
+		Property OneRosterSourcedId Term 1				"The IMS OneRoster sourcedId for the achievement represented by the Achievement instance or the IMS OneRoster sourcedId for the person or organization represented by the Profile instance."
+
 	Class TargetType EnumExt false []					"[ED: from CLR]"
 		Property CFItem Term 1							"An alignment to a CASE Framework Item."
 		Property CFRubric Term 1						"An alignment to a CASE Framework Rubric."
@@ -210,5 +241,6 @@ Package PrimitiveTypes DataModel
 	Includes [NormalizedString]
 	Class String PrimitiveType false []							"Character strings"
 	Class Namespace PrimitiveType false []						"A namespace data type for defining data from a context other than that as the default for the data model. This is used for importing other data models."
+	Class Date PrimitiveType false []
 	Class DateTime PrimitiveType false [] 						"A `String` conforming to the `dateTime` definition in [[XMLSCHEMA11-2]]."
 		
