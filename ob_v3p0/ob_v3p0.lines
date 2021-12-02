@@ -9,7 +9,7 @@ Package OpenBadge DataModel
 		Property issuanceDate DateTime 1  					"d:Timestamp of when the achievement was awarded."
 		Property credentialSubject CredentialSubject 1  			"d:The recipient of the achievement."
 		Property image Image 0..1  						"d:An image representing this user’s achievement. This must be a PNG or SVG image, and should be prepared via the Baking specification. An ‘unbaked’ image for the badge is defined in the BadgeClass and should not be duplicated here."
-		Property narrative String 0..1  				"d:A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array."
+		Property narrative Markdown 0..1  				"d:A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array."
 		Property expirationDate DateTime 0..1  				"d:If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. After this time, the badge should be considered expired."
 		Property proof Proof 0..*
 		Property credentialStatus CredentialStatus 0..1
@@ -72,7 +72,7 @@ Package OpenBadge DataModel
 	Class Criteria Unordered false []					"d:Descriptive metadata about the achievements necessary to be recognized with an Assertion of a particular BadgeClass. This data is added to the BadgeClass so that it may be rendered when that BadgeClass is displayed, instead of simply a link to human-readable criteria external to the badge. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an Assertion of a particular BadgeClass. It is also used after the Assertion is awarded to a recipient to let those inspecting earned badges know the general requirements that the recipients met in order to earn it."
 		Property id	URI	0..1 							"d:The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass."
 		Property type URI 1 "v:Criteria"				"d:Defaults to Criteria."		
-		Property narrative String 0..1 					"d:A narrative of what is needed to earn the badge."
+		Property narrative Markdown 0..1 					"d:A narrative of what is needed to earn the badge."
 		Property extensions Namespace 0..1 
 
 	Class AlignmentObject Unordered false []			"d:The AlignmentObject is an alias for schema.org’s AlignmentObject and uses IRIs from that vocabulary."
