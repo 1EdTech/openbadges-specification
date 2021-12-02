@@ -188,6 +188,8 @@ Package DerivedTypes DataModel
 // PrimitiveTypes
 
 Package PrimitiveTypes DataModel
-	Includes [String, Namespace, NormalizedString]
+	Includes [NormalizedString]
+	Class String PrimitiveType false []							"Character strings"
+	Class Namespace PrimitiveType false []						"A namespace data type for defining data from a context other than that as the default for the data model. This is used for importing other data models."
 	Class DateTime PrimitiveType false [] 						"A `String` conforming to the `dateTime` definition in [[XMLSCHEMA11-2]]."
 		
