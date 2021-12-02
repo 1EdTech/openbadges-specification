@@ -183,14 +183,15 @@ Package OpenBadge DataModel
 // Derived Types	
 
 Package DerivedTypes DataModel
-	Classes [IRI, URL, URI] DerivedType [AnyURI]
 	Includes [EnumExtString, Term]
-	Class Markdown DerivedType false [String]					"d:A string that may contain Markdown"
+	Class IRI DerivedType false [NormalizedString]				"A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI)."
+	Class URI DerivedType false [NormalizedString]				"A `NormalizedString` that respresents a Uniform Resource Identifier (URI)."
+	Class URL DerivedType false [URI]							"A `URI` that represents a Uniform Resource Locator (URL)."
+	Class Markdown DerivedType false [String]					"A string that may contain Markdown"
 
 // PrimitiveTypes
 
 Package PrimitiveTypes DataModel
-	Includes [AnyURI, String, Boolean, Namespace, NormalizedString, Token]
-	Class DateTime PrimitiveType false [] 				"d:A combined date-time string conforming to the dateTime format in [[XMLSCHEMA11-2]]."
-
+	Includes [String, Namespace, NormalizedString]
+	Class DateTime PrimitiveType false [] 						"A `String` conforming to the `dateTime` definition in [[XMLSCHEMA11-2]]."
 		
