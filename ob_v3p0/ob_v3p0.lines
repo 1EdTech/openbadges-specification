@@ -62,7 +62,9 @@ Package OpenBadge DataModel
 	Class Creator Unordered false []
 		Property extensions Namespace 0..1  
 
-	Class CredentialStatus Unordered false []
+	Class CredentialStatus Unordered false []			"For the discovery of information about the current status of a verifiable credential, such as whether it is suspended or revoked. [[vc-data-model]]"
+		Property id URI 1
+		Property type URI 1								"Expresses the credential status type (also referred to as the credential status method). It is expected that the value will provide enough information to determine the current status of the credential. For example, the object could contain a link to an external document noting whether or not the credential is suspended or revoked. [[vc-data-model]]"
 		Property extensions Namespace 0..1 
 
 	Class CredentialSubject Unordered false []			"d:A collection of information about the recipient of a badge."
