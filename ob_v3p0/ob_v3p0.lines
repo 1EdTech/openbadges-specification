@@ -59,33 +59,33 @@ Package OpenBadge DataModel
 		Property credentialStatus CredentialStatus 0..1	"Provides information about the current status of a verifiable credential, such as whether it is suspended or revoked. [[vc-data-model]]"
 		Property extensions Namespace 0..1 	
 
-	Class Creator Unordered false []
+	Class Creator Unordered false []					"@@@TBD"
 		Property extensions Namespace 0..1  
 
-	Class CredentialStatus Unordered false []			"For the discovery of information about the current status of a verifiable credential, such as whether it is suspended or revoked. [[vc-data-model]]"
+	Class CredentialStatus Unordered false []			"The information in CredentialStatus is used to discover information about the current status of a verifiable credential, such as whether it is suspended or revoked. [[vc-data-model]]"
 		Property id URI 1
 		Property type URI 1								"Expresses the credential status type (also referred to as the credential status method). It is expected that the value will provide enough information to determine the current status of the credential. For example, the object could contain a link to an external document noting whether or not the credential is suspended or revoked. [[vc-data-model]]"
 		Property extensions Namespace 0..1 
 
-	Class CredentialSubject Unordered false []			"d:A collection of information about the recipient of a badge."
+	Class CredentialSubject Unordered false []			"A collection of information about the recipient of a badge."
 		Property id URI 1
-		Property achievement Achievement 0..1
-		Property evidence Evidence 0..*  				"d:A description of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible."
-		Property result Result 0..*
+		Property achievement Achievement 0..1			"The achievement being awarded."
+		Property evidence Evidence 0..*  				"A description of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible."
+		Property result Result 0..*						"The set of results being asserted."
 		Property extensions Namespace 0..1 
 
-	Class Criteria Unordered false []					"d:Descriptive metadata about the achievements necessary to be recognized with an Assertion of a particular BadgeClass. This data is added to the BadgeClass so that it may be rendered when that BadgeClass is displayed, instead of simply a link to human-readable criteria external to the badge. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an Assertion of a particular BadgeClass. It is also used after the Assertion is awarded to a recipient to let those inspecting earned badges know the general requirements that the recipients met in order to earn it."
-		Property id	URI	0..1 							"d:The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass."
-		Property type URI 1 "v:Criteria"				"d:Defaults to Criteria."		
-		Property narrative Markdown 0..1 				"d:A narrative of what is needed to earn the badge."
+	Class Criteria Unordered false []					"Descriptive metadata about the achievements necessary to be recognized with an Assertion of a particular BadgeClass. This data is added to the BadgeClass so that it may be rendered when that BadgeClass is displayed, instead of simply a link to human-readable criteria external to the badge. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an Assertion of a particular BadgeClass. It is also used after the Assertion is awarded to a recipient to let those inspecting earned badges know the general requirements that the recipients met in order to earn it."
+		Property id	URI	0..1 							"The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass."
+		Property type URI 1	"v:Criteria"				"Defaults to Criteria."		
+		Property narrative Markdown 0..1 				"A narrative of what is needed to earn the badge."
 		Property extensions Namespace 0..1 
 
-	Class Endorsement Unordered false []				"d:Open Badges are trustworthy records of achievement. The vocabulary defined above, combined with the validation and verification procedures for badge Assertions, establish Open Badges as a reliable method for expressing and verifying achievements online. However, these procedures don’t answer questions like, “Who trusts this BadgeClass to be a good certification of the competency it describes?” or, “Is this Profile’s email address verified?” For these questions, there is Endorsement."
-		Property id	URI	1  								"d:Unique URI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace."
-		Property claim URI 1 							"d:An entity, identified by an id and additional properties that the endorser would like to claim about that entity."
-		Property issuer	Profile  1 						"d:The profile of the Endorsement’s issuer."
-		Property issuedOn DateTime 1 					"d:Timestamp of when the endorsement was published."
-		Property endorsementComment String 0..1 		"d:Allows endorsers to make a simple claim in writing about the entity."
+	Class Endorsement Unordered false []				"Open Badges are trustworthy records of achievement. The vocabulary defined above, combined with the validation and verification procedures for badge Assertions, establish Open Badges as a reliable method for expressing and verifying achievements online. However, these procedures don’t answer questions like, “Who trusts this BadgeClass to be a good certification of the competency it describes?” or, “Is this Profile’s email address verified?” For these questions, there is Endorsement."
+		Property id	URI	1  								"Unique URI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace."
+		Property claim URI 1 							"An entity, identified by an id and additional properties that the endorser would like to claim about that entity."
+		Property issuer	Profile  1 						"The profile of the Endorsement’s issuer."
+		Property issuedOn DateTime 1 					"Timestamp of when the endorsement was published."
+		Property endorsementComment String 0..1 		"Allows endorsers to make a simple claim in writing about the entity."
 		Property extensions Namespace 0..1 		
 
 	Class Evidence Unordered false []					"d:Descriptive metadata about evidence related to the issuance of an Assertion. Each instance of the Evidence class present in an Assertion corresponds to one entity, though a single entry can describe a set of items collectively. There may be multiple evidence entries referenced from an Assertion. The narrative property is also in scope of the Assertion class to provide an overall description of the achievement related to the badge in rich text. It is used here to provide a narrative of achievement of the specific entity described. If both the description and narrative properties are present, displayers can assume the narrative value goes into more detail and is not simply a recapitulation of description."	
@@ -96,14 +96,14 @@ Package OpenBadge DataModel
 		Property description String 0..1  				"d:A longer description of the evidence."
 		Property genre String 0..1  					"d:A string that describes the type of evidence. For example, Poetry, Prose, Film."
 		Property audience String 0..1  					"d:A description of the intended audience for a piece of evidence."
-		Property artifacts Artifact 0..*				"[ED: from CLR]"
+		Property artifacts Artifact 0..*				"[ED: from CLR] Artifacts that are part of the evidence."
 		Property extensions Namespace 0..1 
 
-	Class Image Unordered false []						"d:Metadata about images that represent Assertions, BadgeClasses or Profiles. These properties can typically be represented as just the id string of the image, but using a fleshed-out document allows for including captions and other applicable metadata."
-		Property id	URI	1 								"d:The URI or Data URI of the image."
-		Property type URI 1 "v:Image"					"d:Defaults to schema:ImageObject."		
-		Property caption String 0..1 					"d:The caption for the image."
-		Property author	Profile 0..1  					"d:The author of the image, if desired."
+	Class Image Unordered false []						"Metadata about images that represent Assertions, BadgeClasses or Profiles. These properties can typically be represented as just the id string of the image, but using a fleshed-out document allows for including captions and other applicable metadata."
+		Property id	URI	1 								"The URI or Data URI of the image."
+		Property type URI 1 "v:Image"					"Defaults to schema:ImageObject."		
+		Property caption String 0..1 					"The caption for the image."
+		Property author	Profile 0..1  					"The author of the image, if desired."
 		Property extensions Namespace 0..1 
 
 	Class Profile Unordered false []					"d:A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address."
@@ -115,22 +115,22 @@ Package OpenBadge DataModel
 		Property description String	0..1 				"d:A short description of the issuer entity or organization."
 		Property image Image 0..1 						"d:An image representing the issuer. This must be a PNG or SVG image."
 		Property email String 0..1 						"d:Contact address for the individual or organization."
-		Property address Address 0..1					"[ED: from CLR]"
-		Property additionalName String 0..1				"[ED: from CLR]"
-		Property birthDate Date 0..1					"[ED: from CLR]"
-		Property endorsements Endorsement 0..*			"[ED: from CLR]"
-		Property familyName String 0..1					"[ED: from CLR]"
-		Property givenName String 0..1					"[ED: from CLR]"
-		Property identifiers SystemIdentifier 0..*		"[ED: from CLR]"
-		Property official String 0..1					"[ED: from CLR]"
-		Property parentOrg Profile 0..1					"[ED: from CLR]"
-		Property sourcedId String 0..1					"[ED: from CLR]"
-		Property studentId String 0..1					"[ED: from CLR]"
+		Property address Address 0..1					"[ED: from CLR] An address for the individual or organization."
+		Property additionalName String 0..1				"[ED: from CLR] An additional name for a person, can be used for a middle name."
+		Property birthDate Date 0..1					"[ED: from CLR] Birthdate of the person."
+		Property endorsements Endorsement 0..*			"[ED: from CLR] Allows endorsers to make specific claims about the individual or organization represented by this profile."
+		Property familyName String 0..1					"[ED: from CLR] Family name of a person. In the U.S., the last name of a person."
+		Property givenName String 0..1					"[ED: from CLR] Given name of a person. In the U.S., the first name of a person."
+		Property identifiers SystemIdentifier 0..*		"[ED: from CLR] A set of System Identifiers that represent other identifiers for this Profile."
+		Property official String 0..1					"[ED: from CLR] The name of the authorized official for the Issuer."
+		Property parentOrg Profile 0..1					"[ED: from CLR] The parent organization of the person or organization represented by this organization."
+		Property sourcedId String 0..1					"[ED: from CLR] The individual's or organization's unique 'sourcedId' value, which is used for providing interoperability with other identity systems."
+		Property studentId String 0..1					"[ED: from CLR] An institution's student identifier for the person. This is frequently issued through a Student Information System."
 		Property extensions Namespace 0..1
 
 	Class Proof Unordered false []						"From [[ld-proofs]]"
 		Property type URI 1
-		Property proofPurpose String 1 					"v:assertionMethod" "d:MUST be 'assertionMethod'"
+		Property proofPurpose String 1 "v:assertionMethod" "MUST be 'assertionMethod'"
 		Property verificationMethod String 1..*			"d:A set of parameters required to independently verify the proof, such as an identifier for a public/private key pair that would be used in the proof. [ED: are key/value pairs required?]"
 		Property created DateTime 1						"d:The string value of an [[ISO8601]] combined date and time string generated by the Proof Algorithm."
 		Property domain String 0..1						"d:A string value specifying the restricted domain of the proof."
