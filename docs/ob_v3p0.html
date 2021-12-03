@@ -1142,7 +1142,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </tr>
       <tr>
         <td>Date Issued:</td>
-        <td>2021-12-02</td>
+        <td>2021-12-03</td>
       </tr>
       <tr>
         <td>Status:</td>
@@ -2062,7 +2062,7 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
     </tr>
         </tbody>
       </table></section>
-    <section data-class="" id="org.1edtech.ob.v3p0.credentialstatus.class"><h3 id="credentialstatus"><bdi class="secno">4.13 </bdi>CredentialStatus<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.credentialstatus.class"></a><a class="self-link" aria-label="§" href="#credentialstatus"></a></h3><p></p><table>
+    <section data-class="" id="org.1edtech.ob.v3p0.credentialstatus.class"><h3 id="credentialstatus"><bdi class="secno">4.13 </bdi>CredentialStatus<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.credentialstatus.class"></a><a class="self-link" aria-label="§" href="#credentialstatus"></a></h3><p>For the discovery of information about the current status of a verifiable credential, such as whether it is suspended or revoked. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]</p><table>
         <thead>
           <tr>
             <th>Property</th>
@@ -2073,6 +2073,16 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
         </thead>
         <tbody>
           <tr>
+      <td>id</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td></td>
+      <td>Required</td>
+    </tr><tr>
+      <td>type</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td>Expresses the credential status type (also referred to as the credential status method). It is expected that the value will provide enough information to determine the current status of the credential. For example, the object could contain a link to an external document noting whether or not the credential is suspended or revoked. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]</td>
+      <td>Required</td>
+    </tr><tr>
       <td colspan="4">This class can be extended.</td>
     </tr>
         </tbody>
@@ -2961,7 +2971,7 @@ function hidePanel(panel) {
         Please refer to Document Name: Open Badges Specification
         3.0
       </p>
-      <p>Date: 2021-12-02</p>
+      <p>Date: 2021-12-03</p>
       <div></div>
     </div>
   </footer></body></html>
