@@ -1,6 +1,6 @@
 Model ob 2020-01-24 3.0 "s:IMS Draft" "t:Open Badges" "d:Open Badges are visual symbols of accomplishments packed with verifiable metadata according to the Open Badges specification. The Open Badges specification defines the properties necessary to define an achievement and award it to a recipient, as well as procedures for verifying badge authenticity and “baking” badge information into portable image files. It includes term definitions for representations of data in Open Badges."
 
-Package OpenBadge DataModel
+Package OpenBadges DataModel
 
 	Class Achievement Unordered false []				"d:A collection of information about the accomplishment recognized by the Assertion. Many assertions may be created corresponding to one Achievement."
 		Property id	URI	1  								"d:Unique URI for the Achievement. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid."
@@ -245,4 +245,3 @@ Package PrimitiveTypes DataModel
 	Class Namespace PrimitiveType false []						"A namespace data type for defining data from a context other than that as the default for the data model. This is used for importing other data models."
 	Class Date PrimitiveType false []
 	Class DateTime PrimitiveType false [] 						"A `String` conforming to the `dateTime` definition in [[XMLSCHEMA11-2]]."
-		
