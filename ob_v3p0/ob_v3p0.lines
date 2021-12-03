@@ -1,4 +1,4 @@
-Model ob 2020-01-24 3.0 "s:IMS Draft" "t:Open Badges" "d:Open Badges are visual symbols of accomplishments packed with verifiable metadata according to the Open Badges specification. The Open Badges specification defines the properties necessary to define an achievement and award it to a recipient, as well as procedures for verifying badge authenticity and “baking” badge information into portable image files. It includes term definitions for representations of data in Open Badges."
+Model ob 2021-12-01 3.0 "s:IMS Draft" "t:Open Badges" "d:Open Badges are visual symbols of accomplishments packed with verifiable metadata according to the Open Badges specification. The Open Badges specification defines the properties necessary to define an achievement and award it to a recipient, as well as procedures for verifying badge authenticity and “baking” badge information into portable image files. It includes term definitions for representations of data in Open Badges."
 
 Package OpenBadges DataModel
 
@@ -232,16 +232,15 @@ Package OpenBadges DataModel
 
 Package DerivedTypes DataModel
 	Includes [Term]
-//	Class URI DerivedType false [NormalizedString]				"A `NormalizedString` that represents an Internationalized Resource Identifier (URI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI)."
-	Class URI DerivedType false [NormalizedString]				"A `NormalizedString` that respresents a Uniform Resource Identifier (URI)."
-	Class URL DerivedType false [URI]							"A `URI` that represents a Uniform Resource Locator (URL)."
-	Class Markdown DerivedType false [String]					"A `String` that may contain Markdown."
+	Class URI DerivedType false [NormalizedString]		"A `NormalizedString` that respresents a Uniform Resource Identifier (URI)."
+	Class URL DerivedType false [URI]					"A `URI` that represents a Uniform Resource Locator (URL)."
+	Class Markdown DerivedType false [String]			"A `String` that may contain Markdown."
 
 // PrimitiveTypes
 
 Package PrimitiveTypes DataModel
 	Includes [NormalizedString]
-	Class String PrimitiveType false []							"Character strings"
-	Class Namespace PrimitiveType false []						"A namespace data type for defining data from a context other than that as the default for the data model. This is used for importing other data models."
-	Class Date PrimitiveType false []
-	Class DateTime PrimitiveType false [] 						"A `String` conforming to the `dateTime` definition in [[XMLSCHEMA11-2]]."
+	Class String PrimitiveType false []					"Character strings"
+	Class Namespace PrimitiveType false []				"A namespace data type for defining data from a context other than that as the default for the data model. This is used for importing other data models."
+	Class Date PrimitiveType false []					"A `String` conforming to the `date` definition in [[XMLSCHEMA11-2]]."
+	Class DateTime PrimitiveType false [] 				"A `String` conforming to the `dateTime` definition in [[XMLSCHEMA11-2]]."
