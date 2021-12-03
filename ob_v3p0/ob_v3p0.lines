@@ -16,7 +16,7 @@ Package OpenBadge DataModel
 		Property endorsement Endorsement 0..* 			"d:A claim made about this entity. Note: As endorsements must be published after the publication of the entity they endorse, it will not always be possible to establish a two-way linkage with this property."		
 		Property extensions Namespace 0..1  
 
-	Class Address Unordered false []					"[ED: from CLR] Adapted from [[schema-org]] Address."
+	Class Address Unordered false []					"[ED: from CLR] Address is an alias for [[schema-org]] Address."
 		Property id URI 0..1
 		Property type URI 0..1
 		Property addressCountry String 0..1				"The country. For example, USA. You can also provide the two-letter [[ISO3166-1]] alpha-2 country code."
@@ -27,22 +27,22 @@ Package OpenBadge DataModel
 		Property streetAddress String 0..1				"The street address. For example, 1600 Amphitheatre Pkwy."
 		Property extensions Namespace 0..1  
 
-	Class AlignmentObject Unordered false []			"d:The AlignmentObject is an alias for schema.org’s AlignmentObject and uses IRIs from that vocabulary."
+	Class AlignmentObject Unordered false []			"d:AlignmentObject is an alias for [[schema-org]] AlignmentObject and uses IRIs from that vocabulary."
 		Property id	URI 0..1 							"d:The URI of a webpage presenting evidence of achievement."
 		Property type URI 0..1
 		Property targetCode String 0..1 				"d:If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl."
 		Property targetDescription String 0..1 			"d:Short description of the alignment target."
 		Property targetName	String 1 					"d:Name of the alignment."
 		Property targetFramework String	0..1  			"d:Name of the framework the alignment target."
-		Property targetType TargetType 0..1 			"[ED: from CLR]"
+		Property targetType TargetType 0..1 			"[ED: from CLR]" The type of the alignment target node.
 		Property targetUrl	URL 1 						"d:URL linking to the official description of the alignment target, for example an individual standard within an educational framework."
 		Property extensions Namespace 0..1 
 
-	Class Artifact Unordered false []					"[ED: from CLR]"
+	Class Artifact Unordered false []					"[ED: from CLR] An artifact that is part of an evidence object."
 		Property type URI 0..1
-		Property description String 0..1
-		Property name String 0..1
-		Property url URI 0..1
+		Property description String 0..1				"A description of the artifact."
+		Property name String 0..1						"The name of the artifact."
+		Property url URI 0..1							"URI for the artifact which may be a Data URI ([[RFC2397]]) or the URL where the artifact can be found."
 		Property extensions Namespace 0..1 
 
 	Class Assertion Unordered false [] 					"d:Assertions are representations of an awarded badge, used to share information about a badge belonging to one earner. Assertions have all the properties needed to conform with a Verifiable Credential as defined in the [[vc-data-model]] specification. Therefore you can say, 'An Open Badges Assertion is a Verifiable Credential.'"
