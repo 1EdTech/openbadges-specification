@@ -13,8 +13,18 @@ on:
       - develop
 
 jobs:
+  
+  sideload:
+    name: Sideload the ob_v3p0.lines file
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' -F 'file=@ob_v3p0/ob_v3p0.lines' https://imsum2.herokuapp.com/upload
+        continue-on-error: false
+  
   build:
     name: Build a static version of the Respec document
+    needs: sideload
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
