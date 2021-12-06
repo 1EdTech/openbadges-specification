@@ -49,8 +49,8 @@ jobs:
     steps:
       - name: Checkout gh-pages
         uses: actions/checkout@v2
-        with:
-          ref: gh-pages
+#        with:
+#          ref: gh-pages
       - name: Download artifact created by build job
         uses: actions/download-artifact@v2
         with: 
