@@ -135,6 +135,62 @@ var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6p
 var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
 var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </style>
+<script type="text/javascript">
+  /**
+   * Displays a Verifiable Credential example given an element that contains
+   * PRE tags and an elementClass to match against and display.
+   */
+  function displayVcExample(element, elementClass) {
+    // find all SPAN.tab sibling elements in an example block
+    const tabs = element.parentElement.querySelectorAll('.tab');
+    // highlight the currently clicked on tab
+    for(tab of tabs) {
+      tab.classList.remove('selected');
+    }
+    element.classList.add('selected');
+
+    // find all PRE sibling elements in an example block
+    const examples = element.parentElement.querySelectorAll('pre');
+    // display the provided elementClass, hide all other PRE blocks
+    for(example of examples) {
+      if(example.classList.contains(elementClass)) {
+        example.style.display = 'block';
+      } else {
+        example.style.display = 'none';
+      }
+    }
+  }
+
+  window.displayVcExample = displayVcExample;
+  </script>
+<style>
+
+  .example .tab {
+    background-color: rgba(0, 0, 0, 0.05);
+    border: solid gray thin;
+    border-radius: 4px 4px 0px 0px;
+    border-color: #574b0f;
+    padding: 4px;
+    cursor: default;
+    margin: 4px;
+  }
+
+  .example .tab.selected {
+    background-color: inherit;
+    border-bottom: solid #fcfaee thin;
+  }
+
+  .example .tab:hover {
+    color: #034575;
+    background-color: #e0cb52;
+  }
+
+  .example .tab-separator {
+    background: gray;
+    height: 1px;
+    border: 1px;
+  }
+</style>
 <script id="initialUserConfig" type="application/json">{
   "mainSpecTitle": "Open Badges Specification",
   "mainSpecBiblioKey": "OB-30",
@@ -1122,6 +1178,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "necessaryClaims": "No",
       "type": "RF RAND (Required & Optional Elements)"
     }
+  ],
+  "postProcess": [
+    null
   ]
 }</script></head>
 
@@ -1314,7 +1373,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </blockquote>
 <p>This specification includes this JSON-LD Context file:</p>
 <ul>
-<li><a href="https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld">https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld</a></li>
+<li><a href="https://imsglobal.github.io/openbadges-specification/context.json">https://imsglobal.github.io/openbadges-specification/context.json</a></li>
 </ul>
 </li>
 <li><p><cite><a href="https://www.imsglobal.org/spec/ob/v3p0/schema/json">Open Badges Specification JSON Schema v3.0</a></cite></p>
@@ -1516,10 +1575,10 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
       <aside class="example" id="example-sample-assertion"><div class="marker">
     <a class="self-link" href="#example-sample-assertion">Example<bdi> 1</bdi></a><span class="example-title">: Sample Assertion</span>
   </div>
-        <pre data-schema="org.1edtech.ob.v3p0.assertion.class" aria-busy="false"><code class="hljs json">{
+        <pre class="vc" data-schema="org.1edtech.ob.v3p0.assertion.class" data-vc-vm="https://example.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
   <span class="hljs-attr">"@context"</span>: [
     <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-    <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>
+    <span class="hljs-string">"https://www.w3.org/2018/credentials/examples/v1"</span>,
   ],
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://example.edu/credentials/3732"</span>,
   <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"VerifiableCredential"</span>, <span class="hljs-string">"OpenBadge"</span>],
