@@ -5,7 +5,7 @@ Package OpenBadges DataModel
 	Class Achievement Unordered false []				"d:A collection of information about the accomplishment recognized by the Assertion. Many assertions may be created corresponding to one Achievement."
 		Property id	URI	1  								"d:Unique URI for the Achievement. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid."
 		Property type URI 1 "v:Achievement"				"d:Valid representation of the Achievement type. In most cases, this will simply be the string Achievement."
-		Property achievementType AchievementType 0..1	"[ED: from CLR]"
+		Property achievementType AchievementType 0..1	"[ED: from CLR 1.0]"
 		Property creator Creator 1
 		Property name String 1  						"d:The name of the achievement."
 		Property description String 1  					"d:A short description of the achievement."
@@ -16,7 +16,7 @@ Package OpenBadges DataModel
 		Property endorsement Endorsement 0..* 			"d:A claim made about this entity. Note: As endorsements must be published after the publication of the entity they endorse, it will not always be possible to establish a two-way linkage with this property."		
 		Property extensions Namespace 0..1  
 
-	Class Address Unordered false []					"[ED: from CLR] Address is an alias for [[schema-org]] Address."
+	Class Address Unordered false []					"[ED: from CLR 1.0] Address is an alias for [[schema-org]] Address."
 		Property id URI 0..1
 		Property type URI 0..1
 		Property addressCountry String 0..1				"The country. For example, USA. You can also provide the two-letter [[ISO3166-1]] alpha-2 country code."
@@ -34,11 +34,11 @@ Package OpenBadges DataModel
 		Property targetDescription String 0..1 			"d:Short description of the alignment target."
 		Property targetName	String 1 					"d:Name of the alignment."
 		Property targetFramework String	0..1  			"d:Name of the framework the alignment target."
-		Property targetType TargetType 0..1 			"[ED: from CLR]" The type of the alignment target node.
+		Property targetType TargetType 0..1 			"[ED: from CLR 1.0]" The type of the alignment target node.
 		Property targetUrl	URL 1 						"d:URL linking to the official description of the alignment target, for example an individual standard within an educational framework."
 		Property extensions Namespace 0..1 
 
-	Class Artifact Unordered false []					"[ED: from CLR] An artifact that is part of an evidence object."
+	Class Artifact Unordered false []					"[ED: from CLR 1.0] An artifact that is part of an evidence object."
 		Property type URI 0..1
 		Property description String 0..1				"A description of the artifact."
 		Property name String 0..1						"The name of the artifact."
@@ -96,7 +96,7 @@ Package OpenBadges DataModel
 		Property description String 0..1  				"d:A longer description of the evidence."
 		Property genre String 0..1  					"d:A string that describes the type of evidence. For example, Poetry, Prose, Film."
 		Property audience String 0..1  					"d:A description of the intended audience for a piece of evidence."
-		Property artifacts Artifact 0..*				"[ED: from CLR] Artifacts that are part of the evidence."
+		Property artifacts Artifact 0..*				"[ED: from CLR 1.0] Artifacts that are part of the evidence."
 		Property extensions Namespace 0..1 
 
 	Class Image Unordered false []						"Metadata about images that represent Assertions, BadgeClasses or Profiles. These properties can typically be represented as just the id string of the image, but using a fleshed-out document allows for including captions and other applicable metadata."
@@ -115,17 +115,17 @@ Package OpenBadges DataModel
 		Property description String	0..1 				"d:A short description of the issuer entity or organization."
 		Property image Image 0..1 						"d:An image representing the issuer. This must be a PNG or SVG image."
 		Property email String 0..1 						"d:Contact address for the individual or organization."
-		Property address Address 0..1					"[ED: from CLR] An address for the individual or organization."
-		Property additionalName String 0..1				"[ED: from CLR] An additional name for a person, can be used for a middle name."
-		Property birthDate Date 0..1					"[ED: from CLR] Birthdate of the person."
-		Property endorsements Endorsement 0..*			"[ED: from CLR] Allows endorsers to make specific claims about the individual or organization represented by this profile."
-		Property familyName String 0..1					"[ED: from CLR] Family name of a person. In the U.S., the last name of a person."
-		Property givenName String 0..1					"[ED: from CLR] Given name of a person. In the U.S., the first name of a person."
-		Property identifiers SystemIdentifier 0..*		"[ED: from CLR] A set of System Identifiers that represent other identifiers for this Profile."
-		Property official String 0..1					"[ED: from CLR] The name of the authorized official for the Issuer."
-		Property parentOrg Profile 0..1					"[ED: from CLR] The parent organization of the person or organization represented by this organization."
-		Property sourcedId String 0..1					"[ED: from CLR] The individual's or organization's unique 'sourcedId' value, which is used for providing interoperability with other identity systems."
-		Property studentId String 0..1					"[ED: from CLR] An institution's student identifier for the person. This is frequently issued through a Student Information System."
+		Property address Address 0..1					"[ED: from CLR 1.0] An address for the individual or organization."
+		Property additionalName String 0..1				"[ED: from CLR 1.0] An additional name for a person, can be used for a middle name."
+		Property birthDate Date 0..1					"[ED: from CLR 1.0] Birthdate of the person."
+		Property endorsements Endorsement 0..*			"[ED: from CLR 1.0] Allows endorsers to make specific claims about the individual or organization represented by this profile."
+		Property familyName String 0..1					"[ED: from CLR 1.0] Family name of a person. In the U.S., the last name of a person."
+		Property givenName String 0..1					"[ED: from CLR 1.0] Given name of a person. In the U.S., the first name of a person."
+		Property identifiers SystemIdentifier 0..*		"[ED: from CLR 1.0] A set of System Identifiers that represent other identifiers for this Profile."
+		Property official String 0..1					"[ED: from CLR 1.0] The name of the authorized official for the Issuer."
+		Property parentOrg Profile 0..1					"[ED: from CLR 1.0] The parent organization of the person or organization represented by this organization."
+		Property sourcedId String 0..1					"[ED: from CLR 1.0] The individual's or organization's unique 'sourcedId' value, which is used for providing interoperability with other identity systems."
+		Property studentId String 0..1					"[ED: from CLR 1.0] An institution's student identifier for the person. This is frequently issued through a Student Information System."
 		Property extensions Namespace 0..1
 
 	Class Proof Unordered false []						"From [[ld-proofs]]"
@@ -137,7 +137,7 @@ Package OpenBadges DataModel
 		Property proofValue String 1					"d:One of any number of valid representations of proof value generated by the Proof Algorithm."
 		Property extensions Namespace 0..1 
 
-	Class Result Unordered false []						"[ED: from CLR]"
+	Class Result Unordered false []						"[ED: from CLR 1.0]"
 		Property id URI 0..1
 		Property type URI 0..1
 		Property achievedLevel URI 0..1
@@ -146,7 +146,7 @@ Package OpenBadges DataModel
 		Property value String 0..1
 		Property extensions Namespace 0..1 
 
-	Class ResultDescription Unordered false []			"[ED: from CLR]"
+	Class ResultDescription Unordered false []			"[ED: from CLR 1.0]"
 		Property id URI 1
 		Property type URI 0..1
 		Property alignments AlignmentObject 0..*
@@ -160,7 +160,7 @@ Package OpenBadges DataModel
 		Property valueMin String 0..1
 		Property extensions Namespace 0..1 
 
-	Class RubricCriterionLevel Unordered false []		"[ED: from CLR]"
+	Class RubricCriterionLevel Unordered false []		"[ED: from CLR 1.0]"
 		Property id URI 1
 		Property type URI 0..1
 		Property alignments AlignmentObject 0..*
@@ -170,14 +170,14 @@ Package OpenBadges DataModel
 		Property points String 0..1
 		Property extensions Namespace 0..1 
 
-	Class SystemIdentifier Unordered false []			"[ED: from CLR]"
+	Class SystemIdentifier Unordered false []			"[ED: from CLR 1.0]"
 		Property type URI 0..1
 		Property identifier String 1
 		Property identifierType IdentifierType 1
 
 // Enumerations
 
-	Class AchievementType EnumExt false []				"[ED: from CLR]"
+	Class AchievementType EnumExt false []				"[ED: from CLR 1.0]"
 		Property Achievement Term 1						"Represents a generic achievement."
 		Property Assessment Term 1						"Represents the result of a skill, competency, or outcome-based summative assessment."
 		Property Assignment Term 1						"Represents the result of a curricular, or co-curricular assignment or exam."
@@ -195,7 +195,7 @@ Package OpenBadges DataModel
 		Property License Term 1							"Represents a license."
 		Property Membership Term 1						"Represents membership."
 
-	Class ResultStatusType Enumeration false []			"[ED: from CLR]"
+	Class ResultStatusType Enumeration false []			"[ED: from CLR 1.0]"
 		Property Completed Term 1						"The learner has successfully completed the achievement. This is the default status if no status result is included."
 		Property Enrolled Term 1						"The learner is enrolled in the activity described by the achievement."
 		Property Failed Term 1							"The learner has unsuccessfully completed the achievement."
@@ -203,7 +203,7 @@ Package OpenBadges DataModel
 		Property OnHold Term 1							"The learner has completed the activity described by the achievement, but successful completion has not been awarded, typically for administrative reasons."
 		Property Withdrew Term 1						"The learner withdrew from the activity described by the achievement before completion."
 
-	Class ResultType EnumExt false []					"[ED: from CLR]"
+	Class ResultType EnumExt false []					"[ED: from CLR 1.0]"
 		Property GradePointAverage Term 1				"The result is a grade point average."
 		Property LetterGrade Term 1						"The result is a letter grade."
 		Property Percent Term 1							"The result is a percent score."
@@ -217,11 +217,11 @@ Package OpenBadges DataModel
 		Property ScaledScore Term 1						"The result is a scaled score."
 		Property Status Term 1							"The result conveys the status of the achievement."
 
-	Class IdentifierType EnumExt false []				"[ED: from CLR]"
+	Class IdentifierType EnumExt false []				"[ED: from CLR 1.0]"
 		Property LisSourcedId Term 1					"The IMS LIS sourcedId for the achievement represented by the Achievement instance or the IMS LIS sourcedId for the person or organization represented by the Profile instance."
 		Property OneRosterSourcedId Term 1				"The IMS OneRoster sourcedId for the achievement represented by the Achievement instance or the IMS OneRoster sourcedId for the person or organization represented by the Profile instance."
 
-	Class TargetType EnumExt false []					"[ED: from CLR]"
+	Class TargetType EnumExt false []					"[ED: from CLR 1.0]"
 		Property CFItem Term 1							"An alignment to a CASE Framework Item."
 		Property CFRubric Term 1						"An alignment to a CASE Framework Rubric."
 		Property CFRubricCriterion Term 1				"An alignment to a CASE Framework Rubric Criterion."

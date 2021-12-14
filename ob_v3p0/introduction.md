@@ -2,37 +2,34 @@ var introduction = `
 
 ## Introduction
 
-### Document Set
+### Specification Documents {#document-set}
 
-The Open Badges Specification has several related documents and artifacts shown below. Together
-they make up the specification.
+The full set of documents is comprised of the following:
 
-#### Informative Documents
-
-Informative documents do not specify requirements.
-
-<div class="admonition ednote">None at this time</div>
-
-#### Normative Documents
-
-Normative documents specify requirements. Normative documents may include informative sections.
-
-* [[[!OB-30]]] - Intended to be the first, and possibly only document you need to understand the specification and even implement a simple
-prototype. Many examples are included which you can copy to issue, display, or verify your
-first open badge.
-* [[[!OB-BAKE-30]]] - Specifies how to embed Open Badge JSON inside a PNG or SVG image file.
-* OpenAPI files you can use to generate template code that implements the consumer or server API. These links go directly to the corresponding OpenAPI file:
-  * [JSON](https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/openapi.json)
-  * [YAML](https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/openapi.yaml)
-* JSON Schema files which define the JSON serialization of the classes and properties in the Open Badges Data Model. These links go directly to the corresponding JSON Schema file:
-  * [Assertion](https://www.imsglobal.org/spec/ob/v3p0/schema/json/assertion.json)
-  * [Achievement](https://www.imsglobal.org/spec/ob/v3p0/schema/json/achievement.json)
-  * ... and so on ...
-* JSON-LD Context file for this specification. This link goes directly to the context file:
-  * [Context File](https://www.imsglobal.org/spec/ob/v3p0/context.json)
+* [[[OB-30]]]
 * [[[OB-CERT-30]]] - Specifies the conformance tests and certification requirements for this specification.
-* [[[OB-REST-30]]] - Specifies the REST API used to exchange Open Badges between systems over the wire.
-* [[[OB-INFO-30]]] - Specifies the abstract data model of this specification and its relationship to the IMS Common Data Model, the logical data model, and extension methods available to this specification. This is a reference document for all the other documents that make up this specification.
+* [[[OB-BAKE-30]]] - Specifies how to embed Open Badge JSON inside a PNG or SVG image file.
+* OpenAPI 3.0 Files for the Badge Connect API
+
+  From the OpenAPI Specification [[OPENAPIS]],
+  > The Open API Specification (OAS) defines a standard, programming language-agnostic interface description for HTTP APIs, which allows both humans and computers to discover and understand the capabilities of a service without requiring access to source code, additional documentation, or inspection of network traffic. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interface descriptions have done for lower-level programming, the OpenAPI Specification removes guesswork in calling a service.
+  
+  This standard has OpenAPI 3.0 files for the Badge Connect API in both JSON and YAML format:
+  * [JSON OpenAPI File](https://purl.imsglobal.org/spec/ob/v2p1/schema/openapi/imsob_v3p0.json)
+  * [YAML OpenAPI File](https://purl.imsglobal.org/spec/ob/v2p1/schema/openapi/imsob_v3p0.yaml)
+  
+* JSON-LD Context File
+
+  From the JSON-LD 1.1 Specification [[json-ld11]],
+  > When two people communicate with one another, the conversation takes place in a shared environment, typically called "the context of the conversation". This shared context allows the individuals to use shortcut terms, like the first name of a mutual friend, to communicate more quickly but without losing accuracy. A context in JSON-LD works in the same way. It allows two applications to use shortcut terms to communicate with one another more efficiently, but without losing accuracy.
+  >
+  > Simply speaking, a context is used to map terms to IRIs. Terms are case sensitive and any valid string that is not a reserved JSON-LD keyword can be used as a term.
+
+  This specification includes this JSON-LD Context file:
+
+  * [https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld](https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld)
+
+* [[[OB-JSON-30]]]
 
 ### Terms
 
