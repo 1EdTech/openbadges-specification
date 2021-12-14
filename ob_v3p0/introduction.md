@@ -27,7 +27,7 @@ The full set of documents is comprised of the following:
 
   This specification includes this JSON-LD Context file:
 
-  * [https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld](https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld)
+  * [https://imsglobal.github.io/openbadges-specification/context.json](https://imsglobal.github.io/openbadges-specification/context.json)
 
 * [[[OB-JSON-30]]]
 

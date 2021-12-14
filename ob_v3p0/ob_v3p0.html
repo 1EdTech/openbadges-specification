@@ -9,7 +9,7 @@
   <script src='respec-support/iprs.js' class='remove'></script>
 
   <!-- Load Digital Bazaar VC add-on -->
-  <!-- <script class="remove" src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-vc@1.0.0/dist/main.js"></script> -->
+  <script class="remove" src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-vc@1.0.0/dist/main.js"></script>
 
   <!-- Load the CDM configuration -->
   <script class="remove" src="cdm-config.js"></script>
@@ -39,9 +39,9 @@
 
       // Add VC proof examples
 
-      // postProcess: [
-      //   window.respecVc.createVcExamples
-      // ],
+      postProcess: [
+        window.respecVc.createVcExamples
+      ],
     };
   </script>
 </head>
@@ -71,11 +71,12 @@
   <section data-model="org.1edtech.ob.v3p0.model">
     <section data-class="org.1edtech.ob.v3p0.assertion.class">
       <aside class="example" title="Sample Assertion">
-        <pre class="json" data-schema="org.1edtech.ob.v3p0.assertion.class">
+        <pre class="json vc" data-schema="org.1edtech.ob.v3p0.assertion.class"
+        data-vc-vm="https://example.edu/issuers/565049#key-1">
           {
             "@context": [
               "https://www.w3.org/2018/credentials/v1",
-              "https://imsglobal.github.io/openbadges-specification/context.json"
+              "https://www.w3.org/2018/credentials/examples/v1",
             ],
             "id": "http://example.edu/credentials/3732",
             "type": ["VerifiableCredential", "OpenBadge"],
