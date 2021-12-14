@@ -18,11 +18,9 @@ The credentials that would be produced under this proposal could easily be bundl
   - [Abstract](abstract.md)
   - [Introduction](introduction.md)
   - [Overview](overview.md)
-  - [Understanding the Data Model](datamodel.md)
-  - [Understanding the API](api.html)
   - [Syntaxes](syntaxes.md)
   - [Conformance Testing](certification.md)
 
 ### Current Status
 
-[IMS Base Document](http://imsglobal.github.io/openbadges-specification/ob_v3p0.html) - The specification is being developed by the work group
+[IMS Base Document](http://imsglobal.github.io/openbadges-specification/ob_v3p0.html) - The specification is being developed by the project group and this document is frequently updated
