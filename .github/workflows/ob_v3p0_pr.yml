@@ -46,9 +46,15 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Get branch name from PR
+        uses: andrevalentin/get-branch-name-by-pr@1.0.0
+        id: pr_data
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout the branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.pr_data.outputs.branch }}
       - name: Download artifact created by build job
         uses: actions/download-artifact@v2
         with: 
