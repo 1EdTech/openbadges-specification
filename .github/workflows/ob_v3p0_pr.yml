@@ -5,11 +5,6 @@ on:
   pull_request:
     branches: 
       - develop
-    paths: 
-      - 'ob_v3p0/**'
-      - '!ob_v3p0/context.json'
-      - '!ob_v3p0/readme.md'
-      - '.github/workflows/*'
 
 jobs:
   
@@ -47,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get branch name from PR
-        uses: andrevalentin/get-branch-name-by-pr@1.0.0
+        uses: andrevalentin/get-branch-name-by-pr@v1
         id: pr_data
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
