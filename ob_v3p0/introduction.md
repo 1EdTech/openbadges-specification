@@ -33,31 +33,57 @@ The full set of documents is comprised of the following:
 
 ### Terms
 
-* _Digital Credential Achievement (DC Achievement)_: This is the content description of a credential that an assertion references. It contains metadata such as the name of the achievement, description, alignment of skills, etc. A DC Assertion asserts a single achievement. CLRs may have a collection of assertions containing a collection of achievements.
+* _Achievement Type_: A vocabulary which describes the type of achievement.
 
-* _achievementType_: A CLR property being proposed as an addition to Open Badges 3.0 which describes the type of achievement. See ["dtExtensibleAchievementType" Class](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtExtensibleAchievementType).
+* _Alignment_: An alignment is a reference to an achievement definition, whether referenced in a resource outside the package or contained within the package.
 
-* _Digital Credential Assertion (DC Assertion)_: The core of both Open Badges and CLR is the assertion about achievement(s). DC Assertion properties are specific to one learner's achievement and specify metadata such as issuer, date of achievement, expiration data, as well as results and evidence that support the assertion. A Verifiable Credential more broadly asserts a claim about a credentialSubject which can be applied to education and occupational achievements.
+* _Association_: An association is the relationship between one assertion in a CLR has with another assertion in that CLR.
+  <div class="issue"><a href="https://github.com/IMSGlobal/openbadges-specification/issues/324"><em>Association</em> needs review</a>.</div>
 
-* _credentialSubject_: Describes the claims being made by the Verifiable Credential. See [Credential Subject](https://www.w3.org/TR/vc-data-model/#credential-subject).
+* _Claim_: A statement about the Credential Subject. A claim may include associated evidence, results, or other metadata regarding a specific achievement, skill or assertion.
 
-* _Decentralized Identifiers_: A type of identifier for people, organizations and any other entity, where each identifier is controlled independently of centralized registries. See [DID Use Cases Intro](https://www.w3.org/TR/did-use-cases/#intro).
+* _Comprehensive Learner Record (CLR)_: Set of assertions that can be packaged as a verifiable credential.
+
+* _Credential Subject_: Describes the claims being made by the Verifiable Credential. In the context of Open Badges and CLR is typically  an individual but in the case of Open Badges, may be another entity type such as a course, book, or organization. Learners, Organizations and other entities can be explicit subclasses of Credential Subjects for purposes of business rules. [[vc-data-model]]
+
+* _Decentralized Identifiers_: A type of identifier for people, organizations and any other entity, where each identifier is controlled independently of centralized registries. [[did-core]] [[did-use-cases]]
+
+* _Digital Credential Achievement (DC Achievement)_: This is the content description of a credential that an assertion references. It contains metadata such as the name of the achievement, description, alignment of skills, etc. An Open Badge asserts a single achievement. A CLR asserts a collection of assertions, each of which asserts a single achievement.
+
+* _Digital Credential Assertion (DC Assertion)_: The core of both Open Badges and CLR is the assertion about achievement(s). DC Assertion properties are specific to one learner's achievement and specify metadata such as issuer, date of achievement, expiration data, as well as results and evidence that support the assertion. A Verifiable Credential more broadly asserts a claim about a Credential Subject which can be applied to education and occupational achievements.
+
+* _Evidence_: Information supporting a claim such as a URL to an artifact produced by the Learner.
+
+* _Issuer_: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.
+
+* _Learner_: The person who is the subject of the CLR and assertions contained in a CLR.
+
+* _Open Badge_: A single assertion of an achievement that is packaged as a verifiable credential.
+
+* _Organization_: An organized group of one or more people with a particular purpose. [[CEDS]]
+
+* _Person_: A human being, alive or deceased, as recognized by each jurisdiction’s legal definitions. [[CEDS]]
+
+* _Publisher_: The organization or entity issuing the CLR (typically the educational institution or a 3rd-party agent). The publisher is either the issuer or has a trusted relationship with the issuer of all the assertions in the CLR.
+  <div class="issue"><a href="https://github.com/IMSGlobal/openbadges-specification/issues/325"><em>Publisher</em> needs clarification</a>.</div>
 
 * _Relying Third-Party_: Also referred to as the "verifier" of a VC. This entity requests, verifies, and may consume data being presented.
 
-* _Rich Skill Descriptors (RSD)_: A machine readable reference to a description of a skill located at a unique URL. See [Rich Skill Descriptor (RSD)](https://rsd.osmt.dev).
+* _Result_: Describes a possible achievement result. A result may contain the rubric level that was achieved.
 
-* _result_: A property which describes a possible achievement result. See ["dtResult" Class](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtResult).
+* _Result Description_: Describes a possible achievement result. A result description may contain a rubric.
 
-* _resultDescription_: A CLR property being proposed as an addition to Open Badges 3.0 which describes a possible achievement result. See ["dtResultDescription" Class](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtResultDescription).
+* _Rich Skill Descriptor (RSD)_: A machine readable reference to a description of a skill located at a unique URL. [[RSD]]
 
-* _Skill Assertion_: an Open Badges assertion that contains a "skill result."
+* _Role_: People have roles in organizations for specific periods of time. Roles are a time aware association between a person and an organization. [[CEDS]]
 
-* _Verifiable Credential (VC)_: W3C data model that describes how claims can be cryptographically verified. See [[[vc-data-model]]].
+* _Rubric_: Defines levels associated with the achievement definition (e.g. "approaches", "meets", and "exceeds").
 
-* _Verifiable Presentation_: A [Verifiable Presentation](https://www.w3.org/TR/vc-imp-guide/#presentations) is a tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data.
+* _Skill Assertion_: An assertion that contains a "skill result."
 
-* _Native VC_: Term used to describe the alignment of the existing Open Badges [VerificationObject](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/index.html#VerificationObject) properties with Verifiable Credential data model properties.
+* _Verifiable Credential (VC)_: A tamper-evident credential whose issuer can be cryptographically verified. See [[vc-data-model]].
+
+* _Verifiable Presentation_: A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [[vc-data-model]]
 
 ### Conceptual Model
 

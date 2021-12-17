@@ -54,4 +54,12 @@ var _localBiblio = {
         "date": "03 June 2021",
         "publisher": "W3C Credentials Community Group"
     },
+    "CEDS": {
+        "title": "Common Education Data Standards (CEDS) Version 7 Data Model Guide",
+        "href": "https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf"
+    },
+    "RSD": {
+        "title": "Rich Skill Descriptors",
+        "href": "https://www.openskillsnetwork.org/rsd"
+    }
 };
