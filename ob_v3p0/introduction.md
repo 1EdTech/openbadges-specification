@@ -59,4 +59,14 @@ The full set of documents is comprised of the following:
 
 * _Native VC_: Term used to describe the alignment of the existing Open Badges [VerificationObject] (https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/index.html#VerificationObject) properties with Verifiable Credential data model properties.
 
+### Conceptual Model
+
+![Open Badges Assertion (VC)](images/ob30-concept.png)
+
+* I, issuer assert a claim about this Credential Subject that may describe an achievement, experience, membership, etc.,
+  * The assertion provides the identity of the issuer, issuance date, and instructions on how to cryptographically prove the issuer identity and that the assertion and claim contents have not been tampered with since issuance. 
+    * The claim must contain a single Credential Subject which identifies the recipient of the Open Badge. 
+    * The claim may also contain: evidence of the achievement, and other properties supporting the achievement description.
+    * The Achievement description is described using properties that may be shared with the CLR including, name, description, criteria, etc.
+
 `;

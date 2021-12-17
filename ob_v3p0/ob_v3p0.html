@@ -61,63 +61,19 @@
   </section>
 
   <section data-format="markdown" class="informative">
+    <script class="transclude" data-id="overview" src="overview.md"></script>
+  </section>
+
+  <section data-format="markdown" class="informative">
     <script class="transclude" data-id="usecases" src="usecases.md"></script>
   </section>
 
   <section data-format="markdown" class="informative">
-    <script class="transclude" data-id="overview" src="overview.md"></script>
+    <script class="transclude" data-id="gettingstarted" src="gettingstarted.md"></script>
   </section>
 
-  <section data-model="org.1edtech.ob.v3p0.model">
-    <section data-class="org.1edtech.ob.v3p0.assertion.class">
-      <aside class="example" title="Sample Assertion">
-        <pre class="json vc" data-schema="org.1edtech.ob.v3p0.assertion.class"
-        data-vc-vm="https://example.edu/issuers/565049#key-1">
-          {
-            "@context": [
-              "https://www.w3.org/2018/credentials/v1",
-              "https://www.w3.org/2018/credentials/examples/v1"
-            ],
-            "id": "http://example.edu/credentials/3732",
-            "type": ["VerifiableCredential", "OpenBadge"],
-            "issuer": {
-              "id": "https://example.edu/issuers/565049",
-              "type": "IssuerProfile",
-              "name": "Example University"
-            },
-            "issuanceDate": "2010-01-01T00:00:00Z",
-            "credentialSubject": {
-              "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
-            }
-          }
-        </pre>
-      </aside>
-    </section>
-    <section data-class="org.1edtech.ob.v3p0.achievement.class">
-      <aside data-sample="org.1edtech.ob.v3p0.achievement.class" class="example" title="Sample achievement (Generated)"></aside>
-    </section>
-    <section data-class="org.1edtech.ob.v3p0.profile.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.address.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.evidence.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.artifact.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.image.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.criteria.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.alignmentobject.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.endorsement.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.credentialsubject.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.creator.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.proof.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.credentialstatus.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.result.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.resultdescription.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.rubriccriterionlevel.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.systemidentifier.class"></section>
-
-    <section data-class="org.1edtech.ob.v3p0.achievementtype.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.identifiertype.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.resulttype.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.resultstatustype.class"></section>
-    <section data-class="org.1edtech.ob.v3p0.targettype.class"></section>
+  <section data-format="markdown">
+    <script class="transclude" data-id="fileformat" src="fileformat.md"></script>
   </section>
 
   <section>
@@ -125,15 +81,37 @@
   </section>
 
   <section data-format="markdown">
-    <script class="transclude" data-id="syntaxes" src="syntaxes.md"></script>
-  </section>
-
-  <section data-format="markdown">
     <script class="transclude" data-id="certification" src="certification.md"></script>
   </section>
 
-  <section class="appendix">
+  <section class="appendix" data-format="markdown">
+    <script class="transclude" data-id="syntaxes" src="syntaxes.md"></script>
+  </section>
+
+  <section class="appendix" data-model="org.1edtech.ob.v3p0.model">
+    <script class="transclude" data-id="datamodel" src="datamodel.html"></script>
+  </section>
+
+  <section id="history" class="appendix">
     <h1>Revision History</h1>
+    <table title="Revision History">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Doc Version</th>
+          <th>Release Date</th>
+          <th>Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Base Document</td>
+          <td>1.0</td>
+          <td>Work in progress</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
   <details class="annoying-warning" open="">
