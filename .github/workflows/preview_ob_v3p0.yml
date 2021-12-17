@@ -10,9 +10,6 @@ on:
       - '!ob_v3p0/context.json'
       - '!ob_v3p0/readme.md'
       - '.github/workflows/*'
-  pull_request:
-    branches: 
-      - develop
 
 jobs:
   
@@ -49,15 +46,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout gh-pages
-        uses: actions/checkout@v2
-#        with:
-#          ref: gh-pages
+      -  uses: actions/checkout@v2
       - name: Download artifact created by build job
         uses: actions/download-artifact@v2
         with: 
           name: spec-prod-result
           path: docs
-      - name: Update gh-pages
+      - name: Commit the new/updated doc
         uses: zwaldowski/git-commit-action@v1
       - run: git push origin
