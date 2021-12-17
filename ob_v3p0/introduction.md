@@ -33,11 +33,11 @@ The full set of documents is comprised of the following:
 
 ### Terms
 
-* _Achievement_: This is the content description of a credential that an assertion references. It contaoins metadata such as the name of the achievement, description, alignment of skills, etc. An Open Badge asserts a single achievement. CLRs may have a collection of assertions containing a collection of achievements.
+* _Digital Credential Achievement_: This is the content description of a credential that an assertion references. It contains metadata such as the name of the achievement, description, alignment of skills, etc. A DC Assertion asserts a single achievement. CLRs may have a collection of assertions containing a collection of achievements.
 
 * _achievementType_: A CLR property being proposed as an addition to Open Badges 3.0 which describes the type of achievement. See ["dtExtensibleAchievementType" Class](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtExtensibleAchievementType).
 
-* _Assertion_: The core of both Open Badges and CLR is the assertion about achievement(s). Assertion properties are specific to one learner's achievement and specify metadata such as issuer, date of achievement, expiration data, as well as results and evidence that support the assertion. A Verifiable Credential more broadly asserts a claim about a credentialSubject which can be applied to education and occupational achievements.
+* _Digital Credential Assertion_: The core of both Open Badges and CLR is the assertion about achievement(s). DC Assertion properties are specific to one learner's achievement and specify metadata such as issuer, date of achievement, expiration data, as well as results and evidence that support the assertion. A Verifiable Credential more broadly asserts a claim about a credentialSubject which can be applied to education and occupational achievements.
 
 * _credentialSubject_: Describes the claims being made by the Verifiable Credential. See [Credential Subject](https://www.w3.org/TR/vc-data-model/#credential-subject).
 
@@ -57,15 +57,15 @@ The full set of documents is comprised of the following:
 
 * _Verifiable Presentation_: A [Verifiable Presentation](https://www.w3.org/TR/vc-imp-guide/#presentations) is a tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data.
 
-* _Native VC_: Term used to describe the alignment of the existing Open Badges [VerificationObject] (https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/index.html#VerificationObject) properties with Verifiable Credential data model properties.
+* _Native VC_: Term used to describe the alignment of the existing Open Badges [VerificationObject](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/index.html#VerificationObject) properties with Verifiable Credential data model properties.
 
 ### Conceptual Model
 
-![Open Badges Assertion (VC)](images/ob30-concept.png)
+![Digital Credential Assertion (VC)](images/ob30-concept.png)
 
 * I, issuer assert a claim about this Credential Subject that may describe an achievement, experience, membership, etc.,
-  * The assertion provides the identity of the issuer, issuance date, and instructions on how to cryptographically prove the issuer identity and that the assertion and claim contents have not been tampered with since issuance. 
-    * The claim must contain a single Credential Subject which identifies the recipient of the Open Badge. 
+  * The assertion provides the identity of the issuer, issuance date, and instructions on how to cryptographically prove the issuer identity and that the assertion and claim contents have not been tampered with since issuance.
+    * The claim must contain a single Credential Subject which identifies the recipient of the Open Badge.
     * The claim may also contain: evidence of the achievement, and other properties supporting the achievement description.
     * The Achievement description is described using properties that may be shared with the CLR including, name, description, criteria, etc.
 
