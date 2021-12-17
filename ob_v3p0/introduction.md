@@ -33,11 +33,11 @@ The full set of documents is comprised of the following:
 
 ### Terms
 
-* _Digital Credential Achievement_: This is the content description of a credential that an assertion references. It contains metadata such as the name of the achievement, description, alignment of skills, etc. A DC Assertion asserts a single achievement. CLRs may have a collection of assertions containing a collection of achievements.
+* _Digital Credential Achievement (DC Achievement)_: This is the content description of a credential that an assertion references. It contains metadata such as the name of the achievement, description, alignment of skills, etc. A DC Assertion asserts a single achievement. CLRs may have a collection of assertions containing a collection of achievements.
 
 * _achievementType_: A CLR property being proposed as an addition to Open Badges 3.0 which describes the type of achievement. See ["dtExtensibleAchievementType" Class](https://purl.imsglobal.org/spec/clr/v1p0/context/clr_v1p0.html#dtExtensibleAchievementType).
 
-* _Digital Credential Assertion_: The core of both Open Badges and CLR is the assertion about achievement(s). DC Assertion properties are specific to one learner's achievement and specify metadata such as issuer, date of achievement, expiration data, as well as results and evidence that support the assertion. A Verifiable Credential more broadly asserts a claim about a credentialSubject which can be applied to education and occupational achievements.
+* _Digital Credential Assertion (DC Assertion)_: The core of both Open Badges and CLR is the assertion about achievement(s). DC Assertion properties are specific to one learner's achievement and specify metadata such as issuer, date of achievement, expiration data, as well as results and evidence that support the assertion. A Verifiable Credential more broadly asserts a claim about a credentialSubject which can be applied to education and occupational achievements.
 
 * _credentialSubject_: Describes the claims being made by the Verifiable Credential. See [Credential Subject](https://www.w3.org/TR/vc-data-model/#credential-subject).
 
