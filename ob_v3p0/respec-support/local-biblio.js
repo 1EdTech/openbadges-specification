@@ -37,5 +37,5 @@ var _localBiblio = {
     "RSD": {
         "title": "Rich Skill Descriptors",
         "href": "https://www.openskillsnetwork.org/rsd"
-    }
+    },
 };
