@@ -46,7 +46,7 @@ jobs:
         id: pr_data
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          pr_id: ${{ github.event.number }}
+          pr-id: ${{ github.event.number }}
       - name: Checkout the branch
         uses: actions/checkout@v2
         with:
