@@ -15,9 +15,9 @@
   <script class="remove" src="cdm-config.js"></script>
 
   <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.8.2/ajv2019.bundle.min.js" 
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.8.2/ajv2019.bundle.min.js" 
           integrity="sha512-9CfeXrjdW9wxGntWtQ4wE0k9RD8avpYxoPEKAGu+EP87RyqXYVQjed0l872XkNtQeIyYavZeqY+jzm69pmjEDw==" 
-          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 
   <script class='remove'>
     var respecConfig = {
@@ -28,7 +28,7 @@
       specNature: "normative", // spec nature is "normative" or "informative"
       specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
       specVersion: "3.0",
-      docVersion: "1",
+      docVersion: "0",
       specStatus: "IMS Base Document", // specStatus: IMS Base Document, IMS Candidate Final (Public) or IMS Final Release
       contributors: _contributors,
       localBiblio: _localBiblio,
@@ -39,16 +39,16 @@
 
       // Add VC proof examples
 
-      postProcess: [
-        window.respecVc.createVcExamples
-      ],
+      // postProcess: [
+      //   window.respecVc.createVcExamples
+      // ],
     };
   </script>
 </head>
 
 <body>
 
-  <section class="introductory" id="abstract" data-format="markdown">
+  <section id="abstract" data-format="markdown">
     <script class="transclude" data-id="abstract" src="abstract.md"></script>
   </section>
 
@@ -73,13 +73,11 @@
   </section>
 
   <section data-format="markdown">
-    <script class="transclude" data-id="fileformat" src="fileformat.md"></script>
+    <script class="transclude" data-id="docformat" src="docformat.md"></script>
   </section>
 
-  <section>
-    <script class="transclude" data-id="api" src="api.html"></script>
-  </section>
-
+  <script class="transclude" data-id="api" src="api.html"></script>
+  
   <section data-format="markdown">
     <script class="transclude" data-id="certification" src="certification.md"></script>
   </section>
@@ -114,7 +112,7 @@
     </table>
   </section>
 
-  <details class="annoying-warning" open="">
+  <details class="annoying-warning" open="open">
     <summary>This is a preview of the IMS Open Badges Specification v3.0</summary>
     <p>Do not attempt to implement this version of the specification. Do not
       reference this version as authoritative in any way.

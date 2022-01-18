@@ -1,123 +1,422 @@
 var api = `
 
-<h2 id="api">Open Badges API</h2>
+<section>
+  <h2 id="api">Open Badges API</h2>
 
-<p>Comprehensive Learner Records (CLRs) can be exchanged using the API defined here, or as <a href="#fileformat">files</a> defined in this specification.</p>
-
-<p>This specification defines a JSON API ([[OB-REST-30]]) protocol to be implemented by applications serving in the
-  roles of Provider and Consumer. The API uses OAuth 2.0 for authentication, granular resource-based permission
-  scopes, and offers a number of required endpoints that MUST be implemented by Providers and
-  Consumers or both.
-</p>
-
-<section id="api-architecture">
-  <h3>Architecture</h3>
-  <figure id="ad-architecture">
-    <img src="images/OBC_Architecture.svg" />
-    <figcaption>Architecture</figcaption>
-  </figure>
-  <p>There are five key components to the API architecture.</p>
-  <dl>
-    <dt>Resource Owner</dt>
-    <dd>This is the user that owns the resources (badges) that are on the Provider.</dd>
-    <dt>Web Browser</dt>
-    <dd>This is the web browser application that the user interacts with.</dd>
-    <dt>Consumer</dt>
-    <dd>
-      This is the web application that interacts with the Provider on behalf of
-      the resource owner. This component is called the Consumer in the
-      IMS Security Framework [[SEC-10]].
-    </dd>
-    <dt>Authorization Server</dt>
-    <dd>
-      This is a server that implements the OAuth 2.0 endpoints on behalf of
-      the Provider. In many systems, the Authorization Server and the Provider are
-      combined.
-    </dd>
-    <dt>Provider</dt>
-    <dd>
-      This is the resource server that has the protected resources (badges).
-      This component is called the Provider in the IMS Security Framework [[SEC-10]].
-    </dd>
-  </dl>
   <p>
-    The role of each component during Registration, Obtaining Tokens, and Authenticating with Tokens
-    are described below.
+    [=Open Badges=] can be exchanged using the API (application programming interface) defined here, or as
+    <a href="#docformat">documents</a>.
   </p>
-</section>
 
-<section id="api-authentication">
-  <h3>Authentication</h3>
-  <p>A Consumer requests a token scoped for access to Open Badges Assertions on a Provider
-    that belong to a user (resource owner) of that Provider service, using an OAuth 2.0
-    Authorization Code Grant as described in Section 4.2 of the IMS Security Framework [[SEC-10]].
-    Once a Consumer obtains a code, it exchanges the code for an access token and optionally
-    a refresh token. Subsequent API requests are authenticated with the access token until its
-    expiration. If the Provider previously provided a refresh token, the access token can be renewed.
+  <p>
+    This specification defines a [=RESTful=] API protocol to be implemented by applications serving in the
+    roles of [=Client=] and [=Resource Server=]. The API uses OAuth 2.0 for authentication and granular resource-based
+    permission
+    scopes. Please see the [[[OB-CERT-30]]] for a list of which endpoints must be implemented for certification.
   </p>
-</section>
 
-<section id="api-endpoints">
-  <h3>Endpoints</h3>
-  <section id="api-endpoints-assertion">
-    <h4>Assertions</h4>
-    <table class="openAPIPathsTable">
+  <p>
+    In addition to the documentation in this section, there are <a href="#docs-openapi">OpenAPI</a> files for the
+    Open Badges API in both JSON and YAML format:
+  </p>
+  <ul>
+    <li><a href="https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/imsob_v3p0.json">JSON OpenAPI File</a>
+    </li>
+    <li><a href="https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/imsob_v3p0.yaml">YAML OpenAPI File</a>
+    </li>
+  </ul>
+
+  <section id="api-architecture">
+    <h3>Architecture</h3>
+    <figure id="ad-architecture">
+      <img src="images/OBC_Architecture.svg" alt="Diagram showing the major components of the Open Badges API" />
+      <figcaption>Diagram showing the major components of the Open Badges API</figcaption>
+    </figure>
+    <p>
+      There are five key components to the API architecture.
+    </p>
+    <dl>
+      <dt><dfn data-lt="Resource Owner">User</dfn></dt>
+      <dd>
+        This is the user that owns the resources ([=badges=]) that are on the [=resource server=]. Also called a
+        Resource Owner.
+      </dd>
+      <dt><dfn>Web Browser</dfn></dt>
+      <dd>This is the web browser the [=user=] interacts with.</dd>
+      <dt>[=Client=]]</dt>
+      <dd>
+        This is the web application that interacts with the [=resource server=] on behalf of the [=user=]. Also called
+        Consumer in the [[[SEC-11]]].
+      </dd>
+      <dt><dfn>Authorization Server</dfn></dt>
+      <dd>
+        This is a [=server=] that implements the OAuth 2.0 endpoints on behalf of
+        the [=resource server=]. In many systems, the [=authorization server=] and the [=resource server=] are
+        combined.
+      </dd>
+      <dt><dfn data-lt="Provider">Resource Server</dfn></dt>
+      <dd>
+        This is the [=server=] that has the protected resources ([=badges=]). Also called Provider in the [[[SEC-11]]].
+      </dd>
+    </dl>
+    <p>
+      The role of each component during Registration, Obtaining Tokens, and Authenticating with Tokens are described
+      below.
+    </p>
+  </section>
+
+  <section id="api-authentication">
+    <h3>Authentication</h3>
+    <p>A [=client=] requests an authorization code scoped for access to [=badges=] on a [=resource server=]
+      that belong to a user ([=user=]) of that [=resource server=], using an OAuth 2.0
+      Authorization Code Grant as described in Section 4.2 of the IMS Security Framework [[SEC-11]].
+      Once a [=client=] obtains a code, it exchanges the code for an access token and optionally
+      a refresh token. Subsequent API requests are authenticated with the access token until its
+      expiration. If the [=resource server=] previously provided a refresh token, the access token can be renewed.
+    </p>
+  </section>
+
+  <section id="api-endpoints">
+    <h3>The REST Endpoints</h3>
+    <p>The Open Badges API has 4 endpoints:</p>
+    <table>
       <thead>
         <tr>
-          <th colspan="2">GET .../ims/ob/v3p0/assertions</th>
+          <th>Operation</th>
+          <th>REST Endpoint</th>
+          <th>HTTP Method</th>
+          <th>Description</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Description</td>
-          <td>Fetch Assertions for the supplied parameters and authentication token.</td>
+          <td><a href="#getAssertions">getAssertions</a></td>
+          <td><code>/ims/ob/v3p0/assertions</code></td>
+          <td>GET</td>
+          <td>Fetch Assertions from the [=resource server=] for the supplied parameters and access token.</td>
+        </tr>
+        <tr>
+          <td><a href="#postassertion">postAssertion</a></td>
+          <td><code>/ims/ob/v3p0/assertions</code></td>
+          <td>POST</td>
+          <td>Add or replace an Assertion on the [=resource server=].</td>
+        </tr>
+        <tr>
+          <td><a href="#getProfile">getProfile</a></td>
+          <td><code>/ims/ob/v3p0/profile</code></td>
+          <td>GET</td>
+          <td>Fetch the Profile from the [=resource server=] for the supplied parameters and access token.</td>
+        </tr>
+        <tr>
+          <td><a href="#postprofile">postProfile</a></td>
+          <td><code>/ims/ob/v3p0/profile</code></td>
+          <td>POST</td>
+          <td>Add or replace a Profile on the [=resource server=].</td>
         </tr>
       </tbody>
     </table>
-    <table class="openAPIPathsTable">
+    <ul>
+      <li>All endpoint requests MUST be made over secure TLS 1.2 or 1.3 protocol.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4 id="scopes">Endpoint Scopes</h4>
+    <p>
+      All of the endpoints require authorization using an OAuth 2.0 Access Token. And each endpoint requires
+      the access token to have a specific Open Badges scope as shown below.
+    </p>
+    <table>
       <thead>
         <tr>
-          <th colspan="2">POST .../ims/ob/v3p0/assertions</th>
+          <th>Operation</th>
+          <th>Scope</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Description</td>
-          <td>Create or update an Assertion.</td>
+          <td><a href="#getassertions">getAssertions</a></td>
+          <td><code>https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly</code></td>
+        </tr>
+        <tr>
+          <td><a href="#postassertion">postAssertion</a></td>
+          <td><code>https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.create</code></td>
+        </tr>
+        <tr>
+          <td><a href="#getprofile">getProfile</a></td>
+          <td><code>https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly</code></td>
+        </tr>
+        <tr>
+          <td><a href="#postprofile">postProfile</a></td>
+          <td><code>https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update</code></td>
         </tr>
       </tbody>
     </table>
   </section>
-  <section id="api-endpoints-profile">
-    <h4>Profile</h4>
-    <table class="openAPIPathsTable">
-      <thead>
-        <tr>
-          <th colspan="2">GET .../ims/ob/v3p0/profile</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Description</td>
-          <td>Fetch the profile for the supplied authentication token.
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <table class="openAPIPathsTable">
-      <thead>
-        <tr>
-          <th colspan="2">POST .../ims/ob/v3p0/profile</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Description</td>
-          <td>Update the profile for the authenticate entity..</td>
-        </tr>
-      </tbody>
-    </table>
+
+  <!-- getAssertions -->
+  <section>
+    <h3 id="getassertions">getAssertions</h3>
+    <p>
+      Fetch Assertions from the [=resource server=] for the supplied parameters and access token.
+    </p>
+
+    <section>
+      <h4 id="getassertions-request">Request Format</h4>
+      <p><code>GET {baseUrl}/ims/ob/v3p0/assertions?limit={limit}&amp;offset={offset}&amp;since={since}</code></p>
+      <table>
+        <thead>
+          <tr>
+            <th>URL Parameter</th>
+            <th>Parameter Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>baseUrl</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td>The HTTP scheme (which MUST be "https"), domain name, and any other path
+              elements required by the [=resource server=] (e.g. "https://example.net/tenant").
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>limit</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.primitive.positiveinteger.class">PositiveInteger</a></td>
+            <td>The maximum number of Assertions to return.</td>
+            <td>Optional</td>
+          </tr>
+          <tr>
+            <td><code>offset</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.primitive.nonnegativeinteger.class">NonNegativeInteger</a>
+            </td>
+            <td>The index of the first Assertion to return. (zero indexed)</td>
+            <td>Optional</td>
+          </tr>
+          <tr>
+            <td><code>since</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class">DateTime</a></td>
+            <td>Only include Assertions issued after this timestamp.</td>
+            <td>Optional</td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr>
+            <th>Request Header</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Authorization: Bearer &lt;access_token&gt;</code></td>
+            <td>See [[[#api-security]]].</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>Accept: application/ld+json</code></td>
+            <td>
+              If <code>application/ld+json</code> is not not included in the <code>Accept</code> header, the [=resource
+              server=] MUST respond with 406 Not Acceptable.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              The <code>&lt;access_token&gt;</code> MUST have scope:
+              <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly</code>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>There is no request payload.</p>
+      <pre class="http example" title="Sample getAssertions Request">
+            GET /ims/ob/v3p0/assertions?limit=2&offset=0 HTTP/1.1
+            Host: example.com
+            Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
+            Accept: application/ld+json
+        </pre>
+    </section>
+    <section>
+      <h4 id="getclrs-responses">Responses</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>HTTP Status Code</th>
+            <th>Payload Type</th>
+            <th>Description</th>
+            <th>Payload Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>200</td>
+            <td><a href="#org.1edtech.ob.v3p0.obpresentation.class">ObPresentation</a></td>
+            <td>&#39;OK&#39; - The assertions are returned in the payload.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>400</td>
+            <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
+            <td>
+              &#39;Bad Request&#39; - The request was invalid or cannot be served. The exact error should be explained
+              in the response payload.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>401</td>
+            <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
+            <td>&#39;Unauthorized&#39; - The request requires user authentication.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>403</td>
+            <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
+            <td>
+              &#39;Forbidden&#39; - The [=resource server=] understood the request, but is refusing it or the access is
+              not allowed.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>404</td>
+            <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
+            <td>&#39;Not Found&#39; - There is no CLR behind the URI.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>406</td>
+            <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
+            <td>
+              &#39;Not Acceptable&#39; - The request did not include &#39;application/ld+json&#39; in the Accept header.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>421</td>
+            <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
+            <td>
+              &#39;Misdirected Request&#39; - The request was not made over secure TLS 1.2 or 1.3 protocol.
+            </td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr>
+            <th>Response Header</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Content-Type: application/ld+json</code></td>
+            <td>The content type MUST be <code>application/ld+json</code>.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>X-Total-Count: &lt;total_count&gt;</code></td>
+            <td>
+              The [=resource server=] MUST include an <code>X-Total-Count</code> response header if the total result
+              count is known. If the total result count is not known, the total count header MUST be ommitted.
+            </td>
+            <td>Conditionally Required for <code>200 OK</code> Response</td>
+          </tr>
+          <tr>
+            <td><code>Link: &lt;pagination_links&gt;</code></td>
+            <td>
+              The [=resource server=] MUST include a
+              <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link">Link</a></code> response
+              header if the list of assertions in the response is incomplete; and MAY include the <code>Link</code>
+              header if the response is complete.
+            </td>
+            <td>Conditionally Required for <code>200 OK</code> Response</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        If present, the <code>Link</code> header MUST support all of the following link relations (<code>rel</code>
+        values):
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Relation</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>next</td>
+            <td>
+              The link relation for the immediate next page of results. This MUST appear when the current list response
+              is incomplete.
+            </td>
+          </tr>
+          <tr>
+            <td>last</td>
+            <td>The link relation for the last page of results. This MUST always appear.</td>
+          </tr>
+          <tr>
+            <td>first</td>
+            <td>The link relation for the first page of results. This MUST always appear.</td>
+          </tr>
+          <tr>
+            <td>prev</td>
+            <td>
+              The link relation for the immediate previous page of results. This MUST appear when the
+              offset is greater than zero.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <pre class="http example" title="Sample getAssertions Response (line breaks for clarity)">
+            HTTP/1.1 200 OK
+            Content-Type: application/ld+json
+            X-Total-Count: 1
+            Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&offset=1>; rel="next",
+                  &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&offset=0>; rel="last",
+                  &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&offset=0>; rel="first",
+                  &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&offset=0>; rel="prev"
+
+            {
+                "@context": [
+                    "https://www.w3.org/2018/credentials/v1",
+                    "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
+                ],
+                "type": ["VerifiablePresentation", "ObPresentation"],
+                "verifiableCredential": [
+                    {
+                        "@context": [
+                            "https://www.w3.org/2018/credentials/v1",
+                            "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
+                        ],
+                        "id": "http://example.edu/credentials/3732",
+                        "type": ["VerifiableCredential", "Assertion"],
+                        "issuer": {
+                            "id": "https://example.edu/issuers/565049",
+                            "type": "Issuer",
+                            "name": "Example University"
+                        },
+                        "issuanceDate": "2010-01-01T00:00:00Z",
+                        "credentialSubject": {
+                            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+                            "achievement": "urn:uuid:dd887f0a-56cb-11ec-bf63-0242ac130002",
+                        }
+                    }
+                ]
+            }
+        </pre>
+    </section>
   </section>
+
 </section>
 
 `;
