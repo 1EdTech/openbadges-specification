@@ -47,11 +47,22 @@ var _localBiblio = {
         "status": "IMS Base Document",
         "publisher": "IMS Global Learning Consortium"
     },
-    "ld-proofs": {
-        "title": "Linked Data Proofs 1.0",
-        "href": "https://w3c-ccg.github.io/ld-proofs/",
-        "status": "Draft Community Group Report",
-        "date": "03 June 2021",
-        "publisher": "W3C Credentials Community Group"
+    "CEDS": {
+        "title": "Common Education Data Standards (CEDS) Version 7 Data Model Guide",
+        "href": "https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf"
+    },
+    "RSD": {
+        "title": "Rich Skill Descriptors",
+        "href": "https://www.openskillsnetwork.org/rsd"
+    },
+    "DATA-INTEGRITY": {
+        title: "Data Integrity 1.0",
+        href: "https://w3c-ccg.github.io/data-integrity-spec/",
+        authors: [
+            "Manu Sporny",
+            "Dave Longley"
+        ],
+        status: "CG-DRAFT",
+        publisher: "Credentials Community Group"
     },
 };

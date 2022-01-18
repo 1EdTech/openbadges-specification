@@ -17,7 +17,7 @@ The Open Badges Specification has several related documents and artifacts shown 
 - [[[OB-30]]] - The main Open Badges Specification document.
 - [[[OB-CERT-30]]] - Specifies the conformance tests and certification requirements for this specification.
 
-#### OpenAPI 3.0 Files for the Badge Connect API
+#### OpenAPI 3.0 Files for the Badge Connect API {#docs-openapi}
 
 > The Open API Specification (OAS) defines a standard, programming language-agnostic interface description for HTTP APIs, which allows both humans and computers to discover and understand the capabilities of a service without requiring access to source code, additional documentation, or inspection of network traffic. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interface descriptions have done for lower-level programming, the OpenAPI Specification removes guesswork in calling a service.
 >
@@ -54,9 +54,6 @@ This specification includes JSON Schema files for every class in the data model 
 
 - <dfn>Alignment</dfn>: An alignment is a reference to an achievement definition, whether referenced in a resource outside the package or contained within the package.
 
-- <dfn>Association</dfn>: An association is the relationship between one assertion in a CLR has with another assertion in that CLR.
-  <div class="issue"><a href="https://github.com/IMSGlobal/openbadges-specification/issues/324"><em>Association</em> needs review</a>.</div>
-
 - <dfn>Claim</dfn>: A statement about the Credential Subject. A claim may include associated evidence, results, or other metadata regarding a specific achievement, skill or assertion.
 
 - <dfn data-lt="Consumer">client</dfn>: In a [=REST API=], the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the [[[SEC-11]]].
@@ -77,7 +74,7 @@ This specification includes JSON Schema files for every class in the data model 
 
 - <dfn>Learner</dfn>: The person who is the subject of the CLR and assertions contained in a CLR.
 
-- <dfn>Open Badge</dfn>: A single assertion of an achievement that is packaged as a verifiable credential.
+- <dfn data-lt="open badge">Badge</dfn>: A single assertion of an achievement that is packaged as a verifiable credential.
 
 - <dfn>Organization</dfn>: An organized group of one or more people with a particular purpose. [[CEDS]]
 
@@ -110,7 +107,7 @@ This specification includes JSON Schema files for every class in the data model 
 
 ### Conceptual Model
 
-This conceptual model describes Open Badges concepts and the relationship between those concepts. The data model in appendix [[[#org-1edtech-ob-v3p0-model]]] below is the normative reference for the classes and properties that are used to implement the concepts.
+This conceptual model describes Open Badges concepts and the relationship between those concepts. The data model in appendix [[[#org-1edtech-ob-v3p0-model-0]]] below is the normative reference for the classes and properties that are used to implement the concepts.
 
 The conceptual model is targeted for all [[[#audiences]]], while the data model is targeted for Solution Architects and Product Developers.
 
