@@ -18,4 +18,8 @@ If you are migrating from Open Badges 2.0 [[OB-20]] or 2.1 [[OB-21]] to OB 3.0, 
 @@@TBD
 </div>
 
+#### Differences Between Version 2.0 and 3.0
+
+#### Differences Between Version 2.1 and 3.0
+
 `;
