@@ -213,14 +213,14 @@ var api = `
         <tbody>
           <tr>
             <td><code>Authorization: Bearer &lt;access_token&gt;</code></td>
-            <td>See [[[#api-security]]].</td>
+            <td>See [[[#api-security]]] for information on how to obtain an <code>access_token</code>.</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>Accept: application/ld+json</code></td>
             <td>
-              If <code>application/ld+json</code> is not not included in the <code>Accept</code> header, the [=resource
-              server=] MUST respond with 406 Not Acceptable.
+              If the content type <code>application/ld+json</code> is not not included in the <code>Accept</code>
+              header, the [=resource server=] MUST respond with 406 Not Acceptable.
             </td>
             <td>Required</td>
           </tr>
@@ -398,7 +398,7 @@ var api = `
                             "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
                         ],
                         "id": "http://example.edu/credentials/3732",
-                        "type": ["VerifiableCredential", "Assertion"],
+                        "type": ["VerifiableCredential", "AssertionCredential"],
                         "issuer": {
                             "id": "https://example.edu/issuers/565049",
                             "type": "Issuer",
@@ -463,13 +463,14 @@ var api = `
         <tbody>
           <tr>
             <td><code>Authorization: Bearer &lt;access_token&gt;</code></td>
-            <td>See [[[#api-security]]].</td>
+            <td>See [[[#api-security]]] for information on how to obtain an <code>access_token</code>.</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>Accept: application/ld+json</code></td>
             <td>
-              If <code>application/ld+json</code> is not not included in the <code>Accept</code> header, the [=resource
+              If the content type <code>application/ld+json</code> is not not included in the <code>Accept</code>
+              header, the [=resource
               server=] MUST respond with 406 Not Acceptable.
             </td>
             <td>Required</td>
@@ -501,7 +502,12 @@ var api = `
         <tbody>
           <tr>
             <td><a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a></td>
-            <td>The Assertion to be updated or created on the [=resource server=].</td>
+            <td>
+              The Assertion to be updated or created on the [=resource server=].
+              <div class="issue">
+                Should the payload be a VerifiablePresentation that contains the AssertionCredential?
+              </div>
+            </td>
             <td>Required</td>
           </tr>
         </tbody>
@@ -519,7 +525,7 @@ var api = `
               "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
             ],
             "id": "http://example.edu/credentials/3732",
-            "type": ["VerifiableCredential", "Assertion"],
+            "type": ["VerifiableCredential", "AssertionCredential"],
             "issuer": {
               "id": "https://example.edu/issuers/565049",
               "type": "Publisher",
@@ -635,7 +641,7 @@ var api = `
             "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
             ],
           "id": "http://example.edu/credentials/3732",
-          "type": ["VerifiableCredential", "Assertion"],
+          "type": ["VerifiableCredential", "AssertionCredential"],
           "issuer": {
             "id": "https://example.edu/issuers/565049",
             "type": "Publisher",
@@ -693,13 +699,14 @@ var api = `
         <tbody>
           <tr>
             <td><code>Authorization: Bearer &lt;access_token&gt;</code></td>
-            <td>See [[[#api-security]]].</td>
+            <td>See [[[#api-security]]] for information on how to obtain an <code>access_token</code>.</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>Accept: application/ld+json</code></td>
             <td>
-              If <code>application/ld+json</code> is not not included in the <code>Accept</code> header, the [=resource
+              If the content type <code>application/ld+json</code> is not not included in the <code>Accept</code>
+              header, the [=resource
               server=] MUST respond with 406 Not Acceptable.
             </td>
             <td>Required</td>
@@ -868,13 +875,14 @@ var api = `
         <tbody>
           <tr>
             <td><code>Authorization: Bearer &lt;access_token&gt;</code></td>
-            <td>See [[[#api-security]]].</td>
+            <td>See [[[#api-security]]] for information on how to obtain an <code>access_token</code>.</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>Accept: application/ld+json</code></td>
             <td>
-              If <code>application/ld+json</code> is not not included in the <code>Accept</code> header, the [=resource
+              If the content type <code>application/ld+json</code> is not not included in the <code>Accept</code>
+              header, the [=resource
               server=] MUST respond with 406 Not Acceptable.
             </td>
             <td>Required</td>
