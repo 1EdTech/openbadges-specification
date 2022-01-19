@@ -9,9 +9,8 @@ var api = `
   </p>
 
   <p>
-    This specification defines a [=RESTful API=] protocol to be implemented by applications serving in the
-    roles of [=Client=] and [=Resource Server=]. The API uses OAuth 2.0 for authentication and granular resource-based
-    permission
+    This specification defines a [=RESTful API=] protocol to be implemented by applications serving in the roles of
+    [=Client=] and [=Resource Server=]. The API uses OAuth 2.0 for authentication and granular resource-based permission
     scopes. Please see the [[[OB-CERT-30]]] for a list of which endpoints must be implemented for certification.
   </p>
 
@@ -29,7 +28,7 @@ var api = `
   <section id="api-architecture">
     <h3>Architecture</h3>
     <figure id="ad-architecture">
-      <img src="images/OBC_Architecture.svg" alt="Diagram showing the major components of the Open Badges API" />
+      <img src="images/OB3_Architecture.svg" alt="Diagram showing the major components of the Open Badges API" />
       <figcaption>Diagram showing the major components of the Open Badges API</figcaption>
     </figure>
     <p>
@@ -43,7 +42,7 @@ var api = `
       </dd>
       <dt><dfn>Web Browser</dfn></dt>
       <dd>This is the web browser the [=user=] interacts with.</dd>
-      <dt>[=Client=]]</dt>
+      <dt>[=Client=]</dt>
       <dd>
         This is the web application that interacts with the [=resource server=] on behalf of the [=user=]. Also called
         Consumer in the [[[SEC-11]]].
@@ -501,7 +500,7 @@ var api = `
         </thead>
         <tbody>
           <tr>
-            <td><a href="#org.1edtech.ob.v3p0.assertion.class">Assertion</a></td>
+            <td><a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a></td>
             <td>The Assertion to be updated or created on the [=resource server=].</td>
             <td>Required</td>
           </tr>
@@ -549,7 +548,7 @@ var api = `
         <tbody>
           <tr>
             <td>200</td>
-            <td><a href="#org.1edtech.ob.v3p0.assertion.class">Assertion</a></td>
+            <td><a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a></td>
             <td>
               &#39;OK&#39; - The Assertion was successfully updated. The response payload MUST be the Assertion that was
               posted.
@@ -558,7 +557,7 @@ var api = `
           </tr>
           <tr>
             <td>201</td>
-            <td><a href="#org.1edtech.ob.v3p0.assertion.class">Assertion</a></td>
+            <td><a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a></td>
             <td>
               &#39;Created&#39; - The Assertion was successfully created. The response payload MUST be the Assertion
               that was posted.

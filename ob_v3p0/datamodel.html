@@ -1,28 +1,35 @@
 var datamodel = `
 
-<section data-class="org.1edtech.ob.v3p0.assertion.class">
-  <aside class="example" title="Sample Assertion">
-    <pre class="json vc" data-schema="org.1edtech.ob.v3p0.assertion.class"
+<section data-model="org.1edtech.ob.v3p0.model" data-package="OpenBadges" title="Open Badges"></section>
+<section data-model="org.1edtech.ob.v3p0.model" data-package="DocumentPayloads" title="Document Payloads">
+  <section data-class="org.1edtech.ob.v3p0.assertioncredential.class" title="AssertionCredential">
+    <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.assertioncredential.class"
+      title="Sample assertion credential"
       data-vc-vm="https://example.edu/issuers/565049#key-1">
-        {
-          "@context": [
-            "https://www.w3.org/2018/credentials/v1",
-            "https://www.w3.org/2018/credentials/examples/v1"
-          ],
-          "id": "http://example.edu/credentials/3732",
-          "type": ["VerifiableCredential", "OpenBadge"],
-          "issuer": {
-            "id": "https://example.edu/issuers/565049",
-            "type": "IssuerProfile",
-            "name": "Example University"
-          },
-          "issuanceDate": "2010-01-01T00:00:00Z",
-          "credentialSubject": {
-            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
-          }
+      {
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://www.w3.org/2018/credentials/examples/v1"
+        ],
+        "id": "http://example.edu/credentials/3732",
+        "type": ["VerifiableCredential", "AssertionCredential"],
+        "issuer": {
+          "id": "https://example.edu/issuers/565049",
+          "type": "IssuerProfile",
+          "name": "Example University"
+        },
+        "issuanceDate": "2010-01-01T00:00:00Z",
+        "credentialSubject": {
+          "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
         }
-      </pre>
-  </aside>
+      }
+    </pre>
+  </section>
 </section>
+<section data-model="org.1edtech.ob.v3p0.model" data-package="ApiPayloads" title="API Payloads"></section>
+<section data-model="org.1edtech.ob.v3p0.model" data-package="ApiSecurity" title="OAuth 2.0 Vocabulary"></section>
+<section data-model="org.1edtech.ob.v3p0.model" data-package="DocumentPayloads" title="Document Payloads"></section>
+<section data-model="org.1edtech.ob.v3p0.model" data-package="DerivedTypes" title="Derived Types"></section>
+<section data-model="org.1edtech.ob.v3p0.model" data-package="PrimitiveTypes" title="Primitive Types"></section>
 
 `;

@@ -4,7 +4,7 @@ var docformat = `
 
 [=Open Badges=] can be exchanged as JSON-LD documents as defined in this section, or by using the [Open Badges API](#api). Open Badges documents can be exchanged as a file or web resource, displayed as a QR code, or embedded in an image. The contents of an Open Badge document MUST meet the following criteria:
 
-- The contents of the file MUST represent exactly one [Assertion](#assertion)
+- The contents of the file MUST represent exactly one [AssertionCredential](#org.1edtech.ob.v3p0.assertioncredential.class)
 - The contents MUST be JSON and JSON-LD (see [Syntaxes](#syntaxes))
 
 <aside class="example" title="Sample Open Badges File Contents">
@@ -36,7 +36,7 @@ var docformat = `
 
 ### Web Resource
 
-When the <code>id</code> of an Assertion is a [URL](#url), a GET request to that URL MUST return JSON representing an [Assertion](#assertion) as described above.
+When the <code>id</code> of an Assertion is a [URL](#url), a GET request to that URL MUST return JSON representing an [AssertionCredential](#org.1edtech.ob.v3p0.assertioncredential.class) as described above.
 
 - The <code>Content-Type</code> SHOULD be <code>application/json</code> or <code>application/ld+json</code>.
 - The content MUST be encoded using UTF-8 [[RFC3629]].
@@ -53,7 +53,7 @@ Some Assertions are quite long. Due to the large size of the resulting JSON stri
 
 Assertions may be exchanged as image files with Assertions encoded within. This allows Assertions to be portable wherever image files may be stored or displayed.
 
-"Baking" is the process of taking an [Assertion](#assertion) and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges or CLR-aware can automatically extract that Assertion data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image must be in either PNG or SVG format in order to support baking.
+"Baking" is the process of taking an [AssertionCredential](#org.1edtech.ob.v3p0.assertioncredential.class) and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges or CLR-aware can automatically extract that Assertion data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image must be in either PNG or SVG format in order to support baking.
 
 #### Technical Details
 
@@ -61,7 +61,7 @@ Assertions may be exchanged as image files with Assertions encoded within. This 
 
 ###### Baking {#png-baking}
 
-An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with **keyword** <code>openbadges</code>. The **text** MUST be the JSON for the [[[#assertion]]]. Compression MUST NOT be used.
+An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with **keyword** <code>openbadges</code>. The **text** MUST be the JSON for the [[[#org.1edtech.ob.v3p0.assertioncredential.class]]]. Compression MUST NOT be used.
 
 <pre class="js example" title="An example of creating a chunk (assuming an iTXt constructor)">
 var chunk = new iTXt({
@@ -78,7 +78,7 @@ An iTXt chunk with the keyword <code>openbadges</code> MUST NOT appear in a PNG 
 
 ###### Extracting {#png-extracting}
 
-Parse the PNG datastream until the first <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> is found with the keyword <code>openbadges</code>. The rest of the stream can be safely discarded. The text portion of the iTXt will be the JSON representation of a [[[#assertion]]].
+Parse the PNG datastream until the first <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> is found with the keyword <code>openbadges</code>. The rest of the stream can be safely discarded. The text portion of the iTXt will be the JSON representation of a [[[#org.1edtech.ob.v3p0.assertioncredential.class]]].
 
 ##### SVGs
 
@@ -86,7 +86,7 @@ Parse the PNG datastream until the first <a href="http://www.w3.org/TR/PNG/#11iT
 
 First, Add an <code>xmlns:openbadges</code> attribute to the <code>&lt;svg></code> tag with the value "https://purl.imsglobal.org/ob/v3p0". Directly after the <code>&lt;svg></code> tag, add an <code>&lt;openbadges:assertion></code> tag.
 
-The JSON representation of the [Assertion](#assertion) MUST go into the body of the tag, wrapped in <code>&lt;![CDATA[...]]></code>.
+The JSON representation of the [AssertionCredential](#org.1edtech.ob.v3p0.assertioncredential.class) MUST go into the body of the tag, wrapped in <code>&lt;![CDATA[...]]></code>.
 
 <pre class="xml example" title="An example of a well baked SVG">
 &lt;?xml version="1.0" encoding="UTF-8"?>

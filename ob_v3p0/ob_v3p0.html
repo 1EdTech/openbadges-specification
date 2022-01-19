@@ -3,7 +3,8 @@
 
 <head>
   <meta charset='utf-8'>
-  <script src='https://purl.imsglobal.org/spec/respec-dev/respec-ims-default.js' class='remove'></script>
+  <!-- <script src='https://purl.imsglobal.org/spec/respec-dev/respec-ims-default.js' class='remove'></script> -->
+  <script src='http://localhost:5000/profiles/ims-default.js' type="module" class='remove'></script>
   <script src='respec-support/local-biblio.js' class='remove'></script>
   <script src='respec-support/contributors.js' class='remove'></script>
   <script src='respec-support/iprs.js' class='remove'></script>
@@ -73,7 +74,17 @@
   </section>
 
   <script class="transclude" data-id="api" src="api.html"></script>
+
+  <script class="transclude" data-id="security" src="security.html"></script>
   
+  <section class="normative" data-format="markdown">
+    <script class="transclude" data-id="integrity" src="integrity.md"></script>
+  </section>
+
+  <section class="informative" data-format="markdown">
+    <script class="transclude" data-id="bestpractices" src="bestpractices.md"></script>
+  </section>
+
   <section data-format="markdown">
     <script class="transclude" data-id="certification" src="certification.md"></script>
   </section>
@@ -82,7 +93,8 @@
     <script class="transclude" data-id="syntaxes" src="syntaxes.md"></script>
   </section>
 
-  <section class="appendix" data-model="org.1edtech.ob.v3p0.model">
+  <section class="appendix">
+    <h1>Data Models</h1>
     <script class="transclude" data-id="datamodel" src="datamodel.html"></script>
   </section>
 
