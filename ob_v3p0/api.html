@@ -74,7 +74,7 @@ var api = `
       <p>
         Each endpoint requires an access token with a specific Open Badges scope as shown below.
       </p>
-      <table>
+      <table class="simple">
         <thead>
           <tr>
             <th>Operation</th>
@@ -138,7 +138,7 @@ var api = `
       <section>
         <h4 id="getassertions-request">Request Format</h4>
         <p><code>GET {baseUrl}/ims/ob/v3p0/assertions?limit={limit}&amp;offset={offset}&amp;since={since}</code></p>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>URL Parameter</th>
@@ -152,7 +152,7 @@ var api = `
               <td><code>baseUrl</code></td>
               <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
               <td>The HTTP scheme (which MUST be "https"), domain name, and any other path
-                elements required by the [=resource server=] (e.g. "https://example.net/tenant").
+                elements required by the [=resource server=] (e.g. "https://example.com/tenant").
               </td>
               <td>Required</td>
             </tr>
@@ -180,7 +180,7 @@ var api = `
       </section>
       <section>
         <h4>Request Headers</h4>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>Request Header</th>
@@ -218,7 +218,7 @@ var api = `
       <section>
         <h4>Sample Request</h4>
         <pre class="http example" title="Sample getAssertions Request">
-            GET /ims/ob/v3p0/assertions?limit=2&offset=0 HTTP/1.1
+            GET tenant/ims/ob/v3p0/assertions?limit=2&offset=0 HTTP/1.1
             Host: example.com
             Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
             Accept: application/ld+json
@@ -226,7 +226,7 @@ var api = `
       </section>
       <section>
         <h4 id="getassertions-responses">Responses</h4>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>HTTP Status Code</th>
@@ -295,7 +295,7 @@ var api = `
       </section>
       <section>
         <h4>Response Headers</h4>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>Response Header</th>
@@ -333,7 +333,7 @@ var api = `
           If present, the <code>Link</code> header MUST support all of the following link relations (<code>rel</code>
           values):
         </p>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>Relation</th>
@@ -423,7 +423,7 @@ var api = `
       <section>
         <h4 id="postassertion-request">Request Format</h4>
         <p><code>POST {baseUrl}/ims/ob/v3p0/assertions</code></p>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>URL Parameter</th>
@@ -439,7 +439,7 @@ var api = `
               <td>
                 The HTTP scheme (which MUST be &quot;https&quot;), the domain name, and any other path elements required
                 by the [=resource server=] (e.g. &quot;<a
-                  href="https://example.net/tenant">https://example.net/tenant</a>&quot;).
+                  href="https://example.com/tenant">https://example.com/tenant</a>&quot;).
               </td>
               <td>Required</td>
             </tr>
@@ -448,7 +448,7 @@ var api = `
       </section>
       <section>
         <h4>Request Headers</h4>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>Request Header</th>
@@ -490,7 +490,7 @@ var api = `
       </section>
       <section>
         <h4>Request Payload</h4>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>Request Payload Type</th>
@@ -515,7 +515,7 @@ var api = `
       <section>
         <h4>Sample Request</h4>
         <pre class="http example" title="Sample postAssertion Request">
-          POST /ims/ob/v3p0/assertions HTTP/1.1
+          POST tenant/ims/ob/v3p0/assertions HTTP/1.1
           Host: example.com
           Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
           Accept: application/ld+json
@@ -544,7 +544,7 @@ var api = `
 
       <section>
         <h4 id="postassertion-responses">Responses</h4>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>HTTP Status Code</th>
@@ -626,7 +626,7 @@ var api = `
       </section>
       <section>
         <h4>Response Headers</h4>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>Response Header</th>
@@ -678,7 +678,7 @@ var api = `
       <section>
         <h4 id="getprofile-request">Request Format</h4>
         <p><code>GET {baseUrl}/ims/ob/v3p0/profile</code></p>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>URL Parameter</th>
@@ -692,7 +692,7 @@ var api = `
               <td><code>baseUrl</code></td>
               <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
               <td>The HTTP scheme (which MUST be "https"), domain name, and any other path
-                elements required by the [=resource server=] (e.g. "https://example.net/tenant").
+                elements required by the [=resource server=] (e.g. "https://example.com/tenant").
               </td>
               <td>Required</td>
             </tr>
@@ -701,7 +701,7 @@ var api = `
       </section>
       <section>
         <h4>Request Headers</h4>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>Request Header</th>
@@ -740,7 +740,7 @@ var api = `
       <section>
         <h4>Sample Request</h4>
         <pre class="http example" title="Sample getProfile Request">
-          GET /ims/ob/v3p0/profile HTTP/1.1
+          GET tenant/ims/ob/v3p0/profile HTTP/1.1
           Host: example.com
           Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
           Accept: application/ld+json
@@ -749,7 +749,7 @@ var api = `
 
       <section>
         <h4 id="getprofile-responses">Responses</h4>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>HTTP Status Code</th>
@@ -818,7 +818,7 @@ var api = `
       </section>
       <section>
         <h4>Response Headers</h4>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>Response Header</th>
@@ -865,7 +865,7 @@ var api = `
       <section>
         <h4 id="postprofile-request">Request Format</h4>
         <p><code>POST {baseUrl}/ims/ob/v3p0/profile</code></p>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>URL Parameter</th>
@@ -881,7 +881,7 @@ var api = `
               <td>
                 The HTTP scheme (which MUST be &quot;https&quot;), the domain name, and any other path elements required
                 by the [=resource server=] (e.g. &quot;<a
-                  href="https://example.net/tenant">https://example.net/tenant</a>&quot;).
+                  href="https://example.com/tenant">https://example.com/tenant</a>&quot;).
               </td>
               <td>Required</td>
             </tr>
@@ -890,7 +890,7 @@ var api = `
       </section>
       <section>
         <h4>Request Headers</h4>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>Request Header</th>
@@ -932,7 +932,7 @@ var api = `
       </section>
       <section>
         <h4>Request Payload</h4>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>Request Payload Type</th>
@@ -955,7 +955,7 @@ var api = `
       <section>
         <h4>Sample Request</h4>
         <pre class="http example" title="Sample postProfile Request">
-          POST /ims/ob/v3p0/profile HTTP/1.1
+          POST tenant/ims/ob/v3p0/profile HTTP/1.1
           Host: example.com
           Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
           Accept: application/ld+json
@@ -972,7 +972,7 @@ var api = `
 
       <section>
         <h4 id="postprofile-responses">Responses</h4>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>HTTP Status Code</th>
@@ -1048,7 +1048,7 @@ var api = `
       </section>
       <section>
         <h4>Response Headers</h4>
-        <table>
+        <table class="simple">
           <thead>
             <tr>
               <th>Response Header</th>
