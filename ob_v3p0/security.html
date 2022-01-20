@@ -32,7 +32,7 @@ var security = `
 
         <!-- ACG - Registration -->
         <section>
-            <h4 id="acg-registration">ACG - Registration</h4>
+            <h4 id="acg-registration">Registration</h4>
             <p>
                 To get started, the [=client=] and [=authorization server=] must share the four pieces of information
                 shown below. [=Clients=] and [=servers=] that implement the Authorization Code Grant (ACG) method of
@@ -72,7 +72,7 @@ var security = `
 
         <!-- ACG - Obtaining Tokens -->
         <section>
-            <h4 id="acg-tokens">ACG - Obtaining Tokens</h4>
+            <h4 id="acg-tokens">Obtaining Tokens</h4>
             <figure>
                 <img src="images/OB3_ACG_ObtainingTokens.svg"
                     alt="Sequence diagram for obtaining access tokens when using the ACG flow" />
@@ -96,7 +96,7 @@ var security = `
                 token for every API request. Token refresh is also available (see [[[#token-refresh-request]]]).
             </p>
             <section>
-                <h5 id="acg-auth-request">ACG - Authorization Request</h5>
+                <h5 id="acg-auth-request">Authorization Request</h5>
                 <p>
                     After the [=client=] application is registered with the [=authorization server=] as described in
                     [[[#dynamic-registration]]], the [=client=] application then MAY initiate an authorization request
@@ -220,7 +220,7 @@ var security = `
                 </pre>
             </section>
             <section>
-                <h5 id="acg-auth-response">ACG - Authorization Response</h5>
+                <h5 id="acg-auth-response">Authorization Response</h5>
                 <p>
                     If the <code>redirect_uri</code> matches a known <code>client_id</code>, the [=authorization
                     server=] SHOULD present a UI asking the [=user=] to authenticate themself and grant the access
@@ -348,7 +348,7 @@ var security = `
                 </pre>
             </section>
             <section>
-                <h5 id="acg-token-request">ACG - Access Token Request</h5>
+                <h5 id="acg-token-request">Access Token Request</h5>
                 <p>
                     With the supplied <code>code</code>, the [=client=] application SHOULD attempt to exchange the
                     <code>code</code> for an <code>access_token</code>. The [=client=] application makes an
@@ -413,14 +413,13 @@ var security = `
                 </pre>
             </section>
             <section>
-                <h5 id="acg-token-response">ACG - Access Token Response</h5>
+                <h5 id="acg-token-response">Access Token Response</h5>
                 <p>
                     If the [=authorization server=] grants this request (see Section 5.1 in [[RFC6749]] for the detailed
                     description), it returns <code>HTTP 200 OK</code> status code with content type "application/json"
                     consisting of a JSON object containing the access token and its expiry lifetime (IMS recommends a
                     default expiry lifetime of 3600 seconds, one hour, for access tokens), optionally a refresh token,
-                    and confirms the set of scopes
-                    supported by the access token:
+                    and confirms the set of scopes supported by the access token:
                 </p>
                 <table>
                     <thead>
@@ -548,7 +547,7 @@ var security = `
 
         <!-- ACG - Authenticating with Tokens -->
         <section>
-            <h4 id="acg-authenticating">ACG - Authenticating with Tokens</h4>
+            <h4 id="acg-authenticating">Authenticating with Tokens</h4>
             <p>
                 After obtaining an <code>access_token</code> and optionally a <code>refresh_token</code> using the
                 method above, a [=client=] application MAY issue request that access resources controlled by the
