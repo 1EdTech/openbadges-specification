@@ -1,7 +1,10 @@
 var datamodel = `
 
-<section data-model="org.1edtech.ob.v3p0.model" data-package="OpenBadges" title="Open Badges"></section>
-<section data-model="org.1edtech.ob.v3p0.model" data-package="DocumentPayloads" title="Document Payloads">
+<section data-model="org.1edtech.ob.v3p0.model" data-package="OpenBadges" title="Open Badges Data Model"></section>
+<section data-model="org.1edtech.ob.v3p0.model" data-package="Shared" title="Shared Data Models">
+  <p>
+    The data models in this section are shared by [[[OB-30]]] and [[[CLR-20]]].
+  </p>
   <section data-class="org.1edtech.ob.v3p0.assertioncredential.class" title="AssertionCredential">
     <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.assertioncredential.class"
       title="Sample assertion credential"
@@ -26,9 +29,12 @@ var datamodel = `
     </pre>
   </section>
 </section>
-<section data-model="org.1edtech.ob.v3p0.model" data-package="ApiPayloads" title="API Payloads"></section>
+<section data-model="org.1edtech.ob.v3p0.model" data-package="SharedApi" title="Shared API Data Models">
+  <p>
+    The data models in this section are shared by all IMS specifications.
+  </p>
+</section>
 <section data-model="org.1edtech.ob.v3p0.model" data-package="ApiSecurity" title="OAuth 2.0 Vocabulary"></section>
-<section data-model="org.1edtech.ob.v3p0.model" data-package="DocumentPayloads" title="Document Payloads"></section>
 <section data-model="org.1edtech.ob.v3p0.model" data-package="DerivedTypes" title="Derived Types"></section>
 <section data-model="org.1edtech.ob.v3p0.model" data-package="PrimitiveTypes" title="Primitive Types"></section>
 

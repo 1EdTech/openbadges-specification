@@ -47,6 +47,12 @@ var _localBiblio = {
         "status": "IMS Base Document",
         "publisher": "IMS Global Learning Consortium"
     },
+    "CLR-20": {
+        "title": "Comprehensive Learner Record Standard v2.0",
+        "href": "https://www.imsglobal.org/spec/clr/v2p0/",
+        "status": "IMS Base Document",
+        "publisher": "IMS Global Learning Consortium"
+    },
     "CEDS": {
         "title": "Common Education Data Standards (CEDS) Version 7 Data Model Guide",
         "href": "https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf"
