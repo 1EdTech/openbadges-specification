@@ -15,22 +15,50 @@ Package OpenBadges DataModel
 
 Package Shared DataModel
 
+	Class Assertion Mixin false [] 					    "Assertions are representations of an awarded achievement, used to share information about a achievement belonging to one earner. Assertions have all the properties needed to conform with a Verifiable Credential as defined in the [[vc-data-model]] specification. Therefore you can say, 'An Assertion IS a Verifiable Credential.'"
+		Property id	URI	1  								"Unambiguous reference to the assertion. [ED: Required in OB20 for hosted verification. Optional in OB30?]"
+		Property type URI 1..*							"The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'AssertionCredential'. [[vc-data-model]]"
+		Property issuer Profile 1  						"A description of the individual, entity, or organization that issued the badge. [[vc-data-model]]"
+		Property issuanceDate DateTime 1  				"Timestamp of when the achievement was awarded. [[vc-data-model]]"
+		Property credentialSubject AssertionSubject 1  	"The recipient of the achievement. [[vc-data-model]]"
+		Property credentialSchema CredentialSchema 1..* "The value of the `credentialSchema` property MUST be one or more data schemas that provide verifiers with enough information to determine if the provided data conforms to the provided schema. One of the data schemas MUST be the JSON Schema for this credential defined by this specification."
+		Property image Image 0..1  						"An image representing this user’s achievement. This must be a PNG or SVG image, and should be prepared via the Baking specification. An 'unbaked' image for the badge is defined in the BadgeClass and should not be duplicated here."
+		Property narrative Markdown 0..1  				"A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array."
+		Property expirationDate DateTime 0..1  			"If the achievement has some notion of expiry, this indicates a timestamp when a credential should no longer be considered valid. After this time, the badge credential be considered expired. [[vc-data-model]]"
+		Property proof Proof 0..*						"One or more cryptographic proofs that can be used to detect tampering and verify the authorship of a credential (Assertion). Without a proof, this Assertion is a credential, not a verifiable credential. [[vc-data-model]]"
+		Property credentialStatus CredentialStatus 0..1	"Provides information about the current status of a verifiable credential, such as whether it is suspended or revoked. [[vc-data-model]]"
+		Property extensions Namespace 0..1 	
+
 	Class AssertionCredential Unordered false []		"An AssertionCredential is an Assertion with all the properties need to conform with a Verifiable Credential. [[vc-data-model]]"
 	    Property @context URI 1..*						"The value of the `@context` property MUST be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1', and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'."
 		Mixin Assertion
 
-	Class Achievement Unordered false []				"d:A collection of information about the accomplishment recognized by the Assertion. Many assertions may be created corresponding to one Achievement."
-		Property id	URI	1  								"d:Unique URI for the Achievement. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid."
-		Property type URI 1 "v:Achievement"				"d:Valid representation of the Achievement type. In most cases, this will simply be the string Achievement."
-		Property achievementType AchievementType 0..1	"n:From [[CLR-10]]."
-		Property creator Creator 1 						"q:TBD"
-		Property name String 1  						"d:The name of the achievement."
-		Property description String 1  					"d:A short description of the achievement."
-		Property image Image 0..1  						"d:An image of the achievement. This must be a PNG or SVG image."
-		Property criteria Criteria 1  					"d:Criteria document describing how to earn the achievement."
-		Property alignment Alignment 0..*  		        "d:An object describing which objectives or educational standards this badge aligns to, if any."
-		Property tags String 0..*  						"d:A tag that describes the type of achievement."
-		Property endorsement Endorsement 0..* 			"d:A claim made about this entity. Note: As endorsements must be published after the publication of the entity they endorse, it will not always be possible to establish a two-way linkage with this property."		
+	Class AssertionSubject Unordered false []			"A collection of information about the recipient of a badge."
+		Property id URI 1
+		Property achievement Achievement 0..1			"The achievement being awarded."
+		Property evidence Evidence 0..*  				"A description of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible."
+		Property result Result 0..*						"The set of results being asserted."
+		Property extensions Namespace 0..1 
+
+	Class Achievement Unordered false []					"A collection of information about the accomplishment recognized by the Assertion. Many assertions may be created corresponding to one Achievement."
+		Property id	URI	1  									"Unique URI for the Achievement. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid."
+		Property type URI 0..1 								"v:Achievement" "d:Valid representation of the Achievement type. In most cases, this will simply be the string Achievement."
+		Property alignment Alignment 0..*  		        	"An object describing which objectives or educational standards this achievement aligns to, if any."
+		Property achievementType AchievementType 0..1		"n:From [[CLR-10]]." "The type of achievement. This is an extensible vocabulary."
+		Property creator Creator 1 							"q:TBD"
+		Property creditsAvailable Float 0..1				"Credit hours associated with this entity, or credit hours possible. For example '3.0'."
+		Property criteria Criteria 0..1						"Criteria document describing how to earn the achievement."
+		Property description String 0..1					"A short description of the achievement."
+		Property endorsement Endorsement 0..* 				"A claim made about this entity. Note: As endorsements must be published after the publication of the entity they endorse, it will not always be possible to establish a two-way linkage with this property."		
+		Property fieldOfStudy String 0..1					"Category, subject, area of study, discipline, or general branch of knowledge. Examples include Business, Education, Psychology, and Technology."
+		Property humanCode String 0..1						"The code, generally human readable, associated with an achievement."
+		Property identifiers SystemIdentifier 0..*			"A set of System Identifiers that represent other identifiers for this Achievement."
+		Property image Image 0..1  							"q:image was simplified to URI in CLR 1.0" "An image of the achievement. This must be a PNG or SVG image."
+		Property level String 0..1							"Text that describes the level of achievement apart from how the achievement was performed or demonstrated. Examples would include 'Level 1', 'Level 2', 'Level 3', or 'Bachelors', 'Masters', 'Doctoral'."
+		Property name String 1  							"The name of the achievement."
+		Property resultDescriptions ResultDescription 0..* "The set of result descriptions that may be asserted as results with this achievement."
+		Property specialization String 0..1					"Name given to the focus, concentration, or specific area of study defined in the achievement. Examples include Entrepreneurship, Technical Communication, and Finance."
+		Property tags String 0..*  							"q:Need both achievementType and tags?" "Tags that describes the type of achievement."
 		Property extensions Namespace 0..1  
 
 	Class Address Unordered false []					"n:From [[CLR-10]]." "Address is an alias for [[schema-org]] Address."
@@ -72,13 +100,6 @@ Package Shared DataModel
 	Class CredentialStatus Unordered false []			"The information in CredentialStatus is used to discover information about the current status of a verifiable credential, such as whether it is suspended or revoked. [[vc-data-model]]"
 		Property id URI 1
 		Property type URI 1								"Expresses the credential status type (also referred to as the credential status method). It is expected that the value will provide enough information to determine the current status of the credential. For example, the object could contain a link to an external document noting whether or not the credential is suspended or revoked. [[vc-data-model]]"
-		Property extensions Namespace 0..1 
-
-	Class CredentialSubject Unordered false []			"A collection of information about the recipient of a badge."
-		Property id URI 1
-		Property achievement Achievement 0..1			"The achievement being awarded."
-		Property evidence Evidence 0..*  				"A description of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible."
-		Property result Result 0..*						"The set of results being asserted."
 		Property extensions Namespace 0..1 
 
 	Class Criteria Unordered false []					"Descriptive metadata about the achievements necessary to be recognized with an Assertion of a particular BadgeClass. This data is added to the BadgeClass so that it may be rendered when that BadgeClass is displayed, instead of simply a link to human-readable criteria external to the badge. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an Assertion of a particular BadgeClass. It is also used after the Assertion is awarded to a recipient to let those inspecting earned badges know the general requirements that the recipients met in order to earn it."
@@ -185,7 +206,7 @@ Package Shared DataModel
 		Property identifier String 1
 		Property identifierType IdentifierType 1
 
-// Enumerations
+	// Enumerations
 
 	Class AchievementType EnumExt false []				"[ED: from CLR 1.0]"
 		Property Achievement Term 1						"Represents a generic achievement."
@@ -242,7 +263,7 @@ Package SharedApi DataModel
 
 	Includes [Imsx_StatusInfo, Imsx_CodeMajor, Imsx_Severity, Imsx_CodeMinor, Imsx_CodeMinorField, Imsx_CodeMinorFieldValue]
 
-Package ApiSecurity DataModel
+Package SharedOAuth DataModel
 
 	Class AuthorizationError Vocabulary false []						"This is the set of ASCII error code strings that may be returned in response to a client authorization request. See Section 4.1 of [[RFC6749]]."
 		Property invalid_request ASCIIString 1							"The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed."
@@ -268,22 +289,6 @@ Package ApiSecurity DataModel
 		Property unsupported_token_type ASCIIString 1					"The [=authorization server=] does not support the revocation of the presented token type. That is, the client tried to revoke an access token on a server not supporting this feature."
 		Property invalid_scope ASCIIString 1							"The requested scope is invalid, unknown, malformed, or exceeds the scope granted by the resource owner."
 
-// Mixins
-
-	Class Assertion Mixin false [] 					    "Assertions are representations of an awarded achievement, used to share information about a achievement belonging to one earner. Assertions have all the properties needed to conform with a Verifiable Credential as defined in the [[vc-data-model]] specification. Therefore you can say, 'An Assertion IS a Verifiable Credential.'"
-		Property id	URI	1  								"Unambiguous reference to the assertion. [ED: Required in OB20 for hosted verification. Optional in OB30?]"
-		Property type URI 1..*							"The value of the type property MUST be an unordered set. One of the items MUST be the URI Verifiable Credential, and one of the items MUST be the URI [ED: ImsAssertionCredential?]. [[vc-data-model]]"
-		Property issuer Profile 1  						"A description of the individual, entity, or organization that issued the badge. [[vc-data-model]]"
-		Property issuanceDate DateTime 1  				"Timestamp of when the achievement was awarded. [[vc-data-model]]"
-		Property credentialSubject CredentialSubject 1  "The recipient of the achievement. [[vc-data-model]]"
-		Property credentialSchema CredentialSchema 1..* "The value of the `credentialSchema` property MUST be one or more data schemas that provide verifiers with enough information to determine if the provided data conforms to the provided schema. One of the data schemas MUST be the JSON Schema for this credential defined by this specification."
-		Property image Image 0..1  						"An image representing this user’s achievement. This must be a PNG or SVG image, and should be prepared via the Baking specification. An ‘unbaked’ image for the badge is defined in the BadgeClass and should not be duplicated here. [[OB-BAKE-30]]"
-		Property narrative Markdown 0..1  				"A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array."
-		Property expirationDate DateTime 0..1  			"If the achievement has some notion of expiry, this indicates a timestamp when a credential should no longer be considered valid. After this time, the badge credential be considered expired. [[vc-data-model]]"
-		Property proof Proof 0..*						"One or more cryptographic proofs that can be used to detect tampering and verify the authorship of a credential (Assertion). Without a proof, this Assertion is a credential, not a verifiable credential. [[vc-data-model]]"
-		Property credentialStatus CredentialStatus 0..1	"Provides information about the current status of a verifiable credential, such as whether it is suspended or revoked. [[vc-data-model]]"
-		Property extensions Namespace 0..1 	
-
 // Derived Types	
 
 Package DerivedTypes DataModel
@@ -295,7 +300,7 @@ Package DerivedTypes DataModel
 // PrimitiveTypes
 
 Package PrimitiveTypes DataModel
-	Includes [NonNegativeInteger, NormalizedString, PositiveInteger]
+	Includes [Float, NonNegativeInteger, NormalizedString, PositiveInteger]
 	Class ASCIIString PrimitiveType false []			"An ASCII [[RFC20]] string. The string MUST NOT include characters outside the set %x20-21 / %x23-5B / %x5D-7E."
 	Class String PrimitiveType false []					"Character strings"
 	Class Namespace PrimitiveType false []				"A namespace data type for defining data from a context other than that as the default for the data model. This is used for importing other data models."

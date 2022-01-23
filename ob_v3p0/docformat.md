@@ -4,31 +4,30 @@ var docformat = `
 
 [=Open Badges=] can be exchanged as JSON-LD documents as defined in this section, or by using the [Open Badges API](#api). Open Badges documents can be exchanged as a file or web resource, displayed as a QR code, or embedded in an image. The contents of an Open Badge document MUST meet the following criteria:
 
-- The contents of the file MUST represent exactly one [AssertionCredential](#org.1edtech.ob.v3p0.assertioncredential.class)
+- The contents of the file MUST represent exactly one [AssertionCredential](#org.1edtech.ob.v3p0.assertioncredential.class) or one [ObPresentation](#org.1edtech.ob.v3p0.obpresentation.class)
 - The contents MUST be JSON and JSON-LD (see [[[#serialization]]])
 
-<aside class="example" title="Sample Open Badges File Contents">
-    <pre class="json vc" data-schema="org.1edtech.ob.v3p0.assertion.class"
-         data-vc-vm="https://example.edu/issuers/565049#key-1">
-        {
-            "@context": [
-                "https://www.w3.org/2018/credentials/v1",
-                "https://www.w3.org/2018/credentials/examples/v1"
-            ],
-            "id": "http://example.edu/credentials/3732",
-            "type": ["VerifiableCredential", "OpenBadge"],
-            "issuer": {
-                "id": "https://example.edu/issuers/565049",
-                "type": "IssuerProfile",
-                "name": "Example University"
-            },
-            "issuanceDate": "2010-01-01T00:00:00Z",
-            "credentialSubject": {
-                "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
-            }
-        }
-    </pre>
-</aside>
+<pre class="json example vc" data-schema="org.1edtech.ob.v3p0.assertioncredential.class"
+      title="Sample AssertionCredential file contents"
+      data-vc-vm="https://example.edu/issuers/565049#key-1">
+  {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://www.w3.org/2018/credentials/examples/v1"
+    ],
+    "id": "http://example.edu/credentials/3732",
+    "type": ["VerifiableCredential", "AssertionCredential"],
+    "issuer": {
+      "id": "https://example.edu/issuers/565049",
+      "type": "IssuerProfile",
+      "name": "Example University"
+    },
+    "issuanceDate": "2010-01-01T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+    }
+  }
+</pre>
 
 ### File Format
 
@@ -51,7 +50,13 @@ Some Assertions are quite long. Due to the large size of the resulting JSON stri
 
 ### Image Format
 
-Assertions may be exchanged as image files with Assertions encoded within. This allows Assertions to be portable wherever image files may be stored or displayed.
+<div class="issue" title="Baking an ObPresentation">
+  <p>
+    Can an ObPresentation be baked into an image? What are the implications?
+  </p>
+</div>
+
+Assertions may be exchanged as image files with assertions encoded within. This allows assertions to be portable wherever image files may be stored or displayed.
 
 "Baking" is the process of taking an [AssertionCredential](#org.1edtech.ob.v3p0.assertioncredential.class) and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges or CLR-aware can automatically extract that Assertion data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image must be in either PNG or SVG format in order to support baking.
 
@@ -64,14 +69,14 @@ Assertions may be exchanged as image files with Assertions encoded within. This 
 An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with **keyword** <code>openbadges</code>. The **text** MUST be the JSON for the [[[#org.1edtech.ob.v3p0.assertioncredential.class]]]. Compression MUST NOT be used.
 
 <pre class="js example" title="An example of creating a chunk (assuming an iTXt constructor)">
-var chunk = new iTXt({
-  keyword: 'openbadges',
-  compression: 0,
-  compressionMethod: 0,
-  languageTag: '',
-  translatedKeyword: '',
-  text: JSON.stringify(assertion)
-})
+  var chunk = new iTXt({
+    keyword: 'openbadges',
+    compression: 0,
+    compressionMethod: 0,
+    languageTag: '',
+    translatedKeyword: '',
+    text: JSON.stringify(assertion)
+  })
 </pre>
 
 An iTXt chunk with the keyword <code>openbadges</code> MUST NOT appear in a PNG more than once. When baking an image that already contains assertion data, the implementor may choose whether to pass the user an error or overwrite the existing chunk.
@@ -91,27 +96,27 @@ The JSON representation of the [AssertionCredential](#org.1edtech.ob.v3p0.assert
 <pre class="xml example" title="An example of a well baked SVG">
 &lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;svg xmlns="http://www.w3.org/2000/svg"
-     xmlns:clr="https://purl.imsglobal.org/ob/v3p0"
-     viewBox="0 0 512 512">
+  xmlns:clr="https://purl.imsglobal.org/ob/v3p0"
+  viewBox="0 0 512 512">
   &lt;openbadges:assertion>
     &lt;![CDATA[
-        {
-            "@context": [
-                "https://www.w3.org/2018/credentials/v1",
-                "https://www.w3.org/2018/credentials/examples/v1"
-            ],
-            "id": "http://example.edu/credentials/3732",
-            "type": ["VerifiableCredential", "OpenBadge"],
-            "issuer": {
-                "id": "https://example.edu/issuers/565049",
-                "type": "IssuerProfile",
-                "name": "Example University"
-            },
-            "issuanceDate": "2010-01-01T00:00:00Z",
-            "credentialSubject": {
-                "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
-            }
+      {
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://www.w3.org/2018/credentials/examples/v1"
+        ],
+        "id": "http://example.edu/credentials/3732",
+        "type": ["VerifiableCredential", "OpenBadge"],
+        "issuer": {
+          "id": "https://example.edu/issuers/565049",
+          "type": "IssuerProfile",
+          "name": "Example University"
+        },
+        "issuanceDate": "2010-01-01T00:00:00Z",
+        "credentialSubject": {
+          "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
         }
+      }
     ]]>
   &lt;/openbadges:assertion>
 

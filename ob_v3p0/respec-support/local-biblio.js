@@ -62,13 +62,25 @@ var _localBiblio = {
         "href": "https://www.openskillsnetwork.org/rsd"
     },
     "DATA-INTEGRITY": {
-        title: "Data Integrity 1.0",
-        href: "https://w3c-ccg.github.io/data-integrity-spec/",
-        authors: [
+        "title": "Data Integrity 1.0",
+        "href": "https://w3c-ccg.github.io/data-integrity-spec/",
+        "authors": [
             "Manu Sporny",
             "Dave Longley"
         ],
-        status: "CG-DRAFT",
-        publisher: "Credentials Community Group"
+        "status": "CG-DRAFT",
+        "publisher": "Credentials Community Group"
+    },
+    "VC-API": {
+        "title": "Verifiable Credentials HTTP API",
+        "href": "https://w3c-ccg.github.io/vc-api/",
+        "status": "W3C Community Group Draft Report",
+        "publisher": "Credentials Community Group"
+    },
+    "PRESENTATION-EXCHANGE-10": {
+        "title": "Presentation Exchange v1.0.0",
+        "href": "https://identity.foundation/presentation-exchange/spec/v1.0.0/",
+        "status": "DIF Ratified Specification",
+        "publisher": "Distributed Identity Foundation"
     },
 };
