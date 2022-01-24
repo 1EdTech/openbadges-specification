@@ -607,13 +607,13 @@ var security = `
 				access. The PKCE has two stages:
 			<ul>
 				<li>
-					First the [=client=]] MUST supply a <code>code_challenge</code> and
+					First the [=client=] MUST supply a <code>code_challenge</code> and
 					<code>code_challenge_method</code> in the request for an authorization code. The [=authorization
 					server=] is responsible for associating the <code>code_challenge</code> with the issued
 					authorization code.
 				</li>
 				<li>
-					Then the [=client=]] MUST supply the <code>code_verifier</code> in the Access Token Request, and
+					Then the [=client=] MUST supply the <code>code_verifier</code> in the Access Token Request, and
 					the [=authorization server=] verifies the <code>code_verifier</code>.
 				</li>
 			</ul>
@@ -1120,7 +1120,7 @@ var security = `
 					<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
 					<td>
 						The scope of the access request. The requested scope MUST NOT include any scope not
-						originally granted by the [=user=]], and if omitted is treated as equal to the scope
+						originally granted by the [=user=], and if omitted is treated as equal to the scope
 						originally granted by the [=user=].
 					</td>
 					<td>Required</td>
