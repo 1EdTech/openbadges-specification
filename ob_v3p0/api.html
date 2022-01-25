@@ -6,7 +6,7 @@ var api = `
   <div class="issue" title="Review API">
     <p>
       The API in this section is an update to the BadgeConnect API&trade; defined in [[OB-21]]. At the time of this
-      writing [[VC-API]], a VC-oriented API, is being developed. There may be others. A task force should look at the
+      writing, [[VC-API]], a VC-oriented API, is being developed. There may be others. A task force should look at the
       other VC APIs and suggest changes, if any, to this API.
     </p>
   </div>
@@ -119,13 +119,6 @@ var api = `
             Permission to update the profile for the authenticated entity.
           </td>
         </tr>
-        <tr>
-          <td>All</td>
-          <td>
-            <code>offline_access</code> - OPTIONAL. Permission to issue a <code>refresh_token</code> along with the
-            <code>access_token</code>.
-          </td>
-        </tr>
       </tbody>
     </table>
   </section>
@@ -209,12 +202,6 @@ var api = `
             </td>
             <td>Required</td>
           </tr>
-          <tr>
-            <td colspan="3">
-              The <code>&lt;access_token&gt;</code> MUST have scope:
-              <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly</code>
-            </td>
-          </tr>
         </tbody>
       </table>
 
@@ -225,7 +212,7 @@ var api = `
       <h4>Sample Request</h4>
 
       <pre class="http example" title="Sample getAssertions Request">
-        GET tenant/ims/ob/v3p0/assertions?limit=2&offset=0 HTTP/1.1
+        GET {tenant}/ims/ob/v3p0/assertions?limit=2&offset=0 HTTP/1.1
         Host: example.com
         Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
         Accept: application/ld+json
@@ -485,12 +472,6 @@ var api = `
             </td>
             <td>Required</td>
           </tr>
-          <tr>
-            <td colspan="3">
-              The <code>&lt;access_token&gt;</code> MUST have scope:
-              <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.create</code>
-            </td>
-          </tr>
         </tbody>
       </table>
 
@@ -521,7 +502,7 @@ var api = `
       <h4>Sample Request</h4>
 
       <pre class="http example" title="Sample postAssertion Request">
-          POST tenant/ims/ob/v3p0/assertions HTTP/1.1
+          POST {tenant}/ims/ob/v3p0/assertions HTTP/1.1
           Host: example.com
           Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
           Accept: application/ld+json
@@ -730,12 +711,6 @@ var api = `
             </td>
             <td>Required</td>
           </tr>
-          <tr>
-            <td colspan="3">
-              The <code>&lt;access_token&gt;</code> MUST have scope:
-              <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly</code>
-            </td>
-          </tr>
         </tbody>
       </table>
 
@@ -746,7 +721,7 @@ var api = `
       <h4>Sample Request</h4>
 
       <pre class="http example" title="Sample getProfile Request">
-        GET tenant/ims/ob/v3p0/profile HTTP/1.1
+        GET {tenant}/ims/ob/v3p0/profile HTTP/1.1
         Host: example.com
         Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
         Accept: application/ld+json
@@ -926,12 +901,6 @@ var api = `
             </td>
             <td>Required</td>
           </tr>
-          <tr>
-            <td colspan="3">
-              The <code>&lt;access_token&gt;</code> MUST have scope:
-              <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update</code>
-            </td>
-          </tr>
         </tbody>
       </table>
 
@@ -960,7 +929,7 @@ var api = `
       <h4>Sample Request</h4>
 
       <pre class="http example" title="Sample postProfile Request">
-          POST tenant/ims/ob/v3p0/profile HTTP/1.1
+          POST {tenant}/ims/ob/v3p0/profile HTTP/1.1
           Host: example.com
           Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
           Accept: application/ld+json

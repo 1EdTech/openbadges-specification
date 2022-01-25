@@ -10,9 +10,9 @@ Properties that have a null value or empty array MUST be ommitted from the seria
 
 ### JSON
 
-The data model can be encoded in Javascript Object Notation (JSON) [RFC8259] by mapping property values to JSON types as follows:
+The data model can be encoded in Javascript Object Notation (JSON) [[RFC8259]] by mapping property values to JSON types as follows:
 
-- Numeric values representable as IEEE754 SHOULD be represented as a Number type.
+- Numeric values representable as [[IEEE754]] SHOULD be represented as a Number type.
 - Boolean values SHOULD be represented as a Boolean type.
 - Sequence value SHOULD be represented as an Array type.
 - Unordered sets of values SHOULD be represented as an Array type.
@@ -26,7 +26,7 @@ The data model can be encoded in Javascript Object Notation (JSON) [RFC8259] by 
 
 Instances of the data model are encoded in [[JSON-LD]] in the same way they are encoded in JSON (Section [[[#json]]]), with the addition of the <code>@context</code> property. The JSON-LD context is described in detail in the [[JSON-LD]] specification and its use is elaborated on in Section [[[#extending]]].
 
-Multiple contexts MAY be used or combined to express any arbitrary information about verifiable credentials in idiomatic JSON. The JSON-LD context for all [=verifiable credentials=], available at <code>https://www.w3.org/2018/credentials/v1</code>, is a static document that is never updated and can therefore be downloaded and cached client side. The associated vocabulary document for the Verifiable Credentials Data Model is available at <code>https://www.w3.org/2018/credentials</code>. The JSON-LD context for Open Badges verifiable credentials is available at <code>https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld</code>. The associated vocabulary document for the Open Badges Data Model is available at <code>https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.html</code>. Open Badges [=verifiable credentials=] MUST be serialized with both JSON-LD contexts.
+Multiple contexts MAY be used or combined to express any arbitrary information about verifiable credentials in idiomatic JSON. The JSON-LD context for all [=verifiable credentials=], available at <code>https://www.w3.org/2018/credentials/v1</code>, is a static document that is never updated and can therefore be downloaded and cached client side. The associated vocabulary document for the Verifiable Credentials Data Model is available at <code>https://www.w3.org/2018/credentials</code>. The JSON-LD context for Open Badges [=verifiable credentials=] is available at <code>https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld</code>. The associated vocabulary document for the Open Badges Data Model is available at <code>https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.html</code>. Open Badges [=verifiable credentials=] MUST be serialized with both JSON-LD contexts.
 
 <pre class="example" title="JSON-LD @context serialization">
   "@context": [
