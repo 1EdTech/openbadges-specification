@@ -18,14 +18,14 @@ Package Shared DataModel
 	Class Assertion Mixin false [] 					    "Assertions are representations of an awarded achievement, used to share information about a achievement belonging to one earner. Assertions have all the properties needed to conform with a Verifiable Credential as defined in the [[vc-data-model]] specification. Therefore you can say, 'An Assertion IS a Verifiable Credential.'"
 		Property id	URI	1  								"Unambiguous reference to the assertion. [ED: Required in OB20 for hosted verification. Optional in OB30?]"
 		Property type URI 1..*							"The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'AssertionCredential'. [[vc-data-model]]"
-		Property issuer Profile 1  						"A description of the individual, entity, or organization that issued the badge. [[vc-data-model]]"
+		Property issuer Profile 1  						"A description of the individual, entity, or organization that issued the achievement assertion. [[vc-data-model]]"
 		Property issuanceDate DateTime 1  				"Timestamp of when the achievement was awarded. [[vc-data-model]]"
 		Property credentialSubject AssertionSubject 1  	"The recipient of the achievement. [[vc-data-model]]"
 		Property credentialSchema CredentialSchema 1..* "The value of the `credentialSchema` property MUST be one or more data schemas that provide verifiers with enough information to determine if the provided data conforms to the provided schema. One of the data schemas MUST be the JSON Schema for this credential defined by this specification."
-		Property image Image 0..1  						"An image representing this user’s achievement. This must be a PNG or SVG image, and should be prepared via the Baking specification. An 'unbaked' image for the badge is defined in the BadgeClass and should not be duplicated here."
+		Property image Image 0..1  						"An image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the 'baking' instructions. An 'unbaked' image for the achievement is defined in the Achievement class and should not be duplicated here."
 		Property narrative Markdown 0..1  				"A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array."
-		Property expirationDate DateTime 0..1  			"If the achievement has some notion of expiry, this indicates a timestamp when a credential should no longer be considered valid. After this time, the badge credential be considered expired. [[vc-data-model]]"
-		Property proof Proof 0..*						"One or more cryptographic proofs that can be used to detect tampering and verify the authorship of a credential (Assertion). Without a proof, this Assertion is a credential, not a verifiable credential. [[vc-data-model]]"
+		Property expirationDate DateTime 0..1  			"If the achievement assertion has some notion of expiry, this indicates a timestamp when a credential should no longer be considered valid. After this time, the achievement assertion should be considered expired. [[vc-data-model]]"
+		Property proof Proof 0..*						"One or more cryptographic proofs that can be used to detect tampering and verify the authorship of the achievement assertion. [[vc-data-model]]"
 		Property credentialStatus CredentialStatus 0..1	"Provides information about the current status of a verifiable credential, such as whether it is suspended or revoked. [[vc-data-model]]"
 		Property extensions Namespace 0..1 	
 
@@ -33,7 +33,7 @@ Package Shared DataModel
 	    Property @context URI 1..*						"The value of the `@context` property MUST be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1', and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'."
 		Mixin Assertion
 
-	Class AssertionSubject Unordered false []			"A collection of information about the recipient of a badge."
+	Class AssertionSubject Unordered false []			"A collection of information about the recipient of an achievement."
 		Property id URI 1
 		Property achievement Achievement 0..1			"The achievement being awarded."
 		Property evidence Evidence 0..*  				"A description of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible."
@@ -42,10 +42,10 @@ Package Shared DataModel
 
 	Class Achievement Unordered false []					"A collection of information about the accomplishment recognized by the Assertion. Many assertions may be created corresponding to one Achievement."
 		Property id	URI	1  									"Unique URI for the Achievement. Most platforms to date can only handle HTTP-based IRIs. Issuers using signed assertions are encouraged to publish BadgeClasses using HTTP IRIs but may instead use ephemeral BadgeClasses that use an id in another scheme such as urn:uuid."
-		Property type URI 0..1 								"v:Achievement" "d:Valid representation of the Achievement type. In most cases, this will simply be the string Achievement."
+		Property type URI 0..1 								
 		Property alignment Alignment 0..*  		        	"An object describing which objectives or educational standards this achievement aligns to, if any."
-		Property achievementType AchievementType 0..1		"n:From [[CLR-10]]." "The type of achievement. This is an extensible vocabulary."
-		Property creator Creator 1 							"q:TBD"
+		Property achievementType AchievementType 0..1		"The type of achievement. This is an extensible vocabulary."
+		Property creator Profile 1 							"The person or organization that created the achievement definition."
 		Property creditsAvailable Float 0..1				"Credit hours associated with this entity, or credit hours possible. For example '3.0'."
 		Property criteria Criteria 0..1						"Criteria document describing how to earn the achievement."
 		Property description String 0..1					"A short description of the achievement."
@@ -53,7 +53,7 @@ Package Shared DataModel
 		Property fieldOfStudy String 0..1					"Category, subject, area of study, discipline, or general branch of knowledge. Examples include Business, Education, Psychology, and Technology."
 		Property humanCode String 0..1						"The code, generally human readable, associated with an achievement."
 		Property identifiers SystemIdentifier 0..*			"A set of System Identifiers that represent other identifiers for this Achievement."
-		Property image Image 0..1  							"q:image was simplified to URI in CLR 1.0" "An image of the achievement. This must be a PNG or SVG image."
+		Property image Image 0..1  							"q:Reconcile CLR 1.0 image (URL) with OB 2.0 image (URL or object)" "An image of the achievement. This must be a PNG or SVG image."
 		Property level String 0..1							"Text that describes the level of achievement apart from how the achievement was performed or demonstrated. Examples would include 'Level 1', 'Level 2', 'Level 3', or 'Bachelors', 'Masters', 'Doctoral'."
 		Property name String 1  							"The name of the achievement."
 		Property resultDescriptions ResultDescription 0..* "The set of result descriptions that may be asserted as results with this achievement."
@@ -61,8 +61,7 @@ Package Shared DataModel
 		Property tags String 0..*  							"q:Need both achievementType and tags?" "Tags that describes the type of achievement."
 		Property extensions Namespace 0..1  
 
-	Class Address Unordered false []					"n:From [[CLR-10]]." "Address is an alias for [[schema-org]] Address."
-		Property id URI 0..1
+	Class Address Unordered false []					"The physical address of a person or organization."
 		Property type URI 0..1
 		Property addressCountry String 0..1				"The country. For example, USA. You can also provide the two-letter [[ISO3166-1]] alpha-2 country code."
 		Property addressLocality String 0..1			"The locality. For example, Mountain View."
@@ -72,26 +71,22 @@ Package Shared DataModel
 		Property streetAddress String 0..1				"The street address. For example, 1600 Amphitheatre Pkwy."
 		Property extensions Namespace 0..1  
 
-	Class Alignment Unordered false []					"d:Alignment is an alias for [[schema-org]] AlignmentObject and uses IRIs from that vocabulary."
-		Property id	URI 0..1 							"d:The URI of a webpage presenting evidence of achievement."
+	Class Alignment Unordered false []					"Describes an alignment between an achievement and a node in an educational framework."
 		Property type URI 0..1
-		Property targetCode String 0..1 				"d:If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl."
-		Property targetDescription String 0..1 			"d:Short description of the alignment target."
-		Property targetName	String 1 					"d:Name of the alignment."
-		Property targetFramework String	0..1  			"d:Name of the framework the alignment target."
-		Property targetType TargetType 0..1 			"n:From [[CLR-10]]." "The type of the alignment target node."
-		Property targetUrl	URL 1 						"d:URL linking to the official description of the alignment target, for example an individual standard within an educational framework."
+		Property targetCode String 0..1 				"If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl."
+		Property targetDescription String 0..1 			"Short description of the alignment target."
+		Property targetName	String 1 					"Name of the alignment."
+		Property targetFramework String	0..1  			"Name of the framework the alignment target."
+		Property targetType AlignmentTargetType 0..1 	"n:From [[CLR-10]]." "The type of the alignment target node."
+		Property targetUrl	URL 1 						"URL linking to the official description of the alignment target, for example an individual standard within an educational framework."
 		Property extensions Namespace 0..1 
 
-	Class Artifact Unordered false []					"n:From [[CLR-10]]." "An artifact that is part of an evidence object."
+	Class Artifact Unordered false []					"An artifact that is part of an evidence object."
 		Property type URI 0..1
 		Property description String 0..1				"A description of the artifact."
 		Property name String 0..1						"The name of the artifact."
 		Property url URI 0..1							"URI for the artifact which may be a Data URI ([[RFC2397]]) or the URL where the artifact can be found."
 		Property extensions Namespace 0..1 
-
-	Class Creator Unordered false []					"q:TBD"
-		Property extensions Namespace 0..1  
 
 	Class CredentialSchema Unordered false []			"Identify the type and location of a data schema."
 		Property id URI 1								"The value MUST be a URI identifying the schema file. One instance of `CredentialSchema` MUST have an `id` that is the URL of the JSON Schema for this credential defined by this specification."
@@ -102,28 +97,28 @@ Package Shared DataModel
 		Property type URI 1								"Expresses the credential status type (also referred to as the credential status method). It is expected that the value will provide enough information to determine the current status of the credential. For example, the object could contain a link to an external document noting whether or not the credential is suspended or revoked. [[vc-data-model]]"
 		Property extensions Namespace 0..1 
 
-	Class Criteria Unordered false []					"Descriptive metadata about the achievements necessary to be recognized with an Assertion of a particular BadgeClass. This data is added to the BadgeClass so that it may be rendered when that BadgeClass is displayed, instead of simply a link to human-readable criteria external to the badge. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an Assertion of a particular BadgeClass. It is also used after the Assertion is awarded to a recipient to let those inspecting earned badges know the general requirements that the recipients met in order to earn it."
+	Class Criteria Unordered false []					"Descriptive metadata about the achievements necessary to be recognized with an assertion of a particular achievement. This data is added to the Achievement class so that it may be rendered when the achievement assertion is displayed, instead of simply a link to human-readable criteria external to the achievement. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an assertion of a particular achievement. It is also used after the assertion is awarded to a recipient to let those inspecting earned achievements know the general requirements that the recipients met in order to earn it."
 		Property id	URI	0..1 							"The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass."
-		Property type URI 1	"v:Criteria"				"Defaults to Criteria."		
-		Property narrative Markdown 0..1 				"A narrative of what is needed to earn the badge."
+		Property type URI 0..1					
+		Property narrative Markdown 0..1 				"A narrative of what is needed to earn the achievement. Markdown is allowed."
 		Property extensions Namespace 0..1 
 
-	Class Endorsement Unordered false []				"Open Badges are trustworthy records of achievement. The vocabulary defined above, combined with the validation and verification procedures for badge Assertions, establish Open Badges as a reliable method for expressing and verifying achievements online. However, these procedures don’t answer questions like, “Who trusts this BadgeClass to be a good certification of the competency it describes?” or, “Is this Profile’s email address verified?” For these questions, there is Endorsement."
-		Property id	URI	1  								"Unique URI for the Endorsement instance. If using hosted verification, this should be the URI where the assertion of endorsement is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace."
+	Class Endorsement Unordered false []				"A credential that asserts a claim about an entity."
+		Property id	URI	1  								"Unique URI for the endorsement instance."
 		Property claim URI 1 							"An entity, identified by an id and additional properties that the endorser would like to claim about that entity."
-		Property issuer	Profile  1 						"The profile of the Endorsement’s issuer."
+		Property issuer	Profile  1 						"The profile of the endorsement's issuer."
 		Property issuedOn DateTime 1 					"Timestamp of when the endorsement was published."
 		Property endorsementComment String 0..1 		"Allows endorsers to make a simple claim in writing about the entity."
 		Property extensions Namespace 0..1 		
 
-	Class Evidence Unordered false []					"d:Descriptive metadata about evidence related to the issuance of an Assertion. Each instance of the Evidence class present in an Assertion corresponds to one entity, though a single entry can describe a set of items collectively. There may be multiple evidence entries referenced from an Assertion. The narrative property is also in scope of the Assertion class to provide an overall description of the achievement related to the badge in rich text. It is used here to provide a narrative of achievement of the specific entity described. If both the description and narrative properties are present, displayers can assume the narrative value goes into more detail and is not simply a recapitulation of description."	
-		Property id	URI 0..1 							"d:The URI of a webpage presenting evidence of achievement."
-		Property type URI 1 "v:Evidence"				"d:Defaults to Evidence."
-		Property narrative Markdown 0..1 				"d:A narrative that describes the evidence and process of achievement that led to an Assertion."
-		Property name String 0..1 						"d:A descriptive title of the evidence."
-		Property description String 0..1  				"d:A longer description of the evidence."
-		Property genre String 0..1  					"d:A string that describes the type of evidence. For example, Poetry, Prose, Film."
-		Property audience String 0..1  					"d:A description of the intended audience for a piece of evidence."
+	Class Evidence Unordered false []					"Descriptive metadata about evidence related to the achievement assertion. Each instance of the evidence class present in an assertion corresponds to one entity, though a single entry can describe a set of items collectively. There may be multiple evidence entries referenced from an assertion. The narrative property is also in scope of the assertion class to provide an overall description of the achievement related to the assertion in rich text. It is used here to provide a narrative of achievement of the specific entity described. If both the description and narrative properties are present, displayers can assume the narrative value goes into more detail and is not simply a recapitulation of description."	
+		Property id	URI 0..1 							"The URI of a webpage presenting evidence of achievement."
+		Property type URI 0..1
+		Property narrative Markdown 0..1 				"A narrative that describes the evidence and process of achievement that led to an Assertion."
+		Property name String 0..1 						"A descriptive title of the evidence."
+		Property description String 0..1  				"A longer description of the evidence."
+		Property genre String 0..1  					"A string that describes the type of evidence. For example, Poetry, Prose, Film."
+		Property audience String 0..1  					"A description of the intended audience for a piece of evidence."
 		Property artifacts Artifact 0..*				"n:From [[CLR-10]]." "Artifacts that are part of the evidence."
 		Property extensions Namespace 0..1 
 
@@ -134,15 +129,15 @@ Package Shared DataModel
 		Property author	Profile 0..1  					"The author of the image, if desired."
 		Property extensions Namespace 0..1 
 
-	Class Profile Unordered false []					"d:A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address."
-		Property id	URI	1  								"d:Unique URI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs."		
-		Property type URI 1 "v:Profile"					"d:Valid representation of Profile type. In most cases, this will simply be the string Profile."
-		Property name String 0..1 						"d:The name of the entity or organization."
-		Property url URI 0..1 							"d:The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP."
-		Property telephone String 0..1 					"d:A phone number for the entity. For maximum compatibility, the value should be expressed as a + and country code followed by the number with no spaces or other punctuation, like +16175551212 (E.164 format)."
-		Property description String	0..1 				"d:A short description of the issuer entity or organization."
-		Property image Image 0..1 						"d:An image representing the issuer. This must be a PNG or SVG image."
-		Property email String 0..1 						"d:Contact address for the individual or organization."
+	Class Profile Unordered false []					"A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address."
+		Property id	URI	1  								"Unique URI for the Issuer/Profile file. Most platforms to date can only handle HTTP-based IRIs."		
+		Property type URI 1 "v:Profile"					"Valid representation of Profile type. In most cases, this will simply be the string Profile."
+		Property name String 0..1 						"The name of the entity or organization."
+		Property url URI 0..1 							"The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP."
+		Property telephone String 0..1 					"A phone number for the entity. For maximum compatibility, the value should be expressed as a + and country code followed by the number with no spaces or other punctuation, like +16175551212 (E.164 format)."
+		Property description String	0..1 				"A short description of the issuer entity or organization."
+		Property image Image 0..1 						"An image representing the issuer. This must be a PNG or SVG image."
+		Property email String 0..1 						"Contact address for the individual or organization."
 		Property address Address 0..1					"n:From [[CLR-10]]." "An address for the individual or organization."
 		Property additionalName String 0..1				"n:From [[CLR-10]]." "An additional name for a person, can be used for a middle name."
 		Property birthDate Date 0..1					"n:From [[CLR-10]]." "Birthdate of the person."
@@ -168,52 +163,52 @@ Package Shared DataModel
 		Property verificationMethod String 1..*			"q:Array? Key/Value pairs?" "A set of parameters required to independently verify the proof, such as an identifier for a public/private key pair that would be used in the proof."
 		Property extensions Namespace 0..1 
 
-	Class Result Unordered false []						"[ED: from CLR 1.0]"
-		Property id URI 0..1
+	Class Result Unordered false []						"Describes a result that was achieved."
 		Property type URI 0..1
-		Property achievedLevel URI 0..1
-		Property resultDescription URI 1
-		Property status ResultStatusType 0..1
-		Property value String 0..1
+		Property achievedLevel URI 0..1					"If the result represents an achieved rubric criterion level (e.g. Mastered), the value is the `id` of the RubricCriterionLevel in linked ResultDescription."
+		Property alignments Alignment 0..*				"q:Determine if this property is required in CLR20/OB30."
+		Property resultDescription URI 1				"An achievement can have many result descriptions describing possible results. The value of `resultDescription` is the `id` of the result description linked to this result. The linked result description must be in the achievement that is being asserted."
+		Property status ResultStatusType 0..1			"The status of the achievement. Required if `resultType` of the linked ResultDescription is Status."
+		Property value String 0..1						"A string representing the result of the performance, or demonstration, of the achievement. For example, 'A' if the recipient received an A grade in class."
 		Property extensions Namespace 0..1 
 
-	Class ResultDescription Unordered false []			"[ED: from CLR 1.0]"
-		Property id URI 1
+	Class ResultDescription Unordered false []			"Describes a possible achievement result."
+		Property id	URI	1  								"The unique URI for this result description. Required so a result can link to this result description."		
 		Property type URI 0..1
-		Property alignments Alignment 0..*
-		Property allowedValues String 0..*
-		Property name String 1
-		Property requiredLevel URI 0..1
-		Property requiredValue String 0..1
-		Property resultType ResultType 1
-		Property rubricCriterionLevels RubricCriterionLevel 0..*
-		Property valueMax String 0..1
-		Property valueMin String 0..1
+		Property alignments Alignment 0..*				"Alignments between this result description and nodes in external frameworks."
+		Property allowedValues String 0..*				"An ordered array of allowed values. The values should be ordered from 'low' to 'high' as determined by the achievement creator."
+		Property name String 1							"The name of the result."
+		Property requiredLevel URI 0..1					"The `id` of the RubricCriterionLevel required to pass as determined by the achievement creator."
+		Property requiredValue String 0..1				"The value from `allowedValues` or within the range of `valueMin` to `valueMax` required to pass as determined by the achievement creator."
+		Property resultType ResultType 1				"The type of result this description represents. This is an extensible enumerated vocabulary."
+		Property rubricCriterionLevels RubricCriterionLevel 0..* "An ordered array of rubric criterion levels that may be asserted in the linked result. The levels should be ordered from 'low' to 'high' as determined by the achievement creator."
+		Property valueMax String 0..1					"The maximum possible `value` that may be asserted in a linked result."
+		Property valueMin String 0..1					"The minimum possible `value` that may be asserted in a linked result."
 		Property extensions Namespace 0..1 
 
-	Class RubricCriterionLevel Unordered false []		"[ED: from CLR 1.0]"
-		Property id URI 1
+	Class RubricCriterionLevel Unordered false []		"Describes a rubric criterion level."
+		Property id URI 1								"The unique URI for this rubric criterion level. Required so a result can link to this rubric criterion level."
 		Property type URI 0..1
-		Property alignments Alignment 0..*
-		Property description String 0..1
-		Property level String 0..1
-		Property name String 1
-		Property points String 0..1
+		Property alignments Alignment 0..*				"Alignments between this rubric criterion level and a rubric criterion levels defined in external frameworks."
+		Property description String 0..1				"Description of the rubric criterion level."
+		Property level String 0..1						"The rubric performance lvel in terms of success."
+		Property name String 1							"The name of the rubric criterion level."
+		Property points String 0..1						"The points associated with this rubric criterion level."
 		Property extensions Namespace 0..1 
 
-	Class SystemIdentifier Unordered false []			"[ED: from CLR 1.0]"
+	Class SystemIdentifier Unordered false []			"A SystemIdentifier represents a single, system-local identifier."
 		Property type URI 0..1
-		Property identifier String 1
-		Property identifierType IdentifierType 1
+		Property identifier String 1					"Opaque string representing the system identifier value."
+		Property identifierType IdentifierType 1		"The identifier type. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention. For example, the NCES School ID might be 'ext:NcesSchoolId'. Extended vocabulary terms must start with 'ext:' followed by any valid JSON string value."
 
 	// Enumerations
 
-	Class AchievementType EnumExt false []				"[ED: from CLR 1.0]"
+	Class AchievementType EnumExt false []				"The type of achievement, for example 'Award' or 'Certification'. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention."
 		Property Achievement Term 1						"Represents a generic achievement."
 		Property Assessment Term 1						"Represents the result of a skill, competency, or outcome-based summative assessment."
 		Property Assignment Term 1						"Represents the result of a curricular, or co-curricular assignment or exam."
 		Property Award Term 1							"Represents an award."
-		Property Badge Term 1							"Represents a generic badge. Set the type to 'BadgeClass' and reference the IMS Open Badges @context file if the achievement is an IMS Open Badges achievement."
+		Property Badge Term 1							"Represents a generic badge."
 		Property Certificate Term 1						"Represents a credit bearing certificate such as an undergraduate certificate in autism."
 		Property Certification Term 1					"Represents a non-credit certification such as a CompTIA certification in IT."
 		Property Course Term 1							"Represents a course completion."
@@ -226,15 +221,18 @@ Package Shared DataModel
 		Property License Term 1							"Represents a license."
 		Property Membership Term 1						"Represents membership."
 
-	Class ResultStatusType Enumeration false []			"[ED: from CLR 1.0]"
-		Property Completed Term 1						"The learner has successfully completed the achievement. This is the default status if no status result is included."
-		Property Enrolled Term 1						"The learner is enrolled in the activity described by the achievement."
-		Property Failed Term 1							"The learner has unsuccessfully completed the achievement."
-		Property InProgress Term 1						"The learner has started progress in the activity described by the achievement."
-		Property OnHold Term 1							"The learner has completed the activity described by the achievement, but successful completion has not been awarded, typically for administrative reasons."
-		Property Withdrew Term 1						"The learner withdrew from the activity described by the achievement before completion."
+	Class AlignmentTargetType EnumExt false []			"The type of the alignment target node in the target framework."
+		Property CFItem Term 1							"An alignment to a CASE Framework Item."
+		Property CFRubric Term 1						"An alignment to a CASE Framework Rubric."
+		Property CFRubricCriterion Term 1				"An alignment to a CASE Framework Rubric Criterion."
+		Property CFRubricCriterionLevel Term 1			"An alignment to a CASE Framework Rubric Criterion Level."
+		Property CTDL Term 1							"An alignment to a Credential Engine Item."
 
-	Class ResultType EnumExt false []					"[ED: from CLR 1.0]"
+	Class IdentifierType EnumExt false []				"The type of identifier. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention."
+		Property LisSourcedId Term 1					"The IMS LIS sourcedId for the achievement represented by the Achievement instance or the IMS LIS sourcedId for the person or organization represented by the Profile instance."
+		Property OneRosterSourcedId Term 1				"The IMS OneRoster sourcedId for the achievement represented by the Achievement instance or the IMS OneRoster sourcedId for the person or organization represented by the Profile instance."
+
+	Class ResultType EnumExt false []					"The type of result. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention."
 		Property GradePointAverage Term 1				"The result is a grade point average."
 		Property LetterGrade Term 1						"The result is a letter grade."
 		Property Percent Term 1							"The result is a percent score."
@@ -248,16 +246,13 @@ Package Shared DataModel
 		Property ScaledScore Term 1						"The result is a scaled score."
 		Property Status Term 1							"The result conveys the status of the achievement."
 
-	Class IdentifierType EnumExt false []				"[ED: from CLR 1.0]"
-		Property LisSourcedId Term 1					"The IMS LIS sourcedId for the achievement represented by the Achievement instance or the IMS LIS sourcedId for the person or organization represented by the Profile instance."
-		Property OneRosterSourcedId Term 1				"The IMS OneRoster sourcedId for the achievement represented by the Achievement instance or the IMS OneRoster sourcedId for the person or organization represented by the Profile instance."
-
-	Class TargetType EnumExt false []					"[ED: from CLR 1.0]"
-		Property CFItem Term 1							"An alignment to a CASE Framework Item."
-		Property CFRubric Term 1						"An alignment to a CASE Framework Rubric."
-		Property CFRubricCriterion Term 1				"An alignment to a CASE Framework Rubric Criterion."
-		Property CFRubricCriterionLevel Term 1			"An alignment to a CASE Framework Rubric Criterion Level."
-		Property CTDL Term 1							"An alignment to a Credential Engine Item."
+	Class ResultStatusType Enumeration false []			"Defined vocabulary to convey the status of an achievement."
+		Property Completed Term 1						"The learner has successfully completed the achievement. This is the default status if no status result is included."
+		Property Enrolled Term 1						"The learner is enrolled in the activity described by the achievement."
+		Property Failed Term 1							"The learner has unsuccessfully completed the achievement."
+		Property InProgress Term 1						"The learner has started progress in the activity described by the achievement."
+		Property OnHold Term 1							"The learner has completed the activity described by the achievement, but successful completion has not been awarded, typically for administrative reasons."
+		Property Withdrew Term 1						"The learner withdrew from the activity described by the achievement before completion."
 
 Package SharedApi DataModel
 
