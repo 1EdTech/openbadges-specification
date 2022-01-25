@@ -12,7 +12,7 @@ Properties that have a null value or empty array MUST be ommitted from the seria
 
 The data model can be encoded in Javascript Object Notation (JSON) [[RFC8259]] by mapping property values to JSON types as follows:
 
-- Numeric values representable as [[IEEE754]] SHOULD be represented as a Number type.
+- Numeric values representable as [[IEEE-754]] SHOULD be represented as a Number type.
 - Boolean values SHOULD be represented as a Boolean type.
 - Sequence value SHOULD be represented as an Array type.
 - Unordered sets of values SHOULD be represented as an Array type.
