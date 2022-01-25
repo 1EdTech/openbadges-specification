@@ -6,6 +6,8 @@ The data model as described in Appendix [[[#datamodels]]] is the canonical struc
 
 Properties defined as a single value MUST be represented as a single value. Properties defined as an array of values MUST be represented as an array, NOT as a single value.
 
+Properties that have a null value or empty array MUST be ommitted from the serialized JSON.
+
 ### JSON
 
 The data model can be encoded in Javascript Object Notation (JSON) [RFC8259] by mapping property values to JSON types as follows:
