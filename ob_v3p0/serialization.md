@@ -4,9 +4,10 @@ var serialization=`
 
 The data model as described in Appendix [[[#datamodels]]] is the canonical structural representation of an Open Badges [=verifiable credential=] ([AchievementCredential](#org.1edtech.ob.v3p0.assertioncredential.class)) and [=verifiable presentation=] ([ObPresentation](#org.1edtech.ob.v3p0.obpresentation.class)). All serializations are representations of that data model in a specific format. This section specifies how the data model is realized in JSON-LD and plain JSON.
 
-Properties defined as a single value MUST be represented as a single value. Properties defined as an array of values MUST be represented as an array, NOT as a single value.
-
-Properties that have a null value or empty array MUST be ommitted from the serialized JSON.
+- Properties defined as a single value MUST be represented as a single value.
+- Properties defined as an array of values MUST be represented as an array, NOT as a single value.
+- Properties defined as an object MUST be represented as an object, NOT as a URI.
+- Properties that have a null value or empty array value MUST be ommitted from the serialized JSON.
 
 ### JSON
 
