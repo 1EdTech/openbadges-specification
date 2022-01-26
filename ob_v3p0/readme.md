@@ -16,7 +16,7 @@ The credentials that would be produced under this proposal could easily be bundl
 
 Currently, all content is being collected in a single Respec document: [http://imsglobal.github.io/openbadges-specification/ob_v3p0.html](http://imsglobal.github.io/openbadges-specification/ob_v3p0.html). This document is assembled from many sources:
 
-- [Main Respec File](ob_v3p0.html) which pulls in (transcludes) the section files such as:
+- [Main Respec File](ob_v3p0.html) which pulls in (transcludes) section files such as:
   - [Abstract](abstract.md)
   - [Introduction](introduction.md)
   - [Overview](overview.md)
@@ -26,6 +26,7 @@ Currently, all content is being collected in a single Respec document: [http://i
 
 - The Data Model sections are created by a custom IMS Respec plug-in that reads the data model from the MDM service and renders the Respec HTML
 - The API (Service Model) section will be created in the same way in the future. Currently the API section is pulled in from [api.md](api.md)
+- As the spec nears IMS Candidate Final status, we will likely split up the single document into 2 or more documents for smaller sets of audiences
 
 ## Artifacts
 
@@ -36,7 +37,7 @@ JSON Schema, OpenAPI, and maybe even context files will also be generated in the
 Every commit and PR merge to the develop branch/ob_v3p0 folder will kick off a GitHub action that will:
 
 1. Sideload (update) the data model in the MDM service from the [ob_v3p0.lines](ob_v3p0.lines) file
-2. Render the ob_v3p0.html file (including the Data Model sections)
+2. Render the ob_v3p0.html file
 3. Export the rendered file to [http://imsglobal.github.io/openbadges-specification/ob_v3p0.html](http://imsglobal.github.io/openbadges-specification/ob_v3p0.html)
 
 That process takes about 1 minute.
@@ -45,7 +46,9 @@ That process takes about 1 minute.
 
 Every commit and PR merge to the develop branch/ob_v3p0/context.json file will kick off a GitHub action that will:
 
-1. Copy the file to [http://imsglobal.github.io/openbadges-specification/context.json](http://imsglobal.github.io/openbadges-specification/context.json)
+1. Copy the file to [https://imsglobal.github.io/openbadges-specification/context.json](https://imsglobal.github.io/openbadges-specification/context.json)
+
+The context file will eventually live on the IMS PURL server. But please use https://imsglobal.github.io/openbadges-specification/context.json for now.
 
 ## Editing the ob_v3p0.lines file
 
@@ -60,7 +63,8 @@ In addition to rendering a normative data model, the plugin can also validate ex
       {
         "@context": [
           "https://www.w3.org/2018/credentials/v1",
-          "https://www.w3.org/2018/credentials/examples/v1"
+          "https://www.w3.org/2018/credentials/examples/v1",
+          "https://imsglobal.github.io/openbadges-specification/context.json"
         ],
         "id": "http://example.edu/credentials/3732",
         "type": ["VerifiableCredential", "AssertionCredential"],
