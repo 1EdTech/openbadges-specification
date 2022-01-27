@@ -24,9 +24,9 @@ Currently, all content is being collected in a single Respec document: [http://i
   - [Certification Requirements](certification.md)
   - etc
 
-- The Data Model sections are created by a custom IMS Respec plug-in that reads the data model from the MDM service and renders the Respec HTML
+- The Data Model sections are created by a custom IMS Respec plug-in that reads the data model from the MPS (Model Processing Service) and renders the Respec HTML
 - The API (Service Model) section will be created in the same way in the future. Currently the API section is pulled in from [api.md](api.md)
-- As the spec nears IMS Candidate Final status, we will likely split up the single document into 2 or more documents for smaller sets of audiences
+- As the spec nears IMS Candidate Final status, we will likely split up the single document into 2 or more documents for more focussed sets of audiences
 
 ## Artifacts
 
@@ -36,11 +36,11 @@ JSON Schema, OpenAPI, and maybe even context files will also be generated in the
 
 Every commit and PR merge to the develop branch/ob_v3p0 folder will kick off a GitHub action that will:
 
-1. Sideload (update) the data model in the MDM service from the [ob_v3p0.lines](ob_v3p0.lines) file
+1. Sideload (update) the data model into the MPS from the [ob_v3p0.lines](ob_v3p0.lines) file
 2. Render the ob_v3p0.html file
 3. Export the rendered file to [http://imsglobal.github.io/openbadges-specification/ob_v3p0.html](http://imsglobal.github.io/openbadges-specification/ob_v3p0.html)
 
-That process takes about 1 minute.
+That process takes 1-2 minutes.
 
 ## Regenerating the context file
 
@@ -52,9 +52,9 @@ The context file will eventually live on the IMS PURL server. But please use htt
 
 ## Editing the ob_v3p0.lines file
 
-The [ob_v3p0.lines](ob_v3p0.lines) file has the complete data model in a plain text format. The format is explained in [lines.md](lines.md). IMS provides a tool to update the data model in the MDM service and browse the data model in a web page. This tool makes it fairly easy to detect errors prior to committing changes and updating the IMS Base Document.
+The [ob_v3p0.lines](ob_v3p0.lines) file has the complete data model in a plain text format. The format is explained in [lines.md](lines.md). IMS provides a tool to update the data model in the MPS and browse the data model in a web page. This tool makes it fairly easy to detect errors prior to committing changes and updating the IMS Base Document.
 
-### Other tricks of the custom Respec plug-in
+### Validating examples
 
 In addition to rendering a normative data model, the plugin can also validate examples against the JSON Schema for the example. Any schema errors will be displayed in the rendered example. You can request schema validation by decorating the example with a `data-schema` attribute where the value is the `id` of the class.
 ```html
