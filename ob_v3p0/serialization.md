@@ -4,22 +4,23 @@ var serialization=`
 
 The data model as described in Appendix [[[#datamodels]]] is the canonical structural representation of an Open Badges [=verifiable credential=] ([AchievementCredential](#org.1edtech.ob.v3p0.assertioncredential.class)) and [=verifiable presentation=] ([ObPresentation](#org.1edtech.ob.v3p0.obpresentation.class)). All serializations are representations of that data model in a specific format. This section specifies how the data model is realized in JSON-LD and plain JSON.
 
-- Properties defined as a single value MUST be represented as a single value.
-- Properties defined as an array of values MUST be represented as an array, NOT as a single value.
-- Properties defined as an object MUST be represented as an object, NOT as a URI.
-- Properties that have a null value or empty array value MUST be ommitted from the serialized JSON.
-
 ### JSON
 
-The data model can be encoded in Javascript Object Notation (JSON) [[RFC8259]] by mapping property values to JSON types as follows:
+The data model can be encoded in Javascript Object Notation (JSON) [[RFC8259]] by mapping property types in the Data Model to JSON types as follows:
 
-- Numeric values representable as [[IEEE-754]] SHOULD be represented as a Number type.
-- Boolean values SHOULD be represented as a Boolean type.
-- Sequence value SHOULD be represented as an Array type.
-- Unordered sets of values SHOULD be represented as an Array type.
-- Sets of properties SHOULD be represented as an Object type.
-- Empty values SHOULD be represented as a null value.
+- Numeric values representable as [[IEEE-754]] MUST be represented as a Number type.
+- Boolean values MUST be represented as a Boolean type.
+- Sequence values MUST be represented as an Array type.
+- Unordered sets of values MUST be represented as an Array type.
+- Sets of properties MUST be represented as an Object type.
 - Other values MUST be represented as a String type.
+
+When serializing the JSON, these rules MUST be followed:
+
+- Properties defined as a single value in the Data Model MUST be represented as a single value.
+- Properties defined as an Array MUST be represented as an Array, NOT as a single value.
+- Properties defined as an Object MUST be represented as an Object, NOT as a URI.
+- Properties that have a null value or empty value MUST be ommitted from the serialized JSON. This includes empty Arrays.
 
 ### JSON-LD
 
