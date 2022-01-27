@@ -50,9 +50,23 @@ Every commit and PR merge to the develop branch/ob_v3p0/context.json file will k
 
 The context file will eventually live on the IMS PURL server. But please use https://imsglobal.github.io/openbadges-specification/context.json for now.
 
-### Editing the ob_v3p0.lines file
+### Editing the .lines files
 
-The [ob_v3p0.lines](ob_v3p0.lines) file has the complete data model in a plain text format. The format is explained in [lines.md](lines.md). IMS provides a tool to update the data model in the MPS and browse the data model in a web page. This tool makes it fairly easy to detect errors prior to committing changes and updating the IMS Base Document.
+The data model is defined using "lines" files. There are two "lines" files in this repo:
+
+1. [ob_v3p0.lines](ob_v3p0.lines) - This file establishes the Model name, version, description; defines classes that are unique to Open Badges (i.e. not shared with the CLR standard); and Includes or Transcludes shared data classes.
+2. [common_credentials.lines](common_credentials.lines) - This file defines the credential classes that ARE shared by the Open Badges and CLR standards. Any changes made to this file will appear in both the OB and CLR standards.
+
+The format for "lines" files is explained in [lines.md](lines.md).
+
+IMS provides a tool to update the data model in the MPS and browse the data model in a web page. This tool makes it fairly easy to detect errors prior to updating the IMS Base Document.
+
+To load your local changes to [ob_v3p0.lines](ob_v3p0.lines) into the browser, simply upload the file to MPS.
+
+To load your local changes to [common_credentials.lines](common_credentials.lines) into the browser:
+
+1. Push your changes to origin
+2. Upload ob_v3p0.lines
 
 #### Validating examples
 
