@@ -53,5 +53,9 @@ jobs:
           name: spec-prod-result
           path: docs
       - name: Commit the new/updated doc
-        uses: zwaldowski/git-commit-action@v1
-      - run: git push origin
+        run: |
+          git add docs/*
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git commit --allow-empty -m "Automated build"
+          git push origin
