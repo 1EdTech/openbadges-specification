@@ -11,7 +11,9 @@ Package OpenBadges DataModel
         Property proof Proof 0..*                                   "If present, the value of the `proof` property ensures that the presentation is verifiable."
         Property extensions Namespace 0..*
 
-Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/develop/ob_v3p0/shared.lines
+// Pull in common credential models (this will be converted to Includes when credential models are finalized and made part of the CDM)
+
+Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/develop/ob_v3p0/common_credentials.lines
 
 Package SharedApi DataModel
 
