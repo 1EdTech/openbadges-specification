@@ -47,11 +47,40 @@ var _localBiblio = {
         "status": "IMS Base Document",
         "publisher": "IMS Global Learning Consortium"
     },
-    "ld-proofs": {
-        "title": "Linked Data Proofs 1.0",
-        "href": "https://w3c-ccg.github.io/ld-proofs/",
-        "status": "Draft Community Group Report",
-        "date": "03 June 2021",
-        "publisher": "W3C Credentials Community Group"
+    "CLR-20": {
+        "title": "Comprehensive Learner Record Standard v2.0",
+        "href": "https://www.imsglobal.org/spec/clr/v2p0/",
+        "status": "IMS Base Document",
+        "publisher": "IMS Global Learning Consortium"
+    },
+    "CEDS": {
+        "title": "Common Education Data Standards (CEDS) Version 7 Data Model Guide",
+        "href": "https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf"
+    },
+    "RSD": {
+        "title": "Rich Skill Descriptors",
+        "href": "https://www.openskillsnetwork.org/rsd"
+    },
+    "DATA-INTEGRITY": {
+        "title": "Data Integrity 1.0",
+        "href": "https://w3c-ccg.github.io/data-integrity-spec/",
+        "authors": [
+            "Manu Sporny",
+            "Dave Longley"
+        ],
+        "status": "CG-DRAFT",
+        "publisher": "Credentials Community Group"
+    },
+    "VC-API": {
+        "title": "Verifiable Credentials HTTP API",
+        "href": "https://w3c-ccg.github.io/vc-api/",
+        "status": "W3C Community Group Draft Report",
+        "publisher": "Credentials Community Group"
+    },
+    "PRESENTATION-EXCHANGE-10": {
+        "title": "Presentation Exchange v1.0.0",
+        "href": "https://identity.foundation/presentation-exchange/spec/v1.0.0/",
+        "status": "DIF Ratified Specification",
+        "publisher": "Distributed Identity Foundation"
     },
 };
