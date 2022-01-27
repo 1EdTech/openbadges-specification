@@ -6,7 +6,7 @@ Files in this format can be read by the IMS Model Processing Service (MPS), enab
 
 ## Sideloading a lines file in the sandbox application
 
-To load a lines file in the IMS model sandbox application, access the `/upload` path, either via your CI/CD integration pipeline, or via the upload web page also available at that path. Unless a beta build of the application is used, the full URL is `https://datamodels.imsglobal.org/upload`. If you are using CI/CD, the REST endpoint expects a POST method with a request param `file` which needs to be a multipartfile.
+To load a lines file in the IMS model sandbox application, access the `/upload` path, either via your CI/CD integration pipeline, or via the upload web page also available at that path. Unless a beta build of the application is used, the full URL is `https://imsum2.herokuapp.com/upload`. If you are using CI/CD, the REST endpoint expects a POST method with a request param `file` which needs to be a multipartfile.
 
 _Note: access to the sandbox application is restricted to IMS members. Your nearest IMS staff member can you help get the apikey needed for access._
 
