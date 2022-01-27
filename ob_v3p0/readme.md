@@ -65,8 +65,7 @@ To load your local changes to [ob_v3p0.lines](ob_v3p0.lines) into the browser, s
 
 To load your local changes to [common_credentials.lines](common_credentials.lines) into the browser:
 
-1. Push your changes to origin
-2. Upload ob_v3p0.lines
+1. Push your changes to origin. This will kick off the action that updates the model in the MPS browser.
 
 #### Validating examples
 
