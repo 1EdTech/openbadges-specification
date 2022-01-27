@@ -63,9 +63,7 @@ IMS provides a tool to update the data model in the MPS and browse the data mode
 
 To load your local changes to [ob_v3p0.lines](ob_v3p0.lines) into the browser, simply upload the file to MPS.
 
-To load your local changes to [common_credentials.lines](common_credentials.lines) into the browser:
-
-1. Push your changes to origin. This will kick off the action that updates the model in the MPS browser.
+To load your local changes to [common_credentials.lines](common_credentials.lines) into the browser, push your changes to origin. This will kick off the action that updates the model in the MPS browser.
 
 #### Validating examples
 
