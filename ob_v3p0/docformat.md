@@ -13,19 +13,23 @@ var docformat = `
   {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
-      "https://www.w3.org/2018/credentials/examples/v1"
+      "https://imsglobal.github.io/openbadges-specification/context.json"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "AssertionCredential"],
     "issuer": {
       "id": "https://example.edu/issuers/565049",
-      "type": "IssuerProfile",
+      "type": "Profile",
       "name": "Example University"
     },
     "issuanceDate": "2010-01-01T00:00:00Z",
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
-    }
+    },
+    "credentialSchema": [{
+      "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.assertioncredential.class",
+      "type": "JsonSchemaValidator2020"
+    }]
   }
 </pre>
 
