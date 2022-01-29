@@ -110,12 +110,20 @@ dfn{cursor:pointer}
 
   
   
+  
+<script>
+    const url = "https://imsglobal.github.io/openbadges-specification/context.json";
+    fetch(url)
+    .then(res => res.json())
+    .then(context => window.respecVc.addContext(url, context));
+  </script>
 
   
   
 
   
   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.8.2/ajv2019.bundle.min.js" integrity="sha512-9CfeXrjdW9wxGntWtQ4wE0k9RD8avpYxoPEKAGu+EP87RyqXYVQjed0l872XkNtQeIyYavZeqY+jzm69pmjEDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   
 
@@ -145,6 +153,62 @@ var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px
 var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
 var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
 var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script type="text/javascript">
+  /**
+   * Displays a Verifiable Credential example given an element that contains
+   * PRE tags and an elementClass to match against and display.
+   */
+  function displayVcExample(element, elementClass) {
+    // find all SPAN.tab sibling elements in an example block
+    const tabs = element.parentElement.querySelectorAll('.tab');
+    // highlight the currently clicked on tab
+    for(tab of tabs) {
+      tab.classList.remove('selected');
+    }
+    element.classList.add('selected');
+
+    // find all PRE sibling elements in an example block
+    const examples = element.parentElement.querySelectorAll('pre');
+    // display the provided elementClass, hide all other PRE blocks
+    for(example of examples) {
+      if(example.classList.contains(elementClass)) {
+        example.style.display = 'block';
+      } else {
+        example.style.display = 'none';
+      }
+    }
+  }
+
+  window.displayVcExample = displayVcExample;
+  </script>
+<style>
+
+  .example .tab {
+    background-color: rgba(0, 0, 0, 0.05);
+    border: solid gray thin;
+    border-radius: 4px 4px 0px 0px;
+    border-color: #574b0f;
+    padding: 4px;
+    cursor: default;
+    margin: 4px;
+  }
+
+  .example .tab.selected {
+    background-color: inherit;
+    border-bottom: solid #fcfaee thin;
+  }
+
+  .example .tab:hover {
+    color: #034575;
+    background-color: #e0cb52;
+  }
+
+  .example .tab-separator {
+    background: gray;
+    height: 1px;
+    border: 1px;
+  }
 </style>
 <script id="initialUserConfig" type="application/json">{
   "mainSpecTitle": "Open Badges Specification",
@@ -1203,10 +1267,13 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         }
       ]
     }
+  ],
+  "postProcess": [
+    null
   ]
 }</script></head>
 
-<body class="informative"><header>
+<body class="informative toc-inline"><header>
     <div class="header-top">
       <h1 class="title" id="title">Open Badges Specification</h1>
       <a href="https://www.imsglobal.org" id="ims-logo">
@@ -1224,7 +1291,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </tr>
       <tr>
         <td>Date Issued:</td>
-        <td>28 January 2022</td>
+        <td>29 January 2022</td>
       </tr>
       <tr>
         <td>Status:</td>
@@ -1565,23 +1632,27 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
 </ul><div class="example" id="example-sample-assertioncredential-file-contents">
         <div class="marker">
     <a class="self-link" href="#example-sample-assertioncredential-file-contents">Example<bdi> 1</bdi></a><span class="example-title">: Sample AssertionCredential file contents</span>
-  </div> <pre class="vc" data-schema="org.1edtech.ob.v3p0.assertioncredential.class" data-vc-vm="https://example.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
+  </div> <div style="padding: 5px;"></div><span style="" class="tab selected" onclick="window.displayVcExample(this, 'credential');">Credential</span><span style="" class="tab" onclick="window.displayVcExample(this, 'vc-proof');">Verifiable Credential (with proof)</span><span class="tab" style="" onclick="window.displayVcExample(this, 'vc-jwt');">Verifiable Credential (as JWT)</span><div class="tab-separator"></div><pre class="credential" data-schema="org.1edtech.ob.v3p0.assertioncredential.class" data-vc-vm="https://example.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
   <span class="hljs-attr">"@context"</span>: [
     <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-    <span class="hljs-string">"https://www.w3.org/2018/credentials/examples/v1"</span>
+    <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>
   ],
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://example.edu/credentials/3732"</span>,
   <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"VerifiableCredential"</span>, <span class="hljs-string">"AssertionCredential"</span>],
   <span class="hljs-attr">"issuer"</span>: {
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.edu/issuers/565049"</span>,
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"IssuerProfile"</span>,
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Profile"</span>,
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University"</span>
   },
   <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
   <span class="hljs-attr">"credentialSubject"</span>: {
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:ebfeb1f712ebc6f1c276e12ec21"</span>
-  }
-}</code></pre>
+  },
+  <span class="hljs-attr">"credentialSchema"</span>: [{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.assertioncredential.class"</span>,
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"JsonSchemaValidator2020"</span>
+  }]
+}</code></pre><pre class="vc-proof" style="display: none;">{<br>  "@context": [<br>    "https://www.w3.org/2018/credentials/v1",<br>    "https://imsglobal.github.io/openbadges-specification/context.json",<br>    "https://w3id.org/security/suites/ed25519-2020/v1"<br>  ],<br>  "id": "http://example.edu/credentials/3732",<br>  "type": [<br>    "VerifiableCredential",<br>    "AssertionCredential"<br>  ],<br>  "issuer": {<br>    "id": "https://example.edu/issuers/565049",<br>    "type": "Profile",<br>    "name": "Example University"<br>  },<br>  "issuanceDate": "2010-01-01T00:00:00Z",<br>  "credentialSubject": {<br>    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"<br>  },<br>  "credentialSchema": [<br>    {<br>      "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob<br>.v3p0.assertioncredential.class",<br>      "type": "JsonSchemaValidator2020"<br>    }<br>  ],<br>  "proof": {<br>    "type": "Ed25519Signature2020",<br>    "created": "2022-01-29T00:33:37Z",<br>    "verificationMethod": "https://example.edu/issuers/565049#key-1",<br>    "proofPurpose": "assertionMethod",<br>    "proofValue": "z41Vc9FsfMHAr9j2Peue1fsZ5j7VxhGp2qz8FsT7TRDwkMQaQhUEz2f5<br>T5KWzcM9jcty3MFGj4wvW45r2QUDk7XLi"<br>  }<br>}</pre><pre class="vc-jwt" style="display: none;">---------------- JWT header ---------------<br>{<br>  "alg": "ES256",<br>  "typ": "JWT"<br>}<br>--------------- JWT payload ---------------<br>// NOTE: The example below uses a valid VC-JWT serialization<br>//       that duplicates the iss, nbf, jti, and sub fields in the<br>//       Verifiable Credential (vc) field.<br>{<br>  "vc": {<br>    "@context": [<br>      "https://www.w3.org/2018/credentials/v1",<br>      "https://imsglobal.github.io/openbadges-specification/context.json"<br>    ],<br>    "id": "http://example.edu/credentials/3732",<br>    "type": [<br>      "VerifiableCredential",<br>      "AssertionCredential"<br>    ],<br>    "issuer": {<br>      "id": "https://example.edu/issuers/565049",<br>      "type": "Profile",<br>      "name": "Example University"<br>    },<br>    "issuanceDate": "2010-01-01T00:00:00Z",<br>    "credentialSubject": {<br>      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"<br>    },<br>    "credentialSchema": [<br>      {<br>        "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.<br>ob.v3p0.assertioncredential.class",<br>        "type": "JsonSchemaValidator2020"<br>      }<br>    ]<br>  },<br>  "iss": {<br>    "id": "https://example.edu/issuers/565049",<br>    "type": "Profile",<br>    "name": "Example University"<br>  },<br>  "nbf": 1262304000,<br>  "jti": "http://example.edu/credentials/3732",<br>  "sub": "did:example:ebfeb1f712ebc6f1c276e12ec21"<br>}<br>--------------- JWT ---------------<br>eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3<br>d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmFsLmdpdGh1Y<br>i5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlkIjoiaHR0cDov<br>L2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW5<br>0aWFsIiwiQXNzZXJ0aW9uQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJodHRwczovL2V4YW<br>1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6IlByb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZ<br>SBVbml2ZXJzaXR5In0sImlzc3VhbmNlRGF0ZSI6IjIwMTAtMDEtMDFUMDA6MDA6MDBaIiwiY3Jl<br>ZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmU<br>xMmVjMjEifSwiY3JlZGVudGlhbFNjaGVtYSI6W3siaWQiOiJodHRwczovL2ltc3VtMi5oZXJva3<br>VhcHAuY29tL2pzb25zY2hlbWE_Y2xhc3NJZD1vcmcuMWVkdGVjaC5vYi52M3AwLmFzc2VydGlvb<br>mNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnNvblNjaGVtYVZhbGlkYXRvcjIwMjAifV19LCJp<br>c3MiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6IlB<br>yb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sIm5iZiI6MTI2MjMwNDAwMCwian<br>RpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhb<br>XBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.Ce5cgHIcG80bADYdB9rFbJTYPtS98<br>LrDFUjI1TRSayUN7nYdSMJmgDii-i7qwvW-d3cM1Tnh5XrfPw5GPSHl8w</pre>
       </div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><ul>
 <li>JSON text exchanged between systems that are not part of a closed ecosystem <em class="rfc2119">MUST</em> be encoded using UTF-8 [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3629" title="UTF-8, a transformation format of ISO 10646">RFC3629</a></cite>].</li>
 </ul></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>When the <code>id</code> of an Assertion is a <a href="#url">URL</a>, a GET request to that URL <em class="rfc2119">MUST</em> return JSON representing an <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> as described above.</p><ul>
@@ -4075,7 +4146,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   <p>
     The data models in this section are shared by <cite><a href="https://www.imsglobal.org/spec/ob/v3p0/">Open Badges Specification v3.0</a></cite> and <cite><a href="https://www.imsglobal.org/spec/clr/v2p0/">Comprehensive Learner Record Standard v2.0</a></cite>.
   </p>
-  <section data-class="org.1edtech.ob.v3p0.assertioncredential.class" title="AssertionCredential" id="org.1edtech.ob.v3p0.assertioncredential.class"><h4 id="assertioncredential"><bdi class="secno">B.2.1 </bdi>AssertionCredential<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertioncredential.class"></a><a class="self-link" aria-label="§" href="#assertioncredential"></a></h4><p>An AssertionCredential is an Assertion with all the properties need to conform with a Verifiable Credential. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]</p><table>
+  <section data-class="org.1edtech.ob.v3p0.assertioncredential.class" id="org.1edtech.ob.v3p0.assertioncredential.class"><h4 id="assertioncredential"><bdi class="secno">B.2.1 </bdi>AssertionCredential<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertioncredential.class"></a><a class="self-link" aria-label="§" href="#assertioncredential"></a></h4><p>An AssertionCredential is an Assertion with all the properties need to conform with a Verifiable Credential. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]</p><table>
         <thead>
           <tr>
             <th>Property</th>
@@ -4201,28 +4272,31 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
     </tr>
         </tbody>
       </table>
-    <div class="example" id="example-sample-assertion-credential">
+    <div class="example" id="example-sample-assertioncredential">
         <div class="marker">
-    <a class="self-link" href="#example-sample-assertion-credential">Example<bdi> 26</bdi></a><span class="example-title">: Sample assertion credential</span>
-  </div> <pre class="vc" data-schema="org.1edtech.ob.v3p0.assertioncredential.class" data-vc-vm="https://example.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
+    <a class="self-link" href="#example-sample-assertioncredential">Example<bdi> 26</bdi></a><span class="example-title">: Sample AssertionCredential</span>
+  </div> <div style="padding: 5px;"></div><span style="" class="tab selected" onclick="window.displayVcExample(this, 'credential');">Credential</span><span style="" class="tab" onclick="window.displayVcExample(this, 'vc-proof');">Verifiable Credential (with proof)</span><span class="tab" style="" onclick="window.displayVcExample(this, 'vc-jwt');">Verifiable Credential (as JWT)</span><div class="tab-separator"></div><pre class="credential" data-schema="org.1edtech.ob.v3p0.assertioncredential.class" data-vc-vm="https://example.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
   <span class="hljs-attr">"@context"</span>: [
     <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-    <span class="hljs-string">"https://www.w3.org/2018/credentials/examples/v1"</span>
+    <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>
   ],
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://example.edu/credentials/3732"</span>,
   <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"VerifiableCredential"</span>, <span class="hljs-string">"AssertionCredential"</span>],
   <span class="hljs-attr">"issuer"</span>: {
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.edu/issuers/565049"</span>,
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"IssuerProfile"</span>,
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University"</span>
   },
   <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
   <span class="hljs-attr">"credentialSubject"</span>: {
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:ebfeb1f712ebc6f1c276e12ec21"</span>
-  }
-}</code></pre>
+  },
+  <span class="hljs-attr">"credentialSchema"</span>: [{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.assertioncredential.class"</span>,
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"JsonSchemaValidator2020"</span>
+  }]
+}</code></pre><pre class="vc-proof" style="display: none;">{<br>  "@context": [<br>    "https://www.w3.org/2018/credentials/v1",<br>    "https://imsglobal.github.io/openbadges-specification/context.json",<br>    "https://w3id.org/security/suites/ed25519-2020/v1"<br>  ],<br>  "id": "http://example.edu/credentials/3732",<br>  "type": [<br>    "VerifiableCredential",<br>    "AssertionCredential"<br>  ],<br>  "issuer": {<br>    "id": "https://example.edu/issuers/565049",<br>    "name": "Example University"<br>  },<br>  "issuanceDate": "2010-01-01T00:00:00Z",<br>  "credentialSubject": {<br>    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"<br>  },<br>  "credentialSchema": [<br>    {<br>      "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob<br>.v3p0.assertioncredential.class",<br>      "type": "JsonSchemaValidator2020"<br>    }<br>  ],<br>  "proof": {<br>    "type": "Ed25519Signature2020",<br>    "created": "2022-01-29T00:33:37Z",<br>    "verificationMethod": "https://example.edu/issuers/565049#key-1",<br>    "proofPurpose": "assertionMethod",<br>    "proofValue": "z41Vc9FsfMHAr9j2Peue1fsZ5j7VxhGp2qz8FsT7TRDwkMQaQhUEz2f5<br>T5KWzcM9jcty3MFGj4wvW45r2QUDk7XLi"<br>  }<br>}</pre><pre class="vc-jwt" style="display: none;">---------------- JWT header ---------------<br>{<br>  "alg": "ES256",<br>  "typ": "JWT"<br>}<br>--------------- JWT payload ---------------<br>// NOTE: The example below uses a valid VC-JWT serialization<br>//       that duplicates the iss, nbf, jti, and sub fields in the<br>//       Verifiable Credential (vc) field.<br>{<br>  "vc": {<br>    "@context": [<br>      "https://www.w3.org/2018/credentials/v1",<br>      "https://imsglobal.github.io/openbadges-specification/context.json"<br>    ],<br>    "id": "http://example.edu/credentials/3732",<br>    "type": [<br>      "VerifiableCredential",<br>      "AssertionCredential"<br>    ],<br>    "issuer": {<br>      "id": "https://example.edu/issuers/565049",<br>      "name": "Example University"<br>    },<br>    "issuanceDate": "2010-01-01T00:00:00Z",<br>    "credentialSubject": {<br>      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"<br>    },<br>    "credentialSchema": [<br>      {<br>        "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.<br>ob.v3p0.assertioncredential.class",<br>        "type": "JsonSchemaValidator2020"<br>      }<br>    ]<br>  },<br>  "iss": {<br>    "id": "https://example.edu/issuers/565049",<br>    "name": "Example University"<br>  },<br>  "nbf": 1262304000,<br>  "jti": "http://example.edu/credentials/3732",<br>  "sub": "did:example:ebfeb1f712ebc6f1c276e12ec21"<br>}<br>--------------- JWT ---------------<br>eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3<br>d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmFsLmdpdGh1Y<br>i5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlkIjoiaHR0cDov<br>L2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW5<br>0aWFsIiwiQXNzZXJ0aW9uQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJodHRwczovL2V4YW<br>1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSJ9LCJpc<br>3N1YW5jZURhdGUiOiIyMDEwLTAxLTAxVDAwOjAwOjAwWiIsImNyZWRlbnRpYWxTdWJqZWN0Ijp7<br>ImlkIjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0sImNyZWRlbnR<br>pYWxTY2hlbWEiOlt7ImlkIjoiaHR0cHM6Ly9pbXN1bTIuaGVyb2t1YXBwLmNvbS9qc29uc2NoZW<br>1hP2NsYXNzSWQ9b3JnLjFlZHRlY2gub2IudjNwMC5hc3NlcnRpb25jcmVkZW50aWFsLmNsYXNzI<br>iwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDIwIn1dfSwiaXNzIjp7ImlkIjoiaHR0cHM6<br>Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5hbWUiOiJFeGFtcGxlIFVuaXZlcnNpdHk<br>ifSwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbH<br>MvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.<br>XrcZgi8btvb8diwufewopIC_VmJyCvKzlyNcJYcgHmF2x8mWfGQYwOG238Bc9eQMqaVO9u_d2pK<br>LcIIg2NZpyw</pre>
       </div>
-  </section>
+</section>
 <section data-class="org.1edtech.ob.v3p0.assertionsubject.class" id="org.1edtech.ob.v3p0.assertionsubject.class"><h4 id="assertionsubject"><bdi class="secno">B.2.2 </bdi>AssertionSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertionsubject.class"></a><a class="self-link" aria-label="§" href="#assertionsubject"></a></h4><p>A collection of information about the recipient of an achievement. Maps to VC CredentialSubject. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>]</p><table>
         <thead>
           <tr>
@@ -7158,7 +7232,7 @@ function hidePanel(panel) {
         Please refer to Document Name: Open Badges Specification
         3.0
       </p>
-      <p>Date: 28 January 2022</p>
+      <p>Date: 29 January 2022</p>
       <div></div>
     </div>
   </footer></body></html>
