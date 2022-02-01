@@ -83,4 +83,16 @@ var _localBiblio = {
         "status": "DIF Ratified Specification",
         "publisher": "Distributed Identity Foundation"
     },
+    "OIDC-VCI": {
+        "title": "OpenID Connect for Verifiable Credential Issuance",
+        "href": "https://openid.net/specs/openid-connect-4-verifiable-credential-issuance-1_0.html",
+        "status": "Standards Track",
+        "publisher": "OpenID Foundation"
+    },
+    "OIDC-VP": {
+        "title": "OpenID Connect for Verifiable Presentations",
+        "href": "https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0.html",
+        "status": "Standards Track",
+        "publisher": "OpenID Foundation"
+    },
 };

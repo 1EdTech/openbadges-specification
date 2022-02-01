@@ -6,9 +6,30 @@ var api = `
   <div class="issue" title="Review API">
     <p>
       The API in this section is an update to the BadgeConnect API&trade; defined in [[OB-21]]. At the time of this
-      writing, [[VC-API]], a VC-oriented API, is being developed. There may be others. A task force should look at the
-      other VC APIs and suggest changes, if any, to this API.
+      writing, other, generic VC APIs are being developed including:
     </p>
+    <ul>
+      <li>[[[VC-API]]]</li>
+      <li>[[[OIDC-VCI]]]</li>
+      <li>[[[OIDC-VP]]]</li>
+    </ul>
+    <p>
+      There may be others. A task force should look at the landscape of VC APIs and suggest:
+    </p>
+    <ul>
+      <li>
+        Keep the [[OB-21]] style of API shown here (also adopted by [[CLR-10]]) with payload modifications as necessary.
+      </li>
+      <li>
+        Rewrite the API as a "profile" of the [[VC-API]] API. The [[VC-API]] is generic in that any VC/VP can be
+        exchanged and any or no authorization is required. A "profile" of the [[VC-API]] can require a specific type of
+        VC/VP (e.g. [[[#org.1edtech.ob.v3p0.obpresentation.class]]]) and require OAuth 2.0 authorization in line with
+        the [[[SEC-11]]].
+      </li>
+      <li>
+        Rewrite the API as a "profile" of the [[OIDC-VCI]]/[[OIDC-VP]] APIs.
+      </li>
+    </ul>
   </div>
 
   <p>
