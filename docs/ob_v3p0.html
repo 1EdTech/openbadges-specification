@@ -111,19 +111,12 @@ dfn{cursor:pointer}
   
   
   
-<script>
-    const url = "https://imsglobal.github.io/openbadges-specification/context.json";
-    fetch(url)
-    .then(res => res.json())
-    .then(context => window.respecVc.addContext(url, context));
-  </script>
 
   
   
 
   
   
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.8.2/ajv2019.bundle.min.js" integrity="sha512-9CfeXrjdW9wxGntWtQ4wE0k9RD8avpYxoPEKAGu+EP87RyqXYVQjed0l872XkNtQeIyYavZeqY+jzm69pmjEDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   
 
@@ -1309,7 +1302,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </tr>
       <tr>
         <td>Date Issued:</td>
-        <td>01 February 2022</td>
+        <td>02 February 2022</td>
       </tr>
       <tr>
         <td>Status:</td>
@@ -1700,11 +1693,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-02-01T23:28:31Z",
+    "created": "2022-02-02T01:44:51Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z63CLgvVSbNZp2SVHvXx8n5dNAmnSBcA2REJmYHPeL62nRmCjZZyMD56
-o4UwkdmeF8KcLiqyJ8BDVc6VEtzCVWNd8"
+    "proofValue": "zv2ek7up2SU1QyZEJJVNeJFVcwKybfjvCQow2ADcQFnfRgBGTJuaPA23
+Mp5TyuFiKwnWx6Ex9qBXqasfLKjhxFfM"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -1767,8 +1760,8 @@ mNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnNvblNjaGVtYVZhbGlkYXRvcjIwMjAifV19LCJp
 c3MiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6IlB
 yb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sIm5iZiI6MTI2MjMwNDAwMCwian
 RpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhb
-XBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.YwIHrZJO7wUAOmnFxHYss6QVg3wV0
-sOkn12x_ImdFXvTkk-S_dsy0xEx9ldbGuYmqTam4prE8wxyEbVsUtdCQA</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><ul>
+XBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.A6WxvROBqH0CFPlJ5tVfgCQ11qDTJ
+RT5LCPnR40qcAjhGAX752QAsVBo5svOst7rjGETDyb_IRegQ39w6bwhGA</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><ul>
 <li>JSON text exchanged between systems that are not part of a closed ecosystem <em class="rfc2119">MUST</em> be encoded using UTF-8 [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3629" title="UTF-8, a transformation format of ISO 10646">RFC3629</a></cite>].</li>
 </ul></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>When the <code>id</code> of an Assertion is a <a href="#url">URL</a>, a GET request to that URL <em class="rfc2119">MUST</em> return JSON representing an <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> as described above.</p><ul>
 <li>The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</li>
@@ -4459,11 +4452,11 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-02-01T23:28:31Z",
+    "created": "2022-02-02T01:44:51Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z63CLgvVSbNZp2SVHvXx8n5dNAmnSBcA2REJmYHPeL62nRmCjZZyMD56
-o4UwkdmeF8KcLiqyJ8BDVc6VEtzCVWNd8"
+    "proofValue": "zv2ek7up2SU1QyZEJJVNeJFVcwKybfjvCQow2ADcQFnfRgBGTJuaPA23
+Mp5TyuFiKwnWx6Ex9qBXqasfLKjhxFfM"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -4524,8 +4517,8 @@ iwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDIwIn1dfSwiaXNzIjp7ImlkIjoiaHR0cHM6
 Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5hbWUiOiJFeGFtcGxlIFVuaXZlcnNpdHk
 ifSwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbH
 MvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.
-UptIBNI8n2-3d945iDBSqH_Xwk0Hd88BoEyYluRSAD-__I3AsJrK9aDwLbFrYkiZ-t8P_JbvrJD
-pxmYHYbPhqg</pre></div></div></div>
+3T18f9MiAZ7ZwzyBVU5sHVaJRuXOPsOmZUrNjGl5itS0ytPAm_wV5A_lnqa0mub9BZGW_7Jk4pF
+-dQcnx3bjyA</pre></div></div></div>
 </section>
 <section data-class="org.1edtech.ob.v3p0.assertionsubject.class" id="org.1edtech.ob.v3p0.assertionsubject.class"><h4 id="assertionsubject"><bdi class="secno">B.2.2 </bdi>AssertionSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertionsubject.class"></a><a class="self-link" aria-label="§" href="#assertionsubject"></a></h4><p>A collection of information about the recipient of an achievement. Maps to VC CredentialSubject. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>]</p><table>
         <thead>
@@ -7462,7 +7455,7 @@ function hidePanel(panel) {
         Please refer to Document Name: Open Badges Specification
         3.0
       </p>
-      <p>Date: 01 February 2022</p>
+      <p>Date: 02 February 2022</p>
       <div></div>
     </div>
   </footer></body></html>
