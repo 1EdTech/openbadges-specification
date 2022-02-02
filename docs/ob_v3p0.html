@@ -154,60 +154,64 @@ var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6p
 var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
 var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </style>
-<script type="text/javascript">
-  /**
-   * Displays a Verifiable Credential example given an element that contains
-   * PRE tags and an elementClass to match against and display.
-   */
-  function displayVcExample(element, elementClass) {
-    // find all SPAN.tab sibling elements in an example block
-    const tabs = element.parentElement.querySelectorAll('.tab');
-    // highlight the currently clicked on tab
-    for(tab of tabs) {
-      tab.classList.remove('selected');
-    }
-    element.classList.add('selected');
-
-    // find all PRE sibling elements in an example block
-    const examples = element.parentElement.querySelectorAll('pre');
-    // display the provided elementClass, hide all other PRE blocks
-    for(example of examples) {
-      if(example.classList.contains(elementClass)) {
-        example.style.display = 'block';
-      } else {
-        example.style.display = 'none';
-      }
-    }
-  }
-
-  window.displayVcExample = displayVcExample;
-  </script>
 <style>
 
-  .example .tab {
-    background-color: rgba(0, 0, 0, 0.05);
-    border: solid gray thin;
-    border-radius: 4px 4px 0px 0px;
-    border-color: #574b0f;
-    padding: 4px;
-    cursor: default;
-    margin: 4px;
+  .vc-tabbed {
+    overflow-x: hidden;
+    margin: 0 0;
   }
 
-  .example .tab.selected {
-    background-color: inherit;
-    border-bottom: solid #fcfaee thin;
+  .vc-tabbed [type="radio"] {
+    display: none;
   }
 
-  .example .tab:hover {
-    color: #034575;
-    background-color: #e0cb52;
+  .vc-tabs {
+    display: flex;
+    align-items: stretch;
+    list-style: none;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
   }
 
-  .example .tab-separator {
-    background: gray;
-    height: 1px;
-    border: 1px;
+  li.vc-tab {
+    margin: unset;
+  }
+
+  .vc-tab > label {
+    display: block;
+    margin-bottom: -1px;
+    padding: .4em .5em;
+    border: 1px solid #ccc;
+    border-top-right-radius: .4em;
+    border-top-left-radius: .4em;
+    background: #eee;
+    color: #666;
+    cursor: pointer;	
+    transition: all 0.3s;
+  }
+  .vc-tab:hover label {
+    border-left-color: #333;
+    border-top-color: #333;
+    border-right-color: #333;
+    color: #333;
+  }
+  
+  .vc-tab-content {
+    display: none;
+  }
+
+  .vc-tabbed [type="radio"]:nth-of-type(1):checked ~ .vc-tabs .vc-tab:nth-of-type(1) label,
+  .vc-tabbed [type="radio"]:nth-of-type(2):checked ~ .vc-tabs .vc-tab:nth-of-type(2) label,
+  .vc-tabbed [type="radio"]:nth-of-type(3):checked ~ .vc-tabs .vc-tab:nth-of-type(3) label {
+    border-bottom-color: #fff;
+    background: #fff;
+    color: #222;
+  }
+  
+  .vc-tabbed [type="radio"]:nth-of-type(1):checked ~ .vc-tab-content:nth-of-type(1),
+  .vc-tabbed [type="radio"]:nth-of-type(2):checked ~ .vc-tab-content:nth-of-type(2),
+  .vc-tabbed [type="radio"]:nth-of-type(3):checked ~ .vc-tab-content:nth-of-type(3) {
+    display: block;
   }
 </style>
 <script id="initialUserConfig" type="application/json">{
@@ -332,6 +336,20 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "href": "https://identity.foundation/presentation-exchange/spec/v1.0.0/",
       "status": "DIF Ratified Specification",
       "publisher": "Distributed Identity Foundation"
+    },
+    "OIDC-VCI": {
+      "title": "OpenID Connect for Verifiable Credential Issuance",
+      "href": "https://openid.net/specs/openid-connect-4-verifiable-credential-issuance-1_0.html",
+      "status": "Standards Track",
+      "publisher": "OpenID Foundation",
+      "id": "oidc-vci"
+    },
+    "OIDC-VP": {
+      "title": "OpenID Connect for Verifiable Presentations",
+      "href": "https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0.html",
+      "status": "Standards Track",
+      "publisher": "OpenID Foundation",
+      "id": "oidc-vp"
     },
     "BLTI-10": {
       "title": "IMS Global Basic Learning Tools Interoperability v1.0",
@@ -1291,7 +1309,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </tr>
       <tr>
         <td>Date Issued:</td>
-        <td>29 January 2022</td>
+        <td>01 February 2022</td>
       </tr>
       <tr>
         <td>Status:</td>
@@ -1632,7 +1650,8 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
 </ul><div class="example" id="example-sample-assertioncredential-file-contents">
         <div class="marker">
     <a class="self-link" href="#example-sample-assertioncredential-file-contents">Example<bdi> 1</bdi></a><span class="example-title">: Sample AssertionCredential file contents</span>
-  </div> <div style="padding: 5px;"></div><span style="" class="tab selected" onclick="window.displayVcExample(this, 'credential');">Credential</span><span style="" class="tab" onclick="window.displayVcExample(this, 'vc-proof');">Verifiable Credential (with proof)</span><span class="tab" style="" onclick="window.displayVcExample(this, 'vc-jwt');">Verifiable Credential (as JWT)</span><div class="tab-separator"></div><pre class="credential" data-schema="org.1edtech.ob.v3p0.assertioncredential.class" data-vc-vm="https://example.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
+  </div> 
+      <div class="vc-tabbed"><input type="radio" id="vc-tab11" name="vc-tabs1" checked="checked"><input type="radio" id="vc-tab12" name="vc-tabs1"><input type="radio" id="vc-tab13" name="vc-tabs1"><ul class="vc-tabs"><li class="vc-tab"><label for="vc-tab11">Credential</label></li><li class="vc-tab"><label for="vc-tab12">Verifiable Credential (with proof)</label></li><li class="vc-tab"><label for="vc-tab13">Verifiable Credential (as JWT)</label></li></ul><div class="vc-tab-content"><pre class="vc" data-schema="org.1edtech.ob.v3p0.assertioncredential.class" data-vc-vm="https://example.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
   <span class="hljs-attr">"@context"</span>: [
     <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
     <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>
@@ -1652,8 +1671,104 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.assertioncredential.class"</span>,
     <span class="hljs-attr">"type"</span>: <span class="hljs-string">"JsonSchemaValidator2020"</span>
   }]
-}</code></pre><pre class="vc-proof" style="display: none;">{<br>  "@context": [<br>    "https://www.w3.org/2018/credentials/v1",<br>    "https://imsglobal.github.io/openbadges-specification/context.json",<br>    "https://w3id.org/security/suites/ed25519-2020/v1"<br>  ],<br>  "id": "http://example.edu/credentials/3732",<br>  "type": [<br>    "VerifiableCredential",<br>    "AssertionCredential"<br>  ],<br>  "issuer": {<br>    "id": "https://example.edu/issuers/565049",<br>    "type": "Profile",<br>    "name": "Example University"<br>  },<br>  "issuanceDate": "2010-01-01T00:00:00Z",<br>  "credentialSubject": {<br>    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"<br>  },<br>  "credentialSchema": [<br>    {<br>      "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob<br>.v3p0.assertioncredential.class",<br>      "type": "JsonSchemaValidator2020"<br>    }<br>  ],<br>  "proof": {<br>    "type": "Ed25519Signature2020",<br>    "created": "2022-01-29T00:33:37Z",<br>    "verificationMethod": "https://example.edu/issuers/565049#key-1",<br>    "proofPurpose": "assertionMethod",<br>    "proofValue": "z41Vc9FsfMHAr9j2Peue1fsZ5j7VxhGp2qz8FsT7TRDwkMQaQhUEz2f5<br>T5KWzcM9jcty3MFGj4wvW45r2QUDk7XLi"<br>  }<br>}</pre><pre class="vc-jwt" style="display: none;">---------------- JWT header ---------------<br>{<br>  "alg": "ES256",<br>  "typ": "JWT"<br>}<br>--------------- JWT payload ---------------<br>// NOTE: The example below uses a valid VC-JWT serialization<br>//       that duplicates the iss, nbf, jti, and sub fields in the<br>//       Verifiable Credential (vc) field.<br>{<br>  "vc": {<br>    "@context": [<br>      "https://www.w3.org/2018/credentials/v1",<br>      "https://imsglobal.github.io/openbadges-specification/context.json"<br>    ],<br>    "id": "http://example.edu/credentials/3732",<br>    "type": [<br>      "VerifiableCredential",<br>      "AssertionCredential"<br>    ],<br>    "issuer": {<br>      "id": "https://example.edu/issuers/565049",<br>      "type": "Profile",<br>      "name": "Example University"<br>    },<br>    "issuanceDate": "2010-01-01T00:00:00Z",<br>    "credentialSubject": {<br>      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"<br>    },<br>    "credentialSchema": [<br>      {<br>        "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.<br>ob.v3p0.assertioncredential.class",<br>        "type": "JsonSchemaValidator2020"<br>      }<br>    ]<br>  },<br>  "iss": {<br>    "id": "https://example.edu/issuers/565049",<br>    "type": "Profile",<br>    "name": "Example University"<br>  },<br>  "nbf": 1262304000,<br>  "jti": "http://example.edu/credentials/3732",<br>  "sub": "did:example:ebfeb1f712ebc6f1c276e12ec21"<br>}<br>--------------- JWT ---------------<br>eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3<br>d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmFsLmdpdGh1Y<br>i5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlkIjoiaHR0cDov<br>L2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW5<br>0aWFsIiwiQXNzZXJ0aW9uQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJodHRwczovL2V4YW<br>1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6IlByb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZ<br>SBVbml2ZXJzaXR5In0sImlzc3VhbmNlRGF0ZSI6IjIwMTAtMDEtMDFUMDA6MDA6MDBaIiwiY3Jl<br>ZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmU<br>xMmVjMjEifSwiY3JlZGVudGlhbFNjaGVtYSI6W3siaWQiOiJodHRwczovL2ltc3VtMi5oZXJva3<br>VhcHAuY29tL2pzb25zY2hlbWE_Y2xhc3NJZD1vcmcuMWVkdGVjaC5vYi52M3AwLmFzc2VydGlvb<br>mNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnNvblNjaGVtYVZhbGlkYXRvcjIwMjAifV19LCJp<br>c3MiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6IlB<br>yb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sIm5iZiI6MTI2MjMwNDAwMCwian<br>RpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhb<br>XBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.Ce5cgHIcG80bADYdB9rFbJTYPtS98<br>LrDFUjI1TRSayUN7nYdSMJmgDii-i7qwvW-d3cM1Tnh5XrfPw5GPSHl8w</pre>
-      </div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><ul>
+}</code></pre></div><div class="vc-tab-content"><pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://imsglobal.github.io/openbadges-specification/context.json",
+    "https://w3id.org/security/suites/ed25519-2020/v1"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": [
+    "VerifiableCredential",
+    "AssertionCredential"
+  ],
+  "issuer": {
+    "id": "https://example.edu/issuers/565049",
+    "type": "Profile",
+    "name": "Example University"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+  },
+  "credentialSchema": [
+    {
+      "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob
+.v3p0.assertioncredential.class",
+      "type": "JsonSchemaValidator2020"
+    }
+  ],
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "created": "2022-02-01T23:28:31Z",
+    "verificationMethod": "https://example.edu/issuers/565049#key-1",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z63CLgvVSbNZp2SVHvXx8n5dNAmnSBcA2REJmYHPeL62nRmCjZZyMD56
+o4UwkdmeF8KcLiqyJ8BDVc6VEtzCVWNd8"
+  }
+}</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
+{
+  "alg": "ES256",
+  "typ": "JWT"
+}
+--------------- JWT payload ---------------
+// NOTE: The example below uses a valid VC-JWT serialization
+//       that duplicates the iss, nbf, jti, and sub fields in the
+//       Verifiable Credential (vc) field.
+{
+  "vc": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://imsglobal.github.io/openbadges-specification/context.json"
+    ],
+    "id": "http://example.edu/credentials/3732",
+    "type": [
+      "VerifiableCredential",
+      "AssertionCredential"
+    ],
+    "issuer": {
+      "id": "https://example.edu/issuers/565049",
+      "type": "Profile",
+      "name": "Example University"
+    },
+    "issuanceDate": "2010-01-01T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+    },
+    "credentialSchema": [
+      {
+        "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.
+ob.v3p0.assertioncredential.class",
+        "type": "JsonSchemaValidator2020"
+      }
+    ]
+  },
+  "iss": {
+    "id": "https://example.edu/issuers/565049",
+    "type": "Profile",
+    "name": "Example University"
+  },
+  "nbf": 1262304000,
+  "jti": "http://example.edu/credentials/3732",
+  "sub": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+}
+--------------- JWT ---------------
+eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3
+d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmFsLmdpdGh1Y
+i5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlkIjoiaHR0cDov
+L2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW5
+0aWFsIiwiQXNzZXJ0aW9uQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJodHRwczovL2V4YW
+1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6IlByb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZ
+SBVbml2ZXJzaXR5In0sImlzc3VhbmNlRGF0ZSI6IjIwMTAtMDEtMDFUMDA6MDA6MDBaIiwiY3Jl
+ZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmU
+xMmVjMjEifSwiY3JlZGVudGlhbFNjaGVtYSI6W3siaWQiOiJodHRwczovL2ltc3VtMi5oZXJva3
+VhcHAuY29tL2pzb25zY2hlbWE_Y2xhc3NJZD1vcmcuMWVkdGVjaC5vYi52M3AwLmFzc2VydGlvb
+mNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnNvblNjaGVtYVZhbGlkYXRvcjIwMjAifV19LCJp
+c3MiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6IlB
+yb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sIm5iZiI6MTI2MjMwNDAwMCwian
+RpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhb
+XBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.YwIHrZJO7wUAOmnFxHYss6QVg3wV0
+sOkn12x_ImdFXvTkk-S_dsy0xEx9ldbGuYmqTam4prE8wxyEbVsUtdCQA</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><ul>
 <li>JSON text exchanged between systems that are not part of a closed ecosystem <em class="rfc2119">MUST</em> be encoded using UTF-8 [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3629" title="UTF-8, a transformation format of ISO 10646">RFC3629</a></cite>].</li>
 </ul></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>When the <code>id</code> of an Assertion is a <a href="#url">URL</a>, a GET request to that URL <em class="rfc2119">MUST</em> return JSON representing an <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> as described above.</p><ul>
 <li>The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</li>
@@ -1716,9 +1831,30 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   <div class="issue" id="issue-container-number-4"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="3"><span>Issue 4</span><span class="issue-label">: Review API</span></div><div class="">
     <p>
       The API in this section is an update to the BadgeConnect API™ defined in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ob-21" title="Open Badges Specification v2.1">OB-21</a></cite>]. At the time of this
-      writing, [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-api" title="Verifiable Credentials HTTP API">VC-API</a></cite>], a VC-oriented API, is being developed. There may be others. A task force should look at the
-      other VC APIs and suggest changes, if any, to this API.
+      writing, other, generic VC APIs are being developed including:
     </p>
+    <ul>
+      <li><cite><a href="https://w3c-ccg.github.io/vc-api/">Verifiable Credentials HTTP API</a></cite></li>
+      <li><cite><a href="https://openid.net/specs/openid-connect-4-verifiable-credential-issuance-1_0.html">OpenID Connect for Verifiable Credential Issuance</a></cite></li>
+      <li><cite><a href="https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0.html">OpenID Connect for Verifiable Presentations</a></cite></li>
+    </ul>
+    <p>
+      There may be others. A task force should look at the landscape of VC APIs and suggest:
+    </p>
+    <ul>
+      <li>
+        Keep the [<cite><a class="bibref" data-link-type="biblio" href="#bib-ob-21" title="Open Badges Specification v2.1">OB-21</a></cite>] style of API shown here (also adopted by [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>]) with payload modifications as necessary.
+      </li>
+      <li>
+        Rewrite the API as a "profile" of the [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-api" title="Verifiable Credentials HTTP API">VC-API</a></cite>] API. The [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-api" title="Verifiable Credentials HTTP API">VC-API</a></cite>] is generic in that any VC/VP can be
+        exchanged and any or no authorization is required. A "profile" of the [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-api" title="Verifiable Credentials HTTP API">VC-API</a></cite>] can require a specific type of
+        VC/VP (e.g. <a href="#org.1edtech.ob.v3p0.obpresentation.class" class="sec-ref">§&nbsp;<bdi class="secno">B.1.1 </bdi>ObPresentation</a>) and require OAuth 2.0 authorization in line with
+        the <cite><a href="https://www.imsglobal.org/spec/security/v1p1/">IMS Global Security Framework v1.1</a></cite>.
+      </li>
+      <li>
+        Rewrite the API as a "profile" of the [<cite><a class="bibref" data-link-type="biblio" href="#bib-oidc-vci" title="OpenID Connect for Verifiable Credential Issuance">OIDC-VCI</a></cite>]/[<cite><a class="bibref" data-link-type="biblio" href="#bib-oidc-vp" title="OpenID Connect for Verifiable Presentations">OIDC-VP</a></cite>] APIs.
+      </li>
+    </ul>
   </div></div>
 
   <p>
@@ -4275,7 +4411,8 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
     <div class="example" id="example-sample-assertioncredential">
         <div class="marker">
     <a class="self-link" href="#example-sample-assertioncredential">Example<bdi> 26</bdi></a><span class="example-title">: Sample AssertionCredential</span>
-  </div> <div style="padding: 5px;"></div><span style="" class="tab selected" onclick="window.displayVcExample(this, 'credential');">Credential</span><span style="" class="tab" onclick="window.displayVcExample(this, 'vc-proof');">Verifiable Credential (with proof)</span><span class="tab" style="" onclick="window.displayVcExample(this, 'vc-jwt');">Verifiable Credential (as JWT)</span><div class="tab-separator"></div><pre class="credential" data-schema="org.1edtech.ob.v3p0.assertioncredential.class" data-vc-vm="https://example.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
+  </div> 
+      <div class="vc-tabbed"><input type="radio" id="vc-tab21" name="vc-tabs2" checked="checked"><input type="radio" id="vc-tab22" name="vc-tabs2"><input type="radio" id="vc-tab23" name="vc-tabs2"><ul class="vc-tabs"><li class="vc-tab"><label for="vc-tab21">Credential</label></li><li class="vc-tab"><label for="vc-tab22">Verifiable Credential (with proof)</label></li><li class="vc-tab"><label for="vc-tab23">Verifiable Credential (as JWT)</label></li></ul><div class="vc-tab-content"><pre class="vc" data-schema="org.1edtech.ob.v3p0.assertioncredential.class" data-vc-vm="https://example.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
   <span class="hljs-attr">"@context"</span>: [
     <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
     <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>
@@ -4294,8 +4431,101 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.assertioncredential.class"</span>,
     <span class="hljs-attr">"type"</span>: <span class="hljs-string">"JsonSchemaValidator2020"</span>
   }]
-}</code></pre><pre class="vc-proof" style="display: none;">{<br>  "@context": [<br>    "https://www.w3.org/2018/credentials/v1",<br>    "https://imsglobal.github.io/openbadges-specification/context.json",<br>    "https://w3id.org/security/suites/ed25519-2020/v1"<br>  ],<br>  "id": "http://example.edu/credentials/3732",<br>  "type": [<br>    "VerifiableCredential",<br>    "AssertionCredential"<br>  ],<br>  "issuer": {<br>    "id": "https://example.edu/issuers/565049",<br>    "name": "Example University"<br>  },<br>  "issuanceDate": "2010-01-01T00:00:00Z",<br>  "credentialSubject": {<br>    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"<br>  },<br>  "credentialSchema": [<br>    {<br>      "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob<br>.v3p0.assertioncredential.class",<br>      "type": "JsonSchemaValidator2020"<br>    }<br>  ],<br>  "proof": {<br>    "type": "Ed25519Signature2020",<br>    "created": "2022-01-29T00:33:37Z",<br>    "verificationMethod": "https://example.edu/issuers/565049#key-1",<br>    "proofPurpose": "assertionMethod",<br>    "proofValue": "z41Vc9FsfMHAr9j2Peue1fsZ5j7VxhGp2qz8FsT7TRDwkMQaQhUEz2f5<br>T5KWzcM9jcty3MFGj4wvW45r2QUDk7XLi"<br>  }<br>}</pre><pre class="vc-jwt" style="display: none;">---------------- JWT header ---------------<br>{<br>  "alg": "ES256",<br>  "typ": "JWT"<br>}<br>--------------- JWT payload ---------------<br>// NOTE: The example below uses a valid VC-JWT serialization<br>//       that duplicates the iss, nbf, jti, and sub fields in the<br>//       Verifiable Credential (vc) field.<br>{<br>  "vc": {<br>    "@context": [<br>      "https://www.w3.org/2018/credentials/v1",<br>      "https://imsglobal.github.io/openbadges-specification/context.json"<br>    ],<br>    "id": "http://example.edu/credentials/3732",<br>    "type": [<br>      "VerifiableCredential",<br>      "AssertionCredential"<br>    ],<br>    "issuer": {<br>      "id": "https://example.edu/issuers/565049",<br>      "name": "Example University"<br>    },<br>    "issuanceDate": "2010-01-01T00:00:00Z",<br>    "credentialSubject": {<br>      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"<br>    },<br>    "credentialSchema": [<br>      {<br>        "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.<br>ob.v3p0.assertioncredential.class",<br>        "type": "JsonSchemaValidator2020"<br>      }<br>    ]<br>  },<br>  "iss": {<br>    "id": "https://example.edu/issuers/565049",<br>    "name": "Example University"<br>  },<br>  "nbf": 1262304000,<br>  "jti": "http://example.edu/credentials/3732",<br>  "sub": "did:example:ebfeb1f712ebc6f1c276e12ec21"<br>}<br>--------------- JWT ---------------<br>eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3<br>d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmFsLmdpdGh1Y<br>i5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlkIjoiaHR0cDov<br>L2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW5<br>0aWFsIiwiQXNzZXJ0aW9uQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJodHRwczovL2V4YW<br>1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSJ9LCJpc<br>3N1YW5jZURhdGUiOiIyMDEwLTAxLTAxVDAwOjAwOjAwWiIsImNyZWRlbnRpYWxTdWJqZWN0Ijp7<br>ImlkIjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0sImNyZWRlbnR<br>pYWxTY2hlbWEiOlt7ImlkIjoiaHR0cHM6Ly9pbXN1bTIuaGVyb2t1YXBwLmNvbS9qc29uc2NoZW<br>1hP2NsYXNzSWQ9b3JnLjFlZHRlY2gub2IudjNwMC5hc3NlcnRpb25jcmVkZW50aWFsLmNsYXNzI<br>iwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDIwIn1dfSwiaXNzIjp7ImlkIjoiaHR0cHM6<br>Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5hbWUiOiJFeGFtcGxlIFVuaXZlcnNpdHk<br>ifSwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbH<br>MvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.<br>XrcZgi8btvb8diwufewopIC_VmJyCvKzlyNcJYcgHmF2x8mWfGQYwOG238Bc9eQMqaVO9u_d2pK<br>LcIIg2NZpyw</pre>
-      </div>
+}</code></pre></div><div class="vc-tab-content"><pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://imsglobal.github.io/openbadges-specification/context.json",
+    "https://w3id.org/security/suites/ed25519-2020/v1"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": [
+    "VerifiableCredential",
+    "AssertionCredential"
+  ],
+  "issuer": {
+    "id": "https://example.edu/issuers/565049",
+    "name": "Example University"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+  },
+  "credentialSchema": [
+    {
+      "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob
+.v3p0.assertioncredential.class",
+      "type": "JsonSchemaValidator2020"
+    }
+  ],
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "created": "2022-02-01T23:28:31Z",
+    "verificationMethod": "https://example.edu/issuers/565049#key-1",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z63CLgvVSbNZp2SVHvXx8n5dNAmnSBcA2REJmYHPeL62nRmCjZZyMD56
+o4UwkdmeF8KcLiqyJ8BDVc6VEtzCVWNd8"
+  }
+}</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
+{
+  "alg": "ES256",
+  "typ": "JWT"
+}
+--------------- JWT payload ---------------
+// NOTE: The example below uses a valid VC-JWT serialization
+//       that duplicates the iss, nbf, jti, and sub fields in the
+//       Verifiable Credential (vc) field.
+{
+  "vc": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://imsglobal.github.io/openbadges-specification/context.json"
+    ],
+    "id": "http://example.edu/credentials/3732",
+    "type": [
+      "VerifiableCredential",
+      "AssertionCredential"
+    ],
+    "issuer": {
+      "id": "https://example.edu/issuers/565049",
+      "name": "Example University"
+    },
+    "issuanceDate": "2010-01-01T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+    },
+    "credentialSchema": [
+      {
+        "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.
+ob.v3p0.assertioncredential.class",
+        "type": "JsonSchemaValidator2020"
+      }
+    ]
+  },
+  "iss": {
+    "id": "https://example.edu/issuers/565049",
+    "name": "Example University"
+  },
+  "nbf": 1262304000,
+  "jti": "http://example.edu/credentials/3732",
+  "sub": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+}
+--------------- JWT ---------------
+eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3
+d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmFsLmdpdGh1Y
+i5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlkIjoiaHR0cDov
+L2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW5
+0aWFsIiwiQXNzZXJ0aW9uQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJodHRwczovL2V4YW
+1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSJ9LCJpc
+3N1YW5jZURhdGUiOiIyMDEwLTAxLTAxVDAwOjAwOjAwWiIsImNyZWRlbnRpYWxTdWJqZWN0Ijp7
+ImlkIjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0sImNyZWRlbnR
+pYWxTY2hlbWEiOlt7ImlkIjoiaHR0cHM6Ly9pbXN1bTIuaGVyb2t1YXBwLmNvbS9qc29uc2NoZW
+1hP2NsYXNzSWQ9b3JnLjFlZHRlY2gub2IudjNwMC5hc3NlcnRpb25jcmVkZW50aWFsLmNsYXNzI
+iwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDIwIn1dfSwiaXNzIjp7ImlkIjoiaHR0cHM6
+Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5hbWUiOiJFeGFtcGxlIFVuaXZlcnNpdHk
+ifSwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbH
+MvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.
+UptIBNI8n2-3d945iDBSqH_Xwk0Hd88BoEyYluRSAD-__I3AsJrK9aDwLbFrYkiZ-t8P_JbvrJD
+pxmYHYbPhqg</pre></div></div></div>
 </section>
 <section data-class="org.1edtech.ob.v3p0.assertionsubject.class" id="org.1edtech.ob.v3p0.assertionsubject.class"><h4 id="assertionsubject"><bdi class="secno">B.2.2 </bdi>AssertionSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertionsubject.class"></a><a class="self-link" aria-label="§" href="#assertionsubject"></a></h4><p>A collection of information about the recipient of an achievement. Maps to VC CredentialSubject. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>]</p><table>
         <thead>
@@ -6569,7 +6799,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
     <dl class="bibliography"><dt id="bib-data-integrity">[DATA-INTEGRITY]</dt><dd><a href="https://w3c-ccg.github.io/data-integrity-spec/"><cite>Data Integrity 1.0</cite></a>. Manu Sporny; Dave Longley.  Credentials Community Group. CG-DRAFT. URL: <a href="https://w3c-ccg.github.io/data-integrity-spec/">https://w3c-ccg.github.io/data-integrity-spec/</a></dd><dt id="bib-oauth2-sbp">[OAUTH2-SBP]</dt><dd><a href="https://datatracker.ietf.org/doc/draft-ietf-oauth-security-topics/"><cite>OAuth 2.0 Security Best Current Practice (draft-ietf-oauth-security-topics-11</cite></a>.  IETF. December 28, 2019. URL: <a href="https://datatracker.ietf.org/doc/draft-ietf-oauth-security-topics/">https://datatracker.ietf.org/doc/draft-ietf-oauth-security-topics/</a></dd><dt id="bib-openapis-3.0">[OPENAPIS-3.0]</dt><dd><a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md"><cite>OpenAPI Specification 3.0</cite></a>.  OpenAPI Initiative (Linux Foundation). July 2017. URL: <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md">https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md</a></dd><dt id="bib-rfc20">[RFC20]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc20"><cite>ASCII format for network interchange</cite></a>. V.G. Cerf.  IETF. October 1969. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc20">https://www.rfc-editor.org/rfc/rfc20</a></dd><dt id="bib-rfc2119">[RFC2119]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a></dd><dt id="bib-rfc2617">[RFC2617]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2617"><cite>HTTP Authentication: Basic and Digest Access Authentication</cite></a>. J. Franks; P. Hallam-Baker; J. Hostetler; S. Lawrence; P. Leach; A. Luotonen; L. Stewart.  IETF. June 1999. Draft Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc2617">https://www.rfc-editor.org/rfc/rfc2617</a></dd><dt id="bib-rfc6749">[RFC6749]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc6749"><cite>The OAuth 2.0 Authorization Framework</cite></a>. D. Hardt, Ed..  IETF. October 2012. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc6749">https://www.rfc-editor.org/rfc/rfc6749</a></dd><dt id="bib-rfc6750">[RFC6750]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc6750"><cite>The OAuth 2.0 Authorization Framework: Bearer Token Usage</cite></a>. M. Jones; D. Hardt.  IETF. October 2012. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc6750">https://www.rfc-editor.org/rfc/rfc6750</a></dd><dt id="bib-rfc7009">[RFC7009]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc7009"><cite>OAuth 2.0 Token Revocation</cite></a>. T. Lodderstedt, Ed.; S. Dronia; M. Scurtescu.  IETF. August 2013. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7009">https://www.rfc-editor.org/rfc/rfc7009</a></dd><dt id="bib-rfc7591">[RFC7591]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc7591"><cite>OAuth 2.0 Dynamic Client Registration Protocol</cite></a>. J. Richer, Ed.; M. Jones; J. Bradley; M. Machulak; P. Hunt.  IETF. July 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7591">https://www.rfc-editor.org/rfc/rfc7591</a></dd><dt id="bib-rfc7636">[RFC7636]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc7636"><cite>Proof Key for Code Exchange by OAuth Public Clients</cite></a>. N. Sakimura, Ed.; J. Bradley; N. Agarwal.  IETF. September 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7636">https://www.rfc-editor.org/rfc/rfc7636</a></dd><dt id="bib-sec-11">[SEC-11]</dt><dd><a href="https://www.imsglobal.org/spec/security/v1p1/"><cite>IMS Global Security Framework v1.1</cite></a>. C. Smythe; C. Vervoort; M. McKell.  IMS Global Learning Consortium. July 19th, 2021. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/security/v1p1/">https://www.imsglobal.org/spec/security/v1p1/</a></dd></dl>
   </section><section id="informative-references">
     <h3 id="g-2-informative-references"><bdi class="secno">G.2 </bdi>Informative references<a class="self-link" aria-label="§" href="#informative-references"></a></h3>
-    <dl class="bibliography"><dt id="bib-ceds">[CEDS]</dt><dd><a href="https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf"><cite>Common Education Data Standards (CEDS) Version 7 Data Model Guide</cite></a>. URL: <a href="https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf">https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf</a></dd><dt id="bib-clr-10">[CLR-10]</dt><dd><a href="https://www.imsglobal.org/spec/clr/v1p0/"><cite>IMS Comprehensive Learner Record Standard Version 1.0</cite></a>.  IMS Global Learning Consortium. January 14, 2021. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/clr/v1p0/">https://www.imsglobal.org/spec/clr/v1p0/</a></dd><dt id="bib-clr-20">[CLR-20]</dt><dd><a href="https://www.imsglobal.org/spec/clr/v2p0/"><cite>Comprehensive Learner Record Standard v2.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/clr/v2p0/">https://www.imsglobal.org/spec/clr/v2p0/</a></dd><dt id="bib-did-core">[did-core]</dt><dd><a href="https://www.w3.org/TR/did-core/"><cite>Decentralized Identifiers (DIDs) v1.0</cite></a>. Manu Sporny; Amy Guy; Markus Sabadello; Drummond Reed.  W3C. 3 August 2021. W3C Proposed Recommendation. URL: <a href="https://www.w3.org/TR/did-core/">https://www.w3.org/TR/did-core/</a></dd><dt id="bib-did-use-cases">[did-use-cases]</dt><dd><a href="https://www.w3.org/TR/did-use-cases/"><cite>Use Cases and Requirements for Decentralized Identifiers</cite></a>. Joe Andrieu; Phil Archer; Kim Duffy; Ryan Grant; Adrian Gropper.  W3C. 17 March 2021. W3C Note. URL: <a href="https://www.w3.org/TR/did-use-cases/">https://www.w3.org/TR/did-use-cases/</a></dd><dt id="bib-ieee-754">[IEEE-754]</dt><dd><a href="http://ieeexplore.ieee.org/servlet/opac?punumber=4610933"><cite>IEEE Standard for Floating-Point Arithmetic</cite></a>.  Institute of Electrical and Electronics Engineers. 29 August 2008. URL: <a href="http://ieeexplore.ieee.org/servlet/opac?punumber=4610933">http://ieeexplore.ieee.org/servlet/opac?punumber=4610933</a></dd><dt id="bib-iso3166-1">[ISO3166-1]</dt><dd><a href="https://www.iso.org/standard/72482.html"><cite>Codes for the representation of names of countries and their subdivisions — Part 1: Country code</cite></a>.  International Organization for Standardization (ISO). August 2020. Published. URL: <a href="https://www.iso.org/standard/72482.html">https://www.iso.org/standard/72482.html</a></dd><dt id="bib-json-ld">[JSON-LD]</dt><dd><a href="https://www.w3.org/TR/json-ld/"><cite>JSON-LD 1.0</cite></a>. Manu Sporny; Gregg Kellogg; Markus Lanthaler.  W3C. 3 November 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a></dd><dt id="bib-json-ld11">[json-ld11]</dt><dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave Longley.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a></dd><dt id="bib-json-schema-2020-12">[json-schema-2020-12]</dt><dd><a href="https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00"><cite>JSON Schema: A Media Type for Describing JSON Documents. Draft 2020-12</cite></a>. Austin Wright; Henry Andrews; Ben Hutton; Greg Dennis.  Internet Engineering Task Force (IETF). 8 December 2020. Internet-Draft. URL: <a href="https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00">https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00</a></dd><dt id="bib-ob-20">[OB-20]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v2p0/"><cite>Open Badges v2.0</cite></a>. Otto, Nate; Bohrer, Jeff; Cook, Timothy; Gylling, Markus; Hripak, Alexander; Pitcher, Justin.  IMS Global Learning Consortium. April 2018. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/ob/v2p0/">https://www.imsglobal.org/spec/ob/v2p0/</a></dd><dt id="bib-ob-21">[OB-21]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v2p1/"><cite>Open Badges Specification v2.1</cite></a>. Jeff Bohrer; Andy Miller.  IMS Global Learning Consortium. October 7, 2020. IMS Candidate Final Public. URL: <a href="https://www.imsglobal.org/spec/ob/v2p1/">https://www.imsglobal.org/spec/ob/v2p1/</a></dd><dt id="bib-ob-30">[OB-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/"><cite>Open Badges Specification v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/">https://www.imsglobal.org/spec/ob/v3p0/</a></dd><dt id="bib-ob-cert-30">[OB-CERT-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/cert/"><cite>Open Badges Specification Conformance and Certification Guide v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/cert/">https://www.imsglobal.org/spec/ob/v3p0/cert/</a></dd><dt id="bib-ob-json-30">[OB-JSON-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/schema/json"><cite>Open Badges Specification JSON Schema v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/schema/json">https://www.imsglobal.org/spec/ob/v3p0/schema/json</a></dd><dt id="bib-openapis">[OPENAPIS]</dt><dd><a href="https://www.openapis.org/"><cite>OpenAPI Specification</cite></a>. Darrell Miller; Jeremy Whitlock; Marsh Gardiner; Mike Ralphson; Ron Ratovsky; Uri Sarid; Tony Tam; Jason Harmon.  OpenAPI Initiative. URL: <a href="https://www.openapis.org/">https://www.openapis.org/</a></dd><dt id="bib-rfc2397">[RFC2397]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2397"><cite>The "data" URL scheme</cite></a>. L. Masinter.  IETF. August 1998. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc2397">https://www.rfc-editor.org/rfc/rfc2397</a></dd><dt id="bib-rfc3629">[RFC3629]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc3629"><cite>UTF-8, a transformation format of ISO 10646</cite></a>. F. Yergeau.  IETF. November 2003. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3629">https://www.rfc-editor.org/rfc/rfc3629</a></dd><dt id="bib-rfc8259">[RFC8259]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8259"><cite>The JavaScript Object Notation (JSON) Data Interchange Format</cite></a>. T. Bray, Ed..  IETF. December 2017. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a></dd><dt id="bib-rfc8949">[RFC8949]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8949"><cite>Concise Binary Object Representation (CBOR)</cite></a>. C. Bormann; P. Hoffman.  IETF. December 2020. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8949">https://www.rfc-editor.org/rfc/rfc8949</a></dd><dt id="bib-rsd">[RSD]</dt><dd><a href="https://www.openskillsnetwork.org/rsd"><cite>Rich Skill Descriptors</cite></a>. URL: <a href="https://www.openskillsnetwork.org/rsd">https://www.openskillsnetwork.org/rsd</a></dd><dt id="bib-vc-api">[VC-API]</dt><dd><a href="https://w3c-ccg.github.io/vc-api/"><cite>Verifiable Credentials HTTP API</cite></a>.  Credentials Community Group. W3C Community Group Draft Report. URL: <a href="https://w3c-ccg.github.io/vc-api/">https://w3c-ccg.github.io/vc-api/</a></dd><dt id="bib-vc-data-model">[vc-data-model]</dt><dd><a href="https://www.w3.org/TR/vc-data-model/"><cite>Verifiable Credentials Data Model v1.1</cite></a>. Manu Sporny; Grant Noble; Dave Longley; Daniel Burnett; Brent Zundel; Kyle Den Hartog.  W3C. 9 November 2021. W3C Recommendation. URL: <a href="https://www.w3.org/TR/vc-data-model/">https://www.w3.org/TR/vc-data-model/</a></dd><dt id="bib-xmlschema-2">[XMLSCHEMA-2]</dt><dd><a href="https://www.w3.org/TR/xmlschema-2/"><cite>XML Schema Part 2: Datatypes Second Edition</cite></a>. Paul V. Biron; Ashok Malhotra.  W3C. 28 October 2004. W3C Recommendation. URL: <a href="https://www.w3.org/TR/xmlschema-2/">https://www.w3.org/TR/xmlschema-2/</a></dd><dt id="bib-xmlschema11-2">[XMLSCHEMA11-2]</dt><dd><a href="https://www.w3.org/TR/xmlschema11-2/"><cite>W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes</cite></a>. David Peterson; Sandy Gao; Ashok Malhotra; Michael Sperberg-McQueen; Henry Thompson; Paul V. Biron et al.  W3C. 5 April 2012. W3C Recommendation. URL: <a href="https://www.w3.org/TR/xmlschema11-2/">https://www.w3.org/TR/xmlschema11-2/</a></dd></dl>
+    <dl class="bibliography"><dt id="bib-ceds">[CEDS]</dt><dd><a href="https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf"><cite>Common Education Data Standards (CEDS) Version 7 Data Model Guide</cite></a>. URL: <a href="https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf">https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf</a></dd><dt id="bib-clr-10">[CLR-10]</dt><dd><a href="https://www.imsglobal.org/spec/clr/v1p0/"><cite>IMS Comprehensive Learner Record Standard Version 1.0</cite></a>.  IMS Global Learning Consortium. January 14, 2021. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/clr/v1p0/">https://www.imsglobal.org/spec/clr/v1p0/</a></dd><dt id="bib-clr-20">[CLR-20]</dt><dd><a href="https://www.imsglobal.org/spec/clr/v2p0/"><cite>Comprehensive Learner Record Standard v2.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/clr/v2p0/">https://www.imsglobal.org/spec/clr/v2p0/</a></dd><dt id="bib-did-core">[did-core]</dt><dd><a href="https://www.w3.org/TR/did-core/"><cite>Decentralized Identifiers (DIDs) v1.0</cite></a>. Manu Sporny; Amy Guy; Markus Sabadello; Drummond Reed.  W3C. 3 August 2021. W3C Proposed Recommendation. URL: <a href="https://www.w3.org/TR/did-core/">https://www.w3.org/TR/did-core/</a></dd><dt id="bib-did-use-cases">[did-use-cases]</dt><dd><a href="https://www.w3.org/TR/did-use-cases/"><cite>Use Cases and Requirements for Decentralized Identifiers</cite></a>. Joe Andrieu; Phil Archer; Kim Duffy; Ryan Grant; Adrian Gropper.  W3C. 17 March 2021. W3C Note. URL: <a href="https://www.w3.org/TR/did-use-cases/">https://www.w3.org/TR/did-use-cases/</a></dd><dt id="bib-ieee-754">[IEEE-754]</dt><dd><a href="http://ieeexplore.ieee.org/servlet/opac?punumber=4610933"><cite>IEEE Standard for Floating-Point Arithmetic</cite></a>.  Institute of Electrical and Electronics Engineers. 29 August 2008. URL: <a href="http://ieeexplore.ieee.org/servlet/opac?punumber=4610933">http://ieeexplore.ieee.org/servlet/opac?punumber=4610933</a></dd><dt id="bib-iso3166-1">[ISO3166-1]</dt><dd><a href="https://www.iso.org/standard/72482.html"><cite>Codes for the representation of names of countries and their subdivisions — Part 1: Country code</cite></a>.  International Organization for Standardization (ISO). August 2020. Published. URL: <a href="https://www.iso.org/standard/72482.html">https://www.iso.org/standard/72482.html</a></dd><dt id="bib-json-ld">[JSON-LD]</dt><dd><a href="https://www.w3.org/TR/json-ld/"><cite>JSON-LD 1.0</cite></a>. Manu Sporny; Gregg Kellogg; Markus Lanthaler.  W3C. 3 November 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a></dd><dt id="bib-json-ld11">[json-ld11]</dt><dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave Longley.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a></dd><dt id="bib-json-schema-2020-12">[json-schema-2020-12]</dt><dd><a href="https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00"><cite>JSON Schema: A Media Type for Describing JSON Documents. Draft 2020-12</cite></a>. Austin Wright; Henry Andrews; Ben Hutton; Greg Dennis.  Internet Engineering Task Force (IETF). 8 December 2020. Internet-Draft. URL: <a href="https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00">https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00</a></dd><dt id="bib-ob-20">[OB-20]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v2p0/"><cite>Open Badges v2.0</cite></a>. Otto, Nate; Bohrer, Jeff; Cook, Timothy; Gylling, Markus; Hripak, Alexander; Pitcher, Justin.  IMS Global Learning Consortium. April 2018. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/ob/v2p0/">https://www.imsglobal.org/spec/ob/v2p0/</a></dd><dt id="bib-ob-21">[OB-21]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v2p1/"><cite>Open Badges Specification v2.1</cite></a>. Jeff Bohrer; Andy Miller.  IMS Global Learning Consortium. October 7, 2020. IMS Candidate Final Public. URL: <a href="https://www.imsglobal.org/spec/ob/v2p1/">https://www.imsglobal.org/spec/ob/v2p1/</a></dd><dt id="bib-ob-30">[OB-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/"><cite>Open Badges Specification v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/">https://www.imsglobal.org/spec/ob/v3p0/</a></dd><dt id="bib-ob-cert-30">[OB-CERT-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/cert/"><cite>Open Badges Specification Conformance and Certification Guide v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/cert/">https://www.imsglobal.org/spec/ob/v3p0/cert/</a></dd><dt id="bib-ob-json-30">[OB-JSON-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/schema/json"><cite>Open Badges Specification JSON Schema v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/schema/json">https://www.imsglobal.org/spec/ob/v3p0/schema/json</a></dd><dt id="bib-oidc-vci">[OIDC-VCI]</dt><dd><a href="https://openid.net/specs/openid-connect-4-verifiable-credential-issuance-1_0.html"><cite>OpenID Connect for Verifiable Credential Issuance</cite></a>.  OpenID Foundation. Standards Track. URL: <a href="https://openid.net/specs/openid-connect-4-verifiable-credential-issuance-1_0.html">https://openid.net/specs/openid-connect-4-verifiable-credential-issuance-1_0.html</a></dd><dt id="bib-oidc-vp">[OIDC-VP]</dt><dd><a href="https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0.html"><cite>OpenID Connect for Verifiable Presentations</cite></a>.  OpenID Foundation. Standards Track. URL: <a href="https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0.html">https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0.html</a></dd><dt id="bib-openapis">[OPENAPIS]</dt><dd><a href="https://www.openapis.org/"><cite>OpenAPI Specification</cite></a>. Darrell Miller; Jeremy Whitlock; Marsh Gardiner; Mike Ralphson; Ron Ratovsky; Uri Sarid; Tony Tam; Jason Harmon.  OpenAPI Initiative. URL: <a href="https://www.openapis.org/">https://www.openapis.org/</a></dd><dt id="bib-rfc2397">[RFC2397]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2397"><cite>The "data" URL scheme</cite></a>. L. Masinter.  IETF. August 1998. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc2397">https://www.rfc-editor.org/rfc/rfc2397</a></dd><dt id="bib-rfc3629">[RFC3629]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc3629"><cite>UTF-8, a transformation format of ISO 10646</cite></a>. F. Yergeau.  IETF. November 2003. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3629">https://www.rfc-editor.org/rfc/rfc3629</a></dd><dt id="bib-rfc8259">[RFC8259]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8259"><cite>The JavaScript Object Notation (JSON) Data Interchange Format</cite></a>. T. Bray, Ed..  IETF. December 2017. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a></dd><dt id="bib-rfc8949">[RFC8949]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8949"><cite>Concise Binary Object Representation (CBOR)</cite></a>. C. Bormann; P. Hoffman.  IETF. December 2020. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8949">https://www.rfc-editor.org/rfc/rfc8949</a></dd><dt id="bib-rsd">[RSD]</dt><dd><a href="https://www.openskillsnetwork.org/rsd"><cite>Rich Skill Descriptors</cite></a>. URL: <a href="https://www.openskillsnetwork.org/rsd">https://www.openskillsnetwork.org/rsd</a></dd><dt id="bib-vc-api">[VC-API]</dt><dd><a href="https://w3c-ccg.github.io/vc-api/"><cite>Verifiable Credentials HTTP API</cite></a>.  Credentials Community Group. W3C Community Group Draft Report. URL: <a href="https://w3c-ccg.github.io/vc-api/">https://w3c-ccg.github.io/vc-api/</a></dd><dt id="bib-vc-data-model">[vc-data-model]</dt><dd><a href="https://www.w3.org/TR/vc-data-model/"><cite>Verifiable Credentials Data Model v1.1</cite></a>. Manu Sporny; Grant Noble; Dave Longley; Daniel Burnett; Brent Zundel; Kyle Den Hartog.  W3C. 9 November 2021. W3C Recommendation. URL: <a href="https://www.w3.org/TR/vc-data-model/">https://www.w3.org/TR/vc-data-model/</a></dd><dt id="bib-xmlschema-2">[XMLSCHEMA-2]</dt><dd><a href="https://www.w3.org/TR/xmlschema-2/"><cite>XML Schema Part 2: Datatypes Second Edition</cite></a>. Paul V. Biron; Ashok Malhotra.  W3C. 28 October 2004. W3C Recommendation. URL: <a href="https://www.w3.org/TR/xmlschema-2/">https://www.w3.org/TR/xmlschema-2/</a></dd><dt id="bib-xmlschema11-2">[XMLSCHEMA11-2]</dt><dd><a href="https://www.w3.org/TR/xmlschema11-2/"><cite>W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes</cite></a>. David Peterson; Sandy Gao; Ashok Malhotra; Michael Sperberg-McQueen; Henry Thompson; Paul V. Biron et al.  W3C. 5 April 2012. W3C Recommendation. URL: <a href="https://www.w3.org/TR/xmlschema11-2/">https://www.w3.org/TR/xmlschema11-2/</a></dd></dl>
   </section></section><section id="contributors" class="appendix">
     <h2 id="h-list-of-contributors"><bdi class="secno">H. </bdi>List of Contributors<a class="self-link" aria-label="§" href="#contributors"></a></h2>
     <p>The following individuals contributed to the development of this document:</p>
@@ -7232,7 +7462,7 @@ function hidePanel(panel) {
         Please refer to Document Name: Open Badges Specification
         3.0
       </p>
-      <p>Date: 29 January 2022</p>
+      <p>Date: 01 February 2022</p>
       <div></div>
     </div>
   </footer></body></html>
