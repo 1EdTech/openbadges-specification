@@ -10,7 +10,7 @@
 
   <!-- Load Digital Bazaar VC add-on -->
   <script class="remove" src="https://dc.imsglobal.org/js/respec-vc/dist/main.js"></script>
-  <script>
+  <script class="remove">
     const url = "https://imsglobal.github.io/openbadges-specification/context.json";
     fetch(url)
     .then(res => res.json())
@@ -21,7 +21,7 @@
   <script class="remove" src="cdm-config.js"></script>
 
   <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.8.2/ajv2019.bundle.min.js" 
+  <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.8.2/ajv2019.bundle.min.js" 
           integrity="sha512-9CfeXrjdW9wxGntWtQ4wE0k9RD8avpYxoPEKAGu+EP87RyqXYVQjed0l872XkNtQeIyYavZeqY+jzm69pmjEDw==" 
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
