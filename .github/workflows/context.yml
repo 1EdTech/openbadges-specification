@@ -21,18 +21,20 @@ jobs:
     name: Publish to GH pages
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout develop
-        uses: actions/checkout@v2
+      - name: Upload context.json from develop
+        uses: actions/upload-artifact@v2.3.1
+        with:
+          name: context.json
+          path: ob_v3p0/context.json
       - name: Checkout gh-pages
         uses: actions/checkout@v2
         with:
           ref: gh-pages
-          clean: 'false'
-      - run: git status
-      - name: Update context.json
-        run: |
-          git checkout develop ob_v3p0/context.json
-          cp ob_v3p0/context.json docs/context.json
+      - name: Download context.json to gh_pages
+        uses: actions/download-artifact@v2.1.0
+        with:
+          name: context.json
+          path: docs/context.json
       - name: Commit the changes
         run: |
           git add docs/*
