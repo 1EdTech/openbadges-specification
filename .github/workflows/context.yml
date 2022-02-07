@@ -21,6 +21,8 @@ jobs:
     name: Publish to GH pages
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout develop
+        uses: actions/checkout@v2
       - name: Checkout gh-pages
         uses: actions/checkout@v2
         with:
