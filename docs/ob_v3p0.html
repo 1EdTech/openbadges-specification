@@ -1693,11 +1693,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-02-07T21:37:47Z",
+    "created": "2022-02-07T21:49:48Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z4gEz26bVneucbSTvwgQpamKecQtNKDb5eu9TbDWGyZuU9HjxkYC95dr
-3znNzm8QorGzxJ5cFdL8AU4h1yWhetSXm"
+    "proofValue": "z48o779z4nzfK8fqhcjqQyFQuRsA363dTXbPgtvQsgFnyjXUVJwnZFAg
+PjtJUAfh16J1oN6MHFQtgwKKTbQiRmrwp"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -1760,8 +1760,8 @@ mNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnNvblNjaGVtYVZhbGlkYXRvcjIwMjAifV19LCJp
 c3MiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6IlB
 yb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sIm5iZiI6MTI2MjMwNDAwMCwian
 RpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhb
-XBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.CGe6pCBO-skxHsIBaz3vVe0v8dPVM
-opvpVfSgte0S5RCPjp7dgUHgVFxazBjDOxtln-xBgBc0BdUpQLTfeLNcw</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><ul>
+XBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.-5gTLUJIOHJZVF7iNgmt5wc12h7tl
+r2kwlZpA7W0F-sm8QnBt_YL4piwqGfvjBMq2dfoQAEMuR2yhqgzQXr4vg</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><ul>
 <li>JSON text exchanged between systems that are not part of a closed ecosystem <em class="rfc2119">MUST</em> be encoded using UTF-8 [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3629" title="UTF-8, a transformation format of ISO 10646">RFC3629</a></cite>].</li>
 </ul></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>When the <code>id</code> of an Assertion is a <a href="#url">URL</a>, a GET request to that URL <em class="rfc2119">MUST</em> return JSON representing an <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> as described above.</p><ul>
 <li>The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</li>
@@ -4299,9 +4299,9 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>id</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
       <td>
-        Unambiguous reference to the assertion. [ED: Required in OB20 for hosted verification. Optional in OB30?]
+        Unambiguous reference to the assertion.
         
-        
+        <div class="note" role="note" id="issue-container-generatedID-10"><div role="heading" class="note-title marker" id="h-note-2" aria-level="5"><span>Note</span></div><div class="">The <code>id</code> is required in OB20 for hosted verification. Should it be optional in OB30?</div></div>
       </td>
       <td>Required</td>
     </tr><tr>
@@ -4453,11 +4453,11 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-02-07T21:37:47Z",
+    "created": "2022-02-07T21:49:48Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z4gEz26bVneucbSTvwgQpamKecQtNKDb5eu9TbDWGyZuU9HjxkYC95dr
-3znNzm8QorGzxJ5cFdL8AU4h1yWhetSXm"
+    "proofValue": "z48o779z4nzfK8fqhcjqQyFQuRsA363dTXbPgtvQsgFnyjXUVJwnZFAg
+PjtJUAfh16J1oN6MHFQtgwKKTbQiRmrwp"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -4518,8 +4518,8 @@ iwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDIwIn1dfSwiaXNzIjp7ImlkIjoiaHR0cHM6
 Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5hbWUiOiJFeGFtcGxlIFVuaXZlcnNpdHk
 ifSwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbH
 MvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.
-oVTnRIAnnL4RNbe5BXs_jYEQuQOGlqt-bXXNiX1ud8_1RAlUzFRJjAE8rHs62XIaqLzj_5RcaLy
-Cm5Oswbv_5A</pre></div></div></div>
+mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
+7XK4kQfHOzA</pre></div></div></div>
 </section>
 <section data-class="org.1edtech.ob.v3p0.assertionsubject.class" id="org.1edtech.ob.v3p0.assertionsubject.class"><h4 id="assertionsubject"><bdi class="secno">B.2.2 </bdi>AssertionSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertionsubject.class"></a><a class="self-link" aria-label="§" href="#assertionsubject"></a></h4><p>A collection of information about the recipient of an achievement. Maps to VC CredentialSubject. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>]</p><table>
         <thead>
@@ -4627,7 +4627,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         An address for the individual or organization.
         
-        <div class="note" role="note" id="issue-container-generatedID-10"><div role="heading" class="note-title marker" id="h-note-2" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-11"><div role="heading" class="note-title marker" id="h-note-3" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4636,7 +4636,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         An additional name for a person, can be used for a middle name.
         
-        <div class="note" role="note" id="issue-container-generatedID-11"><div role="heading" class="note-title marker" id="h-note-3" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-12"><div role="heading" class="note-title marker" id="h-note-4" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4645,7 +4645,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         Birthdate of the person.
         
-        <div class="note" role="note" id="issue-container-generatedID-12"><div role="heading" class="note-title marker" id="h-note-4" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-13"><div role="heading" class="note-title marker" id="h-note-5" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4654,7 +4654,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         Allows endorsers to make specific claims about the individual or organization represented by this profile.
         
-        <div class="note" role="note" id="issue-container-generatedID-13"><div role="heading" class="note-title marker" id="h-note-5" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-14"><div role="heading" class="note-title marker" id="h-note-6" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4663,7 +4663,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         Family name of a person. In the U.S., the last name of a person.
         
-        <div class="note" role="note" id="issue-container-generatedID-14"><div role="heading" class="note-title marker" id="h-note-6" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-15"><div role="heading" class="note-title marker" id="h-note-7" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4672,7 +4672,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         Given name of a person. In the U.S., the first name of a person.
         
-        <div class="note" role="note" id="issue-container-generatedID-15"><div role="heading" class="note-title marker" id="h-note-7" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-16"><div role="heading" class="note-title marker" id="h-note-8" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4681,7 +4681,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         A set of System Identifiers that represent other identifiers for this Profile.
         
-        <div class="note" role="note" id="issue-container-generatedID-16"><div role="heading" class="note-title marker" id="h-note-8" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-17"><div role="heading" class="note-title marker" id="h-note-9" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4690,7 +4690,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         The name of the authorized official for the Issuer.
         
-        <div class="note" role="note" id="issue-container-generatedID-17"><div role="heading" class="note-title marker" id="h-note-9" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-18"><div role="heading" class="note-title marker" id="h-note-10" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4699,7 +4699,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         The parent organization of the person or organization represented by this organization.
         
-        <div class="note" role="note" id="issue-container-generatedID-18"><div role="heading" class="note-title marker" id="h-note-10" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-19"><div role="heading" class="note-title marker" id="h-note-11" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4708,7 +4708,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         The individual's or organization's unique 'sourcedId' value, which is used for providing interoperability with other identity systems.
         
-        <div class="note" role="note" id="issue-container-generatedID-19"><div role="heading" class="note-title marker" id="h-note-11" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-20"><div role="heading" class="note-title marker" id="h-note-12" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4717,7 +4717,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         An institution's student identifier for the person. This is frequently issued through a Student Information System.
         
-        <div class="note" role="note" id="issue-container-generatedID-20"><div role="heading" class="note-title marker" id="h-note-12" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-21"><div role="heading" class="note-title marker" id="h-note-13" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr>
@@ -5020,7 +5020,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         The type of the alignment target node.
         
-        <div class="note" role="note" id="issue-container-generatedID-21"><div role="heading" class="note-title marker" id="h-note-13" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-22"><div role="heading" class="note-title marker" id="h-note-14" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5316,7 +5316,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         Artifacts that are part of the evidence.
         
-        <div class="note" role="note" id="issue-container-generatedID-22"><div role="heading" class="note-title marker" id="h-note-14" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-23"><div role="heading" class="note-title marker" id="h-note-15" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr>
@@ -5449,7 +5449,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         An address for the individual or organization.
         
-        <div class="note" role="note" id="issue-container-generatedID-23"><div role="heading" class="note-title marker" id="h-note-15" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-24"><div role="heading" class="note-title marker" id="h-note-16" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5458,7 +5458,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         An additional name for a person, can be used for a middle name.
         
-        <div class="note" role="note" id="issue-container-generatedID-24"><div role="heading" class="note-title marker" id="h-note-16" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-25"><div role="heading" class="note-title marker" id="h-note-17" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5467,7 +5467,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         Birthdate of the person.
         
-        <div class="note" role="note" id="issue-container-generatedID-25"><div role="heading" class="note-title marker" id="h-note-17" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-26"><div role="heading" class="note-title marker" id="h-note-18" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5476,7 +5476,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         Allows endorsers to make specific claims about the individual or organization represented by this profile.
         
-        <div class="note" role="note" id="issue-container-generatedID-26"><div role="heading" class="note-title marker" id="h-note-18" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-27"><div role="heading" class="note-title marker" id="h-note-19" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5485,7 +5485,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         Family name of a person. In the U.S., the last name of a person.
         
-        <div class="note" role="note" id="issue-container-generatedID-27"><div role="heading" class="note-title marker" id="h-note-19" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-28"><div role="heading" class="note-title marker" id="h-note-20" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5494,7 +5494,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         Given name of a person. In the U.S., the first name of a person.
         
-        <div class="note" role="note" id="issue-container-generatedID-28"><div role="heading" class="note-title marker" id="h-note-20" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-29"><div role="heading" class="note-title marker" id="h-note-21" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5503,7 +5503,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         A set of System Identifiers that represent other identifiers for this Profile.
         
-        <div class="note" role="note" id="issue-container-generatedID-29"><div role="heading" class="note-title marker" id="h-note-21" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-30"><div role="heading" class="note-title marker" id="h-note-22" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5512,7 +5512,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         The name of the authorized official for the Issuer.
         
-        <div class="note" role="note" id="issue-container-generatedID-30"><div role="heading" class="note-title marker" id="h-note-22" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-31"><div role="heading" class="note-title marker" id="h-note-23" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5521,7 +5521,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         The parent organization of the person or organization represented by this organization.
         
-        <div class="note" role="note" id="issue-container-generatedID-31"><div role="heading" class="note-title marker" id="h-note-23" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-32"><div role="heading" class="note-title marker" id="h-note-24" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5530,7 +5530,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         The individual's or organization's unique 'sourcedId' value, which is used for providing interoperability with other identity systems.
         
-        <div class="note" role="note" id="issue-container-generatedID-32"><div role="heading" class="note-title marker" id="h-note-24" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-33"><div role="heading" class="note-title marker" id="h-note-25" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5539,7 +5539,7 @@ Cm5Oswbv_5A</pre></div></div></div>
       <td>
         An institution's student identifier for the person. This is frequently issued through a Student Information System.
         
-        <div class="note" role="note" id="issue-container-generatedID-33"><div role="heading" class="note-title marker" id="h-note-25" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-34"><div role="heading" class="note-title marker" id="h-note-26" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr>
