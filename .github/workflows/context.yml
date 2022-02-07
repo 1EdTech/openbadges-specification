@@ -1,6 +1,7 @@
 name: Publish the JSON-LD context file
 
 on:
+
   push:
     branches: 
       - develop
@@ -12,8 +13,6 @@ on:
       - develop
     paths: 
       - 'ob_v3p0/context.json'
-  
-  workflow_dispatch:
 
 jobs:
 
