@@ -1,0 +1,39 @@
+{
+    "@context" : {
+        "id" : "@id",
+        "type" : "@type",
+
+        "obi" : "https://purl.imsglobal.org/spec/ob/vocab#",
+        "xsd" : "http://www.w3.org/2001/XMLSchema#",
+
+        "dtAssertion" : "obi:dtAssertion",
+        "dtBadgeConnectAPI" : "obi:dtBadgeConnectAPI",
+        "dtProfile" : "obi:dtProfile",
+        "dtStatus" : "obi:dtStatus",
+        "dtStatusResponse" : "obi:dtStatusResponse",
+
+        "dtCompactJWS" : { "@id" : "obi:dtCompactJWS", "@type" : "xsd:string" },
+        "dtIRI" : { "@id" : "obi:dtIRI", "@type" : "xsd:normalizedString" },
+        "dtURL" : { "@id" : "obi:dtURL", "@type" : "xsd:anyURI" },
+
+        "apiBase" : "obi:dtURL",
+        "assertion" : "obi:dtAssertion",
+        "assertions" : { "@id" : "obi:dtAssertion", "@container" : "@set" },
+        "authorizationUrl" : "obi:dtURL",
+        "badgeConnectAPI" : { "@id" : "obi:dtBadgeConnectAPI", "@container" : "@set" },
+        "error" : { "@id" : "obi:error", "@type" : "xsd:string" },
+        "image" : { "@id" : "obi:image", "@type" : "xsd:anyURI" },
+        "name" : { "@id" : "obi:name", "@type" : "xsd:string" },
+        "privacyPolicyUrl" : "obi:dtURL",
+        "profile" : "obi:dtProfile",
+        "registrationUrl" : "obi:dtURL",
+        "scopesOffered" : { "@id" : "obi:scopesOffered", "@type" : "xsd:anyURI", "@container" : "@set" },
+        "status" : "obi:dtStatus",
+        "statusCode" : { "@id" : "obi:statusCode", "@type" : "xsd:integer" },
+        "statusText" : "obi:StatusTextEnumDType",
+        "termsOfServiceUrl" : "obi:dtURL",
+        "tokenRevocationUrl" : "obi:dtURL",
+        "tokenUrl" : "obi:dtURL",
+        "version" : { "@id" : "obi:version", "@type" : "xsd:string" }
+    }
+}
