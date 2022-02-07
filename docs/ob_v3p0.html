@@ -1693,11 +1693,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-02-07T22:33:00Z",
+    "created": "2022-02-07T23:00:38Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z4e8NQQeRF8iAwLteC2YqDxkqREwcbwsKvNzZrUgUeV7vdUWD7iLpGKU
-gaC2m5jycsCND9Jwq9hbv3y9NSkLFnWa"
+    "proofValue": "z4dRkQM3AZk4gpVgEX9DKXLubaA5n2rAEVwWQYdHEWYhYUdPbgSEdcEV
+tDVfmvEXyGsVG11pjFeAeG4JUvSkoJsbh"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -1760,8 +1760,8 @@ mNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnNvblNjaGVtYVZhbGlkYXRvcjIwMjAifV19LCJp
 c3MiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6IlB
 yb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sIm5iZiI6MTI2MjMwNDAwMCwian
 RpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhb
-XBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.6FudmikPNFLemIkii36edWgZDiDE-
-SPOnnmPuXQGx9QNeIP98hKSgPTjO4-y9UgazzR8UsfTERHFjx2BRV2vyw</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><ul>
+XBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.sLO6iBk_Whq-r0z0Co11dXsiKllP9
+FfLUrVW-llluu2j1gTqxMu7n0b1PyGS49LUOytax7pK63Up3ma0hJiF_Q</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><ul>
 <li>JSON text exchanged between systems that are not part of a closed ecosystem <em class="rfc2119">MUST</em> be encoded using UTF-8 [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3629" title="UTF-8, a transformation format of ISO 10646">RFC3629</a></cite>].</li>
 </ul></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>When the <code>id</code> of an Assertion is a <a href="#url">URL</a>, a GET request to that URL <em class="rfc2119">MUST</em> return JSON representing an <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> as described above.</p><ul>
 <li>The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</li>
@@ -4350,7 +4350,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       </td>
       <td>Required</td>
     </tr><tr>
-      <td>endorsement</td>
+      <td>endorsements</td>
       <td><a href="#org.1edtech.ob.v3p0.endorsementcredential.class">EndorsementCredential[]</a></td>
       <td>
         A claim made about this entity. Note: As endorsements must be published after the publication of the entity they endorse, it will not always be possible to establish a two-way linkage with this property.
@@ -4462,11 +4462,11 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-02-07T22:33:00Z",
+    "created": "2022-02-07T23:00:38Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z4e8NQQeRF8iAwLteC2YqDxkqREwcbwsKvNzZrUgUeV7vdUWD7iLpGKU
-gaC2m5jycsCND9Jwq9hbv3y9NSkLFnWa"
+    "proofValue": "z4dRkQM3AZk4gpVgEX9DKXLubaA5n2rAEVwWQYdHEWYhYUdPbgSEdcEV
+tDVfmvEXyGsVG11pjFeAeG4JUvSkoJsbh"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -4527,8 +4527,8 @@ iwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDIwIn1dfSwiaXNzIjp7ImlkIjoiaHR0cHM6
 Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5hbWUiOiJFeGFtcGxlIFVuaXZlcnNpdHk
 ifSwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbH
 MvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.
-sPOCyx1pxatEou-xpWbG4c8XGy_8luYSdAWJU7noy8H957cearXcqJW80QpNhdpVi2aEefA8PBe
-zldeMT9ETMQ</pre></div></div></div>
+ExUaK8ejI3XRMnUL70eWRaGlVP_RJh9dv51hfJPmZ3rTi59bM7gZfO_DedQTUJzX6EbZx6tNtkH
+I6AYnAmoEgQ</pre></div></div></div>
 </section>
 <section data-class="org.1edtech.ob.v3p0.assertionsubject.class" id="org.1edtech.ob.v3p0.assertionsubject.class"><h4 id="assertionsubject"><bdi class="secno">B.2.2 </bdi>AssertionSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertionsubject.class"></a><a class="self-link" aria-label="§" href="#assertionsubject"></a></h4><p>A collection of information about the recipient of an achievement. Maps to VC CredentialSubject. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>]</p><table>
         <thead>
@@ -4810,7 +4810,7 @@ zldeMT9ETMQ</pre></div></div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
-      <td>endorsement</td>
+      <td>endorsements</td>
       <td><a href="#org.1edtech.ob.v3p0.endorsementcredential.class">EndorsementCredential[]</a></td>
       <td>
         A claim made about this entity. Note: As endorsements must be published after the publication of the entity they endorse, it will not always be possible to establish a two-way linkage with this property.
@@ -5299,7 +5299,7 @@ zldeMT9ETMQ</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>endorsementComment</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.markdown.class">Markdown</a></td>
       <td>
         Allows endorsers to make a simple claim in writing about the entity.
         
