@@ -31,6 +31,7 @@ jobs:
         uses: sliteteam/github-action-git-crypt-unlock@1.2.0
         env:
           GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
+      # This will run the respec2html tool
       - uses: w3c/spec-prod@v2
         with:
           SOURCE: "ob_v3p0/ob_v3p0.html"
@@ -46,7 +47,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      -  uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
       - name: Download artifact created by build job
         uses: actions/download-artifact@v2
         with: 
