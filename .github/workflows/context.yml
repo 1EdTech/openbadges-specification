@@ -38,7 +38,7 @@ jobs:
         uses: actions/download-artifact@v2.1.0
         with:
           name: context.json
-          path: docs/context.json
+          path: docs
       - name: Commit the changes
         run: |
           git add docs/*
