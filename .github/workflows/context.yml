@@ -19,9 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout gh-pages
-        uses: actions/checkout@v2
-        with:
-          ref: gh-pages
+        run: git checkout gh-pages
       - name: Update context.json
         run: |
           git checkout develop ob_v3p0/context.json
