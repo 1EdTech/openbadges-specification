@@ -18,11 +18,18 @@ jobs:
     name: Publish to GH pages
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout gh-pages
         uses: actions/checkout@v2
-      - name: Copy the context file
-        run: cp ob_v3p0/context.json docs/
+        with:
+          ref: gh-pages
+      - name: Update context.json
+        run: |
+          git checkout develop ob_v3p0/context.json
+          cp ob_v3p0/context.json docs/context.json
       - name: Commit the changes
-        uses: zwaldowski/git-commit-action@v1
-      - name: Push the changes
-        run: git push origin
+        run: |
+          git add docs/*
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git commit --allow-empty -m "Automated build"
+          git push origin
