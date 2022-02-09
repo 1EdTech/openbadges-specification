@@ -1302,7 +1302,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </tr>
       <tr>
         <td>Date Issued:</td>
-        <td>07 February 2022</td>
+        <td>09 February 2022</td>
       </tr>
       <tr>
         <td>Status:</td>
@@ -1693,11 +1693,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-02-07T21:49:48Z",
+    "created": "2022-02-09T22:29:25Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z48o779z4nzfK8fqhcjqQyFQuRsA363dTXbPgtvQsgFnyjXUVJwnZFAg
-PjtJUAfh16J1oN6MHFQtgwKKTbQiRmrwp"
+    "proofValue": "zUGLkXDzeopFZNhJKnZSJJuqPEpmS2VYxdk6ovHp6jzv1hVLeKkxaemF
+TETvrncFZYTff55FHH4e9qvizyJKZPtU"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -1760,8 +1760,8 @@ mNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnNvblNjaGVtYVZhbGlkYXRvcjIwMjAifV19LCJp
 c3MiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6IlB
 yb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sIm5iZiI6MTI2MjMwNDAwMCwian
 RpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhb
-XBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.-5gTLUJIOHJZVF7iNgmt5wc12h7tl
-r2kwlZpA7W0F-sm8QnBt_YL4piwqGfvjBMq2dfoQAEMuR2yhqgzQXr4vg</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><ul>
+XBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.0vyUTDV6ThAk8uJQeq1K3dU3I3fwR
+8uA9wMs8v4A7zPZkVyW4pEVrYnI7TsBkv3TOe059HFU2m5nMo_StKRxig</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><ul>
 <li>JSON text exchanged between systems that are not part of a closed ecosystem <em class="rfc2119">MUST</em> be encoded using UTF-8 [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3629" title="UTF-8, a transformation format of ISO 10646">RFC3629</a></cite>].</li>
 </ul></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>When the <code>id</code> of an Assertion is a <a href="#url">URL</a>, a GET request to that URL <em class="rfc2119">MUST</em> return JSON representing an <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> as described above.</p><ul>
 <li>The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</li>
@@ -4183,7 +4183,9 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
 <li>Properties defined as an Array <em class="rfc2119">MUST</em> be represented as an Array, NOT as a single value.</li>
 <li>Properties defined as an Object <em class="rfc2119">MUST</em> be represented as an Object, NOT as a URI.</li>
 <li>Properties that have a null value or empty value <em class="rfc2119">MUST</em> be ommitted from the serialized JSON. This includes empty Arrays.</li>
-</ul></section><section id="json-ld-0"><h3 id="json-ld"><bdi class="secno">A.2 </bdi>JSON-LD<a class="self-link" aria-label="§" href="#json-ld"></a><a class="self-link" aria-label="§" href="#json-ld"></a></h3><p>[<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] is a JSON-based format used to serialize Linked Data. The syntax is designed to easily integrate into deployed systems already using JSON, and provides a smooth upgrade path from JSON to [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>]. It is primarily intended to be a way to use Linked Data in Web-based programming environments, to build interoperable Web services, and to store Linked Data in JSON-based storage engines.</p><p>Instances of the data model are encoded in [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] in the same way they are encoded in JSON (Section <a href="#json" class="sec-ref">§&nbsp;<bdi class="secno">A.1 </bdi>JSON</a>), with the addition of the <code>@context</code> property. The JSON-LD context is described in detail in the [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] specification and its use is elaborated on in Section <a href="#extending" class="sec-ref">§&nbsp;<bdi class="secno">C. </bdi>Extensions</a>.</p><p>Multiple contexts <em class="rfc2119">MAY</em> be used or combined to express any arbitrary information about verifiable credentials in idiomatic JSON. The JSON-LD context for all <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-2" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a>, available at <code><a href="https://www.w3.org/2018/credentials/v1">https://www.w3.org/2018/credentials/v1</a></code>, is a static document that is never updated and can therefore be downloaded and cached client side. The associated vocabulary document for the Verifiable Credentials Data Model is available at <code><a href="https://www.w3.org/2018/credentials">https://www.w3.org/2018/credentials</a></code>. The JSON-LD context for Open Badges <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-3" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> is available at <code><a href="https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld">https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld</a></code>. The associated vocabulary document for the Open Badges Data Model is available at <code><a href="https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.html">https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.html</a></code>. Open Badges <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-4" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> <em class="rfc2119">MUST</em> be serialized with both JSON-LD contexts.</p><div class="example" id="example-json-ld-context-serialization">
+</ul></section><section id="json-ld-0"><h3 id="json-ld"><bdi class="secno">A.2 </bdi>JSON-LD<a class="self-link" aria-label="§" href="#json-ld"></a><a class="self-link" aria-label="§" href="#json-ld"></a></h3><p>[<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] is a JSON-based format used to serialize Linked Data. The syntax is designed to easily integrate into deployed systems already using JSON, and provides a smooth upgrade path from JSON to [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>]. It is primarily intended to be a way to use Linked Data in Web-based programming environments, to build interoperable Web services, and to store Linked Data in JSON-based storage engines.</p><p>Instances of the data model are encoded in [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] in the same way they are encoded in JSON (Section <a href="#json" class="sec-ref">§&nbsp;<bdi class="secno">A.1 </bdi>JSON</a>), with the addition of the <code>@context</code> property. The JSON-LD context is described in detail in the [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] specification and its use is elaborated on in Section <a href="#extending" class="sec-ref">§&nbsp;<bdi class="secno">C. </bdi>Extensions</a>.</p><p>Multiple contexts <em class="rfc2119">MAY</em> be used or combined to express any arbitrary information about verifiable credentials in idiomatic JSON. The JSON-LD context for all <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-2" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a>, available at <code><a href="https://www.w3.org/2018/credentials/v1">https://www.w3.org/2018/credentials/v1</a></code>, is a static document that is never updated and can therefore be downloaded and cached client side. The associated vocabulary document for the Verifiable Credentials Data Model is available at <code><a href="https://www.w3.org/2018/credentials">https://www.w3.org/2018/credentials</a></code>. The JSON-LD context for Open Badges <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-3" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> is available at <code><a href="https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld">https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld</a></code>. The associated vocabulary document for the Open Badges Data Model is available at <code><a href="https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.html">https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.html</a></code>. Open Badges <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-4" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> <em class="rfc2119">MUST</em> be serialized with both JSON-LD contexts.</p><div class="note" role="note" id="issue-container-generatedID-10"><div role="heading" class="note-title marker" id="h-note-2" aria-level="4"><span>Note</span></div><div class="">
+  Though this specification requires that a <code>@context</code> property be present, it is not required that the value of the <code>@context</code> property be processed using JSON-LD. This is to support processing using plain JSON libraries, such as those that might be used when the verifiable credential is encoded as a JWT. All libraries or processors <em class="rfc2119">MUST</em> ensure that the order of the values in the <code>@context</code> property is what is expected for the specific application. Libraries or processors that support JSON-LD can process the <code>@context</code> property using full JSON-LD processing as expected.
+</div></div><div class="example" id="example-json-ld-context-serialization">
         <div class="marker">
     <a class="self-link" href="#example-json-ld-context-serialization">Example<bdi> 25</bdi></a><span class="example-title">: JSON-LD @context serialization</span>
   </div> <pre aria-busy="false"><code class="hljs javascript"><span class="hljs-string">"@context"</span>: [
@@ -4301,7 +4303,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>
         Unambiguous reference to the assertion.
         
-        <div class="note" role="note" id="issue-container-generatedID-10"><div role="heading" class="note-title marker" id="h-note-2" aria-level="5"><span>Note</span></div><div class="">The <code>id</code> is required in OB20 for hosted verification. Should it be optional in OB30?</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-11"><div role="heading" class="note-title marker" id="h-note-3" aria-level="5"><span>Note</span></div><div class="">The <code>id</code> is required in OB20 for hosted verification. Should it be optional in OB30?</div></div>
       </td>
       <td>Required</td>
     </tr><tr>
@@ -4453,11 +4455,11 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-02-07T21:49:48Z",
+    "created": "2022-02-09T22:29:25Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z48o779z4nzfK8fqhcjqQyFQuRsA363dTXbPgtvQsgFnyjXUVJwnZFAg
-PjtJUAfh16J1oN6MHFQtgwKKTbQiRmrwp"
+    "proofValue": "zUGLkXDzeopFZNhJKnZSJJuqPEpmS2VYxdk6ovHp6jzv1hVLeKkxaemF
+TETvrncFZYTff55FHH4e9qvizyJKZPtU"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -4518,8 +4520,8 @@ iwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDIwIn1dfSwiaXNzIjp7ImlkIjoiaHR0cHM6
 Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5hbWUiOiJFeGFtcGxlIFVuaXZlcnNpdHk
 ifSwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbH
 MvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.
-mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
-7XK4kQfHOzA</pre></div></div></div>
+oqWGjRsl31hJfZwiI_FeaEXZ6DIxitRrZO1p8tvbbY6ucu641yNRceru3o159F5yZpy8X3klMR4
+6zEp5IuhRWQ</pre></div></div></div>
 </section>
 <section data-class="org.1edtech.ob.v3p0.assertionsubject.class" id="org.1edtech.ob.v3p0.assertionsubject.class"><h4 id="assertionsubject"><bdi class="secno">B.2.2 </bdi>AssertionSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertionsubject.class"></a><a class="self-link" aria-label="§" href="#assertionsubject"></a></h4><p>A collection of information about the recipient of an achievement. Maps to VC CredentialSubject. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>]</p><table>
         <thead>
@@ -4627,7 +4629,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         An address for the individual or organization.
         
-        <div class="note" role="note" id="issue-container-generatedID-11"><div role="heading" class="note-title marker" id="h-note-3" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-12"><div role="heading" class="note-title marker" id="h-note-4" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4636,7 +4638,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         An additional name for a person, can be used for a middle name.
         
-        <div class="note" role="note" id="issue-container-generatedID-12"><div role="heading" class="note-title marker" id="h-note-4" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-13"><div role="heading" class="note-title marker" id="h-note-5" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4645,7 +4647,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         Birthdate of the person.
         
-        <div class="note" role="note" id="issue-container-generatedID-13"><div role="heading" class="note-title marker" id="h-note-5" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-14"><div role="heading" class="note-title marker" id="h-note-6" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4654,7 +4656,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         Allows endorsers to make specific claims about the individual or organization represented by this profile.
         
-        <div class="note" role="note" id="issue-container-generatedID-14"><div role="heading" class="note-title marker" id="h-note-6" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-15"><div role="heading" class="note-title marker" id="h-note-7" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4663,7 +4665,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         Family name of a person. In the U.S., the last name of a person.
         
-        <div class="note" role="note" id="issue-container-generatedID-15"><div role="heading" class="note-title marker" id="h-note-7" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-16"><div role="heading" class="note-title marker" id="h-note-8" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4672,7 +4674,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         Given name of a person. In the U.S., the first name of a person.
         
-        <div class="note" role="note" id="issue-container-generatedID-16"><div role="heading" class="note-title marker" id="h-note-8" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-17"><div role="heading" class="note-title marker" id="h-note-9" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4681,7 +4683,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         A set of System Identifiers that represent other identifiers for this Profile.
         
-        <div class="note" role="note" id="issue-container-generatedID-17"><div role="heading" class="note-title marker" id="h-note-9" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-18"><div role="heading" class="note-title marker" id="h-note-10" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4690,7 +4692,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         The name of the authorized official for the Issuer.
         
-        <div class="note" role="note" id="issue-container-generatedID-18"><div role="heading" class="note-title marker" id="h-note-10" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-19"><div role="heading" class="note-title marker" id="h-note-11" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4699,7 +4701,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         The parent organization of the person or organization represented by this organization.
         
-        <div class="note" role="note" id="issue-container-generatedID-19"><div role="heading" class="note-title marker" id="h-note-11" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-20"><div role="heading" class="note-title marker" id="h-note-12" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4708,7 +4710,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         The individual's or organization's unique 'sourcedId' value, which is used for providing interoperability with other identity systems.
         
-        <div class="note" role="note" id="issue-container-generatedID-20"><div role="heading" class="note-title marker" id="h-note-12" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-21"><div role="heading" class="note-title marker" id="h-note-13" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -4717,7 +4719,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         An institution's student identifier for the person. This is frequently issued through a Student Information System.
         
-        <div class="note" role="note" id="issue-container-generatedID-21"><div role="heading" class="note-title marker" id="h-note-13" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-22"><div role="heading" class="note-title marker" id="h-note-14" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr>
@@ -5020,7 +5022,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         The type of the alignment target node.
         
-        <div class="note" role="note" id="issue-container-generatedID-22"><div role="heading" class="note-title marker" id="h-note-14" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-23"><div role="heading" class="note-title marker" id="h-note-15" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5316,7 +5318,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         Artifacts that are part of the evidence.
         
-        <div class="note" role="note" id="issue-container-generatedID-23"><div role="heading" class="note-title marker" id="h-note-15" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-24"><div role="heading" class="note-title marker" id="h-note-16" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr>
@@ -5449,7 +5451,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         An address for the individual or organization.
         
-        <div class="note" role="note" id="issue-container-generatedID-24"><div role="heading" class="note-title marker" id="h-note-16" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-25"><div role="heading" class="note-title marker" id="h-note-17" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5458,7 +5460,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         An additional name for a person, can be used for a middle name.
         
-        <div class="note" role="note" id="issue-container-generatedID-25"><div role="heading" class="note-title marker" id="h-note-17" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-26"><div role="heading" class="note-title marker" id="h-note-18" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5467,7 +5469,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         Birthdate of the person.
         
-        <div class="note" role="note" id="issue-container-generatedID-26"><div role="heading" class="note-title marker" id="h-note-18" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-27"><div role="heading" class="note-title marker" id="h-note-19" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5476,7 +5478,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         Allows endorsers to make specific claims about the individual or organization represented by this profile.
         
-        <div class="note" role="note" id="issue-container-generatedID-27"><div role="heading" class="note-title marker" id="h-note-19" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-28"><div role="heading" class="note-title marker" id="h-note-20" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5485,7 +5487,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         Family name of a person. In the U.S., the last name of a person.
         
-        <div class="note" role="note" id="issue-container-generatedID-28"><div role="heading" class="note-title marker" id="h-note-20" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-29"><div role="heading" class="note-title marker" id="h-note-21" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5494,7 +5496,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         Given name of a person. In the U.S., the first name of a person.
         
-        <div class="note" role="note" id="issue-container-generatedID-29"><div role="heading" class="note-title marker" id="h-note-21" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-30"><div role="heading" class="note-title marker" id="h-note-22" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5503,7 +5505,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         A set of System Identifiers that represent other identifiers for this Profile.
         
-        <div class="note" role="note" id="issue-container-generatedID-30"><div role="heading" class="note-title marker" id="h-note-22" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-31"><div role="heading" class="note-title marker" id="h-note-23" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5512,7 +5514,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         The name of the authorized official for the Issuer.
         
-        <div class="note" role="note" id="issue-container-generatedID-31"><div role="heading" class="note-title marker" id="h-note-23" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-32"><div role="heading" class="note-title marker" id="h-note-24" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5521,7 +5523,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         The parent organization of the person or organization represented by this organization.
         
-        <div class="note" role="note" id="issue-container-generatedID-32"><div role="heading" class="note-title marker" id="h-note-24" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-33"><div role="heading" class="note-title marker" id="h-note-25" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5530,7 +5532,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         The individual's or organization's unique 'sourcedId' value, which is used for providing interoperability with other identity systems.
         
-        <div class="note" role="note" id="issue-container-generatedID-33"><div role="heading" class="note-title marker" id="h-note-25" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-34"><div role="heading" class="note-title marker" id="h-note-26" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr><tr>
@@ -5539,7 +5541,7 @@ mlKEXTr2i3gI5kkQ2ZHUxS69_Ew2D2b1Ury2p8BJnGRbg5i_Yf5FlBXhN1qLadXLAxb-tXXu94B
       <td>
         An institution's student identifier for the person. This is frequently issued through a Student Information System.
         
-        <div class="note" role="note" id="issue-container-generatedID-34"><div role="heading" class="note-title marker" id="h-note-26" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
+        <div class="note" role="note" id="issue-container-generatedID-35"><div role="heading" class="note-title marker" id="h-note-27" aria-level="5"><span>Note</span></div><div class="">From [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-10" title="IMS Comprehensive Learner Record Standard Version 1.0">CLR-10</a></cite>].</div></div>
       </td>
       <td>Optional</td>
     </tr>
@@ -7456,7 +7458,7 @@ function hidePanel(panel) {
         Please refer to Document Name: Open Badges Specification
         3.0
       </p>
-      <p>Date: 07 February 2022</p>
+      <p>Date: 09 February 2022</p>
       <div></div>
     </div>
   </footer></body></html>
