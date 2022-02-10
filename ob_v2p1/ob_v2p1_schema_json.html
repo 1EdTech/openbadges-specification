@@ -5,8 +5,6 @@
   <meta charset='utf-8'>
   <script src='https://purl.imsglobal.org/spec/respec-ims-default.js' async class='remove'></script>
   <script src='localBiblio.js' class="remove"></script>
-  <script src='contributors.js' class="remove"></script>
-  <script src='iprs.js' class="remove"></script>
   <script class='remove'>
     var respecConfig = {
       mainSpecTitle: "Open Badges Specification",
@@ -14,14 +12,13 @@
       specTitle: "Open Badges Specification v2.1: JSON Schema Files",
       shortName: "ob",
       specStatus: "IMS Candidate Final Public",
-      specDate: "October 7, 2020",
+      specDate: "October 25, 2021",
       specVersion: "2.1",
       specNature: "informative",
       specType: "doc",
       maxTocLevel: "3",
-      skipCertGuideConformanceRef: false,
-      contributors: _contributors,
-      iprs: _iprs,
+      docVersion: "4",
+      skipCertGuideConformanceRef: true,
 
       /*
       * Define a temporary localBiblio to resolve references to spec documents that don't exist
@@ -36,154 +33,101 @@
 
   <section id="abstract">
     <h2>Abstract</h2>
-    <p>Open Badges are visual symbols of accomplishments packed with verifiable metadata according to the Open Badges
-      specification. The Open Badges 2.0 specification [[OB-20]] defines the properties necessary to define an
-      achievement and award it to a recipient, as well as procedures for verifying badge authenticity and “baking” badge
-      information into portable image files. It includes term definitions for representations of data in Open Badges.
-      The Open Badges 2.1 specification [[OB-21]] defines an API for exchanging badge information. These term
-      definitions appear in the current [[[OB-JSONLD-21]]].</p>
+    <p>A list of all the JSON Schema files for this specification.</p>
   </section>
 
+  <!-- 
   <section id="conformance">
     <h3>Conformance and Certification</h3>
-  </section>
+  </section> -->
 
-  <section id="document-set">
-    <h3>Specification Documents</h3>
 
-    <p>The full set of documents is comprised of the following documents:</p>
-    <ul>
-      <li>[[[OB-21]]]</li>
-      <li>[[[OB-CERT-21]]]</li>
-      <li>[[[OB-OPEN-21]]]</li>
-      <li>[[[OB-JSON-21]]]</li>
-      <li>[[[OB-JSONLD-21]]]</li>
-    </ul>
+  <section>
+    <h3>Service Endpoint Request Payloads</h3>
+
+    <p>These JSON Schema files can be used to validate the JSON in the service endpoint request payload.</p>
+
+    <table class="standard">
+      <thead>
+        <tr>
+          <th>Operation</th>
+          <th>Request Payload JSON Schema</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>postAssertion</td>
+          <td><a href="imsob_v2p1v2p1-postassertion-requestpayload-schemav1p0.json">schema</a></td>
+        </tr>
+        <tr>
+          <td>postProfile</td>
+          <td><a href="imsob_v2p1v2p1-postprofile-requestpayload-schemav1p0.json">schema</a></td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
   <section>
-    <h2>JSON Schema Files</h2>
+    <h3>Service Endpoint Response Payloads</h3>
 
-    <section>
-      <h3>Service Endpoint Request Payloads</h3>
+    <p>These JSON Schema files can be used to validate the JSON returned by each service endpoint response payload.
+    </p>
 
-      <p>These JSON Schema files can be used to validate the JSON in the service endpoint request payload.</p>
-
-      <table class="standard">
+    <table class="standard">
+      <thead>
+        <tr>
+          <th>Operation</th>
+          <th>HTTP Status Codes</th>
+          <th>Response Payload JSON Schema</th>
+        </tr>
         <thead>
-          <tr>
-            <th>Operation</th>
-            <th>Request Payload JSON Schema</th>
-          </tr>
-        </thead>
         <tbody>
           <tr>
-            <td>postAssertion</td>
-            <td><a href="imsob_v2p1v2p1-postassertion-requestpayload-schemav1p0.json">schema</a></td>
+            <td><code>getAssertions</code></td>
+            <td>200</td>
+            <td><a href="imsob_v2p1v2p1-getassertions-200-responsepayload-schemav1p0.json">schema</a></td>
           </tr>
           <tr>
-            <td>postProfile</td>
-            <td><a href="imsob_v2p1v2p1-postprofile-requestpayload-schemav1p0.json">schema</a></td>
+            <td><code>getAssertions</code></td>
+            <td>4xx, 5xx</td>
+            <td><a href="imsob_v2p1v2p1-getassertions-400-401-404-405-500-responsepayload-schemav1p0.json">schema</a>
+            </td>
+          </tr>
+          <tr>
+            <td><code>getManifest</code></td>
+            <td>200</td>
+            <td><a href="imsob_v2p1v2p1-getmanifest-200-responsepayload-schemav1p0.json">schema</a></td>
+          </tr>
+          <tr>
+            <td><code>getProfile</code></td>
+            <td>200</td>
+            <td><a href="imsob_v2p1v2p1-getprofile-200-responsepayload-schemav1p0.json">schema</a></td>
+          </tr>
+          <tr>
+            <td><code>getProfile</code></td>
+            <td>4xx, 5xx</td>
+            <td><a href="imsob_v2p1v2p1-getprofile-400-401-404-405-500-responsepayload-schemav1p0.json">schema</a>
+            </td>
+          </tr>
+          <tr>
+            <td><code>postAssertion</code></td>
+            <td>200, 4xx, 5xx</td>
+            <td><a
+                href="imsob_v2p1v2p1-postassertion-200-400-401-404-405-500-responsepayload-schemav1p0.json">schema</a>
+            </td>
+          </tr>
+          <tr>
+            <td><code>postProfile</code></td>
+            <td>200</td>
+            <td><a href="imsob_v2p1v2p1-postprofile-200-responsepayload-schemav1p0.json">schema</a></td>
+          </tr>
+          <tr>
+            <td><code>postProfile</code></td>
+            <td>4xx, 5xx</td>
+            <td><a href="imsob_v2p1v2p1-postprofile-400-401-404-405-responsepayload-schemav1p0.json">schema</a></td>
           </tr>
         </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h3>Service Endpoint Response Payloads</h3>
-
-      <p>These JSON Schema files can be used to validate the JSON returned by each service endpoint response payload.
-      </p>
-
-      <table class="standard">
-        <thead>
-          <tr>
-            <th>Operation</th>
-            <th>HTTP Status Codes</th>
-            <th>Response Payload JSON Schema</th>
-          </tr>
-          <thead>
-          <tbody>
-            <tr>
-              <td><code>getAssertions</code></td>
-              <td>200</td>
-              <td><a href="imsob_v2p1v2p1-getassertions-200-responsepayload-schemav1p0.json">schema</a></td>
-            </tr>
-            <tr>
-              <td><code>getAssertions</code></td>
-              <td>4xx, 5xx</td>
-              <td><a href="imsob_v2p1v2p1-getassertions-400-401-404-405-500-responsepayload-schemav1p0.json">schema</a>
-              </td>
-            </tr>
-            <tr>
-              <td><code>getManifest</code></td>
-              <td>200</td>
-              <td><a href="imsob_v2p1v2p1-getmanifest-200-responsepayload-schemav1p0.json">schema</a></td>
-            </tr>
-            <tr>
-              <td><code>getProfile</code></td>
-              <td>200</td>
-              <td><a href="imsob_v2p1v2p1-getprofile-200-responsepayload-schemav1p0.json">schema</a></td>
-            </tr>
-            <tr>
-              <td><code>getProfile</code></td>
-              <td>4xx, 5xx</td>
-              <td><a href="imsob_v2p1v2p1-getprofile-400-401-404-405-500-responsepayload-schemav1p0.json">schema</a>
-              </td>
-            </tr>
-            <tr>
-              <td><code>postAssertion</code></td>
-              <td>200, 4xx, 5xx</td>
-              <td><a
-                  href="imsob_v2p1v2p1-postassertion-200-400-401-404-405-500-responsepayload-schemav1p0.json">schema</a>
-              </td>
-            </tr>
-            <tr>
-              <td><code>postProfile</code></td>
-              <td>200</td>
-              <td><a href="imsob_v2p1v2p1-postprofile-200-responsepayload-schemav1p0.json">schema</a></td>
-            </tr>
-            <tr>
-              <td><code>postProfile</code></td>
-              <td>4xx, 5xx</td>
-              <td><a href="imsob_v2p1v2p1-postprofile-400-401-404-405-responsepayload-schemav1p0.json">schema</a></td>
-            </tr>
-          </tbody>
-      </table>
-    </section>
-  </section>
-
-  <section class="appendix informative" id="revisionhistory">
-    <h2>Revision History</h2>
-    <section>
-      <h3>Version History</h3>
-      <table title="Revision History">
-        <thead>
-          <tr>
-            <th>Version No.</th>
-            <th>Release Date</th>
-            <th>Comments</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Version 2.1 IMS Candidate Final Public</td>
-            <td>October 7, 2020</td>
-            <td>Releasing as Candidate Final Public.</td>
-          </tr>
-          <tr>
-            <td>Version 2.1 IMS Candidate Final</td>
-            <td>January 24, 2020</td>
-            <td>Second coordinated release.</td>
-          </tr>
-          <tr>
-            <td>v2.1 Candidate Final</td>
-            <td>August 29, 2019</td>
-            <td>First release of the Candidate Final specification.</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    </table>
   </section>
 </body>
 
