@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <script src='https://purl.imsglobal.org/spec/respec-dev/respec-ims-default.js' class='remove'></script>
+  <script src='respec-support/local-biblio.js' class='remove'></script>
+  <script src='respec-support/contributors.js' class='remove'></script>
+  <script src='respec-support/iprs.js' class='remove'></script>
+
+  <!-- Load Digital Bazaar VC add-on -->
+  <script class="remove" src="https://dc.imsglobal.org/js/respec-vc/dist/main.js"></script>
+  <script class="remove">
+    const url = "https://imsglobal.github.io/openbadges-specification/context.json";
+    fetch(url)
+    .then(res => res.json())
+    .then(context => window.respecVc.addContext(url, context));
+  </script>
+
+  <!-- Load the CDM configuration -->
+  <script class="remove" src="cdm-config.js"></script>
+
+  <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
+  <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.8.2/ajv2019.bundle.min.js" 
+          integrity="sha512-9CfeXrjdW9wxGntWtQ4wE0k9RD8avpYxoPEKAGu+EP87RyqXYVQjed0l872XkNtQeIyYavZeqY+jzm69pmjEDw==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script class='remove'>
+    var respecConfig = {
+      mainSpecTitle: "Open Badges Specification",
+      mainSpecBiblioKey: "OB-30",
+      specTitle: "Open Badges Specification",
+      shortName: "ob",
+      specNature: "normative", // spec nature is "normative" or "informative"
+      specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
+      specVersion: "3.0",
+      docVersion: "0",
+      specStatus: "IMS Base Document", // specStatus: IMS Base Document, IMS Candidate Final (Public) or IMS Final Release
+      contributors: _contributors,
+      localBiblio: _localBiblio,
+      iprs: _iprs,
+
+      // Remove for IMS Final
+      otherLinks: [{
+        key: "Issue Tracker",
+        data: [{
+          value: "https://github.com/IMSGlobal/openbadges-specification/issues",
+          href: "https://github.com/IMSGlobal/openbadges-specification/issues"
+        }]
+      }],
+
+      // Add the CDM configuration to respecConfig
+      cdm: _cdm,
+
+      // Add VC proof examples
+      postProcess: [
+        window.respecVc.createVcExamples
+      ],
+    };
+  </script>
+</head>
+
+<body>
+
+  <section id="abstract" data-format="markdown">
+    <script class="transclude" data-id="abstract" src="abstract.md"></script>
+  </section>
+
+  <section data-format="markdown">
+    <script class="transclude" data-id="introduction" src="introduction.md"></script>
+  </section>
+
+  <section data-format="markdown" class="informative">
+    <script class="transclude" data-id="overview" src="overview.md"></script>
+  </section>
+
+  <section data-format="markdown" class="informative">
+    <script class="transclude" data-id="usecases" src="usecases.md"></script>
+  </section>
+
+  <section data-format="markdown" class="informative">
+    <script class="transclude" data-id="gettingstarted" src="gettingstarted.md"></script>
+  </section>
+
+  <section data-format="markdown">
+    <script class="transclude" data-id="docformat" src="docformat.md"></script>
+  </section>
+
+  <script class="transclude" data-id="api" src="api.html"></script>
+
+  <script class="transclude" data-id="security" src="security.html"></script>
+  
+  <section class="normative" data-format="markdown">
+    <script class="transclude" data-id="integrity" src="integrity.md"></script>
+  </section>
+
+  <section class="informative" data-format="markdown">
+    <script class="transclude" data-id="bestpractices" src="bestpractices.md"></script>
+  </section>
+
+  <section data-format="markdown">
+    <script class="transclude" data-id="certification" src="certification.md"></script>
+  </section>
+
+  <section class="appendix" data-format="markdown">
+    <script class="transclude" data-id="serialization" src="serialization.md"></script>
+  </section>
+
+  <section class="appendix" id="datamodels">
+    <h1>Data Model</h1>
+    <script class="transclude" data-id="datamodel" src="datamodel.html"></script>
+  </section>
+
+  <section class="appendix" data-format="markdown">
+    <script class="transclude" data-id="extending" src="extending.md"></script>
+  </section>
+
+  <section class="appendix" id="tof"></section>
+  <section class="appendix" id="issue-summary">
+    <h1>Issue Summary</h1>
+  </section>
+
+  <section id="history" class="appendix">
+    <h1>Revision History</h1>
+    <table title="Revision History">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Doc Version</th>
+          <th>Release Date</th>
+          <th>Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Base Document</td>
+          <td>1.0</td>
+          <td>Work in progress</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <details class="annoying-warning" open="open">
+    <summary>This is a preview of the IMS Open Badges Specification v3.0</summary>
+    <p>Do not attempt to implement this version of the specification. Do not
+      reference this version as authoritative in any way.
+    </p>
+  </details>
+
+</body>
+
+</html>

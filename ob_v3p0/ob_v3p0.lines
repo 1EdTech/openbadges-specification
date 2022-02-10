@@ -1,0 +1,64 @@
+Model ob 2022-01-01 3.0 "s:IMS Base Document" "t:Open Badges" "d:Open Badges Data Model 3.0"
+
+Package OpenBadges DataModel
+
+    Class ObPresentation Unordered false []                         "The ObPresentation class is derived from the W3C VerifiablePresentation class. [[vc-data-model]]."
+        Property @context URI 1..*                                  "The value of the `@context` property MUST be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1', and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'."
+        Property id URI 0..1                                        "Unambiguous reference to the presentation."
+        Property type URI 1..*                                      "The value of the `type` property MUST be an unordered set. One of the items MUST be the URI `VerifiablePresentation`, and one of the items MUST be the URI `ObPresentation`."
+        Property verifiableCredential AssertionCredential 1..*      "The set of assertions being presented."
+        Property holder URI 0..1                                    "If present, the value of the `holder` is expected to be a URI for the entity that is generating the presentation."
+        Property proof Proof 0..*                                   "If present, the value of the `proof` property ensures that the presentation is verifiable."
+        Property extensions Namespace 0..*
+
+// Pull in common credential models (this will be converted to Includes when credential models are finalized and made part of the CDM)
+
+Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/develop/ob_v3p0/common_credentials.lines
+
+Package SharedApi DataModel
+
+    Includes [Imsx_StatusInfo, Imsx_CodeMajor, Imsx_Severity, Imsx_CodeMinor, Imsx_CodeMinorField, Imsx_CodeMinorFieldValue]
+
+Package SharedOAuth DataModel
+
+    Class AuthorizationError Vocabulary false []                    "This is the set of ASCII error code strings that may be returned in response to a client authorization request. See Section 4.1 of [[RFC6749]]."
+        Property invalid_request ASCIIString 1                      "The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed."
+        Property unauthorized_client ASCIIString 1                  "The client is not authorized to request an authorization code using this method."
+        Property access_denied ASCIIString 1                        "The resource owner or authorization server denied the request."
+        Property unsupported_response_type ASCIIString 1            "The authorization server does not support obtaining an authorization code using this method."
+        Property invalid_scope ASCIIString 1                        "The requested scope is invalid, unknown, or malformed."
+        Property server_error ASCIIString 1                         "The authorization server encountered an unexpected condition that prevented it from fulfilling the request. (This error code is needed because a 500 Internal Server Error HTTP status code cannot be returned to the client via an HTTP redirect.)"
+        Property temporarily_unavailable ASCIIString 1              "The authorization server is currently unable to handle the request due to a temporary overloading or maintenance of the server. (This error code is needed because a 503 Service Unavailable HTTP status code cannot be returned to the client via an HTTP redirect.)"
+
+    Class RegistrationError Vocabulary false []                     "This is the set of ASCII error code strings that may be returned in response to a client registration request. See [[RFC7591]]."
+        Property invalid_redirect_uri ASCIIString 1                 "The value of one or more redirection URIs is invalid."
+        Property invalid_client_metadata ASCIIString 1              "The value of one of the client metadata fields is invalid and the server has rejected this request. Note that an authorization server MAY choose to substitute a valid value for any requested parameter of a client's metadata."
+        Property invalid_software_statement ASCIIString 1           "The software statement presented is invalid. This MUST only be returned if a Software Statement has been supplied in the registration request. Use of a Software Statement is NOT RECOMMENDED."
+        Property unapproved_software_statement ASCIIString 1        "The software statement presented is not approved for use by this authorization server. This MUST only be returned if a Software Statement has been supplied in the registration request. Use of a Software Statement is NOT RECOMMENDED."
+
+    Class TokenError Vocabulary false []                            "This is the set of ASCII error code strings that may be returned in response to a client token request. See Section 5.2 of [[RFC6749]]."
+        Property invalid_request ASCIIString 1                      "The request is missing a required parameter, includes an unsupported parameter value (other than grant type), repeats a parameter, includes multiple credentials, utilizes more than one mechanism for authenticating the client, or is otherwise malformed."
+        Property invalid_client ASCIIString 1                       "Client authentication failed (e.g., unknown client, no client authentication included, or unsupported authentication method).  The authorization server MAY return an HTTP 401 (Unauthorized) status code to indicate which HTTP authentication schemes are supported.  If the client attempted to authenticate via the "Authorization" request header field, the authorization server MUST respond with an HTTP 401 (Unauthorized) status code and include the "WWW-Authenticate" response header field matching the authentication scheme used by the client."
+        Property invalid_grant ASCIIString 1                        "The provided authorization grant (e.g., authorization code, resource owner credentials) or refresh token is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+        Property unauthorized_client ASCIIString 1                  "The authenticated client is not authorized to use this authorization grant type."
+        Property unsupported_grant_type ASCIIString 1               "The authorization grant type is not supported by the authorization server."
+        Property unsupported_token_type ASCIIString 1               "The authorization server does not support the revocation of the presented token type. That is, the client tried to revoke an access token on a server not supporting this feature."
+        Property invalid_scope ASCIIString 1                        "The requested scope is invalid, unknown, malformed, or exceeds the scope granted by the resource owner."
+
+// Derived Types
+
+Package DerivedTypes DataModel
+    Includes [Term]
+    Class URI DerivedType false [NormalizedString]                  "A `NormalizedString` that respresents a Uniform Resource Identifier (URI)."
+    Class URL DerivedType false [URI]                               "A `URI` that represents a Uniform Resource Locator (URL)."
+    Class Markdown DerivedType false [String]                       "A `String` that may contain Markdown."
+
+// PrimitiveTypes
+
+Package PrimitiveTypes DataModel
+    Includes [Float, NonNegativeInteger, NormalizedString, PositiveInteger]
+    Class ASCIIString PrimitiveType false []                        "An ASCII [[RFC20]] string. The string MUST NOT include characters outside the set %x20-21 / %x23-5B / %x5D-7E."
+    Class String PrimitiveType false []                             "Character strings"
+    Class Namespace PrimitiveType false []                          "A namespace data type for defining data from a context other than that as the default for the data model. This is used for importing other data models."
+    Class Date PrimitiveType false []                               "A `String` conforming to the `date` definition in [[XMLSCHEMA11-2]]."
+    Class DateTime PrimitiveType false []                           "A `String` conforming to the `dateTime` definition in [[XMLSCHEMA11-2]]."
