@@ -121,7 +121,71 @@ dfn{cursor:pointer}
   
 
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
-<link rel="stylesheet" href="https://purl.imsglobal.org/spec/ims-base.css">
+<style>
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Source+Code+Pro);
+:root{--fgclr1:rgba(0, 0, 0, 1);--fgclr2:rgba(0, 90, 156, 1);--fgclr3:rgba(70, 130, 180, 1);--fgclr4:rgba(40, 100, 150, 1);--gray:rgba(200, 200, 200, 0.9);--lightgray:rgba(240, 240, 240, 0.9);--lightestgray:rgba(250, 250, 250, 0.8);--darkgray:rgba(180, 180, 180, 1)}
+body{font-family:Roboto,Arial,Helvetica,sans-serif}
+code,pre,samp{font-family:'Source Code Pro',monospace}
+header{border-bottom:2px solid var(--gray);padding-bottom:2em}
+.header-top{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+a#ims-logo,a#logo{text-decoration:none;border:0}
+h1.title{font-size:200%}
+div.subtitle{font-size:150%;color:var(--fgclr2)}
+#cpr{margin-bottom:1.5em;margin-top:2.5em}
+#cpr p{margin-top:0;margin-bottom:0}
+.statusPD{position:fixed;display:block;top:0;left:0;width:300px;height:30px;text-align:right;padding-top:2px;padding-right:2em;background-color:red;color:#fff;font-size:20px;transform-origin:left top;transform:rotate(-90deg) translate(-100%,0);-ms-transform-origin:left top;-ms-transform:rotate(90deg);-webkit-transform-origin:left top;-webkit-transform:rotate(-90deg) translate(-100%,0);-moz-transform-origin:left top;-moz-transform:rotate(-90deg) translate(-100%,0);-o-transform-origin:left top;-o-transform:rotate(-90deg) translate(-100%,0);z-index:12000}
+.statusPD.final{background-color:#00f}
+dt,h1,h2,h3,h4,h5,h6{page-break-after:avoid;page-break-inside:avoid;font:100% sans-serif;font-family:inherit;line-height:1.2;-webkit-hyphens:manual;-ms-hyphens:manual;hyphens:manual}
+h2,h3,h4,h5,h6{margin-top:3rem}
+h1,h2,h3,h4{color:var(--fgclr4);background:0 0}
+h1{font-size:170%}
+h2{font-size:140%}
+h3{font-size:120%}
+h4{font-weight:700}
+h5{font-style:italic}
+h6{font-variant:small-caps}
+dt{font-weight:700}
+a[href].internalDFN{color:var(--fgclr1);text-decoration:none;border-bottom:1px var(--fgclr2) dotted}
+a[href]:focus,a[href]:hover{background:var(--lightgray)}
+a[href]:active{color:#c00;border-color:#c00}
+.example{border:1px solid var(--darkgray);counter-increment:example}
+.example figcaption{background-color:var(--fgclr3);color:#fff}
+section#revisionhistory table{margin-bottom:3em}
+div#endWarranty p{margin-top:.3em;margin-bottom:.3em}
+div#endWarranty{margin-top:6em;padding-top:3em;border-top:2px solid var(--gray);text-align:center}
+table{border-collapse:collapse;word-wrap:normal;overflow-wrap:normal;-webkit-hyphens:manual;-ms-hyphens:manual;hyphens:manual;width:100%;margin-top:1.5em;margin-bottom:1.5em;max-width:50em;border:1px solid var(--gray)}
+td,th{padding-left:1em;padding-right:1em;padding-left:1em;padding-right:1em;text-align:left;text-align:start;vertical-align:top;border:1px solid var(--gray)}
+th{font-weight:700;background-color:var(--fgclr3);color:#fff;padding:.6em}
+td{padding:.8em}
+th>*{padding:0;margin:0}
+table#no-cell-borders,table#version-table{border:1px solid var(--gray)}
+table#no-cell-borders td,table#version-table td{border:none}
+table#version-table td{padding:.2em}
+td code,td.pre{white-space:pre;overflow:scroll}
+table.index{font-size:small;border-collapse:collapse;border-spacing:0;text-align:left;margin:1em 0}
+table.index td,table.index th{padding:.4em}
+table.index tr:hover td:not([rowspan]),table.index tr:hover th:not([rowspan]){background:#f7f8f9}
+table.index th:first-child a{font-weight:700}
+.alert{border:2px solid red;padding:.3em}
+dt>dfn{font-weight:700}
+a[href].hidden-reveal::before{content:"›"}
+h2>a[href].self-link::before,h3>a[href].self-link::before,h4>a[href].self-link::before,h5>a[href].self-link::before,h6>a[href].self-link::before{content:"›"}
+a[href].hidden-reveal,a[href].hidden-reveal:visited{text-decoration:none;border-bottom:none}
+.admonition{margin-top:1em;margin-bottom:1em;margin:1em 0;border-left-width:.5em;border-left-style:solid;padding:.5em 1.2em .5em;position:relative;clear:both}
+.admonition .admon-top{padding-right:1em;min-width:7.5em;color:#e05252;text-transform:uppercase}
+.admonition .ednote-title,.admonition .note-title{color:#2b2}
+.admonition .ednote-title,.admonition .warning-title{color:#f22}
+.admonition.issue{border-color:#e05252;background:#fbe9e9;counter-increment:issue;overflow:auto}
+.admonition.ednote,.admonition.note{border-color:#52e052;background:#e9fbe9}
+.admonition>p:first-child{margin-top:0}
+.admonition.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9;padding-top:1em}
+.admonition .warning-title:before{content:"⚠";font-size:3em;float:left;height:100%;padding-right:.3em;vertical-align:top;margin-top:-.5em}
+body{-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;color:var(--fgclr1)}
+.figure,.sidefigure,figure{text-align:left}
+.figure img,.figure pre,.sidefigure img,.sidefigure pre,figure img,figure pre{display:unset}
+.caption,caption,figcaption{display:block;padding:.5em 0 .5em .5em}
+</style>
 <title>Open Badges Specification 3.0 
     IMS Base Document</title>
 <meta name="description" content="This is a proposal to recharter the Open Badges Workgroup to develop a new version of the IMS Global Open Badges Specification to align it to the conventions of the W3C Verifiable Credentials Data Model for the use cases of Defined Achievement Claim and a Skill Claim. The credentials that would be produced under this proposal could easily be bundled into Comprehensive Learner Records and Verifiable Presentations. Portability and learner data privacy may be improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.">
@@ -1690,11 +1754,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-02-18T15:07:29Z",
+    "created": "2022-02-18T21:12:14Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z4qpD8WX8cKaQ4bnR5nbCiSLwAon2rUDYJwwxUsSP2Tiae16Lq1RfabG
-kSZYhAHoUWBcCbF5aKDTVvUmYqhD6kHKf"
+    "proofValue": "z3GB521kwr1MMb6ewAQLRjtZSKZU6ZNFxDJbbg6cPdygoyj4xXNKkKLL
+6pakgxigHFKYECZbE3WW1YUmtJeKyHMFE"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -1757,8 +1821,8 @@ mNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnNvblNjaGVtYVZhbGlkYXRvcjIwMjAifV19LCJp
 c3MiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6IlB
 yb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sIm5iZiI6MTI2MjMwNDAwMCwian
 RpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhb
-XBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.fV1ogTUfpgBgKdGMAErpK9KwSSnqT
-vUD14L6Zse48W_0k3bHqXzsvCMo45Fr256pj0NMhGu8dw6afRp7lYRc4g</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><ul>
+XBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.0k23VFfUxI-PpJiyvzB0BOP6qN6Ms
+jHTKzCgAxiNftoV8dQMoxrKVu_0N7l-mMj4vXPVIaRGU96aGQo2uin75g</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><ul>
 <li>JSON text exchanged between systems that are not part of a closed ecosystem <em class="rfc2119">MUST</em> be encoded using UTF-8 [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3629" title="UTF-8, a transformation format of ISO 10646">RFC3629</a></cite>].</li>
 </ul></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>When the <code>id</code> of an Assertion is a <a href="#url">URL</a>, a GET request to that URL <em class="rfc2119">MUST</em> return JSON representing an <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> as described above.</p><ul>
 <li>The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</li>
@@ -4168,7 +4232,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   <p>
     The data models in this section are specific to <cite><a href="https://www.imsglobal.org/spec/ob/v3p0/">Open Badges Specification v3.0</a></cite>.
   </p>
-<section data-class="org.1edtech.ob.v3p0.obpresentation.class" id="org.1edtech.ob.v3p0.obpresentation.class"><h4 id="obpresentation"><bdi class="secno">B.1.1 </bdi>ObPresentation<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.obpresentation.class"></a><a class="self-link" aria-label="§" href="#obpresentation"></a></h4><p>The ObPresentation class is derived from the W3C VerifiablePresentation class. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>].</p><table>
+<section data-class="org.1edtech.ob.v3p0.obpresentation.class" id="org.1edtech.ob.v3p0.obpresentation.class"><h4 id="obpresentation"><bdi class="secno">B.1.1 </bdi>ObPresentation<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.obpresentation.class"></a><a class="self-link" aria-label="§" href="#obpresentation"></a></h4><p>The ObPresentation class is derived from the W3C VerifiablePresentation class. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>].</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -4180,7 +4244,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
         <tbody>
           <tr>
       <td>@context</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
         The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1', and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'.
         
@@ -4189,7 +4253,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Required</td>
     </tr><tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         Unambiguous reference to the presentation.
         
@@ -4198,7 +4262,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Optional</td>
     </tr><tr>
       <td>type</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
         The value of the <code>type</code> property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI <code>VerifiablePresentation</code>, and one of the items <em class="rfc2119">MUST</em> be the URI <code>ObPresentation</code>.
         
@@ -4207,7 +4271,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Required</td>
     </tr><tr>
       <td>verifiableCredential</td>
-      <td><a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.assertioncredential.class"><samp>AssertionCredential[]</samp></a></td>
       <td>
         The set of assertions being presented.
         
@@ -4216,7 +4280,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Required</td>
     </tr><tr>
       <td>holder</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         If present, the value of the <code>holder</code> is expected to be a URI for the entity that is generating the presentation.
         
@@ -4225,7 +4289,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Optional</td>
     </tr><tr>
       <td>proof</td>
-      <td><a href="#org.1edtech.ob.v3p0.proof.class">Proof[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.proof.class"><samp>Proof[]</samp></a></td>
       <td>
         If present, the value of the <code>proof</code> property ensures that the presentation is verifiable.
         
@@ -4244,7 +4308,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   <p>
     The data models in this section are shared by <cite><a href="https://www.imsglobal.org/spec/ob/v3p0/">Open Badges Specification v3.0</a></cite> and <cite><a href="https://www.imsglobal.org/spec/clr/v2p0/">Comprehensive Learner Record Standard v2.0</a></cite>.
   </p>
-  <section data-class="org.1edtech.ob.v3p0.assertioncredential.class" id="org.1edtech.ob.v3p0.assertioncredential.class"><h4 id="assertioncredential"><bdi class="secno">B.2.1 </bdi>AssertionCredential<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertioncredential.class"></a><a class="self-link" aria-label="§" href="#assertioncredential"></a></h4><p>An AssertionCredential is an Assertion with all the properties need to conform with a Verifiable Credential. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]</p><table>
+  <section data-class="org.1edtech.ob.v3p0.assertioncredential.class" id="org.1edtech.ob.v3p0.assertioncredential.class"><h4 id="assertioncredential"><bdi class="secno">B.2.1 </bdi>AssertionCredential<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertioncredential.class"></a><a class="self-link" aria-label="§" href="#assertioncredential"></a></h4><p>An AssertionCredential is an Assertion with all the properties need to conform with a Verifiable Credential. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -4256,7 +4320,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
         <tbody>
           <tr>
       <td>@context</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
         The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1', and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'.
         
@@ -4265,7 +4329,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Required</td>
     </tr><tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         Unambiguous reference to the assertion. Required so it can be the subject of an endorsement.
         
@@ -4274,7 +4338,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Required</td>
     </tr><tr>
       <td>type</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
         The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI 'VerifiableCredential', and one of the items <em class="rfc2119">MUST</em> be the URI 'AssertionCredential'. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
         
@@ -4283,7 +4347,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Required</td>
     </tr><tr>
       <td>issuer</td>
-      <td><a href="#org.1edtech.ob.v3p0.profile.class">Profile</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.profile.class"><samp>Profile</samp></a></td>
       <td>
         A description of the individual, entity, or organization that issued the achievement assertion. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
         
@@ -4292,7 +4356,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Required</td>
     </tr><tr>
       <td>issuanceDate</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class">DateTime</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class"><samp>DateTime</samp></a></td>
       <td>
         Timestamp of when the achievement was awarded. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
         
@@ -4301,7 +4365,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Required</td>
     </tr><tr>
       <td>credentialSubject</td>
-      <td><a href="#org.1edtech.ob.v3p0.assertionsubject.class">AssertionSubject</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.assertionsubject.class"><samp>AssertionSubject</samp></a></td>
       <td>
         The recipient of the achievement. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
         
@@ -4310,7 +4374,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Required</td>
     </tr><tr>
       <td>credentialSchema</td>
-      <td><a href="#org.1edtech.ob.v3p0.credentialschema.class">CredentialSchema[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.credentialschema.class"><samp>CredentialSchema[]</samp></a></td>
       <td>
         The value of the <code>credentialSchema</code> property <em class="rfc2119">MUST</em> be one or more data schemas that provide verifiers with enough information to determine if the provided data conforms to the provided schema. One of the data schemas <em class="rfc2119">MUST</em> be the JSON Schema for this credential defined by this specification.
         
@@ -4319,7 +4383,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Required</td>
     </tr><tr>
       <td>image</td>
-      <td><a href="#org.1edtech.ob.v3p0.image.class">Image</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.image.class"><samp>Image</samp></a></td>
       <td>
         An image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the 'baking' instructions. An 'unbaked' image for the achievement is defined in the Achievement class and should not be duplicated here.
         
@@ -4328,7 +4392,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Optional</td>
     </tr><tr>
       <td>narrative</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.markdown.class">Markdown</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.markdown.class"><samp>Markdown</samp></a></td>
       <td>
         A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array.
         
@@ -4337,7 +4401,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Optional</td>
     </tr><tr>
       <td>expirationDate</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class">DateTime</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class"><samp>DateTime</samp></a></td>
       <td>
         If the achievement assertion has some notion of expiry, this indicates a timestamp when a credential should no longer be considered valid. After this time, the achievement assertion should be considered expired. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
         
@@ -4346,7 +4410,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Optional</td>
     </tr><tr>
       <td>proof</td>
-      <td><a href="#org.1edtech.ob.v3p0.proof.class">Proof[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.proof.class"><samp>Proof[]</samp></a></td>
       <td>
         One or more cryptographic proofs that can be used to detect tampering and verify the authorship of the achievement assertion. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
         
@@ -4355,7 +4419,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>Optional</td>
     </tr><tr>
       <td>credentialStatus</td>
-      <td><a href="#org.1edtech.ob.v3p0.credentialstatus.class">CredentialStatus</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.credentialstatus.class"><samp>CredentialStatus</samp></a></td>
       <td>
         Provides information about the current status of a verifiable credential, such as whether it is suspended or revoked. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
         
@@ -4421,11 +4485,11 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-02-18T15:07:29Z",
+    "created": "2022-02-18T21:12:14Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z4qpD8WX8cKaQ4bnR5nbCiSLwAon2rUDYJwwxUsSP2Tiae16Lq1RfabG
-kSZYhAHoUWBcCbF5aKDTVvUmYqhD6kHKf"
+    "proofValue": "z3GB521kwr1MMb6ewAQLRjtZSKZU6ZNFxDJbbg6cPdygoyj4xXNKkKLL
+6pakgxigHFKYECZbE3WW1YUmtJeKyHMFE"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -4486,10 +4550,10 @@ iwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDIwIn1dfSwiaXNzIjp7ImlkIjoiaHR0cHM6
 Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5hbWUiOiJFeGFtcGxlIFVuaXZlcnNpdHk
 ifSwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbH
 MvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.
-HyAYkAPoCs86R8OsITvhosecGmaLkF1mDHRlPjVT1nZUXlJKRqFwWD01VZR2iLF-BL1-NsDLjQR
-E5oKE1LzQRg</pre></div></div></div>
+wlkIqWBijBkHv1BJn53vP4OMWUILnOYdXL_HTtmTODCCvRJFV3nkwb2Nwtr9bKplFmK20ntmpFh
+9AFME1JzINw</pre></div></div></div>
 </section>
-<section data-class="org.1edtech.ob.v3p0.assertionsubject.class" id="org.1edtech.ob.v3p0.assertionsubject.class"><h4 id="assertionsubject"><bdi class="secno">B.2.2 </bdi>AssertionSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertionsubject.class"></a><a class="self-link" aria-label="§" href="#assertionsubject"></a></h4><p>A collection of information about the recipient of an achievement. Maps to VC CredentialSubject. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>]</p><table>
+<section data-class="org.1edtech.ob.v3p0.assertionsubject.class" id="org.1edtech.ob.v3p0.assertionsubject.class"><h4 id="assertionsubject"><bdi class="secno">B.2.2 </bdi>AssertionSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertionsubject.class"></a><a class="self-link" aria-label="§" href="#assertionsubject"></a></h4><p>A collection of information about the recipient of an achievement. Maps to VC CredentialSubject. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>]</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -4501,7 +4565,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         Identifier for the subject of the credential.
         
@@ -4510,7 +4574,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>achievement</td>
-      <td><a href="#org.1edtech.ob.v3p0.achievement.class">Achievement</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.achievement.class"><samp>Achievement</samp></a></td>
       <td>
         The achievement being awarded.
         
@@ -4519,7 +4583,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>evidence</td>
-      <td><a href="#org.1edtech.ob.v3p0.evidence.class">Evidence[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.evidence.class"><samp>Evidence[]</samp></a></td>
       <td>
         A description of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.
         
@@ -4528,7 +4592,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>results</td>
-      <td><a href="#org.1edtech.ob.v3p0.result.class">Result[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.result.class"><samp>Result[]</samp></a></td>
       <td>
         The set of results being asserted.
         
@@ -4537,7 +4601,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>name</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The name of the entity or organization.
         
@@ -4546,7 +4610,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>url</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP.
         
@@ -4555,7 +4619,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>telephone</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         A phone number for the entity. For maximum compatibility, the value should be expressed as a + and country code followed by the number with no spaces or other punctuation, like +16175551212 (E.164 format).
         
@@ -4564,7 +4628,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>description</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         A short description of the issuer entity or organization.
         
@@ -4573,7 +4637,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>image</td>
-      <td><a href="#org.1edtech.ob.v3p0.image.class">Image</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.image.class"><samp>Image</samp></a></td>
       <td>
         An image representing the issuer. This must be a PNG or SVG image.
         
@@ -4582,7 +4646,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>email</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Contact address for the individual or organization.
         
@@ -4591,7 +4655,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>address</td>
-      <td><a href="#org.1edtech.ob.v3p0.address.class">Address</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.address.class"><samp>Address</samp></a></td>
       <td>
         An address for the individual or organization.
         
@@ -4600,7 +4664,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>additionalName</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         An additional name for a person, can be used for a middle name.
         
@@ -4609,7 +4673,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>birthDate</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.date.class">Date</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.date.class"><samp>Date</samp></a></td>
       <td>
         Birthdate of the person.
         
@@ -4618,7 +4682,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>familyName</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Family name of a person. In the U.S., the last name of a person.
         
@@ -4627,7 +4691,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>givenName</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Given name of a person. In the U.S., the first name of a person.
         
@@ -4636,7 +4700,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>identifiers</td>
-      <td><a href="#org.1edtech.ob.v3p0.systemidentifier.class">SystemIdentifier[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.systemidentifier.class"><samp>SystemIdentifier[]</samp></a></td>
       <td>
         A set of System Identifiers that represent other identifiers for this Profile.
         
@@ -4645,7 +4709,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>official</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The name of the authorized official for the Issuer.
         
@@ -4654,7 +4718,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>parentOrg</td>
-      <td><a href="#org.1edtech.ob.v3p0.profile.class">Profile</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.profile.class"><samp>Profile</samp></a></td>
       <td>
         The parent organization of the person or organization represented by this organization.
         
@@ -4663,7 +4727,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>sourcedId</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The individual's or organization's unique 'sourcedId' value, which is used for providing interoperability with other identity systems.
         
@@ -4672,7 +4736,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>studentId</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         An institution's student identifier for the person. This is frequently issued through a Student Information System.
         
@@ -4686,7 +4750,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.achievement.class" id="org.1edtech.ob.v3p0.achievement.class"><h4 id="achievement-0"><bdi class="secno">B.2.3 </bdi>Achievement<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.achievement.class"></a><a class="self-link" aria-label="§" href="#achievement-0"></a></h4><p>A collection of information about the accomplishment recognized by the Assertion. Many assertions may be created corresponding to one Achievement.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.achievement.class" id="org.1edtech.ob.v3p0.achievement.class"><h4 id="achievement-0"><bdi class="secno">B.2.3 </bdi>Achievement<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.achievement.class"></a><a class="self-link" aria-label="§" href="#achievement-0"></a></h4><p>A collection of information about the accomplishment recognized by the Assertion. Many assertions may be created corresponding to one Achievement.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -4698,7 +4762,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         Unique URI for the Achievement. Required so the achievement can be the subject of an endorsement.
         
@@ -4707,7 +4771,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>alignment</td>
-      <td><a href="#org.1edtech.ob.v3p0.alignment.class">Alignment[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.alignment.class"><samp>Alignment[]</samp></a></td>
       <td>
         An object describing which objectives or educational standards this achievement aligns to, if any.
         
@@ -4716,7 +4780,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>achievementType</td>
-      <td><a href="#org.1edtech.ob.v3p0.achievementtype.class">AchievementType Enumeration</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.achievementtype.class"><samp>AchievementType Enumeration</samp></a></td>
       <td>
         The type of achievement. This is an extensible vocabulary.
         
@@ -4725,7 +4789,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>creator</td>
-      <td><a href="#org.1edtech.ob.v3p0.profile.class">Profile</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.profile.class"><samp>Profile</samp></a></td>
       <td>
         The person or organization that created the achievement definition.
         
@@ -4734,7 +4798,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>creditsAvailable</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.float.class">Float</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.float.class"><samp>Float</samp></a></td>
       <td>
         Credit hours associated with this entity, or credit hours possible. For example '3.0'.
         
@@ -4743,7 +4807,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>criteria</td>
-      <td><a href="#org.1edtech.ob.v3p0.criteria.class">Criteria</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.criteria.class"><samp>Criteria</samp></a></td>
       <td>
         Criteria document describing how to earn the achievement.
         
@@ -4752,7 +4816,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>description</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         A short description of the achievement.
         
@@ -4761,7 +4825,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>fieldOfStudy</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Category, subject, area of study, discipline, or general branch of knowledge. Examples include Business, Education, Psychology, and Technology.
         
@@ -4770,7 +4834,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>humanCode</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The code, generally human readable, associated with an achievement.
         
@@ -4779,7 +4843,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>identifiers</td>
-      <td><a href="#org.1edtech.ob.v3p0.systemidentifier.class">SystemIdentifier[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.systemidentifier.class"><samp>SystemIdentifier[]</samp></a></td>
       <td>
         A set of System Identifiers that represent other identifiers for this Achievement.
         
@@ -4788,7 +4852,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>image</td>
-      <td><a href="#org.1edtech.ob.v3p0.image.class">Image</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.image.class"><samp>Image</samp></a></td>
       <td>
         An image of the achievement. This must be a PNG or SVG image.
         <div class="issue" id="issue-container-number-9"><div role="heading" class="issue-title marker" id="h-issue-7" aria-level="5"><span>Issue 9</span><span class="issue-label">: Reconcile CLR 1.0 image property (URL) with OB 2.0 image property (URL or object)</span></div><div class=""></div></div>
@@ -4797,7 +4861,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>level</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Text that describes the level of achievement apart from how the achievement was performed or demonstrated. Examples would include 'Level 1', 'Level 2', 'Level 3', or 'Bachelors', 'Masters', 'Doctoral'.
         
@@ -4806,7 +4870,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>name</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The name of the achievement.
         
@@ -4815,7 +4879,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>resultDescriptions</td>
-      <td><a href="#org.1edtech.ob.v3p0.resultdescription.class">ResultDescription[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.resultdescription.class"><samp>ResultDescription[]</samp></a></td>
       <td>
         The set of result descriptions that may be asserted as results with this achievement.
         
@@ -4824,7 +4888,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>specialization</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Name given to the focus, concentration, or specific area of study defined in the achievement. Examples include Entrepreneurship, Technical Communication, and Finance.
         
@@ -4833,7 +4897,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>tags</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String[]</samp></a></td>
       <td>
         Tags that describes the type of achievement.
         <div class="issue" id="issue-container-number-10"><div role="heading" class="issue-title marker" id="h-issue-8" aria-level="5"><span>Issue 10</span><span class="issue-label">: Need both achievementType and tags?</span></div><div class=""></div></div>
@@ -4847,7 +4911,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.address.class" id="org.1edtech.ob.v3p0.address.class"><h4 id="address"><bdi class="secno">B.2.4 </bdi>Address<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.address.class"></a><a class="self-link" aria-label="§" href="#address"></a></h4><p>The physical address of a person or organization.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.address.class" id="org.1edtech.ob.v3p0.address.class"><h4 id="address"><bdi class="secno">B.2.4 </bdi>Address<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.address.class"></a><a class="self-link" aria-label="§" href="#address"></a></h4><p>The physical address of a person or organization.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -4859,7 +4923,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>addressCountry</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The country. For example, USA. You can also provide the two-letter [<cite><a class="bibref" data-link-type="biblio" href="#bib-iso3166-1" title="Codes for the representation of names of countries and their subdivisions — Part 1: Country code">ISO3166-1</a></cite>] alpha-2 country code.
         
@@ -4868,7 +4932,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>addressLocality</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The locality. For example, Mountain View.
         
@@ -4877,7 +4941,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>addressRegion</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The region. For example, CA.
         
@@ -4886,7 +4950,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>postalCode</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The postal code. For example, 94043.
         
@@ -4895,7 +4959,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>postOfficeBoxNumber</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The post office box number for PO box addresses.
         
@@ -4904,7 +4968,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>streetAddress</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The street address. For example, 1600 Amphitheatre Pkwy.
         
@@ -4918,7 +4982,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.alignment.class" id="org.1edtech.ob.v3p0.alignment.class"><h4 id="alignment"><bdi class="secno">B.2.5 </bdi>Alignment<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.alignment.class"></a><a class="self-link" aria-label="§" href="#alignment"></a></h4><p>Describes an alignment between an achievement and a node in an educational framework.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.alignment.class" id="org.1edtech.ob.v3p0.alignment.class"><h4 id="alignment"><bdi class="secno">B.2.5 </bdi>Alignment<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.alignment.class"></a><a class="self-link" aria-label="§" href="#alignment"></a></h4><p>Describes an alignment between an achievement and a node in an educational framework.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -4930,7 +4994,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>targetCode</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl.
         
@@ -4939,7 +5003,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>targetDescription</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Short description of the alignment target.
         
@@ -4948,7 +5012,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>targetName</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Name of the alignment.
         
@@ -4957,7 +5021,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>targetFramework</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Name of the framework the alignment target.
         
@@ -4966,7 +5030,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>targetType</td>
-      <td><a href="#org.1edtech.ob.v3p0.alignmenttargettype.class">AlignmentTargetType Enumeration</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.alignmenttargettype.class"><samp>AlignmentTargetType Enumeration</samp></a></td>
       <td>
         The type of the alignment target node.
         
@@ -4975,7 +5039,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>targetUrl</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.url.class"><samp>URL</samp></a></td>
       <td>
         URL linking to the official description of the alignment target, for example an individual standard within an educational framework.
         
@@ -4989,7 +5053,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.artifact.class" id="org.1edtech.ob.v3p0.artifact.class"><h4 id="artifact"><bdi class="secno">B.2.6 </bdi>Artifact<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.artifact.class"></a><a class="self-link" aria-label="§" href="#artifact"></a></h4><p>An artifact that is part of an evidence object.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.artifact.class" id="org.1edtech.ob.v3p0.artifact.class"><h4 id="artifact"><bdi class="secno">B.2.6 </bdi>Artifact<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.artifact.class"></a><a class="self-link" aria-label="§" href="#artifact"></a></h4><p>An artifact that is part of an evidence object.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5001,7 +5065,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>description</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         A description of the artifact.
         
@@ -5010,7 +5074,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>name</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The name of the artifact.
         
@@ -5019,7 +5083,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>url</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         URI for the artifact which may be a Data URI ([<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2397" title="The &quot;data&quot; URL scheme">RFC2397</a></cite>]) or the URL where the artifact can be found.
         
@@ -5033,7 +5097,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.credentialschema.class" id="org.1edtech.ob.v3p0.credentialschema.class"><h4 id="credentialschema"><bdi class="secno">B.2.7 </bdi>CredentialSchema<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.credentialschema.class"></a><a class="self-link" aria-label="§" href="#credentialschema"></a></h4><p>Identify the type and location of a data schema.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.credentialschema.class" id="org.1edtech.ob.v3p0.credentialschema.class"><h4 id="credentialschema"><bdi class="secno">B.2.7 </bdi>CredentialSchema<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.credentialschema.class"></a><a class="self-link" aria-label="§" href="#credentialschema"></a></h4><p>Identify the type and location of a data schema.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5045,7 +5109,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         The value <em class="rfc2119">MUST</em> be a URI identifying the schema file. One instance of <code>CredentialSchema</code> <em class="rfc2119">MUST</em> have an <code>id</code> that is the URL of the JSON Schema for this credential defined by this specification.
         
@@ -5054,7 +5118,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>type</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         The value <em class="rfc2119">MUST</em> identify the type of data schema validation. One instance of <code>CredentialSchema</code> <em class="rfc2119">MUST</em> have a <code>type</code> of <code>JsonSchemaValidator2020</code>. [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-schema-2020-12" title="JSON Schema: A Media Type for Describing JSON Documents. Draft 2020-12">json-schema-2020-12</a></cite>]
         
@@ -5064,7 +5128,7 @@ E5oKE1LzQRg</pre></div></div></div>
     </tr>
           
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.credentialstatus.class" id="org.1edtech.ob.v3p0.credentialstatus.class"><h4 id="credentialstatus"><bdi class="secno">B.2.8 </bdi>CredentialStatus<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.credentialstatus.class"></a><a class="self-link" aria-label="§" href="#credentialstatus"></a></h4><p>The information in CredentialStatus is used to discover information about the current status of a verifiable credential, such as whether it is suspended or revoked. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.credentialstatus.class" id="org.1edtech.ob.v3p0.credentialstatus.class"><h4 id="credentialstatus"><bdi class="secno">B.2.8 </bdi>CredentialStatus<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.credentialstatus.class"></a><a class="self-link" aria-label="§" href="#credentialstatus"></a></h4><p>The information in CredentialStatus is used to discover information about the current status of a verifiable credential, such as whether it is suspended or revoked. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5076,7 +5140,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         
         
@@ -5085,7 +5149,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>type</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         Expresses the credential status type (also referred to as the credential status method). It is expected that the value will provide enough information to determine the current status of the credential. For example, the object could contain a link to an external document noting whether or not the credential is suspended or revoked. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
         
@@ -5099,7 +5163,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.criteria.class" id="org.1edtech.ob.v3p0.criteria.class"><h4 id="criteria"><bdi class="secno">B.2.9 </bdi>Criteria<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.criteria.class"></a><a class="self-link" aria-label="§" href="#criteria"></a></h4><p>Descriptive metadata about the achievements necessary to be recognized with an assertion of a particular achievement. This data is added to the Achievement class so that it may be rendered when the achievement assertion is displayed, instead of simply a link to human-readable criteria external to the achievement. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an assertion of a particular achievement. It is also used after the assertion is awarded to a recipient to let those inspecting earned achievements know the general requirements that the recipients met in order to earn it.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.criteria.class" id="org.1edtech.ob.v3p0.criteria.class"><h4 id="criteria"><bdi class="secno">B.2.9 </bdi>Criteria<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.criteria.class"></a><a class="self-link" aria-label="§" href="#criteria"></a></h4><p>Descriptive metadata about the achievements necessary to be recognized with an assertion of a particular achievement. This data is added to the Achievement class so that it may be rendered when the achievement assertion is displayed, instead of simply a link to human-readable criteria external to the achievement. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an assertion of a particular achievement. It is also used after the assertion is awarded to a recipient to let those inspecting earned achievements know the general requirements that the recipients met in order to earn it.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5111,7 +5175,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         The URI of a webpage that describes in a human-readable format the criteria for the achievement.
         
@@ -5120,7 +5184,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>narrative</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.markdown.class">Markdown</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.markdown.class"><samp>Markdown</samp></a></td>
       <td>
         A narrative of what is needed to earn the achievement. Markdown is allowed.
         
@@ -5134,7 +5198,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.endorsementcredential.class" id="org.1edtech.ob.v3p0.endorsementcredential.class"><h4 id="endorsementcredential"><bdi class="secno">B.2.10 </bdi>EndorsementCredential<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.endorsementcredential.class"></a><a class="self-link" aria-label="§" href="#endorsementcredential"></a></h4><p>A verifiable credential that asserts a claim about an entity.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.endorsementcredential.class" id="org.1edtech.ob.v3p0.endorsementcredential.class"><h4 id="endorsementcredential"><bdi class="secno">B.2.10 </bdi>EndorsementCredential<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.endorsementcredential.class"></a><a class="self-link" aria-label="§" href="#endorsementcredential"></a></h4><p>A verifiable credential that asserts a claim about an entity.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5146,7 +5210,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>@context</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
         The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1', and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'.
         
@@ -5155,7 +5219,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         Unique URI for this endorsement instance.
         
@@ -5164,7 +5228,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>type</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
         The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI 'VerifiableCredential', and one of the items <em class="rfc2119">MUST</em> be the URI 'EndorsementCredential'. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
         
@@ -5173,7 +5237,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>issuer</td>
-      <td><a href="#org.1edtech.ob.v3p0.profile.class">Profile</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.profile.class"><samp>Profile</samp></a></td>
       <td>
         A description of the individual, entity, or organization that issued the endorsement. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
         
@@ -5182,7 +5246,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>issuanceDate</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class">DateTime</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class"><samp>DateTime</samp></a></td>
       <td>
         Timestamp of when the achievement was awarded. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
         
@@ -5191,7 +5255,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>credentialSubject</td>
-      <td><a href="#org.1edtech.ob.v3p0.endorsementsubject.class">EndorsementSubject</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.endorsementsubject.class"><samp>EndorsementSubject</samp></a></td>
       <td>
         The individual, entity, organization, assertion, or achievement that is endorsed and the endorsement comment.
         
@@ -5200,7 +5264,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>credentialSchema</td>
-      <td><a href="#org.1edtech.ob.v3p0.credentialschema.class">CredentialSchema[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.credentialschema.class"><samp>CredentialSchema[]</samp></a></td>
       <td>
         The value of the <code>credentialSchema</code> property <em class="rfc2119">MUST</em> be one or more data schemas that provide verifiers with enough information to determine if the provided data conforms to the provided schema. One of the data schemas <em class="rfc2119">MUST</em> be the JSON Schema for this credential defined by this specification.
         
@@ -5210,7 +5274,7 @@ E5oKE1LzQRg</pre></div></div></div>
     </tr>
           
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.endorsementsubject.class" id="org.1edtech.ob.v3p0.endorsementsubject.class"><h4 id="endorsementsubject"><bdi class="secno">B.2.11 </bdi>EndorsementSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.endorsementsubject.class"></a><a class="self-link" aria-label="§" href="#endorsementsubject"></a></h4><p>A collection of information about the subject of the endorsement.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.endorsementsubject.class" id="org.1edtech.ob.v3p0.endorsementsubject.class"><h4 id="endorsementsubject"><bdi class="secno">B.2.11 </bdi>EndorsementSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.endorsementsubject.class"></a><a class="self-link" aria-label="§" href="#endorsementsubject"></a></h4><p>A collection of information about the subject of the endorsement.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5222,7 +5286,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         The identifier of the individual, entity, organization, assertion, or achievement that is endorsed.
         
@@ -5231,7 +5295,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>endorsementComment</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.markdown.class">Markdown</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.markdown.class"><samp>Markdown</samp></a></td>
       <td>
         Allows endorsers to make a simple claim in writing about the entity.
         
@@ -5245,7 +5309,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.evidence.class" id="org.1edtech.ob.v3p0.evidence.class"><h4 id="evidence"><bdi class="secno">B.2.12 </bdi>Evidence<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.evidence.class"></a><a class="self-link" aria-label="§" href="#evidence"></a></h4><p>Descriptive metadata about evidence related to the achievement assertion. Each instance of the evidence class present in an assertion corresponds to one entity, though a single entry can describe a set of items collectively. There may be multiple evidence entries referenced from an assertion. The narrative property is also in scope of the assertion class to provide an overall description of the achievement related to the assertion in rich text. It is used here to provide a narrative of achievement of the specific entity described. If both the description and narrative properties are present, displayers can assume the narrative value goes into more detail and is not simply a recapitulation of description.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.evidence.class" id="org.1edtech.ob.v3p0.evidence.class"><h4 id="evidence"><bdi class="secno">B.2.12 </bdi>Evidence<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.evidence.class"></a><a class="self-link" aria-label="§" href="#evidence"></a></h4><p>Descriptive metadata about evidence related to the achievement assertion. Each instance of the evidence class present in an assertion corresponds to one entity, though a single entry can describe a set of items collectively. There may be multiple evidence entries referenced from an assertion. The narrative property is also in scope of the assertion class to provide an overall description of the achievement related to the assertion in rich text. It is used here to provide a narrative of achievement of the specific entity described. If both the description and narrative properties are present, displayers can assume the narrative value goes into more detail and is not simply a recapitulation of description.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5257,7 +5321,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         The URL of a webpage presenting evidence of achievement or the evidence encoded as a Data URI.
         
@@ -5266,7 +5330,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>narrative</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.markdown.class">Markdown</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.markdown.class"><samp>Markdown</samp></a></td>
       <td>
         A narrative that describes the evidence and process of achievement that led to an assertion.
         
@@ -5275,7 +5339,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>name</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         A descriptive title of the evidence.
         
@@ -5284,7 +5348,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>description</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         A longer description of the evidence.
         
@@ -5293,7 +5357,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>genre</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         A string that describes the type of evidence. For example, Poetry, Prose, Film.
         
@@ -5302,7 +5366,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>audience</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         A description of the intended audience for a piece of evidence.
         
@@ -5311,7 +5375,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>artifacts</td>
-      <td><a href="#org.1edtech.ob.v3p0.artifact.class">Artifact[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.artifact.class"><samp>Artifact[]</samp></a></td>
       <td>
         Artifacts that are part of the evidence.
         
@@ -5325,7 +5389,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.image.class" id="org.1edtech.ob.v3p0.image.class"><h4 id="image"><bdi class="secno">B.2.13 </bdi>Image<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.image.class"></a><a class="self-link" aria-label="§" href="#image"></a></h4><p>Metadata about images that represent assertions, achieve or profiles. These properties can typically be represented as just the id string of the image, but using a fleshed-out document allows for including captions and other applicable metadata.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.image.class" id="org.1edtech.ob.v3p0.image.class"><h4 id="image"><bdi class="secno">B.2.13 </bdi>Image<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.image.class"></a><a class="self-link" aria-label="§" href="#image"></a></h4><p>Metadata about images that represent assertions, achieve or profiles. These properties can typically be represented as just the id string of the image, but using a fleshed-out document allows for including captions and other applicable metadata.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5337,7 +5401,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         The URI or Data URI of the image.
         
@@ -5346,7 +5410,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>caption</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The caption for the image.
         
@@ -5355,7 +5419,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>author</td>
-      <td><a href="#org.1edtech.ob.v3p0.profile.class">Profile</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.profile.class"><samp>Profile</samp></a></td>
       <td>
         The author of the image, if desired.
         
@@ -5369,7 +5433,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.profile.class" id="org.1edtech.ob.v3p0.profile.class"><h4 id="profile"><bdi class="secno">B.2.14 </bdi>Profile<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.profile.class"></a><a class="self-link" aria-label="§" href="#profile"></a></h4><p>A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.profile.class" id="org.1edtech.ob.v3p0.profile.class"><h4 id="profile"><bdi class="secno">B.2.14 </bdi>Profile<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.profile.class"></a><a class="self-link" aria-label="§" href="#profile"></a></h4><p>A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5381,7 +5445,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         Unique URI for the Issuer/Profile file. Required so the entity can be the subject of an endorsement.
         
@@ -5390,7 +5454,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>name</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The name of the entity or organization.
         
@@ -5399,7 +5463,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>url</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP.
         
@@ -5408,7 +5472,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>telephone</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         A phone number for the entity. For maximum compatibility, the value should be expressed as a + and country code followed by the number with no spaces or other punctuation, like +16175551212 (E.164 format).
         
@@ -5417,7 +5481,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>description</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         A short description of the issuer entity or organization.
         
@@ -5426,7 +5490,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>image</td>
-      <td><a href="#org.1edtech.ob.v3p0.image.class">Image</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.image.class"><samp>Image</samp></a></td>
       <td>
         An image representing the issuer. This must be a PNG or SVG image.
         
@@ -5435,7 +5499,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>email</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Contact address for the individual or organization.
         
@@ -5444,7 +5508,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>address</td>
-      <td><a href="#org.1edtech.ob.v3p0.address.class">Address</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.address.class"><samp>Address</samp></a></td>
       <td>
         An address for the individual or organization.
         
@@ -5453,7 +5517,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>additionalName</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         An additional name for a person, can be used for a middle name.
         
@@ -5462,7 +5526,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>birthDate</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.date.class">Date</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.date.class"><samp>Date</samp></a></td>
       <td>
         Birthdate of the person.
         
@@ -5471,7 +5535,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>familyName</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Family name of a person. In the U.S., the last name of a person.
         
@@ -5480,7 +5544,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>givenName</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Given name of a person. In the U.S., the first name of a person.
         
@@ -5489,7 +5553,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>identifiers</td>
-      <td><a href="#org.1edtech.ob.v3p0.systemidentifier.class">SystemIdentifier[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.systemidentifier.class"><samp>SystemIdentifier[]</samp></a></td>
       <td>
         A set of System Identifiers that represent other identifiers for this Profile.
         
@@ -5498,7 +5562,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>official</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The name of the authorized official for the Issuer.
         
@@ -5507,7 +5571,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>parentOrg</td>
-      <td><a href="#org.1edtech.ob.v3p0.profile.class">Profile</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.profile.class"><samp>Profile</samp></a></td>
       <td>
         The parent organization of the person or organization represented by this organization.
         
@@ -5516,7 +5580,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>sourcedId</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The individual's or organization's unique 'sourcedId' value, which is used for providing interoperability with other identity systems.
         
@@ -5525,7 +5589,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>studentId</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         An institution's student identifier for the person. This is frequently issued through a Student Information System.
         
@@ -5539,7 +5603,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.proof.class" id="org.1edtech.ob.v3p0.proof.class"><h4 id="proof"><bdi class="secno">B.2.15 </bdi>Proof<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.proof.class"></a><a class="self-link" aria-label="§" href="#proof"></a></h4><p>A JSON-LD Linked Data proof. [<cite><a class="bibref" data-link-type="biblio" href="#bib-data-integrity" title="Data Integrity 1.0">DATA-INTEGRITY</a></cite>]</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.proof.class" id="org.1edtech.ob.v3p0.proof.class"><h4 id="proof"><bdi class="secno">B.2.15 </bdi>Proof<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.proof.class"></a><a class="self-link" aria-label="§" href="#proof"></a></h4><p>A JSON-LD Linked Data proof. [<cite><a class="bibref" data-link-type="biblio" href="#bib-data-integrity" title="Data Integrity 1.0">DATA-INTEGRITY</a></cite>]</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5551,7 +5615,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>type</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Signature suite used to produce proof.
         
@@ -5560,7 +5624,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>created</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class">DateTime</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class"><samp>DateTime</samp></a></td>
       <td>
         Date the proof was created.
         
@@ -5569,34 +5633,34 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>challenge</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         A value chosen by the verifier to mitigate authentication proof replay attacks.
-        <div class="issue" id="issue-container-number-11"><div role="heading" class="issue-title marker" id="h-issue-9" aria-level="5"><span>Issue 11</span><span class="issue-label">: Is challenge used when proof purpose is assertionMethod?</span></div><div class=""></div></div>
+        
         
       </td>
       <td>Optional</td>
     </tr><tr>
       <td>domain</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The domain of the proof to restrict its use to a particular target.
-        <div class="issue" id="issue-container-number-12"><div role="heading" class="issue-title marker" id="h-issue-10" aria-level="5"><span>Issue 12</span><span class="issue-label">: Is domain used when proof purpose is assertionMethod?</span></div><div class=""></div></div>
+        
         
       </td>
       <td>Optional</td>
     </tr><tr>
       <td>jws</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
-        Detached JSON Web Signature.
+        Detached JSON Web Signature (JWS). [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7797" title="JSON Web Signature (JWS) Unencoded Payload Option">RFC7797</a></cite>]
         
         
       </td>
       <td>Optional</td>
     </tr><tr>
       <td>nonce</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         A value chosen by the creator of proof to randomize proof values for privacy purposes.
         
@@ -5605,7 +5669,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>proofPurpose</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The purpose of the proof to be used with <code>verificationMethod</code>. <em class="rfc2119">MUST</em> be 'assertionMethod'.
         
@@ -5614,7 +5678,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>proofValue</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Value of the proof.
         
@@ -5623,10 +5687,10 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>verificationMethod</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
-        A set of parameters required to independently verify the proof, such as an identifier for a public/private key pair that would be used in the proof.
-        <div class="issue" id="issue-container-number-13"><div role="heading" class="issue-title marker" id="h-issue-11" aria-level="5"><span>Issue 13</span><span class="issue-label">: Array? Key/Value pairs?</span></div><div class=""></div></div>
+        The identifier of the public key that can verify the signature
+        
         
       </td>
       <td>Required</td>
@@ -5637,7 +5701,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.result.class" id="org.1edtech.ob.v3p0.result.class"><h4 id="result-0"><bdi class="secno">B.2.16 </bdi>Result<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.result.class"></a><a class="self-link" aria-label="§" href="#result-0"></a></h4><p>Describes a result that was achieved.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.result.class" id="org.1edtech.ob.v3p0.result.class"><h4 id="result-0"><bdi class="secno">B.2.16 </bdi>Result<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.result.class"></a><a class="self-link" aria-label="§" href="#result-0"></a></h4><p>Describes a result that was achieved.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5649,7 +5713,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>achievedLevel</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         If the result represents an achieved rubric criterion level (e.g. Mastered), the value is the <code>id</code> of the RubricCriterionLevel in linked ResultDescription.
         
@@ -5658,16 +5722,16 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>alignments</td>
-      <td><a href="#org.1edtech.ob.v3p0.alignment.class">Alignment[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.alignment.class"><samp>Alignment[]</samp></a></td>
       <td>
         
-        <div class="issue" id="issue-container-number-14"><div role="heading" class="issue-title marker" id="h-issue-12" aria-level="5"><span>Issue 14</span><span class="issue-label">: Should Result alignments be removed in CLR20/OB30?</span></div><div class=""></div></div>
+        <div class="issue" id="issue-container-number-11"><div role="heading" class="issue-title marker" id="h-issue-9" aria-level="5"><span>Issue 11</span><span class="issue-label">: Should Result alignments be removed in CLR20/OB30?</span></div><div class=""></div></div>
         
       </td>
       <td>Optional</td>
     </tr><tr>
       <td>resultDescription</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         An achievement can have many result descriptions describing possible results. The value of <code>resultDescription</code> is the <code>id</code> of the result description linked to this result. The linked result description must be in the achievement that is being asserted.
         
@@ -5676,7 +5740,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>status</td>
-      <td><a href="#org.1edtech.ob.v3p0.resultstatustype.class">ResultStatusType Enumeration</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.resultstatustype.class"><samp>ResultStatusType Enumeration</samp></a></td>
       <td>
         The status of the achievement. Required if <code>resultType</code> of the linked ResultDescription is Status.
         
@@ -5685,7 +5749,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>value</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         A string representing the result of the performance, or demonstration, of the achievement. For example, 'A' if the recipient received an A grade in class.
         
@@ -5699,7 +5763,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.resultdescription.class" id="org.1edtech.ob.v3p0.resultdescription.class"><h4 id="resultdescription"><bdi class="secno">B.2.17 </bdi>ResultDescription<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.resultdescription.class"></a><a class="self-link" aria-label="§" href="#resultdescription"></a></h4><p>Describes a possible achievement result.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.resultdescription.class" id="org.1edtech.ob.v3p0.resultdescription.class"><h4 id="resultdescription"><bdi class="secno">B.2.17 </bdi>ResultDescription<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.resultdescription.class"></a><a class="self-link" aria-label="§" href="#resultdescription"></a></h4><p>Describes a possible achievement result.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5711,7 +5775,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         The unique URI for this result description. Required so a result can link to this result description.
         
@@ -5720,7 +5784,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>alignments</td>
-      <td><a href="#org.1edtech.ob.v3p0.alignment.class">Alignment[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.alignment.class"><samp>Alignment[]</samp></a></td>
       <td>
         Alignments between this result description and nodes in external frameworks.
         
@@ -5729,7 +5793,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>allowedValues</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String[]</samp></a></td>
       <td>
         An ordered array of allowed values. The values should be ordered from 'low' to 'high' as determined by the achievement creator.
         
@@ -5738,7 +5802,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>name</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The name of the result.
         
@@ -5747,7 +5811,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>requiredLevel</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         The <code>id</code> of the rubric criterion level required to pass as determined by the achievement creator.
         
@@ -5756,7 +5820,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>requiredValue</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The value from <code>allowedValues</code> or within the range of <code>valueMin</code> to <code>valueMax</code> required to pass as determined by the achievement creator.
         
@@ -5765,7 +5829,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>resultType</td>
-      <td><a href="#org.1edtech.ob.v3p0.resulttype.class">ResultType Enumeration</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.resulttype.class"><samp>ResultType Enumeration</samp></a></td>
       <td>
         The type of result this description represents. This is an extensible enumerated vocabulary.
         
@@ -5774,7 +5838,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>rubricCriterionLevels</td>
-      <td><a href="#org.1edtech.ob.v3p0.rubriccriterionlevel.class">RubricCriterionLevel[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.rubriccriterionlevel.class"><samp>RubricCriterionLevel[]</samp></a></td>
       <td>
         An ordered array of rubric criterion levels that may be asserted in the linked result. The levels should be ordered from 'low' to 'high' as determined by the achievement creator.
         
@@ -5783,7 +5847,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>valueMax</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The maximum possible <code>value</code> that may be asserted in a linked result.
         
@@ -5792,7 +5856,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>valueMin</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The minimum possible <code>value</code> that may be asserted in a linked result.
         
@@ -5806,7 +5870,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.rubriccriterionlevel.class" id="org.1edtech.ob.v3p0.rubriccriterionlevel.class"><h4 id="rubriccriterionlevel-0"><bdi class="secno">B.2.18 </bdi>RubricCriterionLevel<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.rubriccriterionlevel.class"></a><a class="self-link" aria-label="§" href="#rubriccriterionlevel-0"></a></h4><p>Describes a rubric criterion level.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.rubriccriterionlevel.class" id="org.1edtech.ob.v3p0.rubriccriterionlevel.class"><h4 id="rubriccriterionlevel-0"><bdi class="secno">B.2.18 </bdi>RubricCriterionLevel<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.rubriccriterionlevel.class"></a><a class="self-link" aria-label="§" href="#rubriccriterionlevel-0"></a></h4><p>Describes a rubric criterion level.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5818,7 +5882,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
         The unique URI for this rubric criterion level. Required so a result can link to this rubric criterion level.
         
@@ -5827,7 +5891,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>alignments</td>
-      <td><a href="#org.1edtech.ob.v3p0.alignment.class">Alignment[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.alignment.class"><samp>Alignment[]</samp></a></td>
       <td>
         Alignments between this rubric criterion level and a rubric criterion levels defined in external frameworks.
         
@@ -5836,7 +5900,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>description</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Description of the rubric criterion level.
         
@@ -5845,7 +5909,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>level</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The rubric performance lvel in terms of success.
         
@@ -5854,7 +5918,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>name</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The name of the rubric criterion level.
         
@@ -5863,7 +5927,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>points</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         The points associated with this rubric criterion level.
         
@@ -5877,7 +5941,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.systemidentifier.class" id="org.1edtech.ob.v3p0.systemidentifier.class"><h4 id="systemidentifier"><bdi class="secno">B.2.19 </bdi>SystemIdentifier<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.systemidentifier.class"></a><a class="self-link" aria-label="§" href="#systemidentifier"></a></h4><p>A system identifier represents a single, system-local identifier.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.systemidentifier.class" id="org.1edtech.ob.v3p0.systemidentifier.class"><h4 id="systemidentifier"><bdi class="secno">B.2.19 </bdi>SystemIdentifier<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.systemidentifier.class"></a><a class="self-link" aria-label="§" href="#systemidentifier"></a></h4><p>A system identifier represents a single, system-local identifier.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5889,7 +5953,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>identifier</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         Opaque string representing the system identifier value.
         
@@ -5898,7 +5962,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>identifierType</td>
-      <td><a href="#org.1edtech.ob.v3p0.identifiertype.class">IdentifierType Enumeration</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.identifiertype.class"><samp>IdentifierType Enumeration</samp></a></td>
       <td>
         The identifier type. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention. For example, the NCES School ID might be 'ext:NcesSchoolId'. Extended vocabulary terms must start with 'ext:' followed by any valid JSON string value.
         
@@ -5908,7 +5972,7 @@ E5oKE1LzQRg</pre></div></div></div>
     </tr>
           
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.achievementtype.class" id="org.1edtech.ob.v3p0.achievementtype.class"><h4 id="achievementtype-enumeration"><bdi class="secno">B.2.20 </bdi>AchievementType Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.achievementtype.class"></a><a class="self-link" aria-label="§" href="#achievementtype-enumeration"></a></h4><p>The type of achievement, for example 'Award' or 'Certification'. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.achievementtype.class" id="org.1edtech.ob.v3p0.achievementtype.class"><h4 id="achievementtype-enumeration"><bdi class="secno">B.2.20 </bdi>AchievementType Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.achievementtype.class"></a><a class="self-link" aria-label="§" href="#achievementtype-enumeration"></a></h4><p>The type of achievement, for example 'Award' or 'Certification'. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention.</p><table class="simple">
         <thead>
           <tr>
             <th>Term</th>
@@ -6036,7 +6100,7 @@ E5oKE1LzQRg</pre></div></div></div>
                 </td>
               </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.alignmenttargettype.class" id="org.1edtech.ob.v3p0.alignmenttargettype.class"><h4 id="alignmenttargettype-enumeration"><bdi class="secno">B.2.21 </bdi>AlignmentTargetType Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.alignmenttargettype.class"></a><a class="self-link" aria-label="§" href="#alignmenttargettype-enumeration"></a></h4><p>The type of the alignment target node in the target framework.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.alignmenttargettype.class" id="org.1edtech.ob.v3p0.alignmenttargettype.class"><h4 id="alignmenttargettype-enumeration"><bdi class="secno">B.2.21 </bdi>AlignmentTargetType Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.alignmenttargettype.class"></a><a class="self-link" aria-label="§" href="#alignmenttargettype-enumeration"></a></h4><p>The type of the alignment target node in the target framework.</p><table class="simple">
         <thead>
           <tr>
             <th>Term</th>
@@ -6087,7 +6151,7 @@ E5oKE1LzQRg</pre></div></div></div>
                 </td>
               </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.identifiertype.class" id="org.1edtech.ob.v3p0.identifiertype.class"><h4 id="identifiertype-enumeration"><bdi class="secno">B.2.22 </bdi>IdentifierType Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.identifiertype.class"></a><a class="self-link" aria-label="§" href="#identifiertype-enumeration"></a></h4><p>The type of identifier. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.identifiertype.class" id="org.1edtech.ob.v3p0.identifiertype.class"><h4 id="identifiertype-enumeration"><bdi class="secno">B.2.22 </bdi>IdentifierType Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.identifiertype.class"></a><a class="self-link" aria-label="§" href="#identifiertype-enumeration"></a></h4><p>The type of identifier. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention.</p><table class="simple">
         <thead>
           <tr>
             <th>Term</th>
@@ -6117,7 +6181,7 @@ E5oKE1LzQRg</pre></div></div></div>
                 </td>
               </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.resulttype.class" id="org.1edtech.ob.v3p0.resulttype.class"><h4 id="resulttype-enumeration"><bdi class="secno">B.2.23 </bdi>ResultType Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.resulttype.class"></a><a class="self-link" aria-label="§" href="#resulttype-enumeration"></a></h4><p>The type of result. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.resulttype.class" id="org.1edtech.ob.v3p0.resulttype.class"><h4 id="resulttype-enumeration"><bdi class="secno">B.2.23 </bdi>ResultType Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.resulttype.class"></a><a class="self-link" aria-label="§" href="#resulttype-enumeration"></a></h4><p>The type of result. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention.</p><table class="simple">
         <thead>
           <tr>
             <th>Term</th>
@@ -6217,7 +6281,7 @@ E5oKE1LzQRg</pre></div></div></div>
                 </td>
               </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.resultstatustype.class" id="org.1edtech.ob.v3p0.resultstatustype.class"><h4 id="resultstatustype-enumeration"><bdi class="secno">B.2.24 </bdi>ResultStatusType Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.resultstatustype.class"></a><a class="self-link" aria-label="§" href="#resultstatustype-enumeration"></a></h4><p>Defined vocabulary to convey the status of an achievement.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.resultstatustype.class" id="org.1edtech.ob.v3p0.resultstatustype.class"><h4 id="resultstatustype-enumeration"><bdi class="secno">B.2.24 </bdi>ResultStatusType Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.resultstatustype.class"></a><a class="self-link" aria-label="§" href="#resultstatustype-enumeration"></a></h4><p>Defined vocabulary to convey the status of an achievement.</p><table class="simple">
         <thead>
           <tr>
             <th>Term</th>
@@ -6275,7 +6339,7 @@ E5oKE1LzQRg</pre></div></div></div>
   <p>
     The data models in this section are shared by all IMS service specifications.
   </p>
-<section data-class="org.1edtech.ob.v3p0.imsx_statusinfo.class" id="org.1edtech.ob.v3p0.imsx_statusinfo.class"><h4 id="imsx_statusinfo"><bdi class="secno">B.3.1 </bdi>Imsx_StatusInfo<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.imsx_statusinfo.class"></a><a class="self-link" aria-label="§" href="#imsx_statusinfo"></a></h4><p>This is the container for the status code and associated information returned within the HTTP messages received from the Service Provider.</p><table>
+<section data-class="org.1edtech.ob.v3p0.imsx_statusinfo.class" id="org.1edtech.ob.v3p0.imsx_statusinfo.class"><h4 id="imsx_statusinfo"><bdi class="secno">B.3.1 </bdi>Imsx_StatusInfo<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.imsx_statusinfo.class"></a><a class="self-link" aria-label="§" href="#imsx_statusinfo"></a></h4><p>This is the container for the status code and associated information returned within the HTTP messages received from the Service Provider.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -6287,7 +6351,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>imsx_codeMajor</td>
-      <td><a href="#org.1edtech.ob.v3p0.imsx_codemajor.class">Imsx_CodeMajor Enumeration</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.imsx_codemajor.class"><samp>Imsx_CodeMajor Enumeration</samp></a></td>
       <td>
         The code major value (from the corresponding enumerated vocabulary).
         
@@ -6296,7 +6360,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>imsx_severity</td>
-      <td><a href="#org.1edtech.ob.v3p0.imsx_severity.class">Imsx_Severity Enumeration</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.imsx_severity.class"><samp>Imsx_Severity Enumeration</samp></a></td>
       <td>
         The severity value (from the corresponding enumerated vocabulary).
         
@@ -6305,7 +6369,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>imsx_description</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
         A human readable description supplied by the entity creating the status code information.
         
@@ -6314,7 +6378,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Optional</td>
     </tr><tr>
       <td>imsx_codeMinor</td>
-      <td><a href="#org.1edtech.ob.v3p0.imsx_codeminor.class">Imsx_CodeMinor</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.imsx_codeminor.class"><samp>Imsx_CodeMinor</samp></a></td>
       <td>
         The set of reported code minor status codes.
         
@@ -6324,7 +6388,7 @@ E5oKE1LzQRg</pre></div></div></div>
     </tr>
           
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.imsx_codemajor.class" id="org.1edtech.ob.v3p0.imsx_codemajor.class"><h4 id="imsx_codemajor-enumeration"><bdi class="secno">B.3.2 </bdi>Imsx_CodeMajor Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.imsx_codemajor.class"></a><a class="self-link" aria-label="§" href="#imsx_codemajor-enumeration"></a></h4><p>This is the set of primary status report values i.e. the major code assigned to the status block. This is used in conjunction with the 'Severity' structure in the status object.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.imsx_codemajor.class" id="org.1edtech.ob.v3p0.imsx_codemajor.class"><h4 id="imsx_codemajor-enumeration"><bdi class="secno">B.3.2 </bdi>Imsx_CodeMajor Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.imsx_codemajor.class"></a><a class="self-link" aria-label="§" href="#imsx_codemajor-enumeration"></a></h4><p>This is the set of primary status report values i.e. the major code assigned to the status block. This is used in conjunction with the 'Severity' structure in the status object.</p><table class="simple">
         <thead>
           <tr>
             <th>Term</th>
@@ -6363,7 +6427,7 @@ E5oKE1LzQRg</pre></div></div></div>
   </tr>
           
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.imsx_severity.class" id="org.1edtech.ob.v3p0.imsx_severity.class"><h4 id="imsx_severity-enumeration"><bdi class="secno">B.3.3 </bdi>Imsx_Severity Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.imsx_severity.class"></a><a class="self-link" aria-label="§" href="#imsx_severity-enumeration"></a></h4><p>This is the context for the status report values. This is used in conjunction with the 'CodeMajor' structure in the status object.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.imsx_severity.class" id="org.1edtech.ob.v3p0.imsx_severity.class"><h4 id="imsx_severity-enumeration"><bdi class="secno">B.3.3 </bdi>Imsx_Severity Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.imsx_severity.class"></a><a class="self-link" aria-label="§" href="#imsx_severity-enumeration"></a></h4><p>This is the context for the status report values. This is used in conjunction with the 'CodeMajor' structure in the status object.</p><table class="simple">
         <thead>
           <tr>
             <th>Term</th>
@@ -6395,7 +6459,7 @@ E5oKE1LzQRg</pre></div></div></div>
   </tr>
           
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.imsx_codeminor.class" id="org.1edtech.ob.v3p0.imsx_codeminor.class"><h4 id="imsx_codeminor"><bdi class="secno">B.3.4 </bdi>Imsx_CodeMinor<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.imsx_codeminor.class"></a><a class="self-link" aria-label="§" href="#imsx_codeminor"></a></h4><p>This is the container for the set of code minor status codes reported in the responses from the Service Provider.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.imsx_codeminor.class" id="org.1edtech.ob.v3p0.imsx_codeminor.class"><h4 id="imsx_codeminor"><bdi class="secno">B.3.4 </bdi>Imsx_CodeMinor<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.imsx_codeminor.class"></a><a class="self-link" aria-label="§" href="#imsx_codeminor"></a></h4><p>This is the container for the set of code minor status codes reported in the responses from the Service Provider.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -6407,7 +6471,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>imsx_codeMinorField</td>
-      <td><a href="#org.1edtech.ob.v3p0.imsx_codeminorfield.class">Imsx_CodeMinorField[]</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.imsx_codeminorfield.class"><samp>Imsx_CodeMinorField[]</samp></a></td>
       <td>
         Each reported code minor status code.
         
@@ -6417,7 +6481,7 @@ E5oKE1LzQRg</pre></div></div></div>
     </tr>
           
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.imsx_codeminorfield.class" id="org.1edtech.ob.v3p0.imsx_codeminorfield.class"><h4 id="imsx_codeminorfield"><bdi class="secno">B.3.5 </bdi>Imsx_CodeMinorField<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.imsx_codeminorfield.class"></a><a class="self-link" aria-label="§" href="#imsx_codeminorfield"></a></h4><p>This is the container for a single code minor status code.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.imsx_codeminorfield.class" id="org.1edtech.ob.v3p0.imsx_codeminorfield.class"><h4 id="imsx_codeminorfield"><bdi class="secno">B.3.5 </bdi>Imsx_CodeMinorField<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.imsx_codeminorfield.class"></a><a class="self-link" aria-label="§" href="#imsx_codeminorfield"></a></h4><p>This is the container for a single code minor status code.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -6429,7 +6493,7 @@ E5oKE1LzQRg</pre></div></div></div>
         <tbody>
           <tr>
       <td>imsx_codeMinorFieldName</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.normalizedstring.class">NormalizedString</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.normalizedstring.class"><samp>NormalizedString</samp></a></td>
       <td>
         This should contain the identity of the system that has produced the code minor status code report.
         
@@ -6438,7 +6502,7 @@ E5oKE1LzQRg</pre></div></div></div>
       <td>Required</td>
     </tr><tr>
       <td>imsx_codeMinorFieldValue</td>
-      <td><a href="#org.1edtech.ob.v3p0.imsx_codeminorfieldvalue.class">Imsx_CodeMinorFieldValue Enumeration</a></td>
+      <td><a href="#org.1edtech.ob.v3p0.imsx_codeminorfieldvalue.class"><samp>Imsx_CodeMinorFieldValue Enumeration</samp></a></td>
       <td>
         The code minor status code (this is a value from the corresponding enumerated vocabulary).
         
@@ -6448,7 +6512,7 @@ E5oKE1LzQRg</pre></div></div></div>
     </tr>
           
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.imsx_codeminorfieldvalue.class" id="org.1edtech.ob.v3p0.imsx_codeminorfieldvalue.class"><h4 id="imsx_codeminorfieldvalue-enumeration"><bdi class="secno">B.3.6 </bdi>Imsx_CodeMinorFieldValue Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.imsx_codeminorfieldvalue.class"></a><a class="self-link" aria-label="§" href="#imsx_codeminorfieldvalue-enumeration"></a></h4><p>This is the set of codeMinor status codes that are used to provide further insight into the completion status of the end-to-end transaction i.e. this should be used to provide more information than would be supplied by an HTTP code.</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.imsx_codeminorfieldvalue.class" id="org.1edtech.ob.v3p0.imsx_codeminorfieldvalue.class"><h4 id="imsx_codeminorfieldvalue-enumeration"><bdi class="secno">B.3.6 </bdi>Imsx_CodeMinorFieldValue Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.imsx_codeminorfieldvalue.class"></a><a class="self-link" aria-label="§" href="#imsx_codeminorfieldvalue-enumeration"></a></h4><p>This is the set of codeMinor status codes that are used to provide further insight into the completion status of the end-to-end transaction i.e. this should be used to provide more information than would be supplied by an HTTP code.</p><table class="simple">
         <thead>
           <tr>
             <th>Term</th>
@@ -6548,7 +6612,7 @@ E5oKE1LzQRg</pre></div></div></div>
   <p>
     The data models in this section are shared by all IMS service specifications.
   </p>
-<section data-class="org.1edtech.ob.v3p0.authorizationerror.class" id="org.1edtech.ob.v3p0.authorizationerror.class"><h4 id="authorizationerror-vocabulary"><bdi class="secno">B.4.1 </bdi>AuthorizationError Vocabulary<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.authorizationerror.class"></a><a class="self-link" aria-label="§" href="#authorizationerror-vocabulary"></a></h4><p>This is the set of ASCII error code strings that may be returned in response to a client authorization request. See Section 4.1 of [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc6749" title="The OAuth 2.0 Authorization Framework">RFC6749</a></cite>].</p><table>
+<section data-class="org.1edtech.ob.v3p0.authorizationerror.class" id="org.1edtech.ob.v3p0.authorizationerror.class"><h4 id="authorizationerror-vocabulary"><bdi class="secno">B.4.1 </bdi>AuthorizationError Vocabulary<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.authorizationerror.class"></a><a class="self-link" aria-label="§" href="#authorizationerror-vocabulary"></a></h4><p>This is the set of ASCII error code strings that may be returned in response to a client authorization request. See Section 4.1 of [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc6749" title="The OAuth 2.0 Authorization Framework">RFC6749</a></cite>].</p><table class="simple">
         <thead>
           <tr>
             <th>Term</th>
@@ -6608,7 +6672,7 @@ E5oKE1LzQRg</pre></div></div></div>
   </tr>
           
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.registrationerror.class" id="org.1edtech.ob.v3p0.registrationerror.class"><h4 id="registrationerror-vocabulary"><bdi class="secno">B.4.2 </bdi>RegistrationError Vocabulary<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.registrationerror.class"></a><a class="self-link" aria-label="§" href="#registrationerror-vocabulary"></a></h4><p>This is the set of ASCII error code strings that may be returned in response to a client registration request. See [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7591" title="OAuth 2.0 Dynamic Client Registration Protocol">RFC7591</a></cite>].</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.registrationerror.class" id="org.1edtech.ob.v3p0.registrationerror.class"><h4 id="registrationerror-vocabulary"><bdi class="secno">B.4.2 </bdi>RegistrationError Vocabulary<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.registrationerror.class"></a><a class="self-link" aria-label="§" href="#registrationerror-vocabulary"></a></h4><p>This is the set of ASCII error code strings that may be returned in response to a client registration request. See [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7591" title="OAuth 2.0 Dynamic Client Registration Protocol">RFC7591</a></cite>].</p><table class="simple">
         <thead>
           <tr>
             <th>Term</th>
@@ -6647,7 +6711,7 @@ E5oKE1LzQRg</pre></div></div></div>
   </tr>
           
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.tokenerror.class" id="org.1edtech.ob.v3p0.tokenerror.class"><h4 id="tokenerror-vocabulary"><bdi class="secno">B.4.3 </bdi>TokenError Vocabulary<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.tokenerror.class"></a><a class="self-link" aria-label="§" href="#tokenerror-vocabulary"></a></h4><p>This is the set of ASCII error code strings that may be returned in response to a client token request. See Section 5.2 of [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc6749" title="The OAuth 2.0 Authorization Framework">RFC6749</a></cite>].</p><table>
+      </table></section><section data-class="org.1edtech.ob.v3p0.tokenerror.class" id="org.1edtech.ob.v3p0.tokenerror.class"><h4 id="tokenerror-vocabulary"><bdi class="secno">B.4.3 </bdi>TokenError Vocabulary<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.tokenerror.class"></a><a class="self-link" aria-label="§" href="#tokenerror-vocabulary"></a></h4><p>This is the set of ASCII error code strings that may be returned in response to a client token request. See Section 5.2 of [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc6749" title="The OAuth 2.0 Authorization Framework">RFC6749</a></cite>].</p><table class="simple">
         <thead>
           <tr>
             <th>Term</th>
@@ -6745,7 +6809,7 @@ E5oKE1LzQRg</pre></div></div></div>
       </ul></section>
   <section class="appendix" id="issue-summary"><h2 id="e-issue-summary"><bdi class="secno">E. </bdi>Issue Summary<a class="self-link" aria-label="§" href="#issue-summary"></a></h2>
     <h1>Issue Summary</h1>
-  <ul><li><a href="#issue-container-number-1">Issue 1</a></li><li><a href="#issue-container-number-2">Issue 2</a></li><li><a href="#issue-container-number-3">Issue 3</a><span style="text-transform: none">: Baking an ObPresentation</span></li><li><a href="#issue-container-number-4">Issue 4</a></li><li><a href="#issue-container-number-5">Issue 5</a></li><li><a href="#issue-container-number-6">Issue 6</a></li><li><a href="#issue-container-number-7">Issue 7</a></li><li><a href="#issue-container-number-8">Issue 8</a></li><li><a href="#issue-container-number-9">Issue 9</a><span style="text-transform: none">: Reconcile CLR 1.0 image property (URL) with OB 2.0 image property (URL or object)</span></li><li><a href="#issue-container-number-10">Issue 10</a><span style="text-transform: none">: Need both achievementType and tags?</span></li><li><a href="#issue-container-number-11">Issue 11</a><span style="text-transform: none">: Is challenge used when proof purpose is assertionMethod?</span></li><li><a href="#issue-container-number-12">Issue 12</a><span style="text-transform: none">: Is domain used when proof purpose is assertionMethod?</span></li><li><a href="#issue-container-number-13">Issue 13</a><span style="text-transform: none">: Array? Key/Value pairs?</span></li><li><a href="#issue-container-number-14">Issue 14</a><span style="text-transform: none">: Should Result alignments be removed in CLR20/OB30?</span></li></ul></section>
+  <ul><li><a href="#issue-container-number-1">Issue 1</a></li><li><a href="#issue-container-number-2">Issue 2</a></li><li><a href="#issue-container-number-3">Issue 3</a><span style="text-transform: none">: Baking an ObPresentation</span></li><li><a href="#issue-container-number-4">Issue 4</a></li><li><a href="#issue-container-number-5">Issue 5</a></li><li><a href="#issue-container-number-6">Issue 6</a></li><li><a href="#issue-container-number-7">Issue 7</a></li><li><a href="#issue-container-number-8">Issue 8</a></li><li><a href="#issue-container-number-9">Issue 9</a><span style="text-transform: none">: Reconcile CLR 1.0 image property (URL) with OB 2.0 image property (URL or object)</span></li><li><a href="#issue-container-number-10">Issue 10</a><span style="text-transform: none">: Need both achievementType and tags?</span></li><li><a href="#issue-container-number-11">Issue 11</a><span style="text-transform: none">: Should Result alignments be removed in CLR20/OB30?</span></li></ul></section>
 
   <section id="history" class="appendix">
     <h2 id="f-revision-history"><bdi class="secno">F. </bdi>Revision History<a class="self-link" aria-label="§" href="#history"></a></h2>
@@ -6783,7 +6847,7 @@ E5oKE1LzQRg</pre></div></div></div>
     <dl class="bibliography"><dt id="bib-data-integrity">[DATA-INTEGRITY]</dt><dd><a href="https://w3c-ccg.github.io/data-integrity-spec/"><cite>Data Integrity 1.0</cite></a>. Manu Sporny; Dave Longley.  Credentials Community Group. CG-DRAFT. URL: <a href="https://w3c-ccg.github.io/data-integrity-spec/">https://w3c-ccg.github.io/data-integrity-spec/</a></dd><dt id="bib-oauth2-sbp">[OAUTH2-SBP]</dt><dd><a href="https://datatracker.ietf.org/doc/draft-ietf-oauth-security-topics/"><cite>OAuth 2.0 Security Best Current Practice (draft-ietf-oauth-security-topics-11</cite></a>.  IETF. December 28, 2019. URL: <a href="https://datatracker.ietf.org/doc/draft-ietf-oauth-security-topics/">https://datatracker.ietf.org/doc/draft-ietf-oauth-security-topics/</a></dd><dt id="bib-openapis-3.0">[OPENAPIS-3.0]</dt><dd><a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md"><cite>OpenAPI Specification 3.0</cite></a>.  OpenAPI Initiative (Linux Foundation). July 2017. URL: <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md">https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md</a></dd><dt id="bib-rfc20">[RFC20]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc20"><cite>ASCII format for network interchange</cite></a>. V.G. Cerf.  IETF. October 1969. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc20">https://www.rfc-editor.org/rfc/rfc20</a></dd><dt id="bib-rfc2119">[RFC2119]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a></dd><dt id="bib-rfc2617">[RFC2617]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2617"><cite>HTTP Authentication: Basic and Digest Access Authentication</cite></a>. J. Franks; P. Hallam-Baker; J. Hostetler; S. Lawrence; P. Leach; A. Luotonen; L. Stewart.  IETF. June 1999. Draft Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc2617">https://www.rfc-editor.org/rfc/rfc2617</a></dd><dt id="bib-rfc6749">[RFC6749]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc6749"><cite>The OAuth 2.0 Authorization Framework</cite></a>. D. Hardt, Ed..  IETF. October 2012. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc6749">https://www.rfc-editor.org/rfc/rfc6749</a></dd><dt id="bib-rfc6750">[RFC6750]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc6750"><cite>The OAuth 2.0 Authorization Framework: Bearer Token Usage</cite></a>. M. Jones; D. Hardt.  IETF. October 2012. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc6750">https://www.rfc-editor.org/rfc/rfc6750</a></dd><dt id="bib-rfc7009">[RFC7009]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc7009"><cite>OAuth 2.0 Token Revocation</cite></a>. T. Lodderstedt, Ed.; S. Dronia; M. Scurtescu.  IETF. August 2013. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7009">https://www.rfc-editor.org/rfc/rfc7009</a></dd><dt id="bib-rfc7591">[RFC7591]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc7591"><cite>OAuth 2.0 Dynamic Client Registration Protocol</cite></a>. J. Richer, Ed.; M. Jones; J. Bradley; M. Machulak; P. Hunt.  IETF. July 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7591">https://www.rfc-editor.org/rfc/rfc7591</a></dd><dt id="bib-rfc7636">[RFC7636]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc7636"><cite>Proof Key for Code Exchange by OAuth Public Clients</cite></a>. N. Sakimura, Ed.; J. Bradley; N. Agarwal.  IETF. September 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7636">https://www.rfc-editor.org/rfc/rfc7636</a></dd><dt id="bib-sec-11">[SEC-11]</dt><dd><a href="https://www.imsglobal.org/spec/security/v1p1/"><cite>IMS Global Security Framework v1.1</cite></a>. C. Smythe; C. Vervoort; M. McKell.  IMS Global Learning Consortium. July 19th, 2021. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/security/v1p1/">https://www.imsglobal.org/spec/security/v1p1/</a></dd></dl>
   </section><section id="informative-references">
     <h3 id="g-2-informative-references"><bdi class="secno">G.2 </bdi>Informative references<a class="self-link" aria-label="§" href="#informative-references"></a></h3>
-    <dl class="bibliography"><dt id="bib-ceds">[CEDS]</dt><dd><a href="https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf"><cite>Common Education Data Standards (CEDS) Version 7 Data Model Guide</cite></a>. URL: <a href="https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf">https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf</a></dd><dt id="bib-clr-10">[CLR-10]</dt><dd><a href="https://www.imsglobal.org/spec/clr/v1p0/"><cite>IMS Comprehensive Learner Record Standard Version 1.0</cite></a>.  IMS Global Learning Consortium. January 14, 2021. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/clr/v1p0/">https://www.imsglobal.org/spec/clr/v1p0/</a></dd><dt id="bib-clr-20">[CLR-20]</dt><dd><a href="https://www.imsglobal.org/spec/clr/v2p0/"><cite>Comprehensive Learner Record Standard v2.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/clr/v2p0/">https://www.imsglobal.org/spec/clr/v2p0/</a></dd><dt id="bib-did-core">[did-core]</dt><dd><a href="https://www.w3.org/TR/did-core/"><cite>Decentralized Identifiers (DIDs) v1.0</cite></a>. Manu Sporny; Amy Guy; Markus Sabadello; Drummond Reed.  W3C. 3 August 2021. W3C Proposed Recommendation. URL: <a href="https://www.w3.org/TR/did-core/">https://www.w3.org/TR/did-core/</a></dd><dt id="bib-did-use-cases">[did-use-cases]</dt><dd><a href="https://www.w3.org/TR/did-use-cases/"><cite>Use Cases and Requirements for Decentralized Identifiers</cite></a>. Joe Andrieu; Phil Archer; Kim Duffy; Ryan Grant; Adrian Gropper.  W3C. 17 March 2021. W3C Note. URL: <a href="https://www.w3.org/TR/did-use-cases/">https://www.w3.org/TR/did-use-cases/</a></dd><dt id="bib-ieee-754">[IEEE-754]</dt><dd><a href="http://ieeexplore.ieee.org/servlet/opac?punumber=4610933"><cite>IEEE Standard for Floating-Point Arithmetic</cite></a>.  Institute of Electrical and Electronics Engineers. 29 August 2008. URL: <a href="http://ieeexplore.ieee.org/servlet/opac?punumber=4610933">http://ieeexplore.ieee.org/servlet/opac?punumber=4610933</a></dd><dt id="bib-iso3166-1">[ISO3166-1]</dt><dd><a href="https://www.iso.org/standard/72482.html"><cite>Codes for the representation of names of countries and their subdivisions — Part 1: Country code</cite></a>.  International Organization for Standardization (ISO). August 2020. Published. URL: <a href="https://www.iso.org/standard/72482.html">https://www.iso.org/standard/72482.html</a></dd><dt id="bib-json-ld">[JSON-LD]</dt><dd><a href="https://www.w3.org/TR/json-ld/"><cite>JSON-LD 1.0</cite></a>. Manu Sporny; Gregg Kellogg; Markus Lanthaler.  W3C. 3 November 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a></dd><dt id="bib-json-ld11">[json-ld11]</dt><dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave Longley.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a></dd><dt id="bib-json-schema-2020-12">[json-schema-2020-12]</dt><dd><a href="https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00"><cite>JSON Schema: A Media Type for Describing JSON Documents. Draft 2020-12</cite></a>. Austin Wright; Henry Andrews; Ben Hutton; Greg Dennis.  Internet Engineering Task Force (IETF). 8 December 2020. Internet-Draft. URL: <a href="https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00">https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00</a></dd><dt id="bib-ob-20">[OB-20]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v2p0/"><cite>Open Badges v2.0</cite></a>. Otto, Nate; Bohrer, Jeff; Cook, Timothy; Gylling, Markus; Hripak, Alexander; Pitcher, Justin.  IMS Global Learning Consortium. April 2018. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/ob/v2p0/">https://www.imsglobal.org/spec/ob/v2p0/</a></dd><dt id="bib-ob-21">[OB-21]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v2p1/"><cite>Open Badges Specification v2.1</cite></a>. Jeff Bohrer; Andy Miller.  IMS Global Learning Consortium. October 7, 2020. IMS Candidate Final Public. URL: <a href="https://www.imsglobal.org/spec/ob/v2p1/">https://www.imsglobal.org/spec/ob/v2p1/</a></dd><dt id="bib-ob-30">[OB-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/"><cite>Open Badges Specification v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/">https://www.imsglobal.org/spec/ob/v3p0/</a></dd><dt id="bib-ob-cert-30">[OB-CERT-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/cert/"><cite>Open Badges Specification Conformance and Certification Guide v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/cert/">https://www.imsglobal.org/spec/ob/v3p0/cert/</a></dd><dt id="bib-ob-json-30">[OB-JSON-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/schema/json"><cite>Open Badges Specification JSON Schema v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/schema/json">https://www.imsglobal.org/spec/ob/v3p0/schema/json</a></dd><dt id="bib-openapis">[OPENAPIS]</dt><dd><a href="https://www.openapis.org/"><cite>OpenAPI Specification</cite></a>. Darrell Miller; Jeremy Whitlock; Marsh Gardiner; Mike Ralphson; Ron Ratovsky; Uri Sarid; Tony Tam; Jason Harmon.  OpenAPI Initiative. URL: <a href="https://www.openapis.org/">https://www.openapis.org/</a></dd><dt id="bib-rfc2397">[RFC2397]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2397"><cite>The "data" URL scheme</cite></a>. L. Masinter.  IETF. August 1998. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc2397">https://www.rfc-editor.org/rfc/rfc2397</a></dd><dt id="bib-rfc3629">[RFC3629]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc3629"><cite>UTF-8, a transformation format of ISO 10646</cite></a>. F. Yergeau.  IETF. November 2003. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3629">https://www.rfc-editor.org/rfc/rfc3629</a></dd><dt id="bib-rfc8259">[RFC8259]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8259"><cite>The JavaScript Object Notation (JSON) Data Interchange Format</cite></a>. T. Bray, Ed..  IETF. December 2017. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a></dd><dt id="bib-rfc8949">[RFC8949]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8949"><cite>Concise Binary Object Representation (CBOR)</cite></a>. C. Bormann; P. Hoffman.  IETF. December 2020. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8949">https://www.rfc-editor.org/rfc/rfc8949</a></dd><dt id="bib-rsd">[RSD]</dt><dd><a href="https://www.openskillsnetwork.org/rsd"><cite>Rich Skill Descriptors</cite></a>. URL: <a href="https://www.openskillsnetwork.org/rsd">https://www.openskillsnetwork.org/rsd</a></dd><dt id="bib-vc-data-model">[vc-data-model]</dt><dd><a href="https://www.w3.org/TR/vc-data-model/"><cite>Verifiable Credentials Data Model v1.1</cite></a>. Manu Sporny; Grant Noble; Dave Longley; Daniel Burnett; Brent Zundel; Kyle Den Hartog.  W3C. 9 November 2021. W3C Recommendation. URL: <a href="https://www.w3.org/TR/vc-data-model/">https://www.w3.org/TR/vc-data-model/</a></dd><dt id="bib-xmlschema-2">[XMLSCHEMA-2]</dt><dd><a href="https://www.w3.org/TR/xmlschema-2/"><cite>XML Schema Part 2: Datatypes Second Edition</cite></a>. Paul V. Biron; Ashok Malhotra.  W3C. 28 October 2004. W3C Recommendation. URL: <a href="https://www.w3.org/TR/xmlschema-2/">https://www.w3.org/TR/xmlschema-2/</a></dd><dt id="bib-xmlschema11-2">[XMLSCHEMA11-2]</dt><dd><a href="https://www.w3.org/TR/xmlschema11-2/"><cite>W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes</cite></a>. David Peterson; Sandy Gao; Ashok Malhotra; Michael Sperberg-McQueen; Henry Thompson; Paul V. Biron et al.  W3C. 5 April 2012. W3C Recommendation. URL: <a href="https://www.w3.org/TR/xmlschema11-2/">https://www.w3.org/TR/xmlschema11-2/</a></dd></dl>
+    <dl class="bibliography"><dt id="bib-ceds">[CEDS]</dt><dd><a href="https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf"><cite>Common Education Data Standards (CEDS) Version 7 Data Model Guide</cite></a>. URL: <a href="https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf">https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf</a></dd><dt id="bib-clr-10">[CLR-10]</dt><dd><a href="https://www.imsglobal.org/spec/clr/v1p0/"><cite>IMS Comprehensive Learner Record Standard Version 1.0</cite></a>.  IMS Global Learning Consortium. January 14, 2021. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/clr/v1p0/">https://www.imsglobal.org/spec/clr/v1p0/</a></dd><dt id="bib-clr-20">[CLR-20]</dt><dd><a href="https://www.imsglobal.org/spec/clr/v2p0/"><cite>Comprehensive Learner Record Standard v2.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/clr/v2p0/">https://www.imsglobal.org/spec/clr/v2p0/</a></dd><dt id="bib-did-core">[did-core]</dt><dd><a href="https://www.w3.org/TR/did-core/"><cite>Decentralized Identifiers (DIDs) v1.0</cite></a>. Manu Sporny; Amy Guy; Markus Sabadello; Drummond Reed.  W3C. 3 August 2021. W3C Proposed Recommendation. URL: <a href="https://www.w3.org/TR/did-core/">https://www.w3.org/TR/did-core/</a></dd><dt id="bib-did-use-cases">[did-use-cases]</dt><dd><a href="https://www.w3.org/TR/did-use-cases/"><cite>Use Cases and Requirements for Decentralized Identifiers</cite></a>. Joe Andrieu; Phil Archer; Kim Duffy; Ryan Grant; Adrian Gropper.  W3C. 17 March 2021. W3C Note. URL: <a href="https://www.w3.org/TR/did-use-cases/">https://www.w3.org/TR/did-use-cases/</a></dd><dt id="bib-ieee-754">[IEEE-754]</dt><dd><a href="http://ieeexplore.ieee.org/servlet/opac?punumber=4610933"><cite>IEEE Standard for Floating-Point Arithmetic</cite></a>.  Institute of Electrical and Electronics Engineers. 29 August 2008. URL: <a href="http://ieeexplore.ieee.org/servlet/opac?punumber=4610933">http://ieeexplore.ieee.org/servlet/opac?punumber=4610933</a></dd><dt id="bib-iso3166-1">[ISO3166-1]</dt><dd><a href="https://www.iso.org/standard/72482.html"><cite>Codes for the representation of names of countries and their subdivisions — Part 1: Country code</cite></a>.  International Organization for Standardization (ISO). August 2020. Published. URL: <a href="https://www.iso.org/standard/72482.html">https://www.iso.org/standard/72482.html</a></dd><dt id="bib-json-ld">[JSON-LD]</dt><dd><a href="https://www.w3.org/TR/json-ld/"><cite>JSON-LD 1.0</cite></a>. Manu Sporny; Gregg Kellogg; Markus Lanthaler.  W3C. 3 November 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a></dd><dt id="bib-json-ld11">[json-ld11]</dt><dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave Longley.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a></dd><dt id="bib-json-schema-2020-12">[json-schema-2020-12]</dt><dd><a href="https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00"><cite>JSON Schema: A Media Type for Describing JSON Documents. Draft 2020-12</cite></a>. Austin Wright; Henry Andrews; Ben Hutton; Greg Dennis.  Internet Engineering Task Force (IETF). 8 December 2020. Internet-Draft. URL: <a href="https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00">https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00</a></dd><dt id="bib-ob-20">[OB-20]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v2p0/"><cite>Open Badges v2.0</cite></a>. Otto, Nate; Bohrer, Jeff; Cook, Timothy; Gylling, Markus; Hripak, Alexander; Pitcher, Justin.  IMS Global Learning Consortium. April 2018. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/ob/v2p0/">https://www.imsglobal.org/spec/ob/v2p0/</a></dd><dt id="bib-ob-21">[OB-21]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v2p1/"><cite>Open Badges Specification v2.1</cite></a>. Jeff Bohrer; Andy Miller.  IMS Global Learning Consortium. October 7, 2020. IMS Candidate Final Public. URL: <a href="https://www.imsglobal.org/spec/ob/v2p1/">https://www.imsglobal.org/spec/ob/v2p1/</a></dd><dt id="bib-ob-30">[OB-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/"><cite>Open Badges Specification v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/">https://www.imsglobal.org/spec/ob/v3p0/</a></dd><dt id="bib-ob-cert-30">[OB-CERT-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/cert/"><cite>Open Badges Specification Conformance and Certification Guide v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/cert/">https://www.imsglobal.org/spec/ob/v3p0/cert/</a></dd><dt id="bib-ob-json-30">[OB-JSON-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/schema/json"><cite>Open Badges Specification JSON Schema v3.0</cite></a>.  IMS Global Learning Consortium. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/schema/json">https://www.imsglobal.org/spec/ob/v3p0/schema/json</a></dd><dt id="bib-openapis">[OPENAPIS]</dt><dd><a href="https://www.openapis.org/"><cite>OpenAPI Specification</cite></a>. Darrell Miller; Jeremy Whitlock; Marsh Gardiner; Mike Ralphson; Ron Ratovsky; Uri Sarid; Tony Tam; Jason Harmon.  OpenAPI Initiative. URL: <a href="https://www.openapis.org/">https://www.openapis.org/</a></dd><dt id="bib-rfc2397">[RFC2397]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2397"><cite>The "data" URL scheme</cite></a>. L. Masinter.  IETF. August 1998. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc2397">https://www.rfc-editor.org/rfc/rfc2397</a></dd><dt id="bib-rfc3629">[RFC3629]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc3629"><cite>UTF-8, a transformation format of ISO 10646</cite></a>. F. Yergeau.  IETF. November 2003. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3629">https://www.rfc-editor.org/rfc/rfc3629</a></dd><dt id="bib-rfc7797">[RFC7797]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc7797"><cite>JSON Web Signature (JWS) Unencoded Payload Option</cite></a>. M. Jones.  IETF. February 2016. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7797">https://www.rfc-editor.org/rfc/rfc7797</a></dd><dt id="bib-rfc8259">[RFC8259]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8259"><cite>The JavaScript Object Notation (JSON) Data Interchange Format</cite></a>. T. Bray, Ed..  IETF. December 2017. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a></dd><dt id="bib-rfc8949">[RFC8949]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8949"><cite>Concise Binary Object Representation (CBOR)</cite></a>. C. Bormann; P. Hoffman.  IETF. December 2020. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8949">https://www.rfc-editor.org/rfc/rfc8949</a></dd><dt id="bib-rsd">[RSD]</dt><dd><a href="https://www.openskillsnetwork.org/rsd"><cite>Rich Skill Descriptors</cite></a>. URL: <a href="https://www.openskillsnetwork.org/rsd">https://www.openskillsnetwork.org/rsd</a></dd><dt id="bib-vc-data-model">[vc-data-model]</dt><dd><a href="https://www.w3.org/TR/vc-data-model/"><cite>Verifiable Credentials Data Model v1.1</cite></a>. Manu Sporny; Grant Noble; Dave Longley; Daniel Burnett; Brent Zundel; Kyle Den Hartog.  W3C. 9 November 2021. W3C Recommendation. URL: <a href="https://www.w3.org/TR/vc-data-model/">https://www.w3.org/TR/vc-data-model/</a></dd><dt id="bib-xmlschema-2">[XMLSCHEMA-2]</dt><dd><a href="https://www.w3.org/TR/xmlschema-2/"><cite>XML Schema Part 2: Datatypes Second Edition</cite></a>. Paul V. Biron; Ashok Malhotra.  W3C. 28 October 2004. W3C Recommendation. URL: <a href="https://www.w3.org/TR/xmlschema-2/">https://www.w3.org/TR/xmlschema-2/</a></dd><dt id="bib-xmlschema11-2">[XMLSCHEMA11-2]</dt><dd><a href="https://www.w3.org/TR/xmlschema11-2/"><cite>W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes</cite></a>. David Peterson; Sandy Gao; Ashok Malhotra; Michael Sperberg-McQueen; Henry Thompson; Paul V. Biron et al.  W3C. 5 April 2012. W3C Recommendation. URL: <a href="https://www.w3.org/TR/xmlschema11-2/">https://www.w3.org/TR/xmlschema11-2/</a></dd></dl>
   </section></section><section id="contributors" class="appendix">
     <h2 id="h-list-of-contributors"><bdi class="secno">H. </bdi>List of Contributors<a class="self-link" aria-label="§" href="#contributors"></a></h2>
     <p>The following individuals contributed to the development of this document:</p>
