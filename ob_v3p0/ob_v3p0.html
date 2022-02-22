@@ -8,14 +8,8 @@
   <script src='respec-support/contributors.js' class='remove'></script>
   <script src='respec-support/iprs.js' class='remove'></script>
 
-  <!-- Load Digital Bazaar VC add-on -->
-  <script class="remove" src="https://dc.imsglobal.org/js/respec-vc/dist/main.js"></script>
-  <script class="remove">
-    const url = "https://imsglobal.github.io/openbadges-specification/context.json";
-    fetch(url)
-    .then(res => res.json())
-    .then(context => window.respecVc.addContext(url, context));
-  </script>
+  <!-- Load VC proof add-on -->
+  <script class="remove" src="https://purl.imsglobal.org/spec/respec-dev/respec-vc.js"></script>
 
   <!-- Load the CDM configuration -->
   <script class="remove" src="cdm-config.js"></script>
