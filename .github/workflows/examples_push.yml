@@ -1,4 +1,4 @@
-name: Build OB 3.0 Spec Preview
+name: Build Examples
 
 on:
   # Triggers the workflow on push or pull request events but only for the develop branch
@@ -6,11 +6,8 @@ on:
     branches: 
       - develop
     paths: 
-      - 'ob_v3p0/**'
-      - '!ob_v3p0/context.json'
-      - '!ob_v3p0/readme.md'
-      - '!ob_v3p0/examples.html'
-      - '.github/workflows/ob_v3p0_push.yml'
+      - 'ob_v3p0/examples.html'
+      - '.github/workflows/examples_push.yml'
 
 jobs:
   
@@ -35,8 +32,8 @@ jobs:
       # This will run the respec2html tool
       - uses: w3c/spec-prod@v2
         with:
-          SOURCE: "ob_v3p0/ob_v3p0.html"
-          DESTINATION: "docs/ob_v3p0.html"
+          SOURCE: "ob_v3p0/examples.html"
+          DESTINATION: "docs/examples.html"
           TOOLCHAIN: respec
           VALIDATE_MARKUP: false
           VALIDATE_WEBIDL: false
