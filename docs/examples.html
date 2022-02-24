@@ -1,0 +1,1870 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 26.16.1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+.hljs{background:0 0!important}
+:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
+dfn{font-weight:700}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+code{color:#c63501}
+th code{color:inherit}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+.toc a,.tof a{text-decoration:none}
+a .figno,a .secno{color:#000}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
+.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+.simple th a{color:#fff;padding:3px 5px;text-align:left}
+.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+.simple td{padding:3px 10px;border-top:1px solid #ddd}
+.simple tr:nth-child(even){background:#f0f6ff}
+.section dd>p:first-child{margin-top:0}
+.section dd>p:last-child{margin-bottom:0}
+.section dd{margin-bottom:1em}
+.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+h2,h3,h4,h5,h6{position:relative}
+aside.example .marker>a.self-link{color:inherit}
+:is(h2,h3,h4,h5,h6)>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
+:is(h2,h3,h4,h5,h6)>a.self-link::before{content:"§";display:block}
+@media (max-width:767px){
+dd{margin-left:0}
+:is(h2,h3,h4,h5,h6)>a.self-link{left:auto;top:auto}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+<style>
+span.example-title{text-transform:none}
+:is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
+div.illegal-example{color:red}
+div.illegal-example p{color:#000}
+:is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
+aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
+.example pre{background-color:rgba(0,0,0,.03)}
+</style>
+<style>
+.issue-label{text-transform:initial}
+.warning>p:first-child{margin-top:0}
+.warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
+span.warning{padding:.1em .5em .15em}
+.issue.closed span.issue-number{text-decoration:line-through}
+.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
+.warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
+li.task-list-item{list-style:none}
+input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
+.issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}
+</style>
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;margin-top:.25em}
+.dfn-panel ul a[href]{color:#333}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
+<style>
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Source+Code+Pro);
+:root{--fgclr1:rgba(0, 0, 0, 1);--fgclr2:rgba(0, 90, 156, 1);--fgclr3:rgba(70, 130, 180, 1);--fgclr4:rgba(40, 100, 150, 1);--gray:rgba(200, 200, 200, 0.9);--lightgray:rgba(240, 240, 240, 0.9);--lightestgray:rgba(250, 250, 250, 0.8);--darkgray:rgba(180, 180, 180, 1)}
+body{font-family:Roboto,Arial,Helvetica,sans-serif}
+code,pre,samp{font-family:'Source Code Pro',monospace}
+header{border-bottom:2px solid var(--gray);padding-bottom:2em}
+.header-top{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+a#ims-logo,a#logo{text-decoration:none;border:0}
+h1.title{font-size:200%}
+div.subtitle{font-size:150%;color:var(--fgclr2)}
+#cpr{margin-bottom:1.5em;margin-top:2.5em}
+#cpr p{margin-top:0;margin-bottom:0}
+.statusPD{position:fixed;display:block;top:0;left:0;width:300px;height:30px;text-align:right;padding-top:2px;padding-right:2em;background-color:red;color:#fff;font-size:20px;transform-origin:left top;transform:rotate(-90deg) translate(-100%,0);-ms-transform-origin:left top;-ms-transform:rotate(90deg);-webkit-transform-origin:left top;-webkit-transform:rotate(-90deg) translate(-100%,0);-moz-transform-origin:left top;-moz-transform:rotate(-90deg) translate(-100%,0);-o-transform-origin:left top;-o-transform:rotate(-90deg) translate(-100%,0);z-index:12000}
+.statusPD.final{background-color:#00f}
+dt,h1,h2,h3,h4,h5,h6{page-break-after:avoid;page-break-inside:avoid;font:100% sans-serif;font-family:inherit;line-height:1.2;-webkit-hyphens:manual;-ms-hyphens:manual;hyphens:manual}
+h2,h3,h4,h5,h6{margin-top:3rem}
+h1,h2,h3,h4{color:var(--fgclr4);background:0 0}
+h1{font-size:170%}
+h2{font-size:140%}
+h3{font-size:120%}
+h4{font-weight:700}
+h5{font-style:italic}
+h6{font-variant:small-caps}
+dt{font-weight:700}
+a[href].internalDFN{color:var(--fgclr1);text-decoration:none;border-bottom:1px var(--fgclr2) dotted}
+a[href]:focus,a[href]:hover{background:var(--lightgray)}
+a[href]:active{color:#c00;border-color:#c00}
+.example{border:1px solid var(--darkgray);counter-increment:example}
+.example figcaption{background-color:var(--fgclr3);color:#fff}
+section#revisionhistory table{margin-bottom:3em}
+div#endWarranty p{margin-top:.3em;margin-bottom:.3em}
+div#endWarranty{margin-top:6em;padding-top:3em;border-top:2px solid var(--gray);text-align:center}
+table{border-collapse:collapse;word-wrap:normal;overflow-wrap:normal;-webkit-hyphens:manual;-ms-hyphens:manual;hyphens:manual;width:100%;margin-top:1.5em;margin-bottom:1.5em;max-width:50em;border:1px solid var(--gray)}
+td,th{padding-left:1em;padding-right:1em;padding-left:1em;padding-right:1em;text-align:left;text-align:start;vertical-align:top;border:1px solid var(--gray)}
+th{font-weight:700;background-color:var(--fgclr3);color:#fff;padding:.6em}
+td{padding:.8em}
+th>*{padding:0;margin:0}
+table#no-cell-borders,table#version-table{border:1px solid var(--gray)}
+table#no-cell-borders td,table#version-table td{border:none}
+table#version-table td{padding:.2em}
+td code,td.pre{white-space:pre;overflow:scroll}
+table.index{font-size:small;border-collapse:collapse;border-spacing:0;text-align:left;margin:1em 0}
+table.index td,table.index th{padding:.4em}
+table.index tr:hover td:not([rowspan]),table.index tr:hover th:not([rowspan]){background:#f7f8f9}
+table.index th:first-child a{font-weight:700}
+.alert{border:2px solid red;padding:.3em}
+dt>dfn{font-weight:700}
+a[href].hidden-reveal::before{content:"›"}
+h2>a[href].self-link::before,h3>a[href].self-link::before,h4>a[href].self-link::before,h5>a[href].self-link::before,h6>a[href].self-link::before{content:"›"}
+a[href].hidden-reveal,a[href].hidden-reveal:visited{text-decoration:none;border-bottom:none}
+.admonition{margin-top:1em;margin-bottom:1em;margin:1em 0;border-left-width:.5em;border-left-style:solid;padding:.5em 1.2em .5em;position:relative;clear:both}
+.admonition .admon-top{padding-right:1em;min-width:7.5em;color:#e05252;text-transform:uppercase}
+.admonition .ednote-title,.admonition .note-title{color:#2b2}
+.admonition .ednote-title,.admonition .warning-title{color:#f22}
+.admonition.issue{border-color:#e05252;background:#fbe9e9;counter-increment:issue;overflow:auto}
+.admonition.ednote,.admonition.note{border-color:#52e052;background:#e9fbe9}
+.admonition>p:first-child{margin-top:0}
+.admonition.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9;padding-top:1em}
+.admonition .warning-title:before{content:"⚠";font-size:3em;float:left;height:100%;padding-right:.3em;vertical-align:top;margin-top:-.5em}
+body{-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;color:var(--fgclr1)}
+.figure,.sidefigure,figure{text-align:left}
+.figure img,.figure pre,.sidefigure img,.sidefigure pre,figure img,figure pre{display:unset}
+.caption,caption,figcaption{display:block;padding:.5em 0 .5em .5em}
+</style>
+<title>Open Badges Specification 3.0 
+    IMS Base Document</title>
+<meta name="description" content="This document contains informative examples.">
+<link rel="canonical" href="https://www.imsglobal.org/spec/ob/v3p0/doc/">
+<style>
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
+.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
+.hljs-literal{color:#0b76c5}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<style>
+
+  .vc-tabbed, .vp-tabbed {
+    overflow-x: hidden;
+    margin: 0 0;
+  }
+
+  .vc-tabbed [type="radio"], .vp-tabbed [type="radio"] {
+    display: none;
+  }
+
+  .vc-tabs, .vp-tabs {
+    display: flex;
+    align-items: stretch;
+    list-style: none;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+  }
+
+  li.vc-tab, li.vp-tab {
+    margin: unset;
+  }
+
+  .vc-tab > label, .vp-tab > label {
+    display: block;
+    margin-bottom: -1px;
+    padding: .4em .5em;
+    border: 1px solid #ccc;
+    border-top-right-radius: .4em;
+    border-top-left-radius: .4em;
+    background: #eee;
+    color: #666;
+    cursor: pointer;	
+    transition: all 0.3s;
+  }
+  .vc-tab:hover label, .vp-tab:hover {
+    border-left-color: #333;
+    border-top-color: #333;
+    border-right-color: #333;
+    color: #333;
+  }
+  
+  .vc-tab-content, .vp-tab-content {
+    display: none;
+  }
+
+  .vc-tabbed [type="radio"]:nth-of-type(1):checked ~ .vc-tabs .vc-tab:nth-of-type(1) label,
+  .vc-tabbed [type="radio"]:nth-of-type(2):checked ~ .vc-tabs .vc-tab:nth-of-type(2) label,
+  .vc-tabbed [type="radio"]:nth-of-type(3):checked ~ .vc-tabs .vc-tab:nth-of-type(3) label {
+    border-bottom-color: #fff;
+    background: #fff;
+    color: #222;
+  }
+  
+  .vc-tabbed [type="radio"]:nth-of-type(1):checked ~ .vc-tab-content:nth-of-type(1),
+  .vc-tabbed [type="radio"]:nth-of-type(2):checked ~ .vc-tab-content:nth-of-type(2),
+  .vc-tabbed [type="radio"]:nth-of-type(3):checked ~ .vc-tab-content:nth-of-type(3) {
+    display: block;
+  }
+
+  .vp-tabbed [type="radio"]:nth-of-type(1):checked ~ .vp-tabs .vp-tab:nth-of-type(1) label,
+  .vp-tabbed [type="radio"]:nth-of-type(2):checked ~ .vp-tabs .vp-tab:nth-of-type(2) label,
+  .vp-tabbed [type="radio"]:nth-of-type(3):checked ~ .vp-tabs .vp-tab:nth-of-type(3) label {
+    border-bottom-color: #fff;
+    background: #fff;
+    color: #222;
+  }
+  
+  .vp-tabbed [type="radio"]:nth-of-type(1):checked ~ .vp-tab-content:nth-of-type(1),
+  .vp-tabbed [type="radio"]:nth-of-type(2):checked ~ .vp-tab-content:nth-of-type(2),
+  .vp-tabbed [type="radio"]:nth-of-type(3):checked ~ .vp-tab-content:nth-of-type(3) {
+    display: block;
+  }
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "mainSpecTitle": "Open Badges Examples",
+  "mainSpecBiblioKey": "OB-30",
+  "specTitle": "Open Badges Specification",
+  "shortName": "ob",
+  "specNature": "informative",
+  "specType": "doc",
+  "specVersion": "3.0",
+  "docVersion": "0",
+  "specStatus": "IMS Base Document",
+  "localBiblio": {
+    "OB-30": {
+      "title": "Open Badges Specification v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/",
+      "status": "IMS Base Document",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "OB-CERT-30": {
+      "title": "Open Badges Specification Conformance and Certification Guide v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/cert/",
+      "status": "IMS Base Document",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "OB-INFO-30": {
+      "title": "Open Badges Specification Information Model v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html",
+      "status": "IMS Base Document",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "OB-BAKE-30": {
+      "title": "Open Badges Specification Baking a Badge v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/ImageBinding/ob_ImageBinding.html",
+      "status": "IMS Base Document",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "OB-REST-30": {
+      "title": "Open Badges Specification REST/JSON API v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html",
+      "status": "IMS Base Document",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "OB-OPEN-30": {
+      "title": "Open Badges Specification OpenAPI Schema v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/",
+      "status": "IMS Base Document",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "OB-JSON-30": {
+      "title": "Open Badges Specification JSON Schema v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/schema/json",
+      "status": "IMS Base Document",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "OB-JSONLD-30": {
+      "title": "Open Badges Specification JSON-LD Context v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/",
+      "status": "IMS Base Document",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "CLR-20": {
+      "title": "Comprehensive Learner Record Standard v2.0",
+      "href": "https://www.imsglobal.org/spec/clr/v2p0/",
+      "status": "IMS Base Document",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "CEDS": {
+      "title": "Common Education Data Standards (CEDS) Version 7 Data Model Guide",
+      "href": "https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf"
+    },
+    "RSD": {
+      "title": "Rich Skill Descriptors",
+      "href": "https://www.openskillsnetwork.org/rsd"
+    },
+    "DATA-INTEGRITY": {
+      "title": "Data Integrity 1.0",
+      "href": "https://w3c-ccg.github.io/data-integrity-spec/",
+      "authors": [
+        "Manu Sporny",
+        "Dave Longley"
+      ],
+      "status": "CG-DRAFT",
+      "publisher": "Credentials Community Group"
+    },
+    "VC-API": {
+      "title": "Verifiable Credentials HTTP API",
+      "href": "https://w3c-ccg.github.io/vc-api/",
+      "status": "W3C Community Group Draft Report",
+      "publisher": "Credentials Community Group"
+    },
+    "PRESENTATION-EXCHANGE-10": {
+      "title": "Presentation Exchange v1.0.0",
+      "href": "https://identity.foundation/presentation-exchange/spec/v1.0.0/",
+      "status": "DIF Ratified Specification",
+      "publisher": "Distributed Identity Foundation"
+    },
+    "OIDC-VCI": {
+      "title": "OpenID Connect for Verifiable Credential Issuance",
+      "href": "https://openid.net/specs/openid-connect-4-verifiable-credential-issuance-1_0.html",
+      "status": "Standards Track",
+      "publisher": "OpenID Foundation"
+    },
+    "OIDC-VP": {
+      "title": "OpenID Connect for Verifiable Presentations",
+      "href": "https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0.html",
+      "status": "Standards Track",
+      "publisher": "OpenID Foundation"
+    },
+    "BLTI-10": {
+      "title": "IMS Global Basic Learning Tools Interoperability v1.0",
+      "href": "https://www.imsglobal.org/lti/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "May 2010",
+      "status": "IMS Final Release",
+      "authors": [
+        "C. Severance"
+      ]
+    },
+    "CALIPER-11": {
+      "title": "Caliper® Analytics Specification 1.1",
+      "href": "https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "Whyte, Anthony",
+        "Haag, Viktor",
+        "Feng, Linda",
+        "Gylling, Markus",
+        "Ashbourne, Matt",
+        "LaMarche, Wes",
+        "Pelaprat, Etienne"
+      ]
+    },
+    "CALIPER-CERT-11": {
+      "title": "Caliper Analytics® Sensor Certification Guide 1.1",
+      "href": "https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-sensor-cert-guide-v1p1/caliper-sensor-cert-guide-v1p1.html",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "Whyte, Anthony"
+      ]
+    },
+    "CALIPER-IMPL-11": {
+      "title": "Caliper Analytics® Implementation Guide 1.1 @@@ TBD URL",
+      "href": "https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-implementation-guide-v1p1/caliper-implementation-guide-v1p1.html",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "@@@, TBD"
+      ]
+    },
+    "CALIPER-FEEDBACK-11": {
+      "title": "Caliper Analytics® Feedback Profile 1.1",
+      "href": "https://www.imsglobal.org/spec/caliper-feedback/v1p1/",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "Gardener, Andrew",
+        "Whyte, Anthony"
+      ]
+    },
+    "CALIPER-FEEDBACK-11-CONTEXT": {
+      "title": "Caliper Analytics® Feedback Profile Context 1.1 Extension",
+      "href": "https://purl.imsglobal.org/spec/caliper-feedback/v1p1/context/",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "CALIPER-FEEDBACK-11-ERRATA": {
+      "title": "Caliper Analytics® Feedback Profile 1.1 Errata",
+      "href": "https://www.imsglobal.org/spec/caliper-feedback/v1p1/errata/",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "CALIPER-RESOURCE-MANAGEMENT-11": {
+      "title": "Caliper Analytics® Resource Management Profile 1.1",
+      "href": "https://www.imsglobal.org/spec/caliper-resource-management/v1p1/",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "Gardener, Andrew",
+        "Whyte, Anthony"
+      ]
+    },
+    "CALIPER-RESOURCE-MANAGEMENT-11-CONTEXT": {
+      "title": "Caliper Analytics® Resource Management Profile Context 1.1 Extension",
+      "href": "https://purl.imsglobal.org/spec/caliper-resource-management/v1p1/context/",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "CALIPER-RESOURCE-MANAGEMENT-11-ERRATA": {
+      "title": "Caliper Analytics® Resource Management Profile 1.1 Errata",
+      "href": "https://www.imsglobal.org/spec/caliper-resource-management/v1p1/errata/",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "CALIPER-SEARCH-11": {
+      "title": "Caliper Analytics® Search Profile 1.1",
+      "href": "https://www.imsglobal.org/spec/caliper-search/v1p1/",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "Green, Daniel",
+        "Whyte, Anthony",
+        "Gylling, Markus"
+      ]
+    },
+    "CALIPER-SEARCH-11-CONTEXT": {
+      "title": "Caliper Analytics® Search Profile Context 1.1 Extension",
+      "href": "http://purl.imsglobal.org/ctx/caliper/v1p1/SearchProfile-extension",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "CALIPER-SEARCH-11-ERRATA": {
+      "title": "Caliper Analytics® Search Profile 1.1 Errata",
+      "href": "https://www.imsglobal.org/spec/caliper-search/v1p1/errata/",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "CALIPER-SURVEY-11": {
+      "title": "Caliper Analytics® Survey Profile 1.1",
+      "href": "https://www.imsglobal.org/spec/caliper-survey/v1p1/",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "Jang, Yeona",
+        "Andrew Gardener",
+        "Whyte, Anthony"
+      ]
+    },
+    "CALIPER-SURVEY-11-CONTEXT": {
+      "title": "Caliper Analytics® Survey Profile Context 1.1 Extension",
+      "href": "https://purl.imsglobal.org/spec/caliper-survey/v1p1/context/",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "CALIPER-SURVEY-11-ERRATA": {
+      "title": "Caliper Analytics® Survey Profile 1.1 Errata",
+      "href": "https://www.imsglobal.org/spec/caliper-survey/v1p1/errata/",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "CALIPER-TOOLLAUNCH-11": {
+      "title": "Caliper Analytics® Tool Launch Profile 1.1",
+      "href": "https://www.imsglobal.org/spec/caliper-toollaunch/v1p1/",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "Gylling, Markus",
+        "Haag, Viktor",
+        "Whyte, Anthony"
+      ]
+    },
+    "CALIPER-TOOLLAUNCH-11-CONTEXT": {
+      "title": "Caliper Analytics® Tool Launch Profile Context 1.1 Extension",
+      "href": "http://purl.imsglobal.org/ctx/caliper/v1p1/SearchProfile-extension",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "CALIPER-TOOLLAUNCH-11-ERRATA": {
+      "title": "Caliper Analytics® Tool Launch Profile 1.1 Errata",
+      "href": "https://www.imsglobal.org/spec/caliper-toollaunch/v1p1/errata/",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "CALIPER-TOOLUSE-11": {
+      "title": "Caliper Analytics® Tool Launch Profile 1.1",
+      "href": "https://www.imsglobal.org/spec/caliper-toollaunch/v1p1/",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "Dan Carroll",
+        "Gylling, Markus",
+        "Whyte, Anthony"
+      ]
+    },
+    "CALIPER-TOOLUSE-11-CONTEXT": {
+      "title": "Caliper Analytics® Tool Launch Profile Context 1.1 Extension",
+      "href": "http://purl.imsglobal.org/ctx/caliper/v1p1/SearchProfile-extension",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "CALIPER-TOOLUSE-11-ERRATA": {
+      "title": "Caliper Analytics® Tool Launch Profile 1.1 Errata",
+      "href": "https://www.imsglobal.org/spec/caliper-toollaunch/v1p1/errata/",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "CLR-10": {
+      "title": "IMS Comprehensive Learner Record Standard Version 1.0",
+      "href": "https://www.imsglobal.org/spec/clr/v1p0/",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "January 14, 2021"
+    },
+    "CLR-INFO-10": {
+      "title": "IMS Comprehensive Learner Record Standard Information Model Version 1.0",
+      "href": "https://www.imsglobal.org/spec/clr/v1p0/InfoModel/clr_InfoModel.html",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "January 14, 2021"
+    },
+    "CLR-REST-10": {
+      "title": "IMS Comprehensive Learner Record Standard REST/JSON Binding Version 1.0",
+      "href": "https://www.imsglobal.org/spec/clr/v1p0/RESTBinding/clr_RESTBind.html",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "January 14, 2021"
+    },
+    "CLR-IMPL-10": {
+      "title": "IMS Comprehensive Learner Record Standard v1.0: Implementation Guide",
+      "href": "https://www.imsglobal.org/spec/clr/v1p0/impl/",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "January 14, 2021"
+    },
+    "CLR-CERT-10": {
+      "title": "IMS Comprehensive Learner Record Standard v1.0: Conformance and Certification Guide",
+      "href": "https://www.imsglobal.org/spec/clr/v1p0/cert/",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "February 5, 2021"
+    },
+    "CLR-OPEN-10": {
+      "title": "IMS Comprehensive Learner Record Standard v1.0: OpenAPI Schema",
+      "href": "https://purl.imsglobal.org/spec/clr/v1p0/schema/openapi/",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "January 14, 2021"
+    },
+    "CLR-JSON-10": {
+      "title": "IMS Comprehensive Learner Record Standard v1.0: JSON Schema",
+      "href": "https://purl.imsglobal.org/spec/clr/v1p0/schema/json/",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "January 14, 2021"
+    },
+    "CLR-JSONLD-10": {
+      "title": "IMS Comprehensive Learner Record Standard v1.0: JSON-LD Context",
+      "href": "https://purl.imsglobal.org/spec/clr/v1p0/context/",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "January 14, 2021"
+    },
+    "GWS-10": {
+      "title": "IMS Global General Web Services WSDL Binding Guidelines v1.0",
+      "href": "https://www.imsglobal.org/gws/",
+      "date": "January 2006",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "C. Schroeder",
+        "J. Simon",
+        "C. Smythe"
+      ]
+    },
+    "LIS-20": {
+      "title": "IMS Global Learning Information Services v2.0",
+      "href": "https://www.imsglobal.org/lis/",
+      "date": "June 2011",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "L. Feng",
+        "W. Lee",
+        "C. Smythe"
+      ]
+    },
+    "LIS-OMS": {
+      "title": "IMS Outcomes Management Service Information Model v1.0",
+      "href": "https://www.imsglobal.org/lis/",
+      "date": "March 2010",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "L. Feng",
+        "W. Lee",
+        "C. Smythe"
+      ]
+    },
+    "LTI-AGS-20": {
+      "title": "IMS Global Learning Tools Interoperability® Assignment and Grade Services",
+      "href": "https://www.imsglobal.org/spec/lti-ags/v2p0/",
+      "date": "April 2019",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "C. Vervoort",
+        "E. Preston",
+        "M. McKell",
+        "J. Rissler"
+      ]
+    },
+    "LTI-11": {
+      "title": "IMS Global Learning Tools Interoperability® Implementation Guide",
+      "href": "https://www.imsglobal.org/specs/ltiv1p1",
+      "date": "March 13, 2012",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "G. McFall",
+        "M. McKell",
+        "L. Neumann",
+        "C. Severance"
+      ]
+    },
+    "LTI-BO-11": {
+      "title": "IMS Global Learning Tools Interoperability® Basic Outcomes",
+      "href": "https://www.imsglobal.org/spec/lti-bo/v1p1/",
+      "date": "7 May 2019",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "C. Vervoort"
+      ]
+    },
+    "LTI-BO-11-JSONSCH": {
+      "title": "IMS Global Learning Tools Interoperability® Basic Outcomes JSON Schema",
+      "href": "https://purl.imsglobal.org/spec/lti-bo/v1p1/schema/json/",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "LTI-BO-11-ERRATA": {
+      "title": "IMS Global Learning Tools Interoperability® Basic Outcomes Errata",
+      "href": "https://www.imsglobal.org/spec/lti-bo/v1p1/errata/",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "LTI-13": {
+      "title": "IMS Global Learning Tools Interoperability® Core Specification v1.3",
+      "href": "https://www.imsglobal.org/spec/lti/v1p3/",
+      "date": "April 2019",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "C. Vervoort",
+        "N. Mills"
+      ]
+    },
+    "LTI-CORE-13-ERRATA": {
+      "title": "IMS Global Learning Tools Interoperability® Core Specification v1.3 Errata",
+      "href": "https://www.imsglobal.org/spec/lti-core/v1p3/errata/",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "LTI-OUT": {
+      "title": "IMS Global Learning Tools Interoperability® Outcomes Management",
+      "href": "https://www.imsglobal.org/specs/ltiomv1p0/specification",
+      "date": "January 2015",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "S. Vickers"
+      ]
+    },
+    "LTI-DL-10": {
+      "title": "IMS Global Learning Tools Interoperability® Deep Linking 1.0",
+      "href": "https://www.imsglobal.org/specs/lticiv1p0/specification",
+      "date": "May 2016",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "S. Vickers"
+      ]
+    },
+    "LTI-DL-20": {
+      "title": "IMS Global Learning Tools Interoperability® Deep Linking 2.0",
+      "href": "https://www.imsglobal.org/spec/lti-dl/v2p0/",
+      "date": "April 2019",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "C. Vervoort",
+        "E. Preston"
+      ]
+    },
+    "LTI-DL-20-ERRATA": {
+      "title": "IMS Global Learning Tools Interoperability® Deep Linking 2.0 Errata",
+      "href": "https://www.imsglobal.org/spec/lti-dl/v2p0/errata/",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "LTI-CERT-13": {
+      "title": "IMS Global Learning Tools Interoperability® Advantage Conformance Certification Guide",
+      "href": "https://www.imsglobal.org/spec/lti/v1p3/cert/",
+      "date": "April 2019",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "D. Haskins",
+        "M. McKell"
+      ]
+    },
+    "LTI-IMPL-13": {
+      "title": "IMS Global Learning Tools Interoperability® Advantage Implementation Guide",
+      "href": "https://www.imsglobal.org/spec/lti/v1p3/impl/",
+      "date": "April 2019",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "C. Vervoort",
+        "J. Rissler",
+        "M. McKell"
+      ]
+    },
+    "LTI-MIGR-13": {
+      "title": "IMS Global Learning Tools Interoperability® Advantage Migration Guide",
+      "href": "https://www.imsglobal.org/spec/lti/v1p3/migr/",
+      "date": "May 2019",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "C. Vervoort",
+        "J. Rissler"
+      ]
+    },
+    "LTI-NRPS-20": {
+      "title": "IMS Global Learning Tools Interoperability® Names and Role Provisioning Services",
+      "href": "https://www.imsglobal.org/spec/lti-nrps/v2p0/",
+      "date": "April 2019",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "C. Vervoort",
+        "E. Preston",
+        "J. Rissler"
+      ]
+    },
+    "LTI-NRPS-10": {
+      "title": "IMS Global Learning Tools Interoperability® Names and Role Provisioning Services",
+      "href": "https://www.imsglobal.org/specs/ltimemv1p0",
+      "date": "24 May 2016",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "S. Vickers"
+      ]
+    },
+    "OB-20": {
+      "title": "Open Badges v2.0",
+      "href": "https://www.imsglobal.org/spec/ob/v2p0/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release",
+      "authors": [
+        "Otto, Nate",
+        "Bohrer, Jeff",
+        "Cook, Timothy",
+        "Gylling, Markus",
+        "Hripak, Alexander",
+        "Pitcher, Justin"
+      ]
+    },
+    "OB-ERRATA-20": {
+      "title": "Open Badges v2.0 Errata",
+      "href": "https://www.imsglobal.org/spec/ob/v2p0/errata/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release"
+    },
+    "OB-21": {
+      "title": "Open Badges Specification v2.1",
+      "href": "https://www.imsglobal.org/spec/ob/v2p1/",
+      "date": "October 7, 2020",
+      "status": "IMS Candidate Final Public",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "Jeff Bohrer",
+        "Andy Miller"
+      ]
+    },
+    "OB-CERT-21": {
+      "title": "Open Badges Conformance and Certification Guide v2.1",
+      "href": "https://www.imsglobal.org/spec/ob/v2p1/cert/",
+      "date": "October 7, 2020",
+      "status": "IMS Candidate Final Public",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "Jeff Bohrer",
+        "Andy Miller"
+      ]
+    },
+    "OB-ERRATA-21": {
+      "title": "Open Badges Errata v2.1",
+      "href": "https://www.imsglobal.org/spec/ob/v2p1/errata/",
+      "date": "October 7, 2020",
+      "status": "IMS Candidate Final Public",
+      "publisher": "IMS Global Learning Consortium"
+    },
+    "OB-JSON-21": {
+      "title": "JSON Schema Files for Open Badges Badge Connect(TM) API v2.1",
+      "href": "https://purl.imsglobal.org/spec/ob/v2p1/schema/json/",
+      "date": "October 7, 2020",
+      "status": "IMS Candidate Final Public",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "Jeff Bohrer",
+        "Andy Miller"
+      ]
+    },
+    "OB-JSONLD-21": {
+      "title": "Open Badges JSON-LD Context File",
+      "href": "https://purl.imsglobal.org/spec/ob/v2p1/context/",
+      "date": "October 7, 2020",
+      "status": "IMS Candidate Final Public",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "Jeff Bohrer",
+        "Alex Hripak",
+        "Andy Miller",
+        "Nate Otto"
+      ]
+    },
+    "OB-OPEN-21": {
+      "title": "OpenAPI 3.0 File for Open Badges Badge Connect(TM) API v2.1",
+      "href": "https://purl.imsglobal.org/spec/ob/v2p1/schema/openapi/imsob_v2p1.yaml",
+      "date": "October 7, 2020",
+      "status": "IMS Candidate Final Public",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "Jeff Bohrer",
+        "Andy Miller"
+      ]
+    },
+    "OB-ASSMT-10": {
+      "title": "Open Badges Assessment Extension v1.0",
+      "href": "https://www.imsglobal.org/spec/ob-assessment/v1p0/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release",
+      "authors": [
+        "Otto, Nate"
+      ]
+    },
+    "OB-ASSMT-10-ERRATA": {
+      "title": "Open Badges Assessment Extension v1.0 Errata",
+      "href": "https://www.imsglobal.org/spec/ob-assessment/v1p0/errata/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release"
+    },
+    "OB-ASSMT-10-SCHEMA": {
+      "title": "Open Badges Assessment Extension v1.0 JSON Schema",
+      "href": "https://purl.imsglobal.org/spec/ob-assessment/v1p0/schema/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release"
+    },
+    "OB-ASSMT-10-CONTEXT": {
+      "title": "Open Badges Assessment Extension v1.0 JSON-LD Context",
+      "href": "https://purl.imsglobal.org/spec/ob-assessment/v1p0/context/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release"
+    },
+    "OB-ACCRED-10": {
+      "title": "Open Badges Issuer Accreditation Extension v1.0",
+      "href": "https://www.imsglobal.org/spec/ob-accred/v1p0/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release",
+      "authors": [
+        "Otto, Nate"
+      ]
+    },
+    "OB-ACCRED-10-ERRATA": {
+      "title": "Open Badges Issuer Accreditation Extension v1.0 Errata",
+      "href": "https://www.imsglobal.org/spec/ob-accred/v1p0/errata/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release"
+    },
+    "OB-ACCRED-10-SCHEMA": {
+      "title": "Open Badges Issuer Accreditation Extension v1.0 JSON Schema",
+      "href": "https://purl.imsglobal.org/spec/ob-accred/v1p0/schema/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release"
+    },
+    "OB-ACCRED-10-CONTEXT": {
+      "title": "Open Badges Assessment Extension v1.0 JSON-LD Context",
+      "href": "https://purl.imsglobal.org/spec/ob-accred/v1p0/context/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release"
+    },
+    "OB-EXDESC-10": {
+      "title": "Open Badges Extra Description Extension v1.0",
+      "href": "https://www.imsglobal.org/spec/ob-exdesc/v1p0/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release",
+      "authors": [
+        "Otto, Nate"
+      ]
+    },
+    "OB-EXDESC-10-ERRATA": {
+      "title": "Open Badges Extra Description Extension v1.0 Errata",
+      "href": "https://www.imsglobal.org/spec/ob-exdesc/v1p0/errata/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release"
+    },
+    "OB-EXDESC-10-SCHEMA": {
+      "title": "Open Badges Extra Description Extension v1.0 JSON Schema",
+      "href": "https://purl.imsglobal.org/spec/ob-exdesc/v1p0/schema/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release"
+    },
+    "OB-EXDESC-10-CONTEXT": {
+      "title": "Open Badges Extra Description Extension v1.0 JSON-LD Context",
+      "href": "https://purl.imsglobal.org/spec/ob-exdesc/v1p0/context/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release"
+    },
+    "SEC-10": {
+      "title": "IMS Global Security Framework v1.0",
+      "href": "https://www.imsglobal.org/spec/security/v1p0/",
+      "date": "April 2019",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "C. Smythe",
+        "C. Vervoort",
+        "M. McKell",
+        "N. Mills"
+      ]
+    },
+    "SEC-11": {
+      "title": "IMS Global Security Framework v1.1",
+      "href": "https://www.imsglobal.org/spec/security/v1p1/",
+      "date": "July 19th, 2021",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "authors": [
+        "C. Smythe",
+        "C. Vervoort",
+        "M. McKell"
+      ]
+    },
+    "OPENAPIS-3.0": {
+      "title": "OpenAPI Specification 3.0",
+      "href": "https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md",
+      "publisher": "OpenAPI Initiative (Linux Foundation)",
+      "date": "July 2017"
+    },
+    "OAUTH2-SBP": {
+      "title": "OAuth 2.0 Security Best Current Practice (draft-ietf-oauth-security-topics-11",
+      "href": "https://datatracker.ietf.org/doc/draft-ietf-oauth-security-topics/",
+      "publisher": "IETF",
+      "date": "December 28, 2019"
+    },
+    "CP-12": {
+      "title": "Content Packaging v1.2",
+      "href": "https://www.imsglobal.org/content/packaging/index.html",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "March 2007",
+      "status": "IMS Public Draft v2.0"
+    },
+    "AFA-30": {
+      "title": "AccessForAll v3.0",
+      "href": "https://www.imsglobal.org/activity/accessibility/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "September 2012",
+      "status": "IMS Public Draft"
+    },
+    "CASE-10": {
+      "title": "IMS Competencies and Academic Standards Exchange (CASE) Service Version 1.0",
+      "href": "https://www.imsglobal.org/sites/default/files/CASE/casev1p0/information_model/caseservicev1p0_infomodelv1p0.html",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "July 7, 2017"
+    },
+    "CASE-REST-10": {
+      "title": "IMS Competencies and Academic Standards Exchange (CASE) Service REST/JSON Binding Version 1.0",
+      "href": "https://www.imsglobal.org/sites/default/files/CASE/casev1p0/rest_binding/caseservicev1p0_restbindv1p0.html",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "July 7, 2017"
+    },
+    "CASE-CERT-10": {
+      "title": "IMS Competencies and Academic Standards Exchange (CASE) Service Version 1.0: Conformance and Certification",
+      "href": "https://www.imsglobal.org/sites/default/files/CASE/casev1p0/conformance/caseservicev1p0_conformancecertificationv1p0.html",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "July 7, 2017"
+    },
+    "CASE-IMPL-10": {
+      "title": "IMS Competencies and Academic Standards Exchange (CASE) Service Version 1.0: Best Practices and Implementation Guide",
+      "href": "https://www.imsglobal.org/sites/default/files/CASE/casev1p0/best_practices/caseservicev1p0_bestpracticesv1p0.html",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "July 7, 2017"
+    },
+    "QTI-IMPL-21": {
+      "title": "QTI Best Practice and Implementation Guide v2.1",
+      "href": "https://www.imsglobal.org/question/qtiv2p1/imsqti_implv2p1.html",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "August 2012",
+      "status": "IMS Final Release"
+    },
+    "QTI-IMPL-22": {
+      "title": "QTI Best Practice and Implementation Guide v2.2",
+      "href": "https://www.imsglobal.org/question/qtiv2p2/imsqti_v2p2_impl.html",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "September 2015",
+      "status": "IMS Final Release"
+    },
+    "APIP-IMPL-10": {
+      "title": "APIP Best Practice and Implementation Guide v1.0",
+      "href": "https://www.imsglobal.org/APIP/apipv1p0/APIP_BPI_v1p0.html",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "March 2014",
+      "status": "IMS Final Release"
+    },
+    "QTI-30": {
+      "title": "Question and Test Interoperability v3",
+      "href": "https://www.imsglobal.org/qti/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2020",
+      "status": "IMS Final Release"
+    },
+    "QTI-IMPL-30": {
+      "title": "QTI Best Practice and Implementation Guide v3",
+      "href": "https://www.imsglobal.org/spec/qti/v3p0/impl/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2020",
+      "status": "IMS Final Release"
+    },
+    "QTI-CERT-30": {
+      "title": "QTI Conformance and Certification v3",
+      "href": "https://www.imsglobal.org/spec/qti/v3p0/cert/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2020",
+      "status": "IMS Final Release"
+    },
+    "QTI-TERM-30": {
+      "title": "QTI Terms and Definitions v3",
+      "href": "https://www.imsglobal.org/spec/qti/v3p0/term/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2020",
+      "status": "IMS Final Release"
+    },
+    "QTI-MIGR-30": {
+      "title": "QTI Migration Guide v3",
+      "href": "https://www.imsglobal.org/spec/qti/v3p0/migr/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2020",
+      "status": "IMS Final Release"
+    },
+    "QTI-INFO-30": {
+      "title": "QTI Assessment Test, Section and Item Information Model v3",
+      "href": "https://www.imsglobal.org/spec/qti/v3p0/info/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2020",
+      "status": "IMS Final Release"
+    },
+    "QTI-BIND-30": {
+      "title": "QTI Assessment Test, Section and Item Binding v3",
+      "href": "https://www.imsglobal.org/spec/qti/v3p0/bind/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2020",
+      "status": "IMS Final Release"
+    },
+    "QTI-HTML-BIND-30": {
+      "title": "QTI HTML5 Information Model and Binding v3",
+      "href": "https://www.imsglobal.org/spec/qti/v3p0/html-bind/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2020",
+      "status": "IMS Final Release"
+    },
+    "QTI-MD-BIND-30": {
+      "title": "QTI Metadata Information Model and Binding v3",
+      "href": "https://www.imsglobal.org/spec/qti/v3p0/md-bind/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2020",
+      "status": "IMS Final Release"
+    },
+    "QTI-RR-30": {
+      "title": "QTI Results Reporting Information Model and Binding v3",
+      "href": "https://www.imsglobal.org/spec/qti/v3p0/rr-bind/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2020",
+      "status": "IMS Final Release"
+    },
+    "QTI-UD-30": {
+      "title": "QTI Usage Data Information Model and Binding v3",
+      "href": "https://www.imsglobal.org/spec/qti/v3p0/ud-bind/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2020",
+      "status": "IMS Final Release"
+    },
+    "QTI-OVIEW-30": {
+      "title": "QTI Overview v3",
+      "href": "https://www.imsglobal.org/spec/qti/v3p0/oview/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2020",
+      "status": "IMS Final Release"
+    },
+    "QTI-BEGIN-30": {
+      "title": "QTI Beginners Guide v3",
+      "href": "https://www.imsglobal.org/spec/qti/v3p0/begin/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2020",
+      "status": "IMS Final Release"
+    },
+    "CAT-10": {
+      "title": "IMS Global Computer Adaptive Testing v1",
+      "href": "https://www.imsglobal.org/spec/cat/v1p0/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "August 2019",
+      "status": "IMS Candidate Final Public"
+    },
+    "CC-13": {
+      "title": "IMS Global Common Cartridge v1.3",
+      "href": "http://www.imsglobal.org/cc/index.html",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "July 2013",
+      "status": "IMS Final Release"
+    },
+    "MD-13": {
+      "title": "IMS Meta-data Best Practice Guide for IEEE 1484.12.1-2002 Standard for Learning Object Metadata v1.3",
+      "href": "http://www.imsglobal.org/metadata/index.html",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "August 2006",
+      "status": "IMS Final Release"
+    },
+    "OR-CSV-12": {
+      "title": "OneRoster 1.2 CSV Binding",
+      "href": "https://www.imsglobal.org/sites/default/files/spec/oneroster/v1p2/ims-oneroster-v1p2-final-csvbindv1p0.html",
+      "date": "July, 2020",
+      "publisher": "IMS Global Learning Consortium, Inc.",
+      "authors": [
+        "Colin Smythe",
+        "Matthew Richards",
+        "Joshua McGhee"
+      ]
+    },
+    "OR-GBK-SM-12": {
+      "title": "OneRoster 1.2 Gradebook Service Information Model",
+      "href": "https://www.imsglobal.org/sites/default/files/spec/oneroster/v1p2/ims-oneroster-gradebook-v1p2-final-infomodelv1p0.html",
+      "date": "July, 2020",
+      "publisher": "IMS Global Learning Consortium, Inc.",
+      "authors": [
+        "Colin Smythe",
+        "Matthew Richards",
+        "Joshua McGhee"
+      ]
+    },
+    "OR-RES-SM-12": {
+      "title": "OneRoster 1.2 Resource Service Information Model",
+      "href": "https://www.imsglobal.org/sites/default/files/spec/oneroster/v1p2/ims-oneroster-resource-v1p2-final-infomodelv1p0.html",
+      "date": "July, 2020",
+      "publisher": "IMS Global Learning Consortium, Inc.",
+      "authors": [
+        "Colin, Smythe",
+        "Matthew, Richards",
+        "Joshua, McGhee"
+      ]
+    },
+    "OR-ROS-SM-12": {
+      "title": "OneRoster 1.2 Rostering Service Information Model",
+      "href": "https://www.imsglobal.org/sites/default/files/spec/oneroster/v1p2/ims-oneroster-rostering-v1p2-final-infomodelv1p0.html",
+      "date": "July, 2020",
+      "publisher": "IMS Global Learning Consortium, Inc.",
+      "author": [
+        "Colin, Smythe",
+        "Matthew, Richards",
+        "Joshua, McGhee"
+      ]
+    },
+    "OR-GBK-RJ-12": {
+      "title": "OneRoster 1.2 Gradebook Service REST Binding",
+      "href": "https://www.imsglobal.org/sites/default/files/spec/oneroster/v1p2/ims-oneroster-gradebook-v1p2-final-restbindv1p0.html",
+      "publisher": "IMS Global Learning Consortium, Inc.",
+      "date": "July, 2020",
+      "authors": [
+        "Colin, Smythe",
+        "Matthew, Richards",
+        "Joshua, McGhee"
+      ]
+    },
+    "OR-RES-RJ-12": {
+      "title": "OneRoster 1.2 Resource Service REST Binding",
+      "href": "https://www.imsglobal.org/sites/default/files/spec/oneroster/v1p2/ims-oneroster-resource-v1p2-final-restbindv1p0.html",
+      "publisher": "IMS Global Learning Consortium, Inc.",
+      "date": "July, 2020",
+      "authors": [
+        "Colin, Smythe",
+        "Matthew, Richards",
+        "Joshua, McGhee"
+      ]
+    },
+    "OR-ROS-RJ-12": {
+      "title": "OneRoster 1.2 Rostering Service REST Binding",
+      "href": "https://www.imsglobal.org/sites/default/files/spec/oneroster/v1p2/ims-oneroster-rostering-v1p2-final-restbindv1p0.html",
+      "publisher": "IMS Global Learning Consortium, Inc.",
+      "date": "July, 2020",
+      "authors": [
+        "Colin, Smythe",
+        "Matthew, Richards",
+        "Joshua, McGhee"
+      ]
+    },
+    "OR-IMPL-12": {
+      "title": "OneRoster 1.2 Implementation Guide",
+      "href": "https://www.imsglobal.org/spec/oneroster/v1p2/impl/",
+      "publisher": "IMS Global Learning Consortium, Inc.",
+      "date": "July, 2020",
+      "authors": [
+        "Colin, Smythe",
+        "Matthew, Richards",
+        "Joshua, McGhee"
+      ]
+    },
+    "OR-CERT-12": {
+      "title": "OneRoster 1.2 Conformance and Certification Guide",
+      "href": "https://www.imsglobal.org/spec/oneroster/v1p2/cert/",
+      "publisher": "IMS Global Learning Consortium, Inc.",
+      "date": "July, 2020",
+      "authors": [
+        "Colin, Smythe",
+        "Matthew, Richards",
+        "Joshua, McGhee"
+      ]
+    }
+  },
+  "postProcess": [
+    null
+  ]
+}</script></head>
+
+<body class="informative toc-inline"><header>
+    <div class="header-top">
+      <h1 class="title" id="title">Open Badges Specification</h1>
+      <a href="https://www.imsglobal.org" id="ims-logo">
+        <img src="https://www.imsglobal.org/sites/default/files/IMSglobalreg2_2.png" alt="IMS logo">
+      </a>
+    </div>
+     
+    <table id="version-table" title="Version/Release Details" summary="Details about the version and release.">
+      <tbody>
+        <tr>
+          <td>Date Issued:</td>
+          <td>24 February 2022</td>
+        </tr>
+        <tr>
+          <td>Status:</td>
+          <td>This is an informative IMS Global document that may be revised at any time.</td>
+        </tr>
+      </tbody>
+    </table> <div id="ipr">
+      <h2>IPR and Distribution Notice</h2>
+      <p>
+        Recipients of this document are requested to submit, with their
+        comments, notification of any relevant patent claims or other
+        intellectual property rights of which they may be aware that might be
+        infringed by any implementation of the specification set forth in this
+        document, and to provide supporting documentation.
+      </p>
+      <p>
+        IMS takes no position regarding the validity or scope of any
+        intellectual property or other rights that might be claimed to pertain
+        implementation or use of the technology described in this document or
+        the extent to which any license under such rights might or might not be
+        available; neither does it represent that it has made any effort to
+        identify any such rights. Information on IMS's procedures with respect
+        to rights in IMS specifications can be found at the IMS Intellectual
+        Property Rights webpage:
+        <a href="http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf">
+          http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf </a>.
+      </p>
+    </div> <div id="disclosure">
+      <p>
+        Use of this specification to develop products or services is governed by
+        the license with IMS found on the IMS website:
+        <a href="http://www.imsglobal.org/speclicense.html">
+          http://www.imsglobal.org/speclicense.html</a>.
+      </p>
+      <p>
+        Permission is granted to all parties to use excerpts from this document
+        as needed in producing requests for proposals.
+      </p>
+      <p>
+        The limited permissions granted above are perpetual and will not be
+        revoked by IMS or its successors or assigns.
+      </p>
+      <p>
+        THIS SPECIFICATION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND
+        IN PARTICULAR, ANY WARRANTY OF NONINFRINGEMENT IS EXPRESSLY DISCLAIMED.
+        ANY USE OF THIS SPECIFICATION <em class="rfc2119">SHALL</em> BE MADE ENTIRELY AT THE
+        IMPLEMENTER'S OWN RISK, AND NEITHER THE CONSORTIUM, NOR ANY OF ITS
+        MEMBERS OR SUBMITTERS, <em class="rfc2119">SHALL</em> HAVE ANY LIABILITY WHATSOEVER TO ANY
+        IMPLEMENTER OR THIRD PARTY FOR ANY DAMAGES OF ANY NATURE WHATSOEVER,
+        DIRECTLY OR INDIRECTLY, ARISING FROM THE USE OF THIS SPECIFICATION.
+      </p>
+      <p>
+        Public contributions, comments and questions can be posted here:
+        <a href="http://www.imsglobal.org/forums/ims-glc-public-forums-and-resources">
+          http://www.imsglobal.org/forums/ims-glc-public-forums-and-resources
+        </a>.
+      </p>
+    </div>
+    <div id="cpr">
+    <p>
+      © 2022 IMS Global Learning Consortium, Inc. All
+      Rights Reserved.
+    </p>
+    <p>
+      Trademark information:
+      <a href="http://www.imsglobal.org/copyright.html">http://www.imsglobal.org/copyright.html
+      </a>
+    </p>
+  </div>
+  </header>
+
+  <section id="abstract" class="introductory">
+    <h2 id="overview">Overview<a class="self-link" aria-label="§" href="#abstract"></a></h2>
+    <p>This document contains informative examples.</p>
+    <p>A basic example with no special processing is coded like this:</p>
+    <pre aria-busy="false"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">pre</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example json"</span>&gt;</span>
+  { ... }
+<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span></code></pre>
+    <p>If you want to add a title to the example:</p>
+    <pre aria-busy="false"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">pre</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example json"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Sample"</span>&gt;</span>
+  { ... }
+<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span></code></pre>
+    <p>If you want to add schema validation, add the <code>data-schema</code> attribute:</p>
+    <div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="3"><span>Note</span></div><p class="">
+      Data schema validation requires the model to be loaded in the CDM. Schema validation
+      errors will appear above the example. See, for example, <a href="#schema-validation" class="sec-ref">§&nbsp;<bdi class="secno">A.3 </bdi>Sample with schema validation</a>.
+    </p></div>
+    <pre aria-busy="false"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">pre</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example json"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Sample"</span>
+   <span class="hljs-attr">data-schema</span>=<span class="hljs-string">"org.1edtech.ob.v3p0.address.class"</span>&gt;</span>
+  { ... }
+<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span></code></pre>
+    <p>
+      If you want to add proofs, add the <code>vc</code> or <code>vp</code> class and
+      optionally a <code>data-vc-vm</code> attribute with the verification method (public key).
+    </p>
+    <div class="note" role="note" id="issue-container-generatedID-0"><div role="heading" class="note-title marker" id="h-note-0" aria-level="3"><span>Note</span></div><p class="">
+      If there is an error generating the proof, the proof tabs will not appear and the
+      error will appear in the browser console.
+    </p></div>
+    <pre aria-busy="false"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">pre</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example json vc"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Sample"</span>
+   <span class="hljs-attr">data-vc-vm</span>=<span class="hljs-string">"https://example.edu/jkws#key-1"</span>&gt;</span>
+  { ... }
+<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span></code></pre>
+    <p>
+      Each example should be in its own <code>&lt;section&gt;&lt;/section&gt;</code> so it appears
+      in the TOC.
+    </p>
+    <pre aria-busy="false"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>My Sample<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">pre</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example json vc"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Sample"</span>
+    <span class="hljs-attr">data-schema</span>=<span class="hljs-string">"org.1edtech.ob.v3p0.address.class"</span>
+    <span class="hljs-attr">data-vc-vm</span>=<span class="hljs-string">"https://example.edu/jkws#key-1"</span>&gt;</span>
+    { ... }
+  <span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></code></pre>
+  </section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview">Overview<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#examples"><bdi class="secno">1. </bdi>Examples<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#sample-examples"><bdi class="secno">A. </bdi>Sample Examples<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sample-with-no-special-processing"><bdi class="secno">A.1 </bdi>Sample with no special processing<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#sample-with-proofs-applied"><bdi class="secno">A.2 </bdi>Sample with proofs applied<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#schema-validation"><bdi class="secno">A.3 </bdi>Sample with schema validation<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></nav>
+
+  <section id="examples-0">
+    <h2 id="examples"><bdi class="secno">1. </bdi>Examples<a class="self-link" aria-label="§" href="#examples"></a><a class="self-link" aria-label="§" href="#examples"></a></h2>
+
+    
+
+  </section>
+
+  <section class="appendix" id="sample-examples-0">
+    <h2 id="sample-examples"><bdi class="secno">A. </bdi>Sample Examples<a class="self-link" aria-label="§" href="#sample-examples"></a><a class="self-link" aria-label="§" href="#sample-examples"></a></h2>
+    <section id="sample-with-no-special-processing-0">
+      <h3 id="sample-with-no-special-processing"><bdi class="secno">A.1 </bdi>Sample with no special processing<a class="self-link" aria-label="§" href="#sample-with-no-special-processing"></a><a class="self-link" aria-label="§" href="#sample-with-no-special-processing"></a></h3>
+      <div class="example" id="example-1">
+        <div class="marker">
+    <a class="self-link" href="#example-1">Example<bdi> 1</bdi></a>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+  <span class="hljs-attr">"@context"</span>: [
+    <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
+    <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>
+  ],
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://example.edu/credentials/3732"</span>,
+  <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"VerifiableCredential"</span>, <span class="hljs-string">"AssertionCredential"</span>],
+  <span class="hljs-attr">"issuer"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.edu/issuers/565049"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University"</span>
+  },
+  <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
+  <span class="hljs-attr">"credentialSubject"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:ebfeb1f712ebc6f1c276e12ec21"</span>
+  },
+  <span class="hljs-attr">"credentialSchema"</span>: [{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.assertioncredential.class"</span>,
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"JsonSchemaValidator2020"</span>
+  }]
+}</code></pre>
+      </div>
+    </section>
+
+    <section id="sample-with-proofs-applied-0">
+      <h3 id="sample-with-proofs-applied"><bdi class="secno">A.2 </bdi>Sample with proofs applied<a class="self-link" aria-label="§" href="#sample-with-proofs-applied"></a><a class="self-link" aria-label="§" href="#sample-with-proofs-applied"></a></h3>
+      <div class="example" id="example-2">
+        <div class="marker">
+    <a class="self-link" href="#example-2">Example<bdi> 2</bdi></a>
+  </div> 
+      <div class="vc-tabbed"><input type="radio" id="vc-tab11" name="vc-tabs1" checked="checked"><input type="radio" id="vc-tab12" name="vc-tabs1"><input type="radio" id="vc-tab13" name="vc-tabs1"><ul class="vc-tabs"><li class="vc-tab"><label for="vc-tab11">Credential</label></li><li class="vc-tab"><label for="vc-tab12">Verifiable Credential (with proof)</label></li><li class="vc-tab"><label for="vc-tab13">Verifiable Credential (as JWT)</label></li></ul><div class="vc-tab-content"><pre class="vc" data-vc-vm="https://example.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
+  <span class="hljs-attr">"@context"</span>: [
+    <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
+    <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>
+  ],
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://example.edu/credentials/3732"</span>,
+  <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"VerifiableCredential"</span>, <span class="hljs-string">"AssertionCredential"</span>],
+  <span class="hljs-attr">"issuer"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.edu/issuers/565049"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University"</span>
+  },
+  <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
+  <span class="hljs-attr">"credentialSubject"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:ebfeb1f712ebc6f1c276e12ec21"</span>
+  },
+  <span class="hljs-attr">"credentialSchema"</span>: [{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.assertioncredential.class"</span>,
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"JsonSchemaValidator2020"</span>
+  }]
+}</code></pre></div><div class="vc-tab-content"><pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://imsglobal.github.io/openbadges-specification/context.json",
+    "https://w3id.org/security/suites/ed25519-2020/v1"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": [
+    "VerifiableCredential",
+    "AssertionCredential"
+  ],
+  "issuer": {
+    "id": "https://example.edu/issuers/565049",
+    "name": "Example University"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+  },
+  "credentialSchema": [
+    {
+      "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0
+.assertioncredential.class",
+      "type": "JsonSchemaValidator2020"
+    }
+  ],
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "created": "2022-02-24T19:52:04Z",
+    "verificationMethod": "https://example.edu/issuers/565049#key-1",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z2nEVbuYzbeBo1avKzRMx8xsRytPkxqr9yEk4VhARD3aWHQ8NKDpappe9w97H
+z1sitg9Y36skhN8MewpEUmxfHXYC"
+  }
+}</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
+{
+  "alg": "RS256",
+  "typ": "JWT"
+}
+--------------- JWT payload ---------------
+// NOTE: The example below uses a valid VC-JWT serialization
+//       that duplicates the iss, nbf, jti, and sub fields in the
+//       Verifiable Credential (vc) field.
+{
+  "vc": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://imsglobal.github.io/openbadges-specification/context.json"
+    ],
+    "id": "http://example.edu/credentials/3732",
+    "type": [
+      "VerifiableCredential",
+      "AssertionCredential"
+    ],
+    "issuer": {
+      "id": "https://example.edu/issuers/565049",
+      "name": "Example University"
+    },
+    "issuanceDate": "2010-01-01T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+    },
+    "credentialSchema": [
+      {
+        "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3
+p0.assertioncredential.class",
+        "type": "JsonSchemaValidator2020"
+      }
+    ]
+  },
+  "iss": {
+    "id": "https://example.edu/issuers/565049",
+    "name": "Example University"
+  },
+  "nbf": 1262304000,
+  "jti": "http://example.edu/credentials/3732",
+  "sub": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+}
+--------------- JWT ---------------
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy5
+3My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmFsLmdpdGh1Yi5pby9vcGV
+uYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlkIjoiaHR0cDovL2V4YW1wbGUuZWR
+1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiQXNzZXJ0aW9
+uQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY
+1MDQ5IiwibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSJ9LCJpc3N1YW5jZURhdGUiOiIyMDEwLTAxLTA
+xVDAwOjAwOjAwWiIsImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjc
+xMmViYzZmMWMyNzZlMTJlYzIxIn0sImNyZWRlbnRpYWxTY2hlbWEiOlt7ImlkIjoiaHR0cHM6Ly9pbXN
+1bTIuaGVyb2t1YXBwLmNvbS9qc29uc2NoZW1hP2NsYXNzSWQ9b3JnLjFlZHRlY2gub2IudjNwMC5hc3N
+lcnRpb25jcmVkZW50aWFsLmNsYXNzIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDIwIn1dfSw
+iaXNzIjp7ImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5hbWUiOiJFeGF
+tcGxlIFVuaXZlcnNpdHkifSwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHU
+vY3JlZGVudGlhbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTE
+yZWMyMSJ9.CdTyTUVwuUmwdjthRASDdI1cAeilOCyAvohvwh5pXR_cv2Wlt-3I34Jyhid1v1eDZ9zksE
+wwZLq2Rb2S5P3xQ7VkbM3EI6KI_UrmSP9NgJvxL4UYNp--QpzwngrLoJEXHULOhZTW-NG76hidAtq6u8
+cNh3OaAAyh1nyGDbSAxdm0o2WklskAGxG63RLeMlW0cPJU4XMaozYeT-SHhEazwAE0U8Nu1XlZUxQmaw
+c1I9RMw3VESLmGhlSyCUcY8OwqGScNJOxTySEDanNSVgNL-KYQYRZfo6ZyOarU0Ye_HPk86vcwyksoed
+Qp9uGPtW8E25Ha_JF8DdYd45sL9Ma8IQ</pre></div></div></div>
+    </section>
+
+    <section id="sample-with-schema-validation">
+      <h3 id="schema-validation"><bdi class="secno">A.3 </bdi>Sample with schema validation<a class="self-link" aria-label="§" href="#schema-validation"></a><a class="self-link" aria-label="§" href="#schema-validation"></a></h3>
+      <div class="issue" id="issue-container-number-1"><div role="heading" class="issue-title marker" id="h-issue" aria-level="4"><span>Issue 1</span><span class="issue-label">: Invalid JSON</span></div><div class="">
+          <p>NOTE: This example contains invalid JSON for org.1edtech.ob.v3p0.assertioncredential.class.</p>
+          <ul>
+            <li>class: must have required property 'issuanceDate'</li>
+          </ul>
+        </div></div><div class="example" id="example-3">
+        <div class="marker">
+    <a class="self-link" href="#example-3">Example<bdi> 3</bdi></a>
+  </div> <pre data-schema="org.1edtech.ob.v3p0.assertioncredential.class" aria-busy="false"><code class="hljs json">{
+  <span class="hljs-attr">"@context"</span>: [
+    <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
+    <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>
+  ],
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://example.edu/credentials/3732"</span>,
+  <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"VerifiableCredential"</span>, <span class="hljs-string">"AssertionCredential"</span>],
+  <span class="hljs-attr">"issuer"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.edu/issuers/565049"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University"</span>
+  },
+  <span class="hljs-attr">"issuanceData"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
+  <span class="hljs-attr">"credentialSubject"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:ebfeb1f712ebc6f1c276e12ec21"</span>
+  },
+  <span class="hljs-attr">"credentialSchema"</span>: [{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.assertioncredential.class"</span>,
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"JsonSchemaValidator2020"</span>
+  }]
+}</code></pre>
+      </div>
+    </section>
+  </section>
+
+
+
+<p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script type="text/javascript" src="https://purl.imsglobal.org/spec/fixup.js"></script><footer>
+    <div id="endWarranty">
+      <p>
+        IMS Global Learning Consortium, Inc. ("IMS Global") is publishing the
+        information contained in this document ("Specification") for purposes of
+        scientific, experimental, and scholarly collaboration only.
+      </p>
+      <p>
+        IMS Global makes no warranty or representation regarding the accuracy or
+        completeness of the Specification.
+      </p>
+      <p>This material is provided on an "As Is" and "As Available" basis.</p>
+      <p>
+        The Specification is at all times subject to change and revision without
+        notice.
+      </p>
+      <p>
+        It is your sole responsibility to evaluate the usefulness, accuracy, and
+        completeness of the Specification as it relates to you.
+      </p>
+      <p>
+        IMS Global would appreciate receiving your comments and suggestions.
+      </p>
+      <p>
+        Please contact IMS Global through our website at
+        http://www.imsglobal.org.
+      </p>
+      <p>
+        Please refer to Document Name: Open Badges Specification
+        3.0
+      </p>
+      <p>Date: 24 February 2022</p>
+      <div></div>
+    </div>
+  </footer></body></html>
