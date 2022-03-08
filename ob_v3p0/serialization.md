@@ -17,9 +17,9 @@ The data model can be encoded in Javascript Object Notation (JSON) [[RFC8259]] b
 
 When serializing the JSON, these rules MUST be followed:
 
-- Properties defined as a single value in the Data Model MUST be represented as a single value.
-- Properties defined as an Array MUST be represented as an Array, NOT as a single value.
-- Properties defined as an Object MUST be represented as an Object, NOT as a URI.
+- Properties defined as a single value in the Data Model MUST be represented as a single value, not a JSON Array.
+- Properties defined as an Array MUST be represented as a JSON Array, NOT as a single value.
+- Properties defined as a Class and not a Primitive or Derived Type MUST be represented as an JSON Object, NOT as a URI.
 - Properties that have a null value or empty value MUST be ommitted from the serialized JSON. This includes empty Arrays.
 
 ### JSON-LD
