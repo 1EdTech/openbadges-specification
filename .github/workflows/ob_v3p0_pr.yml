@@ -58,7 +58,7 @@ jobs:
           path: docs
       - name: Commit the new/updated doc
         run: |
-          git add docs/*
+          git add -f docs/*
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"
           git commit --allow-empty -m "Automated build"
