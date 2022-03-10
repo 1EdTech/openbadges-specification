@@ -20,9 +20,14 @@
         "IdentityObject": "obi:IdentityObject",
         "Image": "obi:Image",
         "Profile": "obi:Profile",
+        "Result": "clr:Result",
 
+        "achievedLevel": "clri:dtIRI",
+        "achievement": "clr:Achievement",
         "achievementType": "clr:achievementType",
         "alignment": { "@id": "obi:alignment", "@type": "@id" },
+        "alignments": "obi: alignment",
+        "allowedValues": { "@id": "clri:allowedValues", "@type": "xsd:string", "@container": "@set" },
         "assertions" : { "@id" : "obi:dtAssertion", "@container" : "@set" },
         "audience": { "@id": "obi:audience" },
         "author": { "@id": "schema:author", "@type": "@id" },
@@ -47,7 +52,7 @@
         "identity": { "@id": "obi:identityHash" },
         "image" : { "@id" : "obi:image", "@type" : "xsd:anyURI" },
         "issuanceDate": {"@id": "cred:issuanceDate", "@type": "xsd:dateTime"},
-        "issuer" : {"@id": "vc:issuer", "@type": "@id"}}
+        "issuer" : { "@id": "vc:issuer", "@type": "@id" },
         "name" : { "@id" : "obi:name", "@type" : "xsd:string" },
         "narrative": { "@id": "obi:narrative" },
         "privacyPolicyUrl" : "obi:dtURL",
@@ -56,6 +61,11 @@
         "recipient": { "@id": "obi:recipient", "@type": "@id" },
         "registrationUrl" : "obi:dtURL",
         "related": { "@id": "dc:relation", "@type": "@id" },
+        "requiredLevel": "clri:dtIRI",
+        "requiredValue": { "@id": "clri:requiredValue", "@type": "xsd:string"},
+        "resultType": "clri:dtExtensibleResultType",
+        "resultDescription": { "@id": "clri:dtResultDescription","@container": "@set"},
+        "rubricCriterionLevels": {"@id": "clri:dtRubricCriterionLevel","@container": "@set"},
         "salt": { "@id": "obi:salt" },
         "scopesOffered" : { "@id" : "obi:scopesOffered", "@type" : "xsd:anyURI", "@container" : "@set" },
         "status" : "obi:dtStatus",
@@ -73,6 +83,8 @@
         "tokenUrl" : "obi:dtURL",
         "url": { "@id": "schema:url", "@type": "@id" },
         "validatesType": "obi:validatesType",
+        "value": { "@id": "clri:value", "@type": "xsd:string" },
+        "valueMax": { "@id": "clri:valueMax", "@type": "xsd:string" },
+        "valueMin": { "@id": "clri:valueMin", "@type": "xsd:string" },
         "version" : { "@id" : "obi:version", "@type" : "xsd:string" }
     }
-}
