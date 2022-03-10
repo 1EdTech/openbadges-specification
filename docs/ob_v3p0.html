@@ -1335,6 +1335,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "type": "RF RAND (Required & Optional Elements)"
     }
   ],
+  "xref": [
+    "did-core",
+    "vc-data-model"
+  ],
   "otherLinks": [
     {
       "key": "Issue Tracker",
@@ -1351,7 +1355,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   ]
 }</script></head>
 
-<body class="informative toc-inline"><header>
+<body class="informative toc-inline" data-cite="did-core vc-data-model"><header>
     <div class="header-top">
       <h1 class="title" id="title">Open Badges Specification</h1>
       <a href="https://www.imsglobal.org" id="ims-logo">
@@ -1536,12 +1540,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       The <a href="#document-set">Conformance and Certification Guide</a>
       for this specification may introduce greater normative constraints than
       those defined here for specific service or implementation categories.
-    </p></section><section id="terminology-0"><h3 id="terminology"><bdi class="secno">1.4 </bdi>Terminology<a class="self-link" aria-label="§" href="#terminology"></a><a class="self-link" aria-label="§" href="#terminology"></a></h3><ul>
+    </p></section><section id="terminology-1"><h3 id="terminology"><bdi class="secno">1.4 </bdi>Terminology<a class="self-link" aria-label="§" href="#terminology"></a><a class="self-link" aria-label="§" href="#terminology"></a></h3><ul>
 <li><p><dfn id="dfn-achievement-type" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Achievement Type</dfn>: A vocabulary which describes the type of achievement.</p>
 </li>
 <li><p><dfn id="dfn-alignment" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Alignment</dfn>: An alignment is a reference to an achievement definition, whether referenced in a resource outside the package or contained within the package.</p>
 </li>
-<li><p><dfn id="dfn-claim" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Claim</dfn>: A statement about the Credential Subject. A claim may include associated evidence, results, or other metadata regarding a specific achievement, skill or assertion.</p>
+<li><p><dfn data-plurals="claims" id="dfn-claim" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Claim</dfn>: A statement about the Credential Subject. A claim may include associated evidence, results, or other metadata regarding a specific achievement, skill or assertion.</p>
 </li>
 <li><p><dfn data-lt="Consumer|client" id="dfn-consumer" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">client</dfn>: In a <a data-link-type="dfn" href="#dfn-restful-api" class="internalDFN" id="ref-for-dfn-restful-api-1" title="REST API: A style of web API (Application Programming Interface) loosely based on HTTP methods (DELETE, GET, POST, and PUT) to access resources (e.g. CLRs) via a URL.">REST API</a>, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the <cite><a href="https://www.imsglobal.org/spec/security/v1p1/">IMS Global Security Framework v1.1</a></cite>.</p>
 </li>
@@ -1590,7 +1594,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </li>
 <li><p><dfn data-lt="VC|Verifiable Credential" data-plurals="verifiable credentials" id="dfn-vc" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Verifiable Credential</dfn> (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>].</p>
 </li>
-<li><p><dfn data-lt="VP|Verifiable Presentation" id="dfn-vp" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Verifiable Presentation</dfn> (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]</p>
+<li><p><dfn data-lt="VP|Verifiable Presentation" data-plurals="verifiable presentations" id="dfn-vp" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Verifiable Presentation</dfn> (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]</p>
 </li>
 </ul></section><section id="conceptual-model-0"><h3 id="conceptual-model"><bdi class="secno">1.5 </bdi>Conceptual Model<a class="self-link" aria-label="§" href="#conceptual-model"></a><a class="self-link" aria-label="§" href="#conceptual-model"></a></h3><p>This conceptual model describes Open Badges concepts and the relationship between those concepts. The data model in appendix <a href="#org-1edtech-ob-v3p0-model-0" class="sec-ref">§&nbsp;<bdi class="secno">B.1 </bdi>Open Badges Data Model</a> below is the normative reference for the classes and properties that are used to implement the concepts.</p><p>The conceptual model is targeted for all <a href="#audiences" class="sec-ref">§&nbsp;<bdi class="secno">1.1 </bdi>Audiences</a>, while the data model is targeted for Solution Architects and Product Developers.</p><p>In the diagram below, the concepts are shown in gray boxes (e.g. Assertion). Please see <a href="#terminology" class="sec-ref">§&nbsp;<bdi class="secno">1.4 </bdi>Terminology</a> for definitions of the concepts.</p><p>Starting with this version of the Open Badges Specification, an Assertion is also a Verifiable Credential (VC) as defined by the <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite> specification. The diagram includes labels that show the relationships between VC terminology and Open Badges terminology (e.g. Issuer is identified by the VC "issuer").</p><figure id="fig-diagram-show-the-major-conceptual-components-of-an-open-badge-verifiable-credential">
   <img src="images/ob30-concept.png" alt="Diagram show the major conceptual components of an Open Badge Verifiable Credential" height="448" width="855">
@@ -2375,7 +2379,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td><a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a></td>
             <td>
               The Assertion to be updated or created on the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-19" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>.
-              <div class="issue" id="issue-container-number-5"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="5"><span>Issue 5</span></div><div class="">
+              <div class="issue" id="issue-container-number-4"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="5"><span>Issue 4</span></div><div class="">
                 Should the payload be a VerifiablePresentation that contains the AssertionCredential?
               </div></div>
             </td>
@@ -4198,23 +4202,31 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
 
 
   
-  <section class="normative" data-format="markdown" id="data-integrity-0"><h2 id="data-integrity"><bdi class="secno">8. </bdi>Data Integrity<a class="self-link" aria-label="§" href="#data-integrity"></a><a class="self-link" aria-label="§" href="#data-integrity"></a></h2><p>This section describes mechanisms for ensuring the authenticity and integrity of <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> documents and payloads. For general information about data integrity, please see <cite><a href="https://w3c-ccg.github.io/data-integrity-spec/">Data Integrity 1.0</a></cite>.</p><section id="proofs-0"><h3 id="proofs"><bdi class="secno">8.1 </bdi>Proofs<a class="self-link" aria-label="§" href="#proofs"></a><a class="self-link" aria-label="§" href="#proofs"></a></h3><p>A data integrity proof is comprised of information about the proof, parameters required to verify it, and the proof value itself. Please see the <a href="#proof">Proof</a> class for details.</p><p>To ensure interoperability, this specification requires conforming implementations support ...</p><section id="proof-one-0"><h4 id="proof-one"><bdi class="secno">8.1.1 </bdi>[Proof One]<a class="self-link" aria-label="§" href="#proof-one"></a><a class="self-link" aria-label="§" href="#proof-one"></a></h4></section><section id="proof-two-0"><h4 id="proof-two"><bdi class="secno">8.1.2 </bdi>[Proof Two]<a class="self-link" aria-label="§" href="#proof-two"></a><a class="self-link" aria-label="§" href="#proof-two"></a></h4></section></section><section id="algorithms-0"><h3 id="algorithms"><bdi class="secno">8.2 </bdi>Algorithms<a class="self-link" aria-label="§" href="#algorithms"></a><a class="self-link" aria-label="§" href="#algorithms"></a></h3><div class="issue" id="issue-container-number-6"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="4"><span>Issue 6</span></div><div class="">
+  <section class="normative" data-format="markdown" id="data-integrity-0"><h2 id="data-integrity"><bdi class="secno">8. </bdi>Data Integrity<a class="self-link" aria-label="§" href="#data-integrity"></a><a class="self-link" aria-label="§" href="#data-integrity"></a></h2><p>This section describes mechanisms for ensuring the authenticity and integrity of <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> documents and payloads. For general information about data integrity, please see <cite><a href="https://w3c-ccg.github.io/data-integrity-spec/">Data Integrity 1.0</a></cite>.</p><section id="proofs-0"><h3 id="proofs"><bdi class="secno">8.1 </bdi>Proofs<a class="self-link" aria-label="§" href="#proofs"></a><a class="self-link" aria-label="§" href="#proofs"></a></h3><p>A data integrity proof is comprised of information about the proof, parameters required to verify it, and the proof value itself. Please see the <a href="#proof">Proof</a> class for details.</p><p>To ensure interoperability, this specification requires conforming implementations support ...</p><section id="proof-one-0"><h4 id="proof-one"><bdi class="secno">8.1.1 </bdi>[Proof One]<a class="self-link" aria-label="§" href="#proof-one"></a><a class="self-link" aria-label="§" href="#proof-one"></a></h4></section><section id="proof-two-0"><h4 id="proof-two"><bdi class="secno">8.1.2 </bdi>[Proof Two]<a class="self-link" aria-label="§" href="#proof-two"></a><a class="self-link" aria-label="§" href="#proof-two"></a></h4></section></section><section id="algorithms-0"><h3 id="algorithms"><bdi class="secno">8.2 </bdi>Algorithms<a class="self-link" aria-label="§" href="#algorithms"></a><a class="self-link" aria-label="§" href="#algorithms"></a></h3><div class="issue" id="issue-container-number-5"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="4"><span>Issue 5</span></div><div class="">
     See <a href="https://w3c-ccg.github.io/data-integrity-spec/#algorithms">Algorithms</a>.
-</div></div><section id="proof-algorithm-0"><h4 id="proof-algorithm"><bdi class="secno">8.2.1 </bdi>Proof Algorithm<a class="self-link" aria-label="§" href="#proof-algorithm"></a><a class="self-link" aria-label="§" href="#proof-algorithm"></a></h4><div class="issue" id="issue-container-number-7"><div role="heading" class="issue-title marker" id="h-issue-5" aria-level="5"><span>Issue 7</span></div><div class="">
+</div></div><section id="proof-algorithm-0"><h4 id="proof-algorithm"><bdi class="secno">8.2.1 </bdi>Proof Algorithm<a class="self-link" aria-label="§" href="#proof-algorithm"></a><a class="self-link" aria-label="§" href="#proof-algorithm"></a></h4><div class="issue" id="issue-container-number-6"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="5"><span>Issue 6</span></div><div class="">
     See <a href="https://w3c-ccg.github.io/data-integrity-spec/#proof-algorithm">Proof Algorithm</a>.
-</div></div></section><section id="proof-verification-algorithm-0"><h4 id="proof-verification-algorithm"><bdi class="secno">8.2.2 </bdi>Proof Verification Algorithm<a class="self-link" aria-label="§" href="#proof-verification-algorithm"></a><a class="self-link" aria-label="§" href="#proof-verification-algorithm"></a></h4><div class="issue" id="issue-container-number-8"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="5"><span>Issue 8</span></div><div class="">
+</div></div></section><section id="proof-verification-algorithm-0"><h4 id="proof-verification-algorithm"><bdi class="secno">8.2.2 </bdi>Proof Verification Algorithm<a class="self-link" aria-label="§" href="#proof-verification-algorithm"></a><a class="self-link" aria-label="§" href="#proof-verification-algorithm"></a></h4><div class="issue" id="issue-container-number-7"><div role="heading" class="issue-title marker" id="h-issue-5" aria-level="5"><span>Issue 7</span></div><div class="">
     See <a href="https://w3c-ccg.github.io/data-integrity-spec/#proof-verification-algorithm">Proof Verification Algorithm</a>.
-</div></div></section><section id="create-verify-hash-algorithm-0"><h4 id="create-verify-hash-algorithm"><bdi class="secno">8.2.3 </bdi>Create Verify Hash Algorithm<a class="self-link" aria-label="§" href="#create-verify-hash-algorithm"></a><a class="self-link" aria-label="§" href="#create-verify-hash-algorithm"></a></h4><div class="issue" id="issue-container-number-9"><div role="heading" class="issue-title marker" id="h-issue-7" aria-level="5"><span>Issue 9</span></div><div class="">
+</div></div></section><section id="create-verify-hash-algorithm-0"><h4 id="create-verify-hash-algorithm"><bdi class="secno">8.2.3 </bdi>Create Verify Hash Algorithm<a class="self-link" aria-label="§" href="#create-verify-hash-algorithm"></a><a class="self-link" aria-label="§" href="#create-verify-hash-algorithm"></a></h4><div class="issue" id="issue-container-number-8"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="5"><span>Issue 8</span></div><div class="">
     See <a href="https://w3c-ccg.github.io/data-integrity-spec/#create-verify-hash-algorithm">Create Verify Hash Alorithm</a>.
 </div></div></section></section><section id="security-considerations-0"><h3 id="security-considerations"><bdi class="secno">8.3 </bdi>Security Considerations<a class="self-link" aria-label="§" href="#security-considerations"></a><a class="self-link" aria-label="§" href="#security-considerations"></a></h3></section></section>
 
-  <section class="informative" data-format="markdown" id="best-practices-and-implementation-0"><h2 id="best-practices-and-implementation"><bdi class="secno">9. </bdi>Best Practices and Implementation<a class="self-link" aria-label="§" href="#best-practices-and-implementation"></a><a class="self-link" aria-label="§" href="#best-practices-and-implementation"></a></h2><p><em>This section is non-normative.</em></p><p>@@@ TBD</p></section>
+  <section class="informative" data-format="markdown" id="best-practices-and-implementation-guide-0"><h2 id="best-practices-and-implementation-guide"><bdi class="secno">9. </bdi>Best Practices and Implementation Guide<a class="self-link" aria-label="§" href="#best-practices-and-implementation-guide"></a><a class="self-link" aria-label="§" href="#best-practices-and-implementation-guide"></a></h2><p><em>This section is non-normative.</em></p><section id="terminology-2"><h3 id="terminology-0"><bdi class="secno">9.1 </bdi>Terminology<a class="self-link" aria-label="§" href="#terminology-0"></a><a class="self-link" aria-label="§" href="#terminology-0"></a></h3><p>Some of the terms used in this section:</p><ul>
+<li><dfn id="dfn-credential" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Credential</dfn>: A set of one or more <a data-link-type="dfn" href="#dfn-claim" class="internalDFN" id="ref-for-dfn-claim-1" title="Claim: A statement about the Credential Subject. A claim may include associated evidence, results, or other metadata regarding a specific achievement, skill or assertion.">claims</a> made by an <a data-link-type="dfn" href="#dfn-issuer" class="internalDFN" id="ref-for-dfn-issuer-1" title="Issuer: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.">issuer</a>. A <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-1" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credential</a> is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-1" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">verifiable presentations</a>, which can also be cryptographically verified.</li>
+<li><dfn data-plurals="did urls" id="dfn-did-url" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">DID URL</dfn>: A DID plus any additional syntactic component that conforms to the definition in Section 3.2 DID URL Syntax of [<cite><a class="bibref" data-link-type="biblio" href="#bib-did-core" title="Decentralized Identifiers (DIDs) v1.0">DID-CORE</a></cite>]. This includes an optional DID path (with its leading / character), optional DID query (with its leading ? character), and optional DID fragment (with its leading # character).</li>
+<li><dfn id="dfn-holder" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Holder</dfn>: The entity that makes a <a data-link-type="dfn" href="#dfn-presentation" class="internalDFN" id="ref-for-dfn-presentation-1" title="Presentation: Data derived from one or more verifiable credentials, issued by one or more [=issuers=, that is shared with a specific verifier. A verifiable presentation is a tamper-evident presentation encoded in such a way that authorship of the data can be trusted after a process of cryptographic verification.">presentation</a>. The holder may also be the <a data-link-type="dfn" href="#dfn-issuer" class="internalDFN" id="ref-for-dfn-issuer-2" title="Issuer: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.">issuer</a> or <a data-link-type="dfn" href="#dfn-subject" class="internalDFN" id="ref-for-dfn-subject-1" title="Subject: A person about which claims are made.">subject</a> of one or more credentials in the presentation.</li>
+<li><dfn data-plurals="linked data proofs" id="dfn-linked-data-proof" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Linked Data Proof</dfn>: A type of embedded signature proof.</li>
+<li><dfn id="dfn-presentation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Presentation</dfn>: Data derived from one or more <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-2" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a>, issued by one or more [=issuers=, that is shared with a specific <a data-link-type="dfn" href="#dfn-verifier" class="internalDFN" id="ref-for-dfn-verifier-1" title="Verifier: The entity that receives a verifiable credential or verifiable presentation and verifies the credential or presentation has not been tampered with.">verifier</a>. A <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-2" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">verifiable presentation</a> is a tamper-evident presentation encoded in such a way that authorship of the data can be trusted after a process of cryptographic verification.</li>
+<li><dfn id="dfn-subject" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Subject</dfn>: A person about which <a data-link-type="dfn" href="#dfn-claim" class="internalDFN" id="ref-for-dfn-claim-2" title="Claim: A statement about the Credential Subject. A claim may include associated evidence, results, or other metadata regarding a specific achievement, skill or assertion.">claims</a> are made.</li>
+<li><dfn id="dfn-verifier" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Verifier</dfn>: The entity that receives a <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-3" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credential</a> or <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-3" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">verifiable presentation</a> and verifies the credential or presentation has not been tampered with.</li>
+</ul></section><section id="support-for-decentralized-identifiers-dids-0"><h3 id="support-for-decentralized-identifiers-dids"><bdi class="secno">9.2 </bdi>Support for Decentralized Identifiers (DIDs)<a class="self-link" aria-label="§" href="#support-for-decentralized-identifiers-dids"></a><a class="self-link" aria-label="§" href="#support-for-decentralized-identifiers-dids"></a></h3><p>This specification supports the use of <a data-link-type="dfn" href="#dfn-did-url" class="internalDFN" id="ref-for-dfn-did-url-1" title="DID URL: A DID plus any additional syntactic component that conforms to the definition in Section 3.2 DID URL Syntax of [DID-CORE]. This includes an optional DID path (with its leading / character), optional DID query (with its leading ? character), and optional DID fragment (with its leading # character).">DID URLs</a> as an identifier for the <a data-link-type="dfn" href="#dfn-issuer" class="internalDFN" id="ref-for-dfn-issuer-3" title="Issuer: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.">issuer</a> and <a data-link-type="dfn" href="#dfn-subject" class="internalDFN" id="ref-for-dfn-subject-2" title="Subject: A person about which claims are made.">subject</a> of a <a data-link-type="dfn" href="#dfn-credential" class="internalDFN" id="ref-for-dfn-credential-1" title="Credential: A set of one or more claims made by an issuer. A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build verifiable presentations, which can also be cryptographically verified.">credential</a>, and the <a data-link-type="dfn" href="#dfn-holder" class="internalDFN" id="ref-for-dfn-holder-1" title="Holder: The entity that makes a presentation. The holder may also be the issuer or subject of one or more credentials in the presentation.">holder</a> of a <a data-link-type="dfn" href="#dfn-presentation" class="internalDFN" id="ref-for-dfn-presentation-2" title="Presentation: Data derived from one or more verifiable credentials, issued by one or more [=issuers=, that is shared with a specific verifier. A verifiable presentation is a tamper-evident presentation encoded in such a way that authorship of the data can be trusted after a process of cryptographic verification.">presentation</a>. This specification also supports the use of <a data-link-type="dfn" href="#dfn-did-url" class="internalDFN" id="ref-for-dfn-did-url-2" title="DID URL: A DID plus any additional syntactic component that conforms to the definition in Section 3.2 DID URL Syntax of [DID-CORE]. This includes an optional DID path (with its leading / character), optional DID query (with its leading ? character), and optional DID fragment (with its leading # character).">DID URLs</a> to identify the public key used to verify <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-4" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> and <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-4" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">verifiable presentations</a> with <a data-link-type="dfn" href="#dfn-linked-data-proof" class="internalDFN" id="ref-for-dfn-linked-data-proof-1" title="Linked Data Proof: A type of embedded signature proof.">Linked Data Proofs</a>. Until the <cite><a href="https://www.w3.org/TR/did-core/">Decentralized Identifiers (DIDs) v1.0</a></cite> specification is approved by W3C and this specification is updated, conformance will not require DID support.</p></section></section>
 
   <section data-format="markdown" id="conformance-and-certification-guide-0"><h2 id="conformance-and-certification-guide"><bdi class="secno">10. </bdi>Conformance and Certification Guide<a class="self-link" aria-label="§" href="#conformance-and-certification-guide"></a><a class="self-link" aria-label="§" href="#conformance-and-certification-guide"></a></h2><div class="note" role="note" id="issue-container-generatedID-9"><div role="heading" class="note-title marker" id="h-note-1" aria-level="3"><span>Note</span></div><div class="">
 @@@TBD - Move to <cite><a href="https://www.imsglobal.org/spec/ob/v3p0/cert/">Open Badges Specification Conformance and Certification Guide v3.0</a></cite> for Candidate Final
 </div></div></section>
 
-  <section class="appendix" data-format="markdown" id="serialization-0"><h2 id="serialization"><bdi class="secno">A. </bdi>Serialization<a class="self-link" aria-label="§" href="#serialization"></a><a class="self-link" aria-label="§" href="#serialization"></a></h2><p>The data model as described in Appendix <a href="#datamodels" class="sec-ref">§&nbsp;<bdi class="secno">B. </bdi>Data Model</a> is the canonical structural representation of an Open Badges <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-1" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credential</a> (<a href="#org.1edtech.ob.v3p0.assertioncredential.class">AchievementCredential</a>) and <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-1" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">verifiable presentation</a> (<a href="#org.1edtech.ob.v3p0.obpresentation.class">ObPresentation</a>). All serializations are representations of that data model in a specific format. This section specifies how the data model is realized in JSON-LD and plain JSON.</p><section id="json-0"><h3 id="json"><bdi class="secno">A.1 </bdi>JSON<a class="self-link" aria-label="§" href="#json"></a><a class="self-link" aria-label="§" href="#json"></a></h3><p>The data model can be encoded in Javascript Object Notation (JSON) [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8259" title="The JavaScript Object Notation (JSON) Data Interchange Format">RFC8259</a></cite>] by mapping property types in the Data Model to JSON types as follows:</p><ul>
+  <section class="appendix" data-format="markdown" id="serialization-0"><h2 id="serialization"><bdi class="secno">A. </bdi>Serialization<a class="self-link" aria-label="§" href="#serialization"></a><a class="self-link" aria-label="§" href="#serialization"></a></h2><p>The data model as described in Appendix <a href="#datamodels" class="sec-ref">§&nbsp;<bdi class="secno">B. </bdi>Data Model</a> is the canonical structural representation of an Open Badges <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-5" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credential</a> (<a href="#org.1edtech.ob.v3p0.assertioncredential.class">AchievementCredential</a>) and <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-5" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">verifiable presentation</a> (<a href="#org.1edtech.ob.v3p0.obpresentation.class">ObPresentation</a>). All serializations are representations of that data model in a specific format. This section specifies how the data model is realized in JSON-LD and plain JSON.</p><section id="json-0"><h3 id="json"><bdi class="secno">A.1 </bdi>JSON<a class="self-link" aria-label="§" href="#json"></a><a class="self-link" aria-label="§" href="#json"></a></h3><p>The data model can be encoded in Javascript Object Notation (JSON) [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8259" title="The JavaScript Object Notation (JSON) Data Interchange Format">RFC8259</a></cite>] by mapping property types in the Data Model to JSON types as follows:</p><ul>
 <li>Numeric values representable as [<cite><a class="bibref" data-link-type="biblio" href="#bib-ieee-754" title="IEEE Standard for Floating-Point Arithmetic">IEEE-754</a></cite>] <em class="rfc2119">MUST</em> be represented as a Number type.</li>
 <li>Boolean values <em class="rfc2119">MUST</em> be represented as a Boolean type.</li>
 <li>Sequence values <em class="rfc2119">MUST</em> be represented as an Array type.</li>
@@ -4226,7 +4238,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
 <li>Properties defined as an Array <em class="rfc2119">MUST</em> be represented as a JSON Array, NOT as a single value.</li>
 <li>Properties defined as a Class and not a Primitive or Derived Type <em class="rfc2119">MUST</em> be represented as an JSON Object, NOT as a URI.</li>
 <li>Properties that have a null value or empty value <em class="rfc2119">MUST</em> be ommitted from the serialized JSON. This includes empty Arrays.</li>
-</ul></section><section id="json-ld-0"><h3 id="json-ld"><bdi class="secno">A.2 </bdi>JSON-LD<a class="self-link" aria-label="§" href="#json-ld"></a><a class="self-link" aria-label="§" href="#json-ld"></a></h3><p>[<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] is a JSON-based format used to serialize Linked Data. The syntax is designed to easily integrate into deployed systems already using JSON, and provides a smooth upgrade path from JSON to [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>]. It is primarily intended to be a way to use Linked Data in Web-based programming environments, to build interoperable Web services, and to store Linked Data in JSON-based storage engines.</p><p>Instances of the data model are encoded in [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] in the same way they are encoded in JSON (Section <a href="#json" class="sec-ref">§&nbsp;<bdi class="secno">A.1 </bdi>JSON</a>), with the addition of the <code>@context</code> property. The JSON-LD context is described in detail in the [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] specification and its use is elaborated on in Section <a href="#extending" class="sec-ref">§&nbsp;<bdi class="secno">C. </bdi>Extensions</a>.</p><p>Multiple contexts <em class="rfc2119">MAY</em> be used or combined to express any arbitrary information about verifiable credentials in idiomatic JSON. The JSON-LD context for all <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-2" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a>, available at <code><a href="https://www.w3.org/2018/credentials/v1">https://www.w3.org/2018/credentials/v1</a></code>, is a static document that is never updated and can therefore be downloaded and cached client side. The associated vocabulary document for the Verifiable Credentials Data Model is available at <code><a href="https://www.w3.org/2018/credentials">https://www.w3.org/2018/credentials</a></code>. The JSON-LD context for Open Badges <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-3" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> is available at <code><a href="https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld">https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld</a></code>. The associated vocabulary document for the Open Badges Data Model is available at <code><a href="https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.html">https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.html</a></code>. Open Badges <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-4" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> <em class="rfc2119">MUST</em> be serialized with both JSON-LD contexts.</p><div class="note" role="note" id="issue-container-generatedID-10"><div role="heading" class="note-title marker" id="h-note-2" aria-level="4"><span>Note</span></div><div class="">
+</ul></section><section id="json-ld-0"><h3 id="json-ld"><bdi class="secno">A.2 </bdi>JSON-LD<a class="self-link" aria-label="§" href="#json-ld"></a><a class="self-link" aria-label="§" href="#json-ld"></a></h3><p>[<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] is a JSON-based format used to serialize Linked Data. The syntax is designed to easily integrate into deployed systems already using JSON, and provides a smooth upgrade path from JSON to [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>]. It is primarily intended to be a way to use Linked Data in Web-based programming environments, to build interoperable Web services, and to store Linked Data in JSON-based storage engines.</p><p>Instances of the data model are encoded in [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] in the same way they are encoded in JSON (Section <a href="#json" class="sec-ref">§&nbsp;<bdi class="secno">A.1 </bdi>JSON</a>), with the addition of the <code>@context</code> property. The JSON-LD context is described in detail in the [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] specification and its use is elaborated on in Section <a href="#extending" class="sec-ref">§&nbsp;<bdi class="secno">C. </bdi>Extensions</a>.</p><p>Multiple contexts <em class="rfc2119">MAY</em> be used or combined to express any arbitrary information about verifiable credentials in idiomatic JSON. The JSON-LD context for all <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-6" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a>, available at <code><a href="https://www.w3.org/2018/credentials/v1">https://www.w3.org/2018/credentials/v1</a></code>, is a static document that is never updated and can therefore be downloaded and cached client side. The associated vocabulary document for the Verifiable Credentials Data Model is available at <code><a href="https://www.w3.org/2018/credentials">https://www.w3.org/2018/credentials</a></code>. The JSON-LD context for Open Badges <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-7" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> is available at <code><a href="https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld">https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld</a></code>. The associated vocabulary document for the Open Badges Data Model is available at <code><a href="https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.html">https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.html</a></code>. Open Badges <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-8" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> <em class="rfc2119">MUST</em> be serialized with both JSON-LD contexts.</p><div class="note" role="note" id="issue-container-generatedID-10"><div role="heading" class="note-title marker" id="h-note-2" aria-level="4"><span>Note</span></div><div class="">
   Though this specification requires that a <code>@context</code> property be present, it is not required that the value of the <code>@context</code> property be processed using JSON-LD. This is to support processing using plain JSON libraries, such as those that might be used when the verifiable credential is encoded as a JWT. All libraries or processors <em class="rfc2119">MUST</em> ensure that the order of the values in the <code>@context</code> property is what is expected for the specific application. Libraries or processors that support JSON-LD can process the <code>@context</code> property using full JSON-LD processing as expected.
 </div></div><div class="example" id="example-json-ld-context-serialization">
         <div class="marker">
@@ -6816,8 +6828,10 @@ N0VU0_vjjmCHvkOT4ZVQQoLgxiekV7oQ</pre></div></div></div>
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
+    <li>
+    <a href="#ref-for-dfn-claim-1" title="§ 9.1 Terminology">§ 9.1 Terminology</a> <a href="#ref-for-dfn-claim-2" title="Reference 2">(2)</a> 
+  </li>
+  </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-consumer" aria-label="Links in this document to definition: client">
       <span class="caret"></span>
       <div>
@@ -6912,8 +6926,12 @@ N0VU0_vjjmCHvkOT4ZVQQoLgxiekV7oQ</pre></div></div></div>
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
+    <li>
+    <a href="#ref-for-dfn-issuer-1" title="§ 9.1 Terminology">§ 9.1 Terminology</a> <a href="#ref-for-dfn-issuer-2" title="Reference 2">(2)</a> 
+  </li><li>
+    <a href="#ref-for-dfn-issuer-3" title="§ 9.2 Support for Decentralized Identifiers (DIDs)">§ 9.2 Support for Decentralized Identifiers (DIDs)</a> 
+  </li>
+  </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-learner" aria-label="Links in this document to definition: Learner">
       <span class="caret"></span>
       <div>
@@ -7077,9 +7095,13 @@ N0VU0_vjjmCHvkOT4ZVQQoLgxiekV7oQ</pre></div></div></div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-vc-1" title="§ A. Serialization">§ A. Serialization</a> 
+    <a href="#ref-for-dfn-vc-1" title="§ 9.1 Terminology">§ 9.1 Terminology</a> <a href="#ref-for-dfn-vc-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-vc-3" title="Reference 3">(3)</a> 
   </li><li>
-    <a href="#ref-for-dfn-vc-2" title="§ A.2 JSON-LD">§ A.2 JSON-LD</a> <a href="#ref-for-dfn-vc-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-vc-4" title="Reference 3">(3)</a> 
+    <a href="#ref-for-dfn-vc-4" title="§ 9.2 Support for Decentralized Identifiers (DIDs)">§ 9.2 Support for Decentralized Identifiers (DIDs)</a> 
+  </li><li>
+    <a href="#ref-for-dfn-vc-5" title="§ A. Serialization">§ A. Serialization</a> 
+  </li><li>
+    <a href="#ref-for-dfn-vc-6" title="§ A.2 JSON-LD">§ A.2 JSON-LD</a> <a href="#ref-for-dfn-vc-7" title="Reference 2">(2)</a> <a href="#ref-for-dfn-vc-8" title="Reference 3">(3)</a> 
   </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-vp" aria-label="Links in this document to definition: Verifiable Presentation">
@@ -7091,7 +7113,11 @@ N0VU0_vjjmCHvkOT4ZVQQoLgxiekV7oQ</pre></div></div></div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-vp-1" title="§ A. Serialization">§ A. Serialization</a> 
+    <a href="#ref-for-dfn-vp-1" title="§ 9.1 Terminology">§ 9.1 Terminology</a> <a href="#ref-for-dfn-vp-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-vp-3" title="Reference 3">(3)</a> 
+  </li><li>
+    <a href="#ref-for-dfn-vp-4" title="§ 9.2 Support for Decentralized Identifiers (DIDs)">§ 9.2 Support for Decentralized Identifiers (DIDs)</a> 
+  </li><li>
+    <a href="#ref-for-dfn-vp-5" title="§ A. Serialization">§ A. Serialization</a> 
   </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-resource-owner" aria-label="Links in this document to definition: User">
@@ -7180,6 +7206,94 @@ N0VU0_vjjmCHvkOT4ZVQQoLgxiekV7oQ</pre></div></div></div>
     <a href="#ref-for-dfn-provider-46" title="§ 7.1.2 Obtaining Tokens">§ 7.1.2 Obtaining Tokens</a> <a href="#ref-for-dfn-provider-47" title="Reference 2">(2)</a> 
   </li><li>
     <a href="#ref-for-dfn-provider-48" title="§ 7.1.3 Authenticating with Tokens">§ 7.1.3 Authenticating with Tokens</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-credential" aria-label="Links in this document to definition: Credential">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-credential" aria-label="Permalink for definition: Credential. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-credential-1" title="§ 9.2 Support for Decentralized Identifiers (DIDs)">§ 9.2 Support for Decentralized Identifiers (DIDs)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-did-url" aria-label="Links in this document to definition: DID URL">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-did-url" aria-label="Permalink for definition: DID URL. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-did-url-1" title="§ 9.2 Support for Decentralized Identifiers (DIDs)">§ 9.2 Support for Decentralized Identifiers (DIDs)</a> <a href="#ref-for-dfn-did-url-2" title="Reference 2">(2)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-holder" aria-label="Links in this document to definition: Holder">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-holder" aria-label="Permalink for definition: Holder. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-holder-1" title="§ 9.2 Support for Decentralized Identifiers (DIDs)">§ 9.2 Support for Decentralized Identifiers (DIDs)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-linked-data-proof" aria-label="Links in this document to definition: Linked Data Proof">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-linked-data-proof" aria-label="Permalink for definition: Linked Data Proof. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-linked-data-proof-1" title="§ 9.2 Support for Decentralized Identifiers (DIDs)">§ 9.2 Support for Decentralized Identifiers (DIDs)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-presentation" aria-label="Links in this document to definition: Presentation">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-presentation" aria-label="Permalink for definition: Presentation. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-presentation-1" title="§ 9.1 Terminology">§ 9.1 Terminology</a> 
+  </li><li>
+    <a href="#ref-for-dfn-presentation-2" title="§ 9.2 Support for Decentralized Identifiers (DIDs)">§ 9.2 Support for Decentralized Identifiers (DIDs)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-subject" aria-label="Links in this document to definition: Subject">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-subject" aria-label="Permalink for definition: Subject. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-subject-1" title="§ 9.1 Terminology">§ 9.1 Terminology</a> 
+  </li><li>
+    <a href="#ref-for-dfn-subject-2" title="§ 9.2 Support for Decentralized Identifiers (DIDs)">§ 9.2 Support for Decentralized Identifiers (DIDs)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-verifier" aria-label="Links in this document to definition: Verifier">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-verifier" aria-label="Permalink for definition: Verifier. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-verifier-1" title="§ 9.1 Terminology">§ 9.1 Terminology</a> 
   </li>
   </ul>
     </div><script id="respec-dfn-panel">(() => {
