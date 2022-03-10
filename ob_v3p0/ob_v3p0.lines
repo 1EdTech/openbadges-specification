@@ -13,7 +13,7 @@ Package OpenBadges DataModel
 
 // Pull in common credential models (this will be converted to Includes when credential models are finalized and made part of the CDM)
 
-Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/develop/ob_v3p0/common_credentials.lines
+Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/recipient/ob_v3p0/common_credentials.lines
 
 Package SharedApi DataModel
 
@@ -48,15 +48,14 @@ Package SharedOAuth DataModel
 // Derived Types
 
 Package DerivedTypes DataModel
-    Includes [Term]
-    Class URI DerivedType false [NormalizedString]                  "A `NormalizedString` that respresents a Uniform Resource Identifier (URI)."
-    Class URL DerivedType false [URI]                               "A `URI` that represents a Uniform Resource Locator (URL)."
+    Includes [IRI, Term, URI, URL]
+    Class IdentityHash DerivedType false [String]                   "A hash string containing an algorithm identifier and a resulting hash of an identifier, separated by a dollar sign ('$') and the algorithm used to generate the hash. The only supported algorithms are MD5 [[RFC1321]] and SHA-256 [[FIPS-180-4]], identified by the strings md5 and sha256 respectively. Resulting hash for each of these algorithms MUST be expressed in hexadecimal using uppercase (A-F, 0-9) or lowercase character (a-f, 0-9) sets. For example: sha256$7a1a1b3f7d40552e4299180e346e3add12bf9a751a43d9c4ca4518febc2c60c6 represents the result of calculating a SHA-256 hash on the string 'mayze'."
     Class Markdown DerivedType false [String]                       "A `String` that may contain Markdown."
 
 // PrimitiveTypes
 
 Package PrimitiveTypes DataModel
-    Includes [Float, NonNegativeInteger, NormalizedString, PositiveInteger]
+    Includes [Boolean, Float, NonNegativeInteger, NormalizedString, PositiveInteger]
     Class ASCIIString PrimitiveType false []                        "An ASCII [[RFC20]] string. The string MUST NOT include characters outside the set %x20-21 / %x23-5B / %x5D-7E."
     Class String PrimitiveType false []                             "Character strings"
     Class Namespace PrimitiveType false []                          "A namespace data type for defining data from a context other than that as the default for the data model. This is used for importing other data models."
