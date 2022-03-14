@@ -48,17 +48,11 @@ When the <code>id</code> of an Assertion is a [URL](#url), a GET request to that
 
 Some Assertions are quite long. Due to the large size of the resulting JSON string, the string MUST be compressed prior to rendering the QR Code. To ensure interoperability, the string MUST be compressed using Concise Binary Object Representation (CBOR) [[RFC8949]].
 
-<div class="issue">
-  Is this even practical?
+<div class="issue" title="Can badge be exchanged via QR code?" >
+  Issue <a href="https://github.com/IMSGlobal/openbadges-specification/issues/357">Issue 357</a>
 </div>
 
 ### Image Format
-
-<div class="issue" title="Baking an ObPresentation">
-  <p>
-    Can an ObPresentation be baked into an image? What are the implications?
-  </p>
-</div>
 
 Assertions may be exchanged as image files with assertions encoded within. This allows assertions to be portable wherever image files may be stored or displayed.
 

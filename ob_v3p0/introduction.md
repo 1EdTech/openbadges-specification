@@ -81,7 +81,9 @@ This specification includes JSON Schema files for every class in the data model 
 - <dfn>Person</dfn>: A human being, alive or deceased, as recognized by each jurisdiction’s legal definitions. [[CEDS]]
 
 - <dfn>Publisher</dfn>: The organization or entity issuing the CLR (typically the educational institution or a 3rd-party agent). The publisher is either the issuer or has a trusted relationship with the issuer of all the assertions in the CLR.
-  <div class="issue"><a href="https://github.com/IMSGlobal/openbadges-specification/issues/325"><em>Publisher</em> needs clarification</a>.</div>
+  <div class="issue" title="Publisher needs clarification">
+    <a href="https://github.com/IMSGlobal/openbadges-specification/issues/325">Issue 325</a>.
+  </div>
 
 - <dfn>Relying Third-Party</dfn>: Also referred to as the "verifier" of a VC. This entity requests, verifies, and may consume data being presented.
 
