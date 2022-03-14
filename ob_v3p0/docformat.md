@@ -44,14 +44,6 @@ When the <code>id</code> of an Assertion is a [URL](#url), a GET request to that
 - The <code>Content-Type</code> SHOULD be <code>application/json</code> or <code>application/ld+json</code>.
 - The content MUST be encoded using UTF-8 [[RFC3629]].
 
-### QR Code Format
-
-Some Assertions are quite long. Due to the large size of the resulting JSON string, the string MUST be compressed prior to rendering the QR Code. To ensure interoperability, the string MUST be compressed using Concise Binary Object Representation (CBOR) [[RFC8949]].
-
-<div class="issue" title="Can badge be exchanged via QR code?" >
-  Issue <a href="https://github.com/IMSGlobal/openbadges-specification/issues/357">Issue 357</a>
-</div>
-
 ### Image Format
 
 Assertions may be exchanged as image files with assertions encoded within. This allows assertions to be portable wherever image files may be stored or displayed.
