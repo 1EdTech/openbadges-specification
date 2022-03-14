@@ -1,16 +1,5 @@
 Model ob 2022-01-01 3.0 "s:IMS Base Document" "t:Open Badges" "d:Open Badges Data Model 3.0"
 
-Package OpenBadges DataModel
-
-    Class ObPresentation Unordered false []                         "The ObPresentation class is derived from the W3C VerifiablePresentation class. [[vc-data-model]]."
-        Property @context URI 1..*                                  "The value of the `@context` property MUST be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1', and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'."
-        Property id URI 0..1                                        "Unambiguous reference to the presentation."
-        Property type URI 1..*                                      "The value of the `type` property MUST be an unordered set. One of the items MUST be the URI `VerifiablePresentation`, and one of the items MUST be the URI `ObPresentation`."
-        Property verifiableCredential AssertionCredential 1..*      "The set of assertions being presented."
-        Property holder URI 0..1                                    "If present, the value of the `holder` is expected to be a URI for the entity that is generating the presentation."
-        Property proof Proof 0..*                                   "If present, the value of the `proof` property ensures that the presentation is verifiable."
-        Property extensions Namespace 0..*
-
 // Pull in common credential models (this will be converted to Includes when credential models are finalized and made part of the CDM)
 
 Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/develop/ob_v3p0/common_credentials.lines

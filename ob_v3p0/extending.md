@@ -67,9 +67,9 @@ The extension SHOULD be documented with the following artifacts:
   - Each required query parameter definition MUST include the parameter type and description.
   - Each required request header definition MUST include the header and a description.
   - A required request payload definition MUST include the payload type.
-  - Each required request response definition MUST include the HTTP Status Code, payload type (if any), and description. Non-successful responses (i.e. HTTP Status Code >= 400) SHOULD use the [Imsx_StatusInfo](#org.1edtech.clr.v2p0.imsx_statusinfo.class) payload.
+  - Each required request response definition MUST include the HTTP Status Code, payload type (if any), and description. Non-successful responses (i.e. HTTP Status Code >= 400) SHOULD use the [Imsx_StatusInfo](#imsx_statusinfo) payload.
   - Each requied response header defintion MUST include the header and a description.
-- Definitions of the new responses to existing endpoints. The each definition MUST include the HTTP Status Code, payload type (if any), and description. Non-successful responses (i.e. HTTP Status Code >= 400) SHOULD use the [Imsx_StatusInfo](#org.1edtech.clr.v2p0.imsx_statusinfo.class) payload.
+- Definitions of the new responses to existing endpoints. The each definition MUST include the HTTP Status Code, payload type (if any), and description. Non-successful responses (i.e. HTTP Status Code >= 400) SHOULD use the [Imsx_StatusInfo](#imsx_statusinfo) payload.
 - Ideally an OpenAPI file that describes the new endpoints and/or responses to existing endpoints.
 
 ### Profiles

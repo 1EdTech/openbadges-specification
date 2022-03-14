@@ -4,7 +4,7 @@ var docformat = `
 
 [=Open Badges=] can be exchanged as JSON-LD documents as defined in this section, or by using the [Open Badges API](#api). Open Badges documents can be exchanged as a file or web resource, displayed as a QR code, or embedded in an image. The contents of an Open Badge document MUST meet the following criteria:
 
-- The contents of the file MUST represent exactly one [AssertionCredential](#org.1edtech.ob.v3p0.assertioncredential.class) or one [ObPresentation](#org.1edtech.ob.v3p0.obpresentation.class)
+- The contents of the file MUST represent exactly one [AssertionCredential](#org.1edtech.ob.v3p0.assertioncredential.class)
 - The contents MUST be JSON and JSON-LD (see [[[#serialization]]])
 
 <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.assertioncredential.class"
