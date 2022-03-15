@@ -54,6 +54,10 @@ This specification includes JSON Schema files for every class in the data model 
 
 - <dfn>Alignment</dfn>: An alignment is a reference to an achievement definition, whether referenced in a resource outside the package or contained within the package.
 
+- <dfn>Achievement</dfn>: This is the content description of a credential that an assertion references. It contains metadata such as the name of the achievement, description, alignment of skills, etc. An [=Assertion=] asserts a single achievement. A [=CLR=] asserts a collection of assertions, each of which asserts a single achievement.
+
+- <dfn>Assertion</dfn>: The core of both Open Badges and CLR is the assertion about achievement(s). Assertion properties are specific to one learner's achievement and specify metadata such as issuer, date of achievement, expiration data, as well as results and evidence that support the assertion. A [=Verifiable Credential=] more broadly asserts a claim about a Credential Subject which can be applied to education and occupational achievements.
+
 - <dfn>Claim</dfn>: A statement about the Credential Subject. A claim may include associated evidence, results, or other metadata regarding a specific achievement, skill or assertion.
 
 - <dfn data-lt="Consumer">client</dfn>: In a [=REST API=], the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the [[[SEC-11]]].
@@ -63,10 +67,6 @@ This specification includes JSON Schema files for every class in the data model 
 - <dfn>Credential Subject</dfn>: Describes the claims being made by the Verifiable Credential. In the context of Open Badges and CLR is typically  an individual but in the case of Open Badges, may be another entity type such as a course, book, or organization. Learners, Organizations and other entities can be explicit subclasses of Credential Subjects for purposes of business rules. [[vc-data-model]]
 
 - <dfn>Decentralized Identifiers</dfn>: A type of identifier for people, organizations and any other entity, where each identifier is controlled independently of centralized registries. [[did-core]] [[did-use-cases]]
-
-- <dfn data-lt="DC Achievement">Digital Credential Achievement</dfn> (DC Achievement): This is the content description of a credential that an assertion references. It contains metadata such as the name of the achievement, description, alignment of skills, etc. An Open Badge asserts a single achievement. A CLR asserts a collection of assertions, each of which asserts a single achievement.
-
-- <dfn data-lt="DC Assertion">Digital Credential Assertion</dfn> (DC Assertion): The core of both Open Badges and CLR is the assertion about achievement(s). DC Assertion properties are specific to one learner's achievement and specify metadata such as issuer, date of achievement, expiration data, as well as results and evidence that support the assertion. A Verifiable Credential more broadly asserts a claim about a Credential Subject which can be applied to education and occupational achievements.
 
 - <dfn>Evidence</dfn>: Information supporting a claim such as a URL to an artifact produced by the Learner.
 
