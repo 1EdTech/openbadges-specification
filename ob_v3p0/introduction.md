@@ -68,6 +68,8 @@ This specification includes JSON Schema files for every class in the data model 
 
 - <dfn>Decentralized Identifiers</dfn>: A type of identifier for people, organizations and any other entity, where each identifier is controlled independently of centralized registries. [[did-core]] [[did-use-cases]]
 
+- <dfn>Defined Achievement Claim</dfn>: An [=assertion=] that the learner achieved a specific [=achievement=].
+
 - <dfn>Evidence</dfn>: Information supporting a claim such as a URL to an artifact produced by the Learner.
 
 - <dfn>Issuer</dfn>: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.
@@ -98,7 +100,11 @@ This specification includes JSON Schema files for every class in the data model 
 
 - <dfn data-lt="Platform">server</dfn>: In a [=REST API=], the server is the actor that responds to a DELETE, GET, or POST request. Also called a Platform in the [[[SEC-11]]].
 
-- <dfn>Skill Assertion</dfn>: An assertion that contains a "skill result."
+- <dfn>Skill</dfn>: @@TBD
+
+- <dfn>Skill Assertion</dfn>: An [=assertion=] that contains a "skill result."
+
+- <dfn>Skill Claim</dfn>: An [=assertion=] that the learner has the specified [=skill=].
 
 - <dfn data-lt="VC">Verifiable Credential</dfn> (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [[vc-data-model]].
 
