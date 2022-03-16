@@ -33,3 +33,40 @@ Package SharedOAuth DataModel
         Property unsupported_grant_type ASCIIString 1               "The authorization grant type is not supported by the authorization server."
         Property unsupported_token_type ASCIIString 1               "The authorization server does not support the revocation of the presented token type. That is, the client tried to revoke an access token on a server not supporting this feature."
         Property invalid_scope ASCIIString 1                        "The requested scope is invalid, unknown, malformed, or exceeds the scope granted by the resource owner."
+
+Package ProofModels DataModel                                       "Data models shared by all proof formats."
+
+    Class PresentationJwsPayload Unordered false []                 "Represents a set of Comprehensive Learner Records (CLRs) expressed to conform with the `vp` claim in JSON Web Token Proof Format [[VC-DATA-MODEL]]. Nested credentials are represented as Compact JWS strings."
+        Property @context URI 1..*                                  "The value of the `@context` property MUST be an ordered set where the first item is a URI with the value `https://www.w3.org/2018/credentials/v1`."
+        Property id URI 0..1                                        "Unambiguous reference to the presentation."
+        Property type URI 1..*                                      "The value of the `type` property MUST be an unordered set. One of the items MUST be the URI `VerifiablePresentation`."
+        Property verifiableCredential CompactJws 1..*               "The set of credentials being presented in Compact JWS format."
+        Property holder URI 0..1                                    "If present, the value of the `holder` is expected to be a URI for the entity that is generating the presentation."
+        Property proof Proof 0..*                                   "If present, the value of the `proof` property ensures that the presentation is verifiable."
+        Property extensions Namespace 0..* 
+
+    Class JsonWebKey2020 Unordered false []
+        Property id URI 1                                           "The `id` of the verification method MUST be the [=JWK=] thumbprint calculated from the `publicKeyJwk` property value according to [[RFC7638]]."
+        Property type String 0..1                                   "The `type` of the verification method MUST be the string `JsonWebKey2020`."
+        Property controller URI 0..1                                "The identify of the entity that controls this public key."
+        Property publicKeyJwk JWK 1                                 "The JSON Web Key (JWK) formatted according to [[RFC7517]]."
+
+    Class JWK Unordered false []                                    "A JSON Web Key (JWK) formatted according to [[RFC7517]]."
+        Property kty String 1                                       "The `kty` (key type) parameter identifies the cryptographic algorithm family used with the key, such as `RSA` or `EC`."
+        Property use String 0..1                                    "The `use` (public key use) parameter identifies the intended use of the public key, such as `sig` (signature) or `end` (encryption)."
+        Property key_ops String 0..1                                "The `key_ops` (key operations) parameter identifies the operation(s) for which the key is intended to be used, such as `sign` (compute digital signature or MAC) or `verify` (verify digital signature or MAC)."
+        Property alg String 0..1                                    "The `alg` (algorithm) parameter identifies the algorithm intended for use with the key, such as `RS256` or `PS256`."
+        Property kid String 0..1                                    "The `kid` (key ID) parameter is used to match a specific key."
+        Property x5u URI 0..1                                       "The `x5u` (X.509 URL) parameter is a URI that refers to a resource for an X.509 public key certificate or certificate chain [[RFC5280]]."
+        Property x5c String 0..*                                    "The `x5c` (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates [[RFC5280]]."
+        Property x5t String 0..1                                    "The `x5t` (X.509 certificate SHA-1 thumbprint) parameter is a base64url-encoded SHA-1 thumbprint (a.k.a. digest) of the DER encoding of an X.509 certificate [[RFC5280]]."
+        Property x5t_S256 String 0..1                               "The `x5t#S256` (X.509 certificate SHA-256 thumbprint) parameter is a base64url-encoded SHA-256 thumbprint (a.k.a. digest) of the DER encoding of an X.509 certificate [[RFC5280]]."
+
+    Class JWKS Unordered false []                                   "A JWK Set (JWKS) formatted according to [[RFC7517]]."
+        Property keys JWK 1..*                                      "A JWK Set is a JSON object that represents a set of JWKs."
+
+Package DerivedTypes DataModel
+    Class CompactJws DerivedType false [String]                     "A `String` in Compact JWS format."
+
+Package PrimitiveTypes DataModel
+    Class NumericDate PrimitiveType false []                        "A number representing the number of seconds from from 1970-01-01T00:00:00Z UTC until the specified UTC data/time, ignoring leap seconds."
