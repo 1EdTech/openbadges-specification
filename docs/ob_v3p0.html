@@ -1372,7 +1372,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </tr>
       <tr>
         <td>Date Issued:</td>
-        <td>16 March 2022</td>
+        <td>17 March 2022</td>
       </tr>
       <tr>
         <td>Status:</td>
@@ -4365,7 +4365,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   <p>
     The data models in this section are shared by <cite><a href="https://www.imsglobal.org/spec/ob/v3p0/">Open Badges Specification v3.0</a></cite> and <cite><a href="https://www.imsglobal.org/spec/clr/v2p0/">Comprehensive Learner Record Standard v2.0</a></cite>.
   </p>
-  <section data-class="org.1edtech.ob.v3p0.assertioncredential.class" id="org.1edtech.ob.v3p0.assertioncredential.class"><h4 id="assertioncredential"><bdi class="secno">B.2.1 </bdi>AssertionCredential<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertioncredential.class"></a><a class="self-link" aria-label="§" href="#assertioncredential"></a></h4><p>An AssertionCredential is an Assertion with all the properties need to conform with a Verifiable Credential. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]</p><table class="simple">
+  <section data-class="org.1edtech.ob.v3p0.assertioncredential.class" id="org.1edtech.ob.v3p0.assertioncredential.class"><h4 id="assertioncredential"><bdi class="secno">B.2.1 </bdi>AssertionCredential<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertioncredential.class"></a><a class="self-link" aria-label="§" href="#assertioncredential"></a></h4><p>AssertionCredentials are representations of an awarded achievement, used to share information about a achievement belonging to one earner. Maps to a Verifiable Credential as defined in the [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>].</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -4379,7 +4379,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>@context</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1', and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'.
+        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value "https://www.w3.org/2018/credentials/v1", and the second item is a URI with the value "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld".
         
         
       </td>
@@ -4397,7 +4397,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>type</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI 'VerifiableCredential', and one of the items <em class="rfc2119">MUST</em> be the URI 'AssertionCredential'. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
+        The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI "VerifiableCredential", and one of the items <em class="rfc2119">MUST</em> be the URI "AssertionCredential".
         
         
       </td>
@@ -4406,7 +4406,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>issuer</td>
       <td><a href="#org.1edtech.ob.v3p0.profile.class"><samp>Profile</samp></a></td>
       <td>
-        A description of the individual, entity, or organization that issued the achievement assertion. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
+        A description of the individual, entity, or organization that issued the achievement assertion.
         
         
       </td>
@@ -4415,7 +4415,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>issuanceDate</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class"><samp>DateTime</samp></a></td>
       <td>
-        Timestamp of when the achievement was awarded. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
+        Timestamp of when the achievement was awarded.
         
         
       </td>
@@ -4424,7 +4424,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>credentialSubject</td>
       <td><a href="#org.1edtech.ob.v3p0.assertionsubject.class"><samp>AssertionSubject</samp></a></td>
       <td>
-        The recipient of the achievement. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
+        The recipient of the achievement.
         
         
       </td>
@@ -4442,7 +4442,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>image</td>
       <td><a href="#org.1edtech.ob.v3p0.image.class"><samp>Image</samp></a></td>
       <td>
-        An image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the 'baking' instructions. An 'unbaked' image for the achievement is defined in the Achievement class and should not be duplicated here.
+        An image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the "baking" instructions. An "unbaked" image for the achievement is defined in the Achievement class and should not be duplicated here.
         
         
       </td>
@@ -4460,7 +4460,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>expirationDate</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class"><samp>DateTime</samp></a></td>
       <td>
-        If the achievement assertion has some notion of expiry, this indicates a timestamp when a credential should no longer be considered valid. After this time, the achievement assertion should be considered expired. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
+        If the achievement assertion has some notion of expiry, this indicates a timestamp when a credential should no longer be considered valid. After this time, the achievement assertion should be considered expired.
         
         
       </td>
@@ -4469,7 +4469,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>proof</td>
       <td><a href="#org.1edtech.ob.v3p0.proof.class"><samp>Proof[]</samp></a></td>
       <td>
-        One or more cryptographic proofs that can be used to detect tampering and verify the authorship of the achievement assertion. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
+        One or more cryptographic proofs that can be used to detect tampering and verify the authorship of the achievement assertion.
         
         
       </td>
@@ -4478,7 +4478,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>credentialStatus</td>
       <td><a href="#org.1edtech.ob.v3p0.credentialstatus.class"><samp>CredentialStatus</samp></a></td>
       <td>
-        Provides information about the current status of a verifiable credential, such as whether it is suspended or revoked. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
+        Provides information about the current status of a verifiable credential, such as whether it is suspended or revoked.
         
         
       </td>
@@ -4628,7 +4628,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>creditsAvailable</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.float.class"><samp>Float</samp></a></td>
       <td>
-        Credit hours associated with this entity, or credit hours possible. For example '3.0'.
+        Credit hours associated with this entity, or credit hours possible. For example 3.0.
         
         
       </td>
@@ -4691,7 +4691,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>level</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
-        Text that describes the level of achievement apart from how the achievement was performed or demonstrated. Examples would include 'Level 1', 'Level 2', 'Level 3', or 'Bachelors', 'Masters', 'Doctoral'.
+        
         
         
       </td>
@@ -4956,7 +4956,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
     </tr>
           
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.credentialstatus.class" id="org.1edtech.ob.v3p0.credentialstatus.class"><h4 id="credentialstatus"><bdi class="secno">B.2.8 </bdi>CredentialStatus<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.credentialstatus.class"></a><a class="self-link" aria-label="§" href="#credentialstatus"></a></h4><p>The information in CredentialStatus is used to discover information about the current status of a verifiable credential, such as whether it is suspended or revoked. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]</p><table class="simple">
+      </table></section><section data-class="org.1edtech.ob.v3p0.credentialstatus.class" id="org.1edtech.ob.v3p0.credentialstatus.class"><h4 id="credentialstatus"><bdi class="secno">B.2.8 </bdi>CredentialStatus<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.credentialstatus.class"></a><a class="self-link" aria-label="§" href="#credentialstatus"></a></h4><p>The information in CredentialStatus is used to discover information about the current status of a verifiable credential, such as whether it is suspended or revoked.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -4979,7 +4979,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>type</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
-        Expresses the credential status type (also referred to as the credential status method). It is expected that the value will provide enough information to determine the current status of the credential. For example, the object could contain a link to an external document noting whether or not the credential is suspended or revoked. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
+        Expresses the credential status type (also referred to as the credential status method). It is expected that the value will provide enough information to determine the current status of the credential. For example, the object could contain a link to an external document noting whether or not the credential is suspended or revoked.
         
         
       </td>
@@ -5040,7 +5040,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>@context</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1', and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'.
+        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value "https://www.w3.org/2018/credentials/v1", and the second item is a URI with the value "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld".
         
         
       </td>
@@ -5058,7 +5058,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>type</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI 'VerifiableCredential', and one of the items <em class="rfc2119">MUST</em> be the URI 'EndorsementCredential'. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
+        The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI "VerifiableCredential", and one of the items <em class="rfc2119">MUST</em> be the URI "EndorsementCredential".
         
         
       </td>
@@ -5067,7 +5067,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>issuer</td>
       <td><a href="#org.1edtech.ob.v3p0.profile.class"><samp>Profile</samp></a></td>
       <td>
-        A description of the individual, entity, or organization that issued the endorsement. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
+        A description of the individual, entity, or organization that issued the endorsement.
         
         
       </td>
@@ -5076,7 +5076,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>issuanceDate</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class"><samp>DateTime</samp></a></td>
       <td>
-        Timestamp of when the achievement was awarded. [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">vc-data-model</a></cite>]
+        Timestamp of when the achievement was awarded.
         
         
       </td>
@@ -5459,7 +5459,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>sourcedId</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
-        The individual's or organization's unique 'sourcedId' value, which is used for providing interoperability with other identity systems.
+        The individual's or organization's unique <code>sourcedId</code> value, which is used for providing interoperability with other identity systems.
         
         
       </td>
@@ -5548,7 +5548,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>proofPurpose</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
-        The purpose of the proof to be used with <code>verificationMethod</code>. <em class="rfc2119">MUST</em> be 'assertionMethod'.
+        The purpose of the proof to be used with <code>verificationMethod</code>. <em class="rfc2119">MUST</em> be "assertionMethod".
         
         
       </td>
@@ -5628,7 +5628,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>value</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
-        A string representing the result of the performance, or demonstration, of the achievement. For example, 'A' if the recipient received an A grade in class.
+        A string representing the result of the performance, or demonstration, of the achievement. For example, "A" if the recipient received an A grade in class.
         
         
       </td>
@@ -5672,7 +5672,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>allowedValues</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String[]</samp></a></td>
       <td>
-        An ordered array of allowed values. The values should be ordered from 'low' to 'high' as determined by the achievement creator.
+        An ordered array of allowed values. The values should be ordered from low to high as determined by the achievement creator.
         
         
       </td>
@@ -5717,7 +5717,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>rubricCriterionLevels</td>
       <td><a href="#org.1edtech.ob.v3p0.rubriccriterionlevel.class"><samp>RubricCriterionLevel[]</samp></a></td>
       <td>
-        An ordered array of rubric criterion levels that may be asserted in the linked result. The levels should be ordered from 'low' to 'high' as determined by the achievement creator.
+        An ordered array of rubric criterion levels that may be asserted in the linked result. The levels should be ordered from low to high as determined by the achievement creator.
         
         
       </td>
@@ -5841,7 +5841,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <td>identifierType</td>
       <td><a href="#org.1edtech.ob.v3p0.identifiertype.class"><samp>IdentifierType Enumeration</samp></a></td>
       <td>
-        The identifier type. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention. For example, the NCES School ID might be 'ext:NcesSchoolId'. Extended vocabulary terms must start with 'ext:' followed by any valid JSON string value.
+        The identifier type. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention. For example, the NCES School ID might be "ext:NcesSchoolId". Extended vocabulary terms must start with "ext:" followed by any valid JSON string value.
         
         
       </td>
@@ -5860,10 +5860,55 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
         </thead>
         <tbody>
           <tr>
+      <td>@context</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
+      <td>
+        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value "https://www.w3.org/2018/credentials/v1".
+        
+        
+      </td>
+      <td>Required</td>
+    </tr><tr>
+      <td>id</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
+      <td>
+        Unambiguous reference to the credential.
+        
+        
+      </td>
+      <td>Optional</td>
+    </tr><tr>
       <td>type</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI <code>VerifiableCredential</code>.
+        The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI "VerifiableCredential".
+        
+        
+      </td>
+      <td>Required</td>
+    </tr><tr>
+      <td>issuer</td>
+      <td><a href="#org.1edtech.ob.v3p0.profile.class"><samp>Profile</samp></a></td>
+      <td>
+        A description of the individual, entity, or organization that issued the credential.
+        
+        
+      </td>
+      <td>Required</td>
+    </tr><tr>
+      <td>issuanceDate</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class"><samp>DateTime</samp></a></td>
+      <td>
+        Timestamp of when the credential was awarded.
+        
+        
+      </td>
+      <td>Required</td>
+    </tr><tr>
+      <td>credentialSubject</td>
+      <td><a href="#org.1edtech.ob.v3p0.assertionsubject.class"><samp>AssertionSubject</samp></a></td>
+      <td>
+        The subject of the credential.
         
         
       </td>
@@ -5946,7 +5991,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.achievementtype.class" id="org.1edtech.ob.v3p0.achievementtype.class"><h4 id="achievementtype-enumeration"><bdi class="secno">B.2.23 </bdi>AchievementType Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.achievementtype.class"></a><a class="self-link" aria-label="§" href="#achievementtype-enumeration"></a></h4><p>The type of achievement, for example 'Award' or 'Certification'. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention.</p><table class="simple">
+      </table></section><section data-class="org.1edtech.ob.v3p0.achievementtype.class" id="org.1edtech.ob.v3p0.achievementtype.class"><h4 id="achievementtype-enumeration"><bdi class="secno">B.2.23 </bdi>AchievementType Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.achievementtype.class"></a><a class="self-link" aria-label="§" href="#achievementtype-enumeration"></a></h4><p>The type of achievement, for example "Award" or "Certification". This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention.</p><table class="simple">
         <thead>
           <tr>
             <th>Term</th>
@@ -6996,7 +7041,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   <p>
     The data models in this section are shared by all IMS specifications.
   </p>
-<section data-class="org.1edtech.ob.v3p0.derived.iri.class" id="org.1edtech.ob.v3p0.derived.iri.class"><h4 id="iri"><bdi class="secno">B.7.1 </bdi>IRI<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.iri.class"></a><a class="self-link" aria-label="§" href="#iri"></a></h4><p>A <code>NormalizedString</code> that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).</p></section><section data-class="org.1edtech.ob.v3p0.derived.term.class" id="org.1edtech.ob.v3p0.derived.term.class"><h4 id="term"><bdi class="secno">B.7.2 </bdi>Term<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.term.class"></a><a class="self-link" aria-label="§" href="#term"></a></h4><p>A term in an enumeration. The lexical constraints are the same as for <code>Token</code>.</p></section><section data-class="org.1edtech.ob.v3p0.derived.uri.class" id="org.1edtech.ob.v3p0.derived.uri.class"><h4 id="uri"><bdi class="secno">B.7.3 </bdi>URI<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.uri.class"></a><a class="self-link" aria-label="§" href="#uri"></a></h4><p>A <code>NormalizedString</code> that respresents a Uniform Resource Identifier (URI).</p></section><section data-class="org.1edtech.ob.v3p0.derived.url.class" id="org.1edtech.ob.v3p0.derived.url.class"><h4 id="url"><bdi class="secno">B.7.4 </bdi>URL<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.url.class"></a><a class="self-link" aria-label="§" href="#url"></a></h4><p>A <code>URI</code> that represents a Uniform Resource Locator (URL).</p></section><section data-class="org.1edtech.ob.v3p0.derived.identityhash.class" id="org.1edtech.ob.v3p0.derived.identityhash.class"><h4 id="identityhash"><bdi class="secno">B.7.5 </bdi>IdentityHash<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.identityhash.class"></a><a class="self-link" aria-label="§" href="#identityhash"></a></h4><p>A hash string containing an algorithm identifier and a resulting hash of an identifier, separated by a dollar sign ('$') and the algorithm used to generate the hash. The only supported algorithms are MD5 [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc1321" title="The MD5 Message-Digest Algorithm">RFC1321</a></cite>] and SHA-256 [<cite><a class="bibref" data-link-type="biblio" href="#bib-fips-180-4" title="FIPS PUB 180-4 Secure Hash Standard">FIPS-180-4</a></cite>], identified by the strings md5 and sha256 respectively. Resulting hash for each of these algorithms <em class="rfc2119">MUST</em> be expressed in hexadecimal using uppercase (A-F, 0-9) or lowercase character (a-f, 0-9) sets. For example: sha256$7a1a1b3f7d40552e4299180e346e3add12bf9a751a43d9c4ca4518febc2c60c6 represents the result of calculating a SHA-256 hash on the string 'mayze'.</p></section><section data-class="org.1edtech.ob.v3p0.derived.markdown.class" id="org.1edtech.ob.v3p0.derived.markdown.class"><h4 id="markdown"><bdi class="secno">B.7.6 </bdi>Markdown<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.markdown.class"></a><a class="self-link" aria-label="§" href="#markdown"></a></h4><p>A <code>String</code> that may contain Markdown.</p></section><section data-class="org.1edtech.ob.v3p0.derived.compactjws.class" id="org.1edtech.ob.v3p0.derived.compactjws.class"><h4 id="compactjws"><bdi class="secno">B.7.7 </bdi>CompactJws<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.compactjws.class"></a><a class="self-link" aria-label="§" href="#compactjws"></a></h4><p>A <code>String</code> in Compact JWS format.</p></section></section>
+<section data-class="org.1edtech.ob.v3p0.derived.iri.class" id="org.1edtech.ob.v3p0.derived.iri.class"><h4 id="iri"><bdi class="secno">B.7.1 </bdi>IRI<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.iri.class"></a><a class="self-link" aria-label="§" href="#iri"></a></h4><p>A <code>NormalizedString</code> that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).</p></section><section data-class="org.1edtech.ob.v3p0.derived.term.class" id="org.1edtech.ob.v3p0.derived.term.class"><h4 id="term"><bdi class="secno">B.7.2 </bdi>Term<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.term.class"></a><a class="self-link" aria-label="§" href="#term"></a></h4><p>A term in an enumeration. The lexical constraints are the same as for <code>Token</code>.</p></section><section data-class="org.1edtech.ob.v3p0.derived.uri.class" id="org.1edtech.ob.v3p0.derived.uri.class"><h4 id="uri"><bdi class="secno">B.7.3 </bdi>URI<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.uri.class"></a><a class="self-link" aria-label="§" href="#uri"></a></h4><p>A <code>NormalizedString</code> that respresents a Uniform Resource Identifier (URI).</p></section><section data-class="org.1edtech.ob.v3p0.derived.url.class" id="org.1edtech.ob.v3p0.derived.url.class"><h4 id="url"><bdi class="secno">B.7.4 </bdi>URL<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.url.class"></a><a class="self-link" aria-label="§" href="#url"></a></h4><p>A <code>URI</code> that represents a Uniform Resource Locator (URL).</p></section><section data-class="org.1edtech.ob.v3p0.derived.identityhash.class" id="org.1edtech.ob.v3p0.derived.identityhash.class"><h4 id="identityhash"><bdi class="secno">B.7.5 </bdi>IdentityHash<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.identityhash.class"></a><a class="self-link" aria-label="§" href="#identityhash"></a></h4><p>A hash string containing an algorithm identifier and a resulting hash of an identifier, separated by a dollar sign ("$") and the algorithm used to generate the hash. The only supported algorithms are MD5 [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc1321" title="The MD5 Message-Digest Algorithm">RFC1321</a></cite>] and SHA-256 [<cite><a class="bibref" data-link-type="biblio" href="#bib-fips-180-4" title="FIPS PUB 180-4 Secure Hash Standard">FIPS-180-4</a></cite>], identified by the strings md5 and sha256 respectively. Resulting hash for each of these algorithms <em class="rfc2119">MUST</em> be expressed in hexadecimal using uppercase (A-F, 0-9) or lowercase character (a-f, 0-9) sets. For example: sha256$7a1a1b3f7d40552e4299180e346e3add12bf9a751a43d9c4ca4518febc2c60c6 represents the result of calculating a SHA-256 hash on the string "mayze".</p></section><section data-class="org.1edtech.ob.v3p0.derived.markdown.class" id="org.1edtech.ob.v3p0.derived.markdown.class"><h4 id="markdown"><bdi class="secno">B.7.6 </bdi>Markdown<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.markdown.class"></a><a class="self-link" aria-label="§" href="#markdown"></a></h4><p>A <code>String</code> that may contain Markdown.</p></section><section data-class="org.1edtech.ob.v3p0.derived.compactjws.class" id="org.1edtech.ob.v3p0.derived.compactjws.class"><h4 id="compactjws"><bdi class="secno">B.7.7 </bdi>CompactJws<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.compactjws.class"></a><a class="self-link" aria-label="§" href="#compactjws"></a></h4><p>A <code>String</code> in Compact JWS format.</p></section></section>
 <section data-model="org.1edtech.ob.v3p0.model" data-package="PrimitiveTypes" title="Primitive Types" id="org.1edtech.ob.v3p0.model.7"><h3 id="org-1edtech-ob-v3p0-model-7"><bdi class="secno">B.8 </bdi>Primitive Types<a class="self-link" aria-label="§" href="#org-1edtech-ob-v3p0-model-7"></a><a class="self-link" aria-label="§" href="#org-1edtech-ob-v3p0-model-7"></a></h3>
   <p>
     The data models in this section are shared by all IMS specifications.
@@ -8026,7 +8071,7 @@ function hidePanel(panel) {
         Please refer to Document Name: Open Badges Specification
         3.0
       </p>
-      <p>Date: 16 March 2022</p>
+      <p>Date: 17 March 2022</p>
       <div></div>
     </div>
   </footer></body></html>
