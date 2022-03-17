@@ -11,11 +11,11 @@
       mainSpecBiblioKey: "OB-30",
       specTitle: "Open Badges Vocabulary",
       shortName: "ob",
-      specNature: "informative", // spec nature is "normative" or "informative"
-      specType: "doc", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
+      specDate: "2022",
+      specNature: "informative",
+      specType: "doc",
       specVersion: "3.0",
       docVersion: "0",
-      specStatus: "IMS Base Document", // specStatus: IMS Base Document, IMS Candidate Final (Public) or IMS Final Release
     };
   </script>
 </head>
@@ -23,45 +23,246 @@
 <body>
 
   <section id="abstract">
-    <h2>Overview</h2>
-    <p>This document contains information about the vocabulary terms used in the data model.</p>
+    <h2>Abstract</h2>
+    <p>
+      This document contains information about the JSON-LD terms used IMS Open Badges versions 1.0+.
+    </p>
   </section>
 
   <section>
-    <h2>Vocabulary as a Definition List</h2>
-    <p>This format is very concise. Details such as deprecation may not be seen.</p>
+    <h2>Terms</h2>
+    <p>
+      This is a complete list of JSON-LD terms used by IMS Open Badges versions 1.0+.
+    </p>
     <dl>
       <dt id="achievement">Achievement</dt>
-      <dd>The achievement being asserted by the issuer.</dd>
+      <dd>
+        The achievement being asserted by the issuer.
+        <a href="#achievement-0">read more</a>
+      </dd>
+      <dt id="alignment">Alignment</dt>
+      <dd>
+        <a href="#alignment-0">read more</a>
+      </dd>
+      <dt id="allowedOrigins">Allowed Origins</dt>
+      <dd>
+        <a href="#allowedorigins-0">read more</a>
+      </dd>
+      <dt id="audience">Audience</dt>
+      <dd>
+        <a href="#audience-0">read more</a>
+      </dd>
+      <dt id="author">Author</dt>
+      <dd>
+        <a href="#audience-0">read more</a>
+      </dd>
       <dt id="badge">Badge</dt>
-      <dd>The achievement being asserted by the issuer. Deprecated in OB 3.0</dd>
+      <dd>
+        The achievement being asserted by the issuer.
+        <a href="#badge-0">read more</a>
+      </dd>
+      <dt id="caption">Caption</dt>
+      <dd>
+        <a href="#caption-0">read more</a>
+      </dd>
+      <dt id="claim">Claim</dt>
+      <dd>
+        An endorser's claim about an entity.
+        <a href="#claim-0">read more</a>
+      </dd>
+      <dt id="contact">Contact</dt>
+      <dd>
+        <a href="#contact-0">read more</a>
+      </dd>
+      <dt id="creator">Creator</dt>
+      <dd>
+        <a href="#creator-0">read more</a>
+      </dd>
+      <dt id="criteria">Criteria</dt>
+      <dd>
+        <a href="#criteria-0">read more</a>
+      </dd>
+      <dt id="description">Description</dt>
+      <dd>
+        <a href="#description-0">read more</a>
+      </dd>
+      <dt id="email">Email</dt>
+      <dd>
+        <a href="#email-0">read more</a>
+      </dd>
+      <dt id="endorsement">Endorsement</dt>
+      <dd>
+        <a href="#endorsement-0">read more</a>
+      </dd>
+      <dt id="endorsementComment">Endorsement Comment</dt>
+      <dd>
+        <a href="#endorsementcomment-0">read more</a>
+      </dd>
+      <dt id="evidence">Evidence</dt>
+      <dd>
+        <a href="#evidence-0">read more</a>
+      </dd>
+      <dt id="expires">Expires</dt>
+      <dd>
+        <a href="#expires-0">read more</a>
+      </dd>
+      <dt id="genre">Genre</dt>
+      <dd>
+        <a href="#genre-0">read more</a>
+      </dd>
+      <dt id="hashed">Hashed</dt>
+      <dd>
+        <a href="#hashed-0">read more</a>
+      </dd>
+      <dt id="identity">Identity</dt>
+      <dd>
+        <a href="#identity-0">read more</a>
+      </dd>
+      <dt id="image">Image</dt>
+      <dd>
+        <a href="#image-0">read more</a>
+      </dd>
+      <dt id="issuedOn">Issued On</dt>
+      <dd>
+        <a href="#issuedon-0">read more</a>
+      </dd>
       <dt id="issuer">Issuer</dt>
-      <dd>The person or organization that has made an assertion about a person.</dd>
+      <dd>
+        The person or organization that has made an assertion about a person.
+        <a href="#issuer-0">read more</a>
+      </dd>
+      <dt id="name">Name</dt>
+      <dd>
+        <a href="#name-0">read more</a>
+      </dd>
+      <dt id="narrative">Narrative</dt>
+      <dd>
+        <a href="#narrative-0">read more</a>
+      </dd>
+      <dt id="origin">Origin</dt>
+      <dd>
+        <a href="#origin-0">read more</a>
+      </dd>
+      <dt id="owner">Owner</dt>
+      <dd>
+        <a href="#owner-0">read more</a>
+      </dd>
+      <dt id="publicKey">Public Key</dt>
+      <dd>
+        <a href="#publickey-0">read more</a>
+      </dd>
+      <dt id="publicKeyPem">Public Key PEM</dt>
+      <dd>
+        <a href="#publickeypem-0">read more</a>
+      </dd>
+      <dt id="recipient">Recipient</dt>
+      <dd>
+        An object that describes the recipient's identity.
+        <a href="#recipient-0">read more</a>
+      </dd>
+      <dt id="related">Related</dt>
+      <dd>
+        <a href="#related-0">read more</a>
+      </dd>
+      <dt id="revocationList">Revocation List</dt>
+      <dd>
+        <a href="#revocationlist-0">read more</a>
+      </dd>
+      <dt id="revocationReason">Revocation Reason</dt>
+      <dd>
+        <a href="#revocationreason-0">read more</a>
+      </dd>
+      <dt id="revoked">Revoked</dt>
+      <dd>
+        <a href="#revoked-0">read more</a>
+      </dd>
+      <dt id="revokedAssertions">Revoked Assertions</dt>
+      <dd>
+        <a href="#revokedassertions-0">read more</a>
+      </dd>
+      <dt id="salt">Salt</dt>
+      <dd>
+        <a href="#salt-0">read more</a>
+      </dd>
+      <dt id="startsWith">Starts With</dt>
+      <dd>
+        <a href="#startswith-0">read more</a>
+      </dd>
+      <dt id="tags">Tags</dt>
+      <dd>
+        <a href="#tags-0">read more</a>
+      </dd>
+      <dt id="targetCode">Target Code</dt>
+      <dd>
+        <a href="#targetcode-0">read more</a>
+      </dd>
+      <dt id="targetDescription">Target Description</dt>
+      <dd>
+        <a href="#targetdescription-0">read more</a>
+      </dd>
+      <dt id="targetFramework">Target Framework</dt>
+      <dd>
+        <a href="#targetframework-0">read more</a>
+      </dd>
+      <dt id="targetName">Target Name</dt>
+      <dd>
+        <a href="#targetname-0">read more</a>
+      </dd>
+      <dt id="targetUrl">Target URL</dt>
+      <dd>
+        <a href="#targeturl-0">read more</a>
+      </dd>
+      <dt id="telephone">Telephone</dt>
+      <dd>
+        <a href="#telephone-0">read more</a>
+      </dd>
+      <dt id="uid">UID</dt>
+      <dd>
+        <a href="#uid-0">read more</a>
+      </dd>
+      <dt id="url">URL</dt>
+      <dd>
+        <a href="#url-0">read more</a>
+      </dd>
+      <dt id="verification">Verification</dt>
+      <dd>
+        <a href="#verification-0">read more</a>
+      </dd>
+      <dt id="verificationProperty">Verification Property</dt>
+      <dd>
+        <a href="#verificationproperty-0">read more</a>
+      </dd>
+      <dt id="verify">Verify</dt>
+      <dd>
+        <a href="#verify-0">read more</a>
+      </dd>
+      <dt id="version">Version</dt>
+      <dd>
+        <a href="#version-0">read more</a>
+      </dd>
     </dl>
   </section>
 
   <section>
-    <h2>Vocabulary as Sections</h2>
+    <h2>Term Details</h2>
     <p>
-      This format is better suited for more information about the term such as which
-      versions of the specification use the term.
+      This section contains information about all the JSON-LD terms used in IMS Open Badges 1.0+.
+      Each term has a table showing which versions of IMS Open Badges use the term.
     </p>
     <section>
       <h3>Achievement</h3>
       <p>The achievement being asserted by the issuer.</p>
-      <table>
+      <table class="simple">
         <thead>
           <tr>
             <th>1.0</th>
             <th>1.5</th>
-            <th>2.0</th>
-            <th>2.1</th>
+            <th>2.0/2.1</th>
             <th>3.0</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -73,19 +274,17 @@
     <section>
       <h3>Badge</h3>
       <p>The achievement being asserted by the issuer.</p>
-      <table>
+      <table class="simple">
         <thead>
           <tr>
             <th>1.0</th>
             <th>1.5</th>
-            <th>2.0</th>
-            <th>2.1</th>
+            <th>2.0/2.1</th>
             <th>3.0</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>X</td>
             <td>X</td>
             <td>X</td>
             <td>X</td>
@@ -97,19 +296,17 @@
     <section>
       <h3>Issuer</h3>
       <p>The person or organization that has made an assertion about a person.</p>
-      <table>
+      <table class="simple">
         <thead>
           <tr>
             <th>1.0</th>
             <th>1.5</th>
-            <th>2.0</th>
-            <th>2.1</th>
+            <th>2.0/2.1</th>
             <th>3.0</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>X</td>
             <td>X</td>
             <td>X</td>
             <td>X</td>
