@@ -14,30 +14,20 @@ Certification may be achieved in one or more of the following services:
 
 The service types and associated certification tests are defined below.
 
-Certification may be achieved for one or more of the following:
-
-Consumer<br />(Initiates Requests) | Provider<br />(Responds to Requests)
-:--------------------------------: | :----------------------------------:
-[Service Consumer (Read)](#service-consumer-read) | [Service Provider (Read)](#service-provider-read)
-[Service Consumer (Write)](#service-consumer-write) | [Service Provider (Write)](#service-provider-write)
-
-The features and associated certification tests are defined below.
-
 ### The Conformance Process
 
 The process for conformance testing role implementations of Open Badges includes the following:
 
-* First, go to the IMS Conformance Test Suite for Open Badges 2.1 and follow the onscreen instructions to run the tests.
+* First, go to the IMS Conformance Test Suite for Open Badges 3.0 and follow the onscreen instructions to run the tests.
 * Once the tests have been successfully run, submit your test results. A copy of your test results will be sent to your email address.
 
 To pass certification, you must take the following steps:
 
 * You must be an IMS Digital Credentials and Badges Alliance Member, an IMS Affiliate Member, or IMS Contributing Member.
-* You must be certified for Open Badges 2.0.
-* You must pass all the tests associated with the features you are applying for using the certification suite hosted on the IMS website.
+* You must pass all the tests associated with the services you are applying for using the certification suite hosted on the IMS website.
 * The tests must be completed by a designated representative of the IMS member organization, and you must agree that there is no misrepresentation or manipulation of results in the submitted information.
 
-After IMS reviews your submitted information and notifies you that your application is approved, you can claim certification to Open Badges 2.1 and display the IMS certified logo on your website and in your software. The IMS Global Certified Products Directory will list your conformance details.
+After IMS reviews your submitted information and notifies you that your application is approved, you can claim certification to Open Badges 3.0 and display the IMS certified logo on your website and in your software. The IMS Global Certified Products Directory will list your conformance details.
 
 ### Open Badges 3.0 Issuer Service Conformance {#issuer-conformance}
 
@@ -49,7 +39,7 @@ A Open Badges **Issuer** is an application that allows for the creation of <a hr
 1. Demonstrate through video the candidate platform's methodology for a recipient to retrieve their badge.
 1. Complete [[[#service-consumer-write]]].
 
-### Open Badges 2.0 Displayer Service Conformance {#displayer-conformance}
+### Open Badges 3.0 Displayer Service Conformance {#displayer-conformance}
 
 An Open Badges Displayer is an application that displays verified badges to viewers. The candidate platform must display a minimum set of badge metadata and support viewer-initiated verification of a badge.
 
@@ -71,7 +61,7 @@ An Open Badges Displayer is an application that displays verified badges to view
    1. Trigger verification of the badge and retrieve results verifying that the badge assertion is not expired, and not revoked.
    1. Consume pre-existing verification information that includes the results and timestamp of latest verification.
 
-### Open Badges 2.0 Host Service Conformance {#host-conformance}
+### Open Badges 3.0 Host Service Conformance {#host-conformance}
 
 An Open Badges **Host** is an application that can aggregate and publicly host Assertions for recipients. It also supports export of badges at user request. The candidate platform must be able to import all formats of Open Badges as well as prove that badge metadata is not lost upon export of the badge. The candidate platform must also meet [[[#service-provider-write]]] requirements and accept an AssertionCredential or a Profile from an Issuer application. And meet [[[#service-consumer-read]]] and [[[#service-provider-read]]] requirements for exchanging AssertionCredentials with other Host applications.
 
