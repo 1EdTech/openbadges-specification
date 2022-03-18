@@ -1,1215 +1,1215 @@
 var security = `
 
 <section class="normative">
-	<h2 id="api-security">Open Badges API Security</h2>
-	<p>
-		In scenarios where the learner or another third party is the [=user=] that owns the resources (badges),
-		there will not be a pre-established trust relationship. Therefore you MUST use of OAuth 2.0 Authorization
-		Code Grant.
-	</p>
-	<p>
-		The <a href="#api">Open Badges API</a> endpoints use the method outlined in <a
-			data-cite="SEC-11#using-oauth-2-0-authorization-code-grant">Section 4.2, "Using OAuth 2.0 Authorization Code
-			Grant"</a> of the [[[SEC-11]]] to secure the API endpoints. This section describes the how Authorization
-		Code Grant is implemented for the Open Badges API.
-	</p>
+  <h2 id="api-security">Open Badges API Security</h2>
+  <p>
+    In scenarios where the learner or another third party is the [=user=] that owns the resources (badges),
+    there will not be a pre-established trust relationship. Therefore you MUST use of OAuth 2.0 Authorization
+    Code Grant.
+  </p>
+  <p>
+    The <a href="#api">Open Badges API</a> endpoints use the method outlined in <a
+      data-cite="SEC-11#using-oauth-2-0-authorization-code-grant">Section 4.2, "Using OAuth 2.0 Authorization Code
+      Grant"</a> of the [[[SEC-11]]] to secure the API endpoints. This section describes the how Authorization
+    Code Grant is implemented for the Open Badges API.
+  </p>
 
-	<!-- Using OAuth 2.0 Authorization Code Grant -->
-	<section>
-		<h3 id="oauth2acg">Using OAuth 2.0 Authorization Code Grant</h3>
-		<p>
-			Making a secured Open Badges API request using authorization code grant comprises three steps:
-		</p>
-		<ol type="A">
-			<li>
-				[[[#acg-registration]]] - Share configuration information between the [=client=] and the [=server=].
-				This is typically done only once unless the registration is revoked.
-			</li>
-			<li>
-				[[[#acg-tokens]]] - Obtain an authorization code using a choreography between the [=client=], [=web
-				browser=], [=user=], and [=authorization server=]. Then request an access token by sending a request,
-				using the previously obtained authorization code, to the Access Token service endpoint.
-			</li>
-			<li>
-				[[[#acg-authenticating]]] - Use the access token in the Authorization header of the API request.
-			</li>
-		</ol>
+  <!-- Using OAuth 2.0 Authorization Code Grant -->
+  <section>
+    <h3 id="oauth2acg">Using OAuth 2.0 Authorization Code Grant</h3>
+    <p>
+      Making a secured Open Badges API request using authorization code grant comprises three steps:
+    </p>
+    <ol type="A">
+      <li>
+        [[[#acg-registration]]] - Share configuration information between the [=client=] and the [=server=].
+        This is typically done only once unless the registration is revoked.
+      </li>
+      <li>
+        [[[#acg-tokens]]] - Obtain an authorization code using a choreography between the [=client=], [=web
+        browser=], [=user=], and [=authorization server=]. Then request an access token by sending a request,
+        using the previously obtained authorization code, to the Access Token service endpoint.
+      </li>
+      <li>
+        [[[#acg-authenticating]]] - Use the access token in the Authorization header of the API request.
+      </li>
+    </ol>
 
-		<!-- ACG - Registration -->
-		<section>
-			<h4 id="acg-registration">Dynamic Client Registration</h4>
-			<p>
-				To get started, the [=client=] and [=authorization server=] MUST share the four pieces of information
-				shown below using the OAuth 2.0 Dynamic Client Registration Protocol [[RFC7591]] as described in this
-				section.
-			</p>
-			<dl>
-				<dt>client_id</dt>
-				<dd>
-					This is the public identifier for the communication exchange. Also called a Secret in the
-					[[[SEC-11]]].
-				</dd>
-				<dt>client_secret</dt>
-				<dd>
-					This is the shared secret for the communication exchange. Also called a Secret in the [[[SEC-11]]].
-				</dd>
-				<dt>List of Scopes</dt>
-				<dd>
-					The list of scopes that identify the set of endpoints for which access permission is being
-					requested.
-				</dd>
-				<dt>OAuth 2.0 Access Token Service Endpoint</dt>
-				<dd>
-					The endpoint from which the approved, requesting [=client=] can obtain an access token.
-				</dd>
-			</dl>
-			<p>
-				If the [=client=] and [=authorization server=] support Token Revocation, they should also share:
-			</p>
-			<dl>
-				<dt>OAuth 2.0 Revocation Service Endpoint</dt>
-				<dd>
-					The endpoint a [=client=] can use to revoke an access token.
-				</dd>
-			</dl>
-			<p>There are two steps to dynamic client registration:</p>
-			<ol>
-				<li>Request a Service Description Document (SDD) from the [=resource server=]</li>
-				<li>Register with the [=authorization server=]</li>
-			</ol>
-			<figure>
-				<img src="images/OB3_ACG_DynamicClientRegistration.svg" alt="Sequence diagram for registration" />
-				<figcaption>Sequence diagram for dynamic client registration</figcaption>
-			</figure>
-			<p>
-				The [=client=] only needs to register a <code>client_id</code> with the [=authorization server=]
-				once. Each [=user=] will use the same <code>client_id</code> when they request their own
-				authorization code.
-			</p>
+    <!-- ACG - Registration -->
+    <section>
+      <h4 id="acg-registration">Dynamic Client Registration</h4>
+      <p>
+        To get started, the [=client=] and [=authorization server=] MUST share the four pieces of information
+        shown below using the OAuth 2.0 Dynamic Client Registration Protocol [[RFC7591]] as described in this
+        section.
+      </p>
+      <dl>
+        <dt>client_id</dt>
+        <dd>
+          This is the public identifier for the communication exchange. Also called a Secret in the
+          [[[SEC-11]]].
+        </dd>
+        <dt>client_secret</dt>
+        <dd>
+          This is the shared secret for the communication exchange. Also called a Secret in the [[[SEC-11]]].
+        </dd>
+        <dt>List of Scopes</dt>
+        <dd>
+          The list of scopes that identify the set of endpoints for which access permission is being
+          requested.
+        </dd>
+        <dt>OAuth 2.0 Access Token Service Endpoint</dt>
+        <dd>
+          The endpoint from which the approved, requesting [=client=] can obtain an access token.
+        </dd>
+      </dl>
+      <p>
+        If the [=client=] and [=authorization server=] support Token Revocation, they should also share:
+      </p>
+      <dl>
+        <dt>OAuth 2.0 Revocation Service Endpoint</dt>
+        <dd>
+          The endpoint a [=client=] can use to revoke an access token.
+        </dd>
+      </dl>
+      <p>There are two steps to dynamic client registration:</p>
+      <ol>
+        <li>Request a Service Description Document (SDD) from the [=resource server=]</li>
+        <li>Register with the [=authorization server=]</li>
+      </ol>
+      <figure>
+        <img src="images/OB3_ACG_DynamicClientRegistration.svg" alt="Sequence diagram for registration" />
+        <figcaption>Sequence diagram for dynamic client registration</figcaption>
+      </figure>
+      <p>
+        The [=client=] only needs to register a <code>client_id</code> with the [=authorization server=]
+        once. Each [=user=] will use the same <code>client_id</code> when they request their own
+        authorization code.
+      </p>
 
-			<h3>Request the Service Description Document</h3>
+      <h3>Request the Service Description Document</h3>
 
-			<p>
-				To start the registration process, the [=user=] supplies the [=client=] with the [=resource
-				server=]'s base URL. When presented with an unknown [=resource server=] the [=client=] MUST request
-				the [=resource server=]'s Service Description Document (SDD) at the path
-				<code>{baseUrl}/ims/ob/v3p0/discovery</code>. Rate-limited access to this endpoint is RECOMMENDED.
-				An example request for an SDD takes the form of:
-			</p>
-			<pre class="http example" title="Sample request for a service description document">
-				GET /tenant/ims/ob/v3p0/discovery HTTP/1.1
-				Host: example.com
-				Accept: application/json
-			</pre>
-			<p>
-				Access to the discovery endpoint MUST NOT be protected. The SDD MUST be provided over HTTPS with TLS
-				1.2 or 1.3.
-			</p>
-			<p>
-				The response to this request is the SDD supplied as a JSON encoded payload. The structure and format
-				of this payload MUST follow that of the OpenAPI 3.0 Specification [[OPENAPIS-3.0]]. The SDD supplied
-				MUST be a profiled version of the OpenAPI 3.0 (JSON) file provided with this specification (see
-				[[[#docs-openapi]]]). The profiled version contains all of the details about the supported set of
-				service end-points, the supported optional data fields, definitions of the proprietary data fields
-				supplied using the permitted extension mechanisms, definitions of the available proprietary
-				endpoints, and information about the security mechanisms.
-			</p>
-			<p>
-				The <code>x-imssf-privacyPolicyUrl</code> property is inserted into the <code>securitySchemes</code>
-				within the <code>components</code> section of the OpenAPI file structure. This is an IMS controlled
-				extension to the OpenAPI specification.
-			</p>
-			<table class="simple">
-				<thead>
-					<tr>
-						<th>Property Name</th>
-						<th>Type</th>
-						<th>Description</th>
-						<th>Required</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><code>x-imssf-privacyPolicyUrl</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
-						<td>A fully qualified URL to the [=resource server=]'s privacy policy.</td>
-						<td>Required</td>
-					</tr>
-				</tbody>
-			</table>
-			<p>
-				The <code>x-imssf-image</code> and <code>x-imssf-privacyPolicy</code> properties are inserted into
-				the <code>info</code> section of the OpenAPI file structure. These are also IMS controlled
-				extensions to the OpenAPI specification. Also note that the standard <code>title</code> and
-				<code>termsOfService</code> property is required in a Service Description Document. These may be
-				displayed to the [=user=] during the registration process.
-			</p>
-			<table class="simple">
-				<thead>
-					<tr>
-						<th>Property Name</th>
-						<th>Type</th>
-						<th>Description</th>
-						<th>Required</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><code>x-imssf-image</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
-						<td>
-							An image representing the [=resource server=]. May be a Data URI or the URL where the
-							image may be found.
-						</td>
-						<td>Optional</td>
-					</tr>
-					<tr>
-						<td><code>x-imssf-privacyPolicyUrl</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
-						<td>A fully qualified URL to the [=resource server=]'s privacy policy.</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>title</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>The name of the [=resource server=].</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>termsOfService</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
-						<td>A fully qualified URL to the [=resource server=]'s terms of service.</td>
-						<td>Required</td>
-					</tr>
-				</tbody>
-			</table>
-			<pre class="http example" title="Sample response with a Service Discovery Document">
-				HTTP/1.1 200 OK
-				Content-Type: application/json; charset=utf-8
-				
-				...
-				"info": {
-					"x-imssf-image": "https://example.com/logo",
-					"x-imssf-privacyPolicy": "https://example.com/privacy",
-					"title": "Example",
-					"termsOfService": "https://example.com/tos",
-					...
-				},
-				...
-				"components": {
-					"securitySchemes": {
-						"OAuth2ACG": {
-							"type": "oauth2",
-							"description": "OAuth 2.0 Authorization Code Grant authorization",
-							"x-imssf-registrationUrl": "example.com/registration",
-							"flows": {
-								"authorizationCode": {
-									"tokenUrl": "example.com/token",
-									"authorizationUrl": "example.com/authorize",
-									"refreshUrl": "example.com/token",
-									"scopes": {
-										"https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.update" : "...",
-										"https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly" : "...",
-										"https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly" : "...",
-										"https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update" : "..."
-									}
-								}
-							}
-						}
-					},
-					"schemas": {
-						...
-					}
-				}
-				...
-			</pre>
-			<p>
-				Upon receiving a SDD from a [=resource server=], the [=client=] SHOULD respect the Cache-Control and
-				Expires headers if present in the response and configure local cache to match the directives it
-				declares. If directives include one of <code>no-cache</code>, <code>no-store</code>, the [=client=]
-				SHOULD NOT cache the data for future interactions. If directives include <code>max-age</code> or if
-				an Expires header is present, the [=client=] SHOULD cache the SDD data, if valid, up to the
-				expiration indicated, either at the time indicated by the Expires header or max-age seconds from
-				request time.
-			</p>
-			<p>
-				An Etag header MAY be offered with the SDD response. If so, after a resource's declared expiration,
-				a [=client=] MAY include an <code>If-None-Match header</code> containing the value of the Etag to
-				check if the resource is still fresh. If so the [=resource server=] may return a
-				<code>304 Not Modified</code> response status code, and a new <code>Expires</code> or
-				<code>Cache-Control</code> header MAY be included, which the [=client=] SHOULD use to update the
-				cache expiration.
-			</p>
+      <p>
+        To start the registration process, the [=user=] supplies the [=client=] with the [=resource
+        server=]'s base URL. When presented with an unknown [=resource server=] the [=client=] MUST request
+        the [=resource server=]'s Service Description Document (SDD) at the path
+        <code>{baseUrl}/ims/ob/v3p0/discovery</code>. Rate-limited access to this endpoint is RECOMMENDED.
+        An example request for an SDD takes the form of:
+      </p>
+      <pre class="http example" title="Sample request for a service description document">
+        GET /tenant/ims/ob/v3p0/discovery HTTP/1.1
+        Host: example.com
+        Accept: application/json
+      </pre>
+      <p>
+        Access to the discovery endpoint MUST NOT be protected. The SDD MUST be provided over HTTPS with TLS
+        1.2 or 1.3.
+      </p>
+      <p>
+        The response to this request is the SDD supplied as a JSON encoded payload. The structure and format
+        of this payload MUST follow that of the OpenAPI 3.0 Specification [[OPENAPIS-3.0]]. The SDD supplied
+        MUST be a profiled version of the OpenAPI 3.0 (JSON) file provided with this specification (see
+        [[[#docs-openapi]]]). The profiled version contains all of the details about the supported set of
+        service end-points, the supported optional data fields, definitions of the proprietary data fields
+        supplied using the permitted extension mechanisms, definitions of the available proprietary
+        endpoints, and information about the security mechanisms.
+      </p>
+      <p>
+        The <code>x-imssf-privacyPolicyUrl</code> property is inserted into the <code>securitySchemes</code>
+        within the <code>components</code> section of the OpenAPI file structure. This is an IMS controlled
+        extension to the OpenAPI specification.
+      </p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Property Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>x-imssf-privacyPolicyUrl</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td>A fully qualified URL to the [=resource server=]'s privacy policy.</td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        The <code>x-imssf-image</code> and <code>x-imssf-privacyPolicy</code> properties are inserted into
+        the <code>info</code> section of the OpenAPI file structure. These are also IMS controlled
+        extensions to the OpenAPI specification. Also note that the standard <code>title</code> and
+        <code>termsOfService</code> property is required in a Service Description Document. These may be
+        displayed to the [=user=] during the registration process.
+      </p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Property Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>x-imssf-image</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+            <td>
+              An image representing the [=resource server=]. May be a Data URI or the URL where the
+              image may be found.
+            </td>
+            <td>Optional</td>
+          </tr>
+          <tr>
+            <td><code>x-imssf-privacyPolicyUrl</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td>A fully qualified URL to the [=resource server=]'s privacy policy.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>title</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>The name of the [=resource server=].</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>termsOfService</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td>A fully qualified URL to the [=resource server=]'s terms of service.</td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+      <pre class="http example" title="Sample response with a Service Discovery Document">
+        HTTP/1.1 200 OK
+        Content-Type: application/json; charset=utf-8
+        
+        ...
+        "info": {
+          "x-imssf-image": "https://example.com/logo",
+          "x-imssf-privacyPolicy": "https://example.com/privacy",
+          "title": "Example",
+          "termsOfService": "https://example.com/tos",
+          ...
+        },
+        ...
+        "components": {
+          "securitySchemes": {
+            "OAuth2ACG": {
+              "type": "oauth2",
+              "description": "OAuth 2.0 Authorization Code Grant authorization",
+              "x-imssf-registrationUrl": "example.com/registration",
+              "flows": {
+                "authorizationCode": {
+                  "tokenUrl": "example.com/token",
+                  "authorizationUrl": "example.com/authorize",
+                  "refreshUrl": "example.com/token",
+                  "scopes": {
+                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.update" : "...",
+                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly" : "...",
+                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly" : "...",
+                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update" : "..."
+                  }
+                }
+              }
+            }
+          },
+          "schemas": {
+            ...
+          }
+        }
+        ...
+      </pre>
+      <p>
+        Upon receiving a SDD from a [=resource server=], the [=client=] SHOULD respect the Cache-Control and
+        Expires headers if present in the response and configure local cache to match the directives it
+        declares. If directives include one of <code>no-cache</code>, <code>no-store</code>, the [=client=]
+        SHOULD NOT cache the data for future interactions. If directives include <code>max-age</code> or if
+        an Expires header is present, the [=client=] SHOULD cache the SDD data, if valid, up to the
+        expiration indicated, either at the time indicated by the Expires header or max-age seconds from
+        request time.
+      </p>
+      <p>
+        An Etag header MAY be offered with the SDD response. If so, after a resource's declared expiration,
+        a [=client=] MAY include an <code>If-None-Match header</code> containing the value of the Etag to
+        check if the resource is still fresh. If so the [=resource server=] may return a
+        <code>304 Not Modified</code> response status code, and a new <code>Expires</code> or
+        <code>Cache-Control</code> header MAY be included, which the [=client=] SHOULD use to update the
+        cache expiration.
+      </p>
 
-			<h3>Register with Authorization Server</h3>
+      <h3>Register with Authorization Server</h3>
 
-			<p>
-				With the Registration URL in hand (the value of the <code>x-imssf-registrationUrl</code> property of
-				the SDD), the [=client=] SHOULD post a registration request to the [=authorization server=]. The
-				registration request MUST comply with OAuth 2.0 Dynamic Client Registration Protocol [[RFC7591]].
-				The registration request MUST NOT require an Initial Access Token. Use of the 'Software Statement'
-				is NOT RECOMMENDED. The client registration request is sent to the Client Registration URL. The
-				request MUST be sent using HTTPS with TLS 1.2 or 1.3 protocol.
-			</p>
-			<p>
-				The properties of the JSON body MUST be implemented as described in the following table. All URLs
-				MUST use HTTPS (e.g. https://example.com/logo.png) and all URLs MUST have the same hostname. All
-				required properties MUST be present in the registration request in order for it to be accepted by
-				the [=authorization server=]. Arrays MUST be used even when a single value is to be sent.
-			</p>
-			<table title="Properties in the client registration request">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Type</th>
-						<th>Description</th>
-						<th>Required</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><code>client_name</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>The human-readable name of the [=client=] application.</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>client_uri</code></td>
-						<td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
-						<td>A page that which describes the [=client=] application.</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>logo_uri</code></td>
-						<td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
-						<td>
-							The logo of the [=client=] application. If present, the [=authorization server=] SHOULD
-							display this image to the end-user during approval. The value of this field MUST point
-							to a valid image file.
-						</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>tos_uri</code></td>
-						<td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
-						<td>
-							The human-readable Terms of Service for the [=client=] application that describes a
-							contractural relationship between the end-user and the client that the end-user accepts
-							when authorizing the [=client=].
-						</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>policy_uri</code></td>
-						<td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
-						<td>
-							The human-readable Privacy Policy for the [=client=] application that describes how the
-							deployment organization collects, uses, retains, and discloses personal data.
-						</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>software_id</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>
-							A unique idenfitier assigned by the [=client=] application developer or software
-							published used by registration endpoints to identify the [=client=] application to be
-							dynamically registered. As described in [rfc7591], it SHOULD remain the same for all
-							instances of the [=client=] application software.
-						</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>software_version</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>
-							A version identifier string for the [=client=] application software identifies by
-							<code>software_id</code>. The value of <code>software_version</code> SHOULD change on
-							any update to the [=client=] application software identified by the same
-							<code>software_id</code>.
-						</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>redirect_uris</code></td>
-						<td><a href="org.1edtech.ob.v3p0.derived.url.class">URL[]</a></td>
-						<td>Array of redirection URI strings for use in the OAuth 2.0 flow.</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>scope</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>
-							In the registration request, this is a string containing a space-separated list of scope
-							values that this [=client=] application may include when requesting access tokens. If
-							omitted, the [=authorization server=] MAY register a [=client=] application with a
-							default set of scopes. In the registration response, this is a list of scopes the
-							[=authorization server=] supports.
-							<p>
-								The list of scopes that can be requested are shown in [[[#scopes]]].
-							</p>
-						</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>token_endpoint_auth_method</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>
-							String indicator of the requested authentication method for the token endpoint. In this
-							specification only "client_secret_basic" is allowed:
-							<ul>
-								<li>
-									"client_secret_basic": The [=client=] application uses the HTTP Basic
-									authentication method as defined in OAuth 2.0.
-								</li>
-							</ul>
-							If omitted, the default is "client_secret_basic".
-						</td>
-						<td>Optional</td>
-					</tr>
-					<tr>
-						<td><code>grant_types</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String[]</a></td>
-						<td>
-							Array of OAuth 2.0 grant type strings. In this specification only "authorization_code"
-							and refresh_token" are allowed:
-							<ul>
-								<li>
-									"authorization_code": The authorization code grant type defined in OAuth
-									2.0.
-								</li>
-								<li>
-									"refresh_token": The refresh token grant type defined in OAuth 2.0.
-								</li>
-							</ul>
-							If omitted, the default behavior is that the client will use only the
-							"authorization_code" grant type.
-						</td>
-						<td>Optional</td>
-					</tr>
-					<tr>
-						<td><code>response_types</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String[]</a></td>
-						<td>
-							Array of OAuth 2.0 response type strings. In this specification only "code" is allowed:
-							<ul>
-								<li>"code": The authorization code response type defined in OAuth 2.0.</li>
-							</ul>
-							If omitted, the default is that the client will use only the "code" response type.
-						</td>
-						<td>Optional</td>
-					</tr>
-					<tr>
-						<td><code>contacts</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String[]</a></td>
-						<td>
-							Array of strings representing ways to contact people responsible for this [=client=],
-							typically email addresses. The [=authorization server=] MAY make these contact addresses
-							available to end-users for support requests for the [=client=] application. Privacy
-							constraints MUST be supported as applicable.
-						</td>
-						<td>Optional</td>
-					</tr>
-				</tbody>
-			</table>
-			<pre class="http example" title="Sample registration request">
-				POST /connect/register HTTP/1.1
-				Host: auth.example.com
-				Accept: application/json
-				Content-Type: application/json; charset=utf-8
-				
-				{
-					"client_name": "Example Client Application",
-					"client_uri": "https://client.example.com/",
-					"logo_uri": "https://client.example.com/logo.png",
-					"tos_uri": "https://client.example.com/terms",
-					"policy_uri": "https://client.example.com/privacy",
-					"software_id": "c88b6ed8-269e-448e-99be-7e2ff47167d1",
-					"software_version": "v4.0.30319",
-					"redirect_uris": [
-						"https://client.example.com/Authorize"
-					],
-					"token_endpoint_auth_method": "client_secret_basic",
-					"grant_types": [
-						"authorization_code",
-						"refresh_token"
-					],
-					"response_types": [
-						"code"
-					],
-					"scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/delete https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly https://purl.imsglobal.org/spec/ob/v3p0/scope/replace offline_access"
-			}
-			</pre>
-			<p>
-				If the [=authorization server=] accepts the registration request, it will store the information
-				provided in the request and respond <code>HTTP 201 Created</code> with a registration response that
-				includes a set of client credentials for the [=client=] application to use when requesting access
-				tokens. All the information provided by the [=client=] application MUST be returned to the
-				[=client=] application, including modifications to the properties as the [=authorization server=]
-				deems necessary. An example response looks like this:
-			</p>
-			<pre class="http example" title="Sample registration response">
-				HTTP/1.1 201 Created
-				Content-Type: application/json; charset=utf-8
-				
-				{
-					"client_id": "4ad36680810420ed",
-					"client_secret": "af7aa0d679778e12",
-					"client_id_issued_at": 1565715850,
-					"client_secret_expires_at": 1597338250,
-					"client_name": "Example Client Application",
-					"client_uri": "https://client.example.com/",
-					"logo_uri": "https://client.example.com/logo.png",
-					"tos_uri": "https://client.example.com/terms",
-					"policy_uri": "https://client.example.com/privacy",
-					"software_id": "c88b6ed8-269e-448e-99be-7e2ff47167d1",
-					"software_version": "v4.0.30319",
-					"redirect_uris": [
-						"https://client.example.com/Authorize"
-					],
-					"token_endpoint_auth_method": "client_secret_basic",
-					"grant_types": [
-						"authorization_code",
-						"refresh_token"
-					],
-					"response_types": [
-						"code"
-					],
-					"scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/delete https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly https://purl.imsglobal.org/spec/ob/v3p0/scope/replace offline_access"
-				}    
-			</pre>
-			<p>
-				The following table describes the properties present in the client registration response that were
-				not included in the request. These are all REQUIRED properties.
-			</p>
-			<table class="simple">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Type</th>
-						<th>Description</th>
-						<th>Required</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><code>client_id</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>
-							An OAuth 2.0 client identifier string. The value SHOULD NOT be currently valid for any
-							other registered client.
-						</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>client_secret</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>An OAuth 2.0 client secret string.</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>client_id_issued_at</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.nonnegativeinteger.class">NonNegativeInteger</a>
-						</td>
-						<td>
-							The time at which the client_id was issued. The time is represented as the number of
-							seconds from 1970-01-01T00:00:00Z as measured in UTC until the date/time of issuance.
-						</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>client_secret_expires_at</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.nonnegativeinteger.class">NonNegativeInteger</a>
-						</td>
-						<td>
-							The time at which the <code>client_secret</code> will expire. MAY be 0 for no
-							expiration. The time is represented as the number of seconds from 1970-01-01T00:00:00Z
-							as measured in UTC until the date/time of expiration.
-						</td>
-						<td>Required</td>
-					</tr>
-				</tbody>
-			</table>
-			<p>
-				When a registration error condition occurs, the authorization server returns an HTTP 400 status code
-				(unless otherwise specified) with content type "application/json" consisting of a JSON object
-				describing the error in the response body. The properties used are:
-			</p>
-			<table class="simple">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Type</th>
-						<th>Description</th>
-						<th>Required</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><code>error</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.registrationerror.class">RegistrationError</a></td>
-						<td>The error.</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>error</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.primitive.asciistring.class">ASCII String</a></td>
-						<td>Human-readable ASCII text description of the error used for debugging.</td>
-						<td>Optional</td>
-					</tr>
-				</tbody>
-			</table>
+      <p>
+        With the Registration URL in hand (the value of the <code>x-imssf-registrationUrl</code> property of
+        the SDD), the [=client=] SHOULD post a registration request to the [=authorization server=]. The
+        registration request MUST comply with OAuth 2.0 Dynamic Client Registration Protocol [[RFC7591]].
+        The registration request MUST NOT require an Initial Access Token. Use of the 'Software Statement'
+        is NOT RECOMMENDED. The client registration request is sent to the Client Registration URL. The
+        request MUST be sent using HTTPS with TLS 1.2 or 1.3 protocol.
+      </p>
+      <p>
+        The properties of the JSON body MUST be implemented as described in the following table. All URLs
+        MUST use HTTPS (e.g. https://example.com/logo.png) and all URLs MUST have the same hostname. All
+        required properties MUST be present in the registration request in order for it to be accepted by
+        the [=authorization server=]. Arrays MUST be used even when a single value is to be sent.
+      </p>
+      <table title="Properties in the client registration request">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>client_name</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>The human-readable name of the [=client=] application.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>client_uri</code></td>
+            <td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td>A page that which describes the [=client=] application.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>logo_uri</code></td>
+            <td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td>
+              The logo of the [=client=] application. If present, the [=authorization server=] SHOULD
+              display this image to the end-user during approval. The value of this field MUST point
+              to a valid image file.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>tos_uri</code></td>
+            <td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td>
+              The human-readable Terms of Service for the [=client=] application that describes a
+              contractural relationship between the end-user and the client that the end-user accepts
+              when authorizing the [=client=].
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>policy_uri</code></td>
+            <td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td>
+              The human-readable Privacy Policy for the [=client=] application that describes how the
+              deployment organization collects, uses, retains, and discloses personal data.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>software_id</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>
+              A unique idenfitier assigned by the [=client=] application developer or software
+              published used by registration endpoints to identify the [=client=] application to be
+              dynamically registered. As described in [rfc7591], it SHOULD remain the same for all
+              instances of the [=client=] application software.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>software_version</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>
+              A version identifier string for the [=client=] application software identifies by
+              <code>software_id</code>. The value of <code>software_version</code> SHOULD change on
+              any update to the [=client=] application software identified by the same
+              <code>software_id</code>.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>redirect_uris</code></td>
+            <td><a href="org.1edtech.ob.v3p0.derived.url.class">URL[]</a></td>
+            <td>Array of redirection URI strings for use in the OAuth 2.0 flow.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>scope</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>
+              In the registration request, this is a string containing a space-separated list of scope
+              values that this [=client=] application may include when requesting access tokens. If
+              omitted, the [=authorization server=] MAY register a [=client=] application with a
+              default set of scopes. In the registration response, this is a list of scopes the
+              [=authorization server=] supports.
+              <p>
+                The list of scopes that can be requested are shown in [[[#scopes]]].
+              </p>
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>token_endpoint_auth_method</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>
+              String indicator of the requested authentication method for the token endpoint. In this
+              specification only "client_secret_basic" is allowed:
+              <ul>
+                <li>
+                  "client_secret_basic": The [=client=] application uses the HTTP Basic
+                  authentication method as defined in OAuth 2.0.
+                </li>
+              </ul>
+              If omitted, the default is "client_secret_basic".
+            </td>
+            <td>Optional</td>
+          </tr>
+          <tr>
+            <td><code>grant_types</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String[]</a></td>
+            <td>
+              Array of OAuth 2.0 grant type strings. In this specification only "authorization_code"
+              and refresh_token" are allowed:
+              <ul>
+                <li>
+                  "authorization_code": The authorization code grant type defined in OAuth
+                  2.0.
+                </li>
+                <li>
+                  "refresh_token": The refresh token grant type defined in OAuth 2.0.
+                </li>
+              </ul>
+              If omitted, the default behavior is that the client will use only the
+              "authorization_code" grant type.
+            </td>
+            <td>Optional</td>
+          </tr>
+          <tr>
+            <td><code>response_types</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String[]</a></td>
+            <td>
+              Array of OAuth 2.0 response type strings. In this specification only "code" is allowed:
+              <ul>
+                <li>"code": The authorization code response type defined in OAuth 2.0.</li>
+              </ul>
+              If omitted, the default is that the client will use only the "code" response type.
+            </td>
+            <td>Optional</td>
+          </tr>
+          <tr>
+            <td><code>contacts</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String[]</a></td>
+            <td>
+              Array of strings representing ways to contact people responsible for this [=client=],
+              typically email addresses. The [=authorization server=] MAY make these contact addresses
+              available to end-users for support requests for the [=client=] application. Privacy
+              constraints MUST be supported as applicable.
+            </td>
+            <td>Optional</td>
+          </tr>
+        </tbody>
+      </table>
+      <pre class="http example" title="Sample registration request">
+        POST /connect/register HTTP/1.1
+        Host: auth.example.com
+        Accept: application/json
+        Content-Type: application/json; charset=utf-8
+        
+        {
+          "client_name": "Example Client Application",
+          "client_uri": "https://client.example.com/",
+          "logo_uri": "https://client.example.com/logo.png",
+          "tos_uri": "https://client.example.com/terms",
+          "policy_uri": "https://client.example.com/privacy",
+          "software_id": "c88b6ed8-269e-448e-99be-7e2ff47167d1",
+          "software_version": "v4.0.30319",
+          "redirect_uris": [
+            "https://client.example.com/Authorize"
+          ],
+          "token_endpoint_auth_method": "client_secret_basic",
+          "grant_types": [
+            "authorization_code",
+            "refresh_token"
+          ],
+          "response_types": [
+            "code"
+          ],
+          "scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/delete https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly https://purl.imsglobal.org/spec/ob/v3p0/scope/replace offline_access"
+      }
+      </pre>
+      <p>
+        If the [=authorization server=] accepts the registration request, it will store the information
+        provided in the request and respond <code>HTTP 201 Created</code> with a registration response that
+        includes a set of client credentials for the [=client=] application to use when requesting access
+        tokens. All the information provided by the [=client=] application MUST be returned to the
+        [=client=] application, including modifications to the properties as the [=authorization server=]
+        deems necessary. An example response looks like this:
+      </p>
+      <pre class="http example" title="Sample registration response">
+        HTTP/1.1 201 Created
+        Content-Type: application/json; charset=utf-8
+        
+        {
+          "client_id": "4ad36680810420ed",
+          "client_secret": "af7aa0d679778e12",
+          "client_id_issued_at": 1565715850,
+          "client_secret_expires_at": 1597338250,
+          "client_name": "Example Client Application",
+          "client_uri": "https://client.example.com/",
+          "logo_uri": "https://client.example.com/logo.png",
+          "tos_uri": "https://client.example.com/terms",
+          "policy_uri": "https://client.example.com/privacy",
+          "software_id": "c88b6ed8-269e-448e-99be-7e2ff47167d1",
+          "software_version": "v4.0.30319",
+          "redirect_uris": [
+            "https://client.example.com/Authorize"
+          ],
+          "token_endpoint_auth_method": "client_secret_basic",
+          "grant_types": [
+            "authorization_code",
+            "refresh_token"
+          ],
+          "response_types": [
+            "code"
+          ],
+          "scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/delete https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly https://purl.imsglobal.org/spec/ob/v3p0/scope/replace offline_access"
+        }    
+      </pre>
+      <p>
+        The following table describes the properties present in the client registration response that were
+        not included in the request. These are all REQUIRED properties.
+      </p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>client_id</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>
+              An OAuth 2.0 client identifier string. The value SHOULD NOT be currently valid for any
+              other registered client.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>client_secret</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>An OAuth 2.0 client secret string.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>client_id_issued_at</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.nonnegativeinteger.class">NonNegativeInteger</a>
+            </td>
+            <td>
+              The time at which the client_id was issued. The time is represented as the number of
+              seconds from 1970-01-01T00:00:00Z as measured in UTC until the date/time of issuance.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>client_secret_expires_at</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.nonnegativeinteger.class">NonNegativeInteger</a>
+            </td>
+            <td>
+              The time at which the <code>client_secret</code> will expire. MAY be 0 for no
+              expiration. The time is represented as the number of seconds from 1970-01-01T00:00:00Z
+              as measured in UTC until the date/time of expiration.
+            </td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        When a registration error condition occurs, the authorization server returns an HTTP 400 status code
+        (unless otherwise specified) with content type "application/json" consisting of a JSON object
+        describing the error in the response body. The properties used are:
+      </p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>error</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.registrationerror.class">RegistrationError</a></td>
+            <td>The error.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>error</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.primitive.asciistring.class">ASCII String</a></td>
+            <td>Human-readable ASCII text description of the error used for debugging.</td>
+            <td>Optional</td>
+          </tr>
+        </tbody>
+      </table>
 
-		</section>
+    </section>
 
-		<!-- ACG - Obtaining Tokens -->
-		<section>
+    <!-- ACG - Obtaining Tokens -->
+    <section>
 
-			<h4 id="acg-tokens">Obtaining Tokens</h4>
+      <h4 id="acg-tokens">Obtaining Tokens</h4>
 
-			<figure>
-				<img src="images/OB3_ACG_ObtainingTokens.svg"
-					alt="Sequence diagram for obtaining access tokens when using the ACG flow" />
-				<figcaption>Sequence diagram for obtaining access tokens when using the ACG flow</figcaption>
-			</figure>
-			<p>
-				Obtaining an access token using an authorization code has two steps:
-			</p>
-			<ul>
-				<li>
-					First obtain an authorization code using a choreography between the [=client=], [=web browser=],
-					[=user=], and [=authorization server=] - [[[#acg-auth-request]]]
-				</li>
-				<li>
-					Then request an access token using the authorization code - [[[#acg-token-request]]]
-				</li>
-			</ul>
-			<p>
-				Once obtained, the [=client=] can freely re-use the access token up until the token's expiry time, so
-				that the [=client=] need not repeat steps of obtaining an authorization code and requesting an access
-				token for every API request. Token refresh is also available (see [[[#token-refresh-request]]]).
-			</p>
+      <figure>
+        <img src="images/OB3_ACG_ObtainingTokens.svg"
+          alt="Sequence diagram for obtaining access tokens when using the ACG flow" />
+        <figcaption>Sequence diagram for obtaining access tokens when using the ACG flow</figcaption>
+      </figure>
+      <p>
+        Obtaining an access token using an authorization code has two steps:
+      </p>
+      <ul>
+        <li>
+          First obtain an authorization code using a choreography between the [=client=], [=web browser=],
+          [=user=], and [=authorization server=] - [[[#acg-auth-request]]]
+        </li>
+        <li>
+          Then request an access token using the authorization code - [[[#acg-token-request]]]
+        </li>
+      </ul>
+      <p>
+        Once obtained, the [=client=] can freely re-use the access token up until the token's expiry time, so
+        that the [=client=] need not repeat steps of obtaining an authorization code and requesting an access
+        token for every API request. Token refresh is also available (see [[[#token-refresh-request]]]).
+      </p>
 
-			<h5 id="acg-auth-request">Authorization Request</h5>
+      <h5 id="acg-auth-request">Authorization Request</h5>
 
-			<p>
-				After the [=client=] application is registered with the [=authorization server=] as described in
-				[[[#acg-registration]]], the [=client=] application then MAY initiate an authorization request
-				as described in Section 4.2 of the IMS Security Framework [[SEC-11]] by redirecting the user to the
-				<code>authorizationUrl</code> as declared in the [=resource server=]'s Service Description Document
-				(SDD).
-			</p>
-			<p>
-				In the OAuth 2.0 Security Best Practices document [[OAUTH2-SBP]] the use of Proof Key for Code
-				Exchange (PKCE) [[RFC7636]] is recommended in order to (with the help of the [=authorization
-				server=]) detect and prevent attempts to inject (replay) authorization codes into the authorization
-				response. When using IMS specifications, PKCE MUST be used to protect Authorization Code Grant based
-				access. The PKCE has two stages:
-			<ul>
-				<li>
-					First the [=client=] MUST supply a <code>code_challenge</code> and
-					<code>code_challenge_method</code> in the request for an authorization code. The [=authorization
-					server=] is responsible for associating the <code>code_challenge</code> with the issued
-					authorization code.
-				</li>
-				<li>
-					Then the [=client=] MUST supply the <code>code_verifier</code> in the Access Token Request, and
-					the [=authorization server=] verifies the <code>code_verifier</code>.
-				</li>
-			</ul>
-			</p>
-			<table class="simple">
-				<thead>
-					<tr>
-						<th>Parameter Name</th>
-						<th>Type</th>
-						<th>Description</th>
-						<th>Required</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><code>response_type</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>Value MUST be set to "code".</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>client_id</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>
-							The [=client=] application identifier. MUST be the <code>client_id</code> provided
-							in
-							the Dynamic Client Registration [[[#register-with-authorization-server]]] response.
-						</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>redirect_uri</code></td>
-						<td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
-						<td>
-							The [=client=] application's redirection endpoint. MUST match one of the
-							<code>redirect_uris</code> in the [[[#acg-registration]]] request. Although this is
-							optional in the IMS Security Framework [[SEC-11]], it is REQUIRED by this
-							specification.
-						</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>scope</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>
-							The scope of the authorization request. The [=authorization server=] is responsible
-							for
-							validating the scopes identified in the request and the response MUST include a
-							scope
-							parameter which confirms this list or comprises a subset of the services requested.
-						</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>state</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>
-							An opaque value used by the [=client=] application to maintain state between the
-							request
-							and callback. The [=authorization server=] includes this value when redirecting the
-							[=web browser=] back to the [=client=]. This parameter MUST be used for preventing
-							cross-site request forgery.
-						</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>code_challenge</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>This is BASE64URL-ENCODE(SHA256(ASCII(code_verifier))).</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>code_challenge_method</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>
-							This MUST have a value of "S256" to indicate the SHA256 code verifier transformation
-							method is used.
-						</td>
-						<td>Required</td>
-					</tr>
-				</tbody>
-			</table>
-			<p>
-				All of the authorization request parameters are encoded in the authorization request as query
-				string parameters. The request MUST be made by redirecting the browser to the OAuth 2.0
-				Authorization endpoint. The request MUST use HTTPS with TLS 1.2 or 1.3 protocol.
-			</p>
-			<pre class="http example" title="Sample ACG authorization request (line breaks for clarity)">
-				HTTP/1.1 302 Found
-				Location: https://auth.example.com/authorize?
-					client_id=4ad36680810420ed
-					&response_type=code
-					&scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%ob%2Fv3p0%2Fscope%2Fassertion.readonly%20offline_access
-					&redirect_uri=https%3A%2F%client.example.com%2FAuthorize
-					&state=26357667-94df-4a14-bcb1-f55449ddd98d
-					&code_challenge=XeDw66i9FLjn7XaecT_xaFyUWWfUub02Kw118n-jbEs
-					&code_challenge_method=S256    
-			</pre>
+      <p>
+        After the [=client=] application is registered with the [=authorization server=] as described in
+        [[[#acg-registration]]], the [=client=] application then MAY initiate an authorization request
+        as described in Section 4.2 of the IMS Security Framework [[SEC-11]] by redirecting the user to the
+        <code>authorizationUrl</code> as declared in the [=resource server=]'s Service Description Document
+        (SDD).
+      </p>
+      <p>
+        In the OAuth 2.0 Security Best Practices document [[OAUTH2-SBP]] the use of Proof Key for Code
+        Exchange (PKCE) [[RFC7636]] is recommended in order to (with the help of the [=authorization
+        server=]) detect and prevent attempts to inject (replay) authorization codes into the authorization
+        response. When using IMS specifications, PKCE MUST be used to protect Authorization Code Grant based
+        access. The PKCE has two stages:
+      <ul>
+        <li>
+          First the [=client=] MUST supply a <code>code_challenge</code> and
+          <code>code_challenge_method</code> in the request for an authorization code. The [=authorization
+          server=] is responsible for associating the <code>code_challenge</code> with the issued
+          authorization code.
+        </li>
+        <li>
+          Then the [=client=] MUST supply the <code>code_verifier</code> in the Access Token Request, and
+          the [=authorization server=] verifies the <code>code_verifier</code>.
+        </li>
+      </ul>
+      </p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Parameter Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>response_type</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>Value MUST be set to "code".</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>client_id</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>
+              The [=client=] application identifier. MUST be the <code>client_id</code> provided
+              in
+              the Dynamic Client Registration [[[#register-with-authorization-server]]] response.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>redirect_uri</code></td>
+            <td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td>
+              The [=client=] application's redirection endpoint. MUST match one of the
+              <code>redirect_uris</code> in the [[[#acg-registration]]] request. Although this is
+              optional in the IMS Security Framework [[SEC-11]], it is REQUIRED by this
+              specification.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>scope</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>
+              The scope of the authorization request. The [=authorization server=] is responsible
+              for
+              validating the scopes identified in the request and the response MUST include a
+              scope
+              parameter which confirms this list or comprises a subset of the services requested.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>state</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>
+              An opaque value used by the [=client=] application to maintain state between the
+              request
+              and callback. The [=authorization server=] includes this value when redirecting the
+              [=web browser=] back to the [=client=]. This parameter MUST be used for preventing
+              cross-site request forgery.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>code_challenge</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>This is BASE64URL-ENCODE(SHA256(ASCII(code_verifier))).</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>code_challenge_method</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>
+              This MUST have a value of "S256" to indicate the SHA256 code verifier transformation
+              method is used.
+            </td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        All of the authorization request parameters are encoded in the authorization request as query
+        string parameters. The request MUST be made by redirecting the browser to the OAuth 2.0
+        Authorization endpoint. The request MUST use HTTPS with TLS 1.2 or 1.3 protocol.
+      </p>
+      <pre class="http example" title="Sample ACG authorization request (line breaks for clarity)">
+        HTTP/1.1 302 Found
+        Location: https://auth.example.com/authorize?
+          client_id=4ad36680810420ed
+          &response_type=code
+          &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%ob%2Fv3p0%2Fscope%2Fassertion.readonly%20offline_access
+          &redirect_uri=https%3A%2F%client.example.com%2FAuthorize
+          &state=26357667-94df-4a14-bcb1-f55449ddd98d
+          &code_challenge=XeDw66i9FLjn7XaecT_xaFyUWWfUub02Kw118n-jbEs
+          &code_challenge_method=S256    
+      </pre>
 
-			<h5 id="acg-auth-response">Authorization Response</h5>
+      <h5 id="acg-auth-response">Authorization Response</h5>
 
-			<p>
-				If the <code>redirect_uri</code> matches a known <code>client_id</code>, the [=authorization
-				server=] SHOULD present a UI asking the [=user=] to authenticate themself and grant the access
-				request. The [=authorization server=] SHOULD display the <code>client_name</code>,
-				<code>client_uri</code>, <code>logo_uri</code>, <code>tos_uri</code>, and <code>policy_uri</code>
-				collected during Dynamic Client Registration to the [=user=] to help them decide whether to grant
-				the access request.
-			</p>
-			<p>
-				If the [=user=] authorizes the [=client=] application to access their resources with the requested
-				scopes, the [=authorization server=] MUST redirect the browser back to the <code>redirect_uri</code>
-				with the <code>code</code>, <code>scope</code>, and <code>state</code> query string parameters.
-			</p>
-			<p>
-				The Authorization Code MUST be used only once. A lifetime for the authorization code of 600 seconds
-				(10 minutes) is RECOMMENDED. If an authorization code is used more than once, the [=authorization
-				server=] MUST deny the request and SHOULD revoke (when possible) all tokens previously issued based
-				on that authorization code. The authorization code is bound to the [=client=] identifier and
-				redirection URI.
-			</p>
-			<table class="simple">
-				<thead>
-					<th>Parameter Name</th>
-					<th>Type</th>
-					<th>Description</th>
-					<th>Required</th>
-				</thead>
-				<tbody>
-					<tr>
-						<td><code>code</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>The authorization code.</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>scope</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>
-							The authorized scope for the access request (this MAY be a subset of the scopes in the
-							request). The value is a space delimited set of scopes.
-						</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>state</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>
-							The opaque value supplied by the client to maintain state between the request and
-							callback.
-						</td>
-						<td>Required</td>
-					</tr>
-				</tbody>
-			</table>
-			<pre class="http example" title="Sample ACG authorization response (line breaks for clarity)">
-				HTTP/1.1 302 Found
-				Location https://client.example.com/Authorize?
-					code=dcf95d196ae04d60aad7e19d18b9af755a7b593b680055158b8ad9c2975f0d86
-					&scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%ob%2Fv3p0%2Fscope%2Fassertion.readonly%20offline_access
-					&state=26357667-94df-4a14-bcb1-f55449ddd98d
-			</pre>
+      <p>
+        If the <code>redirect_uri</code> matches a known <code>client_id</code>, the [=authorization
+        server=] SHOULD present a UI asking the [=user=] to authenticate themself and grant the access
+        request. The [=authorization server=] SHOULD display the <code>client_name</code>,
+        <code>client_uri</code>, <code>logo_uri</code>, <code>tos_uri</code>, and <code>policy_uri</code>
+        collected during Dynamic Client Registration to the [=user=] to help them decide whether to grant
+        the access request.
+      </p>
+      <p>
+        If the [=user=] authorizes the [=client=] application to access their resources with the requested
+        scopes, the [=authorization server=] MUST redirect the browser back to the <code>redirect_uri</code>
+        with the <code>code</code>, <code>scope</code>, and <code>state</code> query string parameters.
+      </p>
+      <p>
+        The Authorization Code MUST be used only once. A lifetime for the authorization code of 600 seconds
+        (10 minutes) is RECOMMENDED. If an authorization code is used more than once, the [=authorization
+        server=] MUST deny the request and SHOULD revoke (when possible) all tokens previously issued based
+        on that authorization code. The authorization code is bound to the [=client=] identifier and
+        redirection URI.
+      </p>
+      <table class="simple">
+        <thead>
+          <th>Parameter Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Required</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>code</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>The authorization code.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>scope</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>
+              The authorized scope for the access request (this MAY be a subset of the scopes in the
+              request). The value is a space delimited set of scopes.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>state</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>
+              The opaque value supplied by the client to maintain state between the request and
+              callback.
+            </td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+      <pre class="http example" title="Sample ACG authorization response (line breaks for clarity)">
+        HTTP/1.1 302 Found
+        Location https://client.example.com/Authorize?
+          code=dcf95d196ae04d60aad7e19d18b9af755a7b593b680055158b8ad9c2975f0d86
+          &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%ob%2Fv3p0%2Fscope%2Fassertion.readonly%20offline_access
+          &state=26357667-94df-4a14-bcb1-f55449ddd98d
+      </pre>
 
-			<h6>Authorization Error Response</h6>
+      <h6>Authorization Error Response</h6>
 
-			<p>
-				If the [=authorization server=] does not recognize the [=client=] applications's redirection
-				endpoint from a prior connection with this [=client=] application, the [=authorization server=]
-				SHOULD inform the [=user=] of the error and MUST NOT automatically redirect to the [=web browser=]
-				to the invalid redirection URI.
-			</p>
-			<p>
-				If the [=user=] denies the authorization request or if the request fails for reasons other than a
-				missing or invalid redirection URI, the [=authorization server=] informs the [=client=] by adding
-				the following parameters to the query component of the redirection URI.
-			</p>
-			<table class="simple">
-				<thead>
-					<tr>
-						<th>Parameter Name</th>
-						<th>Type</th>
-						<th>Description</th>
-						<th>Required</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><code>error</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.authorizationerror.class">AuthorizationError</a></td>
-						<td>
-							A single ASCII [[RFC20]] error code from the AuthorizationError vocabulary.
-						</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>error_description</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>
-							Human-readable ASCII [[RFC20]] text providing additional information, used to assist the
-							client developer in understanding the error that occurred. Values for the
-							"error_description" parameter MUST NOT include characters outside the set %x20-21 /
-							%x23-5B / %x5D-7E.
-						</td>
-					</tr>
-					<tr>
-						<td><code>error_uri</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
-						<td>
-							A URI identifying a human-readable web page with information about the error, used to
-							provide the client developer with additional information about the error. Values for the
-							"error_uri" parameter MUST conform to the URI-reference syntax and thus MUST NOT include
-							characters outside the set %x21 / %x23-5B / %x5D-7E.
-						</td>
-					</tr>
-					<tr>
-						<td><code>state</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>
-							The opaque value supplied by the client to maintain state between the request and
-							callback.
-						</td>
-						<td>Required</td>
-					</tr>
-				</tbody>
-			</table>
-			<pre class="http example" title="Sample authorization error response">
-				HTTP/1.1 302 Found
-				Location: https://client.example.com/cb?error=access_denied&state=xyz
-			</pre>
+      <p>
+        If the [=authorization server=] does not recognize the [=client=] applications's redirection
+        endpoint from a prior connection with this [=client=] application, the [=authorization server=]
+        SHOULD inform the [=user=] of the error and MUST NOT automatically redirect to the [=web browser=]
+        to the invalid redirection URI.
+      </p>
+      <p>
+        If the [=user=] denies the authorization request or if the request fails for reasons other than a
+        missing or invalid redirection URI, the [=authorization server=] informs the [=client=] by adding
+        the following parameters to the query component of the redirection URI.
+      </p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Parameter Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>error</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.authorizationerror.class">AuthorizationError</a></td>
+            <td>
+              A single ASCII [[RFC20]] error code from the AuthorizationError vocabulary.
+            </td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>error_description</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>
+              Human-readable ASCII [[RFC20]] text providing additional information, used to assist the
+              client developer in understanding the error that occurred. Values for the
+              "error_description" parameter MUST NOT include characters outside the set %x20-21 /
+              %x23-5B / %x5D-7E.
+            </td>
+          </tr>
+          <tr>
+            <td><code>error_uri</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+            <td>
+              A URI identifying a human-readable web page with information about the error, used to
+              provide the client developer with additional information about the error. Values for the
+              "error_uri" parameter MUST conform to the URI-reference syntax and thus MUST NOT include
+              characters outside the set %x21 / %x23-5B / %x5D-7E.
+            </td>
+          </tr>
+          <tr>
+            <td><code>state</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>
+              The opaque value supplied by the client to maintain state between the request and
+              callback.
+            </td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+      <pre class="http example" title="Sample authorization error response">
+        HTTP/1.1 302 Found
+        Location: https://client.example.com/cb?error=access_denied&state=xyz
+      </pre>
 
-			<h5 id="acg-token-request">Access Token Request</h5>
-			<p>
-				With the supplied <code>code</code>, the [=client=] application SHOULD attempt to exchange the
-				<code>code</code> for an <code>access_token</code>. The [=client=] application makes an
-				authorization grant POST request to the <code>tokenUrl</code> as declared in the [=resource
-				server=]'s Discovery Document. The HTTP POST request MUST include a Basic authorization header with
-				the <code>client_id</code> and <code>client_secret</code> provided in the registration response. The
-				body of the token request MUST include the following form fields:
-			</p>
-			<table class="simple">
-				<thead>
-					<tr>
-						<th>Field Name</th>
-						<th>Type</th>
-						<th>Description</th>
-						<th>Required</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><code>grant_type</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>Value MUST be set to "authorization_code".</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>code</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>The authorization code received from the [=authorization server=].</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>redirect_uri</code></td>
-						<td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
-						<td>The [=client=] application's redirection endpoint.</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>scope</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>The scope of the access request.</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>code_verifier</code></td>
-						<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>The PKCE code verifier.</td>
-						<td>Required</td>
-					</tr>
-				</tbody>
-			</table>
-			<pre class="http example" title="Sample ACG token request (line breaks for clarity)">
-				POST /token HTTP/1.1
-				Host: auth.example.com
-				Authorization: Basic NDE2ZjI1YjhjMWQ5OThlODoxNWQ5MDA4NTk2NDdkZDlm
-				Content-Type: application/x-www-form-urlencoded
-				
-				grant_type=authorization_code
-					&code=7c7a73263ee14b2b48073d0615f286ec74f6636689046cb8dbede0b5e87a1338
-					&redirect_uri=https%3A%2F%client.example.com%2FAuthorize
-					&scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%2Fob%2Fv3p0%2Fscope%2Fassertion.readonly+offline_access
-					&code_verifier=mYUQfKNgI1lSbY8EqtvNHLPzu0x%2FcVKO3fpWnX4VE5I%3D
-			</pre>
+      <h5 id="acg-token-request">Access Token Request</h5>
+      <p>
+        With the supplied <code>code</code>, the [=client=] application SHOULD attempt to exchange the
+        <code>code</code> for an <code>access_token</code>. The [=client=] application makes an
+        authorization grant POST request to the <code>tokenUrl</code> as declared in the [=resource
+        server=]'s Discovery Document. The HTTP POST request MUST include a Basic authorization header with
+        the <code>client_id</code> and <code>client_secret</code> provided in the registration response. The
+        body of the token request MUST include the following form fields:
+      </p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Field Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>grant_type</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>Value MUST be set to "authorization_code".</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>code</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>The authorization code received from the [=authorization server=].</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>redirect_uri</code></td>
+            <td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td>The [=client=] application's redirection endpoint.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>scope</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>The scope of the access request.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>code_verifier</code></td>
+            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>The PKCE code verifier.</td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+      <pre class="http example" title="Sample ACG token request (line breaks for clarity)">
+        POST /token HTTP/1.1
+        Host: auth.example.com
+        Authorization: Basic NDE2ZjI1YjhjMWQ5OThlODoxNWQ5MDA4NTk2NDdkZDlm
+        Content-Type: application/x-www-form-urlencoded
+        
+        grant_type=authorization_code
+          &code=7c7a73263ee14b2b48073d0615f286ec74f6636689046cb8dbede0b5e87a1338
+          &redirect_uri=https%3A%2F%client.example.com%2FAuthorize
+          &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%2Fob%2Fv3p0%2Fscope%2Fassertion.readonly+offline_access
+          &code_verifier=mYUQfKNgI1lSbY8EqtvNHLPzu0x%2FcVKO3fpWnX4VE5I%3D
+      </pre>
 
-			<h5 id="acg-token-response">Access Token Response</h5>
+      <h5 id="acg-token-response">Access Token Response</h5>
 
-			<p>
-				If the [=authorization server=] grants this request (see Section 5.1 in [[RFC6749]] for the detailed
-				description), it returns <code>HTTP 200 OK</code> status code with content type "application/json"
-				consisting of a JSON object containing the access token and its expiry lifetime (IMS recommends a
-				default expiry lifetime of 3600 seconds, one hour, for access tokens), optionally a refresh token,
-				and confirms the set of scopes supported by the access token:
-			</p>
-			<table class="simple">
-				<thead>
-					<tr>
-						<th>Property Name</th>
-						<th>Type</th>
-						<th>Description</th>
-						<th>Required</th>
-					</tr>
-					<tr>
-						<td><code>access_token</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>The access token issued by the [=authorization server=].</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>token_type</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>The type of the token issued. The case insensitive value MUST be "bearer".</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>scope</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>The scope of the access token. This is a space-separated list of scopes.</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>expires_in</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.primitive.positiveinteger.class">PositiveInteger</a></td>
-						<td>
-							The lifetime in seconds of the access token. For example, the value "3600" denotes that
-							the access token will expire in one hour from the time the response was generated. IMS
-							recommends a default expiry lifetime of 3600 seconds, one hour, for access tokens. If
-							omitted, the authorization server SHOULD provide the expiration time via other means or
-							document the default value.
-						</td>
-						<td>Optional</td>
-					</tr>
-					<tr>
-						<td><code>refresh_token</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-						<td>
-							The refresh token, which can be used to obtain new access tokens using the same
-							authorization grant as described in [[[#token-refresh-request]]].
-						</td>
-						<td>Optional</td>
-					</tr>
-				</thead>
-			</table>
-			<pre class="http example" title="Sample ACG token response">
-				HTTP/1.1 200 OK
-				Cache-Control: no-store, no-cache, max-age=0
-				Pragma: no-cache
-				Content-Type: application/json; charset=UTF-8
-				
-				{
-					"access_token": "863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92",
-					"refresh_token": "tGzv3JOkF0XG5Qx2TlKWIA",
-					"expires_in": 3600,
-					"token_type": "Bearer",
-					"scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly offline_access"
-				}
-			</pre>
+      <p>
+        If the [=authorization server=] grants this request (see Section 5.1 in [[RFC6749]] for the detailed
+        description), it returns <code>HTTP 200 OK</code> status code with content type "application/json"
+        consisting of a JSON object containing the access token and its expiry lifetime (IMS recommends a
+        default expiry lifetime of 3600 seconds, one hour, for access tokens), optionally a refresh token,
+        and confirms the set of scopes supported by the access token:
+      </p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Property Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+          <tr>
+            <td><code>access_token</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>The access token issued by the [=authorization server=].</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>token_type</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>The type of the token issued. The case insensitive value MUST be "bearer".</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>scope</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>The scope of the access token. This is a space-separated list of scopes.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>expires_in</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.primitive.positiveinteger.class">PositiveInteger</a></td>
+            <td>
+              The lifetime in seconds of the access token. For example, the value "3600" denotes that
+              the access token will expire in one hour from the time the response was generated. IMS
+              recommends a default expiry lifetime of 3600 seconds, one hour, for access tokens. If
+              omitted, the authorization server SHOULD provide the expiration time via other means or
+              document the default value.
+            </td>
+            <td>Optional</td>
+          </tr>
+          <tr>
+            <td><code>refresh_token</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td>
+              The refresh token, which can be used to obtain new access tokens using the same
+              authorization grant as described in [[[#token-refresh-request]]].
+            </td>
+            <td>Optional</td>
+          </tr>
+        </thead>
+      </table>
+      <pre class="http example" title="Sample ACG token response">
+        HTTP/1.1 200 OK
+        Cache-Control: no-store, no-cache, max-age=0
+        Pragma: no-cache
+        Content-Type: application/json; charset=UTF-8
+        
+        {
+          "access_token": "863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92",
+          "refresh_token": "tGzv3JOkF0XG5Qx2TlKWIA",
+          "expires_in": 3600,
+          "token_type": "Bearer",
+          "scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly offline_access"
+        }
+      </pre>
 
-			<h6 id="acg-token-error">Access Token Error Response</h6>
+      <h6 id="acg-token-error">Access Token Error Response</h6>
 
-			<p>
-				The [=authorization server=] MAY decide not to issue an access token. This could be because the
-				request scopes are invalid, the credentials from the client may be invalid, etc. In this case the
-				[=authorization server=] MUST return an <code>HTTP 400 Bad Request</code> status code with content
-				type "application/json" consisting of a JSON object describing the error in the response body. The
-				properties used to describe the error are:
-			</p>
-			<table class="simple">
-				<thead>
-					<tr>
-						<th>Property Name</th>
-						<th>Type</th>
-						<th>Description</th>
-						<th>Required</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><code>error</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.tokenerror.class">TokenError</a></td>
-						<td>A single ASCII [[RFC20]] error code]. See Section 5.2 of [[RFC6749]].</td>
-						<td>Required</td>
-					</tr>
-					<tr>
-						<td><code>error_description</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.primitive.asciistring.class">ASCIIString</a></td>
-						<td>
-							Human-readable ASCII [RFC20] text providing additional information, used to assist the
-							client developer in understanding the error that occurred. Values for the
-							"error_description" parameter MUST NOT include characters outside the set %x20-21 /
-							%x23-5B / %x5D-7E.
-						</td>
-						<td>Optional</td>
-					</tr>
-					<tr>
-						<td><code>error_uri</code></td>
-						<td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
-						<td>
-							A URI identifying a human-readable web page with information about the error, used to
-							provide the client developer with additional information about the error. Values for the
-							"error_uri" parameter MUST conform to the URI-reference syntax and thus MUST NOT include
-							characters outside the set %x21 / %x23-5B / %x5D-7E.
-						</td>
-						<td>Optional</td>
-					</tr>
-				</tbody>
-			</table>
-			<pre class="http example" title="Sample access token error response">
-				HTTP/1.1 400 Bad Request
-				Content-Type: application/json;charset=UTF-8
-				Cache-Control: no-store
-				Pragma: no-cache
-				
-				{
-					"error": "invalid_request"
-				}
-			</pre>
-		</section>
+      <p>
+        The [=authorization server=] MAY decide not to issue an access token. This could be because the
+        request scopes are invalid, the credentials from the client may be invalid, etc. In this case the
+        [=authorization server=] MUST return an <code>HTTP 400 Bad Request</code> status code with content
+        type "application/json" consisting of a JSON object describing the error in the response body. The
+        properties used to describe the error are:
+      </p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Property Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>error</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.tokenerror.class">TokenError</a></td>
+            <td>A single ASCII [[RFC20]] error code]. See Section 5.2 of [[RFC6749]].</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td><code>error_description</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.primitive.asciistring.class">ASCIIString</a></td>
+            <td>
+              Human-readable ASCII [RFC20] text providing additional information, used to assist the
+              client developer in understanding the error that occurred. Values for the
+              "error_description" parameter MUST NOT include characters outside the set %x20-21 /
+              %x23-5B / %x5D-7E.
+            </td>
+            <td>Optional</td>
+          </tr>
+          <tr>
+            <td><code>error_uri</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+            <td>
+              A URI identifying a human-readable web page with information about the error, used to
+              provide the client developer with additional information about the error. Values for the
+              "error_uri" parameter MUST conform to the URI-reference syntax and thus MUST NOT include
+              characters outside the set %x21 / %x23-5B / %x5D-7E.
+            </td>
+            <td>Optional</td>
+          </tr>
+        </tbody>
+      </table>
+      <pre class="http example" title="Sample access token error response">
+        HTTP/1.1 400 Bad Request
+        Content-Type: application/json;charset=UTF-8
+        Cache-Control: no-store
+        Pragma: no-cache
+        
+        {
+          "error": "invalid_request"
+        }
+      </pre>
+    </section>
 
-		<!-- ACG - Authenticating with Tokens -->
+    <!-- ACG - Authenticating with Tokens -->
 
-		<section>
+    <section>
 
-			<h4 id="acg-authenticating">Authenticating with Tokens</h4>
+      <h4 id="acg-authenticating">Authenticating with Tokens</h4>
 
-			<p>
-				After obtaining an <code>access_token</code> and optionally a <code>refresh_token</code> using the
-				method above, a [=client=] application MAY issue request that access resources controlled by the
-				[=user=] on the [=resource server=] using the <code>access_token</code> in the HTTP Authorization header
-				[[RFC2617]] with a Bearer Token [[RFC6750]]. For example, a <a href="#getassertions">"getAssertions"</a>
-				would look like this:
-			</p>
-			<pre class="http example" title="Sample getAssertions request">
-				GET /tenant/ims/ob/v3p0/assertions HTTP/1.1
-				Host: example.com 
-				Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
-				Accept: application/ld+json
-			</pre>
-		</section>
+      <p>
+        After obtaining an <code>access_token</code> and optionally a <code>refresh_token</code> using the
+        method above, a [=client=] application MAY issue request that access resources controlled by the
+        [=user=] on the [=resource server=] using the <code>access_token</code> in the HTTP Authorization header
+        [[RFC2617]] with a Bearer Token [[RFC6750]]. For example, a <a href="#getassertions">"getAssertions"</a>
+        would look like this:
+      </p>
+      <pre class="http example" title="Sample getAssertions request">
+        GET /tenant/ims/ob/v3p0/assertions HTTP/1.1
+        Host: example.com 
+        Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
+        Accept: application/ld+json
+      </pre>
+    </section>
 
-	</section>
+  </section>
 
-	<!-- Token Refresh -->
-	<section>
-		<h3 id="token-refresh">Token Refresh</h3>
-		<p>
-			The recommended value of the access token's <code>expires_in</code> attribute is 3600 i.e. one hour. This
-			means that the validity of the access token expires one hour after the time it was issued.
-		</p>
-		<p>
-			When requesting an access token as part of the Authorization Code Grant process, an [=authorization server=]
-			MAY return a 'Refresh Token'. The refresh token can be used to obtain an access token using the same
-			authorization grant: this is described in Section 6 of [[RFC6749]]. The use of the Refresh Token avoids the
-			choreography for obtaining the credentials to gain access to the [=authorization server=].
-		</p>
-		<p>
-			An Authorization Server is NOT REQUIRED to support token refresh.
-		</p>
+  <!-- Token Refresh -->
+  <section>
+    <h3 id="token-refresh">Token Refresh</h3>
+    <p>
+      The recommended value of the access token's <code>expires_in</code> attribute is 3600 i.e. one hour. This
+      means that the validity of the access token expires one hour after the time it was issued.
+    </p>
+    <p>
+      When requesting an access token as part of the Authorization Code Grant process, an [=authorization server=]
+      MAY return a 'Refresh Token'. The refresh token can be used to obtain an access token using the same
+      authorization grant: this is described in Section 6 of [[RFC6749]]. The use of the Refresh Token avoids the
+      choreography for obtaining the credentials to gain access to the [=authorization server=].
+    </p>
+    <p>
+      An Authorization Server is NOT REQUIRED to support token refresh.
+    </p>
 
-		<h4 id="token-refresh-request">Token Refresh Request</h4>
+    <h4 id="token-refresh-request">Token Refresh Request</h4>
 
-		<p>
-			If the <code>access_token</code> is expired or about to expire, and the [=client=] application received
-			a <code>refresh_token</code>, the [=client=] application can use OAuth 2.0 Token Refresh to get a new
-			<code>access_token</code> and <code>refresh_token</code>.
-		</p>
-		<p>
-			The [=client=] makes a refresh POST request to the token endpoint by adding the following parameters
-			using the "application/x-www-form-urlencoded" format in the HTTP request entity-body:
-		</p>
-		<table class="simple">
-			<thead>
-				<tr>
-					<th>Parameter Name</th>
-					<th>Type</th>
-					<th>Description</th>
-					<th>Required</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><code>grant_type</code></td>
-					<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-					<td>Value MUST be set to "refresh_token".</td>
-					<td>Required</td>
-				</tr>
-				<tr>
-					<td><code>refresh_token</code></td>
-					<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-					<td>The refresh token issued to the [=client=].</td>
-					<td>Required</td>
-				</tr>
-				<tr>
-					<td><code>scope</code></td>
-					<td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-					<td>
-						The scope of the access request. The requested scope MUST NOT include any scope not
-						originally granted by the [=user=], and if omitted is treated as equal to the scope
-						originally granted by the [=user=].
-					</td>
-					<td>Required</td>
-				</tr>
-			</tbody>
-		</table>
-		<pre class="http example" title="Sample ACG token refresh request (line breaks for clarity)">
-			POST /token HTTP/1.1
-			Host: auth.example.com
-			Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
-			Content-Type: application/x-www-form-urlencoded
-			
-			grant_type=refresh_token
-				&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA
-				&scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%2Fob%2Fv3p0%2Fscope%2assertion.readonly
-		</pre>
+    <p>
+      If the <code>access_token</code> is expired or about to expire, and the [=client=] application received
+      a <code>refresh_token</code>, the [=client=] application can use OAuth 2.0 Token Refresh to get a new
+      <code>access_token</code> and <code>refresh_token</code>.
+    </p>
+    <p>
+      The [=client=] makes a refresh POST request to the token endpoint by adding the following parameters
+      using the "application/x-www-form-urlencoded" format in the HTTP request entity-body:
+    </p>
+    <table class="simple">
+      <thead>
+        <tr>
+          <th>Parameter Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Required</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>grant_type</code></td>
+          <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+          <td>Value MUST be set to "refresh_token".</td>
+          <td>Required</td>
+        </tr>
+        <tr>
+          <td><code>refresh_token</code></td>
+          <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+          <td>The refresh token issued to the [=client=].</td>
+          <td>Required</td>
+        </tr>
+        <tr>
+          <td><code>scope</code></td>
+          <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+          <td>
+            The scope of the access request. The requested scope MUST NOT include any scope not
+            originally granted by the [=user=], and if omitted is treated as equal to the scope
+            originally granted by the [=user=].
+          </td>
+          <td>Required</td>
+        </tr>
+      </tbody>
+    </table>
+    <pre class="http example" title="Sample ACG token refresh request (line breaks for clarity)">
+      POST /token HTTP/1.1
+      Host: auth.example.com
+      Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+      Content-Type: application/x-www-form-urlencoded
+      
+      grant_type=refresh_token
+        &refresh_token=tGzv3JOkF0XG5Qx2TlKWIA
+        &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%2Fob%2Fv3p0%2Fscope%2assertion.readonly
+    </pre>
 
-		<h4 id="token-refresh-response">Token Refresh Response</h4>
+    <h4 id="token-refresh-response">Token Refresh Response</h4>
 
-		<p>
-			If valid and authorized, the [=authorization server=] issues a new access token and optionally a new
-			refresh token as described earlier in [[[#acg-token-response]]]. If the request failed verification or
-			is invalid, the [=authorization server=] returns an error response as described earlier in
-			[[[#acg-token-error]]].
-		</p>
-	</section>
+    <p>
+      If valid and authorized, the [=authorization server=] issues a new access token and optionally a new
+      refresh token as described earlier in [[[#acg-token-response]]]. If the request failed verification or
+      is invalid, the [=authorization server=] returns an error response as described earlier in
+      [[[#acg-token-error]]].
+    </p>
+  </section>
 
-	<!-- Token Revocation -->
-	<section>
+  <!-- Token Revocation -->
+  <section>
 
-		<h3 id="token-revocation">Token Revocation</h3>
+    <h3 id="token-revocation">Token Revocation</h3>
 
-		<p>
-			There may be deployments in which revocation of an access token is useful. The Token Revocation process is
-			based upon [[RFC7009]]. The [=client=] requests the revocation of a particular token by making an HTTP POST
-			request (using TLS) to the token revocation endpoint URL. Note that [[RFC7009]] states that implementations
-			MUST support the revocation of refresh tokens and SHOULD support the revocation of access tokens.
-		</p>
+    <p>
+      There may be deployments in which revocation of an access token is useful. The Token Revocation process is
+      based upon [[RFC7009]]. The [=client=] requests the revocation of a particular token by making an HTTP POST
+      request (using TLS) to the token revocation endpoint URL. Note that [[RFC7009]] states that implementations
+      MUST support the revocation of refresh tokens and SHOULD support the revocation of access tokens.
+    </p>
 
-		<h4 id="revocation-request">Token Revocation Request</h4>
+    <h4 id="revocation-request">Token Revocation Request</h4>
 
-		<p>
-			The [=client=] constructs the request by including the following parameters using the
-			"application/x-www-form-urlencoded" format in the HTTP request entity-body:
-		</p>
-		<table class="simple">
-			<thead>
-				<tr>
-					<th>Parameter Name</th>
-					<th>Type</th>
-					<th>Description</th>
-					<th>Required</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><code>token</code></td>
-					<td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-					<td>The token that the [=client=] wants to get revoked.</td>
-					<td>Required</td>
-				</tr>
-				<tr>
-					<td><code>token_type_hint</code></td>
-					<td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-					<td>MUST be set to either "access_token" or "refresh_token".</td>
-					<td>Required</td>
-				</tr>
-			</tbody>
-		</table>
-		<pre class="http example" title="Sample token revocation request">
-			POST /revoke HTTP/1.1
-			Host: auth.example.com
-			Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
-			Content-Type: application/x-www-form-urlencoded
-			
-			token=45ghiukldjahdnhzdauz&token_type_hint=refresh_token
-		</pre>
+    <p>
+      The [=client=] constructs the request by including the following parameters using the
+      "application/x-www-form-urlencoded" format in the HTTP request entity-body:
+    </p>
+    <table class="simple">
+      <thead>
+        <tr>
+          <th>Parameter Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Required</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>token</code></td>
+          <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+          <td>The token that the [=client=] wants to get revoked.</td>
+          <td>Required</td>
+        </tr>
+        <tr>
+          <td><code>token_type_hint</code></td>
+          <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+          <td>MUST be set to either "access_token" or "refresh_token".</td>
+          <td>Required</td>
+        </tr>
+      </tbody>
+    </table>
+    <pre class="http example" title="Sample token revocation request">
+      POST /revoke HTTP/1.1
+      Host: auth.example.com
+      Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+      Content-Type: application/x-www-form-urlencoded
+      
+      token=45ghiukldjahdnhzdauz&token_type_hint=refresh_token
+    </pre>
 
-		<h4 id="revocation-response">Token Revocation Response</h4>
+    <h4 id="revocation-response">Token Revocation Response</h4>
 
-		<p>
-			The [=authorization server=] responds with <code>HTTP 200 OK</code> status code if the token has been
-			revoked successfully or if the client submitted an invalid token.
-		</p>
-		<p>
-			When the request for revocation is rejected, the [=authorization server=] returns an error response as
-			described earlier in [[[#acg-token-error]]] with an <code>error</code> code of "unsupported_token_type".
-		</p>
-	</section>
+    <p>
+      The [=authorization server=] responds with <code>HTTP 200 OK</code> status code if the token has been
+      revoked successfully or if the client submitted an invalid token.
+    </p>
+    <p>
+      When the request for revocation is rejected, the [=authorization server=] returns an error response as
+      described earlier in [[[#acg-token-error]]] with an <code>error</code> code of "unsupported_token_type".
+    </p>
+  </section>
 
 </section>
 

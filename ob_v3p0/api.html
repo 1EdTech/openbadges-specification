@@ -1039,6 +1039,170 @@ var api = `
           }
       </pre>
     </section>
+
+    <!-- getManifest -->
+
+    <section>
+      <h3 id="getmanifest">getManifest</h3>
+
+      <p>
+        Fetch the service discovery document from the [=resource server=].
+      </p>
+
+      <div class="note">
+        This endpoint MUST NOT require authorization.
+      </div>
+
+      <h4 id="getprofile-request">Request Format</h4>
+
+      <p><code>GET {baseUrl}/ims/ob/v3p0/discovery</code></p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>URL Parameter</th>
+            <th>Parameter Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>baseUrl</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td>The HTTP scheme (which MUST be "https"), domain name, and any other path
+              elements required by the [=resource server=] (e.g. "https://example.com/tenant").
+            </td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Request Headers</h4>
+
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Request Header</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Accept: application/json</code></td>
+            <td>
+              If the content type <code>application/json</code> is not not included in the <code>Accept</code>
+              header, the [=resource server=] MUST respond with 406 Not Acceptable.
+            </td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Request Payload</h4>
+
+      <p>There is no request payload.</p>
+
+      <h4>Sample Request</h4>
+
+      <pre class="http example" title="Sample request for a service description document">
+        GET {tenant}/ims/ob/v3p0/discovery HTTP/1.1
+        Host: example.com
+        Accept: application/json
+      </pre>
+
+      <h4 id="getprofile-responses">Responses</h4>
+
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>HTTP Status Code</th>
+            <th>Payload Type</th>
+            <th>Description</th>
+            <th>Payload Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>200</td>
+            <td>Service Discovery Document</td>
+            <td>&#39;OK&#39; - The service discovery document.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>400</td>
+            <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
+            <td>
+              &#39;Bad Request&#39; - The request was invalid or cannot be served. The exact error should be explained
+              in the response payload.
+            </td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Response Headers</h4>
+
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Response Header</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Content-Type: application/json</code></td>
+            <td>The content type MUST be <code>application/json</code>.</td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Sample Response</h4>
+
+      <pre class="http example" title="Sample response with a Service Discovery Document">
+        HTTP/1.1 200 OK
+        Content-Type: application/json; charset=utf-8
+        
+        ...
+        "info": {
+          "x-imssf-image": "https://example.com/logo",
+          "x-imssf-privacyPolicy": "https://example.com/privacy",
+          "title": "Example",
+          "termsOfService": "https://example.com/tos",
+          ...
+        },
+        ...
+        "components": {
+          "securitySchemes": {
+            "OAuth2ACG": {
+              "type": "oauth2",
+              "description": "OAuth 2.0 Authorization Code Grant authorization",
+              "x-imssf-registrationUrl": "example.com/registration",
+              "flows": {
+                "authorizationCode": {
+                  "tokenUrl": "example.com/token",
+                  "authorizationUrl": "example.com/authorize",
+                  "refreshUrl": "example.com/token",
+                  "scopes": {
+                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.update" : "...",
+                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly" : "...",
+                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly" : "...",
+                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update" : "..."
+                  }
+                }
+              }
+            }
+          },
+          "schemas": {
+            ...
+          }
+        }
+        ...
+      </pre>
+    </section>
   </section>
 
   <section>
