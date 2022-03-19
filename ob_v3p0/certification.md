@@ -83,7 +83,7 @@ An Open Badges **Host** is an application that can aggregate and publicly host A
  </tr>
  <tr>
   <td>Assertion URL</td>
-  <td><a href="https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.json">https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.json</a></td>
+  <td><a href="https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.jws">https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.jws</a></td>
  </tr>
 </table>
 
