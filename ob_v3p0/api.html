@@ -223,8 +223,11 @@ var api = `
         <tbody>
           <tr>
             <td>200</td>
-            <td><a href="#org.1edtech.ob.v3p0.verifiablepresentation.class">VerifiablePresentation</a></td>
-            <td>&#39;OK&#39; - The assertions are returned in the payload.</td>
+            <td><a href="#org.1edtech.ob.v3p0.presentationjwspayload.class">PresentationJwsPayload</a></td>
+            <td>
+              &#39;OK&#39; - The signed AssertionCredentials are returned in the payload. The assertions MUST be signed
+              with [[[#jwt-proof]]]. They MAY also be signed with Linked Data Proofs.
+            </td>
             <td>Required</td>
           </tr>
           <tr>
@@ -368,26 +371,11 @@ var api = `
             "https://www.w3.org/2018/credentials/v1",
             "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
           ],
-          "type": ["VerifiablePresentation", "ObPresentation"],
+          "type": ["VerifiablePresentation"],
           "verifiableCredential": [
-            {
-              "@context": [
-                "https://www.w3.org/2018/credentials/v1",
-                "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
-              ],
-              "id": "http://example.edu/credentials/3732",
-              "type": ["VerifiableCredential", "AssertionCredential"],
-              "issuer": {
-                "id": "https://example.edu/issuers/565049",
-                "type": "Issuer",
-                "name": "Example University"
-              },
-              "issuanceDate": "2010-01-01T00:00:00Z",
-              "credentialSubject": {
-                "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-                "achievement": "urn:uuid:dd887f0a-56cb-11ec-bf63-0242ac130002",
-              }
-            }
+            // Signed AssertionCredentials in Compact JWS format
+            "header.payload.signature",
+            "header.payload.signature"
           ]
         }
       </pre>
