@@ -1,18 +1,12 @@
 var datamodel = `
 
-<section data-model="org.1edtech.ob.v3p0.model" data-package="OpenBadges" title="Open Badges Data Model">
-  <p>
-    The data models in this section are specific to [[[OB-30]]].
-  </p>
-</section>
-<section data-model="org.1edtech.ob.v3p0.model" data-package="Credentials" title="Shared Data Models">
+<section data-model="org.1edtech.ob.v3p0.model" data-package="Credentials" title="Shared Digital Credentials Data Models">
   <p>
     The data models in this section are shared by [[[OB-30]]] and [[[CLR-20]]].
   </p>
   <section data-class="org.1edtech.ob.v3p0.assertioncredential.class">
     <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.assertioncredential.class"
-         title="Sample AssertionCredential"
-         data-vc-vm="https://example.edu/issuers/565049#key-1">
+      title="Sample AssertionCredential" data-vc-vm="https://example.edu/issuers/565049#key-1">
       {
         "@context": [
           "https://www.w3.org/2018/credentials/v1",
@@ -34,7 +28,7 @@ var datamodel = `
         }]
       }
     </pre>
-</section>
+  </section>
 </section>
 <section data-model="org.1edtech.ob.v3p0.model" data-package="SharedApi" title="Shared API Data Models">
   <p>
@@ -44,6 +38,11 @@ var datamodel = `
 <section data-model="org.1edtech.ob.v3p0.model" data-package="SharedOAuth" title="OAuth 2.0 Vocabularies">
   <p>
     The data models in this section are shared by all IMS service specifications.
+  </p>
+</section>
+<section data-model="org.1edtech.ob.v3p0.model" data-package="ProofModels" title="VC-JWT Data Models">
+  <p>
+    Data models for the JSON Web Token Proof Format (VC-JWT) [[VC-DATA-MODEL]] shared by [[[OB-30]]] and [[[CLR-20]]].
   </p>
 </section>
 <section data-model="org.1edtech.ob.v3p0.model" data-package="DerivedTypes" title="Derived Types">
