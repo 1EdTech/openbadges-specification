@@ -60,8 +60,5 @@ Package ProofModels DataModel                                       "Data models
     Class JWKS Unordered false []                                   "A JWK Set (JWKS) formatted according to [[RFC7517]]."
         Property keys JWK 1..*                                      "A JWK Set is a JSON object that represents a set of JWKs."
 
-Package DerivedTypes DataModel
-    Class CompactJws DerivedType false [String]                     "A `String` in Compact JWS format."
-
 Package PrimitiveTypes DataModel
     Class NumericDate PrimitiveType false []                        "A number representing the number of seconds from from 1970-01-01T00:00:00Z UTC until the specified UTC data/time, ignoring leap seconds."
