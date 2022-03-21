@@ -1767,11 +1767,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-03-21T14:59:59Z",
+    "created": "2022-03-21T15:24:03Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z5pGZucFGPFT1yJL2d81SZwtvNt2zAXzztxE9fESn1jfTJ6abPx83uFbBXMeD
-Xog7Z4pcvc1f9U8AE8dt2qBpRme5"
+    "proofValue": "z2fTQEJuxB7WxmFm2NCA5CtU1yhzNNgN9NMoThYWNpcJDqcS76giRrUxFK94N
+Zn3N6Wa1rJbXg7UTP2A1sKcybFT4"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -1833,11 +1833,11 @@ kdGVjaC5vYi52M3AwLmFzc2VydGlvbmNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnNvblNjaGVtYVZ
 hbGlkYXRvcjIwMjAifV19LCJpc3MiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY
 1MDQ5IiwidHlwZSI6IlByb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sIm5iZiI6MTI
 2MjMwNDAwMCwianRpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJ
-kaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.aioOHSo8L_6EH4KAWjIBiB1U
-dovgUVrsvqaShS9Oy4Z5JPyVjwW8uzmXgO1LSLU8jLPHuhcuQmxV0GMCDh13EGIY-h5EHqV6kzmnz4RK
-Z4IV2aUnyUljzwEs4e6fHo5bGLOxpOB1YHFfPJbsitgDKV1rqrgH53trdDUKj-SG_aMzczcVUuNWehfD
-_uEa8gsIfTJRE2EsbbMmrEVZ-lNGrQhp_9fZUiMADa9ulhrolX80ubZGME9rQYa8XOiRr7a3HD_zrJB5
-MGV-FmHFqsYyRoB3SNZ6DRRPpwdbOOovyuFkGpQ6AEnRRXQfTKZih85HMrU7qYqlSBvIFboZwSX5Rw</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>AssertionCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that AssertionCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with <strong>keyword</strong> <code>openbadges</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
+kaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.F8CWVuxXCih70gEo_cddF4kW
+WerlEdZtK7IkNcSa0LLr1JgtOOwX8LFGQ2s2qSFD8ueV9iEifdqGpAbtihBzxCi01IGgw2I5j-N-72KB
+bC26LgdJNRPMCPTLm2QTKI91OCigVJFb1pUgkCiM23wlGV9OEYSeuBtQur5d_ADTV5eX2Hw4mMI1P0Aq
+1wHwH_Yuu2usnBnR364oV2S6fjmx0dXdSq9hC3F-UDdfzxqyQ1o2mJphUr2bU8UEYFLZrQ93CBdiNLoy
+MIEWlNBc5bpWv3tcnMCLxwtU3z4R6K1pVIQ9q418YfCzsfYIMXOpE3z1EM_jFunU76EpK6frIdqFhA</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>AssertionCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that AssertionCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with <strong>keyword</strong> <code>openbadges</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">Example<bdi> 2</bdi></a><span class="example-title">: An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)</span>
   </div> <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">var</span> chunk = <span class="hljs-keyword">new</span> iTXt({
@@ -2046,7 +2046,7 @@ MGV-FmHFqsYyRoB3SNZ6DRRPpwdbOOovyuFkGpQ6AEnRRXQfTKZih85HMrU7qYqlSBvIFboZwSX5Rw</
     <section id="getassertions-0">
       <h4 id="getassertions"><bdi class="secno">6.3.1 </bdi>getAssertions<a class="self-link" aria-label="§" href="#getassertions"></a><a class="self-link" aria-label="§" href="#getassertions"></a></h4>
       <p>
-        Fetch Assertions from the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-6" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> for the supplied parameters and access token.
+        Fetch AssertionCredentials from the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-6" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> for the supplied parameters and access token.
       </p>
 
       <h4 id="getassertions-request">Request Format<a class="self-link" aria-label="§" href="#getassertions-request"></a><a class="self-link" aria-label="§" href="#getassertions-request"></a></h4>
@@ -2311,12 +2311,10 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
     
     <section id="postassertion-0">
       <h4 id="postassertion"><bdi class="secno">6.3.2 </bdi>postAssertion<a class="self-link" aria-label="§" href="#postassertion"></a><a class="self-link" aria-label="§" href="#postassertion"></a></h4>
-      <p>Create or update an Assertion on the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-12" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>.</p>
+      <p>Create or update an AssertionCredential on the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-12" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>.</p>
       <p>
-        If the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-13" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> is holding an Assertion with the same <code>id</code>, it will be updated. Otherwise
-        the Assertion will be created and held by the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-14" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>. Note that "created" is not the same
-        as "issued". The <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-15" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> will simply store the Assertion in the request payload as a
-        resource.
+        If the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-13" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> is holding an AssertionCredential with the same <code>id</code>, it will be updated. Otherwise
+        the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-14" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> will store the AssertionCredential in the request payload as a resource.
       </p>
 
       <h4 id="postassertion-request">Request Format<a class="self-link" aria-label="§" href="#postassertion-request"></a><a class="self-link" aria-label="§" href="#postassertion-request"></a></h4>
@@ -2337,7 +2335,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
             <td>
               The HTTP scheme (which <em class="rfc2119">MUST</em> be "https"), the domain name, and any other path elements required
-              by the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-16" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> (e.g. "<a href="https://example.com/tenant">https://example.com/tenant</a>").
+              by the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-15" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> (e.g. "<a href="https://example.com/tenant">https://example.com/tenant</a>").
             </td>
             <td>Required</td>
           </tr>
@@ -2364,14 +2362,14 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td><code>Accept: application/ld+json</code></td>
             <td>
               If the content type <code>application/ld+json</code> is not not included in the <code>Accept</code>
-              header, the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-17" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> <em class="rfc2119">MUST</em> respond with 406 Not Acceptable.
+              header, the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-16" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> <em class="rfc2119">MUST</em> respond with 406 Not Acceptable.
             </td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>Content-Type: application/ld+json</code></td>
             <td>
-              If the <code>Content-Type</code> is not <code>application/ld+json</code>, the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-18" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> <em class="rfc2119">MUST</em>
+              If the <code>Content-Type</code> is not <code>application/ld+json</code>, the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-17" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> <em class="rfc2119">MUST</em>
               respond with 406 Not Acceptable.
             </td>
             <td>Required</td>
@@ -2391,9 +2389,10 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
         </thead>
         <tbody>
           <tr>
-            <td><a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a></td>
+            <td><a href="#org.1edtech.ob.v3p0.derived.compactjws.class">CompactJws</a></td>
             <td>
-              The Assertion to be updated or created on the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-19" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>.
+              The AssertionCredential to be updated or created on the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-18" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>. The AssertionCredential
+              <em class="rfc2119">MUST</em> be signed with <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a>.
             </td>
             <td>Required</td>
           </tr>
@@ -2408,27 +2407,11 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
   </div> <pre aria-busy="false"><code class="hljs http"><span class="hljs-keyword">POST</span> <span class="hljs-string">{tenant}/ims/ob/v3p0/assertions</span> <span class="hljs-meta">HTTP/1.1</span>
 <span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>example.com
 <span class="hljs-attribute">Authorization</span><span class="hljs-punctuation">: </span>Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
-<span class="hljs-attribute">Accept</span><span class="hljs-punctuation">: </span>application/ld+json
-<span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>application/ld+json
+<span class="hljs-attribute">Accept</span><span class="hljs-punctuation">: </span>text/plain
+<span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>text/plain
 
-<span class="json">{
-  <span class="hljs-attr">"@context"</span>: [
-    <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-    <span class="hljs-string">"https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"</span>
-  ],
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://example.edu/credentials/3732"</span>,
-  <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"VerifiableCredential"</span>, <span class="hljs-string">"AssertionCredential"</span>],
-  <span class="hljs-attr">"issuer"</span>: {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.edu/issuers/565049"</span>,
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Publisher"</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University"</span>
-  },
-  <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
-  <span class="hljs-attr">"credentialSubject"</span>: {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:ebfeb1f712ebc6f1c276e12ec21"</span>,
-    <span class="hljs-attr">"achievement"</span>: <span class="hljs-string">"urn:uuid:a7467ef6-56cb-11ec-bf63-0242ac130002"</span>
-  }
-}</span></code></pre>
+<span class="css">// The AssertionCredential in Compact JWS format
+<span class="hljs-selector-tag">header</span><span class="hljs-selector-class">.payload</span><span class="hljs-selector-class">.signature</span></span></code></pre>
       </div>
 
       <h4 id="postassertion-responses">Responses<a class="self-link" aria-label="§" href="#postassertion-responses"></a><a class="self-link" aria-label="§" href="#postassertion-responses"></a></h4>
@@ -2445,19 +2428,18 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
         <tbody>
           <tr>
             <td>200</td>
-            <td><a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a></td>
+            <td><a href="#org.1edtech.ob.v3p0.derived.compactjws.class">CompactJws</a></td>
             <td>
-              'OK' - The Assertion was successfully updated. The response payload <em class="rfc2119">MUST</em> be the Assertion that
-              was
-              posted.
+              'OK' - The AssertionCredential was successfully updated. The response payload <em class="rfc2119">MUST</em> be the AssertionCredential that
+              was posted.
             </td>
             <td>Required</td>
           </tr>
           <tr>
             <td>201</td>
-            <td><a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a></td>
+            <td><a href="#org.1edtech.ob.v3p0.derived.compactjws.class">CompactJws</a></td>
             <td>
-              'Created' - The Assertion was successfully created. The response payload <em class="rfc2119">MUST</em> be the Assertion
+              'Created' - The AssertionCredential was successfully created. The response payload <em class="rfc2119">MUST</em> be the AssertionCredential
               that was posted.
             </td>
             <td>Required</td>
@@ -2481,16 +2463,15 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td>403</td>
             <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
             <td>
-              'Forbidden' - The <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-20" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> understood the request, but is refusing it or the access
-              is
-              not allowed.
+              'Forbidden' - The <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-19" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> understood the request, but is refusing it or the access
+              is not allowed.
             </td>
             <td>Required</td>
           </tr>
           <tr>
             <td>405</td>
             <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
-            <td>'Method Not Allowed' - The <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-21" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> does not support this operation.</td>
+            <td>'Method Not Allowed' - The <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-20" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> does not support this operation.</td>
             <td>Required</td>
           </tr>
           <tr>
@@ -2525,8 +2506,8 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
         </thead>
         <tbody>
           <tr>
-            <td><code>Content-Type: application/ld+json</code></td>
-            <td>The content type <em class="rfc2119">MUST</em> be <code>application/ld+json</code>.</td>
+            <td><code>Content-Type: text/plain</code></td>
+            <td>The content type <em class="rfc2119">MUST</em> be <code>text/plain</code>.</td>
             <td>Required</td>
           </tr>
         </tbody>
@@ -2537,24 +2518,11 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
       <div class="example" id="example-sample-postassertion-response">
         <div class="marker">
     <a class="self-link" href="#example-sample-postassertion-response">Example<bdi> 9</bdi></a><span class="example-title">: Sample postAssertion Response</span>
-  </div> <pre class="http" aria-busy="false"><code class="hljs">{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
-    ],
-  "id": "http://example.edu/credentials/3732",
-  "type": ["VerifiableCredential", "AssertionCredential"],
-  "issuer": {
-    "id": "https://example.edu/issuers/565049",
-    "type": "Publisher",
-    "name": "Example University"
-  },
-  "issuanceDate": "2010-01-01T00:00:00Z",
-  "credentialSubject": {
-    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-    "achievement": "urn:uuid:a7467ef6-56cb-11ec-bf63-0242ac130002"
-  }
-}</code></pre>
+  </div> <pre aria-busy="false"><code class="hljs http"><span class="hljs-meta">HTTP/1.1</span> <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>text/plain
+
+<span class="css">// The AssertionCredential in Compact JWS format
+<span class="hljs-selector-tag">header</span><span class="hljs-selector-class">.payload</span><span class="hljs-selector-class">.signature</span></span></code></pre>
       </div>
     </section>
 
@@ -2564,7 +2532,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
       <h4 id="getprofile"><bdi class="secno">6.3.3 </bdi>getProfile<a class="self-link" aria-label="§" href="#getprofile"></a><a class="self-link" aria-label="§" href="#getprofile"></a></h4>
 
       <p>
-        Fetch the profile from the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-22" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> for the supplied access token.
+        Fetch the profile from the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-21" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> for the supplied access token.
       </p>
 
       <h4 id="getprofile-request">Request Format<a class="self-link" aria-label="§" href="#getprofile-request"></a><a class="self-link" aria-label="§" href="#getprofile-request"></a></h4>
@@ -2584,7 +2552,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td><code>baseUrl</code></td>
             <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
             <td>The HTTP scheme (which <em class="rfc2119">MUST</em> be "https"), domain name, and any other path
-              elements required by the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-23" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> (e.g. "https://example.com/tenant").
+              elements required by the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-22" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> (e.g. "https://example.com/tenant").
             </td>
             <td>Required</td>
           </tr>
@@ -2611,7 +2579,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td><code>Accept: application/ld+json</code></td>
             <td>
               If the content type <code>application/ld+json</code> is not not included in the <code>Accept</code>
-              header, the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-24" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> <em class="rfc2119">MUST</em> respond with 406 Not Acceptable.
+              header, the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-23" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> <em class="rfc2119">MUST</em> respond with 406 Not Acceptable.
             </td>
             <td>Required</td>
           </tr>
@@ -2670,7 +2638,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td>403</td>
             <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
             <td>
-              'Forbidden' - The <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-25" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> understood the request, but is refusing it or the access
+              'Forbidden' - The <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-24" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> understood the request, but is refusing it or the access
               is
               not allowed.
             </td>
@@ -2744,7 +2712,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
     <section id="postprofile-0">
       <h4 id="postprofile"><bdi class="secno">6.3.4 </bdi>postProfile<a class="self-link" aria-label="§" href="#postprofile"></a><a class="self-link" aria-label="§" href="#postprofile"></a></h4>
 
-      <p>Update the Profile on the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-26" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> for the authenticated entity.</p>
+      <p>Update the Profile on the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-25" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> for the authenticated entity.</p>
       <p>
         The request <em class="rfc2119">SHOULD</em> only include profile identifier properties to be added to the profile, not any existing data.
         The values may never become part of the published profile.
@@ -2768,7 +2736,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
             <td>
               The HTTP scheme (which <em class="rfc2119">MUST</em> be "https"), the domain name, and any other path elements required
-              by the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-27" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> (e.g. "<a href="https://example.com/tenant">https://example.com/tenant</a>").
+              by the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-26" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> (e.g. "<a href="https://example.com/tenant">https://example.com/tenant</a>").
             </td>
             <td>Required</td>
           </tr>
@@ -2795,14 +2763,14 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td><code>Accept: application/ld+json</code></td>
             <td>
               If the content type <code>application/ld+json</code> is not not included in the <code>Accept</code>
-              header, the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-28" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> <em class="rfc2119">MUST</em> respond with 406 Not Acceptable.
+              header, the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-27" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> <em class="rfc2119">MUST</em> respond with 406 Not Acceptable.
             </td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>Content-Type: application/ld+json</code></td>
             <td>
-              If the <code>Content-Type</code> is not <code>application/ld+json</code>, the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-29" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> <em class="rfc2119">MUST</em>
+              If the <code>Content-Type</code> is not <code>application/ld+json</code>, the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-28" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> <em class="rfc2119">MUST</em>
               respond with 406 Not Acceptable.
             </td>
             <td>Required</td>
@@ -2824,7 +2792,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
           <tr>
             <td><a href="#org.1edtech.ob.v3p0.profile.class">Profile</a></td>
             <td>
-              The profile to be updated <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-30" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>. The profile <em class="rfc2119">SHOULD</em> only include properties to be added to
+              The profile to be updated <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-29" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>. The profile <em class="rfc2119">SHOULD</em> only include properties to be added to
               the profile, not any existing data.
             </td>
             <td>Required</td>
@@ -2868,7 +2836,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td><a href="#org.1edtech.ob.v3p0.profile.class">Profile</a></td>
             <td>
               'OK' - The Profile will be updated. The response payload <em class="rfc2119">MUST</em> be the same as GET Profile and may
-              not include the patched values (as the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-31" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> may be waiting for asynchronous processes to
+              not include the patched values (as the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-30" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> may be waiting for asynchronous processes to
               complete before accepting the values).
             </td>
             <td>Required</td>
@@ -2878,7 +2846,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
             <td>
               'Bad Request' - The request was invalid or cannot be served. The exact error should be explained
-              in the response payload. A <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-32" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> <em class="rfc2119">MAY</em> respond with <code>400 Bad Request</code> to reject
+              in the response payload. A <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-31" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> <em class="rfc2119">MAY</em> respond with <code>400 Bad Request</code> to reject
               data that is known immediately to not be acceptable by the platform, e.g. to reject a "telephone"
               property
               if the Provider cannot validate telephone numbers.
@@ -2895,7 +2863,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td>403</td>
             <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
             <td>
-              'Forbidden' - The <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-33" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> understood the request, but is refusing it or the access
+              'Forbidden' - The <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-32" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> understood the request, but is refusing it or the access
               is
               not allowed.
             </td>
@@ -2904,7 +2872,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
           <tr>
             <td>405</td>
             <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
-            <td>'Method Not Allowed' - The <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-34" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> does not support this operation.</td>
+            <td>'Method Not Allowed' - The <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-33" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> does not support this operation.</td>
             <td>Required</td>
           </tr>
           <tr>
@@ -2968,7 +2936,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
       <h4 id="getmanifest"><bdi class="secno">6.3.5 </bdi>getManifest<a class="self-link" aria-label="§" href="#getmanifest"></a><a class="self-link" aria-label="§" href="#getmanifest"></a></h4>
 
       <p>
-        Fetch the service discovery document from the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-35" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>.
+        Fetch the service discovery document from the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-34" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>.
       </p>
 
       <div class="note" role="note" id="issue-container-generatedID-9"><div role="heading" class="note-title marker" id="h-note-1" aria-level="5"><span>Note</span></div><div class="">
@@ -2992,7 +2960,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td><code>baseUrl</code></td>
             <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
             <td>The HTTP scheme (which <em class="rfc2119">MUST</em> be "https"), domain name, and any other path
-              elements required by the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-36" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> (e.g. "https://example.com/tenant").
+              elements required by the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-35" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> (e.g. "https://example.com/tenant").
             </td>
             <td>Required</td>
           </tr>
@@ -3014,7 +2982,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td><code>Accept: application/json</code></td>
             <td>
               If the content type <code>application/json</code> is not not included in the <code>Accept</code>
-              header, the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-37" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> <em class="rfc2119">MUST</em> respond with 406 Not Acceptable.
+              header, the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-36" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> <em class="rfc2119">MUST</em> respond with 406 Not Acceptable.
             </td>
             <td>Required</td>
           </tr>
@@ -3222,7 +3190,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
       </dl>
       <p>There are two steps to dynamic client registration:</p>
       <ol>
-        <li>Request a Service Description Document (SDD) from the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-38" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a></li>
+        <li>Request a Service Description Document (SDD) from the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-37" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a></li>
         <li>Register with the <a data-link-type="dfn" href="#dfn-authorization-server" class="internalDFN" id="ref-for-dfn-authorization-server-5" title="This is a server that implements the OAuth 2.0 endpoints on behalf of the resource server. In many systems, the authorization server and the resource server are combined.">authorization server</a></li>
       </ol>
       <figure id="fig-sequence-diagram-for-dynamic-client-registration">
@@ -3238,8 +3206,8 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
       <h3 id="request-the-service-description-document">Request the Service Description Document<a class="self-link" aria-label="§" href="#request-the-service-description-document"></a><a class="self-link" aria-label="§" href="#request-the-service-description-document"></a></h3>
 
       <p>
-        To start the registration process, the <a data-link-type="dfn" href="#dfn-resource-owner" class="internalDFN" id="ref-for-dfn-resource-owner-6" title="This is the user that owns the resources (badges) that are on the resource server. Also called a Resource Owner.">user</a> supplies the <a data-link-type="dfn" href="#dfn-consumer" class="internalDFN" id="ref-for-dfn-consumer-10" title="client: In a REST API, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the IMS Global Security Framework v1.1.">client</a> with the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-39" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>'s base URL. When presented with an unknown <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-40" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> the <a data-link-type="dfn" href="#dfn-consumer" class="internalDFN" id="ref-for-dfn-consumer-11" title="client: In a REST API, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the IMS Global Security Framework v1.1.">client</a> <em class="rfc2119">MUST</em> request
-        the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-41" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>'s Service Description Document (SDD) at the path
+        To start the registration process, the <a data-link-type="dfn" href="#dfn-resource-owner" class="internalDFN" id="ref-for-dfn-resource-owner-6" title="This is the user that owns the resources (badges) that are on the resource server. Also called a Resource Owner.">user</a> supplies the <a data-link-type="dfn" href="#dfn-consumer" class="internalDFN" id="ref-for-dfn-consumer-10" title="client: In a REST API, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the IMS Global Security Framework v1.1.">client</a> with the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-38" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>'s base URL. When presented with an unknown <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-39" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> the <a data-link-type="dfn" href="#dfn-consumer" class="internalDFN" id="ref-for-dfn-consumer-11" title="client: In a REST API, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the IMS Global Security Framework v1.1.">client</a> <em class="rfc2119">MUST</em> request
+        the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-40" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>'s Service Description Document (SDD) at the path
         <code>{baseUrl}/ims/ob/v3p0/discovery</code>. Rate-limited access to this endpoint is <em class="rfc2119">RECOMMENDED</em>.
         An example request for an SDD takes the form of:
       </p>
@@ -3281,7 +3249,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
           <tr>
             <td><code>x-imssf-privacyPolicyUrl</code></td>
             <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
-            <td>A fully qualified URL to the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-42" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>'s privacy policy.</td>
+            <td>A fully qualified URL to the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-41" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>'s privacy policy.</td>
             <td>Required</td>
           </tr>
         </tbody>
@@ -3307,7 +3275,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
             <td><code>x-imssf-image</code></td>
             <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
             <td>
-              An image representing the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-43" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>. May be a Data URI or the URL where the
+              An image representing the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-42" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>. May be a Data URI or the URL where the
               image may be found.
             </td>
             <td>Optional</td>
@@ -3315,19 +3283,19 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
           <tr>
             <td><code>x-imssf-privacyPolicyUrl</code></td>
             <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
-            <td>A fully qualified URL to the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-44" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>'s privacy policy.</td>
+            <td>A fully qualified URL to the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-43" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>'s privacy policy.</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>title</code></td>
             <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
-            <td>The name of the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-45" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>.</td>
+            <td>The name of the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-44" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>.</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>termsOfService</code></td>
             <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
-            <td>A fully qualified URL to the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-46" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>'s terms of service.</td>
+            <td>A fully qualified URL to the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-45" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>'s terms of service.</td>
             <td>Required</td>
           </tr>
         </tbody>
@@ -3375,7 +3343,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
 ...</span></code></pre>
       </div>
       <p>
-        Upon receiving a SDD from a <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-47" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>, the <a data-link-type="dfn" href="#dfn-consumer" class="internalDFN" id="ref-for-dfn-consumer-12" title="client: In a REST API, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the IMS Global Security Framework v1.1.">client</a> <em class="rfc2119">SHOULD</em> respect the Cache-Control and
+        Upon receiving a SDD from a <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-46" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>, the <a data-link-type="dfn" href="#dfn-consumer" class="internalDFN" id="ref-for-dfn-consumer-12" title="client: In a REST API, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the IMS Global Security Framework v1.1.">client</a> <em class="rfc2119">SHOULD</em> respect the Cache-Control and
         Expires headers if present in the response and configure local cache to match the directives it
         declares. If directives include one of <code>no-cache</code>, <code>no-store</code>, the <a data-link-type="dfn" href="#dfn-consumer" class="internalDFN" id="ref-for-dfn-consumer-13" title="client: In a REST API, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the IMS Global Security Framework v1.1.">client</a>
         <em class="rfc2119">SHOULD NOT</em> cache the data for future interactions. If directives include <code>max-age</code> or if
@@ -3386,7 +3354,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
       <p>
         An Etag header <em class="rfc2119">MAY</em> be offered with the SDD response. If so, after a resource's declared expiration,
         a <a data-link-type="dfn" href="#dfn-consumer" class="internalDFN" id="ref-for-dfn-consumer-15" title="client: In a REST API, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the IMS Global Security Framework v1.1.">client</a> <em class="rfc2119">MAY</em> include an <code>If-None-Match header</code> containing the value of the Etag to
-        check if the resource is still fresh. If so the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-48" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> may return a
+        check if the resource is still fresh. If so the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-47" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> may return a
         <code>304 Not Modified</code> response status code, and a new <code>Expires</code> or
         <code>Cache-Control</code> header <em class="rfc2119">MAY</em> be included, which the <a data-link-type="dfn" href="#dfn-consumer" class="internalDFN" id="ref-for-dfn-consumer-16" title="client: In a REST API, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the IMS Global Security Framework v1.1.">client</a> <em class="rfc2119">SHOULD</em> use to update the
         cache expiration.
@@ -3750,7 +3718,7 @@ Link: &lt;https://www.imsglobal.org/ims/ob/v3p0/assertions?limit=2&amp;offset=1&
         After the <a data-link-type="dfn" href="#dfn-consumer" class="internalDFN" id="ref-for-dfn-consumer-40" title="client: In a REST API, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the IMS Global Security Framework v1.1.">client</a> application is registered with the <a data-link-type="dfn" href="#dfn-authorization-server" class="internalDFN" id="ref-for-dfn-authorization-server-16" title="This is a server that implements the OAuth 2.0 endpoints on behalf of the resource server. In many systems, the authorization server and the resource server are combined.">authorization server</a> as described in
         <a href="#acg-registration" class="sec-ref">§&nbsp;<bdi class="secno">7.1.1 </bdi>Dynamic Client Registration</a>, the <a data-link-type="dfn" href="#dfn-consumer" class="internalDFN" id="ref-for-dfn-consumer-41" title="client: In a REST API, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the IMS Global Security Framework v1.1.">client</a> application then <em class="rfc2119">MAY</em> initiate an authorization request
         as described in Section 4.2 of the IMS Security Framework [<cite><a class="bibref" data-link-type="biblio" href="#bib-sec-11" title="IMS Global Security Framework v1.1">SEC-11</a></cite>] by redirecting the user to the
-        <code>authorizationUrl</code> as declared in the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-49" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>'s Service Description Document
+        <code>authorizationUrl</code> as declared in the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-48" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>'s Service Description Document
         (SDD).
       </p>
       <p>
@@ -4004,7 +3972,7 @@ Location https://client.example.com/Authorize?
       <p>
         With the supplied <code>code</code>, the <a data-link-type="dfn" href="#dfn-consumer" class="internalDFN" id="ref-for-dfn-consumer-53" title="client: In a REST API, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the IMS Global Security Framework v1.1.">client</a> application <em class="rfc2119">SHOULD</em> attempt to exchange the
         <code>code</code> for an <code>access_token</code>. The <a data-link-type="dfn" href="#dfn-consumer" class="internalDFN" id="ref-for-dfn-consumer-54" title="client: In a REST API, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the IMS Global Security Framework v1.1.">client</a> application makes an
-        authorization grant POST request to the <code>tokenUrl</code> as declared in the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-50" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>'s Discovery Document. The HTTP POST request <em class="rfc2119">MUST</em> include a Basic authorization header with
+        authorization grant POST request to the <code>tokenUrl</code> as declared in the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-49" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a>'s Discovery Document. The HTTP POST request <em class="rfc2119">MUST</em> include a Basic authorization header with
         the <code>client_id</code> and <code>client_secret</code> provided in the registration response. The
         body of the token request <em class="rfc2119">MUST</em> include the following form fields:
       </p>
@@ -4212,7 +4180,7 @@ grant_type=authorization_code
       <p>
         After obtaining an <code>access_token</code> and optionally a <code>refresh_token</code> using the
         method above, a <a data-link-type="dfn" href="#dfn-consumer" class="internalDFN" id="ref-for-dfn-consumer-56" title="client: In a REST API, the client is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the IMS Global Security Framework v1.1.">client</a> application <em class="rfc2119">MAY</em> issue request that access resources controlled by the
-        <a data-link-type="dfn" href="#dfn-resource-owner" class="internalDFN" id="ref-for-dfn-resource-owner-14" title="This is the user that owns the resources (badges) that are on the resource server. Also called a Resource Owner.">user</a> on the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-51" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> using the <code>access_token</code> in the HTTP Authorization header
+        <a data-link-type="dfn" href="#dfn-resource-owner" class="internalDFN" id="ref-for-dfn-resource-owner-14" title="This is the user that owns the resources (badges) that are on the resource server. Also called a Resource Owner.">user</a> on the <a data-link-type="dfn" href="#dfn-provider" class="internalDFN" id="ref-for-dfn-provider-50" title="This is the server that has the protected resources (badges). Also called Provider in the IMS Global Security Framework v1.1.">resource server</a> using the <code>access_token</code> in the HTTP Authorization header
         [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2617" title="HTTP Authentication: Basic and Digest Access Authentication">RFC2617</a></cite>] with a Bearer Token [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc6750" title="The OAuth 2.0 Authorization Framework: Bearer Token Usage">RFC6750</a></cite>]. For example, a <a href="#getassertions">"getAssertions"</a>
         would look like this:
       </p>
@@ -5151,11 +5119,11 @@ The recipient identity in these badges is <code>conformance@imsglobal.org</code>
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-03-21T14:59:59Z",
+    "created": "2022-03-21T15:24:04Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z2DrnWBAw849VaVGwozchgQVC6nXibk3AFTV85FACVBcQw2yMaDNh3knyGDuL
-wPEtYQYwSheaagJNvUPD7UHAsGpm"
+    "proofValue": "z4eqBMZ9d4WYmV7FbuGkGDsuDMbNZEoskiTPZCiJG7izM2noTZiHbEcDJcGdH
+fZ2Jmorrhfw1rwzSx8QkxCZ79Rpe"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -5215,11 +5183,11 @@ lcnRpb25jcmVkZW50aWFsLmNsYXNzIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDIwIn1dfSw
 iaXNzIjp7ImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5hbWUiOiJFeGF
 tcGxlIFVuaXZlcnNpdHkifSwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHU
 vY3JlZGVudGlhbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTE
-yZWMyMSJ9.Eu3vHPQYQz6cGtEl6S7HgLE45-WzxVbf596RvbZkiFDXca7ziYrAWiDd8UaxqmLRu-5QN3
-CaDcyh-n_e2fTIzaOWTP2JXhsL5O0hy-yfpHeSFRBFzz1o1pQJS8WTpS2lY9LBqWkODwbctWX8_Gh37n
-pcA-VJMOOT-HQtchmurWHiC_sg0nCgc8vAHHZG3yc-DAVb_bUvtoBhJ0Y-Uobn1kvsFzIMqmXr4R6-k8
-4Swdu50v7DiQIqabHxCMGM0oJIAGNT6dk6IWn4yxVj3YscrR58Dl5vKUi25_SFeDWpZwHVWDWE06yIKX
-WC0QlZxLJgt2kZQX3RAyFxD4eCF1EiIQ</pre></div></div></div>
+yZWMyMSJ9.vAmIM0xwuukNEHXxgPfxbDMQwWYwwgznv39aLrPIyepN-mzsQaEjJd_gyUnNA4fDwAFFDh
+LdRdi3b4ZWoGwA8J_-ZFsnq9zYmJjmNGx9up2y89hL1IsOVCwRlJhtD-PZB8RpAhM_Urd5Bra5n2AgOJ
+1tnHyUZjbas03aX3sNnu-wmMCBz3Ov4pSPQoCrglchHRrrx2s8IOjmMEZ_v4eUNXi1q7KPJ93xDzSPIP
+Sg3MHUHxJ79GjzJrtIdIEwHxeN17KCBZkYoSiIqr7ChgbU7i6nZwdSGEcjtogJcfLbGVyhgF4fPgq_-9
+Zh7IzDgG3SspHXKkq-dmDZ-xpYwA05_w</pre></div></div></div>
   </section>
 <section data-class="org.1edtech.ob.v3p0.assertionsubject.class" id="org.1edtech.ob.v3p0.assertionsubject.class"><h4 id="assertionsubject"><bdi class="secno">B.1.2 </bdi>AssertionSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.assertionsubject.class"></a><a class="self-link" aria-label="§" href="#assertionsubject"></a></h4><p>A collection of information about the recipient of an achievement. Maps to Credential Subject in [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>].</p><table class="simple">
         <thead>
@@ -8302,19 +8270,19 @@ WC0QlZxLJgt2kZQX3RAyFxD4eCF1EiIQ</pre></div></div></div>
   </li><li>
     <a href="#ref-for-dfn-provider-6" title="§ 6.3.1 getAssertions">§ 6.3.1 getAssertions</a> <a href="#ref-for-dfn-provider-7" title="Reference 2">(2)</a> <a href="#ref-for-dfn-provider-8" title="Reference 3">(3)</a> <a href="#ref-for-dfn-provider-9" title="Reference 4">(4)</a> <a href="#ref-for-dfn-provider-10" title="Reference 5">(5)</a> <a href="#ref-for-dfn-provider-11" title="Reference 6">(6)</a> 
   </li><li>
-    <a href="#ref-for-dfn-provider-12" title="§ 6.3.2 postAssertion">§ 6.3.2 postAssertion</a> <a href="#ref-for-dfn-provider-13" title="Reference 2">(2)</a> <a href="#ref-for-dfn-provider-14" title="Reference 3">(3)</a> <a href="#ref-for-dfn-provider-15" title="Reference 4">(4)</a> <a href="#ref-for-dfn-provider-16" title="Reference 5">(5)</a> <a href="#ref-for-dfn-provider-17" title="Reference 6">(6)</a> <a href="#ref-for-dfn-provider-18" title="Reference 7">(7)</a> <a href="#ref-for-dfn-provider-19" title="Reference 8">(8)</a> <a href="#ref-for-dfn-provider-20" title="Reference 9">(9)</a> <a href="#ref-for-dfn-provider-21" title="Reference 10">(10)</a> 
+    <a href="#ref-for-dfn-provider-12" title="§ 6.3.2 postAssertion">§ 6.3.2 postAssertion</a> <a href="#ref-for-dfn-provider-13" title="Reference 2">(2)</a> <a href="#ref-for-dfn-provider-14" title="Reference 3">(3)</a> <a href="#ref-for-dfn-provider-15" title="Reference 4">(4)</a> <a href="#ref-for-dfn-provider-16" title="Reference 5">(5)</a> <a href="#ref-for-dfn-provider-17" title="Reference 6">(6)</a> <a href="#ref-for-dfn-provider-18" title="Reference 7">(7)</a> <a href="#ref-for-dfn-provider-19" title="Reference 8">(8)</a> <a href="#ref-for-dfn-provider-20" title="Reference 9">(9)</a> 
   </li><li>
-    <a href="#ref-for-dfn-provider-22" title="§ 6.3.3 getProfile">§ 6.3.3 getProfile</a> <a href="#ref-for-dfn-provider-23" title="Reference 2">(2)</a> <a href="#ref-for-dfn-provider-24" title="Reference 3">(3)</a> <a href="#ref-for-dfn-provider-25" title="Reference 4">(4)</a> 
+    <a href="#ref-for-dfn-provider-21" title="§ 6.3.3 getProfile">§ 6.3.3 getProfile</a> <a href="#ref-for-dfn-provider-22" title="Reference 2">(2)</a> <a href="#ref-for-dfn-provider-23" title="Reference 3">(3)</a> <a href="#ref-for-dfn-provider-24" title="Reference 4">(4)</a> 
   </li><li>
-    <a href="#ref-for-dfn-provider-26" title="§ 6.3.4 postProfile">§ 6.3.4 postProfile</a> <a href="#ref-for-dfn-provider-27" title="Reference 2">(2)</a> <a href="#ref-for-dfn-provider-28" title="Reference 3">(3)</a> <a href="#ref-for-dfn-provider-29" title="Reference 4">(4)</a> <a href="#ref-for-dfn-provider-30" title="Reference 5">(5)</a> <a href="#ref-for-dfn-provider-31" title="Reference 6">(6)</a> <a href="#ref-for-dfn-provider-32" title="Reference 7">(7)</a> <a href="#ref-for-dfn-provider-33" title="Reference 8">(8)</a> <a href="#ref-for-dfn-provider-34" title="Reference 9">(9)</a> 
+    <a href="#ref-for-dfn-provider-25" title="§ 6.3.4 postProfile">§ 6.3.4 postProfile</a> <a href="#ref-for-dfn-provider-26" title="Reference 2">(2)</a> <a href="#ref-for-dfn-provider-27" title="Reference 3">(3)</a> <a href="#ref-for-dfn-provider-28" title="Reference 4">(4)</a> <a href="#ref-for-dfn-provider-29" title="Reference 5">(5)</a> <a href="#ref-for-dfn-provider-30" title="Reference 6">(6)</a> <a href="#ref-for-dfn-provider-31" title="Reference 7">(7)</a> <a href="#ref-for-dfn-provider-32" title="Reference 8">(8)</a> <a href="#ref-for-dfn-provider-33" title="Reference 9">(9)</a> 
   </li><li>
-    <a href="#ref-for-dfn-provider-35" title="§ 6.3.5 getManifest">§ 6.3.5 getManifest</a> <a href="#ref-for-dfn-provider-36" title="Reference 2">(2)</a> <a href="#ref-for-dfn-provider-37" title="Reference 3">(3)</a> 
+    <a href="#ref-for-dfn-provider-34" title="§ 6.3.5 getManifest">§ 6.3.5 getManifest</a> <a href="#ref-for-dfn-provider-35" title="Reference 2">(2)</a> <a href="#ref-for-dfn-provider-36" title="Reference 3">(3)</a> 
   </li><li>
-    <a href="#ref-for-dfn-provider-38" title="§ 7.1.1 Dynamic Client Registration">§ 7.1.1 Dynamic Client Registration</a> <a href="#ref-for-dfn-provider-39" title="Reference 2">(2)</a> <a href="#ref-for-dfn-provider-40" title="Reference 3">(3)</a> <a href="#ref-for-dfn-provider-41" title="Reference 4">(4)</a> <a href="#ref-for-dfn-provider-42" title="Reference 5">(5)</a> <a href="#ref-for-dfn-provider-43" title="Reference 6">(6)</a> <a href="#ref-for-dfn-provider-44" title="Reference 7">(7)</a> <a href="#ref-for-dfn-provider-45" title="Reference 8">(8)</a> <a href="#ref-for-dfn-provider-46" title="Reference 9">(9)</a> <a href="#ref-for-dfn-provider-47" title="Reference 10">(10)</a> <a href="#ref-for-dfn-provider-48" title="Reference 11">(11)</a> 
+    <a href="#ref-for-dfn-provider-37" title="§ 7.1.1 Dynamic Client Registration">§ 7.1.1 Dynamic Client Registration</a> <a href="#ref-for-dfn-provider-38" title="Reference 2">(2)</a> <a href="#ref-for-dfn-provider-39" title="Reference 3">(3)</a> <a href="#ref-for-dfn-provider-40" title="Reference 4">(4)</a> <a href="#ref-for-dfn-provider-41" title="Reference 5">(5)</a> <a href="#ref-for-dfn-provider-42" title="Reference 6">(6)</a> <a href="#ref-for-dfn-provider-43" title="Reference 7">(7)</a> <a href="#ref-for-dfn-provider-44" title="Reference 8">(8)</a> <a href="#ref-for-dfn-provider-45" title="Reference 9">(9)</a> <a href="#ref-for-dfn-provider-46" title="Reference 10">(10)</a> <a href="#ref-for-dfn-provider-47" title="Reference 11">(11)</a> 
   </li><li>
-    <a href="#ref-for-dfn-provider-49" title="§ 7.1.2 Obtaining Tokens">§ 7.1.2 Obtaining Tokens</a> <a href="#ref-for-dfn-provider-50" title="Reference 2">(2)</a> 
+    <a href="#ref-for-dfn-provider-48" title="§ 7.1.2 Obtaining Tokens">§ 7.1.2 Obtaining Tokens</a> <a href="#ref-for-dfn-provider-49" title="Reference 2">(2)</a> 
   </li><li>
-    <a href="#ref-for-dfn-provider-51" title="§ 7.1.3 Authenticating with Tokens">§ 7.1.3 Authenticating with Tokens</a> 
+    <a href="#ref-for-dfn-provider-50" title="§ 7.1.3 Authenticating with Tokens">§ 7.1.3 Authenticating with Tokens</a> 
   </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-jwt" aria-label="Links in this document to definition: JWT">
