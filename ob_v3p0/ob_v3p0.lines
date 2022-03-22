@@ -14,8 +14,7 @@ Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/
         Property image Image 0..1                                   "An image representing the entity. This must be a PNG or SVG image."
         // Property email String 0..1                                  "Contact address for the entity."
         Mixin Email
-        // Property address Address 0..1                               "An address for the individual or organization."
-        Mixin PrimaryAddress
+        Property address Address 0..1                               "An address for the individual or organization."
         // Property identifiers SystemIdentifier 0..*                  "A set of System Identifiers that represent other identifiers for this entity."
         Mixin OtherIdentifiers
         Property official String 0..1                               "If the entity is an organization, `official` is the name of an authorized official of the organization."
@@ -32,9 +31,9 @@ Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/
         Property sisSourcedId String 0..1                           "An institution's student identifier for the person. This is frequently issued through a Student Information System."
         Mixin Extensions
 
-    Includes [PrimaryAddress, Address, AddressTypeEnum, CountryCode, GeoCoordinates, OptionallyTypedAddress]
+    Includes [Address, CountryCode, GeoCoordinates]
     Includes [Email, EmailAddress]
-    Includes [Phone, PhoneNumber, OptionallyTypedPhone, PhoneType, PhoneTypeEnum]
+    Includes [Phone, PhoneNumber]
     Includes [SourcedId, UUID]
     Includes [OtherIdentifiers, IdentifierEntry, AnyIdentifier, IdentifierType, Identifier]
     Include IdentifierTypeEnum
