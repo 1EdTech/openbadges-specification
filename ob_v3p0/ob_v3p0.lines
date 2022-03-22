@@ -4,7 +4,7 @@ Model ob 2022-01-01 3.0 "s:IMS Base Document" "t:Open Badges" "d:Open Badges Dat
 
 Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/cdm-mixins/ob_v3p0/common_credentials.lines
 
-    Includes [PrimaryAddress, Address, AddressParts, AddressTypeEnum, BaseTerm, CountryCode, GeoCoordinates, OptionallyTypedAddress]
+    Includes [PrimaryAddress, Address, AddressTypeEnum, BaseTerm, CountryCode, GeoCoordinates, OptionallyTypedAddress]
     Includes [Email, EmailAddress]
     Includes [Phone, PhoneNumber]
 
@@ -19,7 +19,7 @@ Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/
         // Property email String 0..1                                  "Contact address for the individual or organization."
         Mixin Email
         // Property address Address 0..1                               "An address for the individual or organization."
-        Mixin Address
+        Mixin PrimaryAddress
         Property additionalName String 0..1                         "An additional name for a person, can be used for a middle name."
         Property birthDate Date 0..1                                "Birthdate of the person."
         Property familyName String 0..1                             "Family name of a person. In the U.S., the last name of a person."
