@@ -7,6 +7,8 @@ Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/
     Includes [PrimaryAddress, Address, AddressTypeEnum, BaseTerm, CountryCode, GeoCoordinates, OptionallyTypedAddress]
     Includes [Email, EmailAddress]
     Includes [Phone, PhoneNumber]
+    Includes [SourcedId]
+    Includes [Extensions]
 
     Class Profile Unordered false []                                "A profile is a collection of information that describes a person, entity, or organization."
         Property id URI 1                                           "Unique URI for the Issuer/Profile file. Required so the entity can be the subject of an endorsement."
@@ -27,6 +29,7 @@ Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/
         Property identifiers SystemIdentifier 0..*                  "A set of System Identifiers that represent other identifiers for this Profile."
         Property official String 0..1                               "The name of the authorized official for the Issuer."
         Property parentOrg Profile 0..1                             "The parent organization of the person or organization represented by this organization."
-        Property sourcedId String 0..1                              "The individual's or organization's unique `sourcedId` value, which is used for providing interoperability with other identity systems."
+        // Property sourcedId String 0..1                              "The individual's or organization's unique `sourcedId` value, which is used for providing interoperability with other identity systems."
+        Mixin SourcedId
         Property studentId String 0..1                              "An institution's student identifier for the person. This is frequently issued through a Student Information System."
-        Property extensions Namespace 0..1
+        Mixin Extensions
