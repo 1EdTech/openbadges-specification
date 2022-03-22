@@ -4,32 +4,39 @@ Model ob 2022-01-01 3.0 "s:IMS Base Document" "t:Open Badges" "d:Open Badges Dat
 
 Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/cdm-mixins/ob_v3p0/common_credentials.lines
 
-    Includes [PrimaryAddress, Address, AddressTypeEnum, BaseTerm, CountryCode, GeoCoordinates, OptionallyTypedAddress]
-    Includes [Email, EmailAddress]
-    Includes [Phone, PhoneNumber, OptionallyTypedPhone, PhoneType, PhoneTypeEnum]
-    Includes [SourcedId, UUID, Identifier]
-    Includes [Extensions]
-
-    Class Profile Unordered false []                                "A profile is a collection of information that describes a person, entity, or organization."
-        Property id URI 1                                           "Unique URI for the Issuer/Profile file. Required so the entity can be the subject of an endorsement."
-        Property name String 0..1                                   "The name of the person organization."
-        Property url URI 0..1                                       "The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP."
+    Class Profile Unordered false []                                "A profile is a collection of information that describes a person or organization (an entity). Profiles are used to identify and describe issuers, holders, and creators."
+        Property id URI 1                                           "Unique URI for the entity described by this profile. Required so the entity can be the subject of an endorsement."
+        Property name String 0..1                                   "The name of the entity."
+        Property url URI 0..1                                       "The homepage or social media profile of the entity. Should be a URL/URI Accessible via HTTP."
         // Property telephone String 0..1                              "A phone number for the entity. For maximum compatibility, the value should be expressed as a + and country code followed by the number with no spaces or other punctuation, like +16175551212 (E.164 format)."
-        Mixin PrimaryPhone
-        Property description String 0..1                            "A short description of the issuer entity or organization."
-        Property image Image 0..1                                   "An image representing the issuer. This must be a PNG or SVG image."
-        // Property email String 0..1                                  "Contact address for the individual or organization."
+        Mixin Phone
+        Property description String 0..1                            "A short description of the entity."
+        Property image Image 0..1                                   "An image representing the entity. This must be a PNG or SVG image."
+        // Property email String 0..1                                  "Contact address for the entity."
         Mixin Email
         // Property address Address 0..1                               "An address for the individual or organization."
         Mixin PrimaryAddress
-        Property additionalName String 0..1                         "An additional name for a person, can be used for a middle name."
-        Property birthDate Date 0..1                                "Birthdate of the person."
-        Property familyName String 0..1                             "Family name of a person. In the U.S., the last name of a person."
-        Property givenName String 0..1                              "Given name of a person. In the U.S., the first name of a person."
-        Property identifiers SystemIdentifier 0..*                  "A set of System Identifiers that represent other identifiers for this Profile."
-        Property official String 0..1                               "The name of the authorized official for the Issuer."
-        Property parentOrg Profile 0..1                             "The parent organization of the person or organization represented by this organization."
-        // Property sourcedId String 0..1                              "The individual's or organization's unique `sourcedId` value, which is used for providing interoperability with other identity systems."
+        // Property identifiers SystemIdentifier 0..*                  "A set of System Identifiers that represent other identifiers for this entity."
+        Mixin OtherIdentifiers
+        Property official String 0..1                               "If the entity is an organization, `official` is the name of an authorized official of the organization."
+        Property parentOrg Profile 0..1                             "The parent organization of the entity."
+        // Property sourcedId String 0..1                              "The entity's unique `sourcedId` value, which is used for providing interoperability with other identity systems."
         Mixin SourcedId
-        Property studentId String 0..1                              "An institution's student identifier for the person. This is frequently issued through a Student Information System."
+        // Property additionalName String 0..1                         "An additional name for a person, can be used for a middle name."
+        // Property familyName String 0..1                             "Family name of a person. In the U.S., the last name of a person."
+        // Property givenName String 0..1                              "Given name of a person. In the U.S., the first name of a person."
+        Mixin PersonNameParts
+        // Property birthDate Date 0..1                                "Birthdate of the person."
+        Property dateOfBirth Date 0..1                              ""Birthdate of the person."
+        // Property studentId String 0..1                              "An institution's student identifier for the person. This is frequently issued through a Student Information System."
+        Property sisSourcedId String 0..1                           "An institution's student identifier for the person. This is frequently issued through a Student Information System."
         Mixin Extensions
+
+    Includes [PrimaryAddress, Address, AddressTypeEnum, CountryCode, GeoCoordinates, OptionallyTypedAddress]
+    Includes [Email, EmailAddress]
+    Includes [Phone, PhoneNumber, OptionallyTypedPhone, PhoneType, PhoneTypeEnum]
+    Includes [SourcedId, UUID]
+    Includes [OtherIdentifiers, IdentifierEntry, AnyIdentifier, IdentifierType, Identifier]
+    Include IdentifierTypeEnum
+    Include PersonNameParts
+    Includes [Extensions, BaseTerm]
