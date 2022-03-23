@@ -104,6 +104,10 @@ This specification includes JSON Schema files for every class in the data model 
 
 - <dfn data-lt="VP">Verifiable Presentation</dfn> (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [[vc-data-model]]
 
+- <dfn data-lt="Verifiable">Verification</dfn>: The evaluation of whether a [=verifiable credential=] or [=verifiable presentation=] is an authentic and timely statement of the issuer or presenter, respectively. This includes checking that: the credential (or presentation) conforms to the specification; the proof method is satisfied; and, if present, the status check succeeds.
+
+- <dfn>Verifier</dfn>: The entity that receives a [=verifiable credential=] or [=verifiable presentation=] and verifies the credential or presentation has not been tampered with.
+
 ### Conceptual Model
 
 This conceptual model describes Open Badges concepts and the relationship between those concepts. The data model in appendix [[[#org-1edtech-ob-v3p0-model-0]]] below is the normative reference for the classes and properties that are used to implement the concepts.
