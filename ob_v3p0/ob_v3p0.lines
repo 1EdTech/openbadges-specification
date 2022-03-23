@@ -2,34 +2,4 @@ Model ob 2022-01-01 3.0 "s:IMS Base Document" "t:Open Badges" "d:Open Badges Dat
 
 // Pull in common credential models (this will be converted to Includes when credential models are finalized and made part of the CDM)
 
-Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/develop/ob_v3p0/common_credentials.lines
-
-Package SharedApi DataModel
-
-    Includes [Imsx_StatusInfo, Imsx_CodeMajor, Imsx_Severity, Imsx_CodeMinor, Imsx_CodeMinorField, Imsx_CodeMinorFieldValue]
-
-Package SharedOAuth DataModel
-
-    Class AuthorizationError Vocabulary false []                    "This is the set of ASCII error code strings that may be returned in response to a client authorization request. See Section 4.1 of [[RFC6749]]."
-        Property invalid_request ASCIIString 1                      "The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed."
-        Property unauthorized_client ASCIIString 1                  "The client is not authorized to request an authorization code using this method."
-        Property access_denied ASCIIString 1                        "The resource owner or authorization server denied the request."
-        Property unsupported_response_type ASCIIString 1            "The authorization server does not support obtaining an authorization code using this method."
-        Property invalid_scope ASCIIString 1                        "The requested scope is invalid, unknown, or malformed."
-        Property server_error ASCIIString 1                         "The authorization server encountered an unexpected condition that prevented it from fulfilling the request. (This error code is needed because a 500 Internal Server Error HTTP status code cannot be returned to the client via an HTTP redirect.)"
-        Property temporarily_unavailable ASCIIString 1              "The authorization server is currently unable to handle the request due to a temporary overloading or maintenance of the server. (This error code is needed because a 503 Service Unavailable HTTP status code cannot be returned to the client via an HTTP redirect.)"
-
-    Class RegistrationError Vocabulary false []                     "This is the set of ASCII error code strings that may be returned in response to a client registration request. See [[RFC7591]]."
-        Property invalid_redirect_uri ASCIIString 1                 "The value of one or more redirection URIs is invalid."
-        Property invalid_client_metadata ASCIIString 1              "The value of one of the client metadata fields is invalid and the server has rejected this request. Note that an authorization server MAY choose to substitute a valid value for any requested parameter of a client's metadata."
-        Property invalid_software_statement ASCIIString 1           "The software statement presented is invalid. This MUST only be returned if a Software Statement has been supplied in the registration request. Use of a Software Statement is NOT RECOMMENDED."
-        Property unapproved_software_statement ASCIIString 1        "The software statement presented is not approved for use by this authorization server. This MUST only be returned if a Software Statement has been supplied in the registration request. Use of a Software Statement is NOT RECOMMENDED."
-
-    Class TokenError Vocabulary false []                            "This is the set of ASCII error code strings that may be returned in response to a client token request. See Section 5.2 of [[RFC6749]]."
-        Property invalid_request ASCIIString 1                      "The request is missing a required parameter, includes an unsupported parameter value (other than grant type), repeats a parameter, includes multiple credentials, utilizes more than one mechanism for authenticating the client, or is otherwise malformed."
-        Property invalid_client ASCIIString 1                       "Client authentication failed (e.g., unknown client, no client authentication included, or unsupported authentication method).  The authorization server MAY return an HTTP 401 (Unauthorized) status code to indicate which HTTP authentication schemes are supported.  If the client attempted to authenticate via the "Authorization" request header field, the authorization server MUST respond with an HTTP 401 (Unauthorized) status code and include the "WWW-Authenticate" response header field matching the authentication scheme used by the client."
-        Property invalid_grant ASCIIString 1                        "The provided authorization grant (e.g., authorization code, resource owner credentials) or refresh token is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
-        Property unauthorized_client ASCIIString 1                  "The authenticated client is not authorized to use this authorization grant type."
-        Property unsupported_grant_type ASCIIString 1               "The authorization grant type is not supported by the authorization server."
-        Property unsupported_token_type ASCIIString 1               "The authorization server does not support the revocation of the presented token type. That is, the client tried to revoke an access token on a server not supporting this feature."
-        Property invalid_scope ASCIIString 1                        "The requested scope is invalid, unknown, malformed, or exceeds the scope granted by the resource owner."
+Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/cdm-mixins/ob_v3p0/common_credentials.lines
