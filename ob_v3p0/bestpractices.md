@@ -12,7 +12,6 @@ Some of the terms used in this section:
 - <dfn>Linked Data Proof</dfn>: A type of embedded signature proof.
 - <dfn>Presentation</dfn>: Data derived from one or more [=verifiable credentials=], issued by one or more [=issuers=, that is shared with a specific [=verifier=]. A [=verifiable presentation=] is a tamper-evident presentation encoded in such a way that authorship of the data can be trusted after a process of cryptographic verification.
 - <dfn>Subject</dfn>: A person about which [=claims=] are made.
-- <dfn>Verifier</dfn>: The entity that receives a [=verifiable credential=] or [=verifiable presentation=] and verifies the credential or presentation has not been tampered with.
 
 ### Support for Decentralized Identifiers (DIDs)
 
