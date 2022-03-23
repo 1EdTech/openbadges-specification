@@ -1000,6 +1000,152 @@ var api = `
       All open endpoint requests MUST be made over secure TLS 1.2 or 1.3 protocol.
     </p>
 
+    <!-- getEvidence -->
+    <section>
+      <h3 id="getevidence">getEvidence</h3>
+      <p>Fetch an <a href="#evidence">Evidence</a> document.</p>
+      <p>
+        The issuer of an <a href="#assertioncredential">AssertionCredential</a> may reference 
+        <a href="#evidence">Evidence</a> to support the claims in the credential. If the
+        evidence <code>id</code> is a URL, the client SHOULD request the evidence.
+      </p>
+
+      <h4 id="getprofile-request">Request Format</h4>
+
+      <p><code>GET {id}</code></p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>URL Parameter</th>
+            <th>Parameter Type</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>id</code></td>
+            <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td>The <code>id</code> of the <a href="#evidence">Evidence</a> document.</td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Request Headers</h4>
+
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Request Header</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <code>Accept: application/ld+json</code> and/or <code>Accept: application/json</code>.
+            </td>
+            <td>
+              If the content type <code>application/ld+json</code> or <code>application/json</code>
+              is not not included in the <code>Accept</code> header, the [=resource server=] SHOULD
+              respond with 406 Not Acceptable.
+            </td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Request Payload</h4>
+
+      <p>There is no request payload.</p>
+
+      <h4>Sample Request</h4>
+
+      <pre class="http example" title="Sample request for evidence">
+        GET evidence/f2aeec97-fc0d-42bf-8ca7-0548192d4231 HTTP/1.1
+        Host: example.edu
+        Accept: application/ld+json
+      </pre>
+
+      <h4 id="getevidence-responses">Responses</h4>
+
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>HTTP Status Code</th>
+            <th>Payload Type</th>
+            <th>Description</th>
+            <th>Payload Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>200</td>
+            <td><a href="#evidence">Evidence</a></td>
+            <td>&#39;OK&#39; - The evidence document is returned.</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>400</td>
+            <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
+            <td>
+              &#39;Bad Request&#39; - The request was invalid or cannot be served. The exact error should be explained
+              in the response payload.
+            </td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Response Headers</h4>
+
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Response Header</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <code>Content-Type: application/json</code> or <code>Content-Type: application/ld+json</code>
+            </td>
+            <td>
+              <p>
+                If successful, the content type MAY be <code>application/ld+json</code> or <code>application/json</code>.
+                In either case, the payload SHOULD include a <code>@context</code>.
+              </p>
+              <p>
+                If unsuccessful, the content type SHOULD be <code>application/json</code>.
+              </p>
+            </td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Sample Response</h4>
+
+      <pre class="http example" title="Sample response with evidence">
+        HTTP/1.1 200 OK
+        Content-Type: application/ld+json; charset=utf-8
+        
+        {
+          "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://imsglobal.github.io/openbadges-specification/context.json"
+          ],
+          "id": "https://example.edu/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d4231",
+          "name": "Some Evidence",
+          "description": "This evidence supports the claims in the credential"
+        }
+      </pre>
+    </section>
+
     <!-- getManifest -->
     <section>
       <h3 id="getmanifest">getManifest</h3>
