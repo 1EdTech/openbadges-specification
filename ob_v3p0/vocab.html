@@ -11,11 +11,11 @@
       mainSpecBiblioKey: "OB-30",
       specTitle: "Open Badges Vocabulary",
       shortName: "ob",
-      specNature: "informative", // spec nature is "normative" or "informative"
-      specType: "doc", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
+      specDate: "2022",
+      specNature: "informative",
+      specType: "doc",
       specVersion: "3.0",
       docVersion: "0",
-      specStatus: "IMS Base Document", // specStatus: IMS Base Document, IMS Candidate Final (Public) or IMS Final Release
     };
   </script>
 </head>
@@ -23,46 +23,280 @@
 <body>
 
   <section id="abstract">
-    <h2>Overview</h2>
-    <p>This document contains information about the vocabulary terms used in the data model.</p>
+    <h2>Abstract</h2>
+    <p>
+      This document contains information about the JSON-LD terms used IMS Open Badges versions 1.0+.
+    </p>
   </section>
 
   <section>
-    <h2>Vocabulary as a Definition List</h2>
-    <p>This format is very concise. Details such as deprecation may not be seen.</p>
+    <h2>Terms</h2>
+    <p>
+      This is a complete list of JSON-LD terms used by IMS Open Badges versions 1.0+.
+    </p>
     <dl>
       <dt id="achievement">Achievement</dt>
-      <dd>The achievement being asserted by the issuer.</dd>
+      <dd>
+        The achievement being asserted by the issuer.
+        <a href="#achievement-0">read more</a>
+      </dd>
+      <dt id="alignment">Alignment</dt>
+      <dd>
+        An object describing which objectives or educational standards this badge aligns to, if any.
+        <a href="#alignment-0">read more</a>
+      </dd>
+      <dt id="allowedOrigins">Allowed Origins</dt>
+      <dd>
+        The host registered name subcomponent of an allowed origin.
+        <a href="#allowed-origins">read more</a>
+      </dd>
+      <dt id="audience">Audience</dt>
+      <dd>
+        A description of the intended audience for a piece of evidence.
+        <a href="#audience-0">read more</a>
+      </dd>
+      <dt id="author">Author</dt>
+      <dd>
+        The author of the image.
+        <a href="#audience-0">read more</a>
+      </dd>
       <dt id="badge">Badge</dt>
-      <dd>The achievement being asserted by the issuer. Deprecated in OB 3.0</dd>
+      <dd>
+        The achievement being asserted by the issuer.
+        <a href="#badge-0">read more</a>
+      </dd>
+      <dt id="caption">Caption</dt>
+      <dd>
+        The caption for the image.
+        <a href="#caption-0">read more</a>
+      </dd>
+      <dt id="claim">Claim</dt>
+      <dd>
+        An endorser's claim about an entity.
+        <a href="#claim-0">read more</a>
+      </dd>
+      <dt id="creator">Creator</dt>
+      <dd>
+        The key used to sign the assertion.
+        <a href="#creator-0">read more</a>
+      </dd>
+      <dt id="criteria">Criteria</dt>
+      <dd>
+        Document describing how to earn the achievement.
+        <a href="#criteria-0">read more</a>
+      </dd>
+      <dt id="description">Description</dt>
+      <dd>
+        A short plaintext description.
+        <a href="#description-0">read more</a>
+      </dd>
+      <dt id="email">Email</dt>
+      <dd>
+        Contact email address for the entity.
+        <a href="#email-0">read more</a>
+      </dd>
+      <dt id="endorsement">Endorsement</dt>
+      <dd>
+        A claim made about the entity. 
+        <a href="#endorsement-0">read more</a>
+      </dd>
+      <dt id="endorsementComment">Endorsement Comment</dt>
+      <dd>
+        A simple claim in writing about the entity.
+        <a href="#endorsement-comment">read more</a>
+      </dd>
+      <dt id="evidence">Evidence</dt>
+      <dd>
+        Document describing the work that the recipient did to earn the achievement.
+        <a href="#evidence-0">read more</a>
+      </dd>
+      <dt id="expires">Expires</dt>
+      <dd>
+        Timestamp when a badge should no longer be considered valid.
+        <a href="#expires-0">read more</a>
+      </dd>
+      <dt id="genre">Genre</dt>
+      <dd>
+        Describes the type of evidence.
+        <a href="#genre-0">read more</a>
+      </dd>
+      <dt id="hashed">Hashed</dt>
+      <dd>
+        Whether or not the recipient identity value is hashed.
+        <a href="#hashed-0">read more</a>
+      </dd>
+      <dt id="identity">Identity</dt>
+      <dd>
+        The identity value of the recipient.
+        <a href="#identity-0">read more</a>
+      </dd>
+      <dt id="image">Image</dt>
+      <dd>
+        Document representing an image.
+        <a href="#image-0">read more</a>
+      </dd>
+      <dt id="issuedOn">Issued On</dt>
+      <dd>
+        Timestamp of when the assertion was issued.
+        <a href="#issued-on">read more</a>
+      </dd>
       <dt id="issuer">Issuer</dt>
-      <dd>The person or organization that has made an assertion about a person.</dd>
+      <dd>
+        The person or organization that has made an assertion about a person.
+        <a href="#issuer-0">read more</a>
+      </dd>
+      <dt id="name">Name</dt>
+      <dd>
+        The name of the entity.
+        <a href="#name-0">read more</a>
+      </dd>
+      <dt id="narrative">Narrative</dt>
+      <dd>
+        A narrative description, possibly Markdown.
+        <a href="#narrative-0">read more</a>
+      </dd>
+      <dt id="owner">Owner</dt>
+      <dd>
+        The owner of the key used to sign the assertion.
+        <a href="#owner-0">read more</a>
+      </dd>
+      <dt id="publicKey">Public Key</dt>
+      <dd>
+        The key used to sign the assertion.
+        <a href="#public-key">read more</a>
+      </dd>
+      <dt id="publicKeyPem">Public Key PEM</dt>
+      <dd>
+        The public key used to verify the signature.
+        <a href="#public-key-pem">read more</a>
+      </dd>
+      <dt id="recipient">Recipient</dt>
+      <dd>
+        An object that describes the recipient's identity.
+        <a href="#recipient-0">read more</a>
+      </dd>
+      <dt id="related">Related</dt>
+      <dd>
+        Another entity of the same type. Primarily intended to identify language editions or previous versions of an achievement.
+        <a href="#related-0">read more</a>
+      </dd>
+      <dt id="revocationList">Revocation List</dt>
+      <dd>
+        Document that describes assertions that the issuer has revoked.
+        <a href="#revocation-list">read more</a>
+      </dd>
+      <dt id="revocationReason">Revocation Reason</dt>
+      <dd>
+        The reason for revocation.
+        <a href="#revocation-reason">read more</a>
+      </dd>
+      <dt id="revoked">Revoked</dt>
+      <dd>
+        Whether or not the assertion is revoked.
+        <a href="#revoked-0">read more</a>
+      </dd>
+      <dt id="revokedAssertions">Revoked Assertions</dt>
+      <dd>
+        Assertions that have been revoked.
+        <a href="#revoked-assertions">read more</a>
+      </dd>
+      <dt id="salt">Salt</dt>
+      <dd>
+        String used to salt hashed identifiers.
+        <a href="#salt-0">read more</a>
+      </dd>
+      <dt id="startsWith">Starts With</dt>
+      <dd>
+        Set of URI fragments used to determine if an <code>id</code> is valid.
+        <a href="#starts-with">read more</a>
+      </dd>
+      <dt id="tags">Tags</dt>
+      <dd>
+        Tags that describe the type of achievement.
+        <a href="#tags-0">read more</a>
+      </dd>
+      <dt id="targetCode">Target Code</dt>
+      <dd>
+        Identifies the alignment target.
+        <a href="#target-code">read more</a>
+      </dd>
+      <dt id="targetDescription">Target Description</dt>
+      <dd>
+        Short description of the alignment target.
+        <a href="#target-description">read more</a>
+      </dd>
+      <dt id="targetFramework">Target Framework</dt>
+      <dd>
+        Name of the alignment target framework.
+        <a href="#target-framework">read more</a>
+      </dd>
+      <dt id="targetName">Target Name</dt>
+      <dd>
+        Name of the alignment target.
+        <a href="#target-name">read more</a>
+      </dd>
+      <dt id="targetUrl">Target URL</dt>
+      <dd>
+        URL of the alignment target.
+        <a href="#target-url">read more</a>
+      </dd>
+      <dt id="telephone">Telephone</dt>
+      <dd>
+        Phone number for the entity.
+        <a href="#telephone-0">read more</a>
+      </dd>
+      <dt id="uid">UID</dt>
+      <dd>
+        Unique identifier for the badge.
+        <a href="#uid-0">read more</a>
+      </dd>
+      <dt id="url">URL</dt>
+      <dd>
+        The homepage or social media profile of the entity.
+        <a href="#url-0">read more</a>
+      </dd>
+      <dt id="verification">Verification</dt>
+      <dd>
+        Instructions for how to verify the assertion.
+        <a href="#verification-0">read more</a>
+      </dd>
+      <dt id="verificationProperty">Verification Property</dt>
+      <dd>
+        The property to be used for verification.
+        <a href="#verification-property">read more</a>
+      </dd>
+      <dt id="verify">Verify</dt>
+      <dd>
+        Alias for <a href="#verification">verification</a>.
+        <a href="#verify-0">read more</a>
+      </dd>
+      <dt id="version">Version</dt>
+      <dd>
+        The version of the achievement.
+        <a href="#version-0">read more</a>
+      </dd>
     </dl>
   </section>
 
   <section>
-    <h2>Vocabulary as Sections</h2>
+    <h2>Term Details</h2>
     <p>
-      This format is better suited for more information about the term such as which
-      versions of the specification use the term.
+      This section contains information about all the JSON-LD terms used in IMS Open Badges 1.0+.
+      Each term has a table showing which versions of IMS Open Badges use the term.
     </p>
     <section>
       <h3>Achievement</h3>
       <p>The achievement being asserted by the issuer.</p>
-      <table>
+      <table class="simple">
         <thead>
           <tr>
             <th>1.0</th>
-            <th>1.5</th>
-            <th>2.0</th>
-            <th>2.1</th>
+            <th>2.0/2.1</th>
             <th>3.0</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td></td>
-            <td></td>
             <td></td>
             <td></td>
             <td>X</td>
@@ -71,15 +305,93 @@
       </table>
     </section>
     <section>
-      <h3>Badge</h3>
-      <p>The achievement being asserted by the issuer.</p>
-      <table>
+      <h3>Alignment</h3>
+      <p>An object describing which objectives or educational standards this badge aligns to, if any.</p>
+      <table class="simple">
         <thead>
           <tr>
             <th>1.0</th>
-            <th>1.5</th>
-            <th>2.0</th>
-            <th>2.1</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Allowed Origins</h3>
+      <p>The host registered name subcomponent of an allowed origin.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Audience</h3>
+      <p>A description of the intended audience for a piece of evidence.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Author</h3>
+      <p>The author of the image.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Badge</h3>
+      <p>The achievement being asserted by the issuer.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
             <th>3.0</th>
           </tr>
         </thead>
@@ -87,6 +399,304 @@
           <tr>
             <td>X</td>
             <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Caption</h3>
+      <p>The caption for the image.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Claim</h3>
+      <p>An endorser's claim about an entity.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Creator</h3>
+      <p>The key used to sign the assertion.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Criteria</h3>
+      <p>Document describing how to earn the achievement.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Description</h3>
+      <p>A short plaintext description.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Email</h3>
+      <p>Contact email address for the entity.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Endorsement</h3>
+      <p>A claim made about the entity.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Endorsement Comment</h3>
+      <p>A simple claim in writing about the entity.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Evidence</h3>
+      <p>Document describing the work that the recipient did to earn the achievement.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Expires</h3>
+      <p>Timestamp when a badge should no longer be considered valid.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>X</td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Genre</h3>
+      <p>Describes the type of evidence.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Hashed</h3>
+      <p>Whether or not the recipient identity value is hashed.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Identity</h3>
+      <p>The identity value of the recipient.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Image</h3>
+      <p>Document representing an image.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Issued On</h3>
+      <p>Timestamp of when the assertion was issued.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
             <td>X</td>
             <td>X</td>
             <td></td>
@@ -97,13 +707,11 @@
     <section>
       <h3>Issuer</h3>
       <p>The person or organization that has made an assertion about a person.</p>
-      <table>
+      <table class="simple">
         <thead>
           <tr>
             <th>1.0</th>
-            <th>1.5</th>
-            <th>2.0</th>
-            <th>2.1</th>
+            <th>2.0/2.1</th>
             <th>3.0</th>
           </tr>
         </thead>
@@ -112,8 +720,526 @@
             <td>X</td>
             <td>X</td>
             <td>X</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Name</h3>
+      <p>The name of the entity.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
             <td>X</td>
             <td>X</td>
+            <td>X</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Narrative</h3>
+      <p>A narrative description, possibly Markdown.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Owner</h3>
+      <p>The owner of the key used to sign the assertion.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Public Key</h3>
+      <p>The key used to sign the signature.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Public Key PEM</h3>
+      <p>The public key used to verify the signature.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Recipient</h3>
+      <p>An object that describes the recipient's identity.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Related</h3>
+      <p>Another entity of the same type. Primarily intended to identify language editions or previous versions of an achievement.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Revocation List</h3>
+      <p>Document that describes assertions that the issuer has revoked.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Revocation Reason</h3>
+      <p>The reason for revocation.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Revoked</h3>
+      <p>Whether or not the assertion is revoked.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Revoked Assertions</h3>
+      <p>Assertions that have been revoked.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Salt</h3>
+      <p>String used to salt hashed identifiers.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Starts With</h3>
+      <p>Set of URI fragments used to determine if an <code>id</code> is value.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Tags</h3>
+      <p>Tags that describe the type of achievement.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Target Code</h3>
+      <p>Identifies the alignment target.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Target Description</h3>
+      <p>Short description of the alignment target.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Target Framework</h3>
+      <p>Name of the alignement target framework.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Target Name</h3>
+      <p>Name of the alignment target.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Target URL</h3>
+      <p>URL of the alignment target.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Telephone</h3>
+      <p>Phone number for the entity.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>UID</h3>
+      <p>Unique identifier for the badge.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>X</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>URL</h3>
+      <p>The homepage or social media profile of the entity.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>X</td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Verification</h3>
+      <p>Instructions for how to verify the assertion.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Verification Property</h3>
+      <p>The property to be used for verification.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Verify</h3>
+      <p>Alias for <a href="#verification-0">Verification</a></p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>X</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>Version</h3>
+      <p>The version of the achievement.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>1.0</th>
+            <th>2.0/2.1</th>
+            <th>3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>X</td>
+            <td></td>
           </tr>
         </tbody>
       </table>
