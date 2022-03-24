@@ -63,14 +63,17 @@ var api = `
     </p>
   </section>
 
-  <section>
-    <h3>Security</h3>
+  <section id="api-endpoints">
+    <h3>Secure REST Endpoints</h3>
+
     <p>
-      All of the API endpoints are protected by OAuth 2.0 access tokens as described in [[[#api-security]]].
+      All secure endpoint requests MUST be made over secure TLS 1.2 or 1.3 protocol.
+    </p>
+    <p>
+      All of the Secure REST Endpoints endpoints are protected by OAuth 2.0 access tokens as described in [[[#api-security]]].
     </p>
 
     <h4 id="scopes">Scopes</h4>
-
     <p>
       Each endpoint requires an access token with a specific Open Badges scope as shown below.
     </p>
@@ -112,13 +115,7 @@ var api = `
         </tr>
       </tbody>
     </table>
-  </section>
-
-  <section id="api-endpoints">
-    <h3>REST Endpoints</h3>
-
-    <p>All endpoint requests MUST be made over secure TLS 1.2 or 1.3 protocol.</p>
-
+  
     <!-- getAssertions -->
     <section>
       <h3 id="getassertions">getAssertions</h3>
@@ -994,19 +991,21 @@ var api = `
           }
       </pre>
     </section>
+  </section>
+
+  <section>
+    <h2>Open Endpoints</h2>
+
+    <p>
+      All open endpoint requests MUST be made over secure TLS 1.2 or 1.3 protocol.
+    </p>
 
     <!-- getManifest -->
-
     <section>
       <h3 id="getmanifest">getManifest</h3>
-
       <p>
         Fetch the service discovery document from the [=resource server=].
       </p>
-
-      <div class="note">
-        This endpoint MUST NOT require authorization.
-      </div>
 
       <h4 id="getprofile-request">Request Format</h4>
 
@@ -1158,6 +1157,7 @@ var api = `
         ...
       </pre>
     </section>
+
   </section>
 
   <section>
