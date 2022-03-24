@@ -16,11 +16,15 @@ var vc_extensions = `
     <li>Evidence Methods</li>
   </ul>
   <p>
-    This standard defines three VC extensions: a <a href="#status-extension">Status Method</a>, a
-    <a href="#refresh-extension">Refresh Method</a>, and a
-    <a href="#schema-extension">Data Schema Validation Method</a>. Future versions of this specification may define
+    This standard defines three VC extensions: a Status Method <a href="#status-extension">RevocationList</a>, a
+    Refresh Method <a href="#refresh-extension">CredentialRefresh</a>, and a Data Schema Validation Method called
+    <a href="#schema-extension">JsonSchemaValidator2019</a>. Future versions of this specification may define
     additional extensions.
   </p>
+  <div class="note">
+    These extensions are designed to work with any [=verifiable credential=] and may be contributed to the
+    [[VC-EXTENSION-REGISTRY]] in the future.
+  </div>
 
   <section>
     <h3 id="status-extension">RevocationList</h3>
@@ -38,7 +42,7 @@ var vc_extensions = `
     </p>
     <ol>
       <li>
-        Fetch the <a href="#revocationList">RevocationList</a> from the <code>id</code> of the
+        Fetch the <a href="#revocationlist">RevocationList</a> from the <code>id</code> of the
         <a href="#credentialstatus">CredentialStatus</a> object.
       </li>
       <li>
