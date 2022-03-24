@@ -1764,11 +1764,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-03-24T17:51:14Z",
+    "created": "2022-03-24T17:56:46Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z238pKGioqL1S2z1dCkQUzn7XSkse6H6MLJJPBBh6GDhBtMHZvHSVjtXwmsfW
-8z6AgtkirT4Pqj9dVH8d9TzAMPTy"
+    "proofValue": "z3dbU57s2f4gQqtZcNsRxagxAeMd4m66KSskt2EMQ5JC1iWEdSMhPFbs2n3Rf
+C8Q1rB2fC98rxFq22Qa21L8oADbx"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -1830,11 +1830,11 @@ kdGVjaC5vYi52M3AwLmFzc2VydGlvbmNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnNvblNjaGVtYVZ
 hbGlkYXRvcjIwMjAifV19LCJpc3MiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY
 1MDQ5IiwidHlwZSI6IlByb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sIm5iZiI6MTI
 2MjMwNDAwMCwianRpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJ
-kaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.nz8cYVZ4GsdBCQRM1fCkLXPX
-rytE4Iab9Koc1XzjBDxJMlXl8jZ1u9WwOzTv0SFJ6W58_Y1w9VGkOycBUJwiRQB7KEkbhUiv3SY1pBhy
-kHyd3uKKUypbe8Pvn0A6E0mvdU0bsNX3hoU6BIfR3d3GgNIfVdxO-wl0wj5vnP186enC0TuJTPPhXcEO
-elTbAhrjGcH5ehcSXO_Vnxn8Rua1R6X6o3AHynMxQEDGOln2ykZn4REvjbbMlrM9ft8Ph0nr5oJpRu0S
-6TR5oIDdPOMSASHjXbgegeNR9JkIlT1Bo9UhOPxpSgfM46OB59_RvmREbWd9VawV0RyTwSL8VQ-6wQ</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>AssertionCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that AssertionCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with <strong>keyword</strong> <code>openbadges</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
+kaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.NG3YuFOs2L5Fmwi4bAmEUgp2
+_wPSmTCKfCZ8ZAs-LoiWE0UNi20eg6dygdaYa-M84gbyiFx_8gKHeTbO7aLL-x_DG5PWxerSy8Xji3G0
+RNQRHT6aMcIiBmsdZRWMlDdS49tmujGs3Gn_UtVTpuMTEJAx7AnPlI5d9nJjSbzokHtkawHy9EHQHjgF
+EXW5rcou3NgAQRg4UOYu3dJJX1UwM8NpLWJIGbguhOZkFZXWRK_DPfZy4AGYSZjsIGqaonQi8CU9JBDl
+GY--A01dkXgBKYgv9d1b08j5_olSgg7l3fU1xjuQqoBzP0UdmVovhfSG7UMQ0PNlfiJ7Qs6z4RCJFg</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>AssertionCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that AssertionCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with <strong>keyword</strong> <code>openbadges</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">Example<bdi> 2</bdi></a><span class="example-title">: An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)</span>
   </div> <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">var</span> chunk = <span class="hljs-keyword">new</span> iTXt({
@@ -4953,7 +4953,7 @@ The recipient identity in these badges is <code>conformance@imsglobal.org</code>
       <td>@context</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value "https://www.w3.org/2018/credentials/v1", and the second item is a URI with the value "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld".
+        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1', and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'.
         
         
       </td>
@@ -4971,7 +4971,7 @@ The recipient identity in these badges is <code>conformance@imsglobal.org</code>
       <td>type</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI "VerifiableCredential", and one of the items <em class="rfc2119">MUST</em> be the URI "AssertionCredential".
+        The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI 'VerifiableCredential', and one of the items <em class="rfc2119">MUST</em> be the URI 'AssertionCredential'.
         
         
       </td>
@@ -5016,7 +5016,7 @@ The recipient identity in these badges is <code>conformance@imsglobal.org</code>
       <td>image</td>
       <td><a href="#org.1edtech.ob.v3p0.image.class"><samp>Image</samp></a></td>
       <td>
-        An image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the "baking" instructions. An "unbaked" image for the achievement is defined in the Achievement class and should not be duplicated here.
+        An image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the 'baking' instructions. An 'unbaked' image for the achievement is defined in the Achievement class and should not be duplicated here.
         
         
       </td>
@@ -5116,11 +5116,11 @@ The recipient identity in these badges is <code>conformance@imsglobal.org</code>
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-03-24T17:51:14Z",
+    "created": "2022-03-24T17:56:46Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z3cbuB7XWYZPC78ZhMewWCQSbx1HxbYwkdvMckojkVccNNsqLiRaATfEVgXru
-YUEdTH9r9ZozadTEm5bB7w3oHmD4"
+    "proofValue": "z48vhSfuhsJCgkDkEL62DapvkdAC9LwATUihxjj3oVRnZb56fYgLRyEoD5Mdq
+pDV2fqimcy9yK7BUomBgj8BW4jJ5"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -5180,11 +5180,11 @@ lcnRpb25jcmVkZW50aWFsLmNsYXNzIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDIwIn1dfSw
 iaXNzIjp7ImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5hbWUiOiJFeGF
 tcGxlIFVuaXZlcnNpdHkifSwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHU
 vY3JlZGVudGlhbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTE
-yZWMyMSJ9.VUNMaTMvnP730PUOrrTkwt6I7BTDu5ukTiy_U3m4SnOKyQindRaDsXLusanpaY1RZoFxvo
-eDfUE_LRZ2QBVTrKGPEooDAS64Kf-NSnrJzety22BV6inMruonyfaKn96ntTziz_PPRpnI9wSb9PVWTe
-viYut_zFzugESdCkbywNjP_bLuk9L5T7a8clWOCoKitQcFsBVQEe_0cQmZvYaoCamiY8qjFR9LGn3d0R
-YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
-4UX5Qscvtscc_6bfvIG8fi4VfrxAIXpQ</pre></div></div></div>
+yZWMyMSJ9.xQucBfHQCjEvYXzlsFDxWK5pmf-MEZAmpBtTnh8wgtwT27PsE5_u0f8w3lWZhqOQMryMkX
+6ODHUVnx2cHkvP79_dewKY44MtIEStF_du3QQ4X7ZVuh0-6OQYuvcdh1mZQ_xtcezrIRxZ-kLCqo_1D8
+Xjyy76O4grXXOGLc_GjcYel84rp2kwh1a3G-zhm08o-qs4VK8sG0MRqT3B2neemGgsQG03dMb4gJoFHK
+Kah9wf-sIMRaQRBxBT5d7YjACoRKlsAt3i9XgWRaokp9nkTDqSfoDsn2h_BQTxqfvrtGbsV0Fn4rM2-x
+Bw4eyZ8uNjWVVyAjfb7446TxDm6SsHlg</pre></div></div></div>
   </section>
 <section data-class="org.1edtech.ob.v3p0.address.class" id="org.1edtech.ob.v3p0.address.class"><h4 id="address"><bdi class="secno">B.1.2 </bdi>Address<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.address.class"></a><a class="self-link" aria-label="§" href="#address"></a></h4><p></p><table class="simple">
         <thead>
@@ -5378,7 +5378,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
         
         
       </td>
-      <td>Required</td>
+      <td>Optional</td>
     </tr><tr>
       <td>creditsAvailable</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.float.class"><samp>Float</samp></a></td>
@@ -5405,7 +5405,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
         
         
       </td>
-      <td>Optional</td>
+      <td>Required</td>
     </tr><tr>
       <td>fieldOfStudy</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
@@ -5425,28 +5425,19 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       </td>
       <td>Optional</td>
     </tr><tr>
-      <td>otherIdentifiers</td>
-      <td><a href="#org.1edtech.ob.v3p0.identifierentry.class"><samp>IdentifierEntry[]</samp></a></td>
-      <td>
-        A list of additional identifiers for the described entity.
-        
-        
-      </td>
-      <td>Optional</td>
-    </tr><tr>
       <td>image</td>
       <td><a href="#org.1edtech.ob.v3p0.image.class"><samp>Image</samp></a></td>
       <td>
-        An image of the achievement. This must be a PNG or SVG image.
+        The image representing the achievement.
         
         
       </td>
-      <td>Optional</td>
+      <td>Required</td>
     </tr><tr>
       <td>level</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
-        
+        Text that describes the level of achievement apart from how the achievement was performed or demonstrated. Examples would include 'Level 1', 'Level 2', 'Level 3'; or 'Bachelors', 'Masters', 'Doctoral'.
         
         
       </td>
@@ -5461,10 +5452,10 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       </td>
       <td>Required</td>
     </tr><tr>
-      <td>resultDescriptions</td>
-      <td><a href="#org.1edtech.ob.v3p0.resultdescription.class"><samp>ResultDescription[]</samp></a></td>
+      <td>otherIdentifiers</td>
+      <td><a href="#org.1edtech.ob.v3p0.identifierentry.class"><samp>IdentifierEntry[]</samp></a></td>
       <td>
-        The set of result descriptions that may be asserted as results with this achievement.
+        A list of additional identifiers for the described entity.
         
         
       </td>
@@ -5473,7 +5464,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>specialization</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
-        Name given to the focus, concentration, or specific area of study defined in the achievement. Examples include Entrepreneurship, Technical Communication, and Finance.
+        Name given to the focus, concentration, or specific area of study defined in the achievement. Examples include 'Entrepreneurship', 'Technical Communication', and 'Finance'.
         
         
       </td>
@@ -5724,7 +5715,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>@context</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value "https://www.w3.org/2018/credentials/v1", and the second item is a URI with the value "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld".
+        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1', and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'.
         
         
       </td>
@@ -5742,7 +5733,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>type</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI "VerifiableCredential", and one of the items <em class="rfc2119">MUST</em> be the URI "EndorsementCredential".
+        The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI 'VerifiableCredential', and one of the items <em class="rfc2119">MUST</em> be the URI 'EndorsementCredential'.
         
         
       </td>
@@ -5839,7 +5830,16 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>id</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
-        The URL of a webpage presenting evidence of achievement or the evidence encoded as a Data URI.
+        The URL of a webpage presenting evidence of achievement or the evidence encoded as a Data URI. The schema of the webpage is undefined.
+        
+        
+      </td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>type</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
+      <td>
+        
         
         
       </td>
@@ -5990,7 +5990,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>type</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.iri.class"><samp>IRI</samp></a></td>
       <td>
-        The IRI of the property by which the recipient of the achievement is identified. This value should be an IRI mapped in the present context. For example, <code>email</code> maps to <code>http://schema.org/email</code> and indicates that the identity of the IdentityObject will represent a value of a Profile's <code>email</code> property. See [[#profile-identifier-properties]].
+        The IRI of the property by which the recipient of the achievement is identified. This value should be an IRI mapped in the present context. For example, 'email' maps to 'http://schema.org/email' and indicates that the identity of the IdentityObject will represent a value of a Profile's 'email' property. See [[#profile-identifier-properties]].
         
         
       </td>
@@ -6044,23 +6044,10 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
         
       </td>
       <td>Optional</td>
-    </tr><tr>
-      <td>author</td>
-      <td><a href="#org.1edtech.ob.v3p0.profile.class"><samp>Profile</samp></a></td>
-      <td>
-        The author of the image, if desired.
-        
-        
-      </td>
-      <td>Optional</td>
     </tr>
-          <tr>
-      <td colspan="4">
-        This class can be extended with additional properties.
-      </td>
-    </tr>
+          
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.profile.class" id="org.1edtech.ob.v3p0.profile.class"><h4 id="profile"><bdi class="secno">B.1.17 </bdi>Profile<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.profile.class"></a><a class="self-link" aria-label="§" href="#profile"></a></h4><p>A profile is a collection of information that describes a person or organization (an entity). Profiles are used to identify and describe issuers, holders, and creators.</p><table class="simple">
+      </table></section><section data-class="org.1edtech.ob.v3p0.profile.class" id="org.1edtech.ob.v3p0.profile.class"><h4 id="profile"><bdi class="secno">B.1.17 </bdi>Profile<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.profile.class"></a><a class="self-link" aria-label="§" href="#profile"></a></h4><p>A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -6074,7 +6061,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>id</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
-        Unique URI for the entity described by this profile. Required so the entity can be the subject of an endorsement.
+        Unique URI for the Issuer/Profile file. Required so the entity can be the subject of an endorsement.
         
         
       </td>
@@ -6083,7 +6070,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>name</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
-        The name of the entity.
+        The name of the entity or organization.
         
         
       </td>
@@ -6092,7 +6079,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>url</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
       <td>
-        The homepage or social media profile of the entity. Should be a URL/URI Accessible via HTTP.
+        The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP.
         
         
       </td>
@@ -6110,7 +6097,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>description</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
-        A short description of the entity.
+        A short description of the issuer entity or organization.
         
         
       </td>
@@ -6119,7 +6106,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>image</td>
       <td><a href="#org.1edtech.ob.v3p0.image.class"><samp>Image</samp></a></td>
       <td>
-        An image representing the entity. This must be a PNG or SVG image.
+        An image representing the issuer. This must be a PNG or SVG image.
         
         
       </td>
@@ -6334,7 +6321,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>proofPurpose</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
-        The purpose of the proof to be used with <code>verificationMethod</code>. <em class="rfc2119">MUST</em> be "assertionMethod".
+        The purpose of the proof to be used with <code>verificationMethod</code>. <em class="rfc2119">MUST</em> be 'assertionMethod'.
         
         
       </td>
@@ -6414,7 +6401,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>value</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
-        A string representing the result of the performance, or demonstration, of the achievement. For example, "A" if the recipient received an A grade in class.
+        A string representing the result of the performance, or demonstration, of the achievement. For example, 'A' if the recipient received an A grade in class.
         
         
       </td>
@@ -6574,7 +6561,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>level</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
       <td>
-        The rubric performance lvel in terms of success.
+        The rubric performance level in terms of success.
         
         
       </td>
@@ -6618,7 +6605,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>@context</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value "https://www.w3.org/2018/credentials/v1".
+        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1'.
         
         
       </td>
@@ -6636,7 +6623,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>type</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI "VerifiableCredential".
+        The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI 'VerifiableCredential'.
         
         
       </td>
@@ -6689,7 +6676,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>@context</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value <code>https://www.w3.org/2018/credentials/v1</code>.
+        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1'.
         
         
       </td>
@@ -6707,7 +6694,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>type</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the <code>type</code> property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI <code>VerifiablePresentation</code>.
+        The value of the <code>type</code> property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI 'VerifiablePresentation'.
         
         
       </td>
@@ -6772,7 +6759,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.achievementtype.class" id="org.1edtech.ob.v3p0.achievementtype.class"><h4 id="achievementtype-enumeration"><bdi class="secno">B.1.25 </bdi>AchievementType Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.achievementtype.class"></a><a class="self-link" aria-label="§" href="#achievementtype-enumeration"></a></h4><p>The type of achievement, for example "Award" or "Certification". This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention.</p><table class="simple">
+      </table></section><section data-class="org.1edtech.ob.v3p0.achievementtype.class" id="org.1edtech.ob.v3p0.achievementtype.class"><h4 id="achievementtype-enumeration"><bdi class="secno">B.1.25 </bdi>AchievementType Enumeration<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.achievementtype.class"></a><a class="self-link" aria-label="§" href="#achievementtype-enumeration"></a></h4><p>The type of achievement, for example 'Award' or 'Certification'. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention.</p><table class="simple">
         <thead>
           <tr>
             <th>Term</th>
@@ -7641,7 +7628,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
   </tr><tr>
     <td id="invalid_client">invalid_client</td>
     <td>
-      Client authentication failed (e.g., unknown client, no client authentication included, or unsupported authentication method). The authorization server <em class="rfc2119">MAY</em> return an HTTP 401 (Unauthorized) status code to indicate which HTTP authentication schemes are supported. If the client attempted to authenticate via the "Authorization" request header field, the authorization server <em class="rfc2119">MUST</em> respond with an HTTP 401 (Unauthorized) status code and include the "WWW-Authenticate" response header field matching the authentication scheme used by the client.
+      Client authentication failed (e.g., unknown client, no client authentication included, or unsupported authentication method). The authorization server <em class="rfc2119">MAY</em> return an HTTP 401 (Unauthorized) status code to indicate which HTTP authentication schemes are supported. If the client attempted to authenticate via the "Authorization" request header field, the authorization server <em class="rfc2119">MUST</em> respond with an HTTP 401 (Unauthorized) status code and include the 'WWW-Authenticate' response header field matching the authentication scheme used by the client.
       
       
     </td>
@@ -7702,7 +7689,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>@context</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value <code>https://www.w3.org/2018/credentials/v1</code>.
+        The value of the <code>@context</code> property <em class="rfc2119">MUST</em> be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1'.
         
         
       </td>
@@ -7720,7 +7707,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
       <td>type</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI[]</samp></a></td>
       <td>
-        The value of the <code>type</code> property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI <code>VerifiablePresentation</code>.
+        The value of the <code>type</code> property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI 'VerifiablePresentation'.
         
         
       </td>
@@ -7884,7 +7871,7 @@ YAg981exBvuT2ViqHnpgKkwQ-NJubQCiAbapk78iCzh8yA1v9axA70iPdCDsGIHn7YcS1x161PrI2otV
   <p>
     The data models in this section are shared by all IMS specifications.
   </p>
-<section data-class="org.1edtech.ob.v3p0.derived.baseterm.class" id="org.1edtech.ob.v3p0.derived.baseterm.class"><h4 id="baseterm"><bdi class="secno">B.5.1 </bdi>BaseTerm<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.baseterm.class"></a><a class="self-link" aria-label="§" href="#baseterm"></a></h4><p>A term in an enumeration which serves as a common term for all other entries in this enumeration, and as such is less specific. The lexical constraints are the same as for <code>Term</code>.</p></section><section data-class="org.1edtech.ob.v3p0.derived.countrycode.class" id="org.1edtech.ob.v3p0.derived.countrycode.class"><h4 id="countrycode"><bdi class="secno">B.5.2 </bdi>CountryCode<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.countrycode.class"></a><a class="self-link" aria-label="§" href="#countrycode"></a></h4><p>A two-digit ISO 3166-1 alpha-2 country code [<cite><a class="bibref" data-link-type="biblio" href="#bib-iso3166-1" title="Codes for the representation of names of countries and their subdivisions — Part 1: Country code">ISO3166-1</a></cite>].</p></section><section data-class="org.1edtech.ob.v3p0.derived.emailaddress.class" id="org.1edtech.ob.v3p0.derived.emailaddress.class"><h4 id="emailaddress-0"><bdi class="secno">B.5.3 </bdi>EmailAddress<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.emailaddress.class"></a><a class="self-link" aria-label="§" href="#emailaddress-0"></a></h4><p>A <code>NormalizedString</code> representing an email address.</p></section><section data-class="org.1edtech.ob.v3p0.derived.identifier.class" id="org.1edtech.ob.v3p0.derived.identifier.class"><h4 id="identifier-0"><bdi class="secno">B.5.4 </bdi>Identifier<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.identifier.class"></a><a class="self-link" aria-label="§" href="#identifier-0"></a></h4><p>A <code>NormalizedString</code> that functions as an identifier.</p></section><section data-class="org.1edtech.ob.v3p0.derived.iri.class" id="org.1edtech.ob.v3p0.derived.iri.class"><h4 id="iri"><bdi class="secno">B.5.5 </bdi>IRI<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.iri.class"></a><a class="self-link" aria-label="§" href="#iri"></a></h4><p>A <code>NormalizedString</code> that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).</p></section><section data-class="org.1edtech.ob.v3p0.derived.phonenumber.class" id="org.1edtech.ob.v3p0.derived.phonenumber.class"><h4 id="phonenumber"><bdi class="secno">B.5.6 </bdi>PhoneNumber<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.phonenumber.class"></a><a class="self-link" aria-label="§" href="#phonenumber"></a></h4><p>A <code>NormalizedString</code> representing a phone number.</p></section><section data-class="org.1edtech.ob.v3p0.derived.term.class" id="org.1edtech.ob.v3p0.derived.term.class"><h4 id="term"><bdi class="secno">B.5.7 </bdi>Term<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.term.class"></a><a class="self-link" aria-label="§" href="#term"></a></h4><p>A term in an enumeration. The lexical constraints are the same as for <code>Token</code>.</p></section><section data-class="org.1edtech.ob.v3p0.derived.uri.class" id="org.1edtech.ob.v3p0.derived.uri.class"><h4 id="uri"><bdi class="secno">B.5.8 </bdi>URI<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.uri.class"></a><a class="self-link" aria-label="§" href="#uri"></a></h4><p>A <code>NormalizedString</code> that respresents a Uniform Resource Identifier (URI).</p></section><section data-class="org.1edtech.ob.v3p0.derived.url.class" id="org.1edtech.ob.v3p0.derived.url.class"><h4 id="url"><bdi class="secno">B.5.9 </bdi>URL<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.url.class"></a><a class="self-link" aria-label="§" href="#url"></a></h4><p>A <code>URI</code> that represents a Uniform Resource Locator (URL).</p></section><section data-class="org.1edtech.ob.v3p0.derived.uuid.class" id="org.1edtech.ob.v3p0.derived.uuid.class"><h4 id="uuid"><bdi class="secno">B.5.10 </bdi>UUID<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.uuid.class"></a><a class="self-link" aria-label="§" href="#uuid"></a></h4><p>An <code>Identifier</code> with the lexical restrictions of a UUID [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc4122" title="A Universally Unique IDentifier (UUID) URN Namespace">RFC4122</a></cite>]</p></section><section data-class="org.1edtech.ob.v3p0.derived.compactjws.class" id="org.1edtech.ob.v3p0.derived.compactjws.class"><h4 id="compactjws"><bdi class="secno">B.5.11 </bdi>CompactJws<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.compactjws.class"></a><a class="self-link" aria-label="§" href="#compactjws"></a></h4><p>A <code>String</code> in Compact JWS format [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7515" title="JSON Web Signature (JWS)">RFC7515</a></cite>].</p></section><section data-class="org.1edtech.ob.v3p0.derived.identityhash.class" id="org.1edtech.ob.v3p0.derived.identityhash.class"><h4 id="identityhash"><bdi class="secno">B.5.12 </bdi>IdentityHash<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.identityhash.class"></a><a class="self-link" aria-label="§" href="#identityhash"></a></h4><p>A hash string containing an algorithm identifier and a resulting hash of an identifier, separated by a dollar sign ("$") and the algorithm used to generate the hash. The only supported algorithms are MD5 [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc1321" title="The MD5 Message-Digest Algorithm">RFC1321</a></cite>] and SHA-256 [<cite><a class="bibref" data-link-type="biblio" href="#bib-fips-180-4" title="FIPS PUB 180-4 Secure Hash Standard">FIPS-180-4</a></cite>], identified by the strings md5 and sha256 respectively. Resulting hash for each of these algorithms <em class="rfc2119">MUST</em> be expressed in hexadecimal using uppercase (A-F, 0-9) or lowercase character (a-f, 0-9) sets. For example: sha256$7a1a1b3f7d40552e4299180e346e3add12bf9a751a43d9c4ca4518febc2c60c6 represents the result of calculating a SHA-256 hash on the string "mayze".</p></section><section data-class="org.1edtech.ob.v3p0.derived.markdown.class" id="org.1edtech.ob.v3p0.derived.markdown.class"><h4 id="markdown"><bdi class="secno">B.5.13 </bdi>Markdown<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.markdown.class"></a><a class="self-link" aria-label="§" href="#markdown"></a></h4><p>A <code>String</code> that may contain Markdown.</p></section></section>
+<section data-class="org.1edtech.ob.v3p0.derived.baseterm.class" id="org.1edtech.ob.v3p0.derived.baseterm.class"><h4 id="baseterm"><bdi class="secno">B.5.1 </bdi>BaseTerm<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.baseterm.class"></a><a class="self-link" aria-label="§" href="#baseterm"></a></h4><p>A term in an enumeration which serves as a common term for all other entries in this enumeration, and as such is less specific. The lexical constraints are the same as for <code>Term</code>.</p></section><section data-class="org.1edtech.ob.v3p0.derived.countrycode.class" id="org.1edtech.ob.v3p0.derived.countrycode.class"><h4 id="countrycode"><bdi class="secno">B.5.2 </bdi>CountryCode<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.countrycode.class"></a><a class="self-link" aria-label="§" href="#countrycode"></a></h4><p>A two-digit ISO 3166-1 alpha-2 country code [<cite><a class="bibref" data-link-type="biblio" href="#bib-iso3166-1" title="Codes for the representation of names of countries and their subdivisions — Part 1: Country code">ISO3166-1</a></cite>].</p></section><section data-class="org.1edtech.ob.v3p0.derived.emailaddress.class" id="org.1edtech.ob.v3p0.derived.emailaddress.class"><h4 id="emailaddress-0"><bdi class="secno">B.5.3 </bdi>EmailAddress<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.emailaddress.class"></a><a class="self-link" aria-label="§" href="#emailaddress-0"></a></h4><p>A <code>NormalizedString</code> representing an email address.</p></section><section data-class="org.1edtech.ob.v3p0.derived.identifier.class" id="org.1edtech.ob.v3p0.derived.identifier.class"><h4 id="identifier-0"><bdi class="secno">B.5.4 </bdi>Identifier<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.identifier.class"></a><a class="self-link" aria-label="§" href="#identifier-0"></a></h4><p>A <code>NormalizedString</code> that functions as an identifier.</p></section><section data-class="org.1edtech.ob.v3p0.derived.iri.class" id="org.1edtech.ob.v3p0.derived.iri.class"><h4 id="iri"><bdi class="secno">B.5.5 </bdi>IRI<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.iri.class"></a><a class="self-link" aria-label="§" href="#iri"></a></h4><p>A <code>NormalizedString</code> that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).</p></section><section data-class="org.1edtech.ob.v3p0.derived.phonenumber.class" id="org.1edtech.ob.v3p0.derived.phonenumber.class"><h4 id="phonenumber"><bdi class="secno">B.5.6 </bdi>PhoneNumber<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.phonenumber.class"></a><a class="self-link" aria-label="§" href="#phonenumber"></a></h4><p>A <code>NormalizedString</code> representing a phone number.</p></section><section data-class="org.1edtech.ob.v3p0.derived.term.class" id="org.1edtech.ob.v3p0.derived.term.class"><h4 id="term"><bdi class="secno">B.5.7 </bdi>Term<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.term.class"></a><a class="self-link" aria-label="§" href="#term"></a></h4><p>A term in an enumeration. The lexical constraints are the same as for <code>Token</code>.</p></section><section data-class="org.1edtech.ob.v3p0.derived.uri.class" id="org.1edtech.ob.v3p0.derived.uri.class"><h4 id="uri"><bdi class="secno">B.5.8 </bdi>URI<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.uri.class"></a><a class="self-link" aria-label="§" href="#uri"></a></h4><p>A <code>NormalizedString</code> that respresents a Uniform Resource Identifier (URI).</p></section><section data-class="org.1edtech.ob.v3p0.derived.url.class" id="org.1edtech.ob.v3p0.derived.url.class"><h4 id="url"><bdi class="secno">B.5.9 </bdi>URL<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.url.class"></a><a class="self-link" aria-label="§" href="#url"></a></h4><p>A <code>URI</code> that represents a Uniform Resource Locator (URL).</p></section><section data-class="org.1edtech.ob.v3p0.derived.uuid.class" id="org.1edtech.ob.v3p0.derived.uuid.class"><h4 id="uuid"><bdi class="secno">B.5.10 </bdi>UUID<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.uuid.class"></a><a class="self-link" aria-label="§" href="#uuid"></a></h4><p>An <code>Identifier</code> with the lexical restrictions of a UUID [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc4122" title="A Universally Unique IDentifier (UUID) URN Namespace">RFC4122</a></cite>]</p></section><section data-class="org.1edtech.ob.v3p0.derived.compactjws.class" id="org.1edtech.ob.v3p0.derived.compactjws.class"><h4 id="compactjws"><bdi class="secno">B.5.11 </bdi>CompactJws<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.compactjws.class"></a><a class="self-link" aria-label="§" href="#compactjws"></a></h4><p>A <code>String</code> in Compact JWS format [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7515" title="JSON Web Signature (JWS)">RFC7515</a></cite>].</p></section><section data-class="org.1edtech.ob.v3p0.derived.identityhash.class" id="org.1edtech.ob.v3p0.derived.identityhash.class"><h4 id="identityhash"><bdi class="secno">B.5.12 </bdi>IdentityHash<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.identityhash.class"></a><a class="self-link" aria-label="§" href="#identityhash"></a></h4><p>A hash string containing an algorithm identifier and a resulting hash of an identifier, separated by a dollar sign ('$') and the algorithm used to generate the hash. The only supported algorithms are MD5 [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc1321" title="The MD5 Message-Digest Algorithm">RFC1321</a></cite>] and SHA-256 [<cite><a class="bibref" data-link-type="biblio" href="#bib-fips-180-4" title="FIPS PUB 180-4 Secure Hash Standard">FIPS-180-4</a></cite>], identified by the strings md5 and sha256 respectively. Resulting hash for each of these algorithms <em class="rfc2119">MUST</em> be expressed in hexadecimal using uppercase (A-F, 0-9) or lowercase character (a-f, 0-9) sets. For example: sha256$7a1a1b3f7d40552e4299180e346e3add12bf9a751a43d9c4ca4518febc2c60c6 represents the result of calculating a SHA-256 hash on the string 'mayze'.</p></section><section data-class="org.1edtech.ob.v3p0.derived.markdown.class" id="org.1edtech.ob.v3p0.derived.markdown.class"><h4 id="markdown"><bdi class="secno">B.5.13 </bdi>Markdown<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.derived.markdown.class"></a><a class="self-link" aria-label="§" href="#markdown"></a></h4><p>A <code>String</code> that may contain Markdown.</p></section></section>
 <section data-model="org.1edtech.ob.v3p0.model" data-package="PrimitiveTypes" title="Primitive Types" id="org.1edtech.ob.v3p0.model.5"><h3 id="org-1edtech-ob-v3p0-model-5"><bdi class="secno">B.6 </bdi>Primitive Types<a class="self-link" aria-label="§" href="#org-1edtech-ob-v3p0-model-5"></a><a class="self-link" aria-label="§" href="#org-1edtech-ob-v3p0-model-5"></a></h3>
   <p>
     The data models in this section are shared by all IMS specifications.
