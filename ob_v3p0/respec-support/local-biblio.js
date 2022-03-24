@@ -95,4 +95,22 @@ var _localBiblio = {
         "status": "Standards Track",
         "publisher": "OpenID Foundation"
     },
+    "VC-EXTENSION-REGISTRY": {
+        "title": "Verifiable Credentials Extension Registry",
+        "href": "https://w3c-ccg.github.io/vc-extension-registry/",
+        "status": "CG-DRAFT",
+        "publisher": "Credentials Community Group"
+    },
+    "JSON-SCHEMA-2019-09": {
+        "title": "JSON Schema: A Media Type for Describing JSON Documents",
+        "href": "https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-02",
+        "status": "Internet-Draft",
+        "publisher": "Internet Engineering Task Force"
+    },
+    "JSON-SCHEMA-VALIDATION-2019-09": {
+        "title": "JSON Schema Validation: A Vocabulary for Structural Validation of JSON",
+        "href": "https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-02",
+        "status": "Internet-Draft",
+        "publisher": "Internet Engineering Task Force"
+    }
 };

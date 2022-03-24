@@ -1,0 +1,107 @@
+var vc_extensions = `
+
+<section>
+  <h2 id="vc-extensions">Verifiable Credentials Extensions</h2>
+
+  <p>
+    The [[[VC-DATA-MODEL]]] standard defines several types of extensions to enable "permissionless innovation". Some of
+    the extensions are tracked in the [[[VC-EXTENSION-REGISTRY]]]. VC extensions fall into 6 categories:
+  </p>
+  <ul>
+    <li>Proof Methods</li>
+    <li>Status Methods</li>
+    <li>Data Schema Validation Methods</li>
+    <li>Refresh Methods</li>
+    <li>Terms of Use Methods</li>
+    <li>Evidence Methods</li>
+  </ul>
+  <p>
+    This standard defines three VC extensions: a <a href="#status-extension">Status Method</a>, a
+    <a href="#refresh-extension">Refresh Method</a>, and a
+    <a href="#schema-extension">Data Schema Validation Method</a>. Future versions of this specification may define
+    additional extensions.
+  </p>
+
+  <section>
+    <h3 id="status-extension">RevocationList</h3>
+    <p>
+      The "RevocationList" Status Method is used by a [=verifier=] to determine if the [=verifiable credential=] has
+      been revoked. Or if a previously revoked credential has been reinstated. This extension provides one of the
+      benefits of Hosted Verification in [[OB-20]].
+    </p>
+
+    <h4>Determine if a Credential is Revoked</h4>
+    <p>
+      If the <code>credentialStatus</code> property is present, and the <code>type</code> of the
+      <a href="#credentialstatus">CredentialStatus</a> object is "RevocationList", the [=verifier=] SHOULD
+      follow these steps:
+    </p>
+    <ol>
+      <li>
+        Fetch the <a href="#revocationList">RevocationList</a> from the <code>id</code> of the
+        <a href="#credentialstatus">CredentialStatus</a> object.
+      </li>
+      <li>
+        If the <code>id</code> of the credential being verified appears in the list of <code>revokedCredentials</code>
+        and the corresponding <code>revoked</code> property is <code>true</code> or ommitted, then the credential has
+        been revoked by the issuer.
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h3 id="refresh-extension">CredentialRefresh</h3>
+
+    <p>
+      The "CredentialRefresh" Refresh Method is used by a [=verifier=] to retrieve the current version of a [=verifiable
+      credential=]. This extension provides one of the benefits of Hosted Verification in [[OB-20]].
+    </p>
+
+    <h4>Refresh a Credential</h4>
+    <p>
+      If the <code>credentialRefresh</code> property is present, and the <code>type</code> of the
+      <a href="#credentialrefresh">CredentialRefresh</a> object is "CredentialRefresh", the [=verifier=] SHOULD
+      follow these steps:
+    </p>
+    <ol>
+      <li>
+        Fetch the [=verifiable credential=] from the <code>id</code> of the
+        <a href="#credentialrefresh">CredentialRefresh</a> object.
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h3 id="schema-extension">JsonSchemaValidator2019</h3>
+
+    <p>
+      The "JsonSchemaValidator2019" Data Schema Validation Method points to a [[JSON-SCHEMA-2019-09]] file that can be
+      used by a [=verifier=] to determine if the [=verifiable credential=] is well formed. This extension is used to
+      complete the "data validation" step described in [[[#verification]]].
+    </p>
+
+    <h4>Validating JSON Schema</h4>
+    <p>
+      If the <code>credentialSchema</code> property is present, and the <code>type</code> of the
+      <a href="#credentialschema">CredentialSchema</a> object is "JsonSchemaValidator2019", the [=verifier=] SHOULD
+      follow these steps:
+    </p>
+    <ol>
+      <li>
+        Fetch the [[JSON-SCHEMA-2019-09]] file from the <code>id</code> of the <a
+          href="#credentialschema">CredentialSchema</a> object.
+      </li>
+      <li>
+        <a href="#serialization">Serialize</a> the credential into a JSON string.
+      </li>
+      <li>
+        Use a JSON Schema Validator compatible with [[JSON-SCHEMA-VALIDATION-2019-09]] (home grown or off-the-shelf)
+        to validate the credential's serialized JSON string.
+      </li>
+    </ol>
+
+  </section>
+
+</section>
+
+`;

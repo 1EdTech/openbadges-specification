@@ -29,7 +29,7 @@ var docformat = `
     },
     "credentialSchema": [{
       "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.assertioncredential.class",
-      "type": "JsonSchemaValidator2020"
+      "type": "JsonSchemaValidator2019"
     }]
   }
 </pre>
