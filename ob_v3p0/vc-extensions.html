@@ -72,6 +72,9 @@ var vc_extensions = `
         Fetch the [=verifiable credential=] from the <code>id</code> of the
         <a href="#credentialrefresh">CredentialRefresh</a> object.
       </li>
+      <li>
+        Update the credential in hand with the fetched credential.
+      </li>
     </ol>
   </section>
 
@@ -84,7 +87,7 @@ var vc_extensions = `
       complete the "data validation" step described in [[[#verification]]].
     </p>
 
-    <h4>Validating JSON Schema</h4>
+    <h4>Validate a Credential's JSON Schema</h4>
     <p>
       If the <code>credentialSchema</code> property is present, and the <code>type</code> of the
       <a href="#credentialschema">CredentialSchema</a> object is "JsonSchemaValidator2019", the [=verifier=] SHOULD
