@@ -118,7 +118,7 @@ If the credential is signed using the [[[#jwt-proof]]] (VC-JWT) add a <code>veri
 <pre class="xml example" title="An example of a well baked SVG with VC-JWT proof">
   &lt;?xml version="1.0" encoding="UTF-8"?>
   &lt;svg xmlns="http://www.w3.org/2000/svg"
-    xmlns:clr="https://purl.imsglobal.org/ob/v3p0"
+    xmlns:openbadges="https://purl.imsglobal.org/ob/v3p0"
     viewBox="0 0 512 512">
     &lt;openbadges:credential verify="header.payload.signature">&lt;/openbadges:credential>
 
@@ -131,7 +131,7 @@ If an embedded proof method is used instead, omit the <code>verify</code> attrib
 <pre class="xml example" title="An example of a well baked SVG with embedded proof">
   &lt;?xml version="1.0" encoding="UTF-8"?>
   &lt;svg xmlns="http://www.w3.org/2000/svg"
-    xmlns:clr="https://purl.imsglobal.org/ob/v3p0"
+    xmlns:openbadges="https://purl.imsglobal.org/ob/v3p0"
     viewBox="0 0 512 512">
     &lt;openbadges:credential>
       &lt;![CDATA[
