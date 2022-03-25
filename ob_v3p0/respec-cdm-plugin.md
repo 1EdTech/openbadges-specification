@@ -14,7 +14,7 @@ Add the CDM configuration object to the `respecConfig` object on your document:
 var respecConfig = {
     cdm: {
         apiKey: "xxxxx",
-        serverUrl: "https://imsum2.herokuapp.com",
+        serverUrl: "https://datamodels-staging.imsglobal.org",
         source: "CORE"
     }
 }
@@ -35,7 +35,7 @@ cdm-config.js
 ```js
 const _cdm = {
   apiKey: "xxxxxx",
-  serverUrl: "https://imsum2.herokuapp.com",
+  serverUrl: "https://datamodels-staging.imsglobal.org",
   source: "SANDBOX"
 }
 ```
@@ -150,8 +150,8 @@ First enable schema validation by loading the [ajv2019](https://cdnjs.com/librar
 
 ```html
   <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.8.2/ajv2019.bundle.min.js" 
-          integrity="sha512-9CfeXrjdW9wxGntWtQ4wE0k9RD8avpYxoPEKAGu+EP87RyqXYVQjed0l872XkNtQeIyYavZeqY+jzm69pmjEDw==" 
+  <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js" 
+          integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A==" 
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 ```
 
