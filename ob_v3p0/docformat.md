@@ -160,7 +160,7 @@ If an embedded proof method is used instead, omit the <code>verify</code> attrib
   &lt;/svg>
 </pre>
 
-There MUST be only one <code>&lt;openbadges:credential></code> tag in an SVG. When baking an image that already contains assertion data, the implementor may choose whether to pass the user an error or overwrite the existing tag.
+There MUST be only one <code>&lt;openbadges:credential></code> tag in an SVG. When baking an image that already contains AssertionCredential data, the implementor may choose whether to pass the user an error or overwrite the existing tag.
 
 ##### Extracting
 
