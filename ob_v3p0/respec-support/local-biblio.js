@@ -112,5 +112,29 @@ var _localBiblio = {
         "href": "https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-02",
         "status": "Internet-Draft",
         "publisher": "Internet Engineering Task Force"
-    }
+  },
+  "DATA-INTEGRITY-SPEC": {
+    "title": "Data Integrity",
+    "href": "https://w3c-ccg.github.io/data-integrity-spec/",
+    "status": "CG-DRAFT",
+    "publisher": "Credentials Community Group"
+  },
+  "RL-10": {
+    "title": "IMS Revocation List Status Method",
+    "href": "https://imsglobal.org/spec/rl/v1p0/",
+    "status": "IMS Base Document",
+    "publisher": "IMS Global Learning Consortium"
+  },
+  "CR-10": {
+    "title": "IMS Credential Refresh Service",
+    "href": "https://imsglobal.org/spec/cr/v1p0/",
+    "status": "IMS Base Document",
+    "publisher": "IMS Global Learning Consortium"
+  },
+  "CS-10": {
+    "title": "IMS JSON Schema Validator 2019",
+    "href": "https://imsglobal.org/spec/cs/v1p0/",
+    "status": "IMS Base Document",
+    "publisher": "IMS Global Learning Consortium"
+  },
 };
