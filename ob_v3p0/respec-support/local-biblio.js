@@ -137,4 +137,10 @@ var _localBiblio = {
     "status": "IMS Base Document",
     "publisher": "IMS Global Learning Consortium"
   },
+  "LDS-ED25519-2020": {
+    "title": "Ed25519 Signature 2020",
+    "href": "https://w3c-ccg.github.io/lds-ed25519-2020/",
+    "status": "Draft Community Group Report",
+    "publisher": "W3C Credentials Community Group"
+  },
 };
