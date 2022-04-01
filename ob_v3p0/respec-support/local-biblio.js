@@ -143,4 +143,14 @@ var _localBiblio = {
     "status": "Draft Community Group Report",
     "publisher": "W3C Credentials Community Group"
   },
+  "MULTIBASE": {
+    "title": "The Multibase Data Format",
+    "href": "https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-01",
+    "status": "Internet-Draft",
+    "publisher": "IETF"
+  },
+  "MULTICODEC": {
+    "title": "MULTICODEC",
+    "href": "https://github.com/multiformats/multicodec/"
+  },
 };
