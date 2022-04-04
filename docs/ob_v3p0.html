@@ -1869,11 +1869,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-04-04T15:10:51Z",
+    "created": "2022-04-04T15:21:32Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "zBPScEGmsXTR9Si9HabepJA6Yi4bREfts222esq4fADx3QuchTPYADqBnFy7n
-BzsNKxe5dCqKa393ASRRj7Uu4Lx"
+    "proofValue": "zJNR1MNQYkomfQwsyRsYCTGTMBY5k8S3ioeGLhEgPzy913trH3RVmSAgL6B1Q
+ktYWPC3RTdQqZwU8cL26xYUyXk5"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -1935,11 +1935,11 @@ kdGVjaC5vYi52M3AwLmFzc2VydGlvbmNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnNvblNjaGVtYVZ
 hbGlkYXRvcjIwMTkifV19LCJpc3MiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY
 1MDQ5IiwidHlwZSI6IlByb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sIm5iZiI6MTI
 2MjMwNDAwMCwianRpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJ
-kaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.OJv9jQy0B2MhKd-Lk39wHrfF
-Pi6wYErOXO8ZtgFrbknWxcZoMHBPHCfdCxzYSQeSDI91fG66iAgomJ1tn1m95_35CGyPpNsM8NTYi3S0
-wNomo3GH6cxc-RahuzWErambEbWCmp13Srbq7Mu6Dx1NVvGXiDoOYGYcliZBwM4-GPIWGQSR2Ih_UHk1
-BCJIg36QlI7xiNn7W_yaLhZkTxQMcyUnUHDtwaVsEUMKNxnexTp3dLiflZK24oh51d5n7UAVH5lkPDBX
-QHBqKcDTUjsq6R2ploNQkOGiJD_E8ibYL6kBKA0beFc876FvQl7TwvbYajbQ7QHWQFpwQKceG7nQYw</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>AssertionCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that AssertionCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with <strong>keyword</strong> <code>openbadges</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
+kaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.lTNxHJjFZN9LtZNijO4dbK7I
+5FkH8KOiMh5eKj9OWOYwDAs8FAhqWRL8mcVP3BD8-aXBqqsiF4NjobfLNuELBCk-lemxwkPz_zTIVk5n
+Lz194xO1KDxex3HdETm4CnH8H8ISOaDyeVas1VYVgN0ZYYWlBPxTE0ynR6rqPYE82FRh4kpDfzeG-azE
+4e7zVkWMIeWuSGT3GkhWlf_yAcpgbCjHwnHe4LGQ1Q9ybMx9Vw4_Y3qt80xsWvF5E_u3tgFwau9Ejm8K
+ydfhIOHo5UbMcnDlAlgX87-exdFq_Q55EWEx8tFPUqU9BfY41YSnr1RC6ZXkiM_yHS9jXwi3pVQcqQ</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>AssertionCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that AssertionCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with <strong>keyword</strong> <code>openbadges</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.assertioncredential.class">AssertionCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">Example<bdi> 2</bdi></a><span class="example-title">: An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)</span>
   </div> <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">var</span> chunk = <span class="hljs-keyword">new</span> iTXt({
@@ -5213,33 +5213,6 @@ The recipient identity in these badges is <code>conformance@imsglobal.org</code>
       </td>
       <td>Required</td>
     </tr><tr>
-      <td>credentialSubject</td>
-      <td><a href="#org.1edtech.ob.v3p0.assertionsubject.class"><samp>AssertionSubject</samp></a></td>
-      <td>
-        The recipient of the achievement.
-        
-        
-      </td>
-      <td>Required</td>
-    </tr><tr>
-      <td>image</td>
-      <td><a href="#org.1edtech.ob.v3p0.image.class"><samp>Image</samp></a></td>
-      <td>
-        An image representing this user's achievement. This must be a PNG or SVG image, and should be prepared via the 'baking' instructions. An 'unbaked' image for the achievement is defined in the Achievement class and should not be duplicated here.
-        
-        
-      </td>
-      <td>Optional</td>
-    </tr><tr>
-      <td>narrative</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.markdown.class"><samp>Markdown</samp></a></td>
-      <td>
-        A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array.
-        
-        
-      </td>
-      <td>Optional</td>
-    </tr><tr>
       <td>expirationDate</td>
       <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class"><samp>DateTime</samp></a></td>
       <td>
@@ -5248,6 +5221,15 @@ The recipient identity in these badges is <code>conformance@imsglobal.org</code>
         
       </td>
       <td>Optional</td>
+    </tr><tr>
+      <td>credentialSubject</td>
+      <td><a href="#org.1edtech.ob.v3p0.assertionsubject.class"><samp>AssertionSubject</samp></a></td>
+      <td>
+        The recipient of the achievement.
+        
+        
+      </td>
+      <td>Required</td>
     </tr><tr>
       <td>proof</td>
       <td><a href="#org.1edtech.ob.v3p0.proof.class"><samp>Proof[]</samp></a></td>
@@ -5343,11 +5325,11 @@ The recipient identity in these badges is <code>conformance@imsglobal.org</code>
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-04-04T15:10:51Z",
+    "created": "2022-04-04T15:21:32Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z63d9AGDMWUaS5wFNsaaHBRCBMhy43xbH322TBBcm6VUt2wRcPoC8mVHmcCf9
-4b8cRBA4noXtgE86pqYruapVGDox"
+    "proofValue": "z4AAKzmyNP2nMpRLPc7vuvQw3zLX22UACFNR7QdX17XUv931Wot5aKdTCYMFd
+Dv3QwvUQgzAagNRbAgaBregYg8Ds"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -5407,11 +5389,11 @@ lcnRpb25jcmVkZW50aWFsLmNsYXNzIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDE5In1dfSw
 iaXNzIjp7ImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5hbWUiOiJFeGF
 tcGxlIFVuaXZlcnNpdHkifSwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHU
 vY3JlZGVudGlhbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTE
-yZWMyMSJ9.ebpo53MWMkjKxRiJdq00mWhqFoTBnSOgx_Uuwb3bas3WyfpU3xldVp_T3zfx0Wi1I22-I6
-P97-IljvllJ1EElPDtbDYJujkw_cBej7HonrCsLPrkIyxsMjoLQhP32Z4nAwWBukSvYsnbbTx8N2Sy12
-HonBPfuyPD3udzegup8YAdPRk4VwaoK5TV2YKZYsGd4e9cIbFtykbucjrY8D8nUu6IcIQqHZdrQDRDDa
-G5VYK96QxrsbRmJ9TKQbW9g1WLCsY5nyrHXzqxzUfF84pghL_Mr_O7PhOeV5HcO3hJHNBqOWT_8uKv0m
-xUDEMcABSHV9LqxS71oIbQpojHX8qCpw</pre></div></div></div>
+yZWMyMSJ9.U1saIb3PHrkiu8B-BaNv5c2XcUbl0cJi3CrGJEqsG7HzHUohSqbaLif4ZO_O3IbQJED4zE
+GBnquR7-LAWrEC3z2VG_VW-MiXVX-bkYbHgjExM0EBp858PVGrXZmgjfaGYLfAq-5nzOg_jkkC8i6WAx
+6JFpF5v15FQ-EHTCNC9XdIHuNao49B20WQLtw8-Vs2lqaWmzHY2PxmVFjqun6EKx2dnTLl5J5znUO5Tk
+ezbJspQE0b9_JVg30TkwE6fVJUu5AYTt0qKkIoHtBj5RCbxqAbCUIAblMKzJW1VI2LenSTA9AyGzXfdP
+kA-jwX1bj4waZ1wZWI3s1gySwGaINJzg</pre></div></div></div>
   </section>
 <section data-class="org.1edtech.ob.v3p0.address.class" id="org.1edtech.ob.v3p0.address.class"><h4 id="address"><bdi class="secno">B.1.2 </bdi>Address<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.address.class"></a><a class="self-link" aria-label="§" href="#address"></a></h4><p></p><table class="simple">
         <thead>
@@ -5540,6 +5522,24 @@ xUDEMcABSHV9LqxS71oIbQpojHX8qCpw</pre></div></div></div>
       <td><a href="#org.1edtech.ob.v3p0.evidence.class"><samp>Evidence[]</samp></a></td>
       <td>
         A description of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.
+        
+        
+      </td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>image</td>
+      <td><a href="#org.1edtech.ob.v3p0.image.class"><samp>Image</samp></a></td>
+      <td>
+        An image representing this user's achievement. If present, this must be a PNG or SVG image, and should be prepared via the 'baking' instructions. An 'unbaked' image for the achievement is defined in the Achievement class and should not be duplicated here.
+        
+        
+      </td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>narrative</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.markdown.class"><samp>Markdown</samp></a></td>
+      <td>
+        A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array.
         
         
       </td>
@@ -5944,37 +5944,10 @@ xUDEMcABSHV9LqxS71oIbQpojHX8qCpw</pre></div></div></div>
       </td>
       <td>Required</td>
     </tr><tr>
-      <td>id</td>
-      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
-      <td>
-        Unique URI for this endorsement instance.
-        
-        
-      </td>
-      <td>Optional</td>
-    </tr><tr>
       <td>type</td>
       <td><a href="#org.1edtech.ob.v3p0.derived.iri.class"><samp>IRI[]</samp></a></td>
       <td>
         The value of the type property <em class="rfc2119">MUST</em> be an unordered set. One of the items <em class="rfc2119">MUST</em> be the URI 'VerifiableCredential', and one of the items <em class="rfc2119">MUST</em> be the URI 'EndorsementCredential'.
-        
-        
-      </td>
-      <td>Required</td>
-    </tr><tr>
-      <td>issuer</td>
-      <td><a href="#org.1edtech.ob.v3p0.profile.class"><samp>Profile</samp></a></td>
-      <td>
-        A description of the individual, entity, or organization that issued the endorsement.
-        
-        
-      </td>
-      <td>Required</td>
-    </tr><tr>
-      <td>issuanceDate</td>
-      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class"><samp>DateTime</samp></a></td>
-      <td>
-        Timestamp of when the achievement was awarded.
         
         
       </td>
@@ -5989,10 +5962,55 @@ xUDEMcABSHV9LqxS71oIbQpojHX8qCpw</pre></div></div></div>
       </td>
       <td>Required</td>
     </tr><tr>
+      <td>id</td>
+      <td><a href="#org.1edtech.ob.v3p0.derived.uri.class"><samp>URI</samp></a></td>
+      <td>
+        Unambiguous reference to the credential.
+        
+        
+      </td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>issuer</td>
+      <td><a href="#org.1edtech.ob.v3p0.profile.class"><samp>Profile</samp></a></td>
+      <td>
+        A description of the individual, entity, or organization that issued the credential.
+        
+        
+      </td>
+      <td>Required</td>
+    </tr><tr>
+      <td>issuanceDate</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class"><samp>DateTime</samp></a></td>
+      <td>
+        Timestamp of when the credential was awarded.
+        
+        
+      </td>
+      <td>Required</td>
+    </tr><tr>
+      <td>expirationDate</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class"><samp>DateTime</samp></a></td>
+      <td>
+        If the credential has some notion of expiry, this indicates a timestamp when a credential should no longer be considered valid. After this time, the credential should be considered expired.
+        
+        
+      </td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>proof</td>
+      <td><a href="#org.1edtech.ob.v3p0.proof.class"><samp>Proof[]</samp></a></td>
+      <td>
+        One or more cryptographic proofs that can be used to detect tampering and verify the authorship of the credential.
+        
+        
+      </td>
+      <td>Optional</td>
+    </tr><tr>
       <td>credentialSchema</td>
       <td><a href="#org.1edtech.ob.v3p0.credentialschema.class"><samp>CredentialSchema[]</samp></a></td>
       <td>
-        The value of the <code>credentialSchema</code> property <em class="rfc2119">MUST</em> be one or more data schemas that provide verifiers with enough information to determine if the provided data conforms to the provided schema. One of the data schemas <em class="rfc2119">MUST</em> be the JSON Schema for this credential defined by this specification.
+        The value of the <code>credentialSchema</code> property <em class="rfc2119">MUST</em> be one or more data schemas that provide verifiers with enough information to determine if the provided data conforms to the provided schema.
         
         
       </td>
@@ -7012,6 +7030,15 @@ xUDEMcABSHV9LqxS71oIbQpojHX8qCpw</pre></div></div></div>
       </td>
       <td>Required</td>
     </tr><tr>
+      <td>expirationDate</td>
+      <td><a href="#org.1edtech.ob.v3p0.primitive.datetime.class"><samp>DateTime</samp></a></td>
+      <td>
+        If the credential has some notion of expiry, this indicates a timestamp when a credential should no longer be considered valid. After this time, the credential should be considered expired.
+        
+        
+      </td>
+      <td>Optional</td>
+    </tr><tr>
       <td>credentialSubject</td>
       <td><a href="#org.1edtech.ob.v3p0.credentialsubject.class"><samp>CredentialSubject</samp></a></td>
       <td>
@@ -7020,6 +7047,42 @@ xUDEMcABSHV9LqxS71oIbQpojHX8qCpw</pre></div></div></div>
         
       </td>
       <td>Required</td>
+    </tr><tr>
+      <td>proof</td>
+      <td><a href="#org.1edtech.ob.v3p0.proof.class"><samp>Proof[]</samp></a></td>
+      <td>
+        One or more cryptographic proofs that can be used to detect tampering and verify the authorship of the credential.
+        
+        
+      </td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>credentialSchema</td>
+      <td><a href="#org.1edtech.ob.v3p0.credentialschema.class"><samp>CredentialSchema[]</samp></a></td>
+      <td>
+        The value of the <code>credentialSchema</code> property <em class="rfc2119">MUST</em> be one or more data schemas that provide verifiers with enough information to determine if the provided data conforms to the provided schema.
+        
+        
+      </td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>credentialStatus</td>
+      <td><a href="#org.1edtech.ob.v3p0.credentialstatus.class"><samp>CredentialStatus[]</samp></a></td>
+      <td>
+        The information in CredentialStatus is used to discover information about the current status of a verifiable credential, such as whether it is suspended or revoked.
+        
+        
+      </td>
+      <td>Optional</td>
+    </tr><tr>
+      <td>refreshService</td>
+      <td><a href="#org.1edtech.ob.v3p0.refreshservice.class"><samp>RefreshService</samp></a></td>
+      <td>
+        The information in RefreshService is used to refresh the verifiable credential.
+        
+        
+      </td>
+      <td>Optional</td>
     </tr>
           <tr>
       <td colspan="4">
