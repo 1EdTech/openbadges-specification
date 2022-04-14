@@ -12,12 +12,7 @@ The proof formats included in this specification fall into two categories:
 - Linked Data Proofs - The credential or presentation is signed and the signature is used to form a <a href="#proof">Proof</a> object which is appended to the credential or presentation. This format supports many different proof types. These are called embedded proofs because the proof is embedded in the data.
 
 <div class="note">
-  <p>
-    When this specification was published, no Linked Data Proof specification had been approved by a standards organization. Therefore this specification does not require any Linked Data Proof for conformance. When a Linked Data Proof specification is approved by a standards body, IMS may update this specification and conformance requirements.
-  </p>
-  <p>
-    The [=issuer=] or [=holder=] MAY use multiple proofs, but one MUST be a JSON Web Token Proof. If multiple proofs are provided, the [=verifier=] SHOULD process the JSON Web Token Proof first. If multiple Linked Data Proofs are provided, the [=verifier=] MAY use any one proof to verify the data.
-  </p>
+    The [=issuer=] or [=holder=] MAY use multiple proofs. If multiple proofs are provided, the [=verifier=] MAY use any one proof to verify the credential.
 </div>
 
 A third category of proof format called Non-Signature Proof is not covered by this specification. This category includes proofs such as proof of work.
@@ -268,7 +263,7 @@ Verifiers that receive an VerifiableCredential or VerifiablePresentation in Comp
 1. If the JSON object has a <code>vc</code> claim, convert the value of <code>vc</code> to an <a href="#assertioncredential">AssertionCredential</a> and continue with [[[#jwt-verify-credential]]].
 1. If the JSON object has a <code>vp</code> claim, convert the value of <code>vp</code> to a <a href="#presentationjwspayload">PresentationJwsPayload</a> and continue with [[[#jwt-verify-presentation]]].
 
-##### Verify a Credential {#jwt-verify-credential}
+##### Verify a Credential VC-JWT Signature {#jwt-verify-credential}
 
 - The JSON object MUST have the <code>iss</code> claim, and the value MUST match the <code>id</code> of the <code>issuer</code> of the <a href="#assertioncredential">AssertionCredential</a> object. If they do not match, the credential is not valid.
 - The JSON object MUST have the <code>sub</code> claim, and the value MUST match the <code>id</code> of the <code>credentialSubject</code> of the <a href="#assertioncredential">AssertionCredential</a> object. If they do not match, the credential is not valid.
@@ -279,17 +274,32 @@ Verifiers that receive an VerifiableCredential or VerifiablePresentation in Comp
 - <div class="issue" title="Use credentialStatus to determine if the credential has been revoked"></div>
 - <div class="issue" title="Should nested assertions be verified?"></div>
 
-##### Verify a Presentation {#jwt-verify-presentation}
+##### Verify a Presentation VC-JWT Signature {#jwt-verify-presentation}
 
 - The JSON object MUST have the <code>iss</code> claim, and the value MUST match the <code>id</code> of the <code>holder</code> of the <a href="#presentationjwspayload">PresentationJwsPayload</a> object. If they do not match, the presentation is not valid.
 - The JSON object MUST have the <code>nbf</code> claim, and the <a href="#numericdate">NumericDate</a> value MUST be converted to a <a href="#datetime">DateTime</a>, and MUST equal the <code>issuanceDate</code> of the <a href="#presentationjwspayload">PresentationJwsPayload</a> object. If they do not match or if the <code>issuanceDate</code> has not yet occurred, the presentation is not valid.
 - The JSON object MUST have the <code>jti</code> claim, and the value MUST match the <code>id</code> of the <a href="#presentationjwspayload">PresentationJwsPayload</a> object. If they do not match, the presentation is not valid.
 - If the JSON object has the <code>exp</code> claim, the <a href="#numericdate">NumericDate</a> MUST be converted to a <a href="#datetime">DateTime</a>, and MUST be used to set the value of the <code>expirationDate</code> of the <a href="#presentationjwspayload">PresentationJwsPayload</a> object. If the presentation has expired, the presentation is not valid.
-- <div class="issue" title="Verify the schema"></div>
-- <div class="issue" title="Should nested credentials be verified?">
-      <p>Should the nested credentials (assertion credentials) be verified when the presentation is verified?</p>
-      <p>If a nested credential is not valid, does that make the presentation invalid?</p>
-  </div>
+
+### Linked Data Proof Format {#lds-proof}
+
+This standard supports the Linked Data Proof format using the [[[LDS-ED25519-2020]]] suite.
+
+<div class="note">
+  Whenever possible, you should use a library or service to create and verify a Linked Data Proof. For example, Digital Bazaar, Inc. has a GitHub project that implements the [[[LDS-ED25519-2020]]] suite at <a href="https://github.com/digitalbazaar/ed25519-signature-2020">https://github.com/digitalbazaar/ed25519-signature-2020</a>.
+</div>
+
+#### Create the Proof
+
+Perform these steps to attach a Linked Data Proof to the credential or presentation:
+
+1. Create an instance of [Ed25519VerificationKey2020](#ed25519verificationkey2020) as shown in [Section 3.1.1 Ed25519VerificationKey2020](https://w3c-ccg.github.io/lds-ed25519-2020/#ed25519verificationkey2020) of [[LDS-ED25519-2020]].
+1. Using the key material, sign the credential or presentation object as shown in [Section 7.1 Proof Algothim](https://w3c-ccg.github.io/data-integrity-spec/#proof-algorithm) of [[DATA-INTEGRITY-SPEC]] to produce a [Proof](#proof) as shown in [Section 3.2.1 Ed25519 Signature 2020](https://w3c-ccg.github.io/lds-ed25519-2020/#ed25519-signature-2020) with a <code>proofPurpose</code> of "assertionMethod".
+1. Add the resulting proof object to the credential's or presentation's <code>proof</code> property.
+
+#### Verify a CLR Credential or Presentation Linked Data Signature {#lds-verify}
+
+Verify the Linked Data Proof signature as shown in [Section 7.2 Proof Verification Algorthim](https://w3c-ccg.github.io/data-integrity-spec/#proof-verification-algorithm) of [[DATA-INTEGRITY-SPEC]].
 
 ### Key Management
 
