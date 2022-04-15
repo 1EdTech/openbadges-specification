@@ -4,16 +4,16 @@ var datamodel = `
   <p>
     The data models in this section are shared by [[[OB-30]]] and [[[CLR-20]]].
   </p>
-  <section data-class="org.1edtech.ob.v3p0.assertioncredential.class">
-    <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.assertioncredential.class"
-      title="Sample AssertionCredential" data-vc-vm="https://example.edu/issuers/565049#key-1">
+  <section data-class="org.1edtech.ob.v3p0.openbadgecredential.class">
+    <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.openbadgecredential.class"
+      title="Sample OpenBadgeCredential" data-vc-vm="https://example.edu/issuers/565049#key-1">
       {
         "@context": [
           "https://www.w3.org/2018/credentials/v1",
           "https://imsglobal.github.io/openbadges-specification/context.json"
         ],
         "id": "http://example.edu/credentials/3732",
-        "type": ["VerifiableCredential", "AssertionCredential"],
+        "type": ["VerifiableCredential", "OpenBadgeCredential"],
         "issuer": {
           "id": "https://example.edu/issuers/565049",
           "name": "Example University"
@@ -23,13 +23,13 @@ var datamodel = `
           "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
         },
         "credentialSchema": [{
-          "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.assertioncredential.class",
+          "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.openbadgecredential.class",
           "type": "JsonSchemaValidator2019"
         }]
       }
     </pre>
   </section>
-  <section data-class="org.1edtech.ob.v3p0.assertionsubject.class"></section>
+  <section data-class="org.1edtech.ob.v3p0.openbadgesubject.class"></section>
   <section data-class="org.1edtech.ob.v3p0.achievement.class"></section>
 </section>
 <section data-model="org.1edtech.ob.v3p0.model" data-package="SharedApi" title="Shared API Data Models">

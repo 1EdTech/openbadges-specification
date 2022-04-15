@@ -396,11 +396,11 @@ var api = `
     <!-- postAssertion -->
     <section>
       <h3 id="postassertion">postAssertion</h3>
-      <p>Create or update an AssertionCredential on the [=resource server=].</p>
+      <p>Create or update an OpenBadgeCredential on the [=resource server=].</p>
       <p>
-        If the [=resource server=] is holding an AssertionCredential with the same <code>id</code>, it will be updated.
+        If the [=resource server=] is holding an OpenBadgeCredential with the same <code>id</code>, it will be updated.
         Otherwise
-        the [=resource server=] will store the AssertionCredential in the request payload as a resource.
+        the [=resource server=] will store the OpenBadgeCredential in the request payload as a resource.
       </p>
 
       <h4 id="postassertion-request">Request Format</h4>
@@ -478,7 +478,7 @@ var api = `
           <tr>
             <td><a href="#org.1edtech.ob.v3p0.derived.compactjws.class">CompactJws</a></td>
             <td>
-              The AssertionCredential to be updated or created on the [=resource server=]. The AssertionCredential
+              The OpenBadgeCredential to be updated or created on the [=resource server=]. The OpenBadgeCredential
               MUST be signed with [[[#jwt-proof]]].
             </td>
             <td>Required</td>
@@ -495,7 +495,7 @@ var api = `
           Accept: text/plain
           Content-Type: text/plain
 
-          // The AssertionCredential in Compact JWS format
+          // The OpenBadgeCredential in Compact JWS format
           header.payload.signature
         </pre>
 
@@ -515,8 +515,8 @@ var api = `
             <td>200</td>
             <td><a href="#org.1edtech.ob.v3p0.derived.compactjws.class">CompactJws</a></td>
             <td>
-              &#39;OK&#39; - The AssertionCredential was successfully updated. The response payload MUST be the
-              AssertionCredential that
+              &#39;OK&#39; - The OpenBadgeCredential was successfully updated. The response payload MUST be the
+              OpenBadgeCredential that
               was posted.
             </td>
             <td>Required</td>
@@ -525,8 +525,8 @@ var api = `
             <td>201</td>
             <td><a href="#org.1edtech.ob.v3p0.derived.compactjws.class">CompactJws</a></td>
             <td>
-              &#39;Created&#39; - The AssertionCredential was successfully created. The response payload MUST be the
-              AssertionCredential
+              &#39;Created&#39; - The OpenBadgeCredential was successfully created. The response payload MUST be the
+              OpenBadgeCredential
               that was posted.
             </td>
             <td>Required</td>
@@ -606,7 +606,7 @@ var api = `
         HTTP/1.1 200 OK
         Content-Type: text/plain
 
-        // The AssertionCredential in Compact JWS format
+        // The OpenBadgeCredential in Compact JWS format
         header.payload.signature
       </pre>
     </section>

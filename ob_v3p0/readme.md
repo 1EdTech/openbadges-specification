@@ -72,7 +72,7 @@ To load your local changes to [common_credentials.lines](common_credentials.line
 In addition to rendering a normative data model, the plugin can also validate examples against the JSON Schema for the example. Any schema errors will be displayed in the rendered example. You can request schema validation by decorating the example with a `data-schema` attribute where the value is the `id` of the class.
 
 ```html
-<pre class="json example" data-schema="org.1edtech.ob.v3p0.assertioncredential.class"
+<pre class="json example" data-schema="org.1edtech.ob.v3p0.openbadgecredential.class"
   title="Sample assertion credential">
   {
     "@context": [
@@ -81,7 +81,7 @@ In addition to rendering a normative data model, the plugin can also validate ex
       "https://imsglobal.github.io/openbadges-specification/context.json"
     ],
     "id": "http://example.edu/credentials/3732",
-    "type": ["VerifiableCredential", "AssertionCredential"],
+    "type": ["VerifiableCredential", "OpenBadgeCredential"],
     "issuer": {
       "id": "https://example.edu/issuers/565049",
       "type": "IssuerProfile",
