@@ -35,31 +35,19 @@ A Open Badges **Issuer** is an application that allows for the creation of <a hr
 
 #### Tests {#issuer-tests}
 
-1. Create a valid baked 3.0 badge and issue it to the recipient  <code>conformance@imsglobal.org</code>.
-1. Demonstrate through video the candidate platform's methodology for a recipient to retrieve their badge.
+1. Create a valid baked 3.0 badge and issue it to the recipient <code>conformance@imsglobal.org</code> and submit the issued badge to the conformance test system.
 1. Complete [[[#service-consumer-write]]].
 
 ### Open Badges 3.0 Displayer Service Conformance {#displayer-conformance}
 
-An Open Badges Displayer is an application that displays verified badges to viewers. The candidate platform must display a minimum set of badge metadata and support viewer-initiated verification of a badge.
+An Open Badges Displayer is an application that displays and verifies badges for viewers. The candidate platform must support viewer-initiated verification of a badge.
 
 #### Tests {#display-tests}
 
-1. Demonstrate through separate videos that the platform allows viewers of badges to see the following data in three different badges. (Note that IMS is not supplying these badges; you will have to supply them yourself.)
-   1. **Badge 1**
-      1. BadgeClass image, name, description, issuer name, issuedOn date
-      1. **Neither expired nor revoked**</b>
-   1. **Badge 2**
-      1. BadgeClass image, name, description, issuer name, issuedOn date
-      1. **Expired status** (display of date optional)
-      1. Not revoked
-   1. **Badge 3**
-      1. BadgeClass image, name, description, issuer name, issuedOn date
-      1. Not expired
-      1. **Revoked status** (display of reason optional)
-1. Demonstrate through video that the platform allows viewers of badges to do one or both of the following:
-   1. Trigger verification of the badge and retrieve results verifying that the badge assertion is not expired, and not revoked.
-   1. Consume pre-existing verification information that includes the results and timestamp of latest verification.
+1. Verify the three badges listed below and submit the status in the conformance test system.
+   1. [https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-1.json](https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-1.json)
+   1. [https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-2.json](https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-2.json)
+   1. [https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-3.json](https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-3.json)
 
 ### Open Badges 3.0 Host Service Conformance {#host-conformance}
 
@@ -67,14 +55,14 @@ An Open Badges **Host** is an application that can aggregate and publicly host A
 
 #### Tests {#tests-host}
 
-1. Using the artifacts provided below, demonstrate through video the ability to import each of the provided artifacts (baked PNG badge, baked SVG badge, and AssertionCredential URL). Note that the applicant may be required to create a fake account in the candidate platform.
-1. Using one of the badge formats provided below, demonstrate through video the full process of importing the badge into your platform, exporting it out of your platform, and then submitting that badge to IMS for diff comparison with the original.
+1. Import each of the provided artifacts (baked PNG badge, baked SVG badge, and AssertionCredential URL), verify the badge, and submit the status to the conformance test system.
+1. Export the imported badge and submit the exported badge to the conformance test system.
 1. Complete [[[#service-provider-write]]].
 1. Complete [[[#service-consumer-read]]].
 1. Complete [[[#service-provider-read]]].
 
 <div class="note">
-The recipient identity in these badges is <code>conformance@imsglobal.org</code>.
+    The recipient identity in these badges is <code>conformance@imsglobal.org</code>.
 </div>
 
 <table class="data">

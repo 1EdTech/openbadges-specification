@@ -95,4 +95,62 @@ var _localBiblio = {
         "status": "Standards Track",
         "publisher": "OpenID Foundation"
     },
+    "VC-EXTENSION-REGISTRY": {
+        "title": "Verifiable Credentials Extension Registry",
+        "href": "https://w3c-ccg.github.io/vc-extension-registry/",
+        "status": "CG-DRAFT",
+        "publisher": "Credentials Community Group"
+    },
+    "JSON-SCHEMA-2019-09": {
+        "title": "JSON Schema: A Media Type for Describing JSON Documents",
+        "href": "https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-02",
+        "status": "Internet-Draft",
+        "publisher": "Internet Engineering Task Force"
+    },
+    "JSON-SCHEMA-VALIDATION-2019-09": {
+        "title": "JSON Schema Validation: A Vocabulary for Structural Validation of JSON",
+        "href": "https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-02",
+        "status": "Internet-Draft",
+        "publisher": "Internet Engineering Task Force"
+  },
+  "DATA-INTEGRITY-SPEC": {
+    "title": "Data Integrity",
+    "href": "https://w3c-ccg.github.io/data-integrity-spec/",
+    "status": "CG-DRAFT",
+    "publisher": "Credentials Community Group"
+  },
+  "RL-10": {
+    "title": "IMS Revocation List Status Method",
+    "href": "https://imsglobal.org/spec/rl/v1p0/",
+    "status": "IMS Base Document",
+    "publisher": "IMS Global Learning Consortium"
+  },
+  "CR-10": {
+    "title": "IMS Credential Refresh Service",
+    "href": "https://imsglobal.org/spec/cr/v1p0/",
+    "status": "IMS Base Document",
+    "publisher": "IMS Global Learning Consortium"
+  },
+  "CS-10": {
+    "title": "IMS JSON Schema Validator 2019",
+    "href": "https://imsglobal.org/spec/cs/v1p0/",
+    "status": "IMS Base Document",
+    "publisher": "IMS Global Learning Consortium"
+  },
+  "LDS-ED25519-2020": {
+    "title": "Ed25519 Signature 2020",
+    "href": "https://w3c-ccg.github.io/lds-ed25519-2020/",
+    "status": "Draft Community Group Report",
+    "publisher": "W3C Credentials Community Group"
+  },
+  "MULTIBASE": {
+    "title": "The Multibase Data Format",
+    "href": "https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-01",
+    "status": "Internet-Draft",
+    "publisher": "IETF"
+  },
+  "MULTICODEC": {
+    "title": "MULTICODEC",
+    "href": "https://github.com/multiformats/multicodec/"
+  },
 };

@@ -1,4 +1,4 @@
-name: Build OB 3.0 Spec Preview for PUSH
+name: Build OB 3.0 Spec Preview for PUSH 
 
 on:
   # Triggers the workflow on push or pull request events but only for the develop branch
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' -F 'file=@ob_v3p0/ob_v3p0.lines' https://imsum2.herokuapp.com/upload
+      - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' -F 'file=@ob_v3p0/ob_v3p0.lines' https://datamodels-staging.imsglobal.org/upload
         continue-on-error: false
   
   build:

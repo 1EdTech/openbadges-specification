@@ -29,7 +29,7 @@ var docformat = `
     },
     "credentialSchema": [{
       "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.assertioncredential.class",
-      "type": "JsonSchemaValidator2020"
+      "type": "JsonSchemaValidator2019"
     }]
   }
 </pre>
@@ -118,7 +118,7 @@ If the credential is signed using the [[[#jwt-proof]]] (VC-JWT) add a <code>veri
 <pre class="xml example" title="An example of a well baked SVG with VC-JWT proof">
   &lt;?xml version="1.0" encoding="UTF-8"?>
   &lt;svg xmlns="http://www.w3.org/2000/svg"
-    xmlns:clr="https://purl.imsglobal.org/ob/v3p0"
+    xmlns:openbadges="https://purl.imsglobal.org/ob/v3p0"
     viewBox="0 0 512 512">
     &lt;openbadges:credential verify="header.payload.signature">&lt;/openbadges:credential>
 
@@ -131,7 +131,7 @@ If an embedded proof method is used instead, omit the <code>verify</code> attrib
 <pre class="xml example" title="An example of a well baked SVG with embedded proof">
   &lt;?xml version="1.0" encoding="UTF-8"?>
   &lt;svg xmlns="http://www.w3.org/2000/svg"
-    xmlns:clr="https://purl.imsglobal.org/ob/v3p0"
+    xmlns:openbadges="https://purl.imsglobal.org/ob/v3p0"
     viewBox="0 0 512 512">
     &lt;openbadges:credential>
       &lt;![CDATA[
@@ -160,10 +160,10 @@ If an embedded proof method is used instead, omit the <code>verify</code> attrib
   &lt;/svg>
 </pre>
 
-There MUST be only one <code>&lt;openbadges:assertion></code> tag in an SVG. When baking an image that already contains assertion data, the implementor may choose whether to pass the user an error or overwrite the existing tag.
+There MUST be only one <code>&lt;openbadges:credential></code> tag in an SVG. When baking an image that already contains AssertionCredential data, the implementor may choose whether to pass the user an error or overwrite the existing tag.
 
 ##### Extracting
 
-Parse the SVG until you reach the first <code>&lt;openbadges:assertion></code> tag. The rest of the SVG data can safely be discarded.
+Parse the SVG until you reach the first <code>&lt;openbadges:credential></code> tag. The rest of the SVG data can safely be discarded.
 
 `;
