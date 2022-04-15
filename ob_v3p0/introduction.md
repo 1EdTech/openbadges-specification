@@ -100,7 +100,7 @@ This specification includes JSON Schema files for every class in the data model 
 
 - <dfn data-lt="Platform">server</dfn>: In a [=REST API=], the server is the actor that responds to a DELETE, GET, or POST request. Also called a Platform in the [[[SEC-11]]].
 
-- <dfn>Skill</dfn>: @@TBD
+- <dfn>Skill</dfn>: Measurable or observable knowledge, skill, or ability necessary to successful performance of a person.
 
 - <dfn>Skill Assertion</dfn>: An [=assertion=] that contains a "skill result."
 
