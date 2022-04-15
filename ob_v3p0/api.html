@@ -70,7 +70,8 @@ var api = `
       All secure endpoint requests MUST be made over secure TLS 1.2 or 1.3 protocol.
     </p>
     <p>
-      All of the Secure REST Endpoints endpoints are protected by OAuth 2.0 access tokens as described in [[[#api-security]]].
+      All of the Secure REST Endpoints endpoints are protected by OAuth 2.0 access tokens as described in
+      [[[#api-security]]].
     </p>
 
     <h4 id="scopes">Scopes</h4>
@@ -115,7 +116,7 @@ var api = `
         </tr>
       </tbody>
     </table>
-  
+
     <!-- getAssertions -->
     <section>
       <h3 id="getassertions">getAssertions</h3>
@@ -183,10 +184,10 @@ var api = `
             <td>Required</td>
           </tr>
           <tr>
-            <td><code>Accept: application/ld+json</code></td>
+            <td><code>Accept: application/ld+json, text/plain</code></td>
             <td>
-              If the content type <code>application/ld+json</code> is not not included in the <code>Accept</code>
-              header, the [=resource server=] MUST respond with 406 Not Acceptable.
+              If the content types <code>application/ld+json</code> and <code>text/plain</code> are not not included in
+              the <code>Accept</code> header, the [=resource server=] MUST respond with 406 Not Acceptable.
             </td>
             <td>Required</td>
           </tr>
@@ -203,7 +204,7 @@ var api = `
         GET {tenant}/ims/ob/v3p0/assertions?limit=2&offset=0 HTTP/1.1
         Host: example.com
         Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
-        Accept: application/ld+json
+        Accept: application/ld+json, text/plain
       </pre>
 
       <h4 id="getassertions-responses">Responses</h4>
@@ -220,10 +221,16 @@ var api = `
         <tbody>
           <tr>
             <td>200</td>
-            <td><a href="#org.1edtech.ob.v3p0.presentationjwspayload.class">PresentationJwsPayload</a></td>
             <td>
-              &#39;OK&#39; - The signed AssertionCredentials are returned in the payload. The assertions MUST be signed
-              with [[[#jwt-proof]]]. They MAY also be signed with Linked Data Proofs.
+              <a href="#verifiablepresentation">VerifiablePresentation</a>,
+              <a href="#presentationjwspayload">PresentationJwsPayload</a>, or
+              <a href="#compactjws">CompactJws</a>
+            </td>
+            <td>
+              &#39;OK&#39; - The signed AssertionCredentials are returned in the payload. 
+              If the presentation is signed with [[[#jwt-proof]]], the <code>Content-Type</code> MUST be <code>text/plain</code> and payload MUST be a <code>CompactJws</code>.
+              If the presentation and the nested credentials are signed with an embedded [[[#lds-proof]]], the <code>Content-Type</code> MUST be <code>application/ld+json</code> and the payload MUST be a <code>VerifiablePresentation</code>.
+              if the presentation is not signed, but the AssertionCredentials are signed with [[[#jwt-proof]]], the <code>Content-Type</code> MUST be <code>application/ld+json</code> and the payload MUST be <code>PresentationJwsPayload</code>.
             </td>
             <td>Required</td>
           </tr>
@@ -290,8 +297,14 @@ var api = `
         </thead>
         <tbody>
           <tr>
-            <td><code>Content-Type: application/ld+json</code></td>
-            <td>The content type MUST be <code>application/ld+json</code>.</td>
+            <td>
+              <code>Content-Type: application/ld+json</code> or
+              <code>Content-Type: text/plain</code>
+            </td>
+            <td>
+              The content type MUST be <code>application/ld+json</code> or <code>text/plain</code>.
+              See <code>HTTP 200</code> Response for details.
+            </td>
             <td>Required</td>
           </tr>
           <tr>
@@ -354,7 +367,7 @@ var api = `
 
       <h4>Sample Response</h4>
 
-      <pre class="http example" title="Sample getAssertions Response (line breaks for clarity)">
+      <pre class="http example" title="Sample getAssertions Response with PresentationJwsPayload (line breaks for clarity)">
         HTTP/1.1 200 OK
         Content-Type: application/ld+json
         X-Total-Count: 1
@@ -370,7 +383,9 @@ var api = `
           ],
           "type": ["VerifiablePresentation"],
           "verifiableCredential": [
+
             // Signed AssertionCredentials in Compact JWS format
+
             "header.payload.signature",
             "header.payload.signature"
           ]
@@ -383,7 +398,8 @@ var api = `
       <h3 id="postassertion">postAssertion</h3>
       <p>Create or update an AssertionCredential on the [=resource server=].</p>
       <p>
-        If the [=resource server=] is holding an AssertionCredential with the same <code>id</code>, it will be updated. Otherwise
+        If the [=resource server=] is holding an AssertionCredential with the same <code>id</code>, it will be updated.
+        Otherwise
         the [=resource server=] will store the AssertionCredential in the request payload as a resource.
       </p>
 
@@ -499,7 +515,8 @@ var api = `
             <td>200</td>
             <td><a href="#org.1edtech.ob.v3p0.derived.compactjws.class">CompactJws</a></td>
             <td>
-              &#39;OK&#39; - The AssertionCredential was successfully updated. The response payload MUST be the AssertionCredential that
+              &#39;OK&#39; - The AssertionCredential was successfully updated. The response payload MUST be the
+              AssertionCredential that
               was posted.
             </td>
             <td>Required</td>
@@ -508,7 +525,8 @@ var api = `
             <td>201</td>
             <td><a href="#org.1edtech.ob.v3p0.derived.compactjws.class">CompactJws</a></td>
             <td>
-              &#39;Created&#39; - The AssertionCredential was successfully created. The response payload MUST be the AssertionCredential
+              &#39;Created&#39; - The AssertionCredential was successfully created. The response payload MUST be the
+              AssertionCredential
               that was posted.
             </td>
             <td>Required</td>
