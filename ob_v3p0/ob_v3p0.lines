@@ -2,7 +2,7 @@ Model ob 2022-01-01 3.0 "s:IMS Base Document" "t:Open Badges" "d:Open Badges Dat
 
 // Pull in common credential models (this will be converted to Includes when credential models are finalized and made part of the CDM)
 
-Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/develop/ob_v3p0/common_credentials.lines
+Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/rename-assertion-credential-2/ob_v3p0/common_credentials.lines
 
 // API Models
 
@@ -12,21 +12,21 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
 
         Operation getCredentials GET /credentials                   "Get issued OpenBadgeCredentials from the [=resource server=] for the supplied parameters and access token."
             Param limit in Query PositiveInteger 0..1               "The maximum number of OpenBadgeCredentials to return per page."
-            Param offset in Query NonNegativeInteger 0..1           "The index of the first AssertionCredential to return. (zero indexed)"
+            Param offset in Query NonNegativeInteger 0..1           "The index of the first AchievementCredential to return. (zero indexed)"
             Param since in Query DateTime 0..1                      "Only include OpenBadgeCredentials issued after this timestamp."
             Response 200 paging                                     "The set of OpenBadgeCredentials that meet the request parameters. Paging applies to the total number of OpenBadgeCredentials in the response."
                 Body GetOpenBadgeCredentialsResponse 1
             Response default Imsx_StatusInfo 1                      "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
 
-        Operation postCredential POST /credentials                  "Create or replace an AssertionCredential on the [=resource server=]."
-            Body AssertionCredential 1 application/json             "If the AssertionCredential is not signed with the VC-JWT Proof Format, the request body MUST be a AssertionCredential and the `Content-Type` MUST be `application/json`."
-            Body CompactJws 1 text/plain                            "If the AssertionCredential is signed with the VC-JWT Proof Format, the request body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
-            Response 200                                            "The AssertionCredential was successfully replaced on the [=resource server=]. The response body MUST be the AssertionCredential in the request."
-                Body AssertionCredential 1 application/json         "If the AssertionCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AssertionCredential and the `Content-Type` MUST be `application/json`."
-                Body CompactJws 1 text/plain                        "If the AssertionCredential is signed with the VC-JWT Proof Format, the response body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
-            Response 201                                            "The AssertionCredential was successfully created on the [=resource server=]. The response body MUST be the AssertionCredential in the request."
-                Body AssertionCredential 1 application/json         "If the AssertionCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AssertionCredential and the `Content-Type` MUST be `application/json`."
-                Body CompactJws 1 text/plain                        "If the AssertionCredential is signed with the VC-JWT Proof Format, the response body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
+        Operation postCredential POST /credentials                  "Create or replace an AchievementCredential on the [=resource server=]."
+            Body AchievementCredential 1 application/json             "If the AchievementCredential is not signed with the VC-JWT Proof Format, the request body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
+            Body CompactJws 1 text/plain                            "If the AchievementCredential is signed with the VC-JWT Proof Format, the request body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
+            Response 200                                            "The AchievementCredential was successfully replaced on the [=resource server=]. The response body MUST be the AchievementCredential in the request."
+                Body AchievementCredential 1 application/json         "If the AchievementCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
+                Body CompactJws 1 text/plain                        "If the AchievementCredential is signed with the VC-JWT Proof Format, the response body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
+            Response 201                                            "The AchievementCredential was successfully created on the [=resource server=]. The response body MUST be the AchievementCredential in the request."
+                Body AchievementCredential 1 application/json         "If the AchievementCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
+                Body CompactJws 1 text/plain                        "If the AchievementCredential is signed with the VC-JWT Proof Format, the response body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
             Response default Imsx_StatusInfo 1                      "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
 
         Operation getProfile GET /profile                           "Fetch the profile from the [=resource server=] for the supplied access token. Profiles that are received MAY contain attributes that a Host SHOULD authenticate before using in practice."
@@ -43,5 +43,5 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
 Package ApiDataModel DataModel
 
     Class GetOpenBadgeCredentialsResponse Unordered false []
-        Property credentials AssertionCredential 0..*               "OpenBadgeCredentials that have not been signed with the VC-JWT Proof Format MUST be in the `credentials` array."
+        Property credentials AchievementCredential 0..*               "OpenBadgeCredentials that have not been signed with the VC-JWT Proof Format MUST be in the `credentials` array."
         Property compactJwsStrings CompactJws 0..*                  "OpenBadgeCredentials that have been signed with the VC-JWT Proof Format MUST be in the `compactJwsStrings` array."
