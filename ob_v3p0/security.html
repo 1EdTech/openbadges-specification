@@ -1052,14 +1052,14 @@ var security = `
         After obtaining an <code>access_token</code> and optionally a <code>refresh_token</code> using the
         method above, a [=client=] application MAY issue request that access resources controlled by the
         [=user=] on the [=resource server=] using the <code>access_token</code> in the HTTP Authorization header
-        [[RFC2617]] with a Bearer Token [[RFC6750]]. For example, a <a href="#getassertions">"getAssertions"</a>
-        would look like this:
+        [[RFC2617]] with a Bearer Token [[RFC6750]]. For example, a <a href="#getcredentials">getCredentials</a>
+        request would look like this:
       </p>
-      <pre class="http example" title="Sample getAssertions request">
-        GET /tenant/ims/ob/v3p0/assertions HTTP/1.1
-        Host: example.com 
+      <pre class="http example" title="Sample getCredentials request">
+        GET /ims/ob/v3p0/credentials HTTP/1.1
+        Host: example.edu
         Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
-        Accept: application/ld+json
+        Accept: application/json
       </pre>
     </section>
 
