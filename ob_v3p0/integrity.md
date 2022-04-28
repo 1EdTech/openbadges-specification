@@ -47,7 +47,7 @@ The JOSE Header, JWT Payload, and JWS Signature are combined to form a Compact J
 
 The resulting [=JWS=] proves that the [=issuer=] or [=holder=] signed the [=JWT Payload=] turning the [=credential=] or [=presentation=] into a [=verifiable credential=] or [=verifiable presentation=].
 
-When using the JSON Web Token Proof Format, the <code>proof</code> property MAY be ommitted from the <a href="#assertioncredential">AssertionCredential</a> or <a href="#verifiablepresentation">VerifiablePresentation</a>. If a Linked Data Proof is also provided, it MUST be created before the JSON Web Token Proof Format is created.
+When using the JSON Web Token Proof Format, the <code>proof</code> property MAY be ommitted from the <a href="#achievementcredential">OpenBadgeCredential</a> or <a href="#verifiablepresentation">VerifiablePresentation</a>. If a Linked Data Proof is also provided, it MUST be created before the JSON Web Token Proof Format is created.
 
 #### Create the JOSE Header {#joseheader}
 
@@ -145,7 +145,7 @@ The JSON Web Token Proof for each nested credential MUST be created prior to cre
 
 The JWT Payload is a JSON object with the following properties (JWT Claims). In addition to the standard JWT Claims [[RFC7519]], the [[[VC-DATA-MODEL]]] specification registered two new JWT Claim Names:
 
-- <code>vc</code>: A JSON object which contains the [=verifiable credential=] to be signed. In this specification, that credential MUST be an <a href="#assertioncredential">AssertionCredential</a> object.
+- <code>vc</code>: A JSON object which contains the [=verifiable credential=] to be signed. In this specification, that credential MUST be an <a href="#achievementcredential">OpenBadgeCredential</a> object.
 - <code>vp</code>: A JSON object which contains the [=verifiable presentation=] to be signed. In this specification, that presentation MUST be a <a href="#presentationjwspayload">PresentationJwsPayload</a> object.
 
 Additional standard JWT Claims Names are allowed, but their relationship to the credential or presentation is not defined.
@@ -205,7 +205,7 @@ Additional standard JWT Claims Names are allowed, but their relationship to the 
     </tr>
     <tr>
       <td><code>vc</code></td>
-      <td><a href="#assertioncredential">AssertionCredential</a></td>
+      <td><a href="#achievementcredential">OpenBadgeCredential</a></td>
       <td>
         The credential being signed. Omit if the payload is a presentation.
       </td>
@@ -260,16 +260,16 @@ Verifiers that receive an VerifiableCredential or VerifiablePresentation in Comp
      <p>IMS strongly recommends using an existing, stable library for this step.</p>
    </div>
 1. Base64url-decode the JWT Payload segment of the Compact JWS and parse it into a JSON object.
-1. If the JSON object has a <code>vc</code> claim, convert the value of <code>vc</code> to an <a href="#assertioncredential">AssertionCredential</a> and continue with [[[#jwt-verify-credential]]].
+1. If the JSON object has a <code>vc</code> claim, convert the value of <code>vc</code> to an <a href="#achievementcredential">OpenBadgeCredential</a> and continue with [[[#jwt-verify-credential]]].
 1. If the JSON object has a <code>vp</code> claim, convert the value of <code>vp</code> to a <a href="#presentationjwspayload">PresentationJwsPayload</a> and continue with [[[#jwt-verify-presentation]]].
 
 ##### Verify a Credential VC-JWT Signature {#jwt-verify-credential}
 
-- The JSON object MUST have the <code>iss</code> claim, and the value MUST match the <code>id</code> of the <code>issuer</code> of the <a href="#assertioncredential">AssertionCredential</a> object. If they do not match, the credential is not valid.
-- The JSON object MUST have the <code>sub</code> claim, and the value MUST match the <code>id</code> of the <code>credentialSubject</code> of the <a href="#assertioncredential">AssertionCredential</a> object. If they do not match, the credential is not valid.
-- The JSON object MUST have the <code>nbf</code> claim, and the <a href="#numericdate">NumericDate</a> value MUST be converted to a <a href="#datetime">DateTime</a>, and MUST equal the <code>issuanceDate</code> of the <a href="#assertioncredential">AssertionCredential</a> object. If they do not match or if the <code>issuanceDate</code> has not yet occurred, the credential is not valid.
-- The JSON object MUST have the <code>jti</code> claim, and the value MUST match the <code>id</code> of the <a href="#assertioncredential">AssertionCredential</a> object. If they do not match, the credential is not valid.
-- If the JSON object has the <code>exp</code> claim, the <a href="#numericdate">NumericDate</a> MUST be converted to a <a href="#datetime">DateTime</a>, and MUST be used to set the value of the <code>expirationDate</code> of the <a href="#assertioncredential">AssertionCredential</a> object. If the credential has expired, the credential is not valid.
+- The JSON object MUST have the <code>iss</code> claim, and the value MUST match the <code>id</code> of the <code>issuer</code> of the <a href="#achievementcredential">OpenBadgeCredential</a> object. If they do not match, the credential is not valid.
+- The JSON object MUST have the <code>sub</code> claim, and the value MUST match the <code>id</code> of the <code>credentialSubject</code> of the <a href="#achievementcredential">OpenBadgeCredential</a> object. If they do not match, the credential is not valid.
+- The JSON object MUST have the <code>nbf</code> claim, and the <a href="#numericdate">NumericDate</a> value MUST be converted to a <a href="#datetime">DateTime</a>, and MUST equal the <code>issuanceDate</code> of the <a href="#achievementcredential">OpenBadgeCredential</a> object. If they do not match or if the <code>issuanceDate</code> has not yet occurred, the credential is not valid.
+- The JSON object MUST have the <code>jti</code> claim, and the value MUST match the <code>id</code> of the <a href="#achievementcredential">OpenBadgeCredential</a> object. If they do not match, the credential is not valid.
+- If the JSON object has the <code>exp</code> claim, the <a href="#numericdate">NumericDate</a> MUST be converted to a <a href="#datetime">DateTime</a>, and MUST be used to set the value of the <code>expirationDate</code> of the <a href="#achievementcredential">OpenBadgeCredential</a> object. If the credential has expired, the credential is not valid.
 - <div class="issue" title="Verify the schema"></div>
 - <div class="issue" title="Use credentialStatus to determine if the credential has been revoked"></div>
 - <div class="issue" title="Should nested assertions be verified?"></div>

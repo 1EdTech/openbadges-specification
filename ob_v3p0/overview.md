@@ -10,7 +10,7 @@ These layers of cryptographic proof can provide security and privacy enhancement
 
 ### What does adopting Verifiable Credentials entail?
 
-This specification changes the structure of the Open Badges [Assertion](#assertioncredential) class, to adopt the conventions of the [[[VC-DATA-MODEL]]]. This means that badges issued under this specification will not be conformant to all of the existing 2.x data model requirements.
+This specification changes the structure of the Open Badges [Assertion](#achievementcredential) class, to adopt the conventions of the [[[VC-DATA-MODEL]]]. This means that badges issued under this specification will not be conformant to all of the existing 2.x data model requirements.
 
 Previous versions of an Open Badges Assertion, illustrated in the graphic below, structures its objects like this:
 An Assertion identifies a recipient with a "recipient" relationship to an IdentityObject that contains identifying properties. It identifies which badge it represents with a "badge" relationship to a BadgeClass. It identifies its verification information with a "verification" relationship to a VerificationObject. It identifies its issuer with an "issuer" relationship between the BadgeClass and the Issuer.
