@@ -712,7 +712,7 @@ grant_type=authorization_code
     "name": "A Badge Host",
     "image": "https://badgehost.example.com/logo.png",
     "apiBase": "https://badgehost.example.com/api/ims/ob/v2p1",
-    "version": "v1p0",
+    "version": "v2p1",
     "termsOfServiceUrl": "https://badgehost.example.com/terms",
     "privacyPolicyUrl": "https://badgehost.example.com/privacy",
     "scopesOffered": [
@@ -771,7 +771,8 @@ grant_type=authorization_code
             <td>String</td>
             <td>Yes</td>
             <td>A string representing the implemented version. MUST be in the format of <code>vMAJORpMINOR</code> where
-              <strong>MAJOR</strong> and <strong>MINOR</strong> are integers.</td>
+              <strong>MAJOR</strong> and <strong>MINOR</strong> are integers. <code>v2p1</code> is the correct string
+              for this specification version.</td>
           </tr>
           <tr>
             <td><code>termsOfServiceUrl</code></td>
@@ -1563,7 +1564,7 @@ Link:
     <h1>Handling Null Values</h1>
     <p>
       This standard allows the use of the JSON <code>null</code> data type, and empty arrays
-      such as <code>[]</code> in serialized JSON. Your code should be designed to deserialize 
+      such as <code>[]</code> in serialized JSON. Your code should be designed to deserialize
       JSON with null values and empty arrays even if your code does not serialize them.
     </p>
   </section>

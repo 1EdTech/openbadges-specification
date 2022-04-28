@@ -3,7 +3,7 @@
 
 <head>
   <meta charset='utf-8'>
-  <script src='https://purl.imsglobal.org/spec/respec-dev/respec-ims-default.js' class='remove'></script>
+  <script src='https://purl.imsglobal.org/spec/respec-dev/respec-1edtech.js' class='remove'></script>
   <script src='respec-support/local-biblio.js' class='remove'></script>
   <script src='respec-support/contributors.js' class='remove'></script>
   <script src='respec-support/iprs.js' class='remove'></script>
@@ -11,8 +11,8 @@
   <!-- Load VC proof add-on -->
   <script class="remove" src="https://purl.imsglobal.org/spec/respec-dev/respec-vc.js"></script>
 
-  <!-- Load the CDM configuration -->
-  <script class="remove" src="cdm-config.js"></script>
+  <!-- Load the MPS configuration -->
+  <script class="remove" src="mps-config.js"></script>
 
   <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
   <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js" 
@@ -47,8 +47,8 @@
         }]
       }],
 
-      // Add the CDM configuration to respecConfig
-      cdm: _cdm,
+      // Add the MPS configuration to respecConfig
+      mps: _mps,
 
       // Add VC proof examples
       postProcess: [
@@ -80,16 +80,20 @@
     <script class="transclude" data-id="gettingstarted" src="gettingstarted.md"></script>
   </section>
 
-  <section data-format="markdown">
+  <section class="normative" data-format="markdown">
     <script class="transclude" data-id="docformat" src="docformat.md"></script>
   </section>
 
   <script class="transclude" data-id="api" src="api.html"></script>
 
   <script class="transclude" data-id="security" src="security.html"></script>
-  
+
   <section class="normative" data-format="markdown">
     <script class="transclude" data-id="integrity" src="integrity.md"></script>
+  </section>
+
+  <section class="normative" data-format="markdown">
+    <script class="transclude" data-id="verification" src="verification.md"></script>
   </section>
 
   <script class="transclude" data-id="vc_extensions" src="vc-extensions.html"></script>
