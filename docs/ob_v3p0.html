@@ -1883,12 +1883,7 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
 <li>The contents of the file <em class="rfc2119">MUST</em> represent exactly one <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a></li>
 <li>The <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> <em class="rfc2119">MUST</em> be serialized as JSON and JSON-LD (see <a href="#serialization" class="sec-ref">§&nbsp;<bdi class="secno">A. </bdi>Serialization</a>)</li>
 <li>JSON exchanged between systems that are not part of a closed ecosystem <em class="rfc2119">MUST</em> be encoded using UTF-8 [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3629" title="UTF-8, a transformation format of ISO 10646">RFC3629</a></cite>].</li>
-</ul><div class="issue" id="issue-container-number-1"><div role="heading" class="issue-title marker" id="h-issue" aria-level="3"><span>Issue 1</span><span class="issue-label">: Invalid JSON</span></div><div class="">
-          <p>NOTE: This example contains invalid JSON for org.1edtech.ob.v3p0.achievementcredential.class.</p>
-          <ul>
-            <li>class: must have required property 'name'</li>
-          </ul>
-        </div></div><div class="example" id="example-sample-openbadgecredential-file-contents">
+</ul><div class="example" id="example-sample-openbadgecredential-file-contents">
         <div class="marker">
     <a class="self-link" href="#example-sample-openbadgecredential-file-contents">Example<bdi> 1</bdi></a><span class="example-title">: Sample OpenBadgeCredential file contents</span>
   </div> 
@@ -1905,6 +1900,7 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University"</span>
   },
   <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University Degree"</span>,
   <span class="hljs-attr">"credentialSubject"</span>: {
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:ebfeb1f712ebc6f1c276e12ec21"</span>
   },
@@ -1929,6 +1925,7 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
     "name": "Example University"
   },
   "issuanceDate": "2010-01-01T00:00:00Z",
+  "name": "Example University Degree",
   "credentialSubject": {
     "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
   },
@@ -1941,11 +1938,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-04-28T21:58:45Z",
+    "created": "2022-04-28T22:02:57Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z3jEHUeMjDTDzPXmzGBAHRvqP1qx5WBnELX27STtANzig3d8tqyF7LJqev5Wb
-jPASSvxAK6WEMtrYYYR2vmC3etRe"
+    "proofValue": "zkhsgv5nGmnceLzdy6NVCrHNuwJKR7hrWrWps6r5FRear5TLippxBXWTZJSn9
+qKNy73gujNT3DAcnUx17RQZXrzf"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -1973,6 +1970,7 @@ jPASSvxAK6WEMtrYYYR2vmC3etRe"
       "name": "Example University"
     },
     "issuanceDate": "2010-01-01T00:00:00Z",
+    "name": "Example University Degree",
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
     },
@@ -2000,18 +1998,19 @@ uYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlkIjoiaHR0cDovL2V4YW1wbGUuZWR
 1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiT3BlbkJhZGd
 lQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY
 1MDQ5IiwidHlwZSI6IlByb2ZpbGUiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sImlzc3VhbmN
-lRGF0ZSI6IjIwMTAtMDEtMDFUMDA6MDA6MDBaIiwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ
-6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifSwiY3JlZGVudGlhbFNjaGVtYSI6W3s
-iaWQiOiJodHRwczovL2ltc3VtMi5oZXJva3VhcHAuY29tL2pzb25zY2hlbWE_Y2xhc3NJZD1vcmcuMWV
-kdGVjaC5vYi52M3AwLmFjaGlldmVtZW50Y3JlZGVudGlhbC5jbGFzcyIsInR5cGUiOiJKc29uU2NoZW1
-hVmFsaWRhdG9yMjAxOSJ9XX0sImlzcyI6eyJpZCI6Imh0dHBzOi8vZXhhbXBsZS5lZHUvaXNzdWVycy8
-1NjUwNDkiLCJ0eXBlIjoiUHJvZmlsZSIsIm5hbWUiOiJFeGFtcGxlIFVuaXZlcnNpdHkifSwibmJmIjo
-xMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbHMvMzczMiIsInN1YiI
-6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.eedp2_nqB77tRJC-nsVaXw
-gQxPUA1jwAmCTvMkg91DOgklG05Q_3FFqvRuvBzhl1lMMKZ_gf7op3Yr5p6gNJ03-Hs3G5iCvHTnTD4R
-W9SBdTW99OtbuVYkQFnnguhxFviJh3FsTcwhmxwwd2YNnQhM8mHLlnXoZL_tn5fQDsCOEZ9NwzW9LLr7
-qnMMQrEyezzwdQ_cHfX-YLppmzNUK_7GqL8MbDBIo7PbFZapq7Pqdn2xAc63380wlerimHMsCJdX_CLU
-_UTyzt2VfftHfy8Y_2SVhyD2ScYiQEBZzJX0qFiIcbzWGKsQPYqkE8oUJ7E9CciiiXEhydgSB4JH0PDQ</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with <strong>keyword</strong> <code>openbadges</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
+lRGF0ZSI6IjIwMTAtMDEtMDFUMDA6MDA6MDBaIiwibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSBEZWd
+yZWUiLCJjcmVkZW50aWFsU3ViamVjdCI6eyJpZCI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjF
+jMjc2ZTEyZWMyMSJ9LCJjcmVkZW50aWFsU2NoZW1hIjpbeyJpZCI6Imh0dHBzOi8vaW1zdW0yLmhlcm9
+rdWFwcC5jb20vanNvbnNjaGVtYT9jbGFzc0lkPW9yZy4xZWR0ZWNoLm9iLnYzcDAuYWNoaWV2ZW1lbnR
+jcmVkZW50aWFsLmNsYXNzIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDE5In1dfSwiaXNzIjp
+7ImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsInR5cGUiOiJQcm9maWxlIiw
+ibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSJ9LCJuYmYiOjEyNjIzMDQwMDAsImp0aSI6Imh0dHA6Ly9
+leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3ViIjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmV
+iYzZmMWMyNzZlMTJlYzIxIn0.yPr-ARUxgbOH_UqEAsWgXsTsL3rY2cYjUE_hHeCLKjhQpZxSZ3dNQr0
+W8InlcpPNNagqY5kraQ8xRzDNiLJHwj0uej21alQ1yeAo3shsdeRb4g_YQ1tPblTtSHbqWKtNOtAgyxm
+T5TsF6GZXAiGNCqD8xYjj3JysIimByPi1D8h0bpbRrWx6fyvfdOweOODlLNYo0y8Fw6jSmkJ9OR_XjV9
+ga_kDcnJP7v1Xq5-213c8asbcMfaeBAX-_rYsR2IDcA9ohDGl_Mopzc0HmMUooWnt8vSPacD4PdJZB7W
+bHjpM8h7FcqHRM8rt0mt8dDAvYQC5FmDaQrSddIWwa5icsQ</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with <strong>keyword</strong> <code>openbadges</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">Example<bdi> 2</bdi></a><span class="example-title">: An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)</span>
   </div> <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">var</span> chunk = <span class="hljs-keyword">new</span> iTXt({
@@ -4233,9 +4232,9 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
 <li>The JSON object <em class="rfc2119">MUST</em> have the <code>nbf</code> claim, and the <a href="#numericdate">NumericDate</a> value <em class="rfc2119">MUST</em> be converted to a <a href="#datetime">DateTime</a>, and <em class="rfc2119">MUST</em> equal the <code>issuanceDate</code> of the <a href="#achievementcredential">OpenBadgeCredential</a> object. If they do not match or if the <code>issuanceDate</code> has not yet occurred, the credential is not valid.</li>
 <li>The JSON object <em class="rfc2119">MUST</em> have the <code>jti</code> claim, and the value <em class="rfc2119">MUST</em> match the <code>id</code> of the <a href="#achievementcredential">OpenBadgeCredential</a> object. If they do not match, the credential is not valid.</li>
 <li>If the JSON object has the <code>exp</code> claim, the <a href="#numericdate">NumericDate</a> <em class="rfc2119">MUST</em> be converted to a <a href="#datetime">DateTime</a>, and <em class="rfc2119">MUST</em> be used to set the value of the <code>expirationDate</code> of the <a href="#achievementcredential">OpenBadgeCredential</a> object. If the credential has expired, the credential is not valid.</li>
-<li><div class="issue" id="issue-container-number-2"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="6"><span>Issue 2</span><span class="issue-label">: Verify the schema</span></div><div class=""></div></div></li>
-<li><div class="issue" id="issue-container-number-3"><div role="heading" class="issue-title marker" id="h-issue-1" aria-level="6"><span>Issue 3</span><span class="issue-label">: Use credentialStatus to determine if the credential has been revoked</span></div><div class=""></div></div></li>
-<li><div class="issue" id="issue-container-number-4"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="6"><span>Issue 4</span><span class="issue-label">: Should nested assertions be verified?</span></div><div class=""></div></div></li>
+<li><div class="issue" id="issue-container-number-1"><div role="heading" class="issue-title marker" id="h-issue" aria-level="6"><span>Issue 1</span><span class="issue-label">: Verify the schema</span></div><div class=""></div></div></li>
+<li><div class="issue" id="issue-container-number-2"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="6"><span>Issue 2</span><span class="issue-label">: Use credentialStatus to determine if the credential has been revoked</span></div><div class=""></div></div></li>
+<li><div class="issue" id="issue-container-number-3"><div role="heading" class="issue-title marker" id="h-issue-1" aria-level="6"><span>Issue 3</span><span class="issue-label">: Should nested assertions be verified?</span></div><div class=""></div></div></li>
 </ul></section><section id="verify-a-presentation-vc-jwt-signature"><h5 id="jwt-verify-presentation"><bdi class="secno">8.2.6.2 </bdi>Verify a Presentation VC-JWT Signature<a class="self-link" aria-label="§" href="#jwt-verify-presentation"></a><a class="self-link" aria-label="§" href="#jwt-verify-presentation"></a></h5><ul>
 <li>The JSON object <em class="rfc2119">MUST</em> have the <code>iss</code> claim, and the value <em class="rfc2119">MUST</em> match the <code>id</code> of the <code>holder</code> of the <a href="#presentationjwspayload">PresentationJwsPayload</a> object. If they do not match, the presentation is not valid.</li>
 <li>The JSON object <em class="rfc2119">MUST</em> have the <code>nbf</code> claim, and the <a href="#numericdate">NumericDate</a> value <em class="rfc2119">MUST</em> be converted to a <a href="#datetime">DateTime</a>, and <em class="rfc2119">MUST</em> equal the <code>issuanceDate</code> of the <a href="#presentationjwspayload">PresentationJwsPayload</a> object. If they do not match or if the <code>issuanceDate</code> has not yet occurred, the presentation is not valid.</li>
@@ -4793,12 +4792,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
           
         </tbody>
       </table>
-    <div class="issue" id="issue-container-number-5"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="5"><span>Issue 5</span><span class="issue-label">: Invalid JSON</span></div><div class="">
-          <p>NOTE: This example contains invalid JSON for org.1edtech.ob.v3p0.achievementcredential.class.</p>
-          <ul>
-            <li>class: must have required property 'name'</li>
-          </ul>
-        </div></div><div class="example" id="example-sample-openbadgecredential">
+    <div class="example" id="example-sample-openbadgecredential">
         <div class="marker">
     <a class="self-link" href="#example-sample-openbadgecredential">Example<bdi> 33</bdi></a><span class="example-title">: Sample OpenBadgeCredential</span>
   </div> 
@@ -4814,6 +4808,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University"</span>
   },
   <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University Degree"</span>,
   <span class="hljs-attr">"credentialSubject"</span>: {
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:ebfeb1f712ebc6f1c276e12ec21"</span>
   },
@@ -4837,6 +4832,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
     "name": "Example University"
   },
   "issuanceDate": "2010-01-01T00:00:00Z",
+  "name": "Example University Degree",
   "credentialSubject": {
     "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
   },
@@ -4849,11 +4845,11 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-04-28T21:58:45Z",
+    "created": "2022-04-28T22:02:57Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z3wXweoQu9hDKXH6Ya9ZNdniJj2djUyu6VVzofR8UP35hdKKf6JCciVd8iTZF
-hpwWZ568ojUad7hWiGumFoRARUic"
+    "proofValue": "z2tRTmrCNnVhMCjUnxiKdNcs7pEymZmvRxHmKU17h6hE7SuYeRkkuhYTohhVb
+KNFSnaiLT8i96SEVRXYsTCV59Agh"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -4880,6 +4876,7 @@ hpwWZ568ojUad7hWiGumFoRARUic"
       "name": "Example University"
     },
     "issuanceDate": "2010-01-01T00:00:00Z",
+    "name": "Example University Degree",
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
     },
@@ -4906,18 +4903,19 @@ uYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlkIjoiaHR0cDovL2V4YW1wbGUuZWR
 1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiT3BlbkJhZGd
 lQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY
 1MDQ5IiwibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSJ9LCJpc3N1YW5jZURhdGUiOiIyMDEwLTAxLTA
-xVDAwOjAwOjAwWiIsImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjc
-xMmViYzZmMWMyNzZlMTJlYzIxIn0sImNyZWRlbnRpYWxTY2hlbWEiOlt7ImlkIjoiaHR0cHM6Ly9pbXN
-1bTIuaGVyb2t1YXBwLmNvbS9qc29uc2NoZW1hP2NsYXNzSWQ9b3JnLjFlZHRlY2gub2IudjNwMC5hY2h
-pZXZlbWVudGNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnNvblNjaGVtYVZhbGlkYXRvcjIwMTkifV1
-9LCJpc3MiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwibmFtZSI6IkV
-4YW1wbGUgVW5pdmVyc2l0eSJ9LCJuYmYiOjEyNjIzMDQwMDAsImp0aSI6Imh0dHA6Ly9leGFtcGxlLmV
-kdS9jcmVkZW50aWFscy8zNzMyIiwic3ViIjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZ
-lMTJlYzIxIn0.gnppxGRn2npzhAy9lwIF1859YUltjSTdjXqcflp105dxRXplDm-NTbZi03_l8YldGYS
-n6irW2ywzWaFuSB_aIo6HiILCFWxkcPqQuOoV0NAo-aliVMMWOoXncwo9DJXbU5cJnmBfUM18ss6FHO3
-GA3Z323qzFIN7x4R4_VGEPkzRUGtVaG86B4u0n0VP9BFHwGZjy2zonwRBs6-9fxt3R54ZRU8kz_dUZWs
-6zbh2JXDDRZx3uTdY3m58WTqnfJ5GvMLckK8J5gTk30krJZX12uhe3wwnFusArj8stoJ7pybRnRKVyLt
-KpLovB7fS1HlotKSVbvmXIRN5Jpfd6Wrkww</pre></div></div></div>
+xVDAwOjAwOjAwWiIsIm5hbWUiOiJFeGFtcGxlIFVuaXZlcnNpdHkgRGVncmVlIiwiY3JlZGVudGlhbFN
+1YmplY3QiOnsiaWQiOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifSwiY3J
+lZGVudGlhbFNjaGVtYSI6W3siaWQiOiJodHRwczovL2ltc3VtMi5oZXJva3VhcHAuY29tL2pzb25zY2h
+lbWE_Y2xhc3NJZD1vcmcuMWVkdGVjaC5vYi52M3AwLmFjaGlldmVtZW50Y3JlZGVudGlhbC5jbGFzcyI
+sInR5cGUiOiJKc29uU2NoZW1hVmFsaWRhdG9yMjAxOSJ9XX0sImlzcyI6eyJpZCI6Imh0dHBzOi8vZXh
+hbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sIm5iZiI
+6MTI2MjMwNDAwMCwianRpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWI
+iOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.TsTO9aXIOKW05AyRdNP5
+B4X2CGCoiXtuKythF8MJs9T22rOwRkqhnwx-0-6B3YbMKBEJtKQCWZ7qBFipFGxvKKe_rCJ4YfhS4Zqe
+knt0yKhnCaZ1mRssTtR5PdB3Su60_AvGWyvVGUl76WznpAMQUgEv26wYYyTUWOWdxCjFHJwlGnNdIIBB
+C3Lh3KAptPKH1-YESWpW18TPkRGttwNcTQjIVR9QMpNJGJJ14651JMHQ3KW0gPjp0AP46t3CoCNCGMJX
+MNeioeZw6g-DSO2URl3rNbJeOwWpl_PSXs1bNItT7E_98VcZSfNUkek-92ketAUgW2ixy0uemK0AePkO
+ag</pre></div></div></div>
   </section>
   <section data-class="org.1edtech.ob.v3p0.achievementsubject.class" id="org.1edtech.ob.v3p0.achievementsubject.class"><h4 id="achievementsubject"><bdi class="secno">B.1.2 </bdi>AchievementSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.achievementsubject.class"></a><a class="self-link" aria-label="§" href="#achievementsubject"></a></h4><p>A collection of information about the recipient of an achievement. Maps to Credential Subject in [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>].</p><table class="simple">
         <thead>
@@ -8109,7 +8107,7 @@ KpLovB7fS1HlotKSVbvmXIRN5Jpfd6Wrkww</pre></div></div></div>
       </ul></section>
   <section class="appendix" id="issue-summary"><h2 id="e-issue-summary"><bdi class="secno">E. </bdi>Issue Summary<a class="self-link" aria-label="§" href="#issue-summary"></a></h2>
     <h1>Issue Summary</h1>
-  <ul><li><a href="#issue-container-number-1">Issue 1</a><span style="text-transform: none">: Invalid JSON</span></li><li><a href="#issue-container-number-2">Issue 2</a><span style="text-transform: none">: Verify the schema</span></li><li><a href="#issue-container-number-3">Issue 3</a><span style="text-transform: none">: Use credentialStatus to determine if the credential has been revoked</span></li><li><a href="#issue-container-number-4">Issue 4</a><span style="text-transform: none">: Should nested assertions be verified?</span></li><li><a href="#issue-container-number-5">Issue 5</a><span style="text-transform: none">: Invalid JSON</span></li></ul></section>
+  <ul><li><a href="#issue-container-number-1">Issue 1</a><span style="text-transform: none">: Verify the schema</span></li><li><a href="#issue-container-number-2">Issue 2</a><span style="text-transform: none">: Use credentialStatus to determine if the credential has been revoked</span></li><li><a href="#issue-container-number-3">Issue 3</a><span style="text-transform: none">: Should nested assertions be verified?</span></li></ul></section>
 
   <section id="history" class="appendix">
     <h2 id="f-revision-history"><bdi class="secno">F. </bdi>Revision History<a class="self-link" aria-label="§" href="#history"></a></h2>
