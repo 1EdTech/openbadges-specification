@@ -24,6 +24,7 @@ var docformat = `
       "name": "Example University"
     },
     "issuanceDate": "2010-01-01T00:00:00Z",
+    "name": "Example University Degree",
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
     },
