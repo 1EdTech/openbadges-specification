@@ -57,13 +57,13 @@ OpenBadgeCredentials may be exchanged as image files with the credential encoded
 
 ##### Baking {#png-baking}
 
-An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with **keyword** <code>openbadges</code>.
+An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with **keyword** <code>openbadgecredential</code>.
 
 If the credential is signed using the [[[#jwt-proof]]] (VC-JWT) the text value of the chunk MUST be the [=Compact JWS=] string formed as a result of signing the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) with VC-JWT. Compression MUST NOT be used.
 
 <pre class="js example" title="An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)">
   var chunk = new iTXt({
-    keyword: 'openbadges',
+    keyword: 'openbadgecredential',
     compression: 0,
     compressionMethod: 0,
     languageTag: '',
@@ -76,7 +76,7 @@ If an embedded proof method is used instead, the text value of the chunk MUST be
 
 <pre class="js example" title="An example of creating a chunk with embedded proof (assuming an iTXt constructor)">
   var chunk = new iTXt({
-    keyword: 'openbadges',
+    keyword: 'openbadgecredential',
     compression: 0,
     compressionMethod: 0,
     languageTag: '',
@@ -102,11 +102,11 @@ If an embedded proof method is used instead, the text value of the chunk MUST be
   })
 </pre>
 
-An iTXt chunk with the keyword <code>openbadges</code> MUST NOT appear in a PNG more than once. When baking an image that already contains credential data, the implementor may choose whether to pass the user an error or overwrite the existing chunk.
+An iTXt chunk with the keyword <code>openbadgecredential</code> MUST NOT appear in a PNG more than once. When baking an image that already contains credential data, the implementor may choose whether to pass the user an error or overwrite the existing chunk.
 
 ##### Extracting {#png-extracting}
 
-Parse the PNG datastream until the first <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> is found with the keyword <code>openbadges</code>. The rest of the stream can be safely discarded. The text portion of the iTXt will either be the JSON representation of a [[[#org.1edtech.ob.v3p0.achievementcredential.class]]] or the [=Compact JWS=] string that was the result of signing the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) with [[[#jwt-proof]]].
+Parse the PNG datastream until the first <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> is found with the keyword <code>openbadgecredential</code>. The rest of the stream can be safely discarded. The text portion of the iTXt will either be the JSON representation of a [[[#org.1edtech.ob.v3p0.achievementcredential.class]]] or the [=Compact JWS=] string that was the result of signing the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) with [[[#jwt-proof]]].
 
 #### SVG
 

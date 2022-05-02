@@ -11,7 +11,6 @@ var api = `
     [=Client=] and [=Resource Server=]. The API uses OAuth 2.0 for authentication and granular resource-based permission
     scopes. Please see the [[[OB-CERT-30]]] for a list of which endpoints must be implemented for certification.
   </p>
-
   <p>
     In addition to the documentation in this section, there are <a href="#docs-openapi">OpenAPI</a> files for the
     Open Badges API in both JSON and YAML format:
@@ -68,7 +67,7 @@ var api = `
       All secure endpoint requests MUST be made over secure TLS 1.2 or 1.3 protocol.
     </p>
     <p>
-      All of the Secure REST Endpoints endpoints are protected by OAuth 2.0 access tokens as described in
+      All of the Secure REST Endpoints are protected by OAuth 2.0 access tokens as described in
       [[[#api-security]]].
     </p>
 
@@ -87,15 +86,15 @@ var api = `
         <tr>
           <td><a href="#getcredentials">getCredentials</a></td>
           <td>
-            <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly</code> -
-            Permission to read assertions for the authenticated entity.
+            <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly</code> -
+            Permission to read OpenBadgeCredentials for the authenticated entity.
           </td>
         </tr>
         <tr>
           <td><a href="#postcredential">postCredential</a></td>
           <td>
-            <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.create</code> -
-            Permission to create assertions for the authenticated entity.
+            <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create</code> -
+            Permission to create OpenBadgeCredentials for the authenticated entity.
           </td>
         </tr>
         <tr>
@@ -205,182 +204,159 @@ var api = `
     </section>
   </section>
 
-  <section>
-    <h2>Unsecured Endpoints</h2>
-
+  <section id="discovery-endpoints" data-interface="org.1edtech.ob.v3p0.rest.discovery.interface" title="Service Discovery Endpoint">
     <p>
-      All unsecured endpoint requests MUST be made over secure TLS 1.2 or 1.3 protocol.
+      Access to the discovery endpoint MUST NOT be protected. The Service Description Document (SDD) MUST be provided over HTTPS with TLS 1.2 or 1.3.
     </p>
-
-    <!-- getManifest -->
-    <section>
-      <h3 id="getmanifest">getManifest</h3>
-      <p>
-        Fetch the service discovery document from the [=resource server=].
-      </p>
-
-      <h4 id="getprofile-request">Request Format</h4>
-
-      <p><code>GET {baseUrl}/ims/ob/v3p0/discovery</code></p>
-      <table class="simple">
-        <thead>
-          <tr>
-            <th>URL Parameter</th>
-            <th>Parameter Type</th>
-            <th>Description</th>
-            <th>Required</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>baseUrl</code></td>
-            <td><a href="#org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
-            <td>The HTTP scheme (which MUST be "https"), domain name, and any other path
-              elements required by the [=resource server=] (e.g. "https://example.edu/tenant").
-            </td>
-            <td>Required</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h4>Request Headers</h4>
-
-      <table class="simple">
-        <thead>
-          <tr>
-            <th>Request Header</th>
-            <th>Description</th>
-            <th>Required</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>Accept: application/json</code></td>
-            <td>
-              If the content type <code>application/json</code> is not not included in the <code>Accept</code>
-              header, the [=resource server=] MUST respond with 406 Not Acceptable.
-            </td>
-            <td>Required</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h4>Request Payload</h4>
-
-      <p>There is no request payload.</p>
-
-      <h4>Sample Request</h4>
-
-      <pre class="http example" title="Sample request for a service description document">
-        GET {tenant}/ims/ob/v3p0/discovery HTTP/1.1
+    <section data-operation="org.1edtech.ob.v3p0.rest.getservicedescription.operation">
+      <pre class="html example" title="Sample getServiceDescription request">
+        GET /ims/ob/v3p0/discovery HTTP/1.1
         Host: example.edu
         Accept: application/json
       </pre>
-
-      <h4 id="getprofile-responses">Responses</h4>
-
-      <table class="simple">
-        <thead>
-          <tr>
-            <th>HTTP Status Code</th>
-            <th>Payload Type</th>
-            <th>Description</th>
-            <th>Payload Required</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>200</td>
-            <td>Service Discovery Document</td>
-            <td>&#39;OK&#39; - The service discovery document.</td>
-            <td>Required</td>
-          </tr>
-          <tr>
-            <td>400</td>
-            <td><a href="#org.1edtech.ob.v3p0.imsx_statusinfo.class">Imsx_StatusInfo</a></td>
-            <td>
-              &#39;Bad Request&#39; - The request was invalid or cannot be served. The exact error should be explained
-              in the response payload.
-            </td>
-            <td>Required</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h4>Response Headers</h4>
-
-      <table class="simple">
-        <thead>
-          <tr>
-            <th>Response Header</th>
-            <th>Description</th>
-            <th>Required</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>Content-Type: application/json</code></td>
-            <td>The content type MUST be <code>application/json</code>.</td>
-            <td>Required</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h4>Sample Response</h4>
-
-      <pre class="http example" title="Sample response with a Service Discovery Document">
+      <pre class="http example" title="Sample getServiceDescription response">
         HTTP/1.1 200 OK
-        Content-Type: application/json; charset=utf-8
+        Content-Type: application/json
         
         ...
-        "info": {
-          "x-imssf-image": "https://example.edu/logo",
-          "x-imssf-privacyPolicy": "https://example.edu/privacy",
-          "title": "Example",
-          "termsOfService": "https://example.edu/tos",
-          ...
-        },
-        ...
         "components": {
-          "securitySchemes": {
-            "OAuth2ACG": {
-              "type": "oauth2",
-              "description": "OAuth 2.0 Authorization Code Grant authorization",
-              "x-imssf-registrationUrl": "example.edu/registration",
-              "flows": {
-                "authorizationCode": {
-                  "tokenUrl": "example.edu/token",
-                  "authorizationUrl": "example.edu/authorize",
-                  "refreshUrl": "example.edu/token",
-                  "scopes": {
-                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.update" : "...",
-                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly" : "...",
-                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly" : "...",
-                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update" : "..."
-                  }
+            "securitySchemes": {
+                "OAuth2CCG": {
+                    "type": "oauth2",
+                    "description": "OAuth 2.0 Client Credentials authorization",
+                    "x-imssf-name": "Example Provider",
+                    "x-imssf-privacyPolicyUrl": "provider.example.com/privacy",
+                    "x-imssf-registrationUrl": "provider.example.com/registration",
+                    "x-imssf-termsOfServiceUrl": "provider.example.com/terms",
+                    "flows": {
+                        "clientCredentials": {
+                            "tokenUrl": "provider.example.com/token",
+                            "scopes": {
+                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/delete" : "...",
+                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/readonly" : "...",
+                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/replace" : "..."
+                            }
+                        }
+                    }
+                },
+                "OAuth2ACG": {
+                    "type": "oauth2",
+                    "description": "OAuth 2.0 Authorization Code Grant authorization",
+                    "x-imssf-name": "Example Provider",
+                    "x-imssf-privacyPolicyUrl": "provider.example.com/privacy",
+                    "x-imssf-registrationUrl": "provider.example.com/registration",
+                    "x-imssf-termsOfServiceUrl": "provider.example.com/terms",
+                    "flows": {
+                        "authorizationCode": {
+                            "tokenUrl": "provider.example.com/token",
+                            "authorizationUrl": "provider.example.com/authorize",
+                            "refreshUrl": "provider.example.com/token",
+                            "scopes": {
+                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/delete" : "...",
+                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/readonly" : "...",
+                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/replace" : "..."
+                            }
+                        }
+                    }
                 }
-              }
+            },
+            "schemas": {
+                ...
             }
-          },
-          "schemas": {
-            ...
-          }
         }
         ...
       </pre>
     </section>
-
+  </section>
+  
+  <section id="paging">
+    <h5>Paging</h5>
+    <p>
+      Pagination of <code>getCredentials</code> results is controlled by two query string parameters appended to the request.
+      The response includes the following pagination headers.
+    </p>
+    <table class="simple">
+      <thead>
+        <tr>
+          <th>Response Header</th>
+          <th>Description</th>
+          <th>Required</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>Content-Type: application/json</code>
+          </td>
+          <td>
+            The content type MUST be <code>application/json</code>.
+          </td>
+          <td>Required</td>
+        </tr>
+        <tr>
+          <td><code>X-Total-Count: &lt;total_count></code></td>
+          <td>
+            The [=resource server=] MUST include an <code>X-Total-Count</code> response header if the
+            total result count is known. If the total result count is not known, the total count header
+            MUST be ommitted.
+          </td>
+          <td>Conditionally Required for <code>200 OK</code> Response</td>
+        </tr>
+        <tr>
+          <td><code>Link: &lt;pagination_links&gt;</code></td>
+          <td>
+            The [=resource server=] MUST include a
+            <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link">Link</a></code>
+            response header if the list of credentials in the response is incomplete; and MAY include the
+            <code>Link</code> header if the response is complete.
+          </td>
+          <td>Conditionally Required for <code>200 OK</code> Response</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      If present, the <code>Link</code> header MUST support all of the following link relations
+      (<code>rel</code> values):
+    </p>
+    <table class="simple">
+      <thead>
+        <tr>
+          <th>Relation</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>next</td>
+          <td>The link relation for the immediate next page of results. This MUST appear when the current
+            list response is incomplete.</td>
+        </tr>
+        <tr>
+          <td>last</td>
+          <td>The link relation for the last page of results. This MUST always appear.</td>
+        </tr>
+        <tr>
+          <td>first</td>
+          <td>The link relation for the first page of results. This MUST always appear.</td>
+        </tr>
+        <tr>
+          <td>prev</td>
+          <td>The link relation for the immediate previous page of results. This MUST appear when the
+            offset is greater than zero.</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
-  <section>
+  <section id="retry-behavior">
     <h2>Retry Behavior</h2>
     <p>
-      Receivers of requests MAY implement a <code>Retry-After</code> header to indicate a period of time to wait before
+      [=Resource Servers=] MAY implement a <code>Retry-After</code> header to indicate a period of time to wait before
       attempting the request again.
     </p>
     <p>
       If no <code>Retry-After</code> header is present and the response is non-2XX, it is recommended to retry the
-      request in 30 minutes for an additional two attempts. After which, it MAY be desirable to alert the recipient that
+      request in 30 minutes for an additional two attempts. After which, it MAY be desirable to alert the [=user=] that
       there is an issue with the connection (e.g. perhaps they need to reauthenticate or manually trigger the request
       when they believe services are back up).
     </p>
