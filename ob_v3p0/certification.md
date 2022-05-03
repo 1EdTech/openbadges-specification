@@ -31,7 +31,7 @@ After IMS reviews your submitted information and notifies you that your applicat
 
 ### Open Badges 3.0 Issuer Service Conformance {#issuer-conformance}
 
-A Open Badges **Issuer** is an application that allows for the creation of <a href="#achievement">Achievements</a> and the subsequent delivery of <a href="#achievementcredential">AchievementCredentials</a> to recipients that conform to the Open Badges Specification. The candidate platform must issue a valid baked badge and demonstrate how the badge is retrieved by the recipient. The candidate platform must also meet Service Consumer (Write) requirements and can send an AchievementCredential or a Profile to a product that conforms to Service Provider (Write) requirements.
+A Open Badges **Issuer** is an application that allows for the creation of OpenBadgeCredentials and the subsequent delivery of OpenBadgeCredentials to recipients that conform to the Open Badges Specification. The candidate platform must issue a valid baked badge and demonstrate how the badge is retrieved by the recipient. The candidate platform must also meet Service Consumer (Write) requirements and can send an AchievementCredential or a Profile to a product that conforms to Service Provider (Write) requirements.
 
 #### Tests {#issuer-tests}
 
@@ -51,7 +51,7 @@ An Open Badges Displayer is an application that displays and verifies badges for
 
 ### Open Badges 3.0 Host Service Conformance {#host-conformance}
 
-An Open Badges **Host** is an application that can aggregate and publicly host Assertions for recipients. It also supports export of badges at user request. The candidate platform must be able to import all formats of Open Badges as well as prove that badge metadata is not lost upon export of the badge. The candidate platform must also meet [[[#service-provider-write]]] requirements and accept an AchievementCredential or a Profile from an Issuer application. And meet [[[#service-consumer-read]]] and [[[#service-provider-read]]] requirements for exchanging AchievementCredentials with other Host applications.
+An Open Badges **Host** is an application that can aggregate and publicly host OpenBadgeCredential for recipients. It also supports export of badges at user request. The candidate platform must be able to import all formats of Open Badges as well as prove that badge metadata is not lost upon export of the badge. The candidate platform must also meet [[[#service-provider-write]]] requirements and accept an AchievementCredential or a Profile from an Issuer application. And meet [[[#service-consumer-read]]] and [[[#service-provider-read]]] requirements for exchanging AchievementCredentials with other Host applications.
 
 #### Tests {#tests-host}
 
@@ -60,10 +60,6 @@ An Open Badges **Host** is an application that can aggregate and publicly host A
 1. Complete [[[#service-provider-write]]].
 1. Complete [[[#service-consumer-read]]].
 1. Complete [[[#service-provider-read]]].
-
-<div class="note">
-    At least one of the credential subject's identifiers in these badges MUST be <code>conformance@imsglobal.org</code>.
-</div>
 
 <table class="simple">
  <tr>
@@ -180,7 +176,7 @@ The functional capabilities of such systems are:
 
 ## Service Provider (Write) Conformance {#service-provider-write}
 
-A product that conforms to Service Provider (Write) requirements can accept an Assertion or a Profile from a product that conforms to Service Consumer (Write) requirements.
+A product that conforms to Service Provider (Write) requirements can accept an OpenBadgeCredential or a Profile from a product that conforms to Service Consumer (Write) requirements.
 
 ### Required Service Provider (Write) Endpoint Support
 
