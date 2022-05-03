@@ -8,7 +8,7 @@ Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/
 
 Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Badges API Service Model."
 
-    Interface OpenBadgeCredentials                                  "Endpoints" "The Open Badges API REST endpoints."
+    Interface OpenBadgeCredentials                                  "These endpoints are used to exchange OpenBadgeCredentials and Profile information."
 
         Operation getCredentials GET /credentials                   "Get issued OpenBadgeCredentials from the [=resource server=] for the supplied parameters and access token."
             Param limit in Query PositiveInteger 0..1               "The maximum number of OpenBadgeCredentials to return per page."
