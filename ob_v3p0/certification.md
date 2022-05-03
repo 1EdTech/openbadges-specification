@@ -62,10 +62,10 @@ An Open Badges **Host** is an application that can aggregate and publicly host A
 1. Complete [[[#service-provider-read]]].
 
 <div class="note">
-    The recipient identity in these badges is <code>conformance@imsglobal.org</code>.
+    At least one of the credential subject's identifiers in these badges MUST be <code>conformance@imsglobal.org</code>.
 </div>
 
-<table class="data">
+<table class="simple">
  <tr>
   <th>Required Badge Format</th>
   <th>Use this resource for the demonstrations</th>
@@ -82,7 +82,7 @@ An Open Badges **Host** is an application that can aggregate and publicly host A
   <a href="https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.svg">https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.svg</a></td>
  </tr>
  <tr>
-  <td>Assertion URL</td>
+  <td>Badge URL</td>
   <td><a href="https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.jws">https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.jws</a></td>
  </tr>
 </table>
@@ -97,11 +97,11 @@ The service endpoints that MUST be supported for Service Consumer (Read) are lis
 
 Service Call | Endpoint | HTTP Verb | Mode | Authorization<br />Required
 ------------ | -------- | --------- | ---- | ---------------------------
-getManifest | as configured | GET | Initiate | No
-OAuth 2.0 Registration | from manifest | GET | Initiate | No
-OAuth 2.0 Authorize | from manifest | GET | Initiate | No
-OAuth 2.0 Token | from manifest | POST | Initiate | No
-getAssertions | \`/ims/ob/v3p0/assertions\` | GET | Initiate | Yes
+getServiceDescription | \`/ims/ob/v3p0/discovery\` | GET | Initiate | No
+OAuth 2.0 Registration | from Service Discovery Document (SDD) | GET | Initiate | No
+OAuth 2.0 Authorize | from SDD | GET | Initiate | No
+OAuth 2.0 Token | from SDD | POST | Initiate | No
+getCredentials | \`/ims/ob/v3p0/credentials\` | GET | Initiate | Yes
 getProfile | \`/ims/ob/v3p0/profile\` | GET | Initiate | Yes
 
 ### Service Consumer (Read) Compliance
@@ -117,7 +117,7 @@ The functional capabilities of such systems are:
 
 ## Service Consumer (Write) Conformance {#service-consumer-write}
 
-A product that conforms to Service Consumer (Write) requirements can send an Assertion or a Profile to a product that conforms to Service Provider (Write) requirements.
+A product that conforms to Service Consumer (Write) requirements can send an OpenBadgeCredential or a Profile to a product that conforms to Service Provider (Write) requirements.
 
 ### Required Service Consumer (Write) Endpoint Support
 
@@ -125,11 +125,11 @@ The service endpoints that MUST be supported for Service Consumer (Write) are li
 
 Service Call | Endpoint | HTTP Verb | Mode | Authorization<br />Required
 ------------ | -------- | --------- | ---- | ---------------------------
-getManifest | as configured | GET | Initiate | No
-OAuth 2.0 Registration | from manifest | GET | Initiate | No
-OAuth 2.0 Authorize | from manifest | GET | Initiate | No
-OAuth 2.0 Token | from manifest | POST | Initiate | No
-postAssertion | \`/ims/ob/v3p0/assertions\` | POST | Initiate | Yes
+getServiceDescription | \`/ims/ob/v3p0/discovery\` | GET | Initiate | No
+OAuth 2.0 Registration | from Service Discovery Document (SDD) | GET | Initiate | No
+OAuth 2.0 Authorize | from SDD | GET | Initiate | No
+OAuth 2.0 Token | from SDD | POST | Initiate | No
+postCredential | \`/ims/ob/v3p0/credentials\` | POST | Initiate | Yes
 
 ### Optional Service Consumer (Write) Endpoint Support
 
@@ -160,11 +160,11 @@ The service endpoints that MUST be supported for Service Provider (Read) are lis
 
 Service Call | Endpoint | HTTP Verb | Mode | Authorization<br />Required
 ------------ | -------- | --------- | ---- | ---------------------------
-getManifest | as configured | GET | Respond | No
-OAuth 2.0 Registration | from manifest | Respond | Respond | No
-OAuth 2.0 Authorize | from manifest | GET | Respond | No
-OAuth 2.0 Token | from manifest | POST | Respond | No
-getAssertions | \`/ims/ob/v3p0/assertions\` | GET | Respond | Yes
+getServiceDescription | \`/ims/ob/v3p0/discovery\` | GET | Initiate | No
+OAuth 2.0 Registration | from Service Discovery Document (SDD) | GET | Initiate | No
+OAuth 2.0 Authorize | from SDD | GET | Initiate | No
+OAuth 2.0 Token | from SDD | POST | Initiate | No
+getCredentials | \`/ims/ob/v3p0/credentials\` | GET | Respond | Yes
 getProfile | \`/ims/ob/v3p0/profile\` | GET | Respond | Yes
 
 ### Service Provider (Read) Compliance
@@ -188,11 +188,11 @@ The service endpoints that MUST be supported for Service Provider (Write) are li
 
 Service Call | Endpoint | HTTP Verb | Mode | Authorization<br />Required
 ------------ | -------- | --------- | ---- | ---------------------------
-getManifest | as configured | GET | Respond | No
-OAuth 2.0 Registration | from manifest | GET | Respond | No
-OAuth 2.0 Authorize | from manifest | GET | Respond | No
-OAuth 2.0 Token | from manifest | POST | Respond | No
-postAssertion | \`/ims/ob/v3p0/assertions\` | POST | Respond | Yes
+getServiceDescription | \`/ims/ob/v3p0/discovery\` | GET | Initiate | No
+OAuth 2.0 Registration | from Service Discovery Document (SDD) | GET | Initiate | No
+OAuth 2.0 Authorize | from SDD | GET | Initiate | No
+OAuth 2.0 Token | from SDD | POST | Initiate | No
+postCredential | \`/ims/ob/v3p0/credentials\` | POST | Respond | Yes
 
 ### Optional Service Provider (Write) Endpoint Support
 
