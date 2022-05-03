@@ -11,7 +11,7 @@ The data model can be encoded in Javascript Object Notation (JSON) [[RFC8259]] b
 - Numeric values representable as [[IEEE-754]] MUST be represented as a Number type.
 - Boolean values MUST be represented as a Boolean type.
 - Sequence values MUST be represented as an Array type, NOT as a single value.
-- Unordered sets (i.e. `0..*` and `1..*` multiplicities) of values MUST be represented as an Array type, NOT as a single value.
+- Unordered sets (i.e. \`0..*\` and \`1..*\` multiplicities) of values MUST be represented as an Array type, NOT as a single value.
 - Sets of properties MUST be represented as an Object type, NOT as a URI.
 - Other values MUST be represented as a String type.
 - Null values and empty arrays MUST be ommitted from the serialized JSON. This includes empty Arrays.
