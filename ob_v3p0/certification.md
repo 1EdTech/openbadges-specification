@@ -160,10 +160,10 @@ The service endpoints that MUST be supported for Service Provider (Read) are lis
 
 Service Call | Endpoint | HTTP Verb | Mode | Authorization<br />Required
 ------------ | -------- | --------- | ---- | ---------------------------
-getServiceDescription | \`/ims/ob/v3p0/discovery\` | GET | Initiate | No
-OAuth 2.0 Registration | from Service Discovery Document (SDD) | GET | Initiate | No
-OAuth 2.0 Authorize | from SDD | GET | Initiate | No
-OAuth 2.0 Token | from SDD | POST | Initiate | No
+getServiceDescription | \`/ims/ob/v3p0/discovery\` | GET | Respond | No
+OAuth 2.0 Registration | from Service Discovery Document (SDD) | GET | Respond | No
+OAuth 2.0 Authorize | from SDD | GET | Respond | No
+OAuth 2.0 Token | from SDD | POST | Respond | No
 getCredentials | \`/ims/ob/v3p0/credentials\` | GET | Respond | Yes
 getProfile | \`/ims/ob/v3p0/profile\` | GET | Respond | Yes
 
@@ -188,10 +188,10 @@ The service endpoints that MUST be supported for Service Provider (Write) are li
 
 Service Call | Endpoint | HTTP Verb | Mode | Authorization<br />Required
 ------------ | -------- | --------- | ---- | ---------------------------
-getServiceDescription | \`/ims/ob/v3p0/discovery\` | GET | Initiate | No
-OAuth 2.0 Registration | from Service Discovery Document (SDD) | GET | Initiate | No
-OAuth 2.0 Authorize | from SDD | GET | Initiate | No
-OAuth 2.0 Token | from SDD | POST | Initiate | No
+getServiceDescription | \`/ims/ob/v3p0/discovery\` | GET | Respond | No
+OAuth 2.0 Registration | from Service Discovery Document (SDD) | GET | Respond | No
+OAuth 2.0 Authorize | from SDD | GET | Respond | No
+OAuth 2.0 Token | from SDD | POST | Respond | No
 postCredential | \`/ims/ob/v3p0/credentials\` | POST | Respond | Yes
 
 ### Optional Service Provider (Write) Endpoint Support
