@@ -43,9 +43,9 @@ If an embedded proof method is used instead, the contents of the file MUST be th
 
 ### Web Resource
 
-If the credential is signed using the [[[#jwt-proof]]] (VC-JWT) the contents of the response MUST be the [=Compact JWS=] string formed as a result of signing the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) with VC-JWT. The <code>Content-Type</code> SHOULD be <code>text/plain</code>.
+If the credential is signed using the [[[#jwt-proof]]] (VC-JWT) the contents of the response MUST be the [=Compact JWS=] string formed as a result of signing the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) with VC-JWT. The \`Content-Type\` SHOULD be \`text/plain\`.
 
-If an embedded proof method is used instead, the contents of the response MUST be the JSON representation of the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class). The <code>Content-Type</code> SHOULD be <code>application/json</code> or <code>application/ld+json</code>.
+If an embedded proof method is used instead, the contents of the response MUST be the JSON representation of the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class). The \`Content-Type\` SHOULD be \`application/json\` or \`application/ld+json\`.
 
 ### Baked Badge
 
@@ -57,7 +57,7 @@ OpenBadgeCredentials may be exchanged as image files with the credential encoded
 
 ##### Baking {#png-baking}
 
-An [\`iTXt\`](http://www.w3.org/TR/PNG/#11iTXt) chunk should be inserted into the PNG with **keyword** <code>openbadgecredential</code>.
+An [\`iTXt\`](http://www.w3.org/TR/PNG/#11iTXt) chunk should be inserted into the PNG with **keyword** \`openbadgecredential\`.
 
 If the credential is signed using the [[[#jwt-proof]]] (VC-JWT) the text value of the chunk MUST be the [=Compact JWS=] string formed as a result of signing the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) with VC-JWT. Compression MUST NOT be used.
 
@@ -102,19 +102,19 @@ If an embedded proof method is used instead, the text value of the chunk MUST be
   })
 </pre>
 
-An iTXt chunk with the keyword <code>openbadgecredential</code> MUST NOT appear in a PNG more than once. When baking an image that already contains credential data, the implementor may choose whether to pass the user an error or overwrite the existing chunk.
+An iTXt chunk with the keyword \`openbadgecredential\` MUST NOT appear in a PNG more than once. When baking an image that already contains credential data, the implementor may choose whether to pass the user an error or overwrite the existing chunk.
 
 ##### Extracting {#png-extracting}
 
-Parse the PNG datastream until the first [\`iTXt\`](http://www.w3.org/TR/PNG/#11iTXt) chunk is found with the keyword <code>openbadgecredential</code>. The rest of the stream can be safely discarded. The text portion of the iTXt will either be the JSON representation of a [[[#org.1edtech.ob.v3p0.achievementcredential.class]]] or the [=Compact JWS=] string that was the result of signing the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) with [[[#jwt-proof]]].
+Parse the PNG datastream until the first [\`iTXt\`](http://www.w3.org/TR/PNG/#11iTXt) chunk is found with the keyword \`openbadgecredential\`. The rest of the stream can be safely discarded. The text portion of the iTXt will either be the JSON representation of a [[[#org.1edtech.ob.v3p0.achievementcredential.class]]] or the [=Compact JWS=] string that was the result of signing the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) with [[[#jwt-proof]]].
 
 #### SVG
 
 ##### Baking {#svg-baking}
 
-First, add an <code>xmlns:openbadges</code> attribute to the <code>&lt;svg></code> tag with the value "https://purl.imsglobal.org/ob/v3p0". Directly after the <code>&lt;svg></code> tag, add an <code>&lt;openbadges:credential></code> tag.
+First, add an \`xmlns:openbadges\` attribute to the <code>&lt;svg></code> tag with the value "https://purl.imsglobal.org/ob/v3p0". Directly after the <code>&lt;svg></code> tag, add an <code>&lt;openbadges:credential></code> tag.
 
-If the credential is signed using the [[[#jwt-proof]]] (VC-JWT) add a <code>verify</code> attribute to the <code>&lt;openbadges:credential></code> tag. The value of <code>verify</code> attribute MUST be the [=Compact JWS=] string formed as a result of signing the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) with VC-JWT.
+If the credential is signed using the [[[#jwt-proof]]] (VC-JWT) add a \`verify\` attribute to the <code>&lt;openbadges:credential></code> tag. The value of \`verify\` attribute MUST be the [=Compact JWS=] string formed as a result of signing the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) with VC-JWT.
 
 <pre class="xml example" title="An example of a well baked SVG with VC-JWT proof">
   &lt;?xml version="1.0" encoding="UTF-8"?>
@@ -127,7 +127,7 @@ If the credential is signed using the [[[#jwt-proof]]] (VC-JWT) add a <code>veri
   &lt;/svg>
 </pre>
 
-If an embedded proof method is used instead, omit the <code>verify</code> attribute, and the JSON representation of the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) MUST go into the body of the tag, wrapped in <code>&lt;![CDATA[...]]></code>.
+If an embedded proof method is used instead, omit the \`verify\` attribute, and the JSON representation of the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) MUST go into the body of the tag, wrapped in <code>&lt;![CDATA[...]]></code>.
 
 <pre class="xml example" title="An example of a well baked SVG with embedded proof">
   &lt;?xml version="1.0" encoding="UTF-8"?>

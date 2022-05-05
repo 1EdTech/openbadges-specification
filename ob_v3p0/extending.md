@@ -34,8 +34,8 @@ The extension SHOULD be documented with the following artifacts:
 
 To use the extension implementers MUST do the following:
 
-- Include the JSON-LD Context file URL in the <code>@context</code> property. See [Serialization](#serialization).
-- Include the JSON Schema file URL in the <code>credentialSchema</code> property.
+- Include the JSON-LD Context file URL in the \`@context\` property. See [Serialization](#serialization).
+- Include the JSON Schema file URL in the \`credentialSchema\` property.
 
 ### Extending Enumerated Vocabularies
 
@@ -52,7 +52,7 @@ The extended terms SHOULD be documented with the following artifacts:
 
 To use the extended vocabulary implementers MAY do the following:
 
-- Include the JSON-LD Context file URL in the <code>@context</code> property. See [Serialization](#serialization).
+- Include the JSON-LD Context file URL in the \`@context\` property. See [Serialization](#serialization).
 
 ### Extending the API
 

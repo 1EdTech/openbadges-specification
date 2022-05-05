@@ -47,7 +47,7 @@ The JOSE Header, JWT Payload, and JWS Signature are combined to form a Compact J
 
 The resulting [=JWS=] proves that the [=issuer=] or [=holder=] signed the [=JWT Payload=] turning the [=credential=] or [=presentation=] into a [=verifiable credential=] or [=verifiable presentation=].
 
-When using the JSON Web Token Proof Format, the <code>proof</code> property MAY be ommitted from the [OpenBadgeCredential](#achievementcredential) or [VerifiablePresentation](#verifiablepresentation). If a Linked Data Proof is also provided, it MUST be created before the JSON Web Token Proof Format is created.
+When using the JSON Web Token Proof Format, the \`proof\` property MAY be ommitted from the [OpenBadgeCredential](#achievementcredential) or [VerifiablePresentation](#verifiablepresentation). If a Linked Data Proof is also provided, it MUST be created before the JSON Web Token Proof Format is created.
 
 #### Create the JOSE Header {#joseheader}
 
@@ -113,8 +113,8 @@ The JSON Web Token Proof for each nested credential MUST be created prior to cre
 
 The JWT Payload is a JSON object with the following properties (JWT Claims). In addition to the standard JWT Claims [[RFC7519]], the [[[VC-DATA-MODEL]]] specification registered two new JWT Claim Names:
 
-- <code>vc</code>: A JSON object which contains the [=verifiable credential=] to be signed. In this specification, that credential MUST be an [OpenBadgeCredential](#achievementcredential) object.
-- <code>vp</code>: A JSON object which contains the [=verifiable presentation=] to be signed. In this specification, that presentation MUST be a [PresentationJwsPayload](#presentationjwspayload) object.
+- \`vc\`: A JSON object which contains the [=verifiable credential=] to be signed. In this specification, that credential MUST be an [OpenBadgeCredential](#achievementcredential) object.
+- \`vp\`: A JSON object which contains the [=verifiable presentation=] to be signed. In this specification, that presentation MUST be a [PresentationJwsPayload](#presentationjwspayload) object.
 
 Additional standard JWT Claims Names are allowed, but their relationship to the credential or presentation is not defined.
 
@@ -136,21 +136,21 @@ Additional standard JWT Claims Names are allowed, but their relationship to the 
 
 This section uses the follow notations:
 
-- <code>JOSE Header</code> - denotes the JSON string representation of the JOSE Header.
-- <code>JWT Payload</code> - denotes the JSON string representation of the JWT Payload.
-- <code>BASE64URL(OCTETS)</code> - denotes the base64url encoding of OCTETS per [[RFC7515]].
-- <code>UTF8(STRING)</code> - denotes the octets of the UTF-8 [[RFC3629]] representation of STRING, where STRING is a sequence of Unicode [[UNICODE]] characters.
-- The concatenation of two values A and B is denoted as <code>A || B</code>.
+- \`JOSE Header\` - denotes the JSON string representation of the JOSE Header.
+- \`JWT Payload\` - denotes the JSON string representation of the JWT Payload.
+- \`BASE64URL(OCTETS)\` - denotes the base64url encoding of OCTETS per [[RFC7515]].
+- \`UTF8(STRING)\` - denotes the octets of the UTF-8 [[RFC3629]] representation of STRING, where STRING is a sequence of Unicode [[UNICODE]] characters.
+- The concatenation of two values A and B is denoted as \`A || B\`.
 
 The steps to sign and encode the credential or presentation as a Compact JWS are shown below:
 
 <ol>
-  <li type="A">Encode the JOSE Header as <code>BASE64URL(UTF8(JOSE Header))</code>.</li>
-  <li type="A">Encode the JWT Payload as <code>BASE64URL(JWT Payload)</code>.</li>
-  <li type="A">Concatenate the encoded JOSE Header and the encoded JSW Payload as <code>A | "." | B</code>.</li>
-  <li type="A">Calculate the <code>JWS Signature</code> for <code>C</code> as described in [[RFC7515]].</li>
-  <li type="A">Encode the signature as <code>BASE64URL(JWS Signature)</code>.</li>
-  <li type="A">Concatenate <code>C</code> and <code>E</code> as <code>C | "." | E</code>.</li>
+  <li type="A">Encode the JOSE Header as \`BASE64URL(UTF8(JOSE Header))\`.</li>
+  <li type="A">Encode the JWT Payload as \`BASE64URL(JWT Payload)\`.</li>
+  <li type="A">Concatenate the encoded JOSE Header and the encoded JSW Payload as \`A | "." | B\`.</li>
+  <li type="A">Calculate the \`JWS Signature\` for \`C\` as described in [[RFC7515]].</li>
+  <li type="A">Encode the signature as \`BASE64URL(JWS Signature)\`.</li>
+  <li type="A">Concatenate \`C\` and \`E\` as \`C | "." | E\`.</li>
 </ol>
 
 The resulting string is the Compact JWS representation of the credential or presentation. The Compact JWS includes the credential or presentation AND acts as the proof for the credential or presentation.
@@ -159,33 +159,33 @@ The resulting string is the Compact JWS representation of the credential or pres
 
 Verifiers that receive an VerifiableCredential or VerifiablePresentation in Compact JWS format MUST perform the following steps to verify the embedded credential or presentation.
 
-1. Base64url-decode the JOSE Header and extract the <code>kid</code> property.
-1. [Dereference](#dereference) the <code>kid</code> value to retrieve the public key [JWK](#jwk).
+1. Base64url-decode the JOSE Header and extract the \`kid\` property.
+1. [Dereference](#dereference) the \`kid\` value to retrieve the public key [JWK](#jwk).
 1. Use the public key JWK to verify the signature as described in "Section 5.2 Message Signature or MAC Validation" of [[RFC7515]]. If the signature is not valid, the credential or presentation is not valid.
    <div class="note" title="Verifying the JWS Signature">
      <p>IMS strongly recommends using an existing, stable library for this step.</p>
    </div>
 1. Base64url-decode the JWT Payload segment of the Compact JWS and parse it into a JSON object.
-1. If the JSON object has a <code>vc</code> claim, convert the value of <code>vc</code> to an [OpenBadgeCredential](#achievementcredential) and continue with [[[#jwt-verify-credential]]].
-1. If the JSON object has a <code>vp</code> claim, convert the value of <code>vp</code> to a [PresentationJwsPayload](#presentationjwspayload) and continue with [[[#jwt-verify-presentation]]].
+1. If the JSON object has a \`vc\` claim, convert the value of \`vc\` to an [OpenBadgeCredential](#achievementcredential) and continue with [[[#jwt-verify-credential]]].
+1. If the JSON object has a \`vp\` claim, convert the value of \`vp\` to a [PresentationJwsPayload](#presentationjwspayload) and continue with [[[#jwt-verify-presentation]]].
 
 ##### Verify a Credential VC-JWT Signature {#jwt-verify-credential}
 
-- The JSON object MUST have the <code>iss</code> claim, and the value MUST match the <code>id</code> of the <code>issuer</code> of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
-- The JSON object MUST have the <code>sub</code> claim, and the value MUST match the <code>id</code> of the <code>credentialSubject</code> of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
-- The JSON object MUST have the <code>nbf</code> claim, and the [NumericDate](#numericdate) value MUST be converted to a [DateTime](#datetime), and MUST equal the <code>issuanceDate</code> of the [OpenBadgeCredential](#achievementcredential) object. If they do not match or if the <code>issuanceDate</code> has not yet occurred, the credential is not valid.
-- The JSON object MUST have the <code>jti</code> claim, and the value MUST match the <code>id</code> of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
-- If the JSON object has the <code>exp</code> claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime), and MUST be used to set the value of the <code>expirationDate</code> of the [OpenBadgeCredential](#achievementcredential) object. If the credential has expired, the credential is not valid.
+- The JSON object MUST have the \`iss\` claim, and the value MUST match the \`id\` of the \`issuer\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
+- The JSON object MUST have the \`sub\` claim, and the value MUST match the \`id\` of the \`credentialSubject\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
+- The JSON object MUST have the \`nbf\` claim, and the [NumericDate](#numericdate) value MUST be converted to a [DateTime](#datetime), and MUST equal the \`issuanceDate\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match or if the \`issuanceDate\` has not yet occurred, the credential is not valid.
+- The JSON object MUST have the \`jti\` claim, and the value MUST match the \`id\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
+- If the JSON object has the \`exp\` claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime), and MUST be used to set the value of the \`expirationDate\` of the [OpenBadgeCredential](#achievementcredential) object. If the credential has expired, the credential is not valid.
 - <div class="issue" title="Verify the schema"></div>
 - <div class="issue" title="Use credentialStatus to determine if the credential has been revoked"></div>
 - <div class="issue" title="Should nested assertions be verified?"></div>
 
 ##### Verify a Presentation VC-JWT Signature {#jwt-verify-presentation}
 
-- The JSON object MUST have the <code>iss</code> claim, and the value MUST match the <code>id</code> of the <code>holder</code> of the [PresentationJwsPayload](#presentationjwspayload) object. If they do not match, the presentation is not valid.
-- The JSON object MUST have the <code>nbf</code> claim, and the [NumericDate](#numericdate) value MUST be converted to a [DateTime](#datetime), and MUST equal the <code>issuanceDate</code> of the [PresentationJwsPayload](#presentationjwspayload) object. If they do not match or if the <code>issuanceDate</code> has not yet occurred, the presentation is not valid.
-- The JSON object MUST have the <code>jti</code> claim, and the value MUST match the <code>id</code> of the [PresentationJwsPayload](#presentationjwspayload) object. If they do not match, the presentation is not valid.
-- If the JSON object has the <code>exp</code> claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime), and MUST be used to set the value of the <code>expirationDate</code> of the [PresentationJwsPayload](#presentationjwspayload) object. If the presentation has expired, the presentation is not valid.
+- The JSON object MUST have the \`iss\` claim, and the value MUST match the \`id\` of the \`holder\` of the [PresentationJwsPayload](#presentationjwspayload) object. If they do not match, the presentation is not valid.
+- The JSON object MUST have the \`nbf\` claim, and the [NumericDate](#numericdate) value MUST be converted to a [DateTime](#datetime), and MUST equal the \`issuanceDate\` of the [PresentationJwsPayload](#presentationjwspayload) object. If they do not match or if the \`issuanceDate\` has not yet occurred, the presentation is not valid.
+- The JSON object MUST have the \`jti\` claim, and the value MUST match the \`id\` of the [PresentationJwsPayload](#presentationjwspayload) object. If they do not match, the presentation is not valid.
+- If the JSON object has the \`exp\` claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime), and MUST be used to set the value of the \`expirationDate\` of the [PresentationJwsPayload](#presentationjwspayload) object. If the presentation has expired, the presentation is not valid.
 
 ### Linked Data Proof Format {#lds-proof}
 
@@ -200,8 +200,8 @@ This standard supports the Linked Data Proof format using the [[[LDS-ED25519-202
 Perform these steps to attach a Linked Data Proof to the credential or presentation:
 
 1. Create an instance of [Ed25519VerificationKey2020](#ed25519verificationkey2020) as shown in [Section 3.1.1 Ed25519VerificationKey2020](https://w3c-ccg.github.io/lds-ed25519-2020/#ed25519verificationkey2020) of [[LDS-ED25519-2020]].
-1. Using the key material, sign the credential or presentation object as shown in [Section 7.1 Proof Algothim](https://w3c-ccg.github.io/data-integrity-spec/#proof-algorithm) of [[DATA-INTEGRITY-SPEC]] to produce a [Proof](#proof) as shown in [Section 3.2.1 Ed25519 Signature 2020](https://w3c-ccg.github.io/lds-ed25519-2020/#ed25519-signature-2020) with a <code>proofPurpose</code> of "assertionMethod".
-1. Add the resulting proof object to the credential's or presentation's <code>proof</code> property.
+1. Using the key material, sign the credential or presentation object as shown in [Section 7.1 Proof Algothim](https://w3c-ccg.github.io/data-integrity-spec/#proof-algorithm) of [[DATA-INTEGRITY-SPEC]] to produce a [Proof](#proof) as shown in [Section 3.2.1 Ed25519 Signature 2020](https://w3c-ccg.github.io/lds-ed25519-2020/#ed25519-signature-2020) with a \`proofPurpose\` of "assertionMethod".
+1. Add the resulting proof object to the credential's or presentation's \`proof\` property.
 
 #### Verify a CLR Credential or Presentation Linked Data Signature {#lds-verify}
 
@@ -216,6 +216,6 @@ Verify the Linked Data Proof signature as shown in [Section 7.2 Proof Verificati
 All the proof format in this specification, and all Digital Integrity proofs in general, require the [=verifier=] to "dereference" the public key from a URI. Dereferencing means using the URI to get the public key. There are two ways to derefence the key in this specification:
 
 - If the URI is a URL for a [=JWT=], the [=verifier=] uses HTTP GET to get the [=JWT=]
-- If the URI is a URL for a [=JWT=] within a JSON Web Key Set (JKWS), the [=verifier=] uses HTTP GET to get the JWKS, then extracts the [JWK](#jwk) with the matching <code>kid</code>
+- If the URI is a URL for a [=JWT=] within a JSON Web Key Set (JKWS), the [=verifier=] uses HTTP GET to get the JWKS, then extracts the [JWK](#jwk) with the matching \`kid\`
 
 `;

@@ -35,7 +35,7 @@ A Open Badges **Issuer** is an application that allows for the creation of OpenB
 
 #### Tests {#issuer-tests}
 
-1. Create a valid baked 3.0 badge and issue it to the recipient <code>conformance@imsglobal.org</code> and submit the issued badge to the conformance test system.
+1. Create a valid baked 3.0 badge and issue it to the recipient \`conformance@imsglobal.org\` and submit the issued badge to the conformance test system.
 1. Complete [[[#service-consumer-write]]].
 
 ### Open Badges 3.0 Displayer Service Conformance {#displayer-conformance}
