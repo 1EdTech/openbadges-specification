@@ -1938,11 +1938,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-05-05T15:02:06Z",
+    "created": "2022-05-05T15:45:25Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z3a7C31B3jhBUTFC6zpVX5Siw96djEg12iFRJ6ACaX82XfY9jHRahD6RZ2dfr
-keW35uq1S57CxgKhkupwVxBQi1F8"
+    "proofValue": "z5QQTMLepNg55G4okgFAZBYi2fsJCmae2ahXYURArU6NesV1jwCEztiFhs4iK
+A1CVbWLqW6JKBQT3QApbC8LhBmRy"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -2006,11 +2006,11 @@ jcmVkZW50aWFsLmNsYXNzIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDE5In1dfSwiaXNzIjp
 7ImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsInR5cGUiOiJQcm9maWxlIiw
 ibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSJ9LCJuYmYiOjEyNjIzMDQwMDAsImp0aSI6Imh0dHA6Ly9
 leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3ViIjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmV
-iYzZmMWMyNzZlMTJlYzIxIn0.LE_hPZ_z7SizLzxKDNyKnxTzBuNx8WhKcPdy6ehitxqQZK32j19PEhd
-3pktss2-NW9tTSiq7Mg3x7Zjjku3AWYiO-n7gltnUkYdyV0urFVjFsCg4rxKWumJfjxM5zBjw7Z3t_KF
-SKVYn15oyS-R2dQ7p_jd49cmeXn81MihOCvK7PEVnhg-Gqq8OkLtlQlwkshsmEINzSRWtqwVh2QO-oQJ
-OTyKR-5jScGihRcVSRsuuYjjm9oaUj2A5zoemXXIL31pFUKKu6PyoA_Glw2I01Lsi2hfHD2xi13-E7cl
-VwhChEsuQ_Jb7FaoH4-vHMKTzquRAD-aCzsAM4R5TB-a8XQ</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
+iYzZmMWMyNzZlMTJlYzIxIn0.a6WMDLMD2wYl7CN0RFBxHYxWgW_dWYWiDAYTr1Z6BV23Ia96WoTwwLt
+Cb7UznmlcP7j6NmH1RnVRBE1IGX05dfAs6ZCUyCc-mkQzaYK0gS-gULt2_B13t1F6pvXJ7tF2hN8aTF9
+D4GDKhqDhZ9ZeIlFlM5oLMijsg2bVDZa53KnEEMTRtBeLhuG2x9-Y-HGjaEkdlSn2AJ-jpmkfNba0ZAC
+8zw-mLUS4CD4YfKKowiLnOL0SRrPLxyQ00chx_UqZXt3wQYI8-VEHj-SJlACDDdcSktHX2f3puLgcZIy
+ptPaEZKm9jMhEGGIatCzqY-DRJSjwhhiNoz0g1ZkosGhwSg</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">Example<bdi> 2</bdi></a><span class="example-title">: An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)</span>
   </div> <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">var</span> chunk = <span class="hljs-keyword">new</span> iTXt({
@@ -2049,7 +2049,7 @@ VwhChEsuQ_Jb7FaoH4-vHMKTzquRAD-aCzsAM4R5TB-a8XQ</pre></div></div></div><section 
           "proof": { }
         }'
 })</code></pre>
-      </div><p>An iTXt chunk with the keyword <code>openbadgecredential</code> <em class="rfc2119">MUST NOT</em> appear in a PNG more than once. When baking an image that already contains credential data, the implementor may choose whether to pass the user an error or overwrite the existing chunk.</p></section><section id="extracting-0"><h5 id="png-extracting"><bdi class="secno">5.3.1.2 </bdi>Extracting<a class="self-link" aria-label="§" href="#png-extracting"></a><a class="self-link" aria-label="§" href="#png-extracting"></a></h5><p>Parse the PNG datastream until the first <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code> chunk</a> is found with the keyword <code>openbadgecredential</code>. The rest of the stream can be safely discarded. The text portion of the iTXt will either be the JSON representation of a <a href="#org.1edtech.ob.v3p0.achievementcredential.class" class="sec-ref">§&nbsp;<bdi class="secno">B.1.1 </bdi>AchievementCredential</a> or the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-4" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string that was the result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a>.</p></section></section><section id="svg-0"><h4 id="svg"><bdi class="secno">5.3.2 </bdi>SVG<a class="self-link" aria-label="§" href="#svg"></a><a class="self-link" aria-label="§" href="#svg"></a></h4><section id="baking-0"><h5 id="svg-baking"><bdi class="secno">5.3.2.1 </bdi>Baking<a class="self-link" aria-label="§" href="#svg-baking"></a><a class="self-link" aria-label="§" href="#svg-baking"></a></h5><p>First, add an <code>xmlns:openbadges</code> attribute to the <code>&lt;svg&gt;</code> tag with the value "<a href="https://purl.imsglobal.org/ob/v3p0&quot;">https://purl.imsglobal.org/ob/v3p0"</a>. Directly after the <code>&lt;svg&gt;</code> tag, add an <code>&lt;openbadges:credential&gt;</code> tag.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) add a <code>verify</code> attribute to the <code>&lt;openbadges:credential&gt;</code> tag. The value of <code>verify</code> attribute <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-5" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT.</p><div class="example" id="example-an-example-of-a-well-baked-svg-with-vc-jwt-proof">
+      </div><p>An iTXt chunk with the keyword <code>openbadgecredential</code> <em class="rfc2119">MUST NOT</em> appear in a PNG more than once. When baking an image that already contains credential data, the implementor may choose whether to pass the user an error or overwrite the existing chunk.</p></section><section id="extracting-0"><h5 id="png-extracting"><bdi class="secno">5.3.1.2 </bdi>Extracting<a class="self-link" aria-label="§" href="#png-extracting"></a><a class="self-link" aria-label="§" href="#png-extracting"></a></h5><p>Parse the PNG datastream until the first <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk is found with the keyword <code>openbadgecredential</code>. The rest of the stream can be safely discarded. The text portion of the iTXt will either be the JSON representation of a <a href="#org.1edtech.ob.v3p0.achievementcredential.class" class="sec-ref">§&nbsp;<bdi class="secno">B.1.1 </bdi>AchievementCredential</a> or the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-4" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string that was the result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a>.</p></section></section><section id="svg-0"><h4 id="svg"><bdi class="secno">5.3.2 </bdi>SVG<a class="self-link" aria-label="§" href="#svg"></a><a class="self-link" aria-label="§" href="#svg"></a></h4><section id="baking-0"><h5 id="svg-baking"><bdi class="secno">5.3.2.1 </bdi>Baking<a class="self-link" aria-label="§" href="#svg-baking"></a><a class="self-link" aria-label="§" href="#svg-baking"></a></h5><p>First, add an <code>xmlns:openbadges</code> attribute to the <code>&lt;svg&gt;</code> tag with the value "<a href="https://purl.imsglobal.org/ob/v3p0&quot;">https://purl.imsglobal.org/ob/v3p0"</a>. Directly after the <code>&lt;svg&gt;</code> tag, add an <code>&lt;openbadges:credential&gt;</code> tag.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) add a <code>verify</code> attribute to the <code>&lt;openbadges:credential&gt;</code> tag. The value of <code>verify</code> attribute <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-5" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT.</p><div class="example" id="example-an-example-of-a-well-baked-svg-with-vc-jwt-proof">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-a-well-baked-svg-with-vc-jwt-proof">Example<bdi> 4</bdi></a><span class="example-title">: An example of a well baked SVG with VC-JWT proof</span>
   </div> <pre aria-busy="false"><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
@@ -4054,44 +4054,34 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
 <li>Create the <a data-link-type="dfn" href="#dfn-jwt-payload" class="internalDFN" id="ref-for-dfn-jwt-payload-1" title="JWT Payload - The JSON object that will be signed. In this specification, the JWT Payload includes either the CLR Credential or CLR Presentation.">JWT Payload</a> from the <a data-link-type="dfn" href="#dfn-credential" class="internalDFN" id="ref-for-dfn-credential-4" title="Credential: A set of one or more claims made by an issuer. A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build verifiable presentations, which can also be cryptographically verified.">credential</a> or <a data-link-type="dfn" href="#dfn-presentation" class="internalDFN" id="ref-for-dfn-presentation-5" title="Presentation: Data derived from one or more verifiable credentials, issued by one or more [=issuers=, that is shared with a specific verifier. A verifiable presentation is a tamper-evident presentation encoded in such a way that authorship of the data can be trusted after a process of cryptographic verification.">presentation</a> to be signed</li>
 <li>Compute the signature of the <a data-link-type="dfn" href="#dfn-jwt-payload" class="internalDFN" id="ref-for-dfn-jwt-payload-2" title="JWT Payload - The JSON object that will be signed. In this specification, the JWT Payload includes either the CLR Credential or CLR Presentation.">JWT Payload</a></li>
 <li>Encode the resulting <a data-link-type="dfn" href="#dfn-jws" class="internalDFN" id="ref-for-dfn-jws-3" title="JWS - &quot;JSON Web Signature (JWS) represents content secured with digital signatures or Message Authentication Codes (MACs) using JSON-based data structures. Cryptographic algorithms and identifiers for use with this specification are described in the separate JSON Web Algorithms (JWA) specification and an IANA registry defined by that specification.&quot; [RFC7515]">JWS</a> as a <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-8" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a></li>
-</ol><p>The resulting <a data-link-type="dfn" href="#dfn-jws" class="internalDFN" id="ref-for-dfn-jws-4" title="JWS - &quot;JSON Web Signature (JWS) represents content secured with digital signatures or Message Authentication Codes (MACs) using JSON-based data structures. Cryptographic algorithms and identifiers for use with this specification are described in the separate JSON Web Algorithms (JWA) specification and an IANA registry defined by that specification.&quot; [RFC7515]">JWS</a> proves that the <a data-link-type="dfn" href="#dfn-issuer" class="internalDFN" id="ref-for-dfn-issuer-2" title="Issuer: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.">issuer</a> or <a data-link-type="dfn" href="#dfn-holder" class="internalDFN" id="ref-for-dfn-holder-3" title="Holder: The entity that makes a presentation. The holder may also be the issuer or subject of one or more credentials in the presentation.">holder</a> signed the <a data-link-type="dfn" href="#dfn-jwt-payload" class="internalDFN" id="ref-for-dfn-jwt-payload-3" title="JWT Payload - The JSON object that will be signed. In this specification, the JWT Payload includes either the CLR Credential or CLR Presentation.">JWT Payload</a> turning the <a data-link-type="dfn" href="#dfn-credential" class="internalDFN" id="ref-for-dfn-credential-5" title="Credential: A set of one or more claims made by an issuer. A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build verifiable presentations, which can also be cryptographically verified.">credential</a> or <a data-link-type="dfn" href="#dfn-presentation" class="internalDFN" id="ref-for-dfn-presentation-6" title="Presentation: Data derived from one or more verifiable credentials, issued by one or more [=issuers=, that is shared with a specific verifier. A verifiable presentation is a tamper-evident presentation encoded in such a way that authorship of the data can be trusted after a process of cryptographic verification.">presentation</a> into a <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-5" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credential</a> or <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-5" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">verifiable presentation</a>.</p><p>When using the JSON Web Token Proof Format, the <code>proof</code> property <em class="rfc2119">MAY</em> be ommitted from the <a href="#achievementcredential">OpenBadgeCredential</a> or <a href="#verifiablepresentation">VerifiablePresentation</a>. If a Linked Data Proof is also provided, it <em class="rfc2119">MUST</em> be created before the JSON Web Token Proof Format is created.</p></section><section id="create-the-jose-header"><h4 id="joseheader"><bdi class="secno">8.2.3 </bdi>Create the JOSE Header<a class="self-link" aria-label="§" href="#joseheader"></a><a class="self-link" aria-label="§" href="#joseheader"></a></h4><p>The <a data-link-type="dfn" href="#dfn-jose-header" class="internalDFN" id="ref-for-dfn-jose-header-2" title="JOSE Header - Describes the cryptographic operations applied to the JWT and optionally, additional properties of the JWT. [RFC7515]">JOSE Header</a> is a JSON object with the following properties (also called JOSE Headers). Additional JOSE Headers are NOT allowed.</p><table class="simple">
-  <thead>
-    <tr>
-      <th>Property/JOSE Header</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Required?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>alg</code></td>
-      <td><a href="#string">String</a></td>
-      <td>
-        The signing algorithm <em class="rfc2119">MUST</em> be "RS256" as a minimum as defined in [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7518" title="JSON Web Algorithms (JWA)">RFC7518</a></cite>]. Support for other algorithms is permitted but their use limits interoperability. Later versions of this specification <em class="rfc2119">MAY</em> add <em class="rfc2119">OPTIONAL</em> support for other algorithms. See Section 6.1 RSA Key of the <cite><a href="https://www.imsglobal.org/spec/security/v1p1/">IMS Global Security Framework v1.1</a></cite>.
-      </td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td><code>kid</code></td>
-      <td><a href="#uri">URI</a></td>
-      <td>
-        A URI that can be <a href="#dereference">dereferenced</a> to an object of type <a href="#jwk">JWK</a>.
-        <div class="advisement">
-          Be careful not to accidentally publish the JWK representation of a private key. See <a href="https://tools.ietf.org/html/rfc7517#appendix-A.2">rfc7517#appendix-A.2</a> for examples of private key representations. The <code>JWK</code> <em class="rfc2119">MUST</em> never contain <code>"d"</code>.
-        </div>
-      </td><td>
-        Required
-      </td>
-    </tr>
-    <tr>
-      <td><code>typ</code></td>
-      <td><a href="#string">String</a></td>
-      <td>If present, <em class="rfc2119">MUST</em> be set to "JWT".</td>
-      <td>Optional</td>
-    </tr>
-  </tbody>
-</table><div class="example" id="example-sample-jose-header-with-reference-to-a-public-key-in-a-jwks">
+</ol><p>The resulting <a data-link-type="dfn" href="#dfn-jws" class="internalDFN" id="ref-for-dfn-jws-4" title="JWS - &quot;JSON Web Signature (JWS) represents content secured with digital signatures or Message Authentication Codes (MACs) using JSON-based data structures. Cryptographic algorithms and identifiers for use with this specification are described in the separate JSON Web Algorithms (JWA) specification and an IANA registry defined by that specification.&quot; [RFC7515]">JWS</a> proves that the <a data-link-type="dfn" href="#dfn-issuer" class="internalDFN" id="ref-for-dfn-issuer-2" title="Issuer: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.">issuer</a> or <a data-link-type="dfn" href="#dfn-holder" class="internalDFN" id="ref-for-dfn-holder-3" title="Holder: The entity that makes a presentation. The holder may also be the issuer or subject of one or more credentials in the presentation.">holder</a> signed the <a data-link-type="dfn" href="#dfn-jwt-payload" class="internalDFN" id="ref-for-dfn-jwt-payload-3" title="JWT Payload - The JSON object that will be signed. In this specification, the JWT Payload includes either the CLR Credential or CLR Presentation.">JWT Payload</a> turning the <a data-link-type="dfn" href="#dfn-credential" class="internalDFN" id="ref-for-dfn-credential-5" title="Credential: A set of one or more claims made by an issuer. A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build verifiable presentations, which can also be cryptographically verified.">credential</a> or <a data-link-type="dfn" href="#dfn-presentation" class="internalDFN" id="ref-for-dfn-presentation-6" title="Presentation: Data derived from one or more verifiable credentials, issued by one or more [=issuers=, that is shared with a specific verifier. A verifiable presentation is a tamper-evident presentation encoded in such a way that authorship of the data can be trusted after a process of cryptographic verification.">presentation</a> into a <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-5" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credential</a> or <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-5" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">verifiable presentation</a>.</p><p>When using the JSON Web Token Proof Format, the <code>proof</code> property <em class="rfc2119">MAY</em> be ommitted from the <a href="#achievementcredential">OpenBadgeCredential</a> or <a href="#verifiablepresentation">VerifiablePresentation</a>. If a Linked Data Proof is also provided, it <em class="rfc2119">MUST</em> be created before the JSON Web Token Proof Format is created.</p></section><section id="create-the-jose-header"><h4 id="joseheader"><bdi class="secno">8.2.3 </bdi>Create the JOSE Header<a class="self-link" aria-label="§" href="#joseheader"></a><a class="self-link" aria-label="§" href="#joseheader"></a></h4><p>The <a data-link-type="dfn" href="#dfn-jose-header" class="internalDFN" id="ref-for-dfn-jose-header-2" title="JOSE Header - Describes the cryptographic operations applied to the JWT and optionally, additional properties of the JWT. [RFC7515]">JOSE Header</a> is a JSON object with the following properties (also called JOSE Headers). Additional JOSE Headers are NOT allowed.</p><table>
+<thead>
+<tr>
+<th>Property / JOSE Header</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>alg</code></td>
+<td><a href="#string">String</a></td>
+<td>The signing algorithm <em class="rfc2119">MUST</em> be "RS256" as a minimum as defined in [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7518" title="JSON Web Algorithms (JWA)">RFC7518</a></cite>]. Support for other algorithms is permitted but their use limits interoperability. Later versions of this specification <em class="rfc2119">MAY</em> add <em class="rfc2119">OPTIONAL</em> support for other algorithms. See Section 6.1 RSA Key of the <cite><a href="https://www.imsglobal.org/spec/security/v1p1/">IMS Global Security Framework v1.1</a></cite>.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>kid</code></td>
+<td><a href="#uri">URI</a></td>
+<td>A URI that can be <a href="#dereference">dereferenced</a> to an object of type <a href="#jwk">JWK</a>. <div class="advisement">Be careful not to accidentally publish the JWK representation of a private key. See <a href="https://tools.ietf.org/html/rfc7517#appendix-A.2">RFC7517</a> for examples of private key representations. The <code>JWK</code> <em class="rfc2119">MUST</em> never contain <code>"d"</code>.</div></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>typ</code></td>
+<td><a href="#string">String</a></td>
+<td>If present, <em class="rfc2119">MUST</em> be set to "JWT".</td>
+<td>Optional</td>
+</tr>
+</tbody></table><div class="example" id="example-sample-jose-header-with-reference-to-a-public-key-in-a-jwks">
         <div class="marker">
     <a class="self-link" href="#example-sample-jose-header-with-reference-to-a-public-key-in-a-jwks">Example<bdi> 29</bdi></a><span class="example-title">: Sample JOSE Header with reference to a public key in a JWKS</span>
   </div> <pre aria-busy="false"><code class="hljs json">{
@@ -4137,77 +4127,58 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       </div></section><section id="jwt-payload-format-0"><h5 id="jwt-payload-format"><bdi class="secno">8.2.4.2 </bdi>JWT Payload Format<a class="self-link" aria-label="§" href="#jwt-payload-format"></a><a class="self-link" aria-label="§" href="#jwt-payload-format"></a></h5><p>The JWT Payload is a JSON object with the following properties (JWT Claims). In addition to the standard JWT Claims [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7519" title="JSON Web Token (JWT)">RFC7519</a></cite>], the <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite> specification registered two new JWT Claim Names:</p><ul>
 <li><code>vc</code>: A JSON object which contains the <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-7" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credential</a> to be signed. In this specification, that credential <em class="rfc2119">MUST</em> be an <a href="#achievementcredential">OpenBadgeCredential</a> object.</li>
 <li><code>vp</code>: A JSON object which contains the <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-6" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">verifiable presentation</a> to be signed. In this specification, that presentation <em class="rfc2119">MUST</em> be a <a href="#presentationjwspayload">PresentationJwsPayload</a> object.</li>
-</ul><p>Additional standard JWT Claims Names are allowed, but their relationship to the credential or presentation is not defined.</p><table class="simple">
-  <thead>
-    <tr>
-      <th>Property/Claim Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Required?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>iss</code></td>
-      <td><a href="#uri">URI</a></td>
-      <td>
-        The <code>issuer</code> <code>id</code> property of the credential or the <code>holder</code>
-        <code>id</code> property of the presentation.
-      </td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td><code>nbf</code></td>
-      <td><a href="#numericdate">NumericDate</a></td>
-      <td>
-        The <code>issuanceDate</code> property of the credential. Omit if the payload is a
-        presentation.
-      </td>
-      <td>Required if the payload is a credential</td>
-    </tr>
-    <tr>
-      <td><code>jti</code></td>
-      <td><a href="#uri">URI</a></td>
-      <td>
-        The <code>id</code> property of the credential or presentation.
-      </td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td><code>sub</code></td>
-      <td><a href="#uri">URI</a></td>
-      <td>
-        The <code>id</code> property of the credential subject. Omit if the payload is a
-        presentation.
-      </td>
-      <td>Required if the payload is a credential</td>
-    </tr>
-    <tr>
-      <td><code>aud</code></td>
-      <td><a href="#uri">URI</a></td>
-      <td>
-        The <code>id</code> of the intended <a data-link-type="dfn" href="#dfn-verifier" class="internalDFN" id="ref-for-dfn-verifier-2" title="Verifier: The entity that receives a verifiable credential or verifiable presentation and verifies the credential or presentation has not been tampered with.">verifier</a>. Omit if the payload is a credential.
-      </td>
-      <td>Required if the payload is a presentation.</td>
-    </tr>
-    <tr>
-      <td><code>vc</code></td>
-      <td><a href="#achievementcredential">OpenBadgeCredential</a></td>
-      <td>
-        The credential being signed. Omit if the payload is a presentation.
-      </td>
-      <td>Required if the payload is a credential</td>
-    </tr>
-    <tr>
-      <td><code>vp</code></td>
-      <td><a href="#presentationjwspayload">PresentationJwsPayload</a></td>
-      <td>
-        The presentation being signed. Omit if the payload is a credential.
-      </td>
-      <td>Required if the payload is a presentation</td>
-    </tr>
-  </tbody>
-</table></section></section><section id="create-the-proof-0"><h4 id="jwt-signing"><bdi class="secno">8.2.5 </bdi>Create the Proof<a class="self-link" aria-label="§" href="#jwt-signing"></a><a class="self-link" aria-label="§" href="#jwt-signing"></a></h4><div class="note" role="note" id="issue-container-generatedID-8"><div role="heading" class="note-title marker" id="h-note-2" aria-level="5"><span>Note</span><span class="issue-label">: Sign and Encode the JWS</span></div><div class="">
+</ul><p>Additional standard JWT Claims Names are allowed, but their relationship to the credential or presentation is not defined.</p><table>
+<thead>
+<tr>
+<th>Property / Claim Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>iss</code></td>
+<td><a href="#uri">URI</a></td>
+<td>The <code>issuer</code> <code>id</code> property of the OpenBadgeCredential or the <code>holder</code>'s <code>id</code> property of the VerifiablePresentation.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>nbf</code></td>
+<td><a href="#numericdate">NumericDate</a></td>
+<td>The <code>issuanceDate</code> property of the OpenBadgeCredential. Omit if the payload is a VerifiablePresentation.</td>
+<td>Required if the payload is a OpenBadgeCredential</td>
+</tr>
+<tr>
+<td><code>jti</code></td>
+<td><a href="#uri">URI</a></td>
+<td>The <code>id</code> property of the OpenBadgeCredential or VerifiablePresentation.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>sub</code></td>
+<td><a href="#uri">URI</a></td>
+<td>The <code>id</code> property of the OpenBadgeCredential subject. Omit if the payload is a VerifiablePresentation.</td>
+<td>Required if the payload is a OpenBadgeCredential</td>
+</tr>
+<tr>
+<td><code>aud</code></td>
+<td><a href="#uri">URI</a></td>
+<td>The <code>id</code> of the intended <a data-link-type="dfn" href="#dfn-verifier" class="internalDFN" id="ref-for-dfn-verifier-2" title="Verifier: The entity that receives a verifiable credential or verifiable presentation and verifies the credential or presentation has not been tampered with.">verifier</a>. Omit if the payload is a OpenBadgeCredential.</td>
+<td>Required if the payload is a VerifiablePresentation.</td>
+</tr>
+<tr>
+<td><code>vc</code></td>
+<td><a href="#achievementcredential">OpenBadgeCredential</a></td>
+<td>The OpenBadgeCredential being signed. Omit if the payload is a VerifiablePresentation.</td>
+<td>Required if the payload is a OpenBadgeCredential</td>
+</tr>
+<tr>
+<td><code>vp</code></td>
+<td><a href="#presentationjwspayload">PresentationJwsPayload</a></td>
+<td>The VerifiablePesentation being signed. Omit if the payload is a OpenBadgeCredential.</td>
+<td>Required if the payload is a VerifiablePresentation</td>
+</tr>
+</tbody></table></section></section><section id="create-the-proof-0"><h4 id="jwt-signing"><bdi class="secno">8.2.5 </bdi>Create the Proof<a class="self-link" aria-label="§" href="#jwt-signing"></a><a class="self-link" aria-label="§" href="#jwt-signing"></a></h4><div class="note" role="note" id="issue-container-generatedID-8"><div role="heading" class="note-title marker" id="h-note-2" aria-level="5"><span>Note</span><span class="issue-label">: Sign and Encode the JWS</span></div><div class="">
   <p>IMS strongly recommends using an existing, stable library for this step.</p>
 </div></div><p>This section uses the follow notations:</p><ul>
 <li><code>JOSE Header</code> - denotes the JSON string representation of the JOSE Header.</li>
@@ -4224,7 +4195,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   <li type="A">Concatenate <code>C</code> and <code>E</code> as <code>C | "." | E</code>.</li>
 </ol><p>The resulting string is the Compact JWS representation of the credential or presentation. The Compact JWS includes the credential or presentation AND acts as the proof for the credential or presentation.</p></section><section id="verify-a-credential-or-presentation"><h4 id="jwt-verify"><bdi class="secno">8.2.6 </bdi>Verify a Credential or Presentation<a class="self-link" aria-label="§" href="#jwt-verify"></a><a class="self-link" aria-label="§" href="#jwt-verify"></a></h4><p>Verifiers that receive an VerifiableCredential or VerifiablePresentation in Compact JWS format <em class="rfc2119">MUST</em> perform the following steps to verify the embedded credential or presentation.</p><ol>
 <li>Base64url-decode the JOSE Header and extract the <code>kid</code> property.</li>
-<li><a href="#dereference">Deference</a> the <code>kid</code> value to retrieve the public key <a href="#jwk">JWK</a>.</li>
+<li><a href="#dereference">Dereference</a> the <code>kid</code> value to retrieve the public key <a href="#jwk">JWK</a>.</li>
 <li>Use the public key JWK to verify the signature as described in "Section 5.2 Message Signature or MAC Validation" of [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7515" title="JSON Web Signature (JWS)">RFC7515</a></cite>]. If the signature is not valid, the credential or presentation is not valid.<div class="note" role="note" id="issue-container-generatedID-9"><div role="heading" class="note-title marker" id="h-note-3" aria-level="5"><span>Note</span><span class="issue-label">: Verifying the JWS Signature</span></div><div class="">
   <p>IMS strongly recommends using an existing, stable library for this step.</p>
 </div></div></li>
@@ -4246,7 +4217,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
 <li>The JSON object <em class="rfc2119">MUST</em> have the <code>jti</code> claim, and the value <em class="rfc2119">MUST</em> match the <code>id</code> of the <a href="#presentationjwspayload">PresentationJwsPayload</a> object. If they do not match, the presentation is not valid.</li>
 <li>If the JSON object has the <code>exp</code> claim, the <a href="#numericdate">NumericDate</a> <em class="rfc2119">MUST</em> be converted to a <a href="#datetime">DateTime</a>, and <em class="rfc2119">MUST</em> be used to set the value of the <code>expirationDate</code> of the <a href="#presentationjwspayload">PresentationJwsPayload</a> object. If the presentation has expired, the presentation is not valid.</li>
 </ul></section></section></section><section id="linked-data-proof-format"><h3 id="lds-proof"><bdi class="secno">8.3 </bdi>Linked Data Proof Format<a class="self-link" aria-label="§" href="#lds-proof"></a><a class="self-link" aria-label="§" href="#lds-proof"></a></h3><p>This standard supports the Linked Data Proof format using the <cite><a href="https://w3c-ccg.github.io/lds-ed25519-2020/">Ed25519 Signature 2020</a></cite> suite.</p><div class="note" role="note" id="issue-container-generatedID-10"><div role="heading" class="note-title marker" id="h-note-4" aria-level="4"><span>Note</span></div><div class="">
-  Whenever possible, you should use a library or service to create and verify a Linked Data Proof. For example, Digital Bazaar, Inc. has a GitHub project that implements the <cite><a href="https://w3c-ccg.github.io/lds-ed25519-2020/">Ed25519 Signature 2020</a></cite> suite at <a href="https://github.com/digitalbazaar/ed25519-signature-2020">https://github.com/digitalbazaar/ed25519-signature-2020</a>.
+  Whenever possible, you should use a library or service to create and verify a Linked Data Proof. For example, Digital Bazaar, Inc. has a GitHub project that implements the <cite><a href="https://w3c-ccg.github.io/lds-ed25519-2020/">Ed25519 Signature 2020</a></cite> suite at [https://github.com/digitalbazaar/ed25519-signature-2020](https://github.com/digitalbazaar/ed25519-signature-2020).
 </div></div><section id="create-the-proof-1"><h4 id="create-the-proof"><bdi class="secno">8.3.1 </bdi>Create the Proof<a class="self-link" aria-label="§" href="#create-the-proof"></a><a class="self-link" aria-label="§" href="#create-the-proof"></a></h4><p>Perform these steps to attach a Linked Data Proof to the credential or presentation:</p><ol>
 <li>Create an instance of <a href="#ed25519verificationkey2020">Ed25519VerificationKey2020</a> as shown in <a href="https://w3c-ccg.github.io/lds-ed25519-2020/#ed25519verificationkey2020">Section 3.1.1 Ed25519VerificationKey2020</a> of [<cite><a class="bibref" data-link-type="biblio" href="#bib-lds-ed25519-2020" title="Ed25519 Signature 2020">LDS-ED25519-2020</a></cite>].</li>
 <li>Using the key material, sign the credential or presentation object as shown in <a href="https://w3c-ccg.github.io/data-integrity-spec/#proof-algorithm">Section 7.1 Proof Algothim</a> of [<cite><a class="bibref" data-link-type="biblio" href="#bib-data-integrity-spec" title="Data Integrity">DATA-INTEGRITY-SPEC</a></cite>] to produce a <a href="#proof">Proof</a> as shown in <a href="https://w3c-ccg.github.io/lds-ed25519-2020/#ed25519-signature-2020">Section 3.2.1 Ed25519 Signature 2020</a> with a <code>proofPurpose</code> of "assertionMethod".</li>
@@ -4313,13 +4284,13 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
 <li>You must pass all the tests associated with the services you are applying for using the certification suite hosted on the IMS website.</li>
 <li>The tests must be completed by a designated representative of the IMS member organization, and you must agree that there is no misrepresentation or manipulation of results in the submitted information.</li>
 </ul><p>After IMS reviews your submitted information and notifies you that your application is approved, you can claim certification to Open Badges 3.0 and display the IMS certified logo on your website and in your software. The IMS Global Certified Products Directory will list your conformance details.</p></section><section id="open-badges-3-0-issuer-service-conformance"><h3 id="issuer-conformance"><bdi class="secno">12.2 </bdi>Open Badges 3.0 Issuer Service Conformance<a class="self-link" aria-label="§" href="#issuer-conformance"></a><a class="self-link" aria-label="§" href="#issuer-conformance"></a></h3><p>A Open Badges <strong>Issuer</strong> is an application that allows for the creation of OpenBadgeCredentials and the subsequent delivery of OpenBadgeCredentials to recipients that conform to the Open Badges Specification. The candidate platform must issue a valid baked badge and demonstrate how the badge is retrieved by the recipient. The candidate platform must also meet Service Consumer (Write) requirements and can send an AchievementCredential or a Profile to a product that conforms to Service Provider (Write) requirements.</p><section id="tests"><h4 id="issuer-tests"><bdi class="secno">12.2.1 </bdi>Tests<a class="self-link" aria-label="§" href="#issuer-tests"></a><a class="self-link" aria-label="§" href="#issuer-tests"></a></h4><ol>
-<li>Create a valid baked 3.0 badge and issue it to the recipient <code><a href="mailto:conformance@imsglobal.org">conformance@imsglobal.org</a></code> and submit the issued badge to the conformance test system.</li>
+<li>Create a valid baked 3.0 badge and issue it to the recipient <code>conformance@imsglobal.org</code> and submit the issued badge to the conformance test system.</li>
 <li>Complete <a href="#service-consumer-write" class="sec-ref">§&nbsp;<bdi class="secno">12.6 </bdi>Service Consumer (Write) Conformance</a>.</li>
 </ol></section></section><section id="open-badges-3-0-displayer-service-conformance"><h3 id="displayer-conformance"><bdi class="secno">12.3 </bdi>Open Badges 3.0 Displayer Service Conformance<a class="self-link" aria-label="§" href="#displayer-conformance"></a><a class="self-link" aria-label="§" href="#displayer-conformance"></a></h3><p>An Open Badges Displayer is an application that displays and verifies badges for viewers. The candidate platform must support viewer-initiated verification of a badge.</p><section id="tests-0"><h4 id="display-tests"><bdi class="secno">12.3.1 </bdi>Tests<a class="self-link" aria-label="§" href="#display-tests"></a><a class="self-link" aria-label="§" href="#display-tests"></a></h4><ol>
 <li>Verify the three badges listed below and submit the status in the conformance test system.<ol>
-<li><a href="https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-1.json">https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-1.json</a></li>
-<li><a href="https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-2.json">https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-2.json</a></li>
-<li><a href="https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-3.json">https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-3.json</a></li>
+<li><a href="https://someurl/OB30-conformance-verify-1.json">https://someurl/OB30-conformance-verify-1.json</a></li>
+<li><a href="https://someurl/OB30-conformance-verify-2.json">https://someurl/OB30-conformance-verify-2.json</a></li>
+<li><a href="https://someurl/OB30-conformance-verify-3.json">https://someurl/OB30-conformance-verify-3.json</a></li>
 </ol>
 </li>
 </ol></section></section><section id="open-badges-3-0-host-service-conformance"><h3 id="host-conformance"><bdi class="secno">12.4 </bdi>Open Badges 3.0 Host Service Conformance<a class="self-link" aria-label="§" href="#host-conformance"></a><a class="self-link" aria-label="§" href="#host-conformance"></a></h3><p>An Open Badges <strong>Host</strong> is an application that can aggregate and publicly host OpenBadgeCredential for recipients. It also supports export of badges at user request. The candidate platform must be able to import all formats of Open Badges as well as prove that badge metadata is not lost upon export of the badge. The candidate platform must also meet <a href="#service-provider-write" class="sec-ref">§&nbsp;<bdi class="secno">12.8 </bdi>Service Provider (Write) Conformance</a> requirements and accept an AchievementCredential or a Profile from an Issuer application. And meet <a href="#service-consumer-read" class="sec-ref">§&nbsp;<bdi class="secno">12.5 </bdi>Service Consumer (Read) Conformance</a> and <a href="#service-provider-read" class="sec-ref">§&nbsp;<bdi class="secno">12.7 </bdi>Service Provider (Read) Conformance</a> requirements for exchanging AchievementCredentials with other Host applications.</p><section id="tests-1"><h4 id="tests-host"><bdi class="secno">12.4.1 </bdi>Tests<a class="self-link" aria-label="§" href="#tests-host"></a><a class="self-link" aria-label="§" href="#tests-host"></a></h4><ol>
@@ -4328,26 +4299,25 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
 <li>Complete <a href="#service-provider-write" class="sec-ref">§&nbsp;<bdi class="secno">12.8 </bdi>Service Provider (Write) Conformance</a>.</li>
 <li>Complete <a href="#service-consumer-read" class="sec-ref">§&nbsp;<bdi class="secno">12.5 </bdi>Service Consumer (Read) Conformance</a>.</li>
 <li>Complete <a href="#service-provider-read" class="sec-ref">§&nbsp;<bdi class="secno">12.7 </bdi>Service Provider (Read) Conformance</a>.</li>
-</ol><table class="simple">
- <tbody><tr>
-  <th>Required Badge Format</th>
-  <th>Use this resource for the demonstrations</th>
- </tr>
- <tr>
-  <td>Baked badge (PNG) format</td>
-  <td>
-  <a href="https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.png">https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.png</a>
-  </td>
- </tr>
- <tr>
-  <td>Baked badge (SVG) format</td>
-  <td>
-  <a href="https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.svg">https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.svg</a></td>
- </tr>
- <tr>
-  <td>Badge URL</td>
-  <td><a href="https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.jws">https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.jws</a></td>
- </tr>
+</ol><table>
+<thead>
+<tr>
+<th>Required OpenBadgeCredential Format</th>
+<th>Use this resource for certification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Baked OpenBadgeCredential (PNG) format</td>
+<td><a href="https://someurl/OB30-conformance.png">https://someurl/OB30-conformance.png</a></td>
+</tr>
+<tr>
+<td>Baked OpenBadgeCredential (SVG) format</td>
+<td><a href="https://someurl/OB30-conformance.svg">https://someurl/OB30-conformance.svg</a></td>
+</tr>
+<tr>
+<td>OpenBadgeCredential JSON Resource URL</td>
+<td><a href="https://someurl/OB30-conformance.jws">https://someurl/OB30-conformance.jws</a></td>
+</tr>
 </tbody></table></section></section><section id="service-consumer-read-conformance"><h3 id="service-consumer-read"><bdi class="secno">12.5 </bdi>Service Consumer (Read) Conformance<a class="self-link" aria-label="§" href="#service-consumer-read"></a><a class="self-link" aria-label="§" href="#service-consumer-read"></a></h3><p>A product that conforms to Service Consumer (Read) requirements can request badges from a product that conforms to Service Provider (Read) requirements.</p><section id="required-service-consumer-read-endpoint-support-0"><h4 id="required-service-consumer-read-endpoint-support"><bdi class="secno">12.5.1 </bdi>Required Service Consumer (Read) Endpoint Support<a class="self-link" aria-label="§" href="#required-service-consumer-read-endpoint-support"></a><a class="self-link" aria-label="§" href="#required-service-consumer-read-endpoint-support"></a></h4><p>The service endpoints that <em class="rfc2119">MUST</em> be supported for Service Consumer (Read) are listed in the table below:</p><table>
 <thead>
 <tr>
@@ -4614,7 +4584,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
 <li>Sets of properties <em class="rfc2119">MUST</em> be represented as an Object type, NOT as a URI.</li>
 <li>Other values <em class="rfc2119">MUST</em> be represented as a String type.</li>
 <li>Null values and empty arrays <em class="rfc2119">MUST</em> be ommitted from the serialized JSON. This includes empty Arrays.</li>
-</ul></section><section id="json-ld-0"><h3 id="json-ld"><bdi class="secno">A.2 </bdi>JSON-LD<a class="self-link" aria-label="§" href="#json-ld"></a><a class="self-link" aria-label="§" href="#json-ld"></a></h3><p>[<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] is a JSON-based format used to serialize Linked Data. The syntax is designed to easily integrate into deployed systems already using JSON, and provides a smooth upgrade path from JSON to [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>]. It is primarily intended to be a way to use Linked Data in Web-based programming environments, to build interoperable Web services, and to store Linked Data in JSON-based storage engines.</p><p>Instances of the data model are encoded in [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] in the same way they are encoded in JSON (Section <a href="#json" class="sec-ref">§&nbsp;<bdi class="secno">A.1 </bdi>JSON</a>), with the addition of the <code>@context</code> property. The JSON-LD context is described in detail in the [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] specification and its use is elaborated on in Section <a href="#extending" class="sec-ref">§&nbsp;<bdi class="secno">C. </bdi>Extending and Profiling the Standard</a>.</p><p>Multiple contexts <em class="rfc2119">MAY</em> be used or combined to express any arbitrary information about verifiable credentials in idiomatic JSON. The JSON-LD context for all <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-14" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a>, available at <code><a href="https://www.w3.org/2018/credentials/v1">https://www.w3.org/2018/credentials/v1</a></code>, is a static document that is never updated and can therefore be downloaded and cached client side. The associated vocabulary document for the Verifiable Credentials Data Model is available at <code><a href="https://www.w3.org/2018/credentials">https://www.w3.org/2018/credentials</a></code>. The JSON-LD context for Open Badges <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-15" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> is available at <code><a href="https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld">https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld</a></code>. The associated vocabulary document for the Open Badges Data Model is available at <code><a href="https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.html">https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.html</a></code>. Open Badges <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-16" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> <em class="rfc2119">MUST</em> be serialized with both JSON-LD contexts.</p><div class="note" role="note" id="issue-container-generatedID-13"><div role="heading" class="note-title marker" id="h-note-7" aria-level="4"><span>Note</span></div><div class="">
+</ul></section><section id="json-ld-0"><h3 id="json-ld"><bdi class="secno">A.2 </bdi>JSON-LD<a class="self-link" aria-label="§" href="#json-ld"></a><a class="self-link" aria-label="§" href="#json-ld"></a></h3><p>[<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] is a JSON-based format used to serialize Linked Data. The syntax is designed to easily integrate into deployed systems already using JSON, and provides a smooth upgrade path from JSON to [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>]. It is primarily intended to be a way to use Linked Data in Web-based programming environments, to build interoperable Web services, and to store Linked Data in JSON-based storage engines.</p><p>Instances of the data model are encoded in [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] in the same way they are encoded in JSON (Section <a href="#json" class="sec-ref">§&nbsp;<bdi class="secno">A.1 </bdi>JSON</a>), with the addition of the <code>@context</code> property. The JSON-LD context is described in detail in the [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld" title="JSON-LD 1.0">JSON-LD</a></cite>] specification and its use is elaborated on in Section <a href="#extending" class="sec-ref">§&nbsp;<bdi class="secno">C. </bdi>Extending and Profiling the Standard</a>.</p><p>Multiple contexts <em class="rfc2119">MAY</em> be used or combined to express any arbitrary information about verifiable credentials in idiomatic JSON. The JSON-LD context for all <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-14" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a>, available at <code>https://www.w3.org/2018/credentials/v1</code>, is a static document that is never updated and can therefore be downloaded and cached client side. The associated vocabulary document for the Verifiable Credentials Data Model is available at <code>https://www.w3.org/2018/credentials</code>. The JSON-LD context for Open Badges <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-15" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> is available at <code>https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld</code>. The associated vocabulary document for the Open Badges Data Model is available at <code>https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.html</code>. Open Badges <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-16" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> <em class="rfc2119">MUST</em> be serialized with both JSON-LD contexts.</p><div class="note" role="note" id="issue-container-generatedID-13"><div role="heading" class="note-title marker" id="h-note-7" aria-level="4"><span>Note</span></div><div class="">
   Though this specification requires that a <code>@context</code> property be present, it is not required that the value of the <code>@context</code> property be processed using JSON-LD. This is to support processing using plain JSON libraries, such as those that might be used when the verifiable credential is encoded as a JWT. All libraries or processors <em class="rfc2119">MUST</em> ensure that the order of the values in the <code>@context</code> property is what is expected for the specific application. Libraries or processors that support JSON-LD can process the <code>@context</code> property using full JSON-LD processing as expected.
 </div></div><div class="example" id="example-json-ld-context-serialization">
         <div class="marker">
@@ -4844,11 +4814,11 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   ],
   "proof": {
     "type": "Ed25519Signature2020",
-    "created": "2022-05-05T15:02:06Z",
+    "created": "2022-05-05T15:45:25Z",
     "verificationMethod": "https://example.edu/issuers/565049#key-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z4cBmkTd3JgvKabCrsfqPfePAJ41WWPRDgjPXdeYgXtadij8sr584hwZZTowr
-5shwye83pzYgzyrpBoaq6ZJapLbT"
+    "proofValue": "z5ZbCQJvSifG9jzTRV57zpmCEkiSqc3onmYmehRDPxkyN1Bjmd29xvWuBb8Xf
+JwCLZKobRmp3aHtGB3Gopkuj8c3v"
   }
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
@@ -4909,12 +4879,12 @@ lbWE_Y2xhc3NJZD1vcmcuMWVkdGVjaC5vYi52M3AwLmFjaGlldmVtZW50Y3JlZGVudGlhbC5jbGFzcyI
 sInR5cGUiOiJKc29uU2NoZW1hVmFsaWRhdG9yMjAxOSJ9XX0sImlzcyI6eyJpZCI6Imh0dHBzOi8vZXh
 hbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sIm5iZiI
 6MTI2MjMwNDAwMCwianRpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWI
-iOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.x1ZMq4gMil9kRipD3fD9
--APbI4vqWajThhsp1TmBSceW7GKzb8tZ2DtV7GSfnMANijAYB5x0jGFZTr8AcFvu_ysncWRflfBslNpI
-1IBp4HXdF-m0VlqwcI0uJ3ihkVJjlC2gUdThiQ7_0fAM6WBIxU9jWY2DxMBjJZEOLx10Df7-9CHy77ZS
-nrjAmzAXgnLOKZkSCHpu1NkE4mPJqi6EbRGhAgZRnHu7rwFhlR_eyk0Ly64lE-OEPJIlqHjztR6uXKXG
-wdrbpqZj8pjQ-l6YzN6tdZNyuFvLza21wCwbEcGsU14hTjglhayOd5haxpWt0QOkwSSsCj4R4RgT5WlZ
-Mw</pre></div></div></div>
+iOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.NlPQnBv6MvKbdF-RojLF
+QtADKievBDzixiht3xdo6MpgSsWopCKAB-kEBeQuidx6FchGjgG9hWJNlBapY3XfvRG0qJj5-iISn2Uw
+1eeUkPdb56Z5mo93c8xKqskdY1FHr5D7lLDOJcgOZi-y0vjM4gknE2R3cPOg2M9yLR5CrqdDZzaS5sfU
+0PczYu5uSIwc3dNSkYbvyYbU0XeknkumRz7aryW7LWkmONbji0HPsjYlZSxb1c5YeHdWoX4TFcTJ0ITy
+OwKiN7Xl3Vo6tw3dn35KgOcVzn4iVMmx0xKawaQC24OvVBJmOhrfLG3ebAhBVtasIZPUq8nVO22MBnvq
+mA</pre></div></div></div>
   </section>
   <section data-class="org.1edtech.ob.v3p0.achievementsubject.class" id="org.1edtech.ob.v3p0.achievementsubject.class"><h4 id="achievementsubject"><bdi class="secno">B.1.2 </bdi>AchievementSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.achievementsubject.class"></a><a class="self-link" aria-label="§" href="#achievementsubject"></a></h4><p>A collection of information about the recipient of an achievement. Maps to Credential Subject in [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>].</p><table class="simple">
         <thead>
