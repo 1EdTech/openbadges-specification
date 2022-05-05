@@ -45,9 +45,9 @@ An Open Badges Displayer is an application that displays and verifies badges for
 #### Tests {#display-tests}
 
 1. Verify the three badges listed below and submit the status in the conformance test system.
-   1. [https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-1.json](https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-1.json)
-   1. [https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-2.json](https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-2.json)
-   1. [https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-3.json](https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance-verify-3.json)
+   1. [https://someurl/OB30-conformance-verify-1.json](https://someurl/OB30-conformance-verify-1.json)
+   1. [https://someurl/OB30-conformance-verify-2.json](https://someurl/OB30-conformance-verify-2.json)
+   1. [https://someurl/OB30-conformance-verify-3.json](https://someurl/OB30-conformance-verify-3.json)
 
 ### Open Badges 3.0 Host Service Conformance {#host-conformance}
 
@@ -61,27 +61,11 @@ An Open Badges **Host** is an application that can aggregate and publicly host O
 1. Complete [[[#service-consumer-read]]].
 1. Complete [[[#service-provider-read]]].
 
-<table class="simple">
- <tr>
-  <th>Required Badge Format</th>
-  <th>Use this resource for the demonstrations</th>
- </tr>
- <tr>
-  <td>Baked badge (PNG) format</td>
-  <td>
-  <a href="https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.png">https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.png</a>
-  </td>
- </tr>
- <tr>
-  <td>Baked badge (SVG) format</td>
-  <td>
-  <a href="https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.svg">https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.svg</a></td>
- </tr>
- <tr>
-  <td>Badge URL</td>
-  <td><a href="https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.jws">https://openbadgesvalidator.imsglobal.org/SampleResources/OB30-conformance.jws</a></td>
- </tr>
-</table>
+| Required OpenBadgeCredential Format | Use this resource for certification |
+| --- | --- |
+| Baked OpenBadgeCredential (PNG) format | [https://someurl/OB30-conformance.png](https://someurl/OB30-conformance.png) |
+| Baked OpenBadgeCredential (SVG) format | [https://someurl/OB30-conformance.svg](https://someurl/OB30-conformance.svg) |
+| OpenBadgeCredential JSON Resource URL | [https://someurl/OB30-conformance.jws](https://someurl/OB30-conformance.jws) |
 
 ## Service Consumer (Read) Conformance {#service-consumer-read}
 

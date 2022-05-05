@@ -9,7 +9,7 @@ This section describes mechanisms for ensuring the authenticity and integrity of
 The proof formats included in this specification fall into two categories:
 
 - JSON Web Token Proof - Somtimes called VC-JWT, this format has a single implementation: the credential or presentation is encoded into a [=JWT=] which is then signed and encoded as a [=JWS=]. The JSON Web Token proof is called an external proof because the proof wraps the [=credential=] or [=presentation=] object.
-- Linked Data Proofs - The credential or presentation is signed and the signature is used to form a <a href="#proof">Proof</a> object which is appended to the credential or presentation. This format supports many different proof types. These are called embedded proofs because the proof is embedded in the data.
+- Linked Data Proofs - The credential or presentation is signed and the signature is used to form a [Proof](#proof) object which is appended to the credential or presentation. This format supports many different proof types. These are called embedded proofs because the proof is embedded in the data.
 
 <div class="note">
     The [=issuer=] or [=holder=] MAY use multiple proofs. If multiple proofs are provided, the [=verifier=] MAY use any one proof to verify the credential.
@@ -47,50 +47,18 @@ The JOSE Header, JWT Payload, and JWS Signature are combined to form a Compact J
 
 The resulting [=JWS=] proves that the [=issuer=] or [=holder=] signed the [=JWT Payload=] turning the [=credential=] or [=presentation=] into a [=verifiable credential=] or [=verifiable presentation=].
 
-When using the JSON Web Token Proof Format, the <code>proof</code> property MAY be ommitted from the <a href="#achievementcredential">OpenBadgeCredential</a> or <a href="#verifiablepresentation">VerifiablePresentation</a>. If a Linked Data Proof is also provided, it MUST be created before the JSON Web Token Proof Format is created.
+When using the JSON Web Token Proof Format, the <code>proof</code> property MAY be ommitted from the [OpenBadgeCredential](#achievementcredential) or [VerifiablePresentation](#verifiablepresentation). If a Linked Data Proof is also provided, it MUST be created before the JSON Web Token Proof Format is created.
 
 #### Create the JOSE Header {#joseheader}
 
 The [=JOSE Header=] is a JSON object with the following properties (also called JOSE Headers). Additional JOSE Headers are NOT allowed.
 
-<table class="simple">
-  <thead>
-    <tr>
-      <th>Property/JOSE Header</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Required?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>alg</code></td>
-      <td><a href="#string">String</a></td>
-      <td>
-        The signing algorithm MUST be "RS256" as a minimum as defined in [[RFC7518]]. Support for other algorithms is permitted but their use limits interoperability. Later versions of this specification MAY add OPTIONAL support for other algorithms. See Section 6.1 RSA Key of the [[[SEC-11]]].
-      </td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td><code>kid</code></td>
-      <td><a href="#uri">URI</a></td>
-      <td>
-        A URI that can be <a href="#dereference">dereferenced</a> to an object of type <a href="#jwk">JWK</a>.
-        <div class="advisement">
-          Be careful not to accidentally publish the JWK representation of a private key. See <a href="https://tools.ietf.org/html/rfc7517#appendix-A.2">rfc7517#appendix-A.2</a> for examples of private key representations. The <code>JWK</code> MUST never contain <code>"d"</code>.
-        </div>
-      <td>
-        Required
-      </td>
-    </tr>
-    <tr>
-      <td><code>typ</code></td>
-      <td><a href="#string">String</a></td>
-      <td>If present, MUST be set to "JWT".</td>
-      <td>Optional</td>
-    </tr>
-  </tbody>
-</table>
+| Property / JOSE Header | Type | Description | Required? |
+| ---------------------- | ---- | ----------- | --------- |
+| \`alg\` | [String](#string) | The signing algorithm MUST be "RS256" as a minimum as defined in [[RFC7518]]. Support for other algorithms is permitted but their use limits interoperability. Later versions of this specification MAY add OPTIONAL support for other algorithms. See Section 6.1 RSA Key of the [[[SEC-11]]]. | Required |
+| \`kid\` | [URI](#uri) | A URI that can be [dereferenced](#dereference) to an object of type [JWK](#jwk). <div class="advisement">Be careful not to accidentally publish the JWK representation of a private key. See [RFC7517](https://tools.ietf.org/html/rfc7517#appendix-A.2) for examples of private key representations. The \`JWK\` MUST never contain \`"d"\`.</div> | Required |
+| \`typ\` | [String](#string) | If present, MUST be set to "JWT". | Optional |
+
 <pre class="example json" title="Sample JOSE Header with reference to a public key in a JWKS">
   {
     "alg": "RS256",
@@ -105,11 +73,11 @@ If you are going to use both external and embedded proof formats, add the embedd
 
 ##### Sign Nested Credentials
 
-A <a href="#verifiablepresentation">VerifiablePresentation</a> has nested [=verifiable credentials=]. The [[[VC-DATA-MODEL]]] specification does not specify how to encode a JWT Payload when the credential has nested credentials (it does have an <a href="https://www.w3.org/TR/vc-data-model/#example-verifiable-presentation-using-jwt-compact-serialization-non-normative">example</a> of an encoded presentation with a nested credential). To help ensure interoperability, this specification does define how to encode the JWT Payload with nested credentials.
+A [VerifiablePresentation](#verifiablepresentation) has nested [=verifiable credentials=]. The [[[VC-DATA-MODEL]]] specification does not specify how to encode a JWT Payload when the credential has nested credentials (it does have an [example](https://www.w3.org/TR/vc-data-model/#example-verifiable-presentation-using-jwt-compact-serialization-non-normative) of an encoded presentation with a nested credential). To help ensure interoperability, this specification does define how to encode the JWT Payload with nested credentials.
 
-The JSON Web Token Proof for each nested credential MUST be created prior to creating the JWT Payload for the parent presentation. Because the JSON Web Token Proof for each nested credential is a Compact JWS string rather than a JSON object, the data model for a signed <a href="#verifiablepresentation">VerifiablePresentation</a> is <a href="#presentationjwspayload">PresentationJwsPayload</a>.
+The JSON Web Token Proof for each nested credential MUST be created prior to creating the JWT Payload for the parent presentation. Because the JSON Web Token Proof for each nested credential is a Compact JWS string rather than a JSON object, the data model for a signed [VerifiablePresentation](#verifiablepresentation) is [PresentationJwsPayload](#presentationjwspayload).
 
-1. Create a JSON object using the <a href="#presentationjwspayload">PresentationJwsPayload</a> data model.
+1. Create a JSON object using the [PresentationJwsPayload](#presentationjwspayload) data model.
 2. Copy all of the claims from the parent presentation to the new JSON object except for the nested credentials.
 3. Process each nested credential:
    - If the nested credential is already signed with a JSON Web Token Proof, simply add the Compact JWS string to the new JSON object.
@@ -145,82 +113,20 @@ The JSON Web Token Proof for each nested credential MUST be created prior to cre
 
 The JWT Payload is a JSON object with the following properties (JWT Claims). In addition to the standard JWT Claims [[RFC7519]], the [[[VC-DATA-MODEL]]] specification registered two new JWT Claim Names:
 
-- <code>vc</code>: A JSON object which contains the [=verifiable credential=] to be signed. In this specification, that credential MUST be an <a href="#achievementcredential">OpenBadgeCredential</a> object.
-- <code>vp</code>: A JSON object which contains the [=verifiable presentation=] to be signed. In this specification, that presentation MUST be a <a href="#presentationjwspayload">PresentationJwsPayload</a> object.
+- <code>vc</code>: A JSON object which contains the [=verifiable credential=] to be signed. In this specification, that credential MUST be an [OpenBadgeCredential](#achievementcredential) object.
+- <code>vp</code>: A JSON object which contains the [=verifiable presentation=] to be signed. In this specification, that presentation MUST be a [PresentationJwsPayload](#presentationjwspayload) object.
 
 Additional standard JWT Claims Names are allowed, but their relationship to the credential or presentation is not defined.
 
-<table class="simple">
-  <thead>
-    <tr>
-      <th>Property/Claim Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Required?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>iss</code></td>
-      <td><a href="#uri">URI</a></td>
-      <td>
-        The <code>issuer</code> <code>id</code> property of the credential or the <code>holder</code>
-        <code>id</code> property of the presentation.
-      </td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td><code>nbf</code></td>
-      <td><a href="#numericdate">NumericDate</a></td>
-      <td>
-        The <code>issuanceDate</code> property of the credential. Omit if the payload is a
-        presentation.
-      </td>
-      <td>Required if the payload is a credential</td>
-    </tr>
-    <tr>
-      <td><code>jti</code></td>
-      <td><a href="#uri">URI</a></td>
-      <td>
-        The <code>id</code> property of the credential or presentation.
-      </td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td><code>sub</code></td>
-      <td><a href="#uri">URI</a></td>
-      <td>
-        The <code>id</code> property of the credential subject. Omit if the payload is a
-        presentation.
-      </td>
-      <td>Required if the payload is a credential</td>
-    </tr>
-    <tr>
-      <td><code>aud</code></td>
-      <td><a href="#uri">URI</a></td>
-      <td>
-        The <code>id</code> of the intended [=verifier=]. Omit if the payload is a credential.
-      </td>
-      <td>Required if the payload is a presentation.</td>
-    </tr>
-    <tr>
-      <td><code>vc</code></td>
-      <td><a href="#achievementcredential">OpenBadgeCredential</a></td>
-      <td>
-        The credential being signed. Omit if the payload is a presentation.
-      </td>
-      <td>Required if the payload is a credential</td>
-    </tr>
-    <tr>
-      <td><code>vp</code></td>
-      <td><a href="#presentationjwspayload">PresentationJwsPayload</a></td>
-      <td>
-        The presentation being signed. Omit if the payload is a credential.
-      </td>
-      <td>Required if the payload is a presentation</td>
-    </tr>
-  </tbody>
-</table>
+| Property / Claim Name | Type | Description | Required? |
+| ---------------------- | ---- | ----------- | --------- |
+| \`iss\` | [URI](#uri) | The \`issuer\` \`id\` property of the OpenBadgeCredential or the \`holder\`'s \`id\` property of the VerifiablePresentation. | Required |
+| \`nbf\` | [NumericDate](#numericdate) | The \`issuanceDate\` property of the OpenBadgeCredential. Omit if the payload is a VerifiablePresentation. | Required if the payload is a OpenBadgeCredential |
+| \`jti\` | [URI](#uri) | The \`id\` property of the OpenBadgeCredential or VerifiablePresentation. | Required |
+| \`sub\` | [URI](#uri) | The \`id\` property of the OpenBadgeCredential subject. Omit if the payload is a VerifiablePresentation. | Required if the payload is a OpenBadgeCredential |
+| \`aud\` | [URI](#uri) | The \`id\` of the intended [=verifier=]. Omit if the payload is a OpenBadgeCredential. | Required if the payload is a VerifiablePresentation. |
+| \`vc\` | [OpenBadgeCredential](#achievementcredential) | The OpenBadgeCredential being signed. Omit if the payload is a VerifiablePresentation. | Required if the payload is a OpenBadgeCredential |
+| \`vp\` | [PresentationJwsPayload](#presentationjwspayload) | The VerifiablePesentation being signed. Omit if the payload is a OpenBadgeCredential. | Required if the payload is a VerifiablePresentation |
 
 #### Create the Proof {#jwt-signing}
 
@@ -254,39 +160,39 @@ The resulting string is the Compact JWS representation of the credential or pres
 Verifiers that receive an VerifiableCredential or VerifiablePresentation in Compact JWS format MUST perform the following steps to verify the embedded credential or presentation.
 
 1. Base64url-decode the JOSE Header and extract the <code>kid</code> property.
-1. <a href="#dereference">Deference</a> the <code>kid</code> value to retrieve the public key <a href="#jwk">JWK</a>.
+1. [Dereference](#dereference) the <code>kid</code> value to retrieve the public key [JWK](#jwk).
 1. Use the public key JWK to verify the signature as described in "Section 5.2 Message Signature or MAC Validation" of [[RFC7515]]. If the signature is not valid, the credential or presentation is not valid.
    <div class="note" title="Verifying the JWS Signature">
      <p>IMS strongly recommends using an existing, stable library for this step.</p>
    </div>
 1. Base64url-decode the JWT Payload segment of the Compact JWS and parse it into a JSON object.
-1. If the JSON object has a <code>vc</code> claim, convert the value of <code>vc</code> to an <a href="#achievementcredential">OpenBadgeCredential</a> and continue with [[[#jwt-verify-credential]]].
-1. If the JSON object has a <code>vp</code> claim, convert the value of <code>vp</code> to a <a href="#presentationjwspayload">PresentationJwsPayload</a> and continue with [[[#jwt-verify-presentation]]].
+1. If the JSON object has a <code>vc</code> claim, convert the value of <code>vc</code> to an [OpenBadgeCredential](#achievementcredential) and continue with [[[#jwt-verify-credential]]].
+1. If the JSON object has a <code>vp</code> claim, convert the value of <code>vp</code> to a [PresentationJwsPayload](#presentationjwspayload) and continue with [[[#jwt-verify-presentation]]].
 
 ##### Verify a Credential VC-JWT Signature {#jwt-verify-credential}
 
-- The JSON object MUST have the <code>iss</code> claim, and the value MUST match the <code>id</code> of the <code>issuer</code> of the <a href="#achievementcredential">OpenBadgeCredential</a> object. If they do not match, the credential is not valid.
-- The JSON object MUST have the <code>sub</code> claim, and the value MUST match the <code>id</code> of the <code>credentialSubject</code> of the <a href="#achievementcredential">OpenBadgeCredential</a> object. If they do not match, the credential is not valid.
-- The JSON object MUST have the <code>nbf</code> claim, and the <a href="#numericdate">NumericDate</a> value MUST be converted to a <a href="#datetime">DateTime</a>, and MUST equal the <code>issuanceDate</code> of the <a href="#achievementcredential">OpenBadgeCredential</a> object. If they do not match or if the <code>issuanceDate</code> has not yet occurred, the credential is not valid.
-- The JSON object MUST have the <code>jti</code> claim, and the value MUST match the <code>id</code> of the <a href="#achievementcredential">OpenBadgeCredential</a> object. If they do not match, the credential is not valid.
-- If the JSON object has the <code>exp</code> claim, the <a href="#numericdate">NumericDate</a> MUST be converted to a <a href="#datetime">DateTime</a>, and MUST be used to set the value of the <code>expirationDate</code> of the <a href="#achievementcredential">OpenBadgeCredential</a> object. If the credential has expired, the credential is not valid.
+- The JSON object MUST have the <code>iss</code> claim, and the value MUST match the <code>id</code> of the <code>issuer</code> of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
+- The JSON object MUST have the <code>sub</code> claim, and the value MUST match the <code>id</code> of the <code>credentialSubject</code> of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
+- The JSON object MUST have the <code>nbf</code> claim, and the [NumericDate](#numericdate) value MUST be converted to a [DateTime](#datetime), and MUST equal the <code>issuanceDate</code> of the [OpenBadgeCredential](#achievementcredential) object. If they do not match or if the <code>issuanceDate</code> has not yet occurred, the credential is not valid.
+- The JSON object MUST have the <code>jti</code> claim, and the value MUST match the <code>id</code> of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
+- If the JSON object has the <code>exp</code> claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime), and MUST be used to set the value of the <code>expirationDate</code> of the [OpenBadgeCredential](#achievementcredential) object. If the credential has expired, the credential is not valid.
 - <div class="issue" title="Verify the schema"></div>
 - <div class="issue" title="Use credentialStatus to determine if the credential has been revoked"></div>
 - <div class="issue" title="Should nested assertions be verified?"></div>
 
 ##### Verify a Presentation VC-JWT Signature {#jwt-verify-presentation}
 
-- The JSON object MUST have the <code>iss</code> claim, and the value MUST match the <code>id</code> of the <code>holder</code> of the <a href="#presentationjwspayload">PresentationJwsPayload</a> object. If they do not match, the presentation is not valid.
-- The JSON object MUST have the <code>nbf</code> claim, and the <a href="#numericdate">NumericDate</a> value MUST be converted to a <a href="#datetime">DateTime</a>, and MUST equal the <code>issuanceDate</code> of the <a href="#presentationjwspayload">PresentationJwsPayload</a> object. If they do not match or if the <code>issuanceDate</code> has not yet occurred, the presentation is not valid.
-- The JSON object MUST have the <code>jti</code> claim, and the value MUST match the <code>id</code> of the <a href="#presentationjwspayload">PresentationJwsPayload</a> object. If they do not match, the presentation is not valid.
-- If the JSON object has the <code>exp</code> claim, the <a href="#numericdate">NumericDate</a> MUST be converted to a <a href="#datetime">DateTime</a>, and MUST be used to set the value of the <code>expirationDate</code> of the <a href="#presentationjwspayload">PresentationJwsPayload</a> object. If the presentation has expired, the presentation is not valid.
+- The JSON object MUST have the <code>iss</code> claim, and the value MUST match the <code>id</code> of the <code>holder</code> of the [PresentationJwsPayload](#presentationjwspayload) object. If they do not match, the presentation is not valid.
+- The JSON object MUST have the <code>nbf</code> claim, and the [NumericDate](#numericdate) value MUST be converted to a [DateTime](#datetime), and MUST equal the <code>issuanceDate</code> of the [PresentationJwsPayload](#presentationjwspayload) object. If they do not match or if the <code>issuanceDate</code> has not yet occurred, the presentation is not valid.
+- The JSON object MUST have the <code>jti</code> claim, and the value MUST match the <code>id</code> of the [PresentationJwsPayload](#presentationjwspayload) object. If they do not match, the presentation is not valid.
+- If the JSON object has the <code>exp</code> claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime), and MUST be used to set the value of the <code>expirationDate</code> of the [PresentationJwsPayload](#presentationjwspayload) object. If the presentation has expired, the presentation is not valid.
 
 ### Linked Data Proof Format {#lds-proof}
 
 This standard supports the Linked Data Proof format using the [[[LDS-ED25519-2020]]] suite.
 
 <div class="note">
-  Whenever possible, you should use a library or service to create and verify a Linked Data Proof. For example, Digital Bazaar, Inc. has a GitHub project that implements the [[[LDS-ED25519-2020]]] suite at <a href="https://github.com/digitalbazaar/ed25519-signature-2020">https://github.com/digitalbazaar/ed25519-signature-2020</a>.
+  Whenever possible, you should use a library or service to create and verify a Linked Data Proof. For example, Digital Bazaar, Inc. has a GitHub project that implements the [[[LDS-ED25519-2020]]] suite at [https://github.com/digitalbazaar/ed25519-signature-2020](https://github.com/digitalbazaar/ed25519-signature-2020).
 </div>
 
 #### Create the Proof
@@ -310,6 +216,6 @@ Verify the Linked Data Proof signature as shown in [Section 7.2 Proof Verificati
 All the proof format in this specification, and all Digital Integrity proofs in general, require the [=verifier=] to "dereference" the public key from a URI. Dereferencing means using the URI to get the public key. There are two ways to derefence the key in this specification:
 
 - If the URI is a URL for a [=JWT=], the [=verifier=] uses HTTP GET to get the [=JWT=]
-- If the URI is a URL for a [=JWT=] within a JSON Web Key Set (JKWS), the [=verifier=] uses HTTP GET to get the JWKS, then extracts the <a href="#jwk">JWK</a> with the matching <code>kid</code>
+- If the URI is a URL for a [=JWT=] within a JSON Web Key Set (JKWS), the [=verifier=] uses HTTP GET to get the JWKS, then extracts the [JWK](#jwk) with the matching <code>kid</code>
 
 `;
