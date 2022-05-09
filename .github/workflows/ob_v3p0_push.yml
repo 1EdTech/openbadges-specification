@@ -24,6 +24,7 @@ jobs:
   
   openapi:
     name: Generate the OpenAPI files
+    needs: sideload
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -32,7 +33,12 @@ jobs:
       - name: Upload OpenAPI files
         uses: actions/upload-artifact@v3
         with: 
-          path: openapi.*
+          name: openapi.yaml
+          path: openapi.yaml
+      - uses: actions/upload-artifact@v3
+        with:
+          name: openapi.json
+          path: openapi.json
       - name: Switch to gh-pages branch
         uses: actions/checkout@v2
         with:
@@ -40,6 +46,11 @@ jobs:
       - name: Download the OpenAPI files
         uses: actions/download-artifact@v3
         with: 
+          name: openapi.yaml
+          path: docs
+      - uses: actions/download-artifact@v3
+        with:
+          name: openapi.json
           path: docs
       - name: Commit the new/updated doc
         run: |
