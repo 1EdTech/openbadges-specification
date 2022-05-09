@@ -25,8 +25,8 @@ The Open Badges Specification has several related documents and artifacts shown 
 
 This standard has OpenAPI 3.0 files for the Badge Connect API in both JSON and YAML format:
 
-- [JSON OpenAPI File](https://purl.imsglobal.org/spec/ob/v2p1/schema/openapi/imsob_v3p0.json)
-- [YAML OpenAPI File](https://purl.imsglobal.org/spec/ob/v2p1/schema/openapi/imsob_v3p0.yaml)
+- [JSON OpenAPI File](https://imsglobal.github.io/openbadges-specification/openapi.json)
+- [YAML OpenAPI File](https://imsglobal.github.io/openbadges-specification/openapi.yaml)
   
 #### JSON-LD Context File
 
