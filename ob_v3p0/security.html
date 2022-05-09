@@ -156,7 +156,7 @@ var security = `
         <tbody>
           <tr>
             <td><code>x-imssf-image</code></td>
-            <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+            <td><a href="#uri">URI</a></td>
             <td>
               An image representing the [=resource server=]. May be a Data URI or the URL where the
               image may be found.
@@ -171,7 +171,7 @@ var security = `
           </tr>
           <tr>
             <td><code>title</code></td>
-            <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>The name of the [=resource server=].</td>
             <td>Required</td>
           </tr>
@@ -269,19 +269,19 @@ var security = `
         <tbody>
           <tr>
             <td><code>client_name</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>The human-readable name of the [=client=] application.</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>client_uri</code></td>
-            <td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td><a href="#url">URL</a></td>
             <td>A page that which describes the [=client=] application.</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>logo_uri</code></td>
-            <td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td><a href="#url">URL</a></td>
             <td>
               The logo of the [=client=] application. If present, the [=authorization server=] SHOULD
               display this image to the end-user during approval. The value of this field MUST point
@@ -291,7 +291,7 @@ var security = `
           </tr>
           <tr>
             <td><code>tos_uri</code></td>
-            <td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td><a href="#url">URL</a></td>
             <td>
               The human-readable Terms of Service for the [=client=] application that describes a
               contractural relationship between the end-user and the client that the end-user accepts
@@ -301,7 +301,7 @@ var security = `
           </tr>
           <tr>
             <td><code>policy_uri</code></td>
-            <td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td><a href="#url">URL</a></td>
             <td>
               The human-readable Privacy Policy for the [=client=] application that describes how the
               deployment organization collects, uses, retains, and discloses personal data.
@@ -310,7 +310,7 @@ var security = `
           </tr>
           <tr>
             <td><code>software_id</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>
               A unique idenfitier assigned by the [=client=] application developer or software
               published used by registration endpoints to identify the [=client=] application to be
@@ -321,7 +321,7 @@ var security = `
           </tr>
           <tr>
             <td><code>software_version</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>
               A version identifier string for the [=client=] application software identifies by
               <code>software_id</code>. The value of <code>software_version</code> SHOULD change on
@@ -332,13 +332,13 @@ var security = `
           </tr>
           <tr>
             <td><code>redirect_uris</code></td>
-            <td><a href="org.1edtech.ob.v3p0.derived.url.class">URL[]</a></td>
+            <td><a href="#url">URL[]</a></td>
             <td>Array of redirection URI strings for use in the OAuth 2.0 flow.</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>scope</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>
               In the registration request, this is a string containing a space-separated list of scope
               values that this [=client=] application may include when requesting access tokens. If
@@ -353,7 +353,7 @@ var security = `
           </tr>
           <tr>
             <td><code>token_endpoint_auth_method</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>
               String indicator of the requested authentication method for the token endpoint. In this
               specification only "client_secret_basic" is allowed:
@@ -369,7 +369,7 @@ var security = `
           </tr>
           <tr>
             <td><code>grant_types</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String[]</a></td>
+            <td><a href="#string">String[]</a></td>
             <td>
               Array of OAuth 2.0 grant type strings. In this specification only "authorization_code"
               and refresh_token" are allowed:
@@ -389,7 +389,7 @@ var security = `
           </tr>
           <tr>
             <td><code>response_types</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String[]</a></td>
+            <td><a href="#string">String[]</a></td>
             <td>
               Array of OAuth 2.0 response type strings. In this specification only "code" is allowed:
               <ul>
@@ -401,7 +401,7 @@ var security = `
           </tr>
           <tr>
             <td><code>contacts</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String[]</a></td>
+            <td><a href="#string">String[]</a></td>
             <td>
               Array of strings representing ways to contact people responsible for this [=client=],
               typically email addresses. The [=authorization server=] MAY make these contact addresses
@@ -494,7 +494,7 @@ var security = `
         <tbody>
           <tr>
             <td><code>client_id</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>
               An OAuth 2.0 client identifier string. The value SHOULD NOT be currently valid for any
               other registered client.
@@ -503,13 +503,13 @@ var security = `
           </tr>
           <tr>
             <td><code>client_secret</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>An OAuth 2.0 client secret string.</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>client_id_issued_at</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.nonnegativeinteger.class">NonNegativeInteger</a>
+            <td><a href="#nonnegativeinteger">NonNegativeInteger</a>
             </td>
             <td>
               The time at which the client_id was issued. The time is represented as the number of
@@ -519,7 +519,7 @@ var security = `
           </tr>
           <tr>
             <td><code>client_secret_expires_at</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.nonnegativeinteger.class">NonNegativeInteger</a>
+            <td><a href="#nonnegativeinteger">NonNegativeInteger</a>
             </td>
             <td>
               The time at which the <code>client_secret</code> will expire. MAY be 0 for no
@@ -553,7 +553,7 @@ var security = `
           </tr>
           <tr>
             <td><code>error</code></td>
-            <td><a href="#org.1edtech.ob.v3p0.primitive.asciistring.class">ASCII String</a></td>
+            <td><a href="#asciistring">ASCII String</a></td>
             <td>Human-readable ASCII text description of the error used for debugging.</td>
             <td>Optional</td>
           </tr>
@@ -630,13 +630,13 @@ var security = `
         <tbody>
           <tr>
             <td><code>response_type</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>Value MUST be set to "code".</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>client_id</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>
               The [=client=] application identifier. MUST be the <code>client_id</code> provided
               in
@@ -646,7 +646,7 @@ var security = `
           </tr>
           <tr>
             <td><code>redirect_uri</code></td>
-            <td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td><a href="#url">URL</a></td>
             <td>
               The [=client=] application's redirection endpoint. MUST match one of the
               <code>redirect_uris</code> in the [[[#acg-registration]]] request. Although this is
@@ -657,7 +657,7 @@ var security = `
           </tr>
           <tr>
             <td><code>scope</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>
               The scope of the authorization request. The [=authorization server=] is responsible
               for
@@ -669,7 +669,7 @@ var security = `
           </tr>
           <tr>
             <td><code>state</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>
               An opaque value used by the [=client=] application to maintain state between the
               request
@@ -681,13 +681,13 @@ var security = `
           </tr>
           <tr>
             <td><code>code_challenge</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>This is BASE64URL-ENCODE(SHA256(ASCII(code_verifier))).</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>code_challenge_method</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>
               This MUST have a value of "S256" to indicate the SHA256 code verifier transformation
               method is used.
@@ -745,13 +745,13 @@ var security = `
         <tbody>
           <tr>
             <td><code>code</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>The authorization code.</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>scope</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>
               The authorized scope for the access request (this MAY be a subset of the scopes in the
               request). The value is a space delimited set of scopes.
@@ -760,7 +760,7 @@ var security = `
           </tr>
           <tr>
             <td><code>state</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>
               The opaque value supplied by the client to maintain state between the request and
               callback.
@@ -810,7 +810,7 @@ var security = `
           </tr>
           <tr>
             <td><code>error_description</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>
               Human-readable ASCII [[RFC20]] text providing additional information, used to assist the
               client developer in understanding the error that occurred. Values for the
@@ -820,7 +820,7 @@ var security = `
           </tr>
           <tr>
             <td><code>error_uri</code></td>
-            <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+            <td><a href="#uri">URI</a></td>
             <td>
               A URI identifying a human-readable web page with information about the error, used to
               provide the client developer with additional information about the error. Values for the
@@ -830,7 +830,7 @@ var security = `
           </tr>
           <tr>
             <td><code>state</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>
               The opaque value supplied by the client to maintain state between the request and
               callback.
@@ -865,31 +865,31 @@ var security = `
         <tbody>
           <tr>
             <td><code>grant_type</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>Value MUST be set to "authorization_code".</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>code</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>The authorization code received from the [=authorization server=].</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>redirect_uri</code></td>
-            <td><a href="org.1edtech.ob.v3p0.derived.url.class">URL</a></td>
+            <td><a href="#url">URL</a></td>
             <td>The [=client=] application's redirection endpoint.</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>scope</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>The scope of the access request.</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>code_verifier</code></td>
-            <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>The PKCE code verifier.</td>
             <td>Required</td>
           </tr>
@@ -927,19 +927,19 @@ var security = `
           </tr>
           <tr>
             <td><code>access_token</code></td>
-            <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>The access token issued by the [=authorization server=].</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>token_type</code></td>
-            <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>The type of the token issued. The case insensitive value MUST be "bearer".</td>
             <td>Required</td>
           </tr>
           <tr>
             <td><code>scope</code></td>
-            <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>The scope of the access token. This is a space-separated list of scopes.</td>
             <td>Required</td>
           </tr>
@@ -957,7 +957,7 @@ var security = `
           </tr>
           <tr>
             <td><code>refresh_token</code></td>
-            <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+            <td><a href="#string">String</a></td>
             <td>
               The refresh token, which can be used to obtain new access tokens using the same
               authorization grant as described in [[[#token-refresh-request]]].
@@ -1008,7 +1008,7 @@ var security = `
           </tr>
           <tr>
             <td><code>error_description</code></td>
-            <td><a href="#org.1edtech.ob.v3p0.primitive.asciistring.class">ASCIIString</a></td>
+            <td><a href="#asciistring">ASCIIString</a></td>
             <td>
               Human-readable ASCII [RFC20] text providing additional information, used to assist the
               client developer in understanding the error that occurred. Values for the
@@ -1019,7 +1019,7 @@ var security = `
           </tr>
           <tr>
             <td><code>error_uri</code></td>
-            <td><a href="#org.1edtech.ob.v3p0.derived.uri.class">URI</a></td>
+            <td><a href="#uri">URI</a></td>
             <td>
               A URI identifying a human-readable web page with information about the error, used to
               provide the client developer with additional information about the error. Values for the
@@ -1105,19 +1105,19 @@ var security = `
       <tbody>
         <tr>
           <td><code>grant_type</code></td>
-          <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+          <td><a href="#string">String</a></td>
           <td>Value MUST be set to "refresh_token".</td>
           <td>Required</td>
         </tr>
         <tr>
           <td><code>refresh_token</code></td>
-          <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+          <td><a href="#string">String</a></td>
           <td>The refresh token issued to the [=client=].</td>
           <td>Required</td>
         </tr>
         <tr>
           <td><code>scope</code></td>
-          <td><a href="org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+          <td><a href="#string">String</a></td>
           <td>
             The scope of the access request. The requested scope MUST NOT include any scope not
             originally granted by the [=user=], and if omitted is treated as equal to the scope
@@ -1178,13 +1178,13 @@ var security = `
       <tbody>
         <tr>
           <td><code>token</code></td>
-          <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+          <td><a href="#string">String</a></td>
           <td>The token that the [=client=] wants to get revoked.</td>
           <td>Required</td>
         </tr>
         <tr>
           <td><code>token_type_hint</code></td>
-          <td><a href="#org.1edtech.ob.v3p0.primitive.string.class">String</a></td>
+          <td><a href="#string">String</a></td>
           <td>MUST be set to either "access_token" or "refresh_token".</td>
           <td>Required</td>
         </tr>
