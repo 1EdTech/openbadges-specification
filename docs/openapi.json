@@ -373,24 +373,6 @@
         "description" : "The Map of security scheme objects supported by this specification.",
         "x-class-pid" : "org.1edtech.ob.v3p0.openapisecurityschemes.class"
       },
-      "Criteria" : {
-        "type" : "object",
-        "properties" : {
-          "narrative" : {
-            "type" : "string",
-            "description" : "A narrative of what is needed to earn the achievement. Markdown is allowed.",
-            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.markdown.class"
-          },
-          "id" : {
-            "type" : "string",
-            "description" : "The URI of a webpage that describes in a human-readable format the criteria for the achievement.",
-            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.uri.class"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "Descriptive metadata about the achievements necessary to be recognized with an assertion of a particular achievement. This data is added to the Achievement class so that it may be rendered when the achievement assertion is displayed, instead of simply a link to human-readable criteria external to the achievement. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an assertion of a particular achievement. It is also used after the assertion is awarded to a recipient to let those inspecting earned achievements know the general requirements that the recipients met in order to earn it.",
-        "x-class-pid" : "org.1edtech.ob.v3p0.criteria.class"
-      },
       "OpenApiComponents" : {
         "required" : [ "securitySchemes" ],
         "type" : "object",
@@ -435,6 +417,15 @@
           },
           "image" : {
             "$ref" : "#/components/schemas/Image"
+          },
+          "endorsement" : {
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile.",
+            "items" : {
+              "$ref" : "#/components/schemas/EndorsementCredential"
+            },
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.endorsementcredential.class"
           },
           "address" : {
             "$ref" : "#/components/schemas/Address"
@@ -493,15 +484,6 @@
             "description" : "A phone number.",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.phonenumber.class"
           },
-          "endorsements" : {
-            "minItems" : 0,
-            "type" : "array",
-            "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile.",
-            "items" : {
-              "$ref" : "#/components/schemas/EndorsementCredential"
-            },
-            "x-srcprop-pid" : "org.1edtech.ob.v3p0.endorsementcredential.class"
-          },
           "familyName" : {
             "type" : "string",
             "description" : "Family name. In the western world, often referred to as the 'last name' of a person.",
@@ -553,7 +535,12 @@
             "description" : "If the result represents an achieved rubric criterion level (e.g. Mastered), the value is the `id` of the RubricCriterionLevel in linked ResultDescription.",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.uri.class"
           },
-          "alignments" : {
+          "resultDescription" : {
+            "type" : "string",
+            "description" : "An achievement can have many result descriptions describing possible results. The value of `resultDescription` is the `id` of the result description linked to this result. The linked result description must be in the achievement that is being asserted.",
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.uri.class"
+          },
+          "alignment" : {
             "minItems" : 0,
             "type" : "array",
             "description" : "The alignments between this result and nodes in external frameworks. This set of alignments are in addition to the set of alignments defined in the corresponding ResultDescription object.",
@@ -561,11 +548,6 @@
               "$ref" : "#/components/schemas/Alignment"
             },
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.alignment.class"
-          },
-          "resultDescription" : {
-            "type" : "string",
-            "description" : "An achievement can have many result descriptions describing possible results. The value of `resultDescription` is the `id` of the result description linked to this result. The linked result description must be in the achievement that is being asserted.",
-            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.uri.class"
           },
           "value" : {
             "type" : "string",
@@ -693,6 +675,24 @@
         "description" : "The Service Description Document (SDD) is a machine readable document that contains the description of the service features supported by the Provider/Platform. The SDD is an OpenAPI 3.0 (JSON) [[OPENAPIS-3.0]] structured document that MUST be a profiled version of the OpenAPI 3.0 (JSON) file provided provided with this specification. This profiled version contains all of the details about the supported set of service end-points, the supported optional data fields, definitions of the proprietary data fields supplied using the permitted extension mechanisms, definitions of the available proprietary endpoints, and information about the security mechanisms.",
         "x-class-pid" : "org.1edtech.ob.v3p0.servicedescriptiondocument.class"
       },
+      "Criterion" : {
+        "type" : "object",
+        "properties" : {
+          "narrative" : {
+            "type" : "string",
+            "description" : "A narrative of what is needed to earn the achievement. Markdown is allowed.",
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.markdown.class"
+          },
+          "id" : {
+            "type" : "string",
+            "description" : "The URI of a webpage that describes in a human-readable format the criterion for the achievement.",
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.uri.class"
+          }
+        },
+        "additionalProperties" : true,
+        "description" : "Descriptive metadata about the achievements necessary to be recognized with an assertion of a particular achievement. This data is added to the Achievement class so that it may be rendered when the achievement assertion is displayed, instead of simply a link to human-readable criteria external to the achievement. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an assertion of a particular achievement. It is also used after the assertion is awarded to a recipient to let those inspecting earned achievements know the general requirements that the recipients met in order to earn it.",
+        "x-class-pid" : "org.1edtech.ob.v3p0.criterion.class"
+      },
       "Evidence" : {
         "type" : "object",
         "properties" : {
@@ -729,15 +729,6 @@
           "type" : {
             "type" : "string",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.iri.class"
-          },
-          "artifacts" : {
-            "minItems" : 0,
-            "type" : "array",
-            "description" : "Artifacts that are part of the evidence.",
-            "items" : {
-              "$ref" : "#/components/schemas/Artifact"
-            },
-            "x-srcprop-pid" : "org.1edtech.ob.v3p0.artifact.class"
           }
         },
         "additionalProperties" : true,
@@ -745,7 +736,7 @@
         "x-class-pid" : "org.1edtech.ob.v3p0.evidence.class"
       },
       "Achievement" : {
-        "required" : [ "id", "type", "criteria", "description", "name" ],
+        "required" : [ "id", "type", "criterion", "description", "name" ],
         "type" : "object",
         "properties" : {
           "achievementType" : {
@@ -765,8 +756,17 @@
           "creator" : {
             "$ref" : "#/components/schemas/Profile"
           },
-          "criteria" : {
-            "$ref" : "#/components/schemas/Criteria"
+          "criterion" : {
+            "$ref" : "#/components/schemas/Criterion"
+          },
+          "endorsement" : {
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "Allows endorsers to make specific claims about the Achievement.",
+            "items" : {
+              "$ref" : "#/components/schemas/EndorsementCredential"
+            },
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.endorsementcredential.class"
           },
           "humanCode" : {
             "type" : "string",
@@ -782,15 +782,6 @@
             "type" : "string",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.iri.class"
           },
-          "tags" : {
-            "minItems" : 0,
-            "type" : "array",
-            "description" : "Tags that describes the type of achievement.",
-            "items" : {
-              "type" : "string"
-            },
-            "x-srcprop-pid" : "org.1edtech.ob.v3p0.primitive.string.class"
-          },
           "creditsAvailable" : {
             "type" : "number",
             "description" : "Credit hours associated with this entity, or credit hours possible. For example 3.0.",
@@ -804,15 +795,6 @@
               "$ref" : "#/components/schemas/IdentifierEntry"
             },
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.identifierentry.class"
-          },
-          "endorsements" : {
-            "minItems" : 0,
-            "type" : "array",
-            "description" : "Allows endorsers to make specific claims about the Achievement.",
-            "items" : {
-              "$ref" : "#/components/schemas/EndorsementCredential"
-            },
-            "x-srcprop-pid" : "org.1edtech.ob.v3p0.endorsementcredential.class"
           },
           "name" : {
             "type" : "string",
@@ -828,6 +810,15 @@
             "type" : "string",
             "description" : "Unique URI for the Achievement. Required so the achievement can be the subject of an endorsement.",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.uri.class"
+          },
+          "tag" : {
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "Tags that describes the type of achievement.",
+            "items" : {
+              "type" : "string"
+            },
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.primitive.string.class"
           },
           "alignment" : {
             "minItems" : 0,
@@ -1001,29 +992,6 @@
         "description" : "The object provides metadata about the API. The metadata MAY be used by the clients if needed, and MAY be presented in editing or documentation generation tools for convenience.",
         "x-class-pid" : "org.1edtech.ob.v3p0.openapiinfo.class"
       },
-      "Artifact" : {
-        "type" : "object",
-        "properties" : {
-          "name" : {
-            "type" : "string",
-            "description" : "The name of the artifact.",
-            "x-srcprop-pid" : "org.1edtech.ob.v3p0.primitive.string.class"
-          },
-          "description" : {
-            "type" : "string",
-            "description" : "A description of the artifact.",
-            "x-srcprop-pid" : "org.1edtech.ob.v3p0.primitive.string.class"
-          },
-          "url" : {
-            "type" : "string",
-            "description" : "URI for the artifact which may be a Data URI ([[RFC2397]]) or the URL where the artifact can be found.",
-            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.uri.class"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "An artifact that is part of an evidence object.",
-        "x-class-pid" : "org.1edtech.ob.v3p0.artifact.class"
-      },
       "EndorsementSubject" : {
         "required" : [ "id" ],
         "type" : "object",
@@ -1058,6 +1026,15 @@
               "$ref" : "#/components/schemas/CredentialSchema"
             },
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.credentialschema.class"
+          },
+          "endorsement" : {
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential.",
+            "items" : {
+              "$ref" : "#/components/schemas/EndorsementCredential"
+            },
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.endorsementcredential.class"
           },
           "evidence" : {
             "minItems" : 0,
@@ -1113,15 +1090,6 @@
             "description" : "Timestamp of when the credential was awarded.",
             "format" : "date-time",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.primitive.datetime.class"
-          },
-          "endorsements" : {
-            "minItems" : 0,
-            "type" : "array",
-            "description" : "Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential.",
-            "items" : {
-              "$ref" : "#/components/schemas/EndorsementCredential"
-            },
-            "x-srcprop-pid" : "org.1edtech.ob.v3p0.endorsementcredential.class"
           },
           "name" : {
             "type" : "string",
@@ -1329,6 +1297,15 @@
       "AchievementSubject" : {
         "type" : "object",
         "properties" : {
+          "result" : {
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "The set of results being asserted.",
+            "items" : {
+              "$ref" : "#/components/schemas/Result"
+            },
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.result.class"
+          },
           "identifier" : {
             "minItems" : 0,
             "type" : "array",
@@ -1353,15 +1330,6 @@
             "type" : "string",
             "description" : "An identifier for the Credential Subject. Either `id` or at least one `identifier` MUST be supplied.",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.uri.class"
-          },
-          "results" : {
-            "minItems" : 0,
-            "type" : "array",
-            "description" : "The set of results being asserted.",
-            "items" : {
-              "$ref" : "#/components/schemas/Result"
-            },
-            "x-srcprop-pid" : "org.1edtech.ob.v3p0.result.class"
           }
         },
         "additionalProperties" : false,
@@ -1371,25 +1339,25 @@
       "GetOpenBadgeCredentialsResponse" : {
         "type" : "object",
         "properties" : {
-          "compactJwsStrings" : {
+          "credential" : {
             "minItems" : 0,
             "type" : "array",
-            "description" : "OpenBadgeCredentials that have been signed with the VC-JWT Proof Format MUST be in the `compactJwsStrings` array.",
+            "description" : "OpenBadgeCredentials that have not been signed with the VC-JWT Proof Format MUST be in the `credential` array.",
+            "items" : {
+              "$ref" : "#/components/schemas/AchievementCredential"
+            },
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.achievementcredential.class"
+          },
+          "compactJwsString" : {
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "OpenBadgeCredentials that have been signed with the VC-JWT Proof Format MUST be in the `compactJwsString` array.",
             "items" : {
               "pattern" : "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$",
               "type" : "string",
               "description" : "A `String` in Compact JWS format [[RFC7515]]."
             },
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.compactjws.class"
-          },
-          "credentials" : {
-            "minItems" : 0,
-            "type" : "array",
-            "description" : "OpenBadgeCredentials that have not been signed with the VC-JWT Proof Format MUST be in the `credentials` array.",
-            "items" : {
-              "$ref" : "#/components/schemas/AchievementCredential"
-            },
-            "x-srcprop-pid" : "org.1edtech.ob.v3p0.achievementcredential.class"
           }
         },
         "additionalProperties" : false,
