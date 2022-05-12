@@ -50,8 +50,10 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
 Package ApiDataModel DataModel
 
     Class GetOpenBadgeCredentialsResponse Unordered false []
-        Property credentials AchievementCredential 0..*               "OpenBadgeCredentials that have not been signed with the VC-JWT Proof Format MUST be in the `credentials` array."
-        Property compactJwsStrings CompactJws 0..*                  "OpenBadgeCredentials that have been signed with the VC-JWT Proof Format MUST be in the `compactJwsStrings` array."
+        Property credential AchievementCredential 0..*              "OpenBadgeCredentials that have not been signed with the VC-JWT Proof Format MUST be in the `credentials` array."
+        Property compactJwsString CompactJws 0..*                   "OpenBadgeCredentials that have been signed with the VC-JWT Proof Format MUST be in the `compactJwsStrings` array."
+
+    // The following schema is based on the OpenAPI 3.0 schema.
 
     Class ServiceDescriptionDocument Unordered false []             "The Service Description Document (SDD) is a machine readable document that contains the description of the service features supported by the Provider/Platform. The SDD is an OpenAPI 3.0 (JSON) [[OPENAPIS-3.0]] structured document that MUST be a profiled version of the OpenAPI 3.0 (JSON) file provided provided with this specification. This profiled version contains all of the details about the supported set of service end-points, the supported optional data fields, definitions of the proprietary data fields supplied using the permitted extension mechanisms, definitions of the available proprietary endpoints, and information about the security mechanisms." "n:Only a subset of the object properties are shown here."
         Property openapi String 1                                   "This string MUST be the semantic version number of the OpenAPI Specification version that the OpenAPI document uses. The openapi field SHOULD be used by tooling specifications and clients to interpret the OpenAPI document. This is not related to the API info.version string."
