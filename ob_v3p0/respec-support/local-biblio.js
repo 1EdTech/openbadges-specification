@@ -119,23 +119,23 @@ var _localBiblio = {
     "status": "CG-DRAFT",
     "publisher": "Credentials Community Group"
   },
-  "RL-10": {
-    "title": "IMS Revocation List Status Method",
-    "href": "https://imsglobal.org/spec/rl/v1p0/",
+  "VCRL-10": {
+    "title": "1EdTech Revocation List Status Method",
+    "href": "https://imsglobal.org/spec/vcrl/v1p0/",
     "status": "IMS Base Document",
-    "publisher": "IMS Global Learning Consortium"
+    "publisher": "1EdTech&trade; Consortium"
   },
-  "CR-10": {
-    "title": "IMS Credential Refresh Service",
-    "href": "https://imsglobal.org/spec/cr/v1p0/",
+  "VCCR-10": {
+    "title": "1EdTech Credential Refresh Service",
+    "href": "https://imsglobal.org/spec/vccr/v1p0/",
     "status": "IMS Base Document",
-    "publisher": "IMS Global Learning Consortium"
+    "publisher": "1EdTech&trade; Consortium"
   },
-  "CS-10": {
-    "title": "IMS JSON Schema Validator 2019",
-    "href": "https://imsglobal.org/spec/cs/v1p0/",
+  "VCCS-10": {
+    "title": "1EdTech JSON Schema Validator 2019",
+    "href": "https://imsglobal.org/spec/vccs/v1p0/",
     "status": "IMS Base Document",
-    "publisher": "IMS Global Learning Consortium"
+    "publisher": "1EdTech&trade; Consortium"
   },
   "LDS-ED25519-2020": {
     "title": "Ed25519 Signature 2020",

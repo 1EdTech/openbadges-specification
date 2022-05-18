@@ -8,12 +8,12 @@ The data model as described in Appendix [[[#datamodels]]] is the canonical struc
 
 The data model can be encoded in Javascript Object Notation (JSON) [[RFC8259]] by mapping property types in the Data Model to JSON types as follows:
 
-- Numeric values representable as [[IEEE-754]] MUST be represented as a Number type.
-- Boolean values MUST be represented as a Boolean type.
-- Sequence values MUST be represented as an Array type, NOT as a single value.
-- Unordered sets (i.e. \`0..*\` and \`1..*\` multiplicities) of values MUST be represented as an Array type, NOT as a single value.
-- Sets of properties MUST be represented as an Object type, NOT as a URI.
-- Other values MUST be represented as a String type.
+- Numeric values representable as [[IEEE-754]] MUST be represented as a JSON Number.
+- Boolean values MUST be represented as a JSON Boolean.
+- Sequence values MUST be represented as an JSON Array, NOT as a single value.
+- Unordered sets (i.e. \`0..*\` and \`1..*\` multiplicities) of values MUST be represented as an JSON Array, NOT as a single value.
+- Complex types (i.e. not primitive types or derived types) MUST be represented as an JSON Object, NOT as a URI.
+- Other values MUST be represented as a JSON String.
 - Null values and empty arrays MUST be ommitted from the serialized JSON. This includes empty Arrays.
 
 ### JSON-LD
