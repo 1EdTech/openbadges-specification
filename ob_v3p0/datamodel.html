@@ -19,9 +19,20 @@ var datamodel = `
           "name": "Example University"
         },
         "issuanceDate": "2010-01-01T00:00:00Z",
-        "name": "Example University Degree",
+        "name": "Example University Degree for Example Student",
         "credentialSubject": {
-          "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"          
+          "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+          "type": ["AchievementSubject"],
+          "achievement": {
+            "id": "https://example.edu/achievements/degree",
+            "type": "Achievement",
+            "achievementType": "Degree",
+            "name": "Example University Degree",
+            "description": "Represents the completion of a degree program",
+            "criteria": {
+              "id": "https://example.edu/achievements/degree"
+            }
+          }          
         }
       }
     </pre>
