@@ -99,10 +99,17 @@ var datamodel = `
                     "type": "JsonSchemaValidator2018"
                   }
                 ],
-                "credentialStatus": {
-                  "id": "https://example.edu/credentials/3732/status",
-                  "type": "1EdTechRevocationList"
-                },
+                "credentialStatus": [
+                  {
+                    "id": "https://example.edu/credentials/3732/revocations",
+                    "type": "1EdTechRevocationList"
+                  },
+                  {
+                    "id": "https://example.edu/credentials/3732/status",
+                    "type": "CredentialStatusList2021"
+                  }
+                ]
+                ,
                 "refreshService": {
                   "id": "http://example.edu/credentials/3732",
                   "type": "1EdTechCredentialRefresh"
@@ -137,10 +144,16 @@ var datamodel = `
                     "type": "JsonSchemaValidator2018"
                   }
                 ],
-                "credentialStatus": {
-                  "id": "https://state.gov/credentials/3732/status",
-                  "type": "1EdTechRevocationList"
-                },
+                "credentialStatus": [
+                  {
+                    "id": "https://state.gov/credentials/3732/revocations",
+                    "type": "1EdTechRevocationList"
+                  },
+                  {
+                    "id": "https://state.gov/credentials/3732/status",
+                    "type": "CredentialStatusList2021"
+                  }
+                ],
                 "refreshService": {
                   "id": "http://state.gov/credentials/3732",
                   "type": "1EdTechCredentialRefresh"
@@ -180,7 +193,7 @@ var datamodel = `
               "id": "did:example:123456789",
               "name": "Universal Universities"
             },
-            "sourcedId": "12345",
+            "sourcedId": "urn:uuid:86652531-6737-46be-ab28-ca720a7990c0",
             "sisSourcedId": "67890"
           },
           "creditsAvailable": 36.0,
@@ -220,10 +233,16 @@ var datamodel = `
                   "type": "JsonSchemaValidator2018"
                 }
               ],
-              "credentialStatus": {
-                "id": "https://accrediter.edu/endorsements/565049/status",
-                "type": "1EdTechRevocationList"
-              },
+              "credentialStatus": [
+                {
+                  "id": "https://accrediter.edu/endorsements/565049/revocations",
+                  "type": "1EdTechRevocationList"
+                },
+                {
+                  "id": "https://accrediter.edu/endorsements/565049/status",
+                  "type": "CredentialStatusList2021"
+                }
+              ],
               "refreshService": {
                 "id": "https://accrediter.edu/endorsements/565049/refresh",
                 "type": "1EdTechCredentialRefresh"
@@ -259,10 +278,16 @@ var datamodel = `
                   "type": "JsonSchemaValidator2018"
                 }
               ],
-              "credentialStatus": {
-                "id": "https://state.gov/endorsements/565049/status",
-                "type": "1EdTechRevocationList"
-              },
+              "credentialStatus": [
+                {
+                  "id": "https://state.gov/endorsements/565049/revocations",
+                  "type": "1EdTechRevocationList"
+                },
+                {
+                  "id": "https://state.gov/endorsements/565049/status",
+                  "type": "CredentialStatusList2021"
+                }
+              ],
               "refreshService": {
                 "id": "https://state.gov/endorsements/565049/refresh",
                 "type": "1EdTechCredentialRefresh"
@@ -355,6 +380,7 @@ var datamodel = `
             },
             {
               "id": "urn:uuid:b07c0387-f2d6-4b65-a3f4-f4e4302ea8f7",
+              "name": "Project Status",
               "resultType": "Status"
             }
           ],
@@ -427,10 +453,16 @@ var datamodel = `
               "type": "1EdTechJsonSchemaValidator2019"
             }
           ],
-          "credentialStatus": {
-            "id": "https://example.edu/credentials/3732/status",
-            "type": "1EdTechRevocationList"
-          },
+          "credentialStatus": [
+            {
+              "id": "https://example.edu/credentials/3732/revocations",
+              "type": "1EdTechRevocationList"
+            },
+            {
+              "id": "https://example.edu/credentials/3732/status",
+              "type": "CredentialStatusList2021"
+            }
+          ],
           "refreshService": {
             "id": "http://example.edu/credentials/3732",
             "type": "1EdTechCredentialRefresh"
@@ -492,10 +524,16 @@ var datamodel = `
                 "type": "JsonSchemaValidator2018"
               }
             ],
-            "credentialStatus": {
-              "id": "https://example.edu/credentials/3732/status",
-              "type": "1EdTechRevocationList"
-            },
+            "credentialStatus": [
+              {
+                "id": "https://example.edu/credentials/3732/revocations",
+                "type": "1EdTechRevocationList"
+              },
+              {
+                "id": "https://example.edu/credentials/3732/status",
+                "type": "CredentialStatusList2021"
+              }
+            ],
             "refreshService": {
               "id": "http://example.edu/credentials/3732",
               "type": "1EdTechCredentialRefresh"
@@ -530,10 +568,12 @@ var datamodel = `
                 "type": "JsonSchemaValidator2018"
               }
             ],
-            "credentialStatus": {
-              "id": "https://state.gov/credentials/3732/status",
-              "type": "1EdTechRevocationList"
-            },
+            "credentialStatus": [
+              {
+                "id": "https://state.gov/credentials/3732/status",
+                "type": "1EdTechRevocationList"
+              }
+            ],
             "refreshService": {
               "id": "http://state.gov/credentials/3732",
               "type": "1EdTechCredentialRefresh"
@@ -573,7 +613,7 @@ var datamodel = `
           "id": "did:example:123456789",
           "name": "Universal Universities"
         },
-        "sourcedId": "12345",
+        "sourcedId": "urn:uuid:974d0529-875a-4f38-bbe2-bbc02e394df9",
         "sisSourcedId": "67890"
       },
       "issuanceDate": "2010-01-01T00:00:00Z",
@@ -584,10 +624,16 @@ var datamodel = `
           "type": "1EdTechJsonSchemaValidator2019"
         }
       ],
-      "credentialStatus": {
-        "id": "https://example.edu/credentials/3732/status",
-        "type": "1EdTechRevocationList"
-      },
+      "credentialStatus": [
+        {
+          "id": "https://example.edu/credentials/3732/revocations",
+          "type": "1EdTechRevocationList"
+        },
+        {
+          "id": "https://example.edu/credentials/3732/status",
+          "type": "CredentialStatusList2021"
+        }
+      ],
       "refreshService": {
         "id": "http://example.edu/credentials/3732",
         "type": "1EdTechCredentialRefresh"
