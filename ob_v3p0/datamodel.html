@@ -9,7 +9,7 @@ var datamodel = `
     {
       "@context": [
         "https://www.w3.org/2018/credentials/v1",
-        "https://imsglobal.github.io/openbadges-specification/context.json"
+        "http://localhost:3000/ob_v3p0/context.json"
       ],
       "id": "http://example.edu/credentials/3732",
       "type": [
@@ -20,6 +20,7 @@ var datamodel = `
       "description": "Example University Degree Description",
       "image": {
         "id": "https://example.edu/credentials/3732/image",
+        "type": "Image",
         "caption": "Example University Degree for Example Student"
       },
       "credentialSubject": {
@@ -29,23 +30,26 @@ var datamodel = `
         ],
         "identifier": [
           {
+            "type:" "IdentityObject",
             "identityHash": "student@example.edu",
-            "type": "email",
+            "identityType": "email",
             "hashed": "false",
             "salt": "not-used"
           },
           {
+            "type:" "IdentityObject",
             "identityHash": "somebody@gmail.com",
-            "type": "email",
+            "identityType": "email",
             "hashed": "false",
             "salt": "not-used"
           }
         ],
         "achievement": {
           "id": "https://example.edu/achievements/degree",
-          "type": "Achievement",
+          "type": ["Achievement"],
           "alignment": [
             {
+              "type": ["Alignment"],
               "targetCode": "degree",
               "targetDescription": "Example University Degree programs.",
               "targetName": "Example University Degree",
@@ -54,6 +58,7 @@ var datamodel = `
               "targetUrl": "https://example.edu/catalog/degree"
             },
             {
+              "type": ["Alignment"],
               "targetCode": "degree",
               "targetDescription": "Example University Degree programs.",
               "targetName": "Example University Degree",
@@ -65,6 +70,7 @@ var datamodel = `
           "achievementType": "Degree",
           "creator": {
             "id": "https://example.edu/issuers/565049",
+            "type": ["Profile"],
             "name": "Example University",
             "url": "https://example.edu",
             "phone": "1-222-333-4444",
@@ -73,7 +79,7 @@ var datamodel = `
               {
                 "@context": [
                   "https://www.w3.org/2018/credentials/v1",
-                  "https://imsglobal.github.io/openbadges-specification/context.json"
+                  "http://localhost:3000/ob_v3p0/context.json"
                 ],
                 "type": [
                   "VerifiableCredential",
@@ -81,12 +87,14 @@ var datamodel = `
                 ],
                 "issuer": {
                   "id": "https://accrediter.edu/issuers/565049",
+                  "type": ["Profile"],
                   "name": "Example Accrediting Agency"
                 },
                 "issuanceDate": "2010-01-01T00:00:00Z",
                 "expirationDate": "2020-01-01T00:00:00Z",
                 "credentialSubject": {
                   "id": "https://example.edu/issuers/565049",
+                  "type": ["EndorsementSubject"],
                   "endorsementComment": "Example Univeristy is in good standing"
                 },
                 "credentialSchema": [
@@ -111,7 +119,7 @@ var datamodel = `
               {
                 "@context": [
                   "https://www.w3.org/2018/credentials/v1",
-                  "https://imsglobal.github.io/openbadges-specification/context.json"
+                  "http://localhost:3000/ob_v3p0/context.json"
                 ],
                 "type": [
                   "VerifiableCredential",
@@ -119,12 +127,14 @@ var datamodel = `
                 ],
                 "issuer": {
                   "id": "https://state.gov/issuers/565049",
+                  "type": ["Profile"],
                   "name": "State Department of Education"
                 },
                 "issuanceDate": "2010-01-01T00:00:00Z",
                 "expirationDate": "2020-01-01T00:00:00Z",
                 "credentialSubject": {
                   "id": "https://example.edu/issuers/565049",
+                  "type": ["EndorsementSubject"],
                   "endorsementComment": "Example Univeristy is in good standing"
                 },
                 "credentialSchema": [
@@ -149,10 +159,12 @@ var datamodel = `
             ],
             "image": {
               "id": "https://example.edu/logo.png",
+              "type": "Image",
               "caption": "Example University logo"
             },
             "email": "registrar@example.edu",
             "address": {
+              "type": ["Address"],
               "addressCountry": "USA",
               "addressCountryCode": "US",
               "addressRegion": "TX",
@@ -161,16 +173,19 @@ var datamodel = `
               "postOfficeBoxNumber": "1",
               "postalCode": "12345",
               "geo": {
+                "type": "GeoCoordinates",
                 "latitude": 1.0,
                 "longitude": 1.0
               }
             },
             "otherIdentifiers": [
               {
+                "type": "IdentifierEntry",
                 "identifier": "12345",
                 "identifierType": "sourcedId"
               },
               {
+                "type": "IdentifierEntry",
                 "identifier": "67890",
                 "identifierType": "nationalIdentityNumber"
               }
@@ -178,6 +193,7 @@ var datamodel = `
             "official": "Horace Mann",
             "parentOrg": {
               "id": "did:example:123456789",
+              "type": ["Profile"],
               "name": "Universal Universities"
             },
             "sourcedId": "urn:uuid:86652531-6737-46be-ab28-ca720a7990c0",
@@ -193,7 +209,7 @@ var datamodel = `
             {
               "@context": [
                 "https://www.w3.org/2018/credentials/v1",
-                "https://imsglobal.github.io/openbadges-specification/context.json"
+                "http://localhost:3000/ob_v3p0/context.json"
               ],
               "id": "https://accrediter.edu/endorsements/565049",
               "type": [
@@ -202,12 +218,14 @@ var datamodel = `
               ],
               "issuer": {
                 "id": "https://accrediter.edu/issuers/565049",
+                "type": ["Profile"],
                 "name": "Example Accrediting Agency"
               },
               "issuanceDate": "2010-01-01T00:00:00Z",
               "expirationDate": "2020-01-01T00:00:00Z",
               "credentialSubject": {
                 "id": "https://example.edu/achievements/degree",
+                "type": ["EndorsementSubject"],
                 "endorsementComment": "Example Univeristy's Degree Program is great."
               },
               "credentialSchema": [
@@ -232,7 +250,7 @@ var datamodel = `
             {
               "@context": [
                 "https://www.w3.org/2018/credentials/v1",
-                "https://imsglobal.github.io/openbadges-specification/context.json"
+                "http://localhost:3000/ob_v3p0/context.json"
               ],
               "id": "https://state.gov/endorsements/565049",
               "type": [
@@ -241,12 +259,14 @@ var datamodel = `
               ],
               "issuer": {
                 "id": "https://state.gov/issuers/565049",
+                "type": ["Profile"],
                 "name": "State Department of Education"
               },
               "issuanceDate": "2010-01-01T00:00:00Z",
               "expirationDate": "2020-01-01T00:00:00Z",
               "credentialSubject": {
                 "id": "https://example.edu/achievements/degree",
+                "type": ["EndorsementSubject"],
                 "endorsementComment": "Example Univeristy's Degree program is great."
               },
               "credentialSchema": [
@@ -273,11 +293,13 @@ var datamodel = `
           "humanCode": "R1",
           "image": {
             "id": "https://example.edu/achievements/degree/image",
+            "type": "Image",
             "caption": "Example University Degree"
           },
           "name": "Example University Degree",
           "otherIdentifiers": [
             {
+              "type": "IdentifierEntry",
               "identifier": "abde",
               "identifierType": "identifier"
             }
@@ -285,8 +307,10 @@ var datamodel = `
           "resultDescription": [
             {
               "id": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+              "type": ["ResultDescription"],
               "alignment": [
                 {
+                  "type": ["Alignment"],
                   "targetCode": "project",
                   "targetDescription": "Project description",
                   "targetName": "Final Project",
@@ -302,8 +326,10 @@ var datamodel = `
             },
             {
               "id": "urn:uuid:a70ddc6a-4c4a-4bd8-8277-cb97c79f40c5",
+              "type": ["ResultDescription"],
               "alignment": [
                 {
+                  "type": ["Alignment"],
                   "targetCode": "project",
                   "targetDescription": "Project description",
                   "targetName": "Final Project",
@@ -319,8 +345,10 @@ var datamodel = `
               "rubricCriterionLevel": [
                 {
                   "id": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+                  "type": ["RubricCriterionLevel"],
                   "alignment": [
                     {
+                      "type": ["Alignment"],
                       "targetCode": "project",
                       "targetDescription": "Project description",
                       "targetName": "Final Project",
@@ -336,8 +364,10 @@ var datamodel = `
                 },
                 {
                   "id": "urn:uuid:6b84b429-31ee-4dac-9d20-e5c55881f80e",
+                  "type": ["RubricCriterionLevel"],
                   "alignment": [
                     {
+                      "type": ["Alignment"],
                       "targetCode": "project",
                       "targetDescription": "Project description",
                       "targetName": "Final Project",
@@ -355,6 +385,7 @@ var datamodel = `
             },
             {
               "id": "urn:uuid:b07c0387-f2d6-4b65-a3f4-f4e4302ea8f7",
+              "type": ["ResultDescription"],
               "name": "Project Status",
               "resultType": "Status"
             }
@@ -364,13 +395,16 @@ var datamodel = `
         },
         "image": {
           "id": "https://example.edu/credentials/3732/image",
+          "type": "Image",
           "caption": "Example University Degree for Example Student"
         },
         "narrative": "There is a final project report and source code evidence.",
         "result": [
           {
+            "type": ["Result"],
             "alignment": [
               {
+                "type": ["Alignment"],
                 "targetCode": "project",
                 "targetDescription": "Project description",
                 "targetName": "Final Project",
@@ -383,9 +417,11 @@ var datamodel = `
             "value": "A"
           },
           {
+            "type": ["Result"],
             "achievedLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
             "alignment": [
               {
+                "type": ["Alignment"],
                 "targetCode": "project",
                 "targetDescription": "Project description",
                 "targetName": "Final Project",
@@ -397,6 +433,7 @@ var datamodel = `
             "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c"
           },
           {
+            "type": ["Result"],
             "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
             "status": "Completed"
           }
@@ -406,7 +443,7 @@ var datamodel = `
         {
           "@context": [
             "https://www.w3.org/2018/credentials/v1",
-            "https://imsglobal.github.io/openbadges-specification/context.json"
+            "http://localhost:3000/ob_v3p0/context.json"
           ],
           "type": [
             "VerifiableCredential",
@@ -414,12 +451,14 @@ var datamodel = `
           ],
           "issuer": {
             "id": "https://accrediter.edu/issuers/565049",
+            "type": ["Profile"],
             "name": "Example Accrediting Agency"
           },
           "issuanceDate": "2010-01-01T00:00:00Z",
           "expirationDate": "2020-01-01T00:00:00Z",
           "credentialSubject": {
             "id": "https://example.edu/issuers/565049",
+            "type": ["EndorsementSubject"],
             "endorsementComment": "Example Univeristy is in good standing"
           },
           "credentialSchema": [
@@ -441,7 +480,7 @@ var datamodel = `
       "evidence": [
         {
           "id": "https://example.edu/credentials/3732/evidence/1",
-          "type": "Evidence",
+          "type": ["Evidence"],
           "narrative": "# Final Project Report \\n This project was ...",
           "name": "Final Project Report",
           "description": "This is the final project report.",
@@ -450,7 +489,7 @@ var datamodel = `
         },
         {
           "id": "https://github.com/somebody/project",
-          "type": "Evidence",
+          "type": ["Evidence"],
           "name": "Final Project Code",
           "description": "This is the source code for the final project app.",
           "genre": "Research",
@@ -459,6 +498,7 @@ var datamodel = `
       ],
       "issuer": {
         "id": "https://example.edu/issuers/565049",
+        "type": ["Profile"],
         "name": "Example University",
         "url": "https://example.edu",
         "phone": "1-222-333-4444",
@@ -467,7 +507,7 @@ var datamodel = `
           {
             "@context": [
               "https://www.w3.org/2018/credentials/v1",
-              "https://imsglobal.github.io/openbadges-specification/context.json"
+              "http://localhost:3000/ob_v3p0/context.json"
             ],
             "type": [
               "VerifiableCredential",
@@ -475,12 +515,14 @@ var datamodel = `
             ],
             "issuer": {
               "id": "https://accrediter.edu/issuers/565049",
+              "type": ["Profile"],
               "name": "Example Accrediting Agency"
             },
             "issuanceDate": "2010-01-01T00:00:00Z",
             "expirationDate": "2020-01-01T00:00:00Z",
             "credentialSubject": {
               "id": "https://example.edu/issuers/565049",
+              "type": ["EndorsementSubject"],
               "endorsementComment": "Example Univeristy is in good standing"
             },
             "credentialSchema": [
@@ -505,7 +547,7 @@ var datamodel = `
           {
             "@context": [
               "https://www.w3.org/2018/credentials/v1",
-              "https://imsglobal.github.io/openbadges-specification/context.json"
+              "http://localhost:3000/ob_v3p0/context.json"
             ],
             "type": [
               "VerifiableCredential",
@@ -513,12 +555,14 @@ var datamodel = `
             ],
             "issuer": {
               "id": "https://state.gov/issuers/565049",
+              "type": ["Profile"],
               "name": "State Department of Education"
             },
             "issuanceDate": "2010-01-01T00:00:00Z",
             "expirationDate": "2020-01-01T00:00:00Z",
             "credentialSubject": {
               "id": "https://example.edu/issuers/565049",
+              "type": ["EndorsementSubject"],
               "endorsementComment": "Example Univeristy is in good standing"
             },
             "credentialSchema": [
@@ -543,10 +587,12 @@ var datamodel = `
         ],
         "image": {
           "id": "https://example.edu/logo.png",
+          "type": "Image",
           "caption": "Example University logo"
         },
         "email": "registrar@example.edu",
         "address": {
+          "type": ["Address"],
           "addressCountry": "USA",
           "addressCountryCode": "US",
           "addressRegion": "TX",
@@ -555,16 +601,19 @@ var datamodel = `
           "postOfficeBoxNumber": "1",
           "postalCode": "12345",
           "geo": {
+            "type": "GeoCoordinates",
             "latitude": 1.0,
             "longitude": 1.0
           }
         },
         "otherIdentifiers": [
           {
+            "type": "IdentifierEntry",
             "identifier": "12345",
             "identifierType": "sourcedId"
           },
           {
+            "type": "IdentifierEntry",
             "identifier": "67890",
             "identifierType": "nationalIdentityNumber"
           }
@@ -572,6 +621,7 @@ var datamodel = `
         "official": "Horace Mann",
         "parentOrg": {
           "id": "did:example:123456789",
+          "type": ["Profile"],
           "name": "Universal Universities"
         },
         "sourcedId": "urn:uuid:974d0529-875a-4f38-bbe2-bbc02e394df9",
@@ -602,12 +652,13 @@ var datamodel = `
       {
         "@context": [
           "https://www.w3.org/2018/credentials/v1",
-          "https://imsglobal.github.io/openbadges-specification/context.json"
+          "http://localhost:3000/ob_v3p0/context.json"
         ],
         "id": "http://example.edu/credentials/3732",
         "type": ["VerifiableCredential", "OpenBadgeCredential"],
         "issuer": {
           "id": "https://example.edu/issuers/565049",
+          "type": ["Profile"],
           "name": "Example University"
         },
         "issuanceDate": "2010-01-01T00:00:00Z",
