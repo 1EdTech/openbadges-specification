@@ -282,6 +282,82 @@ var datamodel = `
               "identifierType": "identifier"
             }
           ],
+          "resultDescription": [
+            {
+              "id": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+              "alignment": [
+                {
+                  "targetCode": "project",
+                  "targetDescription": "Project description",
+                  "targetName": "Final Project",
+                  "targetFramework": "Example University Program and Course Catalog",
+                  "targetType": "CFItem",
+                  "targetUrl": "https://example.edu/catalog/degree/project"
+                }
+              ],
+              "allowedValue": ["D", "C", "B", "A"],
+              "name": "Final Project Grade",
+              "requiredValue": "C",
+              "resultType": "LetterGrade"
+            },
+            {
+              "id": "urn:uuid:a70ddc6a-4c4a-4bd8-8277-cb97c79f40c5",
+              "alignment": [
+                {
+                  "targetCode": "project",
+                  "targetDescription": "Project description",
+                  "targetName": "Final Project",
+                  "targetFramework": "Example University Program and Course Catalog",
+                  "targetType": "CFItem",
+                  "targetUrl": "https://example.edu/catalog/degree/project"
+                }
+              ],
+              "allowedValue": ["D", "C", "B", "A"],
+              "name": "Final Project Grade",
+              "requiredLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+              "resultType": "RubricCriterionLevel",
+              "rubricCriterionLevel": [
+                {
+                  "id": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+                  "alignment": [
+                    {
+                      "targetCode": "project",
+                      "targetDescription": "Project description",
+                      "targetName": "Final Project",
+                      "targetFramework": "Example University Program and Course Catalog",
+                      "targetType": "CFRubricCriterionLevel",
+                      "targetUrl": "https://example.edu/catalog/degree/project/rubric/levels/mastered"
+                    }
+                  ],
+                  "description": "The author demonstrated...",
+                  "level": "Mastered",
+                  "name": "Mastery",
+                  "points": "4"
+                },
+                {
+                  "id": "urn:uuid:6b84b429-31ee-4dac-9d20-e5c55881f80e",
+                  "alignment": [
+                    {
+                      "targetCode": "project",
+                      "targetDescription": "Project description",
+                      "targetName": "Final Project",
+                      "targetFramework": "Example University Program and Course Catalog",
+                      "targetType": "CFRubricCriterionLevel",
+                      "targetUrl": "https://example.edu/catalog/degree/project/rubric/levels/basic"
+                    }
+                  ],
+                  "description": "The author demonstrated...",
+                  "level": "Basic",
+                  "name": "Basic",
+                  "points": "4"
+                }
+              ]
+            },
+            {
+              "id": "urn:uuid:b07c0387-f2d6-4b65-a3f4-f4e4302ea8f7",
+              "resultType": "Status"
+            }
+          ],
           "specialization": "Computer Science Research",
           "tag": ["research", "computer science"]
         },
@@ -290,7 +366,40 @@ var datamodel = `
           "caption": "Example University Degree for Example Student"
         },
         "narrative": "There is a final project report and source code evidence.",
-        "result": []
+        "result": [
+          {
+            "alignment": [
+              {
+                "targetCode": "project",
+                "targetDescription": "Project description",
+                "targetName": "Final Project",
+                "targetFramework": "Example University Program and Course Catalog",
+                "targetType": "CFItem",
+                "targetUrl": "https://example.edu/catalog/degree/project/result/1"
+              }
+            ],
+            "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+            "value": "A"
+          },
+          {
+            "achievedLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+            "alignment": [
+              {
+                "targetCode": "project",
+                "targetDescription": "Project description",
+                "targetName": "Final Project",
+                "targetFramework": "Example University Program and Course Catalog",
+                "targetType": "CFItem",
+                "targetUrl": "https://example.edu/catalog/degree/project/result/1"
+              }
+            ],
+            "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c"
+          },
+          {
+            "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+            "status": "Completed"
+          }
+        ]
       },
       "endorsement": [
         {
