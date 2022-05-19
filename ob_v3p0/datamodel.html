@@ -16,11 +16,6 @@ var datamodel = `
         "VerifiableCredential",
         "OpenBadgeCredential"
       ],
-      "issuer": {
-        "id": "https://example.edu/issuers/565049",
-        "name": "Example University"
-      },
-      "issuanceDate": "2010-01-01T00:00:00Z",
       "name": "Example University Degree for Example Student",
       "description": "Example University Degree Description",
       "image": {
@@ -29,7 +24,9 @@ var datamodel = `
       },
       "credentialSubject": {
         "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-        "type": ["AchievementSubject"],
+        "type": [
+          "AchievementSubject"
+        ],
         "identifier": [
           {
             "identityHash": "student@example.edu",
@@ -55,10 +52,245 @@ var datamodel = `
               "targetFramework": "Example University Program and Course Catalog",
               "targetType": "CFItem",
               "targetUrl": "https://example.edu/catalog/degree"
+            },
+            {
+              "targetCode": "degree",
+              "targetDescription": "Example University Degree programs.",
+              "targetName": "Example University Degree",
+              "targetFramework": "Example University Program and Course Catalog",
+              "targetType": "CTDL",
+              "targetUrl": "https://credentialengineregistry.org/resources/ce-98cb027b-95ef-4494-908d-6f7790ec6b6b"
             }
           ],
-          "achievementType": "Degree"
-        }
+          "achievementType": "Degree",
+          "creator": {
+            "id": "https://example.edu/issuers/565049",
+            "name": "Example University",
+            "url": "https://example.edu",
+            "phone": "1-222-333-4444",
+            "description": "Example University provides online degree programs.",
+            "endorsement": [
+              {
+                "@context": [
+                  "https://www.w3.org/2018/credentials/v1",
+                  "https://imsglobal.github.io/openbadges-specification/context.json"
+                ],
+                "type": [
+                  "VerifiableCredential",
+                  "EndorsementCredential"
+                ],
+                "issuer": {
+                  "id": "https://accrediter.edu/issuers/565049",
+                  "name": "Example Accrediting Agency"
+                },
+                "issuanceDate": "2010-01-01T00:00:00Z",
+                "expirationDate": "2020-01-01T00:00:00Z",
+                "credentialSubject": {
+                  "id": "https://example.edu/issuers/565049",
+                  "endorsementComment": "Example Univeristy is in good standing"
+                },
+                "credentialSchema": [
+                  {
+                    "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json",
+                    "type": "1EdTechJsonSchemaValidator2019"
+                  },
+                  {
+                    "id": "https://accrediter.edu/schema/endorsementcredential.json",
+                    "type": "JsonSchemaValidator2018"
+                  }
+                ],
+                "credentialStatus": {
+                  "id": "https://example.edu/credentials/3732/status",
+                  "type": "1EdTechRevocationList"
+                },
+                "refreshService": {
+                  "id": "http://example.edu/credentials/3732",
+                  "type": "1EdTechCredentialRefresh"
+                }
+              },
+              {
+                "@context": [
+                  "https://www.w3.org/2018/credentials/v1",
+                  "https://imsglobal.github.io/openbadges-specification/context.json"
+                ],
+                "type": [
+                  "VerifiableCredential",
+                  "EndorsementCredential"
+                ],
+                "issuer": {
+                  "id": "https://state.gov/issuers/565049",
+                  "name": "State Department of Education"
+                },
+                "issuanceDate": "2010-01-01T00:00:00Z",
+                "expirationDate": "2020-01-01T00:00:00Z",
+                "credentialSubject": {
+                  "id": "https://example.edu/issuers/565049",
+                  "endorsementComment": "Example Univeristy is in good standing"
+                },
+                "credentialSchema": [
+                  {
+                    "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json",
+                    "type": "1EdTechJsonSchemaValidator2019"
+                  },
+                  {
+                    "id": "https://state.gov/schema/endorsementcredential.json",
+                    "type": "JsonSchemaValidator2018"
+                  }
+                ],
+                "credentialStatus": {
+                  "id": "https://state.gov/credentials/3732/status",
+                  "type": "1EdTechRevocationList"
+                },
+                "refreshService": {
+                  "id": "http://state.gov/credentials/3732",
+                  "type": "1EdTechCredentialRefresh"
+                }
+              }
+            ],
+            "image": {
+              "id": "https://example.edu/logo.png",
+              "caption": "Example University logo"
+            },
+            "email": "registrar@example.edu",
+            "address": {
+              "addressCountry": "USA",
+              "addressCountryCode": "US",
+              "addressRegion": "TX",
+              "addressLocality": "Austin",
+              "streetAddress": "123 First St",
+              "postOfficeBoxNumber": "1",
+              "postalCode": "12345",
+              "geo": {
+                "latitude": 1.0,
+                "longitude": 1.0
+              }
+            },
+            "otherIdentifiers": [
+              {
+                "identifier": "12345",
+                "identifierType": "sourcedId"
+              },
+              {
+                "identifier": "67890",
+                "identifierType": "nationalIdentityNumber"
+              }
+            ],
+            "official": "Horace Mann",
+            "parentOrg": {
+              "id": "did:example:123456789",
+              "name": "Universal Universities"
+            },
+            "sourcedId": "12345",
+            "sisSourcedId": "67890"
+          },
+          "creditsAvailable": 36.0,
+          "criteria": {
+            "id": "https://example.edu/achievements/degree",
+            "narrative": "# Degree Requirements\\nStudents must complete..."
+          },
+          "description": "Example University Degree Description",
+          "endorsement": [
+            {
+              "@context": [
+                "https://www.w3.org/2018/credentials/v1",
+                "https://imsglobal.github.io/openbadges-specification/context.json"
+              ],
+              "id": "https://accrediter.edu/endorsements/565049",
+              "type": [
+                "VerifiableCredential",
+                "EndorsementCredential"
+              ],
+              "issuer": {
+                "id": "https://accrediter.edu/issuers/565049",
+                "name": "Example Accrediting Agency"
+              },
+              "issuanceDate": "2010-01-01T00:00:00Z",
+              "expirationDate": "2020-01-01T00:00:00Z",
+              "credentialSubject": {
+                "id": "https://example.edu/achievements/degree",
+                "endorsementComment": "Example Univeristy's Degree Program is great."
+              },
+              "credentialSchema": [
+                {
+                  "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json",
+                  "type": "1EdTechJsonSchemaValidator2019"
+                },
+                {
+                  "id": "https://accrediter.edu/schema/endorsementcredential.json",
+                  "type": "JsonSchemaValidator2018"
+                }
+              ],
+              "credentialStatus": {
+                "id": "https://accrediter.edu/endorsements/565049/status",
+                "type": "1EdTechRevocationList"
+              },
+              "refreshService": {
+                "id": "https://accrediter.edu/endorsements/565049/refresh",
+                "type": "1EdTechCredentialRefresh"
+              }
+            },
+            {
+              "@context": [
+                "https://www.w3.org/2018/credentials/v1",
+                "https://imsglobal.github.io/openbadges-specification/context.json"
+              ],
+              "id": "https://state.gov/endorsements/565049",
+              "type": [
+                "VerifiableCredential",
+                "EndorsementCredential"
+              ],
+              "issuer": {
+                "id": "https://state.gov/issuers/565049",
+                "name": "State Department of Education"
+              },
+              "issuanceDate": "2010-01-01T00:00:00Z",
+              "expirationDate": "2020-01-01T00:00:00Z",
+              "credentialSubject": {
+                "id": "https://example.edu/achievements/degree",
+                "endorsementComment": "Example Univeristy's Degree program is great."
+              },
+              "credentialSchema": [
+                {
+                  "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json",
+                  "type": "1EdTechJsonSchemaValidator2019"
+                },
+                {
+                  "id": "https://state.gov/schema/endorsementcredential.json",
+                  "type": "JsonSchemaValidator2018"
+                }
+              ],
+              "credentialStatus": {
+                "id": "https://state.gov/endorsements/565049/status",
+                "type": "1EdTechRevocationList"
+              },
+              "refreshService": {
+                "id": "https://state.gov/endorsements/565049/refresh",
+                "type": "1EdTechCredentialRefresh"
+              }
+            }
+          ],
+          "fieldOfStudy": "Research",
+          "humanCode": "R1",
+          "image": {
+            "id": "https://example.edu/achievements/degree/image",
+            "caption": "Example University Degree"
+          },
+          "name": "Example University Degree",
+          "otherIdentifiers": [
+            {
+              "identifier": "abde",
+              "identifierType": "identifier"
+            }
+          ],
+          "specialization": "Computer Science Research",
+          "tag": ["research", "computer science"]
+        },
+        "image": {
+          "id": "https://example.edu/credentials/3732/image",
+          "caption": "Example University Degree for Example Student"
+        },
+        "narrative": "There is a final project report and source code evidence.",
+        "result": []
       },
       "endorsement": [
         {
@@ -95,7 +327,162 @@ var datamodel = `
             "type": "1EdTechCredentialRefresh"
           }
         }
-      ]
+      ],
+      "evidence": [
+        {
+          "id": "https://example.edu/credentials/3732/evidence/1",
+          "type": "Evidence",
+          "narrative": "# Final Project Report \\n This project was ...",
+          "name": "Final Project Report",
+          "description": "This is the final project report.",
+          "genre": "Research",
+          "audience": "Department"
+        },
+        {
+          "id": "https://github.com/somebody/project",
+          "type": "Evidence",
+          "name": "Final Project Code",
+          "description": "This is the source code for the final project app.",
+          "genre": "Research",
+          "audience": "Department"
+        }
+      ],
+      "issuer": {
+        "id": "https://example.edu/issuers/565049",
+        "name": "Example University",
+        "url": "https://example.edu",
+        "phone": "1-222-333-4444",
+        "description": "Example University provides online degree programs.",
+        "endorsement": [
+          {
+            "@context": [
+              "https://www.w3.org/2018/credentials/v1",
+              "https://imsglobal.github.io/openbadges-specification/context.json"
+            ],
+            "type": [
+              "VerifiableCredential",
+              "EndorsementCredential"
+            ],
+            "issuer": {
+              "id": "https://accrediter.edu/issuers/565049",
+              "name": "Example Accrediting Agency"
+            },
+            "issuanceDate": "2010-01-01T00:00:00Z",
+            "expirationDate": "2020-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://example.edu/issuers/565049",
+              "endorsementComment": "Example Univeristy is in good standing"
+            },
+            "credentialSchema": [
+              {
+                "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json",
+                "type": "1EdTechJsonSchemaValidator2019"
+              },
+              {
+                "id": "https://accrediter.edu/schema/endorsementcredential.json",
+                "type": "JsonSchemaValidator2018"
+              }
+            ],
+            "credentialStatus": {
+              "id": "https://example.edu/credentials/3732/status",
+              "type": "1EdTechRevocationList"
+            },
+            "refreshService": {
+              "id": "http://example.edu/credentials/3732",
+              "type": "1EdTechCredentialRefresh"
+            }
+          },
+          {
+            "@context": [
+              "https://www.w3.org/2018/credentials/v1",
+              "https://imsglobal.github.io/openbadges-specification/context.json"
+            ],
+            "type": [
+              "VerifiableCredential",
+              "EndorsementCredential"
+            ],
+            "issuer": {
+              "id": "https://state.gov/issuers/565049",
+              "name": "State Department of Education"
+            },
+            "issuanceDate": "2010-01-01T00:00:00Z",
+            "expirationDate": "2020-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://example.edu/issuers/565049",
+              "endorsementComment": "Example Univeristy is in good standing"
+            },
+            "credentialSchema": [
+              {
+                "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json",
+                "type": "1EdTechJsonSchemaValidator2019"
+              },
+              {
+                "id": "https://state.gov/schema/endorsementcredential.json",
+                "type": "JsonSchemaValidator2018"
+              }
+            ],
+            "credentialStatus": {
+              "id": "https://state.gov/credentials/3732/status",
+              "type": "1EdTechRevocationList"
+            },
+            "refreshService": {
+              "id": "http://state.gov/credentials/3732",
+              "type": "1EdTechCredentialRefresh"
+            }
+          }
+        ],
+        "image": {
+          "id": "https://example.edu/logo.png",
+          "caption": "Example University logo"
+        },
+        "email": "registrar@example.edu",
+        "address": {
+          "addressCountry": "USA",
+          "addressCountryCode": "US",
+          "addressRegion": "TX",
+          "addressLocality": "Austin",
+          "streetAddress": "123 First St",
+          "postOfficeBoxNumber": "1",
+          "postalCode": "12345",
+          "geo": {
+            "latitude": 1.0,
+            "longitude": 1.0
+          }
+        },
+        "otherIdentifiers": [
+          {
+            "identifier": "12345",
+            "identifierType": "sourcedId"
+          },
+          {
+            "identifier": "67890",
+            "identifierType": "nationalIdentityNumber"
+          }
+        ],
+        "official": "Horace Mann",
+        "parentOrg": {
+          "id": "did:example:123456789",
+          "name": "Universal Universities"
+        },
+        "sourcedId": "12345",
+        "sisSourcedId": "67890"
+      },
+      "issuanceDate": "2010-01-01T00:00:00Z",
+      "expirationDate": "2020-01-01T00:00:00Z",
+      "credentialSchema": [
+        {
+          "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/achievementcredential.json",
+          "type": "1EdTechJsonSchemaValidator2019"
+        }
+      ],
+      "credentialStatus": {
+        "id": "https://example.edu/credentials/3732/status",
+        "type": "1EdTechRevocationList"
+      },
+      "refreshService": {
+        "id": "http://example.edu/credentials/3732",
+        "type": "1EdTechCredentialRefresh"
+      }
     }
   </pre>
 
