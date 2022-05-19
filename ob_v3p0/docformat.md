@@ -14,7 +14,7 @@ var docformat = `
   {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
-      "https://imsglobal.github.io/openbadges-specification/context.json"
+      "http://localhost:3000/ob_v3p0/context.json"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
