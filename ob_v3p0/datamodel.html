@@ -4,6 +4,101 @@ var datamodel = `
   <p>
     The data models in this section are shared by [[[OB-30]]] and [[[CLR-20]]].
   </p>
+  <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    title="Complete OpenBadgeCredential" data-vc-vm="https://example.edu/issuers/565049#key-1">
+    {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://imsglobal.github.io/openbadges-specification/context.json"
+      ],
+      "id": "http://example.edu/credentials/3732",
+      "type": [
+        "VerifiableCredential",
+        "OpenBadgeCredential"
+      ],
+      "issuer": {
+        "id": "https://example.edu/issuers/565049",
+        "name": "Example University"
+      },
+      "issuanceDate": "2010-01-01T00:00:00Z",
+      "name": "Example University Degree for Example Student",
+      "description": "Example University Degree Description",
+      "image": {
+        "id": "https://example.edu/credentials/3732/image",
+        "caption": "Example University Degree for Example Student"
+      },
+      "credentialSubject": {
+        "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+        "type": ["AchievementSubject"],
+        "identifier": [
+          {
+            "identityHash": "student@example.edu",
+            "type": "email",
+            "hashed": false,
+            "salt": "not-used"
+          },
+          {
+            "identityHash": "somebody@gmail.com",
+            "type": "email",
+            "hashed": false,
+            "salt": "not-used"
+          }
+        ],
+        "achievement": {
+          "id": "https://example.edu/achievements/degree",
+          "type": "Achievement",
+          "alignment": [
+            {
+              "targetCode": "degree",
+              "targetDescription": "Example University Degree programs.",
+              "targetName": "Example University Degree",
+              "targetFramework": "Example University Program and Course Catalog",
+              "targetType": "CFItem",
+              "targetUrl": "https://example.edu/catalog/degree"
+            }
+          ],
+          "achievementType": "Degree"
+        }
+      },
+      "endorsement": [
+        {
+          "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://imsglobal.github.io/openbadges-specification/context.json"
+          ],
+          "type": [
+            "VerifiableCredential",
+            "EndorsementCredential"
+          ],
+          "issuer": {
+            "id": "https://accrediter.edu/issuers/565049",
+            "name": "Example Accrediting Agency"
+          },
+          "issuanceDate": "2010-01-01T00:00:00Z",
+          "expirationDate": "2020-01-01T00:00:00Z",
+          "credentialSubject": {
+            "id": "https://example.edu/issuers/565049",
+            "endorsementComment": "Example Univeristy is in good standing"
+          },
+          "credentialSchema": [
+            {
+              "id": "https://purl.imsglobal.org/spec/ob/v3p0/schama/endorsementcredential.json",
+              "type": "1EdTechJsonSchemaValidator2019"
+            }
+          ],
+          "credentialStatus": {
+            "id": "https://example.edu/credentials/3732/status",
+            "type": "1EdTechRevocationList"
+          },
+          "refreshService": {
+            "id": "http://example.edu/credentials/3732",
+            "type": "1EdTechCredentialRefresh"
+          }
+        }
+      ]
+    }
+  </pre>
+
   <section data-class="org.1edtech.ob.v3p0.achievementcredential.class">
     <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
       title="Sample OpenBadgeCredential" data-vc-vm="https://example.edu/issuers/565049#key-1">
