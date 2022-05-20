@@ -5,6 +5,7 @@ var datamodel = `
     The data models in this section are shared by [[[OB-30]]] and [[[CLR-20]]].
   </p>
   <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    data-allowAdditionalProperties="false"
     title="Complete OpenBadgeCredential" data-vc-vm="https://example.edu/issuers/565049#key-1">
     {
       "@context": [
@@ -33,14 +34,14 @@ var datamodel = `
             "type": "IdentityObject",
             "identityHash": "student@example.edu",
             "identityType": "email",
-            "hashed": "false",
+            "hashed": false,
             "salt": "not-used"
           },
           {
             "type": "IdentityObject",
             "identityHash": "somebody@gmail.com",
             "identityType": "email",
-            "hashed": "false",
+            "hashed": false,
             "salt": "not-used"
           }
         ],
@@ -648,6 +649,7 @@ var datamodel = `
 
   <section data-class="org.1edtech.ob.v3p0.achievementcredential.class">
     <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+      data-allowadditionalproperties="false"
       title="Sample OpenBadgeCredential" data-vc-vm="https://example.edu/issuers/565049#key-1">
       {
         "@context": [
@@ -664,7 +666,8 @@ var datamodel = `
         "issuanceDate": "2010-01-01T00:00:00Z",
         "name": "Example University Degree",
         "credentialSubject": {
-          "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"          
+          "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+          "type": ["AchievementSubject"]
         }
       }
     </pre>
