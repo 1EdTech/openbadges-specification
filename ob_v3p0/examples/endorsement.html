@@ -1,0 +1,48 @@
+var endorsement = `
+
+<pre class="json example vc" data-schema="org.1edtech.ob.v3p0.endorsementcredential.class"
+    data-allowadditionalproperties="false" title="Sample EndorsementCredential"
+    data-vc-vm="https://accrediter.edu/issuers/565049#key-1">
+    {
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "http://localhost:3000/ob_v3p0/context.json"
+        ],
+        "type": [
+          "VerifiableCredential",
+          "EndorsementCredential"
+        ],
+        "issuer": {
+          "id": "https://accrediter.edu/issuers/565049",
+          "type": ["Profile"],
+          "name": "Example Accrediting Agency"
+        },
+        "issuanceDate": "2010-01-01T00:00:00Z",
+        "expirationDate": "2020-01-01T00:00:00Z",
+        "credentialSubject": {
+          "id": "https://example.edu/issuers/565049",
+          "type": ["EndorsementSubject"],
+          "endorsementComment": "Example Univeristy is in good standing"
+        },
+        "credentialSchema": [
+          {
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+          },
+          {
+            "id": "https://accrediter.edu/schema/endorsementcredential.json",
+            "type": "JsonSchemaValidator2018"
+          }
+        ],
+        "credentialStatus": {
+          "id": "https://example.edu/credentials/3732/revocations",
+          "type": "1EdTechRevocationList"
+        },
+        "refreshService": {
+          "id": "http://example.edu/credentials/3732",
+          "type": "1EdTechCredentialRefresh"
+        }
+      }
+    </pre>
+
+`;
