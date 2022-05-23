@@ -116,7 +116,7 @@ var security = `
       </p>
       <p>
         The <code>x-imssf-privacyPolicyUrl</code> property is inserted into the <code>securitySchemes</code>
-        within the <code>components</code> section of the OpenAPI file structure. This is an IMS controlled
+        within the <code>components</code> section of the OpenAPI file structure. This is an 1EdTech controlled
         extension to the OpenAPI specification.
       </p>
       <table class="simple">
@@ -139,7 +139,7 @@ var security = `
       </table>
       <p>
         The <code>x-imssf-image</code> and <code>x-imssf-privacyPolicy</code> properties are inserted into
-        the <code>info</code> section of the OpenAPI file structure. These are also IMS controlled
+        the <code>info</code> section of the OpenAPI file structure. These are also 1EdTech controlled
         extensions to the OpenAPI specification. Also note that the standard <code>title</code> and
         <code>termsOfService</code> property is required in a Service Description Document. These may be
         displayed to the [=user=] during the registration process.
@@ -603,7 +603,7 @@ var security = `
         In the OAuth 2.0 Security Best Practices document [[OAUTH2-SBP]] the use of Proof Key for Code
         Exchange (PKCE) [[RFC7636]] is recommended in order to (with the help of the [=authorization
         server=]) detect and prevent attempts to inject (replay) authorization codes into the authorization
-        response. When using IMS specifications, PKCE MUST be used to protect Authorization Code Grant based
+        response. When using 1EdTech specifications, PKCE MUST be used to protect Authorization Code Grant based
         access. The PKCE has two stages:
       <ul>
         <li>
@@ -913,7 +913,7 @@ var security = `
       <p>
         If the [=authorization server=] grants this request (see Section 5.1 in [[RFC6749]] for the detailed
         description), it returns <code>HTTP 200 OK</code> status code with content type "application/json"
-        consisting of a JSON object containing the access token and its expiry lifetime (IMS recommends a
+        consisting of a JSON object containing the access token and its expiry lifetime (1EdTech recommends a
         default expiry lifetime of 3600 seconds, one hour, for access tokens), optionally a refresh token,
         and confirms the set of scopes supported by the access token:
       </p>
@@ -948,7 +948,7 @@ var security = `
             <td><a href="#org.1edtech.ob.v3p0.primitive.positiveinteger.class">PositiveInteger</a></td>
             <td>
               The lifetime in seconds of the access token. For example, the value "3600" denotes that
-              the access token will expire in one hour from the time the response was generated. IMS
+              the access token will expire in one hour from the time the response was generated. 1EdTech
               recommends a default expiry lifetime of 3600 seconds, one hour, for access tokens. If
               omitted, the authorization server SHOULD provide the expiration time via other means or
               document the default value.

@@ -131,7 +131,7 @@ Additional standard JWT Claims Names are allowed, but their relationship to the 
 #### Create the Proof {#jwt-signing}
 
 <div class="note" title="Sign and Encode the JWS">
-  <p>IMS strongly recommends using an existing, stable library for this step.</p>
+  <p>1EdTech strongly recommends using an existing, stable library for this step.</p>
 </div>
 
 This section uses the follow notations:
@@ -163,7 +163,7 @@ Verifiers that receive an VerifiableCredential or VerifiablePresentation in Comp
 1. [Dereference](#dereference) the \`kid\` value to retrieve the public key [JWK](#jwk).
 1. Use the public key JWK to verify the signature as described in "Section 5.2 Message Signature or MAC Validation" of [[RFC7515]]. If the signature is not valid, the credential or presentation is not valid.
    <div class="note" title="Verifying the JWS Signature">
-     <p>IMS strongly recommends using an existing, stable library for this step.</p>
+     <p>1EdTech strongly recommends using an existing, stable library for this step.</p>
    </div>
 1. Base64url-decode the JWT Payload segment of the Compact JWS and parse it into a JSON object.
 1. If the JSON object has a \`vc\` claim, convert the value of \`vc\` to an [OpenBadgeCredential](#achievementcredential) and continue with [[[#jwt-verify-credential]]].
