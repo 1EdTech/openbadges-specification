@@ -2,23 +2,23 @@ var full=`
 
 <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
   data-allowadditionalproperties="false" title="Complete OpenBadgeCredential"
-  data-vc-vm="https://example.edu/issuers/565049#key-1">
+  data-vc-vm="https://1edtech.edu/issuers/565049#key-1">
   {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
       "http://localhost:3000/ob_v3p0/context.json"
     ],
-    "id": "http://example.edu/credentials/3732",
+    "id": "http://1edtech.edu/credentials/3732",
     "type": [
       "VerifiableCredential",
       "OpenBadgeCredential"
     ],
-    "name": "Example University Degree for Example Student",
-    "description": "Example University Degree Description",
+    "name": "1EdTech University Degree for Example Student",
+    "description": "1EdTech University Degree Description",
     "image": {
-      "id": "https://example.edu/credentials/3732/image",
+      "id": "https://1edtech.edu/credentials/3732/image",
       "type": "Image",
-      "caption": "Example University Degree for Example Student"
+      "caption": "1EdTech University Degree for Example Student"
     },
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -33,13 +33,13 @@ var full=`
       "source": {
         "id": "https://school.edu/issuers/201234",
         "type": ["Profile"],
-        "name": "Example College of Arts"
+        "name": "1EdTech College of Arts"
       },
       "term": "Fall",
       "identifier": [
         {
           "type": "IdentityObject",
-          "identityHash": "student@example.edu",
+          "identityHash": "student@1edtech.edu",
           "identityType": "email",
           "hashed": false,
           "salt": "not-used"
@@ -53,7 +53,7 @@ var full=`
         }
       ],
       "achievement": {
-        "id": "https://example.edu/achievements/degree",
+        "id": "https://1edtech.edu/achievements/degree",
         "type": [
           "Achievement"
         ],
@@ -63,34 +63,34 @@ var full=`
               "Alignment"
             ],
             "targetCode": "degree",
-            "targetDescription": "Example University Degree programs.",
-            "targetName": "Example University Degree",
-            "targetFramework": "Example University Program and Course Catalog",
+            "targetDescription": "1EdTech University Degree programs.",
+            "targetName": "1EdTech University Degree",
+            "targetFramework": "1EdTech University Program and Course Catalog",
             "targetType": "CFItem",
-            "targetUrl": "https://example.edu/catalog/degree"
+            "targetUrl": "https://1edtech.edu/catalog/degree"
           },
           {
             "type": [
               "Alignment"
             ],
             "targetCode": "degree",
-            "targetDescription": "Example University Degree programs.",
-            "targetName": "Example University Degree",
-            "targetFramework": "Example University Program and Course Catalog",
+            "targetDescription": "1EdTech University Degree programs.",
+            "targetName": "1EdTech University Degree",
+            "targetFramework": "1EdTech University Program and Course Catalog",
             "targetType": "CTDL",
             "targetUrl": "https://credentialengineregistry.org/resources/ce-98cb027b-95ef-4494-908d-6f7790ec6b6b"
           }
         ],
         "achievementType": "Degree",
         "creator": {
-          "id": "https://example.edu/issuers/565049",
+          "id": "https://1edtech.edu/issuers/565049",
           "type": [
             "Profile"
           ],
-          "name": "Example University",
-          "url": "https://example.edu",
+          "name": "1EdTech University",
+          "url": "https://1edtech.edu",
           "phone": "1-222-333-4444",
-          "description": "Example University provides online degree programs.",
+          "description": "1EdTech University provides online degree programs.",
           "endorsement": [
             {
               "@context": [
@@ -112,11 +112,11 @@ var full=`
               "issuanceDate": "2010-01-01T00:00:00Z",
               "expirationDate": "2020-01-01T00:00:00Z",
               "credentialSubject": {
-                "id": "https://example.edu/issuers/565049",
+                "id": "https://1edtech.edu/issuers/565049",
                 "type": [
                   "EndorsementSubject"
                 ],
-                "endorsementComment": "Example Univeristy is in good standing"
+                "endorsementComment": "1EdTech University is in good standing"
               },
               "credentialSchema": [
                 {
@@ -129,11 +129,11 @@ var full=`
                 }
               ],
               "credentialStatus": {
-                "id": "https://example.edu/credentials/3732/revocations",
+                "id": "https://1edtech.edu/credentials/3732/revocations",
                 "type": "1EdTechRevocationList"
               },
               "refreshService": {
-                "id": "http://example.edu/credentials/3732",
+                "id": "http://1edtech.edu/credentials/3732",
                 "type": "1EdTechCredentialRefresh"
               },
               "proof": {
@@ -164,11 +164,11 @@ var full=`
               "issuanceDate": "2010-01-01T00:00:00Z",
               "expirationDate": "2020-01-01T00:00:00Z",
               "credentialSubject": {
-                "id": "https://example.edu/issuers/565049",
+                "id": "https://1edtech.edu/issuers/565049",
                 "type": [
                   "EndorsementSubject"
                 ],
-                "endorsementComment": "Example Univeristy is in good standing"
+                "endorsementComment": "1EdTech University is in good standing"
               },
               "credentialSchema": [
                 {
@@ -198,11 +198,11 @@ var full=`
             }
           ],
           "image": {
-            "id": "https://example.edu/logo.png",
+            "id": "https://1edtech.edu/logo.png",
             "type": "Image",
-            "caption": "Example University logo"
+            "caption": "1EdTech University logo"
           },
-          "email": "registrar@example.edu",
+          "email": "registrar@1edtech.edu",
           "address": {
             "type": [
               "Address"
@@ -245,10 +245,10 @@ var full=`
         },
         "creditsAvailable": 36.0,
         "criteria": {
-          "id": "https://example.edu/achievements/degree",
+          "id": "https://1edtech.edu/achievements/degree",
           "narrative": "# Degree Requirements\\nStudents must complete..."
         },
-        "description": "Example University Degree Description",
+        "description": "1EdTech University Degree Description",
         "endorsement": [
           {
             "@context": [
@@ -271,11 +271,11 @@ var full=`
             "issuanceDate": "2010-01-01T00:00:00Z",
             "expirationDate": "2020-01-01T00:00:00Z",
             "credentialSubject": {
-              "id": "https://example.edu/achievements/degree",
+              "id": "https://1edtech.edu/achievements/degree",
               "type": [
                 "EndorsementSubject"
               ],
-              "endorsementComment": "Example Univeristy's Degree Program is great."
+              "endorsementComment": "1EdTech University's Degree Program is great."
             },
             "credentialSchema": [
               {
@@ -307,11 +307,11 @@ var full=`
         "fieldOfStudy": "Research",
         "humanCode": "R1",
         "image": {
-          "id": "https://example.edu/achievements/degree/image",
+          "id": "https://1edtech.edu/achievements/degree/image",
           "type": "Image",
-          "caption": "Example University Degree"
+          "caption": "1EdTech University Degree"
         },
-        "name": "Example University Degree",
+        "name": "1EdTech University Degree",
         "otherIdentifier": [
           {
             "type": "IdentifierEntry",
@@ -333,9 +333,9 @@ var full=`
                 "targetCode": "project",
                 "targetDescription": "Project description",
                 "targetName": "Final Project",
-                "targetFramework": "Example University Program and Course Catalog",
+                "targetFramework": "1EdTech University Program and Course Catalog",
                 "targetType": "CFItem",
-                "targetUrl": "https://example.edu/catalog/degree/project"
+                "targetUrl": "https://1edtech.edu/catalog/degree/project"
               }
             ],
             "allowedValue": [
@@ -361,9 +361,9 @@ var full=`
                 "targetCode": "project",
                 "targetDescription": "Project description",
                 "targetName": "Final Project",
-                "targetFramework": "Example University Program and Course Catalog",
+                "targetFramework": "1EdTech University Program and Course Catalog",
                 "targetType": "CFItem",
-                "targetUrl": "https://example.edu/catalog/degree/project"
+                "targetUrl": "https://1edtech.edu/catalog/degree/project"
               }
             ],
             "allowedValue": [
@@ -389,9 +389,9 @@ var full=`
                     "targetCode": "project",
                     "targetDescription": "Project description",
                     "targetName": "Final Project",
-                    "targetFramework": "Example University Program and Course Catalog",
+                    "targetFramework": "1EdTech University Program and Course Catalog",
                     "targetType": "CFRubricCriterionLevel",
-                    "targetUrl": "https://example.edu/catalog/degree/project/rubric/levels/mastered"
+                    "targetUrl": "https://1edtech.edu/catalog/degree/project/rubric/levels/mastered"
                   }
                 ],
                 "description": "The author demonstrated...",
@@ -412,9 +412,9 @@ var full=`
                     "targetCode": "project",
                     "targetDescription": "Project description",
                     "targetName": "Final Project",
-                    "targetFramework": "Example University Program and Course Catalog",
+                    "targetFramework": "1EdTech University Program and Course Catalog",
                     "targetType": "CFRubricCriterionLevel",
-                    "targetUrl": "https://example.edu/catalog/degree/project/rubric/levels/basic"
+                    "targetUrl": "https://1edtech.edu/catalog/degree/project/rubric/levels/basic"
                   }
                 ],
                 "description": "The author demonstrated...",
@@ -440,9 +440,9 @@ var full=`
         ]
       },
       "image": {
-        "id": "https://example.edu/credentials/3732/image",
+        "id": "https://1edtech.edu/credentials/3732/image",
         "type": "Image",
-        "caption": "Example University Degree for Example Student"
+        "caption": "1EdTech University Degree for Example Student"
       },
       "narrative": "There is a final project report and source code evidence.",
       "result": [
@@ -458,9 +458,9 @@ var full=`
               "targetCode": "project",
               "targetDescription": "Project description",
               "targetName": "Final Project",
-              "targetFramework": "Example University Program and Course Catalog",
+              "targetFramework": "1EdTech University Program and Course Catalog",
               "targetType": "CFItem",
-              "targetUrl": "https://example.edu/catalog/degree/project/result/1"
+              "targetUrl": "https://1edtech.edu/catalog/degree/project/result/1"
             }
           ],
           "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
@@ -479,9 +479,9 @@ var full=`
               "targetCode": "project",
               "targetDescription": "Project description",
               "targetName": "Final Project",
-              "targetFramework": "Example University Program and Course Catalog",
+              "targetFramework": "1EdTech University Program and Course Catalog",
               "targetType": "CFItem",
-              "targetUrl": "https://example.edu/catalog/degree/project/result/1"
+              "targetUrl": "https://1edtech.edu/catalog/degree/project/result/1"
             }
           ],
           "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c"
@@ -516,11 +516,11 @@ var full=`
         "issuanceDate": "2010-01-01T00:00:00Z",
         "expirationDate": "2020-01-01T00:00:00Z",
         "credentialSubject": {
-          "id": "https://example.edu/issuers/565049",
+          "id": "https://1edtech.edu/issuers/565049",
           "type": [
             "EndorsementSubject"
           ],
-          "endorsementComment": "Example Univeristy is in good standing"
+          "endorsementComment": "1EdTech University is in good standing"
         },
         "credentialSchema": [
           {
@@ -529,11 +529,11 @@ var full=`
           }
         ],
         "credentialStatus": {
-          "id": "https://example.edu/credentials/3732/revocations",
+          "id": "https://1edtech.edu/credentials/3732/revocations",
           "type": "1EdTechRevocationList"
         },
         "refreshService": {
-          "id": "http://example.edu/credentials/3732",
+          "id": "http://1edtech.edu/credentials/3732",
           "type": "1EdTechCredentialRefresh"
         },
         "proof": {
@@ -547,7 +547,7 @@ var full=`
     ],
     "evidence": [
       {
-        "id": "https://example.edu/credentials/3732/evidence/1",
+        "id": "https://1edtech.edu/credentials/3732/evidence/1",
         "type": [
           "Evidence"
         ],
@@ -569,14 +569,14 @@ var full=`
       }
     ],
     "issuer": {
-      "id": "https://example.edu/issuers/565049",
+      "id": "https://1edtech.edu/issuers/565049",
       "type": [
         "Profile"
       ],
-      "name": "Example University",
-      "url": "https://example.edu",
+      "name": "1EdTech University",
+      "url": "https://1edtech.edu",
       "phone": "1-222-333-4444",
-      "description": "Example University provides online degree programs.",
+      "description": "1EdTech University provides online degree programs.",
       "endorsement": [
         {
           "@context": [
@@ -598,11 +598,11 @@ var full=`
           "issuanceDate": "2010-01-01T00:00:00Z",
           "expirationDate": "2020-01-01T00:00:00Z",
           "credentialSubject": {
-            "id": "https://example.edu/issuers/565049",
+            "id": "https://1edtech.edu/issuers/565049",
             "type": [
               "EndorsementSubject"
             ],
-            "endorsementComment": "Example Univeristy is in good standing"
+            "endorsementComment": "1EdTech University is in good standing"
           },
           "credentialSchema": [
             {
@@ -615,11 +615,11 @@ var full=`
             }
           ],
           "credentialStatus": {
-            "id": "https://example.edu/credentials/3732/revocations",
+            "id": "https://1edtech.edu/credentials/3732/revocations",
             "type": "1EdTechRevocationList"
           },
           "refreshService": {
-            "id": "http://example.edu/credentials/3732",
+            "id": "http://1edtech.edu/credentials/3732",
             "type": "1EdTechCredentialRefresh"
           },
           "proof": {
@@ -632,11 +632,11 @@ var full=`
         }
       ],
       "image": {
-        "id": "https://example.edu/logo.png",
+        "id": "https://1edtech.edu/logo.png",
         "type": "Image",
-        "caption": "Example University logo"
+        "caption": "1EdTech University logo"
       },
-      "email": "registrar@example.edu",
+      "email": "registrar@1edtech.edu",
       "address": {
         "type": [
           "Address"
@@ -686,11 +686,11 @@ var full=`
       }
     ],
     "credentialStatus": {
-      "id": "https://example.edu/credentials/3732/revocations",
+      "id": "https://1edtech.edu/credentials/3732/revocations",
       "type": "1EdTechRevocationList"
     },
     "refreshService": {
-      "id": "http://example.edu/credentials/3732",
+      "id": "http://1edtech.edu/credentials/3732",
       "type": "1EdTechCredentialRefresh"
     }
   }
