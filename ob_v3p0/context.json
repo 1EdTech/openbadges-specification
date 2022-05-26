@@ -44,6 +44,11 @@
           "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#IdentifierEntry",
           "@container": "@set"
         },
+        "related": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#related", 
+          "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Related", 
+          "@container": "@set"
+        },
         "resultDescription": {
           "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#resultDescription",
           "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#ResultDescription",
@@ -57,6 +62,10 @@
           "@id": "https://schema.org/keywords", 
           "@type": "xsd:string", 
           "@container": "@set"
+        },
+        "version": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#version", 
+          "@type": "xsd:string"
         }
       }
     },
@@ -316,13 +325,14 @@
         "official": {
           "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#official",
           "@type": "xsd:string"
-        },
-        "sisSourcedId": {
-          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#sisSourcedId",
-          "@type": "xsd:string"
-        },
-        "sourcedId": {
-          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#sourcedId",
+        }
+      }
+    },
+    "Related": {
+      "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Related",
+      "@context": {
+        "version": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#version",
           "@type": "xsd:string"
         }
       }
