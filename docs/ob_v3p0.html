@@ -1662,7 +1662,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </div>
   </header>
 
-  <section id="abstract" data-format="markdown" class="introductory"><h2 id="abstract-0">Abstract<a class="self-link" aria-label="§" href="#abstract"></a></h2><p>This specification is a new version of the <a href="https://www.imsglobal.org/activity/digital-badges">IMS Global Open Badges Specification</a> that aligns with the conventions of the <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite> for the use cases of <a data-link-type="dfn" href="#dfn-defined-achievement-claim" class="internalDFN" id="ref-for-dfn-defined-achievement-claim-1" title="Defined Achievement Claim: An assertion that the learner achieved a specific achievement.">Defined Achievement Claim</a> and a <a data-link-type="dfn" href="#dfn-skill-claim" class="internalDFN" id="ref-for-dfn-skill-claim-1" title="Skill Claim: An assertion that the learner has the specified skill.">Skill Claim</a>. The credentials that are produced are easily be bundled into <a data-link-type="dfn" href="#dfn-clr" class="internalDFN" id="ref-for-dfn-clr-1" title="Comprehensive Learner Record (CLR): Set of assertions that can be packaged as a verifiable credential.">Comprehensive Learner Records</a> and <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-1" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">Verifiable Presentations</a>. Portability and learner data privacy are improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract-0">Abstract<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#audiences"><bdi class="secno">1.1 </bdi>Audiences<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#document-set"><bdi class="secno">1.2 </bdi>Document Set<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#docs-openapi"><bdi class="secno">1.2.1 </bdi>OpenAPI 3.0 Files for the Badge Connect API<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#json-ld-context-file"><bdi class="secno">1.2.2 </bdi>JSON-LD Context File<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#json-schema"><bdi class="secno">1.2.3 </bdi>JSON Schema<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1.3 </bdi>Conformance Statements<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">1.4 </bdi>Terminology<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#conceptual-model"><bdi class="secno">1.5 </bdi>Conceptual Model<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">2. </bdi>Overview<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#what-is-the-problem-this-solves-for"><bdi class="secno">2.1 </bdi>What is the problem this solves for?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#what-does-adopting-verifiable-credentials-entail"><bdi class="secno">2.2 </bdi>What does adopting Verifiable Credentials entail?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#benefits-and-opportunities"><bdi class="secno">2.3 </bdi>Benefits and Opportunities<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#interoperability-with-digital-wallets-verifiable-presentations-and-learner-experiences"><bdi class="secno">2.3.1 </bdi>Interoperability with Digital Wallets, Verifiable Presentations, and Learner Experiences<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiable-credentials-support-increases-learner-data-privacy-and-trustworthiness-of-open-badges"><bdi class="secno">2.3.2 </bdi>Verifiable Credentials Support Increases Learner Data Privacy and Trustworthiness of Open Badges<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#decentralized-identifiers-and-self-sovereign-identity"><bdi class="secno">2.3.3 </bdi>Decentralized Identifiers and Self-Sovereign Identity<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#aligning-open-badges-and-clr-with-common-assertion-and-achievement-models"><bdi class="secno">2.3.4 </bdi>Aligning Open Badges and CLR with Common Assertion and Achievement Models<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#differentiating-issuers-and-creators"><bdi class="secno">2.3.5 </bdi>Differentiating Issuers and Creators<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#skill-assertions"><bdi class="secno">2.4 </bdi>Skill Assertions<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">3. </bdi>Use Cases<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#assertion-issuance-to-wallet"><bdi class="secno">3.1 </bdi>Assertion Issuance to Wallet<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#assertion-issuance-without-a-wallet"><bdi class="secno">3.2 </bdi>Assertion Issuance Without a Wallet<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#recipient-presentation-of-assertion"><bdi class="secno">3.3 </bdi>Recipient Presentation of Assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#license-issuance"><bdi class="secno">3.4 </bdi>License Issuance<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#single-skill-assertion"><bdi class="secno">3.5 </bdi>Single Skill Assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#mapping-skills"><bdi class="secno">3.6 </bdi>Mapping Skills<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifying-continuing-education"><bdi class="secno">3.7 </bdi>Verifying Continuing Education<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#self-assertion"><bdi class="secno">3.8 </bdi>Self-assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsement"><bdi class="secno">3.9 </bdi>Endorsement<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#re-issue-a-3-0-badge-to-a-3-0-badge"><bdi class="secno">3.10 </bdi>Re-issue a &lt;= 3.0 Badge to a 3.0 Badge<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#authorization-to-issue-given-by-creator-to-issuer"><bdi class="secno">3.11 </bdi>Authorization to Issue Given by Creator to Issuer<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#revocation-of-an-issued-credential"><bdi class="secno">3.12 </bdi>Revocation of an Issued Credential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#badge-class-status"><bdi class="secno">3.13 </bdi>Badge Class Status<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#getting-started"><bdi class="secno">4. </bdi>Getting Started<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#new-to-open-badges"><bdi class="secno">4.1 </bdi>New to Open Badges<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#migrating-from-open-badges-2-x"><bdi class="secno">4.2 </bdi>Migrating from Open Badges 2.x<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#differences-between-version-2-0-and-3-0"><bdi class="secno">4.2.1 </bdi>Differences Between Version 2.0 and 3.0<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#differences-between-version-2-1-and-3-0"><bdi class="secno">4.2.2 </bdi>Differences Between Version 2.1 and 3.0<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#docformat"><bdi class="secno">5. </bdi>Open Badges Document Formats<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#file-format"><bdi class="secno">5.1 </bdi>File Format<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#web-resource"><bdi class="secno">5.2 </bdi>Web Resource<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#png"><bdi class="secno">5.3.1 </bdi>PNG<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#png-extracting"><bdi class="secno">5.3.1.2 </bdi>Extracting<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#svg"><bdi class="secno">5.3.2 </bdi>SVG<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#svg-baking"><bdi class="secno">5.3.2.1 </bdi>Baking<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#extracting"><bdi class="secno">5.3.2.2 </bdi>Extracting<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#api"><bdi class="secno">6. </bdi>Open Badges API<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">6.1 </bdi>Architecture<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#api-endpoints"><bdi class="secno">6.2 </bdi>Secure REST Endpoints<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#getcredentials"><bdi class="secno">6.2.1 </bdi>getCredentials<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#postcredential"><bdi class="secno">6.2.2 </bdi>postCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#getprofile"><bdi class="secno">6.2.3 </bdi>getProfile<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#postprofile"><bdi class="secno">6.2.4 </bdi>postProfile<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#discovery-endpoints"><bdi class="secno">6.3 </bdi>Service Discovery Endpoint<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#getservicedescription"><bdi class="secno">6.3.1 </bdi>getServiceDescription<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#paging-0"><bdi class="secno">6.4 </bdi>Paging<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#retry-behavior-0"><bdi class="secno">6.5 </bdi>Retry Behavior<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#api-security"><bdi class="secno">7. </bdi>Open Badges API Security<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#oauth2acg"><bdi class="secno">7.1 </bdi>Using OAuth 2.0 Authorization Code Grant<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#acg-registration"><bdi class="secno">7.1.1 </bdi>Dynamic Client Registration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#acg-tokens"><bdi class="secno">7.1.2 </bdi>Obtaining Tokens<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#acg-authenticating"><bdi class="secno">7.1.3 </bdi>Authenticating with Tokens<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#token-refresh"><bdi class="secno">7.2 </bdi>Token Refresh<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#token-revocation"><bdi class="secno">7.3 </bdi>Token Revocation<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#data-integrity"><bdi class="secno">8. </bdi>Proofs (Signatures)<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#proof-formats"><bdi class="secno">8.1 </bdi>Proof Formats<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-proof"><bdi class="secno">8.2 </bdi>JSON Web Token Proof Format<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jwt-terminology"><bdi class="secno">8.2.1 </bdi>Terminology<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-overview"><bdi class="secno">8.2.2 </bdi>Overview<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#joseheader"><bdi class="secno">8.2.3 </bdi>Create the JOSE Header<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#create-the-jwt-payload"><bdi class="secno">8.2.4 </bdi>Create the JWT Payload<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sign-nested-credentials"><bdi class="secno">8.2.4.1 </bdi>Sign Nested Credentials<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-payload-format"><bdi class="secno">8.2.4.2 </bdi>JWT Payload Format<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#jwt-signing"><bdi class="secno">8.2.5 </bdi>Create the Proof<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-verify"><bdi class="secno">8.2.6 </bdi>Verify a Credential or Presentation<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jwt-verify-credential"><bdi class="secno">8.2.6.1 </bdi>Verify a Credential VC-JWT Signature<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-verify-presentation"><bdi class="secno">8.2.6.2 </bdi>Verify a Presentation VC-JWT Signature<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#lds-proof"><bdi class="secno">8.3 </bdi>Linked Data Proof Format<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#create-the-proof"><bdi class="secno">8.3.1 </bdi>Create the Proof<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#lds-verify"><bdi class="secno">8.3.2 </bdi>Verify a CLR Credential or Presentation Linked Data Signature<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#key-management"><bdi class="secno">8.4 </bdi>Key Management<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#dereference"><bdi class="secno">8.5 </bdi>Dereferencing the Public Key<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#verification"><bdi class="secno">9. </bdi>Verification<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#vc-extensions"><bdi class="secno">10. </bdi>Verifiable Credentials Extensions<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#best-practices-and-implementation-guide"><bdi class="secno">11. </bdi>Best Practices and Implementation Guide<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#terminology-0"><bdi class="secno">11.1 </bdi>Terminology<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#support-for-decentralized-identifiers-dids"><bdi class="secno">11.2 </bdi>Support for Decentralized Identifiers (DIDs)<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance-and-certification-guide"><bdi class="secno">12. </bdi>Conformance and Certification Guide<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#the-conformance-process"><bdi class="secno">12.1 </bdi>The Conformance Process<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#issuer-conformance"><bdi class="secno">12.2 </bdi>Open Badges 3.0 Issuer Service Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#issuer-tests"><bdi class="secno">12.2.1 </bdi>Tests<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#displayer-conformance"><bdi class="secno">12.3 </bdi>Open Badges 3.0 Displayer Service Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#display-tests"><bdi class="secno">12.3.1 </bdi>Tests<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#host-conformance"><bdi class="secno">12.4 </bdi>Open Badges 3.0 Host Service Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#tests-host"><bdi class="secno">12.4.1 </bdi>Tests<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-consumer-read"><bdi class="secno">12.5 </bdi>Service Consumer (Read) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-consumer-read-endpoint-support"><bdi class="secno">12.5.1 </bdi>Required Service Consumer (Read) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-consumer-read-compliance"><bdi class="secno">12.5.2 </bdi>Service Consumer (Read) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-consumer-write"><bdi class="secno">12.6 </bdi>Service Consumer (Write) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-consumer-write-endpoint-support"><bdi class="secno">12.6.1 </bdi>Required Service Consumer (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#optional-service-consumer-write-endpoint-support"><bdi class="secno">12.6.2 </bdi>Optional Service Consumer (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-consumer-write-compliance"><bdi class="secno">12.6.3 </bdi>Service Consumer (Write) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-provider-read"><bdi class="secno">12.7 </bdi>Service Provider (Read) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-provider-read-endpoint-support"><bdi class="secno">12.7.1 </bdi>Required Service Provider (Read) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-provider-read-compliance"><bdi class="secno">12.7.2 </bdi>Service Provider (Read) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-provider-write"><bdi class="secno">12.8 </bdi>Service Provider (Write) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-provider-write-endpoint-support"><bdi class="secno">12.8.1 </bdi>Required Service Provider (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#optional-service-provider-write-endpoint-support"><bdi class="secno">12.8.2 </bdi>Optional Service Provider (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-provider-write-compliance"><bdi class="secno">12.8.3 </bdi>Service Provider (Write) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#serialization"><bdi class="secno">A. </bdi>Serialization<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#json"><bdi class="secno">A.1 </bdi>JSON<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#json-ld"><bdi class="secno">A.2 </bdi>JSON-LD<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#datamodels"><bdi class="secno">B. </bdi>Data Models</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-0"><bdi class="secno">B.1 </bdi>Shared Digital Credentials Data Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#achievementcredential"><bdi class="secno">B.1.1 </bdi>AchievementCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#achievementsubject"><bdi class="secno">B.1.2 </bdi>AchievementSubject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#achievement-0"><bdi class="secno">B.1.3 </bdi>Achievement<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#address"><bdi class="secno">B.1.4 </bdi>Address<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#alignment"><bdi class="secno">B.1.5 </bdi>Alignment<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#criteria"><bdi class="secno">B.1.6 </bdi>Criteria<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsementcredential"><bdi class="secno">B.1.7 </bdi>EndorsementCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsementsubject"><bdi class="secno">B.1.8 </bdi>EndorsementSubject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#evidence"><bdi class="secno">B.1.9 </bdi>Evidence<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#geocoordinates"><bdi class="secno">B.1.10 </bdi>GeoCoordinates<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#identifierentry"><bdi class="secno">B.1.11 </bdi>IdentifierEntry<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#identityobject"><bdi class="secno">B.1.12 </bdi>IdentityObject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#image"><bdi class="secno">B.1.13 </bdi>Image<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#profile"><bdi class="secno">B.1.14 </bdi>Profile<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#related"><bdi class="secno">B.1.15 </bdi>Related<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#result-0"><bdi class="secno">B.1.16 </bdi>Result<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#resultdescription"><bdi class="secno">B.1.17 </bdi>ResultDescription<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#rubriccriterionlevel-0"><bdi class="secno">B.1.18 </bdi>RubricCriterionLevel<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiablecredential"><bdi class="secno">B.1.19 </bdi>VerifiableCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiablepresentation"><bdi class="secno">B.1.20 </bdi>VerifiablePresentation<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#credentialschema"><bdi class="secno">B.1.21 </bdi>CredentialSchema<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#credentialstatus"><bdi class="secno">B.1.22 </bdi>CredentialStatus<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#credentialsubject"><bdi class="secno">B.1.23 </bdi>CredentialSubject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#proof"><bdi class="secno">B.1.24 </bdi>Proof<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#refreshservice"><bdi class="secno">B.1.25 </bdi>RefreshService<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#achievementtype-enumeration"><bdi class="secno">B.1.26 </bdi>AchievementType Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#alignmenttargettype-enumeration"><bdi class="secno">B.1.27 </bdi>AlignmentTargetType Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#identifiertypeenum-enumeration"><bdi class="secno">B.1.28 </bdi>IdentifierTypeEnum Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#resulttype-enumeration"><bdi class="secno">B.1.29 </bdi>ResultType Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#resultstatustype-enumeration"><bdi class="secno">B.1.30 </bdi>ResultStatusType Enumeration<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-1"><bdi class="secno">B.2 </bdi>Open Badges API Data Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#getopenbadgecredentialsresponse"><bdi class="secno">B.2.1 </bdi>GetOpenBadgeCredentialsResponse<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#servicedescriptiondocument"><bdi class="secno">B.2.2 </bdi>ServiceDescriptionDocument<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapicomponents"><bdi class="secno">B.2.3 </bdi>OpenApiComponents<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapiinfo"><bdi class="secno">B.2.4 </bdi>OpenApiInfo<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapioauth2securityscheme"><bdi class="secno">B.2.5 </bdi>OpenApiOAuth2SecurityScheme<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapisecurityschemes"><bdi class="secno">B.2.6 </bdi>OpenApiSecuritySchemes<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-2"><bdi class="secno">B.3 </bdi>Shared API Data Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#imsx_statusinfo"><bdi class="secno">B.3.1 </bdi>Imsx_StatusInfo<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codemajor-enumeration"><bdi class="secno">B.3.2 </bdi>Imsx_CodeMajor Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_severity-enumeration"><bdi class="secno">B.3.3 </bdi>Imsx_Severity Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codeminor"><bdi class="secno">B.3.4 </bdi>Imsx_CodeMinor<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codeminorfield"><bdi class="secno">B.3.5 </bdi>Imsx_CodeMinorField<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codeminorfieldvalue-enumeration"><bdi class="secno">B.3.6 </bdi>Imsx_CodeMinorFieldValue Enumeration<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-3"><bdi class="secno">B.4 </bdi>Shared OAuth 2.0 Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#authorizationerror-vocabulary"><bdi class="secno">B.4.1 </bdi>AuthorizationError Vocabulary<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#registrationerror-vocabulary"><bdi class="secno">B.4.2 </bdi>RegistrationError Vocabulary<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#tokenerror-vocabulary"><bdi class="secno">B.4.3 </bdi>TokenError Vocabulary<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-4"><bdi class="secno">B.5 </bdi>Shared Proof Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#presentationjwspayload"><bdi class="secno">B.5.1 </bdi>PresentationJwsPayload<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#ed25519verificationkey2020"><bdi class="secno">B.5.2 </bdi>Ed25519VerificationKey2020<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwk"><bdi class="secno">B.5.3 </bdi>JWK<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwks"><bdi class="secno">B.5.4 </bdi>JWKS<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-5"><bdi class="secno">B.6 </bdi>Derived Types<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-6"><bdi class="secno">B.7 </bdi>Primitive Types<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#extending"><bdi class="secno">C. </bdi>Extending and Profiling the Standard<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#extending-the-data-model"><bdi class="secno">C.1 </bdi>Extending the Data Model<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#extending-enumerated-vocabularies"><bdi class="secno">C.2 </bdi>Extending Enumerated Vocabularies<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#extending-the-api"><bdi class="secno">C.3 </bdi>Extending the API<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#profiles"><bdi class="secno">C.4 </bdi>Profiles<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#examples"><bdi class="secno">D. </bdi>Examples<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#complete-openbadgecredential"><bdi class="secno">D.1 </bdi>Complete OpenBadgeCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsementcredential-0"><bdi class="secno">D.2 </bdi>EndorsementCredential<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">E. </bdi>List of Figures</a></li><li class="tocline"><a class="tocxref" href="#issue-summary"><bdi class="secno">F. </bdi>Issue Summary</a></li><li class="tocline"><a class="tocxref" href="#history"><bdi class="secno">G. </bdi>Revision History</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">H. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">H.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">H.2 </bdi>Informative references</a></li></ol></li><li class="tocline"><a class="tocxref" href="#contributors"><bdi class="secno">I. </bdi>List of Contributors</a></li></ol></nav>
+  <section id="abstract" data-format="markdown" class="introductory"><h2 id="abstract-0">Abstract<a class="self-link" aria-label="§" href="#abstract"></a></h2><p>This specification is a new version of the <a href="https://www.imsglobal.org/activity/digital-badges">IMS Global Open Badges Specification</a> that aligns with the conventions of the <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite> for the use cases of <a data-link-type="dfn" href="#dfn-defined-achievement-claim" class="internalDFN" id="ref-for-dfn-defined-achievement-claim-1" title="Defined Achievement Claim: An assertion that the learner achieved a specific achievement.">Defined Achievement Claim</a> and a <a data-link-type="dfn" href="#dfn-skill-claim" class="internalDFN" id="ref-for-dfn-skill-claim-1" title="Skill Claim: An assertion that the learner has the specified skill.">Skill Claim</a>. The credentials that are produced are easily be bundled into <a data-link-type="dfn" href="#dfn-clr" class="internalDFN" id="ref-for-dfn-clr-1" title="Comprehensive Learner Record (CLR): Set of assertions that can be packaged as a verifiable credential.">Comprehensive Learner Records</a> and <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-1" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">Verifiable Presentations</a>. Portability and learner data privacy are improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract-0">Abstract<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#audiences"><bdi class="secno">1.1 </bdi>Audiences<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#document-set"><bdi class="secno">1.2 </bdi>Document Set<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#docs-openapi"><bdi class="secno">1.2.1 </bdi>OpenAPI 3.0 Files for the Badge Connect API<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#json-ld-context-file"><bdi class="secno">1.2.2 </bdi>JSON-LD Context File<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#json-schema"><bdi class="secno">1.2.3 </bdi>JSON Schema<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1.3 </bdi>Conformance Statements<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">1.4 </bdi>Terminology<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#conceptual-model"><bdi class="secno">1.5 </bdi>Conceptual Model<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">2. </bdi>Overview<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#what-is-the-problem-this-solves-for"><bdi class="secno">2.1 </bdi>What is the problem this solves for?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#what-does-adopting-verifiable-credentials-entail"><bdi class="secno">2.2 </bdi>What does adopting Verifiable Credentials entail?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#benefits-and-opportunities"><bdi class="secno">2.3 </bdi>Benefits and Opportunities<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#interoperability-with-digital-wallets-verifiable-presentations-and-learner-experiences"><bdi class="secno">2.3.1 </bdi>Interoperability with Digital Wallets, Verifiable Presentations, and Learner Experiences<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiable-credentials-support-increases-learner-data-privacy-and-trustworthiness-of-open-badges"><bdi class="secno">2.3.2 </bdi>Verifiable Credentials Support Increases Learner Data Privacy and Trustworthiness of Open Badges<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#decentralized-identifiers-and-self-sovereign-identity"><bdi class="secno">2.3.3 </bdi>Decentralized Identifiers and Self-Sovereign Identity<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#aligning-open-badges-and-clr-with-common-assertion-and-achievement-models"><bdi class="secno">2.3.4 </bdi>Aligning Open Badges and CLR with Common Assertion and Achievement Models<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#differentiating-issuers-and-creators"><bdi class="secno">2.3.5 </bdi>Differentiating Issuers and Creators<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#skill-assertions"><bdi class="secno">2.4 </bdi>Skill Assertions<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">3. </bdi>Use Cases<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#assertion-issuance-to-wallet"><bdi class="secno">3.1 </bdi>Assertion Issuance to Wallet<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#assertion-issuance-without-a-wallet"><bdi class="secno">3.2 </bdi>Assertion Issuance Without a Wallet<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#recipient-presentation-of-assertion"><bdi class="secno">3.3 </bdi>Recipient Presentation of Assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#license-issuance"><bdi class="secno">3.4 </bdi>License Issuance<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#single-skill-assertion"><bdi class="secno">3.5 </bdi>Single Skill Assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#mapping-skills"><bdi class="secno">3.6 </bdi>Mapping Skills<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifying-continuing-education"><bdi class="secno">3.7 </bdi>Verifying Continuing Education<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#self-assertion"><bdi class="secno">3.8 </bdi>Self-assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsement"><bdi class="secno">3.9 </bdi>Endorsement<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#re-issue-a-3-0-badge-to-a-3-0-badge"><bdi class="secno">3.10 </bdi>Re-issue a &lt;= 3.0 Badge to a 3.0 Badge<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#authorization-to-issue-given-by-creator-to-issuer"><bdi class="secno">3.11 </bdi>Authorization to Issue Given by Creator to Issuer<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#revocation-of-an-issued-credential"><bdi class="secno">3.12 </bdi>Revocation of an Issued Credential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#badge-class-status"><bdi class="secno">3.13 </bdi>Badge Class Status<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#getting-started"><bdi class="secno">4. </bdi>Getting Started<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#new-to-open-badges"><bdi class="secno">4.1 </bdi>New to Open Badges<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#migrating-from-open-badges-2-x"><bdi class="secno">4.2 </bdi>Migrating from Open Badges 2.x<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#differences-between-version-2-0-and-3-0"><bdi class="secno">4.2.1 </bdi>Differences Between Version 2.0 and 3.0<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#differences-between-version-2-1-and-3-0"><bdi class="secno">4.2.2 </bdi>Differences Between Version 2.1 and 3.0<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#docformat"><bdi class="secno">5. </bdi>Open Badges Document Formats<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#file-format"><bdi class="secno">5.1 </bdi>File Format<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#web-resource"><bdi class="secno">5.2 </bdi>Web Resource<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#png"><bdi class="secno">5.3.1 </bdi>PNG<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#png-extracting"><bdi class="secno">5.3.1.2 </bdi>Extracting<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#svg"><bdi class="secno">5.3.2 </bdi>SVG<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#svg-baking"><bdi class="secno">5.3.2.1 </bdi>Baking<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#extracting"><bdi class="secno">5.3.2.2 </bdi>Extracting<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#api"><bdi class="secno">6. </bdi>Open Badges API<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">6.1 </bdi>Architecture<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#api-endpoints"><bdi class="secno">6.2 </bdi>Secure REST Endpoints<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#getcredentials"><bdi class="secno">6.2.1 </bdi>getCredentials<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#postcredential"><bdi class="secno">6.2.2 </bdi>postCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#getprofile"><bdi class="secno">6.2.3 </bdi>getProfile<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#postprofile"><bdi class="secno">6.2.4 </bdi>postProfile<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#discovery-endpoints"><bdi class="secno">6.3 </bdi>Service Discovery Endpoint<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#getservicedescription"><bdi class="secno">6.3.1 </bdi>getServiceDescription<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#paging-0"><bdi class="secno">6.4 </bdi>Paging<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#retry-behavior-0"><bdi class="secno">6.5 </bdi>Retry Behavior<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#api-security"><bdi class="secno">7. </bdi>Open Badges API Security<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#oauth2acg"><bdi class="secno">7.1 </bdi>Using OAuth 2.0 Authorization Code Grant<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#acg-registration"><bdi class="secno">7.1.1 </bdi>Dynamic Client Registration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#acg-tokens"><bdi class="secno">7.1.2 </bdi>Obtaining Tokens<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#acg-authenticating"><bdi class="secno">7.1.3 </bdi>Authenticating with Tokens<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#token-refresh"><bdi class="secno">7.2 </bdi>Token Refresh<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#token-revocation"><bdi class="secno">7.3 </bdi>Token Revocation<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#data-integrity"><bdi class="secno">8. </bdi>Proofs (Signatures)<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#proof-formats"><bdi class="secno">8.1 </bdi>Proof Formats<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-proof"><bdi class="secno">8.2 </bdi>JSON Web Token Proof Format<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jwt-terminology"><bdi class="secno">8.2.1 </bdi>Terminology<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-overview"><bdi class="secno">8.2.2 </bdi>Overview<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#joseheader"><bdi class="secno">8.2.3 </bdi>Create the JOSE Header<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#create-the-jwt-payload"><bdi class="secno">8.2.4 </bdi>Create the JWT Payload<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sign-nested-credentials"><bdi class="secno">8.2.4.1 </bdi>Sign Nested Credentials<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-payload-format"><bdi class="secno">8.2.4.2 </bdi>JWT Payload Format<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#jwt-signing"><bdi class="secno">8.2.5 </bdi>Create the Proof<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-verify"><bdi class="secno">8.2.6 </bdi>Verify a Credential or Presentation<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jwt-verify-credential"><bdi class="secno">8.2.6.1 </bdi>Verify a Credential VC-JWT Signature<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-verify-presentation"><bdi class="secno">8.2.6.2 </bdi>Verify a Presentation VC-JWT Signature<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#lds-proof"><bdi class="secno">8.3 </bdi>Linked Data Proof Format<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#create-the-proof"><bdi class="secno">8.3.1 </bdi>Create the Proof<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#lds-verify"><bdi class="secno">8.3.2 </bdi>Verify a CLR Credential or Presentation Linked Data Signature<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#key-management"><bdi class="secno">8.4 </bdi>Key Management<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#dereference"><bdi class="secno">8.5 </bdi>Dereferencing the Public Key<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#verification"><bdi class="secno">9. </bdi>Verification<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#vc-extensions"><bdi class="secno">10. </bdi>Verifiable Credentials Extensions<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#best-practices-and-implementation-guide"><bdi class="secno">11. </bdi>Best Practices and Implementation Guide<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#terminology-0"><bdi class="secno">11.1 </bdi>Terminology<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#support-for-decentralized-identifiers-dids"><bdi class="secno">11.2 </bdi>Support for Decentralized Identifiers (DIDs)<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance-and-certification-guide"><bdi class="secno">12. </bdi>Conformance and Certification Guide<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#the-conformance-process"><bdi class="secno">12.1 </bdi>The Conformance Process<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#issuer-conformance"><bdi class="secno">12.2 </bdi>Open Badges 3.0 Issuer Service Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#issuer-tests"><bdi class="secno">12.2.1 </bdi>Tests<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#displayer-conformance"><bdi class="secno">12.3 </bdi>Open Badges 3.0 Displayer Service Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#display-tests"><bdi class="secno">12.3.1 </bdi>Tests<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#host-conformance"><bdi class="secno">12.4 </bdi>Open Badges 3.0 Host Service Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#tests-host"><bdi class="secno">12.4.1 </bdi>Tests<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-consumer-read"><bdi class="secno">12.5 </bdi>Service Consumer (Read) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-consumer-read-endpoint-support"><bdi class="secno">12.5.1 </bdi>Required Service Consumer (Read) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-consumer-read-compliance"><bdi class="secno">12.5.2 </bdi>Service Consumer (Read) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-consumer-write"><bdi class="secno">12.6 </bdi>Service Consumer (Write) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-consumer-write-endpoint-support"><bdi class="secno">12.6.1 </bdi>Required Service Consumer (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#optional-service-consumer-write-endpoint-support"><bdi class="secno">12.6.2 </bdi>Optional Service Consumer (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-consumer-write-compliance"><bdi class="secno">12.6.3 </bdi>Service Consumer (Write) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-provider-read"><bdi class="secno">12.7 </bdi>Service Provider (Read) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-provider-read-endpoint-support"><bdi class="secno">12.7.1 </bdi>Required Service Provider (Read) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-provider-read-compliance"><bdi class="secno">12.7.2 </bdi>Service Provider (Read) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-provider-write"><bdi class="secno">12.8 </bdi>Service Provider (Write) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-provider-write-endpoint-support"><bdi class="secno">12.8.1 </bdi>Required Service Provider (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#optional-service-provider-write-endpoint-support"><bdi class="secno">12.8.2 </bdi>Optional Service Provider (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-provider-write-compliance"><bdi class="secno">12.8.3 </bdi>Service Provider (Write) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#serialization"><bdi class="secno">A. </bdi>Serialization<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#json"><bdi class="secno">A.1 </bdi>JSON<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#json-ld"><bdi class="secno">A.2 </bdi>JSON-LD<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#datamodels"><bdi class="secno">B. </bdi>Data Models</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-0"><bdi class="secno">B.1 </bdi>Shared Digital Credentials Data Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#achievementcredential"><bdi class="secno">B.1.1 </bdi>AchievementCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#achievementsubject"><bdi class="secno">B.1.2 </bdi>AchievementSubject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#achievement-0"><bdi class="secno">B.1.3 </bdi>Achievement<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#address"><bdi class="secno">B.1.4 </bdi>Address<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#alignment"><bdi class="secno">B.1.5 </bdi>Alignment<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#criteria"><bdi class="secno">B.1.6 </bdi>Criteria<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsementcredential"><bdi class="secno">B.1.7 </bdi>EndorsementCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsementsubject"><bdi class="secno">B.1.8 </bdi>EndorsementSubject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#evidence"><bdi class="secno">B.1.9 </bdi>Evidence<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#geocoordinates"><bdi class="secno">B.1.10 </bdi>GeoCoordinates<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#identifierentry"><bdi class="secno">B.1.11 </bdi>IdentifierEntry<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#identityobject"><bdi class="secno">B.1.12 </bdi>IdentityObject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#image"><bdi class="secno">B.1.13 </bdi>Image<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#profile"><bdi class="secno">B.1.14 </bdi>Profile<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#related"><bdi class="secno">B.1.15 </bdi>Related<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#result-0"><bdi class="secno">B.1.16 </bdi>Result<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#resultdescription"><bdi class="secno">B.1.17 </bdi>ResultDescription<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#rubriccriterionlevel-0"><bdi class="secno">B.1.18 </bdi>RubricCriterionLevel<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiablecredential"><bdi class="secno">B.1.19 </bdi>VerifiableCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiablepresentation"><bdi class="secno">B.1.20 </bdi>VerifiablePresentation<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#credentialschema"><bdi class="secno">B.1.21 </bdi>CredentialSchema<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#credentialstatus"><bdi class="secno">B.1.22 </bdi>CredentialStatus<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#credentialsubject"><bdi class="secno">B.1.23 </bdi>CredentialSubject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#proof"><bdi class="secno">B.1.24 </bdi>Proof<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#refreshservice"><bdi class="secno">B.1.25 </bdi>RefreshService<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#achievementtype-enumeration"><bdi class="secno">B.1.26 </bdi>AchievementType Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#alignmenttargettype-enumeration"><bdi class="secno">B.1.27 </bdi>AlignmentTargetType Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#identifiertypeenum-enumeration"><bdi class="secno">B.1.28 </bdi>IdentifierTypeEnum Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#resulttype-enumeration"><bdi class="secno">B.1.29 </bdi>ResultType Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#resultstatustype-enumeration"><bdi class="secno">B.1.30 </bdi>ResultStatusType Enumeration<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-1"><bdi class="secno">B.2 </bdi>Open Badges API Data Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#getopenbadgecredentialsresponse"><bdi class="secno">B.2.1 </bdi>GetOpenBadgeCredentialsResponse<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#servicedescriptiondocument"><bdi class="secno">B.2.2 </bdi>ServiceDescriptionDocument<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapicomponents"><bdi class="secno">B.2.3 </bdi>OpenApiComponents<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapiinfo"><bdi class="secno">B.2.4 </bdi>OpenApiInfo<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapioauth2securityscheme"><bdi class="secno">B.2.5 </bdi>OpenApiOAuth2SecurityScheme<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapisecurityschemes"><bdi class="secno">B.2.6 </bdi>OpenApiSecuritySchemes<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-2"><bdi class="secno">B.3 </bdi>Shared API Data Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#imsx_statusinfo"><bdi class="secno">B.3.1 </bdi>Imsx_StatusInfo<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codemajor-enumeration"><bdi class="secno">B.3.2 </bdi>Imsx_CodeMajor Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_severity-enumeration"><bdi class="secno">B.3.3 </bdi>Imsx_Severity Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codeminor"><bdi class="secno">B.3.4 </bdi>Imsx_CodeMinor<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codeminorfield"><bdi class="secno">B.3.5 </bdi>Imsx_CodeMinorField<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codeminorfieldvalue-enumeration"><bdi class="secno">B.3.6 </bdi>Imsx_CodeMinorFieldValue Enumeration<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-3"><bdi class="secno">B.4 </bdi>Shared OAuth 2.0 Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#authorizationerror-vocabulary"><bdi class="secno">B.4.1 </bdi>AuthorizationError Vocabulary<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#registrationerror-vocabulary"><bdi class="secno">B.4.2 </bdi>RegistrationError Vocabulary<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#tokenerror-vocabulary"><bdi class="secno">B.4.3 </bdi>TokenError Vocabulary<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-4"><bdi class="secno">B.5 </bdi>Shared Proof Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#presentationjwspayload"><bdi class="secno">B.5.1 </bdi>PresentationJwsPayload<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#ed25519verificationkey2020"><bdi class="secno">B.5.2 </bdi>Ed25519VerificationKey2020<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwk"><bdi class="secno">B.5.3 </bdi>JWK<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwks"><bdi class="secno">B.5.4 </bdi>JWKS<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-5"><bdi class="secno">B.6 </bdi>Derived Types<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-6"><bdi class="secno">B.7 </bdi>Primitive Types<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#extending"><bdi class="secno">C. </bdi>Extending and Profiling the Standard<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#extending-the-data-model"><bdi class="secno">C.1 </bdi>Extending the Data Model<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#extending-enumerated-vocabularies"><bdi class="secno">C.2 </bdi>Extending Enumerated Vocabularies<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#extending-the-api"><bdi class="secno">C.3 </bdi>Extending the API<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#profiles"><bdi class="secno">C.4 </bdi>Profiles<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#examples"><bdi class="secno">D. </bdi>Examples<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#basic-openbadgecredential"><bdi class="secno">D.1 </bdi>Basic OpenBadgeCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#complete-openbadgecredential"><bdi class="secno">D.2 </bdi>Complete OpenBadgeCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsementcredential-0"><bdi class="secno">D.3 </bdi>EndorsementCredential<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">E. </bdi>List of Figures</a></li><li class="tocline"><a class="tocxref" href="#issue-summary"><bdi class="secno">F. </bdi>Issue Summary</a></li><li class="tocline"><a class="tocxref" href="#history"><bdi class="secno">G. </bdi>Revision History</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">H. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">H.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">H.2 </bdi>Informative references</a></li></ol></li><li class="tocline"><a class="tocxref" href="#contributors"><bdi class="secno">I. </bdi>List of Contributors</a></li></ol></nav>
 
   <section data-format="markdown" id="introduction-0"><h2 id="introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a><a class="self-link" aria-label="§" href="#introduction"></a></h2><section id="audiences-0"><h3 id="audiences"><bdi class="secno">1.1 </bdi>Audiences<a class="self-link" aria-label="§" href="#audiences"></a><a class="self-link" aria-label="§" href="#audiences"></a></h3><p>The target readers for this document are:</p><ul>
 <li>Business Leaders - the people who are responsible for identifying the business case for using verifiable digital credentials and badges</li>
@@ -1945,11 +1945,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-05-26T18:12:23Z",
+      "created": "2022-05-26T18:33:52Z",
       "verificationMethod": "https://example.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z5CHNrFsUfT89hFEqj5ivkEnh8S2mm9j57g2sbdR93uQdDLrKXfPCEu8wj5
-666zjaFi8o32Zw5ejoepj9LV8ur7sD"
+      "proofValue": "z36pyfs1usbUJUWi5DdHHApXfhkWrSgBaZni12wb5M5ukBZk9fr1aDp25kC
+3KD3w71q1Up4T9k6Dr3wjcJGLCnydi"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -2014,11 +2014,11 @@ zdW0yLmhlcm9rdWFwcC5jb20vanNvbnNjaGVtYT9jbGFzc0lkPW9yZy4xZWR0ZWNoLm9iLnYzcDAuYWN
 oaWV2ZW1lbnRjcmVkZW50aWFsLmNsYXNzIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDE5In1
 dfSwiaXNzIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5iZiI6MTI2MjMwNDA
 wMCwianRpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXh
-hbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.6IcEp742Nqv_yLdsGZBe15JIsychsiku
-cr1M0Kr3rZqLF2sckShF1i3bkJg8FXiNqdko2quLYUwC5QBV9MY3PJTrXlqac8oozVGO9D5s8BpqQi0X
-Q7fuhffSzPY8-okBgzWYib7XiaxautH2xRpcN3Vh_9maC3zbudtRJ84dnQq1gyopdnf6N5pgIwafinrp
-jTuxjWPqZ59n9CQWsrZ3s4OHwNJLzts_lfoiqbSpXKgG-IqfnlSRyebG18rtNJ6QSbJZeyWu_iC8QxwE
-eyGmhcoWIDD155e6pUaOrh2ZNwqoW55oG8ZFuEFKEJur-eoiWYiYyBuBJDziypKeysDaCg</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
+hbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.jihEpy9k5ljQZw0QfaysWz3BBSlM6zlA
+zCDzlxNlwMPbQYpm5bCUDshP5cgPyv-L9wocZSIPZkP_aavDLQ2oF0Xl4dByNM2jUkQYuR33FAnpZ97j
+eikgsmG98OYmRJIfJeaxHzd-awQjDRRYvH5iK37NLHhBBEdSAG-1vbEFXx8ccmR0wnml0AHCbU2qOVww
+CFTfBFIGm9Ho7pku3jP4KgLv-UCTkbh6MkO0G7T3ScpxG51ouMomJUFZCt1FclPybORmejFYQ4E4VVNl
+Tk1TKOEY9RNgWTvp9WkQqVL8eG3cVR9_h-zOiCypnz9IEUaR2C7TFxbOWdsAA4MXekuBTg</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">Example<bdi> 2</bdi></a><span class="example-title">: An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)</span>
   </div> <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">var</span> chunk = <span class="hljs-keyword">new</span> iTXt({
@@ -4773,124 +4773,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       </td>
     </tr>
         </tbody>
-      </table>
-    <div class="example" id="example-sample-openbadgecredential">
-        <div class="marker">
-    <a class="self-link" href="#example-sample-openbadgecredential">Example<bdi> 33</bdi></a><span class="example-title">: Sample OpenBadgeCredential</span>
-  </div> 
-      <div class="vc-tabbed"><input type="radio" id="vc-tab21" name="vc-tabs2" checked="checked"><input type="radio" id="vc-tab22" name="vc-tabs2"><input type="radio" id="vc-tab23" name="vc-tabs2"><ul class="vc-tabs"><li class="vc-tab"><label for="vc-tab21">Credential</label></li><li class="vc-tab"><label for="vc-tab22">Verifiable Credential (with proof)</label></li><li class="vc-tab"><label for="vc-tab23">Verifiable Credential (as JWT)</label></li></ul><div class="vc-tab-content"><pre class="vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class" data-allowadditionalproperties="false" data-vc-vm="https://example.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
-  <span class="hljs-attr">"@context"</span>: [
-    <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-    <span class="hljs-string">"http://localhost:3000/ob_v3p0/context.json"</span>
-  ],
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://example.edu/credentials/3732"</span>,
-  <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"VerifiableCredential"</span>, <span class="hljs-string">"OpenBadgeCredential"</span>],
-  <span class="hljs-attr">"issuer"</span>: {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.edu/issuers/565049"</span>,
-    <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"Profile"</span>],
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University"</span>
-  },
-  <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University Degree"</span>,
-  <span class="hljs-attr">"credentialSubject"</span>: {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:ebfeb1f712ebc6f1c276e12ec21"</span>,
-    <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"AchievementSubject"</span>]
-  }
-}</code></pre></div><div class="vc-tab-content"><pre>{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "http://localhost:3000/ob_v3p0/context.json",
-    "https://w3id.org/security/suites/ed25519-2020/v1"
-  ],
-  "id": "http://example.edu/credentials/3732",
-  "type": [
-    "VerifiableCredential",
-    "OpenBadgeCredential"
-  ],
-  "issuer": {
-    "id": "https://example.edu/issuers/565049",
-    "type": [
-      "Profile"
-    ],
-    "name": "Example University"
-  },
-  "issuanceDate": "2010-01-01T00:00:00Z",
-  "name": "Example University Degree",
-  "credentialSubject": {
-    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-    "type": [
-      "AchievementSubject"
-    ]
-  },
-  "proof": [
-    {
-      "type": "Ed25519Signature2020",
-      "created": "2022-05-26T18:12:23Z",
-      "verificationMethod": "https://example.edu/issuers/565049#key-1",
-      "proofPurpose": "assertionMethod",
-      "proofValue": "z5kgu1BWQjHGpxAsW9spE3BRYBwypGLzyrix6yWviFAByBJYRg9nW9QtJVx
-8oQX2wPGxR7ARUQDEPtAaWVXtXSaUX"
-    }
-  ]
-}</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
-{
-  "alg": "RS256",
-  "typ": "JWT"
-}
---------------- JWT payload ---------------
-// NOTE: The example below uses a valid VC-JWT serialization
-//       that duplicates the iss, nbf, jti, and sub fields in the
-//       Verifiable Credential (vc) field.
-{
-  "vc": {
-    "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "http://localhost:3000/ob_v3p0/context.json"
-    ],
-    "id": "http://example.edu/credentials/3732",
-    "type": [
-      "VerifiableCredential",
-      "OpenBadgeCredential"
-    ],
-    "issuer": {
-      "id": "https://example.edu/issuers/565049",
-      "type": [
-        "Profile"
-      ],
-      "name": "Example University"
-    },
-    "issuanceDate": "2010-01-01T00:00:00Z",
-    "name": "Example University Degree",
-    "credentialSubject": {
-      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-      "type": [
-        "AchievementSubject"
-      ]
-    }
-  },
-  "iss": "https://example.edu/issuers/565049",
-  "nbf": 1262304000,
-  "jti": "http://example.edu/credentials/3732",
-  "sub": "did:example:ebfeb1f712ebc6f1c276e12ec21"
-}
---------------- JWT ---------------
-eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy5
-3My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9vYl92M3AwL2N
-vbnRleHQuanNvbiJdLCJpZCI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwidHl
-wZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCIsIk9wZW5CYWRnZUNyZWRlbnRpYWwiXSwiaXNzdWVyIjp
-7ImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsInR5cGUiOlsiUHJvZmlsZSJ
-dLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sImlzc3VhbmNlRGF0ZSI6IjIwMTAtMDEtMDFUMDA
-6MDA6MDBaIiwibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSBEZWdyZWUiLCJjcmVkZW50aWFsU3ViamV
-jdCI6eyJpZCI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSIsInR5cGUiOls
-iQWNoaWV2ZW1lbnRTdWJqZWN0Il19fSwiaXNzIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU
-2NTA0OSIsIm5iZiI6MTI2MjMwNDAwMCwianRpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWx
-zLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.Wux7
-1Ie98JywOL-LXq6bj7l_AHFOfo57c-D77hhAZJX5wF_8YMMx7VN7U4IJqcaa7WV-45ubN-R0_aAdqucq
-ilQYVm3emuuERqik3qJUf0R_FbBo5bpTImPXqtCjircdDfutcCm0rqDp30XVHAaVN7nh_t6FeDgGqmvy
-wGtVXI0_y_BER6zyNYP1fZfBV7yq3eYWGSkRpz2O2VZ4SeuDijXRC0rHAW6nOQgvRyWzgnAIZLsVBbXv
-9oFAOdSbYEyfiYa4c1CpIdQW8OCa3EDQlo78WgqeDDuJ4LPoucux3EExbguHpq1bOYN6aZlNq_3b0ywH
-0Zbsy2QS9-d6nUDqLQ</pre></div></div></div>
-  </section>
+      </table></section>
   <section data-class="org.1edtech.ob.v3p0.achievementsubject.class" id="org.1edtech.ob.v3p0.achievementsubject.class"><h4 id="achievementsubject"><bdi class="secno">B.1.2 </bdi>AchievementSubject<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.achievementsubject.class"></a><a class="self-link" aria-label="§" href="#achievementsubject"></a></h4><p>A collection of information about the recipient of an achievement. Maps to Credential Subject in [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>].</p><table class="simple">
         <thead>
           <tr>
@@ -8505,8 +8388,131 @@ wGtVXI0_y_BER6zyNYP1fZfBV7yq3eYWGSkRpz2O2VZ4SeuDijXRC0rHAW6nOQgvRyWzgnAIZLsVBbXv
 
   <section class="appendex" id="examples-0">
     <h2 id="examples"><bdi class="secno">D. </bdi>Examples<a class="self-link" aria-label="§" href="#examples"></a><a class="self-link" aria-label="§" href="#examples"></a></h2>
+    <section id="basic-openbadgecredential-0">
+      <h3 id="basic-openbadgecredential"><bdi class="secno">D.1 </bdi>Basic OpenBadgeCredential<a class="self-link" aria-label="§" href="#basic-openbadgecredential"></a><a class="self-link" aria-label="§" href="#basic-openbadgecredential"></a></h3>
+      
+
+<div class="example" id="example-sample-openbadgecredential">
+        <div class="marker">
+    <a class="self-link" href="#example-sample-openbadgecredential">Example<bdi> 33</bdi></a><span class="example-title">: Sample OpenBadgeCredential</span>
+  </div> 
+      <div class="vc-tabbed"><input type="radio" id="vc-tab21" name="vc-tabs2" checked="checked"><input type="radio" id="vc-tab22" name="vc-tabs2"><input type="radio" id="vc-tab23" name="vc-tabs2"><ul class="vc-tabs"><li class="vc-tab"><label for="vc-tab21">Credential</label></li><li class="vc-tab"><label for="vc-tab22">Verifiable Credential (with proof)</label></li><li class="vc-tab"><label for="vc-tab23">Verifiable Credential (as JWT)</label></li></ul><div class="vc-tab-content"><pre class="vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class" data-allowadditionalproperties="false" data-vc-vm="https://example.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
+  <span class="hljs-attr">"@context"</span>: [
+    <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
+    <span class="hljs-string">"http://localhost:3000/ob_v3p0/context.json"</span>
+  ],
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://example.edu/credentials/3732"</span>,
+  <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"VerifiableCredential"</span>, <span class="hljs-string">"OpenBadgeCredential"</span>],
+  <span class="hljs-attr">"issuer"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.edu/issuers/565049"</span>,
+    <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"Profile"</span>],
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University"</span>
+  },
+  <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example University Degree"</span>,
+  <span class="hljs-attr">"credentialSubject"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:ebfeb1f712ebc6f1c276e12ec21"</span>,
+    <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"AchievementSubject"</span>]
+  }
+}</code></pre></div><div class="vc-tab-content"><pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "http://localhost:3000/ob_v3p0/context.json",
+    "https://w3id.org/security/suites/ed25519-2020/v1"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": [
+    "VerifiableCredential",
+    "OpenBadgeCredential"
+  ],
+  "issuer": {
+    "id": "https://example.edu/issuers/565049",
+    "type": [
+      "Profile"
+    ],
+    "name": "Example University"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "name": "Example University Degree",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": [
+      "AchievementSubject"
+    ]
+  },
+  "proof": [
+    {
+      "type": "Ed25519Signature2020",
+      "created": "2022-05-26T18:33:52Z",
+      "verificationMethod": "https://example.edu/issuers/565049#key-1",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z64JA2vZn5NccJykyfau9AFTZiFr4cwAGdG8SfVcvA2QTDnXGYrp4uMBcN7
+GXhDD2jQSrecGYbiQGbpP7X93nbRQS"
+    }
+  ]
+}</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
+{
+  "alg": "RS256",
+  "typ": "JWT"
+}
+--------------- JWT payload ---------------
+// NOTE: The example below uses a valid VC-JWT serialization
+//       that duplicates the iss, nbf, jti, and sub fields in the
+//       Verifiable Credential (vc) field.
+{
+  "vc": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "http://localhost:3000/ob_v3p0/context.json"
+    ],
+    "id": "http://example.edu/credentials/3732",
+    "type": [
+      "VerifiableCredential",
+      "OpenBadgeCredential"
+    ],
+    "issuer": {
+      "id": "https://example.edu/issuers/565049",
+      "type": [
+        "Profile"
+      ],
+      "name": "Example University"
+    },
+    "issuanceDate": "2010-01-01T00:00:00Z",
+    "name": "Example University Degree",
+    "credentialSubject": {
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+      "type": [
+        "AchievementSubject"
+      ]
+    }
+  },
+  "iss": "https://example.edu/issuers/565049",
+  "nbf": 1262304000,
+  "jti": "http://example.edu/credentials/3732",
+  "sub": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+}
+--------------- JWT ---------------
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy5
+3My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9vYl92M3AwL2N
+vbnRleHQuanNvbiJdLCJpZCI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwidHl
+wZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCIsIk9wZW5CYWRnZUNyZWRlbnRpYWwiXSwiaXNzdWVyIjp
+7ImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsInR5cGUiOlsiUHJvZmlsZSJ
+dLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sImlzc3VhbmNlRGF0ZSI6IjIwMTAtMDEtMDFUMDA
+6MDA6MDBaIiwibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSBEZWdyZWUiLCJjcmVkZW50aWFsU3ViamV
+jdCI6eyJpZCI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSIsInR5cGUiOls
+iQWNoaWV2ZW1lbnRTdWJqZWN0Il19fSwiaXNzIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU
+2NTA0OSIsIm5iZiI6MTI2MjMwNDAwMCwianRpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWx
+zLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.BZy8
+AqcGHm-uyvndTff62_3RJmy5UookgTkbHT6PRM4-XCqL0-FputdyCvRK6m4tHHgvYpsT8AjWQ5v8OpPL
+bUj31CZx4FNy4qzMFr-3PAVd3rKFN3iHrUAG3GZgdt9jeb2z1FNWoM4vANneCk4nxohhC01_pZ5Ij7tr
+Y3kmDVwlkFWxuq3kU0q_fDrzkjAiitCy0U_dmbEx4zncdxQuOIH8nFUdqhd1XDXPPxZnCTRuNwM2jmB4
+HOhrFQUtMjL2eRu3WhmA79lkMDSQiw8K5Q9XQVRPhTv-aB7_1bkycSjNmi0LU79o74y3osfYC5kuRh1O
+a2Fkj26HaTOFUEnidQ</pre></div></div></div>
+
+
+    </section>
     <section id="complete-openbadgecredential-0">
-      <h3 id="complete-openbadgecredential"><bdi class="secno">D.1 </bdi>Complete OpenBadgeCredential<a class="self-link" aria-label="§" href="#complete-openbadgecredential"></a><a class="self-link" aria-label="§" href="#complete-openbadgecredential"></a></h3>
+      <h3 id="complete-openbadgecredential"><bdi class="secno">D.2 </bdi>Complete OpenBadgeCredential<a class="self-link" aria-label="§" href="#complete-openbadgecredential"></a><a class="self-link" aria-label="§" href="#complete-openbadgecredential"></a></h3>
       <p>
         In this example, all required and optional properties are populated.
       </p>
@@ -8515,12 +8521,7 @@ wGtVXI0_y_BER6zyNYP1fZfBV7yq3eYWGSkRpz2O2VZ4SeuDijXRC0rHAW6nOQgvRyWzgnAIZLsVBbXv
       </div></div>
       
 
-<div class="issue" id="issue-container-number-4"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="4"><span>Issue 4</span><span class="issue-label">: Invalid JSON</span></div><div class="">
-          <p>NOTE: This example contains invalid JSON for org.1edtech.ob.v3p0.achievementcredential.class.</p>
-          <ul>
-            <li>/credentialSubject/achievement/creator/endorsement/0/proof: must be array</li><li>/credentialSubject/achievement/creator/endorsement/1/proof: must be array</li><li>/credentialSubject/achievement/endorsement/0/proof: must be array</li><li>/endorsement/0/proof: must be array</li><li>/issuer/endorsement/0/proof: must be array</li>
-          </ul>
-        </div></div><div class="example" id="example-complete-openbadgecredential">
+<div class="example" id="example-complete-openbadgecredential">
         <div class="marker">
     <a class="self-link" href="#example-complete-openbadgecredential">Example<bdi> 34</bdi></a><span class="example-title">: Complete OpenBadgeCredential</span>
   </div> <pre class="vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class" data-allowadditionalproperties="false" data-vc-vm="https://1edtech.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
@@ -8656,13 +8657,15 @@ wGtVXI0_y_BER6zyNYP1fZfBV7yq3eYWGSkRpz2O2VZ4SeuDijXRC0rHAW6nOQgvRyWzgnAIZLsVBbXv
               <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://1edtech.edu/credentials/3732"</span>,
               <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechCredentialRefresh"</span>
             },
-            <span class="hljs-attr">"proof"</span>: {
-              <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Ed25519Signature2020"</span>,
-              <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2022-05-20T23:57:15Z"</span>,
-              <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"https://accrediter.edu/issuers/565049#key-1"</span>,
-              <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"assertionMethod"</span>,
-              <span class="hljs-attr">"proofValue"</span>: <span class="hljs-string">"z4YgiuzeR1P9LaENAvQRmgZ5D6injYHjgU583NZznSPJgEbsfQAiha11zetxcRrmUUNwVxy9oEEcNYc5mhuWfrruw"</span>
-            }
+            <span class="hljs-attr">"proof"</span>: [
+              {
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Ed25519Signature2020"</span>,
+                <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2022-05-26T18:17:08Z"</span>,
+                <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"https://accrediter.edu/issuers/565049#key-1"</span>,
+                <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"assertionMethod"</span>,
+                <span class="hljs-attr">"proofValue"</span>: <span class="hljs-string">"zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"</span>
+              }
+            ]
           },
           {
             <span class="hljs-attr">"@context"</span>: [
@@ -8708,13 +8711,15 @@ wGtVXI0_y_BER6zyNYP1fZfBV7yq3eYWGSkRpz2O2VZ4SeuDijXRC0rHAW6nOQgvRyWzgnAIZLsVBbXv
               <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://state.gov/credentials/3732"</span>,
               <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechCredentialRefresh"</span>
             },
-            <span class="hljs-attr">"proof"</span>: {
-              <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Ed25519Signature2020"</span>,
-              <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2022-05-20T23:59:43Z"</span>,
-              <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"https://state.gov/issuers/565049#key-1"</span>,
-              <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"assertionMethod"</span>,
-              <span class="hljs-attr">"proofValue"</span>: <span class="hljs-string">"z64UBrLkCjxaf8kxKSseQLizS31ck1kNru6oQjGzVySxsbBcd7aWVViZaBdZoMZVMoAHR6gi9DMP4gTLKZPT1oscf"</span>
-            }
+            <span class="hljs-attr">"proof"</span>: [
+              {
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Ed25519Signature2020"</span>,
+                <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2022-05-26T18:25:59Z"</span>,
+                <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"https://accrediter.edu/issuers/565049#key-1"</span>,
+                <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"assertionMethod"</span>,
+                <span class="hljs-attr">"proofValue"</span>: <span class="hljs-string">"z5bDnmSgDczXwZGya6ZjxKaxkdKxzsCMiVSsgEVWxnaWK7ZqbKnzcCd7mUKE9DQaAL2QMXP5AquPeW6W2CWrZ7jNC"</span>
+              }
+            ]
           }
         ],
         <span class="hljs-attr">"image"</span>: {
@@ -8776,7 +8781,6 @@ wGtVXI0_y_BER6zyNYP1fZfBV7yq3eYWGSkRpz2O2VZ4SeuDijXRC0rHAW6nOQgvRyWzgnAIZLsVBbXv
             <span class="hljs-string">"http://localhost:3000/ob_v3p0/context.json"</span>,
             <span class="hljs-string">"https://w3id.org/security/suites/ed25519-2020/v1"</span>
           ],
-          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://accrediter.edu/endorsements/565049"</span>,
           <span class="hljs-attr">"type"</span>: [
             <span class="hljs-string">"VerifiableCredential"</span>,
             <span class="hljs-string">"EndorsementCredential"</span>
@@ -8791,11 +8795,11 @@ wGtVXI0_y_BER6zyNYP1fZfBV7yq3eYWGSkRpz2O2VZ4SeuDijXRC0rHAW6nOQgvRyWzgnAIZLsVBbXv
           <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
           <span class="hljs-attr">"expirationDate"</span>: <span class="hljs-string">"2020-01-01T00:00:00Z"</span>,
           <span class="hljs-attr">"credentialSubject"</span>: {
-            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://1edtech.edu/achievements/degree"</span>,
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://1edtech.edu/issuers/565049"</span>,
             <span class="hljs-attr">"type"</span>: [
               <span class="hljs-string">"EndorsementSubject"</span>
             ],
-            <span class="hljs-attr">"endorsementComment"</span>: <span class="hljs-string">"1EdTech University's Degree Program is great."</span>
+            <span class="hljs-attr">"endorsementComment"</span>: <span class="hljs-string">"1EdTech University is in good standing"</span>
           },
           <span class="hljs-attr">"credentialSchema"</span>: [
             {
@@ -8808,20 +8812,22 @@ wGtVXI0_y_BER6zyNYP1fZfBV7yq3eYWGSkRpz2O2VZ4SeuDijXRC0rHAW6nOQgvRyWzgnAIZLsVBbXv
             }
           ],
           <span class="hljs-attr">"credentialStatus"</span>: {
-            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://accrediter.edu/endorsements/565049/revocations"</span>,
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://1edtech.edu/credentials/3732/revocations"</span>,
             <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechRevocationList"</span>
           },
           <span class="hljs-attr">"refreshService"</span>: {
-            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://accrediter.edu/endorsements/565049/refresh"</span>,
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://1edtech.edu/credentials/3732"</span>,
             <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechCredentialRefresh"</span>
           },
-          <span class="hljs-attr">"proof"</span>: {
-            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Ed25519Signature2020"</span>,
-            <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2022-05-21T00:01:49Z"</span>,
-            <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"https://accrediter.edu/issuers/565049#key-1"</span>,
-            <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"assertionMethod"</span>,
-            <span class="hljs-attr">"proofValue"</span>: <span class="hljs-string">"z3Bc2KUVYUBCoCAZsr83Uq3VpJMFZDzG2AZLC1CEwRzqKw9bos9vhHNGswPQ7ih4ygQTDhXifFVF4Tu3pqYYaiHvm"</span>
-          }
+          <span class="hljs-attr">"proof"</span>: [
+            {
+              <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Ed25519Signature2020"</span>,
+              <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2022-05-26T18:17:08Z"</span>,
+              <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"https://accrediter.edu/issuers/565049#key-1"</span>,
+              <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"assertionMethod"</span>,
+              <span class="hljs-attr">"proofValue"</span>: <span class="hljs-string">"zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"</span>
+            }
+          ]
         }
       ],
       <span class="hljs-attr">"fieldOfStudy"</span>: <span class="hljs-string">"Research"</span>,
@@ -9044,8 +9050,12 @@ wGtVXI0_y_BER6zyNYP1fZfBV7yq3eYWGSkRpz2O2VZ4SeuDijXRC0rHAW6nOQgvRyWzgnAIZLsVBbXv
       },
       <span class="hljs-attr">"credentialSchema"</span>: [
         {
-          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://purl.imsglobal.org/spec/ob/v3p0/schama/endorsementcredential.json"</span>,
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json"</span>,
           <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechJsonSchemaValidator2019"</span>
+        },
+        {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://accrediter.edu/schema/endorsementcredential.json"</span>,
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"JsonSchemaValidator2018"</span>
         }
       ],
       <span class="hljs-attr">"credentialStatus"</span>: {
@@ -9056,13 +9066,15 @@ wGtVXI0_y_BER6zyNYP1fZfBV7yq3eYWGSkRpz2O2VZ4SeuDijXRC0rHAW6nOQgvRyWzgnAIZLsVBbXv
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://1edtech.edu/credentials/3732"</span>,
         <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechCredentialRefresh"</span>
       },
-      <span class="hljs-attr">"proof"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Ed25519Signature2020"</span>,
-        <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2022-05-21T00:08:17Z"</span>,
-        <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"https://accrediter.edu/issuers/565049#key-1"</span>,
-        <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"assertionMethod"</span>,
-        <span class="hljs-attr">"proofValue"</span>: <span class="hljs-string">"z5Sj4sjjmfavY1seWbFBUxEUYbzqSnzP39Zkvrv9QuyCc7kUyLnwKsHu9SBXv2S27wm6NesVWCJYiKuw1ZuTYa9aP"</span>
-      }
+      <span class="hljs-attr">"proof"</span>: [
+        {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Ed25519Signature2020"</span>,
+          <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2022-05-26T18:17:08Z"</span>,
+          <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"https://accrediter.edu/issuers/565049#key-1"</span>,
+          <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"assertionMethod"</span>,
+          <span class="hljs-attr">"proofValue"</span>: <span class="hljs-string">"zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"</span>
+        }
+      ]
     }
   ],
   <span class="hljs-attr">"evidence"</span>: [
@@ -9142,13 +9154,15 @@ wGtVXI0_y_BER6zyNYP1fZfBV7yq3eYWGSkRpz2O2VZ4SeuDijXRC0rHAW6nOQgvRyWzgnAIZLsVBbXv
           <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://1edtech.edu/credentials/3732"</span>,
           <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechCredentialRefresh"</span>
         },
-        <span class="hljs-attr">"proof"</span>: {
-          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Ed25519Signature2020"</span>,
-          <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2022-05-21T00:11:32Z"</span>,
-          <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"https://accrediter.edu/issuers/565049#key-1"</span>,
-          <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"assertionMethod"</span>,
-          <span class="hljs-attr">"proofValue"</span>: <span class="hljs-string">"z3tari1vywMZpyDgYbm3WYMgbNeGJvtnQATFfmKiyHyRaAW4Y1PH8BVmsqFjb6Ra9rzYmZLmyWWmPq36UG51nf9tX"</span>
-        }
+        <span class="hljs-attr">"proof"</span>: [
+          {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Ed25519Signature2020"</span>,
+            <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2022-05-26T18:17:08Z"</span>,
+            <span class="hljs-attr">"verificationMethod"</span>: <span class="hljs-string">"https://accrediter.edu/issuers/565049#key-1"</span>,
+            <span class="hljs-attr">"proofPurpose"</span>: <span class="hljs-string">"assertionMethod"</span>,
+            <span class="hljs-attr">"proofValue"</span>: <span class="hljs-string">"zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"</span>
+          }
+        ]
       }
     ],
     <span class="hljs-attr">"image"</span>: {
@@ -9219,7 +9233,7 @@ wGtVXI0_y_BER6zyNYP1fZfBV7yq3eYWGSkRpz2O2VZ4SeuDijXRC0rHAW6nOQgvRyWzgnAIZLsVBbXv
 
     </section>
     <section id="endorsementcredential-1">
-      <h3 id="endorsementcredential-0"><bdi class="secno">D.2 </bdi>EndorsementCredential<a class="self-link" aria-label="§" href="#endorsementcredential-0"></a><a class="self-link" aria-label="§" href="#endorsementcredential-0"></a></h3>
+      <h3 id="endorsementcredential-0"><bdi class="secno">D.3 </bdi>EndorsementCredential<a class="self-link" aria-label="§" href="#endorsementcredential-0"></a><a class="self-link" aria-label="§" href="#endorsementcredential-0"></a></h3>
       
 
 <div class="example" id="example-sample-endorsementcredential">
@@ -9227,45 +9241,50 @@ wGtVXI0_y_BER6zyNYP1fZfBV7yq3eYWGSkRpz2O2VZ4SeuDijXRC0rHAW6nOQgvRyWzgnAIZLsVBbXv
     <a class="self-link" href="#example-sample-endorsementcredential">Example<bdi> 35</bdi></a><span class="example-title">: Sample EndorsementCredential</span>
   </div> 
       <div class="vc-tabbed"><input type="radio" id="vc-tab41" name="vc-tabs4" checked="checked"><input type="radio" id="vc-tab42" name="vc-tabs4"><input type="radio" id="vc-tab43" name="vc-tabs4"><ul class="vc-tabs"><li class="vc-tab"><label for="vc-tab41">Credential</label></li><li class="vc-tab"><label for="vc-tab42">Verifiable Credential (with proof)</label></li><li class="vc-tab"><label for="vc-tab43">Verifiable Credential (as JWT)</label></li></ul><div class="vc-tab-content"><pre class="vc" data-schema="org.1edtech.ob.v3p0.endorsementcredential.class" data-allowadditionalproperties="false" data-vc-vm="https://accrediter.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
-    <span class="hljs-attr">"@context"</span>: [
-      <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-      <span class="hljs-string">"http://localhost:3000/ob_v3p0/context.json"</span>
-    ],
+  <span class="hljs-attr">"@context"</span>: [
+    <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
+    <span class="hljs-string">"http://localhost:3000/ob_v3p0/context.json"</span>,
+    <span class="hljs-string">"https://w3id.org/security/suites/ed25519-2020/v1"</span>
+  ],
+  <span class="hljs-attr">"type"</span>: [
+    <span class="hljs-string">"VerifiableCredential"</span>,
+    <span class="hljs-string">"EndorsementCredential"</span>
+  ],
+  <span class="hljs-attr">"issuer"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://state.gov/issuers/565049"</span>,
     <span class="hljs-attr">"type"</span>: [
-      <span class="hljs-string">"VerifiableCredential"</span>,
-      <span class="hljs-string">"EndorsementCredential"</span>
+      <span class="hljs-string">"Profile"</span>
     ],
-    <span class="hljs-attr">"issuer"</span>: {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://accrediter.edu/issuers/565049"</span>,
-      <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"Profile"</span>],
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example Accrediting Agency"</span>
-    },
-    <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
-    <span class="hljs-attr">"expirationDate"</span>: <span class="hljs-string">"2020-01-01T00:00:00Z"</span>,
-    <span class="hljs-attr">"credentialSubject"</span>: {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.edu/issuers/565049"</span>,
-      <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"EndorsementSubject"</span>],
-      <span class="hljs-attr">"endorsementComment"</span>: <span class="hljs-string">"Example Univeristy is in good standing"</span>
-    },
-    <span class="hljs-attr">"credentialSchema"</span>: [
-      {
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json"</span>,
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechJsonSchemaValidator2019"</span>
-      },
-      {
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://accrediter.edu/schema/endorsementcredential.json"</span>,
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"JsonSchemaValidator2018"</span>
-      }
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"State Department of Education"</span>
+  },
+  <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
+  <span class="hljs-attr">"expirationDate"</span>: <span class="hljs-string">"2020-01-01T00:00:00Z"</span>,
+  <span class="hljs-attr">"credentialSubject"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://1edtech.edu/issuers/565049"</span>,
+    <span class="hljs-attr">"type"</span>: [
+      <span class="hljs-string">"EndorsementSubject"</span>
     ],
-    <span class="hljs-attr">"credentialStatus"</span>: {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://example.edu/credentials/3732/revocations"</span>,
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechRevocationList"</span>
+    <span class="hljs-attr">"endorsementComment"</span>: <span class="hljs-string">"1EdTech University is in good standing"</span>
+  },
+  <span class="hljs-attr">"credentialSchema"</span>: [
+    {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechJsonSchemaValidator2019"</span>
     },
-    <span class="hljs-attr">"refreshService"</span>: {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://example.edu/credentials/3732"</span>,
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechCredentialRefresh"</span>
+    {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://state.gov/schema/endorsementcredential.json"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"JsonSchemaValidator2018"</span>
     }
-  }</code></pre></div><div class="vc-tab-content"><pre>{
+  ],
+  <span class="hljs-attr">"credentialStatus"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://state.gov/credentials/3732/revocations"</span>,
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechRevocationList"</span>
+  },
+  <span class="hljs-attr">"refreshService"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://state.gov/credentials/3732"</span>,
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechCredentialRefresh"</span>
+  }
+}</code></pre></div><div class="vc-tab-content"><pre>{
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
     "http://localhost:3000/ob_v3p0/context.json",
@@ -9276,20 +9295,20 @@ wGtVXI0_y_BER6zyNYP1fZfBV7yq3eYWGSkRpz2O2VZ4SeuDijXRC0rHAW6nOQgvRyWzgnAIZLsVBbXv
     "EndorsementCredential"
   ],
   "issuer": {
-    "id": "https://accrediter.edu/issuers/565049",
+    "id": "https://state.gov/issuers/565049",
     "type": [
       "Profile"
     ],
-    "name": "Example Accrediting Agency"
+    "name": "State Department of Education"
   },
   "issuanceDate": "2010-01-01T00:00:00Z",
   "expirationDate": "2020-01-01T00:00:00Z",
   "credentialSubject": {
-    "id": "https://example.edu/issuers/565049",
+    "id": "https://1edtech.edu/issuers/565049",
     "type": [
       "EndorsementSubject"
     ],
-    "endorsementComment": "Example Univeristy is in good standing"
+    "endorsementComment": "1EdTech University is in good standing"
   },
   "credentialSchema": [
     {
@@ -9298,26 +9317,26 @@ l.json",
       "type": "1EdTechJsonSchemaValidator2019"
     },
     {
-      "id": "https://accrediter.edu/schema/endorsementcredential.json",
+      "id": "https://state.gov/schema/endorsementcredential.json",
       "type": "JsonSchemaValidator2018"
     }
   ],
   "credentialStatus": {
-    "id": "https://example.edu/credentials/3732/revocations",
+    "id": "https://state.gov/credentials/3732/revocations",
     "type": "1EdTechRevocationList"
   },
   "refreshService": {
-    "id": "http://example.edu/credentials/3732",
+    "id": "http://state.gov/credentials/3732",
     "type": "1EdTechCredentialRefresh"
   },
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-05-26T18:12:23Z",
+      "created": "2022-05-26T18:33:52Z",
       "verificationMethod": "https://accrediter.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z2R6eAXY6oCR3RhHABtm89esdx1paSqSkx8fRjgkrLh4oKkB9L4MubvYFyU
-6D39wEpTaNATXtnTFZp25qa2ShuQbM"
+      "proofValue": "z5NKcBviCXKhZaPWgRJQJdgRMJPe9rbsLnMQKT3SGmhsjrjJghveoLM1YrZ
+47TUaewBDrPHu9UakZKq2SeDN3iBoC"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -9333,27 +9352,28 @@ l.json",
   "vc": {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
-      "http://localhost:3000/ob_v3p0/context.json"
+      "http://localhost:3000/ob_v3p0/context.json",
+      "https://w3id.org/security/suites/ed25519-2020/v1"
     ],
     "type": [
       "VerifiableCredential",
       "EndorsementCredential"
     ],
     "issuer": {
-      "id": "https://accrediter.edu/issuers/565049",
+      "id": "https://state.gov/issuers/565049",
       "type": [
         "Profile"
       ],
-      "name": "Example Accrediting Agency"
+      "name": "State Department of Education"
     },
     "issuanceDate": "2010-01-01T00:00:00Z",
     "expirationDate": "2020-01-01T00:00:00Z",
     "credentialSubject": {
-      "id": "https://example.edu/issuers/565049",
+      "id": "https://1edtech.edu/issuers/565049",
       "type": [
         "EndorsementSubject"
       ],
-      "endorsementComment": "Example Univeristy is in good standing"
+      "endorsementComment": "1EdTech University is in good standing"
     },
     "credentialSchema": [
       {
@@ -9362,48 +9382,49 @@ ial.json",
         "type": "1EdTechJsonSchemaValidator2019"
       },
       {
-        "id": "https://accrediter.edu/schema/endorsementcredential.json",
+        "id": "https://state.gov/schema/endorsementcredential.json",
         "type": "JsonSchemaValidator2018"
       }
     ],
     "credentialStatus": {
-      "id": "https://example.edu/credentials/3732/revocations",
+      "id": "https://state.gov/credentials/3732/revocations",
       "type": "1EdTechRevocationList"
     },
     "refreshService": {
-      "id": "http://example.edu/credentials/3732",
+      "id": "http://state.gov/credentials/3732",
       "type": "1EdTechCredentialRefresh"
     }
   },
   "exp": 1577836800,
-  "iss": "https://accrediter.edu/issuers/565049",
+  "iss": "https://state.gov/issuers/565049",
   "nbf": 1262304000,
-  "sub": "https://example.edu/issuers/565049"
+  "sub": "https://1edtech.edu/issuers/565049"
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy5
 3My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9vYl92M3AwL2N
-vbnRleHQuanNvbiJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiRW5kb3JzZW1lbnRDcmV
-kZW50aWFsIl0sImlzc3VlciI6eyJpZCI6Imh0dHBzOi8vYWNjcmVkaXRlci5lZHUvaXNzdWVycy81NjU
-wNDkiLCJ0eXBlIjpbIlByb2ZpbGUiXSwibmFtZSI6IkV4YW1wbGUgQWNjcmVkaXRpbmcgQWdlbmN5In0
-sImlzc3VhbmNlRGF0ZSI6IjIwMTAtMDEtMDFUMDA6MDA6MDBaIiwiZXhwaXJhdGlvbkRhdGUiOiIyMDI
-wLTAxLTAxVDAwOjAwOjAwWiIsImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiaHR0cHM6Ly9leGFtcGx
-lLmVkdS9pc3N1ZXJzLzU2NTA0OSIsInR5cGUiOlsiRW5kb3JzZW1lbnRTdWJqZWN0Il0sImVuZG9yc2V
-tZW50Q29tbWVudCI6IkV4YW1wbGUgVW5pdmVyaXN0eSBpcyBpbiBnb29kIHN0YW5kaW5nIn0sImNyZWR
-lbnRpYWxTY2hlbWEiOlt7ImlkIjoiaHR0cHM6Ly9wdXJsLmltc2dsb2JhbC5vcmcvc3BlYy9vYi92M3A
-wL3NjaGVtYS9lbmRvcnNlbWVudGNyZWRlbnRpYWwuanNvbiIsInR5cGUiOiIxRWRUZWNoSnNvblNjaGV
-tYVZhbGlkYXRvcjIwMTkifSx7ImlkIjoiaHR0cHM6Ly9hY2NyZWRpdGVyLmVkdS9zY2hlbWEvZW5kb3J
-zZW1lbnRjcmVkZW50aWFsLmpzb24iLCJ0eXBlIjoiSnNvblNjaGVtYVZhbGlkYXRvcjIwMTgifV0sImN
-yZWRlbnRpYWxTdGF0dXMiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzI
-vcmV2b2NhdGlvbnMiLCJ0eXBlIjoiMUVkVGVjaFJldm9jYXRpb25MaXN0In0sInJlZnJlc2hTZXJ2aWN
-lIjp7ImlkIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjoiMUVkVGV
-jaENyZWRlbnRpYWxSZWZyZXNoIn19LCJleHAiOjE1Nzc4MzY4MDAsImlzcyI6Imh0dHBzOi8vYWNjcmV
-kaXRlci5lZHUvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAsInN1YiI6Imh0dHBzOi8vZXh
-hbXBsZS5lZHUvaXNzdWVycy81NjUwNDkifQ.E1j_S163K53Gs0mWFqg1em7IvZbt5SP3yUhYADPcbS4P
-c4jg5Vak-4h69eYQDlDq854WdT9mDol9rnOSqRU-bXtYd5pvEvcFpyC-mNE9Pf1_9hCwS390vrGAVP6Z
-MqOwtEtpdKwrfWaErwq0w114OGIVZp12jOPbV-7kbCt0MPWFhXt7jn_6CZoeayU5WGezyla5hRllQbIb
-bTWjTjW8OANo-238UYJZllu-V59-Pq2bblEiko1Z8G431apeZM36KZOwFIvUnZAnKgGqA_404PwLV_gM
-Qb7E8VCmsH2AVBY2WoayPyJaDT7m_FuVi28XpK_PYbMe1OqHZ9laqTfWaQ</pre></div></div></div>
+vbnRleHQuanNvbiIsImh0dHBzOi8vdzNpZC5vcmcvc2VjdXJpdHkvc3VpdGVzL2VkMjU1MTktMjAyMC9
+2MSJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiRW5kb3JzZW1lbnRDcmVkZW50aWFsIl0
+sImlzc3VlciI6eyJpZCI6Imh0dHBzOi8vc3RhdGUuZ292L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6WyJ
+Qcm9maWxlIl0sIm5hbWUiOiJTdGF0ZSBEZXBhcnRtZW50IG9mIEVkdWNhdGlvbiJ9LCJpc3N1YW5jZUR
+hdGUiOiIyMDEwLTAxLTAxVDAwOjAwOjAwWiIsImV4cGlyYXRpb25EYXRlIjoiMjAyMC0wMS0wMVQwMDo
+wMDowMFoiLCJjcmVkZW50aWFsU3ViamVjdCI6eyJpZCI6Imh0dHBzOi8vMWVkdGVjaC5lZHUvaXNzdWV
+ycy81NjUwNDkiLCJ0eXBlIjpbIkVuZG9yc2VtZW50U3ViamVjdCJdLCJlbmRvcnNlbWVudENvbW1lbnQ
+iOiIxRWRUZWNoIFVuaXZlcnNpdHkgaXMgaW4gZ29vZCBzdGFuZGluZyJ9LCJjcmVkZW50aWFsU2NoZW1
+hIjpbeyJpZCI6Imh0dHBzOi8vcHVybC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9zY2hlbWEvZW5
+kb3JzZW1lbnRjcmVkZW50aWFsLmpzb24iLCJ0eXBlIjoiMUVkVGVjaEpzb25TY2hlbWFWYWxpZGF0b3I
+yMDE5In0seyJpZCI6Imh0dHBzOi8vc3RhdGUuZ292L3NjaGVtYS9lbmRvcnNlbWVudGNyZWRlbnRpYWw
+uanNvbiIsInR5cGUiOiJKc29uU2NoZW1hVmFsaWRhdG9yMjAxOCJ9XSwiY3JlZGVudGlhbFN0YXR1cyI
+6eyJpZCI6Imh0dHBzOi8vc3RhdGUuZ292L2NyZWRlbnRpYWxzLzM3MzIvcmV2b2NhdGlvbnMiLCJ0eXB
+lIjoiMUVkVGVjaFJldm9jYXRpb25MaXN0In0sInJlZnJlc2hTZXJ2aWNlIjp7ImlkIjoiaHR0cDovL3N
+0YXRlLmdvdi9jcmVkZW50aWFscy8zNzMyIiwidHlwZSI6IjFFZFRlY2hDcmVkZW50aWFsUmVmcmVzaCJ
+9fSwiZXhwIjoxNTc3ODM2ODAwLCJpc3MiOiJodHRwczovL3N0YXRlLmdvdi9pc3N1ZXJzLzU2NTA0OSI
+sIm5iZiI6MTI2MjMwNDAwMCwic3ViIjoiaHR0cHM6Ly8xZWR0ZWNoLmVkdS9pc3N1ZXJzLzU2NTA0OSJ
+9.WSXKOS7sDQjzE5naCc5AxIfZPWehlX3HCjlX8quCSq7NP5dAdIV9kpvZsHrtIzCjRiqX92TFlPuF8u
+5kWs8-CIY3-0ZLFVGh0lqQdK6IxasvnhaQClJEcJYDLddHZ-Y23oTyLYwn16eGO7266WADiLnNsyD1Bp
+CgOIUHzguWb0VUzz4T0Z_pawojmzAI6UCCfLdUatqRNfIKnCKGxaihevyuaAMyJZnqe1nddY-xwBM_yh
+VRE3h8oLh7mkTH3INMbc_V5Iv1s0o7ByRd4ul1AJE3fPoXMKBt-onIEflDpuJA8j1o8iWkeAxS4cU1fK
+4Pnq2z7WXREMbppymY39xbVA</pre></div></div></div>
 
 
     </section>
@@ -9430,7 +9451,7 @@ Qb7E8VCmsH2AVBY2WoayPyJaDT7m_FuVi28XpK_PYbMe1OqHZ9laqTfWaQ</pre></div></div></di
       </ul></section>
   <section class="appendix" id="issue-summary"><h2 id="f-issue-summary"><bdi class="secno">F. </bdi>Issue Summary<a class="self-link" aria-label="§" href="#issue-summary"></a></h2>
     <h1>Issue Summary</h1>
-  <ul><li><a href="#issue-container-number-1">Issue 1</a><span style="text-transform: none">: Verify the schema</span></li><li><a href="#issue-container-number-2">Issue 2</a><span style="text-transform: none">: Use credentialStatus to determine if the credential has been revoked</span></li><li><a href="#issue-container-number-3">Issue 3</a><span style="text-transform: none">: Should nested assertions be verified?</span></li><li><a href="#issue-container-number-4">Issue 4</a><span style="text-transform: none">: Invalid JSON</span></li></ul></section>
+  <ul><li><a href="#issue-container-number-1">Issue 1</a><span style="text-transform: none">: Verify the schema</span></li><li><a href="#issue-container-number-2">Issue 2</a><span style="text-transform: none">: Use credentialStatus to determine if the credential has been revoked</span></li><li><a href="#issue-container-number-3">Issue 3</a><span style="text-transform: none">: Should nested assertions be verified?</span></li></ul></section>
 
   <section id="history" class="appendix">
     <h2 id="g-revision-history"><bdi class="secno">G. </bdi>Revision History<a class="self-link" aria-label="§" href="#history"></a></h2>
