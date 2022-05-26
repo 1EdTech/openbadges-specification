@@ -289,6 +289,33 @@ components:
       additionalProperties: false
       description: The Map of security scheme objects supported by this specification.
       x-class-pid: org.1edtech.ob.v3p0.openapisecurityschemes.class
+    Criteria:
+      type: object
+      properties:
+        narrative:
+          type: string
+          description: A narrative of what is needed to earn the achievement. Markdown
+            is allowed.
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.markdown.class
+        id:
+          type: string
+          description: The URI of a webpage that describes in a human-readable format
+            the criteria for the achievement.
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
+      additionalProperties: true
+      description: "Descriptive metadata about the achievements necessary to be recognized\
+        \ with an assertion of a particular achievement. This data is added to the\
+        \ Achievement class so that it may be rendered when the achievement assertion\
+        \ is displayed, instead of simply a link to human-readable criteria external\
+        \ to the achievement. Embedding criteria allows either enhancement of an external\
+        \ criteria page or increased portability and ease of use by allowing issuers\
+        \ to skip hosting the formerly-required external criteria page altogether.\
+        \ Criteria is used to allow would-be recipients to learn what is required\
+        \ of them to be recognized with an assertion of a particular achievement.\
+        \ It is also used after the assertion is awarded to a recipient to let those\
+        \ inspecting earned achievements know the general requirements that the recipients\
+        \ met in order to earn it."
+      x-class-pid: org.1edtech.ob.v3p0.criteria.class
     OpenApiComponents:
       required:
       - securitySchemes
@@ -634,33 +661,6 @@ components:
         \ extension mechanisms, definitions of the available proprietary endpoints,\
         \ and information about the security mechanisms."
       x-class-pid: org.1edtech.ob.v3p0.servicedescriptiondocument.class
-    Criterion:
-      type: object
-      properties:
-        narrative:
-          type: string
-          description: A narrative of what is needed to earn the achievement. Markdown
-            is allowed.
-          x-srcprop-pid: org.1edtech.ob.v3p0.derived.markdown.class
-        id:
-          type: string
-          description: The URI of a webpage that describes in a human-readable format
-            the criterion for the achievement.
-          x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
-      additionalProperties: true
-      description: "Descriptive metadata about the achievements necessary to be recognized\
-        \ with an assertion of a particular achievement. This data is added to the\
-        \ Achievement class so that it may be rendered when the achievement assertion\
-        \ is displayed, instead of simply a link to human-readable criteria external\
-        \ to the achievement. Embedding criteria allows either enhancement of an external\
-        \ criteria page or increased portability and ease of use by allowing issuers\
-        \ to skip hosting the formerly-required external criteria page altogether.\
-        \ Criteria is used to allow would-be recipients to learn what is required\
-        \ of them to be recognized with an assertion of a particular achievement.\
-        \ It is also used after the assertion is awarded to a recipient to let those\
-        \ inspecting earned achievements know the general requirements that the recipients\
-        \ met in order to earn it."
-      x-class-pid: org.1edtech.ob.v3p0.criterion.class
     Evidence:
       type: object
       properties:
@@ -710,7 +710,7 @@ components:
       required:
       - id
       - type
-      - criterion
+      - criteria
       - description
       - name
       type: object
@@ -758,8 +758,6 @@ components:
           $ref: '#/components/schemas/Image'
         creator:
           $ref: '#/components/schemas/Profile'
-        criterion:
-          $ref: '#/components/schemas/Criterion'
         endorsement:
           minItems: 0
           type: array
@@ -767,6 +765,8 @@ components:
           items:
             $ref: '#/components/schemas/EndorsementCredential'
           x-srcprop-pid: org.1edtech.ob.v3p0.endorsementcredential.class
+        criteria:
+          $ref: '#/components/schemas/Criteria'
         humanCode:
           type: string
           description: "The code, generally human readable, associated with an achievement."
@@ -811,6 +811,7 @@ components:
           description: Tags that describes the type of achievement.
           items:
             type: string
+            description: Character strings.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
         alignment:
           minItems: 0
