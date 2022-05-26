@@ -1890,7 +1890,7 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
       <div class="vc-tabbed"><input type="radio" id="vc-tab11" name="vc-tabs1" checked="checked"><input type="radio" id="vc-tab12" name="vc-tabs1"><input type="radio" id="vc-tab13" name="vc-tabs1"><ul class="vc-tabs"><li class="vc-tab"><label for="vc-tab11">Credential</label></li><li class="vc-tab"><label for="vc-tab12">Verifiable Credential (with proof)</label></li><li class="vc-tab"><label for="vc-tab13">Verifiable Credential (as JWT)</label></li></ul><div class="vc-tab-content"><pre class="vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class" data-allowadditionalproperties="false" data-vc-vm="https://example.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
   <span class="hljs-attr">"@context"</span>: [
     <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-    <span class="hljs-string">"http://localhost:3000/ob_v3p0/context.json"</span>
+    <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>
   ],
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://example.edu/credentials/3732"</span>,
   <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"VerifiableCredential"</span>, <span class="hljs-string">"OpenBadgeCredential"</span>],
@@ -1912,7 +1912,7 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
 }</code></pre></div><div class="vc-tab-content"><pre>{
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    "http://localhost:3000/ob_v3p0/context.json",
+    "https://imsglobal.github.io/openbadges-specification/context.json",
     "https://w3id.org/security/suites/ed25519-2020/v1"
   ],
   "id": "http://example.edu/credentials/3732",
@@ -1945,11 +1945,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-05-26T18:33:52Z",
+      "created": "2022-05-26T20:47:59Z",
       "verificationMethod": "https://example.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z36pyfs1usbUJUWi5DdHHApXfhkWrSgBaZni12wb5M5ukBZk9fr1aDp25kC
-3KD3w71q1Up4T9k6Dr3wjcJGLCnydi"
+      "proofValue": "z5gyEKP3Ee2quhpEigfdvxE8WV22SYWeo9k2G9HWnzDzBxPji3nKDpH8upL
+zs4YpLmDtssnMjmnxEYmGamsFGMr97"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -1965,7 +1965,7 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   "vc": {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
-      "http://localhost:3000/ob_v3p0/context.json"
+      "https://imsglobal.github.io/openbadges-specification/context.json"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": [
@@ -2002,23 +2002,24 @@ p0.achievementcredential.class",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy5
-3My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9vYl92M3AwL2N
-vbnRleHQuanNvbiJdLCJpZCI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwidHl
-wZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCIsIk9wZW5CYWRnZUNyZWRlbnRpYWwiXSwiaXNzdWVyIjp
-7ImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsInR5cGUiOlsiUHJvZmlsZSJ
-dLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sImlzc3VhbmNlRGF0ZSI6IjIwMTAtMDEtMDFUMDA
-6MDA6MDBaIiwibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSBEZWdyZWUiLCJjcmVkZW50aWFsU3ViamV
-jdCI6eyJpZCI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSIsInR5cGUiOls
-iQWNoaWV2ZW1lbnRTdWJqZWN0Il19LCJjcmVkZW50aWFsU2NoZW1hIjpbeyJpZCI6Imh0dHBzOi8vaW1
-zdW0yLmhlcm9rdWFwcC5jb20vanNvbnNjaGVtYT9jbGFzc0lkPW9yZy4xZWR0ZWNoLm9iLnYzcDAuYWN
-oaWV2ZW1lbnRjcmVkZW50aWFsLmNsYXNzIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDE5In1
-dfSwiaXNzIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5iZiI6MTI2MjMwNDA
-wMCwianRpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXh
-hbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.jihEpy9k5ljQZw0QfaysWz3BBSlM6zlA
-zCDzlxNlwMPbQYpm5bCUDshP5cgPyv-L9wocZSIPZkP_aavDLQ2oF0Xl4dByNM2jUkQYuR33FAnpZ97j
-eikgsmG98OYmRJIfJeaxHzd-awQjDRRYvH5iK37NLHhBBEdSAG-1vbEFXx8ccmR0wnml0AHCbU2qOVww
-CFTfBFIGm9Ho7pku3jP4KgLv-UCTkbh6MkO0G7T3ScpxG51ouMomJUFZCt1FclPybORmejFYQ4E4VVNl
-Tk1TKOEY9RNgWTvp9WkQqVL8eG3cVR9_h-zOiCypnz9IEUaR2C7TFxbOWdsAA4MXekuBTg</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
+3My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmFsLmdpdGh1Yi5pby9vcGV
+uYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlkIjoiaHR0cDovL2V4YW1wbGUuZWR
+1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiT3BlbkJhZGd
+lQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY
+1MDQ5IiwidHlwZSI6WyJQcm9maWxlIl0sIm5hbWUiOiJFeGFtcGxlIFVuaXZlcnNpdHkifSwiaXNzdWF
+uY2VEYXRlIjoiMjAxMC0wMS0wMVQwMDowMDowMFoiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5IER
+lZ3JlZSIsImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZ
+mMWMyNzZlMTJlYzIxIiwidHlwZSI6WyJBY2hpZXZlbWVudFN1YmplY3QiXX0sImNyZWRlbnRpYWxTY2h
+lbWEiOlt7ImlkIjoiaHR0cHM6Ly9pbXN1bTIuaGVyb2t1YXBwLmNvbS9qc29uc2NoZW1hP2NsYXNzSWQ
+9b3JnLjFlZHRlY2gub2IudjNwMC5hY2hpZXZlbWVudGNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnN
+vblNjaGVtYVZhbGlkYXRvcjIwMTkifV19LCJpc3MiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnM
+vNTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGl
+hbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.UA
+A1EyhNSyLK5HAAJ6fBg2dt3LuAh4A75FuMnnmGR1e0L4QUZH5K2x7jKIlpD7yxBA_d4N16BegodAIb6J
+NNtf8SYJ0-hDZ0mhW4akPPDnuwoG4erCexd0JWaztD0VuOLmi7jjD7zpw9loSEgKlcB3TWFfJT1UzLiU
+G8TO8sUWEtzJkTLb26XL77GRFNDegYi-j9kYqaBh9bgqyjAWwi4eDaNUa0m1CpQ9HW1XGwwnNtI3nwrU
+_AEHTGxxqmi6oXVN5SqMsvOMBlOcOVZntRFboW_ZpHJw1Ff0CZh2VdjkzGBkZbXBVZy7udAO71dY2KJk
+z0W3-gYfaKyO1E8jxg9w</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">Example<bdi> 2</bdi></a><span class="example-title">: An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)</span>
   </div> <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">var</span> chunk = <span class="hljs-keyword">new</span> iTXt({
@@ -8399,7 +8400,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       <div class="vc-tabbed"><input type="radio" id="vc-tab21" name="vc-tabs2" checked="checked"><input type="radio" id="vc-tab22" name="vc-tabs2"><input type="radio" id="vc-tab23" name="vc-tabs2"><ul class="vc-tabs"><li class="vc-tab"><label for="vc-tab21">Credential</label></li><li class="vc-tab"><label for="vc-tab22">Verifiable Credential (with proof)</label></li><li class="vc-tab"><label for="vc-tab23">Verifiable Credential (as JWT)</label></li></ul><div class="vc-tab-content"><pre class="vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class" data-allowadditionalproperties="false" data-vc-vm="https://example.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
   <span class="hljs-attr">"@context"</span>: [
     <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-    <span class="hljs-string">"http://localhost:3000/ob_v3p0/context.json"</span>
+    <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>
   ],
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://example.edu/credentials/3732"</span>,
   <span class="hljs-attr">"type"</span>: [<span class="hljs-string">"VerifiableCredential"</span>, <span class="hljs-string">"OpenBadgeCredential"</span>],
@@ -8417,7 +8418,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
 }</code></pre></div><div class="vc-tab-content"><pre>{
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    "http://localhost:3000/ob_v3p0/context.json",
+    "https://imsglobal.github.io/openbadges-specification/context.json",
     "https://w3id.org/security/suites/ed25519-2020/v1"
   ],
   "id": "http://example.edu/credentials/3732",
@@ -8443,11 +8444,11 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-05-26T18:33:52Z",
+      "created": "2022-05-26T20:47:59Z",
       "verificationMethod": "https://example.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z64JA2vZn5NccJykyfau9AFTZiFr4cwAGdG8SfVcvA2QTDnXGYrp4uMBcN7
-GXhDD2jQSrecGYbiQGbpP7X93nbRQS"
+      "proofValue": "z43eXkmcPxfoomCg4FFwsEJjLr2Ru2QWiyouueLemgJVFCQL65n45V8p7cs
+uUaWQtC3MfcJ3hAcP42HGKaRkmLeN1"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -8463,7 +8464,7 @@ GXhDD2jQSrecGYbiQGbpP7X93nbRQS"
   "vc": {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
-      "http://localhost:3000/ob_v3p0/context.json"
+      "https://imsglobal.github.io/openbadges-specification/context.json"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": [
@@ -8493,21 +8494,21 @@ GXhDD2jQSrecGYbiQGbpP7X93nbRQS"
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy5
-3My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9vYl92M3AwL2N
-vbnRleHQuanNvbiJdLCJpZCI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwidHl
-wZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCIsIk9wZW5CYWRnZUNyZWRlbnRpYWwiXSwiaXNzdWVyIjp
-7ImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU2NTA0OSIsInR5cGUiOlsiUHJvZmlsZSJ
-dLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5In0sImlzc3VhbmNlRGF0ZSI6IjIwMTAtMDEtMDFUMDA
-6MDA6MDBaIiwibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSBEZWdyZWUiLCJjcmVkZW50aWFsU3ViamV
-jdCI6eyJpZCI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSIsInR5cGUiOls
-iQWNoaWV2ZW1lbnRTdWJqZWN0Il19fSwiaXNzIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJzLzU
-2NTA0OSIsIm5iZiI6MTI2MjMwNDAwMCwianRpIjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWx
-zLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.BZy8
-AqcGHm-uyvndTff62_3RJmy5UookgTkbHT6PRM4-XCqL0-FputdyCvRK6m4tHHgvYpsT8AjWQ5v8OpPL
-bUj31CZx4FNy4qzMFr-3PAVd3rKFN3iHrUAG3GZgdt9jeb2z1FNWoM4vANneCk4nxohhC01_pZ5Ij7tr
-Y3kmDVwlkFWxuq3kU0q_fDrzkjAiitCy0U_dmbEx4zncdxQuOIH8nFUdqhd1XDXPPxZnCTRuNwM2jmB4
-HOhrFQUtMjL2eRu3WhmA79lkMDSQiw8K5Q9XQVRPhTv-aB7_1bkycSjNmi0LU79o74y3osfYC5kuRh1O
-a2Fkj26HaTOFUEnidQ</pre></div></div></div>
+3My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmFsLmdpdGh1Yi5pby9vcGV
+uYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlkIjoiaHR0cDovL2V4YW1wbGUuZWR
+1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiT3BlbkJhZGd
+lQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY
+1MDQ5IiwidHlwZSI6WyJQcm9maWxlIl0sIm5hbWUiOiJFeGFtcGxlIFVuaXZlcnNpdHkifSwiaXNzdWF
+uY2VEYXRlIjoiMjAxMC0wMS0wMVQwMDowMDowMFoiLCJuYW1lIjoiRXhhbXBsZSBVbml2ZXJzaXR5IER
+lZ3JlZSIsImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZ
+mMWMyNzZlMTJlYzIxIiwidHlwZSI6WyJBY2hpZXZlbWVudFN1YmplY3QiXX19LCJpc3MiOiJodHRwczo
+vL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8
+vZXhhbXBsZS5lZHUvY3JlZGVudGlhbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJ
+lYmM2ZjFjMjc2ZTEyZWMyMSJ9.CY5c_LQO7DuvCesQZMOS96WM-ZmvB8Jy8RnCSG11YWM_0DBICX9kJs
+E0fd21WThUzoVn8kF61LsWiA0PwAfabyZTKR234xqQead3DKcL7G1eynii5Pdfnw3vhHa1Fwx8sxHEPw
+9QyHhbKaZ86jl9DWIfWfOzUtfpM0QOKlppQa1yCGCzjD4Ev422LQ9ygf86Vl9PfYfiZS9U_rJ2WkV9GI
+yn0LeZt3WAQOTKSjZDFtNmBWZlD9EqgcrpympbsC4U3sCNpmEjj5KEd9i3djhkrecgYWM1oAJOFCDO1b
+SJ4VzBMdtaZ0neABP7ktnuiixmyVL9rUMZzx46sTADNiRJRg</pre></div></div></div>
 
 
     </section>
@@ -8527,7 +8528,7 @@ a2Fkj26HaTOFUEnidQ</pre></div></div></div>
   </div> <pre class="vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class" data-allowadditionalproperties="false" data-vc-vm="https://1edtech.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
   <span class="hljs-attr">"@context"</span>: [
     <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-    <span class="hljs-string">"http://localhost:3000/ob_v3p0/context.json"</span>
+    <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>
   ],
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://1edtech.edu/credentials/3732"</span>,
   <span class="hljs-attr">"type"</span>: [
@@ -8616,7 +8617,7 @@ a2Fkj26HaTOFUEnidQ</pre></div></div></div>
           {
             <span class="hljs-attr">"@context"</span>: [
               <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-              <span class="hljs-string">"http://localhost:3000/ob_v3p0/context.json"</span>,
+              <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>,
               <span class="hljs-string">"https://w3id.org/security/suites/ed25519-2020/v1"</span>
             ],
             <span class="hljs-attr">"type"</span>: [
@@ -8670,7 +8671,7 @@ a2Fkj26HaTOFUEnidQ</pre></div></div></div>
           {
             <span class="hljs-attr">"@context"</span>: [
               <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-              <span class="hljs-string">"http://localhost:3000/ob_v3p0/context.json"</span>,
+              <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>,
               <span class="hljs-string">"https://w3id.org/security/suites/ed25519-2020/v1"</span>
             ],
             <span class="hljs-attr">"type"</span>: [
@@ -8778,7 +8779,7 @@ a2Fkj26HaTOFUEnidQ</pre></div></div></div>
         {
           <span class="hljs-attr">"@context"</span>: [
             <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-            <span class="hljs-string">"http://localhost:3000/ob_v3p0/context.json"</span>,
+            <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>,
             <span class="hljs-string">"https://w3id.org/security/suites/ed25519-2020/v1"</span>
           ],
           <span class="hljs-attr">"type"</span>: [
@@ -9025,7 +9026,7 @@ a2Fkj26HaTOFUEnidQ</pre></div></div></div>
     {
       <span class="hljs-attr">"@context"</span>: [
         <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-        <span class="hljs-string">"http://localhost:3000/ob_v3p0/context.json"</span>,
+        <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>,
         <span class="hljs-string">"https://w3id.org/security/suites/ed25519-2020/v1"</span>
       ],
       <span class="hljs-attr">"type"</span>: [
@@ -9113,7 +9114,7 @@ a2Fkj26HaTOFUEnidQ</pre></div></div></div>
       {
         <span class="hljs-attr">"@context"</span>: [
           <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-          <span class="hljs-string">"http://localhost:3000/ob_v3p0/context.json"</span>,
+          <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>,
           <span class="hljs-string">"https://w3id.org/security/suites/ed25519-2020/v1"</span>
         ],
         <span class="hljs-attr">"type"</span>: [
@@ -9243,7 +9244,7 @@ a2Fkj26HaTOFUEnidQ</pre></div></div></div>
       <div class="vc-tabbed"><input type="radio" id="vc-tab41" name="vc-tabs4" checked="checked"><input type="radio" id="vc-tab42" name="vc-tabs4"><input type="radio" id="vc-tab43" name="vc-tabs4"><ul class="vc-tabs"><li class="vc-tab"><label for="vc-tab41">Credential</label></li><li class="vc-tab"><label for="vc-tab42">Verifiable Credential (with proof)</label></li><li class="vc-tab"><label for="vc-tab43">Verifiable Credential (as JWT)</label></li></ul><div class="vc-tab-content"><pre class="vc" data-schema="org.1edtech.ob.v3p0.endorsementcredential.class" data-allowadditionalproperties="false" data-vc-vm="https://accrediter.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
   <span class="hljs-attr">"@context"</span>: [
     <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
-    <span class="hljs-string">"http://localhost:3000/ob_v3p0/context.json"</span>,
+    <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>,
     <span class="hljs-string">"https://w3id.org/security/suites/ed25519-2020/v1"</span>
   ],
   <span class="hljs-attr">"type"</span>: [
@@ -9287,7 +9288,7 @@ a2Fkj26HaTOFUEnidQ</pre></div></div></div>
 }</code></pre></div><div class="vc-tab-content"><pre>{
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    "http://localhost:3000/ob_v3p0/context.json",
+    "https://imsglobal.github.io/openbadges-specification/context.json",
     "https://w3id.org/security/suites/ed25519-2020/v1"
   ],
   "type": [
@@ -9332,11 +9333,11 @@ l.json",
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-05-26T18:33:52Z",
+      "created": "2022-05-26T20:47:59Z",
       "verificationMethod": "https://accrediter.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z5NKcBviCXKhZaPWgRJQJdgRMJPe9rbsLnMQKT3SGmhsjrjJghveoLM1YrZ
-47TUaewBDrPHu9UakZKq2SeDN3iBoC"
+      "proofValue": "z2WNLKjhSbnyx4gsqF7R3KbVYh1SU24XS7S3WFT8K4ma1PaYEVfZ4BHnz2R
+rXaZqocRdEhV2Rg6TmSo4XmyPtnxrx"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -9352,7 +9353,7 @@ l.json",
   "vc": {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
-      "http://localhost:3000/ob_v3p0/context.json",
+      "https://imsglobal.github.io/openbadges-specification/context.json",
       "https://w3id.org/security/suites/ed25519-2020/v1"
     ],
     "type": [
@@ -9402,29 +9403,29 @@ ial.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy5
-3My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9vYl92M3AwL2N
-vbnRleHQuanNvbiIsImh0dHBzOi8vdzNpZC5vcmcvc2VjdXJpdHkvc3VpdGVzL2VkMjU1MTktMjAyMC9
-2MSJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiRW5kb3JzZW1lbnRDcmVkZW50aWFsIl0
-sImlzc3VlciI6eyJpZCI6Imh0dHBzOi8vc3RhdGUuZ292L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6WyJ
-Qcm9maWxlIl0sIm5hbWUiOiJTdGF0ZSBEZXBhcnRtZW50IG9mIEVkdWNhdGlvbiJ9LCJpc3N1YW5jZUR
-hdGUiOiIyMDEwLTAxLTAxVDAwOjAwOjAwWiIsImV4cGlyYXRpb25EYXRlIjoiMjAyMC0wMS0wMVQwMDo
-wMDowMFoiLCJjcmVkZW50aWFsU3ViamVjdCI6eyJpZCI6Imh0dHBzOi8vMWVkdGVjaC5lZHUvaXNzdWV
-ycy81NjUwNDkiLCJ0eXBlIjpbIkVuZG9yc2VtZW50U3ViamVjdCJdLCJlbmRvcnNlbWVudENvbW1lbnQ
-iOiIxRWRUZWNoIFVuaXZlcnNpdHkgaXMgaW4gZ29vZCBzdGFuZGluZyJ9LCJjcmVkZW50aWFsU2NoZW1
-hIjpbeyJpZCI6Imh0dHBzOi8vcHVybC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9zY2hlbWEvZW5
-kb3JzZW1lbnRjcmVkZW50aWFsLmpzb24iLCJ0eXBlIjoiMUVkVGVjaEpzb25TY2hlbWFWYWxpZGF0b3I
-yMDE5In0seyJpZCI6Imh0dHBzOi8vc3RhdGUuZ292L3NjaGVtYS9lbmRvcnNlbWVudGNyZWRlbnRpYWw
-uanNvbiIsInR5cGUiOiJKc29uU2NoZW1hVmFsaWRhdG9yMjAxOCJ9XSwiY3JlZGVudGlhbFN0YXR1cyI
-6eyJpZCI6Imh0dHBzOi8vc3RhdGUuZ292L2NyZWRlbnRpYWxzLzM3MzIvcmV2b2NhdGlvbnMiLCJ0eXB
-lIjoiMUVkVGVjaFJldm9jYXRpb25MaXN0In0sInJlZnJlc2hTZXJ2aWNlIjp7ImlkIjoiaHR0cDovL3N
-0YXRlLmdvdi9jcmVkZW50aWFscy8zNzMyIiwidHlwZSI6IjFFZFRlY2hDcmVkZW50aWFsUmVmcmVzaCJ
-9fSwiZXhwIjoxNTc3ODM2ODAwLCJpc3MiOiJodHRwczovL3N0YXRlLmdvdi9pc3N1ZXJzLzU2NTA0OSI
-sIm5iZiI6MTI2MjMwNDAwMCwic3ViIjoiaHR0cHM6Ly8xZWR0ZWNoLmVkdS9pc3N1ZXJzLzU2NTA0OSJ
-9.WSXKOS7sDQjzE5naCc5AxIfZPWehlX3HCjlX8quCSq7NP5dAdIV9kpvZsHrtIzCjRiqX92TFlPuF8u
-5kWs8-CIY3-0ZLFVGh0lqQdK6IxasvnhaQClJEcJYDLddHZ-Y23oTyLYwn16eGO7266WADiLnNsyD1Bp
-CgOIUHzguWb0VUzz4T0Z_pawojmzAI6UCCfLdUatqRNfIKnCKGxaihevyuaAMyJZnqe1nddY-xwBM_yh
-VRE3h8oLh7mkTH3INMbc_V5Iv1s0o7ByRd4ul1AJE3fPoXMKBt-onIEflDpuJA8j1o8iWkeAxS4cU1fK
-4Pnq2z7WXREMbppymY39xbVA</pre></div></div></div>
+3My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmFsLmdpdGh1Yi5pby9vcGV
+uYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIiwiaHR0cHM6Ly93M2lkLm9yZy9zZWN1cml
+0eS9zdWl0ZXMvZWQyNTUxOS0yMDIwL3YxIl0sInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJ
+FbmRvcnNlbWVudENyZWRlbnRpYWwiXSwiaXNzdWVyIjp7ImlkIjoiaHR0cHM6Ly9zdGF0ZS5nb3YvaXN
+zdWVycy81NjUwNDkiLCJ0eXBlIjpbIlByb2ZpbGUiXSwibmFtZSI6IlN0YXRlIERlcGFydG1lbnQgb2Y
+gRWR1Y2F0aW9uIn0sImlzc3VhbmNlRGF0ZSI6IjIwMTAtMDEtMDFUMDA6MDA6MDBaIiwiZXhwaXJhdGl
+vbkRhdGUiOiIyMDIwLTAxLTAxVDAwOjAwOjAwWiIsImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiaHR
+0cHM6Ly8xZWR0ZWNoLmVkdS9pc3N1ZXJzLzU2NTA0OSIsInR5cGUiOlsiRW5kb3JzZW1lbnRTdWJqZWN
+0Il0sImVuZG9yc2VtZW50Q29tbWVudCI6IjFFZFRlY2ggVW5pdmVyc2l0eSBpcyBpbiBnb29kIHN0YW5
+kaW5nIn0sImNyZWRlbnRpYWxTY2hlbWEiOlt7ImlkIjoiaHR0cHM6Ly9wdXJsLmltc2dsb2JhbC5vcmc
+vc3BlYy9vYi92M3AwL3NjaGVtYS9lbmRvcnNlbWVudGNyZWRlbnRpYWwuanNvbiIsInR5cGUiOiIxRWR
+UZWNoSnNvblNjaGVtYVZhbGlkYXRvcjIwMTkifSx7ImlkIjoiaHR0cHM6Ly9zdGF0ZS5nb3Yvc2NoZW1
+hL2VuZG9yc2VtZW50Y3JlZGVudGlhbC5qc29uIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDE
+4In1dLCJjcmVkZW50aWFsU3RhdHVzIjp7ImlkIjoiaHR0cHM6Ly9zdGF0ZS5nb3YvY3JlZGVudGlhbHM
+vMzczMi9yZXZvY2F0aW9ucyIsInR5cGUiOiIxRWRUZWNoUmV2b2NhdGlvbkxpc3QifSwicmVmcmVzaFN
+lcnZpY2UiOnsiaWQiOiJodHRwOi8vc3RhdGUuZ292L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjoiMUV
+kVGVjaENyZWRlbnRpYWxSZWZyZXNoIn19LCJleHAiOjE1Nzc4MzY4MDAsImlzcyI6Imh0dHBzOi8vc3R
+hdGUuZ292L2lzc3VlcnMvNTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAwLCJzdWIiOiJodHRwczovLzFlZHR
+lY2guZWR1L2lzc3VlcnMvNTY1MDQ5In0.SrUafmOhtgTBykHqsVVBo5yX8BiHfo8lr6wh3zGIWaCRvX3
+5Gq6Wqf7_lPtj9hpsb54OVzBNHxTVwsqFFnu3T3gp87cCQ5YoaDavyoVD4Tj35I8L1WmfLy7CTVdLvVZ
+zVjwqOOhwnIHqeW7Pnmm-UIwAEY3xf3lOJ1uEaFxtOZQJ1UpRew9PwHldKcCK57-BbygSUeTcrCnrLPR
+_m_J5ayGQOTXpfJbZi3qUAoJDifa2ykE9ZilbJaEdNk2s1h62rOghMLkJOgPTohla8L0klU3iiJ3OT35
+dt7CaFx1fqo2mKlqbP8sO-iYP4B2mXqTo9XuDEftDuTOosuxAwJrcuA</pre></div></div></div>
 
 
     </section>
