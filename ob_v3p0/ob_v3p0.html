@@ -3,7 +3,7 @@
 
 <head>
   <meta charset='utf-8'>
-  <script src='https://purl.imsglobal.org/respec/respec-1edtech.js' class='remove'></script>
+  <script src='http://localhost:5000/builds/respec-1edtech.js' class='remove'></script>
   <script src='respec-support/local-biblio.js' class='remove'></script>
   <script src='respec-support/contributors.js' class='remove'></script>
   <script src='respec-support/iprs.js' class='remove'></script>
@@ -117,6 +117,24 @@
 
   <section class="appendix" data-format="markdown">
     <script class="transclude" data-id="extending" src="extending.md"></script>
+  </section>
+
+  <section class="appendex">
+    <h2>Examples</h2>
+    <section>
+      <h3>Complete OpenBadgeCredential</h3>
+      <p>
+        In this example, all required and optional properties are populated.
+      </p>
+      <div class="note" title="Endorsements">
+        The endorsements were signed by different issuers and provided to the issuer of this OpenBadgeCredential.
+      </div>
+      <script class="transclude" data-id="full" src="examples/fullOpenBadge.html"></script>
+    </section>
+    <section>
+      <h3>EndorsementCredential</h3>
+      <script class="transclude" data-id="endorsement" src="examples/endorsement.html"></script>
+    </section>
   </section>
 
   <section class="appendix" id="tof"></section>

@@ -9,24 +9,26 @@ var docformat = `
 - JSON exchanged between systems that are not part of a closed ecosystem MUST be encoded using UTF-8 [[RFC3629]].
 
 <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+      data-allowadditionalproperties="false"
       title="Sample OpenBadgeCredential file contents"
       data-vc-vm="https://example.edu/issuers/565049#key-1">
   {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
-      "https://imsglobal.github.io/openbadges-specification/context.json"
+      "http://localhost:3000/ob_v3p0/context.json"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
     "issuer": {
       "id": "https://example.edu/issuers/565049",
-      "type": "Profile",
+      "type": ["Profile"],
       "name": "Example University"
     },
     "issuanceDate": "2010-01-01T00:00:00Z",
     "name": "Example University Degree",
     "credentialSubject": {
-      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+      "type": ["AchievementSubject"]
     },
     "credentialSchema": [{
       "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.achievementcredential.class",
