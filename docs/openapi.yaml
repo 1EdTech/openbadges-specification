@@ -223,6 +223,8 @@ paths:
 components:
   schemas:
     Address:
+      required:
+      - type
       type: object
       properties:
         addressCountry:
@@ -248,6 +250,17 @@ components:
           type: string
           description: A locality within the region.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+        type:
+          minItems: 1
+          type: array
+          description: The value of the type property MUST be an unordered set. One
+            of the items MUST be the IRI 'Address'.
+          items:
+            type: string
+            description: "A `NormalizedString` that represents an Internationalized\
+              \ Resource Identifier (IRI), which extends the ASCII characters subset\
+              \ of the Uniform Resource Identifier (URI)."
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
         addressRegion:
           type: string
           description: A region within the country.
@@ -332,6 +345,7 @@ components:
     Image:
       required:
       - id
+      - type
       type: object
       properties:
         caption:
@@ -342,6 +356,11 @@ components:
           type: string
           description: The URI or Data URI of the image.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
+        type:
+          type: string
+          description: The value of the type property MUST be an unordered set. One
+            of the items MUST be the IRI 'Image'.
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
       additionalProperties: false
       description: "Metadata about images that represent assertions, achieve or profiles.\
         \ These properties can typically be represented as just the id string of the\
@@ -351,20 +370,9 @@ components:
     Profile:
       required:
       - id
+      - type
       type: object
       properties:
-        sourcedId:
-          pattern: "[0-9a-f]{8}-[0-9a-f]{4}-[1-5]{1}[0-9a-f]{3}-[8-9a-b]{1}[0-9a-f]{3}-[0-9a-f]{12}"
-          type: string
-          description: "The sourcedId of the profile. This is the interoperability\
-            \ identifier that systems will refer to when making API calls, or when\
-            \ needing to identify an object. Systems SHOULD be able to map whichever\
-            \ local ids (e.g. database key fields) they use to sourcedId. The sourcedId\
-            \ of an object MUST be an anonymized or pseudonymized identifier of an\
-            \ entity and as such will not contain Personally Identifiable Information\
-            \ (PII) or Personal Data (PD)."
-          format: uuid
-          x-srcprop-pid: org.1edtech.ob.v3p0.derived.uuid.class
         image:
           $ref: '#/components/schemas/Image'
         endorsement:
@@ -396,15 +404,21 @@ components:
           description: "Honorific prefix(es) preceding a person's name (e.g. 'Dr',\
             \ 'Mrs' or 'Mr')."
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
-        sisSourcedId:
-          type: string
-          description: An institution's student identifier for the person. This is
-            frequently issued through a Student Information System.
-          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
         dateOfBirth:
           type: string
           format: date
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.date.class
+        type:
+          minItems: 1
+          type: array
+          description: The value of the type property MUST be an unordered set. One
+            of the items MUST be the IRI 'Profile'.
+          items:
+            type: string
+            description: "A `NormalizedString` that represents an Internationalized\
+              \ Resource Identifier (IRI), which extends the ASCII characters subset\
+              \ of the Uniform Resource Identifier (URI)."
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
         url:
           type: string
           description: "The homepage or social media profile of the entity, whether\
@@ -415,13 +429,6 @@ components:
           description: "Honorific suffix(es) following a person's name (e.g. 'M.D,\
             \ PhD')."
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
-        otherIdentifiers:
-          minItems: 0
-          type: array
-          description: A list of additional identifiers for the described entity.
-          items:
-            $ref: '#/components/schemas/IdentifierEntry'
-          x-srcprop-pid: org.1edtech.ob.v3p0.identifierentry.class
         phone:
           type: string
           description: A phone number.
@@ -449,6 +456,13 @@ components:
           description: Unique URI for the Issuer/Profile file. Required so the entity
             can be the subject of an endorsement.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
+        otherIdentifier:
+          minItems: 0
+          type: array
+          description: A list of identifiers for the described entity.
+          items:
+            $ref: '#/components/schemas/IdentifierEntry'
+          x-srcprop-pid: org.1edtech.ob.v3p0.identifierentry.class
         parentOrg:
           $ref: '#/components/schemas/Profile'
         additionalName:
@@ -471,6 +485,8 @@ components:
         \ like their url or contact email address."
       x-class-pid: org.1edtech.ob.v3p0.profile.class
     Result:
+      required:
+      - type
       type: object
       properties:
         achievedLevel:
@@ -486,6 +502,17 @@ components:
             result description linked to this result. The linked result description
             must be in the achievement that is being asserted.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
+        type:
+          minItems: 1
+          type: array
+          description: The value of the type property MUST be an unordered set. One
+            of the items MUST be the IRI 'Result'.
+          items:
+            type: string
+            description: "A `NormalizedString` that represents an Internationalized\
+              \ Resource Identifier (IRI), which extends the ASCII characters subset\
+              \ of the Uniform Resource Identifier (URI)."
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
         alignment:
           minItems: 0
           type: array
@@ -518,6 +545,7 @@ components:
       x-class-pid: org.1edtech.ob.v3p0.result.class
     IdentifierEntry:
       required:
+      - type
       - identifier
       - identifierType
       type: object
@@ -552,11 +580,17 @@ components:
           - pattern: "(ext:)[a-zA-Z0-9\\.\\-_]+"
             type: string
           x-srcprop-pid: org.1edtech.ob.v3p0.identifiertypeenum.class
+        type:
+          type: string
+          description: The value of the type property MUST be an unordered set. One
+            of the items MUST be the IRI 'IdentifierEntry'.
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
       additionalProperties: false
       description: The IdentifierEntry complex type.
       x-class-pid: org.1edtech.ob.v3p0.identifierentry.class
     Alignment:
       required:
+      - type
       - targetName
       - targetUrl
       type: object
@@ -591,6 +625,17 @@ components:
           - pattern: "(ext:)[a-zA-Z0-9\\.\\-_]+"
             type: string
           x-srcprop-pid: org.1edtech.ob.v3p0.alignmenttargettype.class
+        type:
+          minItems: 1
+          type: array
+          description: The value of the type property MUST be an unordered set. One
+            of the items MUST be the IRI 'Alignment'.
+          items:
+            type: string
+            description: "A `NormalizedString` that represents an Internationalized\
+              \ Resource Identifier (IRI), which extends the ASCII characters subset\
+              \ of the Uniform Resource Identifier (URI)."
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
         targetUrl:
           type: string
           description: "URL linking to the official description of the alignment target,\
@@ -662,6 +707,8 @@ components:
         \ and information about the security mechanisms."
       x-class-pid: org.1edtech.ob.v3p0.servicedescriptiondocument.class
     Evidence:
+      required:
+      - type
       type: object
       properties:
         audience:
@@ -692,7 +739,15 @@ components:
             the evidence encoded as a Data URI. The schema of the webpage is undefined.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
         type:
-          type: string
+          minItems: 1
+          type: array
+          description: The value of the type property MUST be an unordered set. One
+            of the items MUST be the IRI 'Evidence'.
+          items:
+            type: string
+            description: "A `NormalizedString` that represents an Internationalized\
+              \ Resource Identifier (IRI), which extends the ASCII characters subset\
+              \ of the Uniform Resource Identifier (URI)."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
       additionalProperties: true
       description: "Descriptive metadata about evidence related to the achievement\
@@ -778,18 +833,31 @@ components:
         type:
           type: string
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
+        version:
+          type: string
+          description: The version property allows issuers to set a version string
+            for an Achievement. This is particularly useful when replacing a previous
+            version with an update.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
         creditsAvailable:
           type: number
           description: "Credit hours associated with this entity, or credit hours\
             \ possible. For example 3.0."
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.float.class
-        otherIdentifiers:
+        related:
           minItems: 0
           type: array
-          description: A list of additional identifiers for the described entity.
+          description: The related property identifies another Achievement that should
+            be considered the same for most purposes. It is primarily intended to
+            identify alternate language editions or previous versions of Achievements.
           items:
-            $ref: '#/components/schemas/IdentifierEntry'
-          x-srcprop-pid: org.1edtech.ob.v3p0.identifierentry.class
+            $ref: '#/components/schemas/Related'
+          x-srcprop-pid: org.1edtech.ob.v3p0.related.class
+        '@language':
+          pattern: "^[a-z]{2,4}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$"
+          type: string
+          description: The language of the achievement.
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.languagecode.class
         name:
           type: string
           description: The name of the achievement.
@@ -821,6 +889,13 @@ components:
           items:
             $ref: '#/components/schemas/Alignment'
           x-srcprop-pid: org.1edtech.ob.v3p0.alignment.class
+        otherIdentifier:
+          minItems: 0
+          type: array
+          description: A list of identifiers for the described entity.
+          items:
+            $ref: '#/components/schemas/IdentifierEntry'
+          x-srcprop-pid: org.1edtech.ob.v3p0.identifierentry.class
         fieldOfStudy:
           type: string
           description: "Category, subject, area of study, discipline, or general branch\
@@ -833,9 +908,10 @@ components:
       x-class-pid: org.1edtech.ob.v3p0.achievement.class
     IdentityObject:
       required:
-      - identityHash
       - type
       - hashed
+      - identityHash
+      - identityType
       type: object
       properties:
         salt:
@@ -852,17 +928,22 @@ components:
             \ there is an expectation of privacy, it is strongly recommended that\
             \ an IdentityHash be used."
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
-        hashed:
-          type: boolean
-          description: Whether or not the `identity` value is hashed.
-          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.boolean.class
-        type:
+        identityType:
           type: string
           description: "The IRI of the property by which the recipient of the achievement\
             \ is identified. This value should be an IRI mapped in the present context.\
             \ For example, 'email' maps to 'http://schema.org/email' and indicates\
             \ that the identity of the IdentityObject will represent a value of a\
             \ Profile's 'email' property. See [[#profile-identifier-properties]]."
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
+        hashed:
+          type: boolean
+          description: Whether or not the `identity` value is hashed.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.boolean.class
+        type:
+          type: string
+          description: The value of the type property MUST be an unordered set. One
+            of the items MUST be the IRI 'IdentityObject'.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
       additionalProperties: false
       description: A collection of information about the recipient of an achievement.
@@ -998,6 +1079,7 @@ components:
     EndorsementSubject:
       required:
       - id
+      - type
       type: object
       properties:
         endorsementComment:
@@ -1010,6 +1092,18 @@ components:
           description: "The identifier of the individual, entity, organization, assertion,\
             \ or achievement that is endorsed."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
+        type:
+          minItems: 1
+          type: array
+          description: "The value of the type property MUST be an unordered set. One\
+            \ of the items MUST be the URI 'VerifiableCredential', and one of the\
+            \ items MUST be the URI 'EndorsementSubject'."
+          items:
+            type: string
+            description: "A `NormalizedString` that represents an Internationalized\
+              \ Resource Identifier (IRI), which extends the ASCII characters subset\
+              \ of the Uniform Resource Identifier (URI)."
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
       additionalProperties: false
       description: A collection of information about the subject of the endorsement.
       x-class-pid: org.1edtech.ob.v3p0.endorsementsubject.class
@@ -1085,14 +1179,7 @@ components:
         issuer:
           $ref: '#/components/schemas/Profile'
         credentialStatus:
-          minItems: 0
-          type: array
-          description: "The information in CredentialStatus is used to discover information\
-            \ about the current status of a verifiable credential, such as whether\
-            \ it is suspended or revoked."
-          items:
-            $ref: '#/components/schemas/CredentialStatus'
-          x-srcprop-pid: org.1edtech.ob.v3p0.credentialstatus.class
+          $ref: '#/components/schemas/CredentialStatus'
         issuanceDate:
           type: string
           description: Timestamp of when the credential was awarded.
@@ -1132,6 +1219,7 @@ components:
       x-class-pid: org.1edtech.ob.v3p0.achievementcredential.class
     GeoCoordinates:
       required:
+      - type
       - latitude
       - longitude
       type: object
@@ -1140,6 +1228,11 @@ components:
           type: number
           description: "The latitude of the location [[WGS84]]."
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.float.class
+        type:
+          type: string
+          description: The value of the type property MUST be an unordered set. One
+            of the items MUST be the IRI 'GeoCoordinates'.
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
         longitude:
           type: number
           description: "The longitude of the location [[WGS84]]."
@@ -1165,6 +1258,27 @@ components:
       description: The information in RefreshService is used to refresh the verifiable
         credential.
       x-class-pid: org.1edtech.ob.v3p0.refreshservice.class
+    Related:
+      required:
+      - id
+      type: object
+      properties:
+        '@language':
+          pattern: "^[a-z]{2,4}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$"
+          type: string
+          description: The language of the related achievement.
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.languagecode.class
+        id:
+          type: string
+          description: The related achievement.
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
+        version:
+          type: string
+          description: The version of the related achievement.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+      additionalProperties: false
+      description: Identifies a related achievement.
+      x-class-pid: org.1edtech.ob.v3p0.related.class
     Proof:
       required:
       - type
@@ -1286,27 +1400,15 @@ components:
           format: date-time
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.datetime.class
         credentialStatus:
-          minItems: 0
-          type: array
-          description: "The information in CredentialStatus is used to discover information\
-            \ about the current status of a verifiable credential, such as whether\
-            \ it is suspended or revoked."
-          items:
-            $ref: '#/components/schemas/CredentialStatus'
-          x-srcprop-pid: org.1edtech.ob.v3p0.credentialstatus.class
+          $ref: '#/components/schemas/CredentialStatus'
       additionalProperties: false
       description: A verifiable credential that asserts a claim about an entity.
       x-class-pid: org.1edtech.ob.v3p0.endorsementcredential.class
     AchievementSubject:
+      required:
+      - type
       type: object
       properties:
-        result:
-          minItems: 0
-          type: array
-          description: The set of results being asserted.
-          items:
-            $ref: '#/components/schemas/Result'
-          x-srcprop-pid: org.1edtech.ob.v3p0.result.class
         identifier:
           minItems: 0
           type: array
@@ -1317,6 +1419,17 @@ components:
           x-srcprop-pid: org.1edtech.ob.v3p0.identityobject.class
         image:
           $ref: '#/components/schemas/Image'
+        activityStartDate:
+          type: string
+          description: The datetime the activity started.
+          format: date-time
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.datetime.class
+        role:
+          type: string
+          description: "Role, position, or title of the learner when demonstrating\
+            \ or performing the achievement or evidence of learning being asserted.\
+            \ Examples include 'Student President', 'Intern', 'Captain', etc."
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
         achievement:
           $ref: '#/components/schemas/Achievement'
         narrative:
@@ -1324,6 +1437,45 @@ components:
           description: A narrative that connects multiple pieces of evidence. Likely
             only present at this location if evidence is a multi-value array.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.markdown.class
+        source:
+          $ref: '#/components/schemas/Profile'
+        type:
+          minItems: 1
+          type: array
+          description: The value of the type property MUST be an unordered set. One
+            of the items MUST be the IRI 'AchievementSubject'.
+          items:
+            type: string
+            description: "A `NormalizedString` that represents an Internationalized\
+              \ Resource Identifier (IRI), which extends the ASCII characters subset\
+              \ of the Uniform Resource Identifier (URI)."
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
+        result:
+          minItems: 0
+          type: array
+          description: The set of results being asserted.
+          items:
+            $ref: '#/components/schemas/Result'
+          x-srcprop-pid: org.1edtech.ob.v3p0.result.class
+        creditsEarned:
+          type: number
+          description: "The number of credits earned, generally in semester or quarter\
+            \ credit hours. This field correlates with the Achievement `creditsAvailable`\
+            \ field."
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.float.class
+        activityEndDate:
+          type: string
+          description: The datetime the activity ended.
+          format: date-time
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.datetime.class
+        licenseNumber:
+          type: string
+          description: The license number that was issued with this credential.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+        term:
+          type: string
+          description: The academic term in which this assertion was achieved.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
         id:
           type: string
           description: An identifier for the Credential Subject. Either `id` or at
