@@ -37,6 +37,11 @@
           "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#humanCode", 
           "@type": "xsd:string"
         },
+        "related": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#related", 
+          "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Related", 
+          "@container": "@set"
+        },
         "specialization": {
           "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#specialization", 
           "@type": "xsd:string"
@@ -265,6 +270,16 @@
         }
       }
     },
+    "Related": {
+      "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Related",
+      "@context": {
+        "version": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#version",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
     "Result": {
       "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Result",
       "@context": {
