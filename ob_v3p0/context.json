@@ -16,7 +16,9 @@
           "@type": "xsd:string"
         },
         "alignment": {
-          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Alignment"
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#alignment",
+          "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Alignment",
+          "@container": "@set"
         },
         "creator": {
           "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Profile"
@@ -26,7 +28,7 @@
           "@type": "xsd:float"
         },
         "criteria": {
-          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#criteria", 
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Criteria", 
           "@type": "@id"
         },
         "fieldOfStudy": {
@@ -37,16 +39,26 @@
           "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#humanCode", 
           "@type": "xsd:string"
         },
+        "otherIdentifier": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#otherIdentifier",
+          "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#IdentifierEntry",
+          "@container": "@set"
+        },
         "related": {
           "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#related", 
           "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Related", 
+          "@container": "@set"
+        },
+        "resultDescription": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#resultDescription",
+          "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#ResultDescription",
           "@container": "@set"
         },
         "specialization": {
           "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#specialization", 
           "@type": "xsd:string"
         },
-        "tags": {
+        "tag": {
           "@id": "https://schema.org/keywords", 
           "@type": "xsd:string", 
           "@container": "@set"
@@ -66,11 +78,43 @@
         "achievement": {
           "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Achievement"
         },
+        "activityEndDate": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#activityEndDate",
+          "@type": "xsd:date"
+        },
+        "activityStartDate": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#activityStartDate",
+          "@type": "xsd:date"
+        },
+        "creditsEarned": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#creditsEarned",
+          "@type": "xsd:float"
+        },
         "identifier": {
-          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Identifier"
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#identifier",
+          "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#IdentityObject",
+          "@container": "@set"
+        },
+        "licenseNumber": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#licenseNumber",
+          "@type": "xsd:string"
         },
         "result": {
-          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Result"
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#result",
+          "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Result",
+          "@container": "@set"
+        },
+        "role": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#role",
+          "@type": "xsd:string"
+        },
+        "source": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#source",
+          "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Profile"
+        },
+        "term": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#term",
+          "@type": "xsd:string"
         }
       }
     },
@@ -180,6 +224,19 @@
         }
       }
     },
+    "IdentifierEntry": {
+      "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#IdentifierEntry",
+      "@context": {
+        "identifier": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#identifier",
+          "@type": "xsd:string"
+        },
+        "identifierType": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#identifierType",
+          "@type": "xsd:string"
+        }
+      }
+    },
     "IdentityObject": {
       "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#IdentityObject",
       "@context": {
@@ -189,6 +246,10 @@
         },
         "identityHash": {
           "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#identityHash", 
+          "@type": "xsd:string"
+        },
+        "identityType": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#identityType", 
           "@type": "xsd:string"
         },
         "salt":  {
@@ -244,6 +305,11 @@
           "@id": "https://schema.org/honorificSuffix",
           "@type": "xsd:string"
         },
+        "otherIdentifier": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#otherIdentifier",
+          "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#IdentifierEntry",
+          "@container": "@set"
+        },
         "parentOrg": {
           "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#parentOrg",
           "@type": "xsd:string"
@@ -271,7 +337,6 @@
         }
       }
     },
-
     "Result": {
       "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Result",
       "@context": {
@@ -298,7 +363,8 @@
       "@context": {
         "allowedValue": {
           "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#allowedValue", 
-          "@type": "xsd:string"
+          "@type": "xsd:string",
+          "@container": "@set"
         },
         "requiredLevel": {
           "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#requiredLevel", 
@@ -312,7 +378,11 @@
           "@id":"https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#resultType",  
           "@type": "xsd:string"
         },
-        "rubricCriterionLevel": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#RubricCriterionLevel",
+        "rubricCriterionLevel": {
+          "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#rubricCriterionLevel",
+          "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#RubricCriterionLevel",
+          "@container": "@set"
+        },
         "valueMax": {
           "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#valueMax", 
           "@type": "xsd:string"
@@ -337,8 +407,9 @@
       }
     },
     "alignment": {
-      "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Alignment", 
-      "@type": "@id"
+      "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#alignment", 
+      "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#Alignment",
+      "@container": "@set"
     },    
     "description": {
       "@id": "https://schema.org/description", 
@@ -346,7 +417,8 @@
     },
     "endorsement": {
       "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#endorsement", 
-      "@type": "@id"
+      "@type": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#EndorsementCredential", 
+      "@container": "@set"
     },
     "image": {
       "@id": "https://imsglobal.github.io/openbadges-specification/ob_v3p0.html#image", 
