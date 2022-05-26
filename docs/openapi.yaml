@@ -831,7 +831,13 @@ components:
           description: A short description of the achievement.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
         type:
-          type: string
+          minItems: 1
+          type: array
+          items:
+            type: string
+            description: "A `NormalizedString` that represents an Internationalized\
+              \ Resource Identifier (IRI), which extends the ASCII characters subset\
+              \ of the Uniform Resource Identifier (URI)."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
         version:
           type: string
