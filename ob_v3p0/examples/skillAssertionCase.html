@@ -1,0 +1,46 @@
+var skillAssertionCase = `
+
+<div class="note">
+  A Skill Assertion credential should only have one <code>Result</code> and one <code>Alignment</code>.
+</div>
+<pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    data-allowadditionalproperties="false" title="Skill Assertion (CASE)"
+    data-vc-vm="did:example:issuer">
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://imsglobal.github.io/openbadges-specification/context.json"
+  ],
+  "type": ["VerifiableCredential", "OpenBadgeCredential"],
+  "id": "https://issuer-website.com/awards/abc123",
+  "issuer": {
+    "id": "did:example:issuer",
+    "type": ["Profile"],
+    "name": "An Example Issuer",
+    "image": {
+      "id": "https://example.org/logo.png",
+      "type": "Image"
+    },
+    "url": "https://example.org",
+    "email": "contact@example.org"
+  },
+  "issuanceDate": "2022-05-01T19:23:24Z",
+  "name": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain",
+  "credentialSubject": {
+    "id": "did:example:learner",
+    "type": ["AchievementSubject"],
+    "result": [{
+      "type": ["Result"],
+      "alignment": [{
+        "type": ["Alignment"],
+        "targetCode": "74f5bb7d-d7cc-11e8-824f-0242ac160002",
+        "targetFramework": "Alabama Course of Study: English Language Arts",
+        "targetName": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain",
+        "targetType": "CFItem",
+        "targetUrl": "https://caseregistry.imsglobal.org/uri/74f5bb7d-d7cc-11e8-824f-0242ac160002"
+      }]
+    }]
+  }
+}
+</pre>
+`;
