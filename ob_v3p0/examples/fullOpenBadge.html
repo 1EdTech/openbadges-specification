@@ -1,0 +1,712 @@
+var full=`
+
+<pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+  data-allowadditionalproperties="false" title="Complete OpenBadgeCredential"
+  data-vc-vm="https://1edtech.edu/issuers/565049#key-1">
+  {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://imsglobal.github.io/openbadges-specification/context.json"
+    ],
+    "id": "http://1edtech.edu/credentials/3732",
+    "type": [
+      "VerifiableCredential",
+      "OpenBadgeCredential"
+    ],
+    "name": "1EdTech University Degree for Example Student",
+    "description": "1EdTech University Degree Description",
+    "image": {
+      "id": "https://1edtech.edu/credentials/3732/image",
+      "type": "Image",
+      "caption": "1EdTech University Degree for Example Student"
+    },
+    "credentialSubject": {
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+      "type": [
+        "AchievementSubject"
+      ],
+      "activityEndDate": "2010-01-02T00:00:00Z",
+      "activityStartDate": "2010-01-01T00:00:00Z",
+      "creditsEarned": 42.0,
+      "licenseNumber": "A-9320041",
+      "role": "Major Domo",
+      "source": {
+        "id": "https://school.edu/issuers/201234",
+        "type": ["Profile"],
+        "name": "1EdTech College of Arts"
+      },
+      "term": "Fall",
+      "identifier": [
+        {
+          "type": "IdentityObject",
+          "identityHash": "student@1edtech.edu",
+          "identityType": "email",
+          "hashed": false,
+          "salt": "not-used"
+        },
+        {
+          "type": "IdentityObject",
+          "identityHash": "somebody@gmail.com",
+          "identityType": "email",
+          "hashed": false,
+          "salt": "not-used"
+        }
+      ],
+      "achievement": {
+        "id": "https://1edtech.edu/achievements/degree",
+        "type": [
+          "Achievement"
+        ],
+        "alignment": [
+          {
+            "type": [
+              "Alignment"
+            ],
+            "targetCode": "degree",
+            "targetDescription": "1EdTech University Degree programs.",
+            "targetName": "1EdTech University Degree",
+            "targetFramework": "1EdTech University Program and Course Catalog",
+            "targetType": "CFItem",
+            "targetUrl": "https://1edtech.edu/catalog/degree"
+          },
+          {
+            "type": [
+              "Alignment"
+            ],
+            "targetCode": "degree",
+            "targetDescription": "1EdTech University Degree programs.",
+            "targetName": "1EdTech University Degree",
+            "targetFramework": "1EdTech University Program and Course Catalog",
+            "targetType": "CTDL",
+            "targetUrl": "https://credentialengineregistry.org/resources/ce-98cb027b-95ef-4494-908d-6f7790ec6b6b"
+          }
+        ],
+        "achievementType": "Degree",
+        "creator": {
+          "id": "https://1edtech.edu/issuers/565049",
+          "type": [
+            "Profile"
+          ],
+          "name": "1EdTech University",
+          "url": "https://1edtech.edu",
+          "phone": "1-222-333-4444",
+          "description": "1EdTech University provides online degree programs.",
+          "endorsement": [
+            {
+              "@context": [
+                "https://www.w3.org/2018/credentials/v1",
+                "https://imsglobal.github.io/openbadges-specification/context.json",
+                "https://w3id.org/security/suites/ed25519-2020/v1"
+              ],
+              "type": [
+                "VerifiableCredential",
+                "EndorsementCredential"
+              ],
+              "issuer": {
+                "id": "https://accrediter.edu/issuers/565049",
+                "type": [
+                  "Profile"
+                ],
+                "name": "Example Accrediting Agency"
+              },
+              "issuanceDate": "2010-01-01T00:00:00Z",
+              "expirationDate": "2020-01-01T00:00:00Z",
+              "credentialSubject": {
+                "id": "https://1edtech.edu/issuers/565049",
+                "type": [
+                  "EndorsementSubject"
+                ],
+                "endorsementComment": "1EdTech University is in good standing"
+              },
+              "credentialSchema": [
+                {
+                  "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json",
+                  "type": "1EdTechJsonSchemaValidator2019"
+                },
+                {
+                  "id": "https://accrediter.edu/schema/endorsementcredential.json",
+                  "type": "JsonSchemaValidator2018"
+                }
+              ],
+              "credentialStatus": {
+                "id": "https://1edtech.edu/credentials/3732/revocations",
+                "type": "1EdTechRevocationList"
+              },
+              "refreshService": {
+                "id": "http://1edtech.edu/credentials/3732",
+                "type": "1EdTechCredentialRefresh"
+              },
+              "proof": [
+                {
+                  "type": "Ed25519Signature2020",
+                  "created": "2022-05-26T18:17:08Z",
+                  "verificationMethod": "https://accrediter.edu/issuers/565049#key-1",
+                  "proofPurpose": "assertionMethod",
+                  "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+                }
+              ]
+            },
+            {
+              "@context": [
+                "https://www.w3.org/2018/credentials/v1",
+                "https://imsglobal.github.io/openbadges-specification/context.json",
+                "https://w3id.org/security/suites/ed25519-2020/v1"
+              ],
+              "type": [
+                "VerifiableCredential",
+                "EndorsementCredential"
+              ],
+              "issuer": {
+                "id": "https://state.gov/issuers/565049",
+                "type": [
+                  "Profile"
+                ],
+                "name": "State Department of Education"
+              },
+              "issuanceDate": "2010-01-01T00:00:00Z",
+              "expirationDate": "2020-01-01T00:00:00Z",
+              "credentialSubject": {
+                "id": "https://1edtech.edu/issuers/565049",
+                "type": [
+                  "EndorsementSubject"
+                ],
+                "endorsementComment": "1EdTech University is in good standing"
+              },
+              "credentialSchema": [
+                {
+                  "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json",
+                  "type": "1EdTechJsonSchemaValidator2019"
+                },
+                {
+                  "id": "https://state.gov/schema/endorsementcredential.json",
+                  "type": "JsonSchemaValidator2018"
+                }
+              ],
+              "credentialStatus": {
+                "id": "https://state.gov/credentials/3732/revocations",
+                "type": "1EdTechRevocationList"
+              },
+              "refreshService": {
+                "id": "http://state.gov/credentials/3732",
+                "type": "1EdTechCredentialRefresh"
+              },
+              "proof": [
+                {
+                  "type": "Ed25519Signature2020",
+                  "created": "2022-05-26T18:25:59Z",
+                  "verificationMethod": "https://accrediter.edu/issuers/565049#key-1",
+                  "proofPurpose": "assertionMethod",
+                  "proofValue": "z5bDnmSgDczXwZGya6ZjxKaxkdKxzsCMiVSsgEVWxnaWK7ZqbKnzcCd7mUKE9DQaAL2QMXP5AquPeW6W2CWrZ7jNC"
+                }
+              ]
+            }
+          ],
+          "image": {
+            "id": "https://1edtech.edu/logo.png",
+            "type": "Image",
+            "caption": "1EdTech University logo"
+          },
+          "email": "registrar@1edtech.edu",
+          "address": {
+            "type": [
+              "Address"
+            ],
+            "addressCountry": "USA",
+            "addressCountryCode": "US",
+            "addressRegion": "TX",
+            "addressLocality": "Austin",
+            "streetAddress": "123 First St",
+            "postOfficeBoxNumber": "1",
+            "postalCode": "12345",
+            "geo": {
+              "type": "GeoCoordinates",
+              "latitude": 1.0,
+              "longitude": 1.0
+            }
+          },
+          "otherIdentifier": [
+            {
+              "type": "IdentifierEntry",
+              "identifier": "12345",
+              "identifierType": "sourcedId"
+            },
+            {
+              "type": "IdentifierEntry",
+              "identifier": "67890",
+              "identifierType": "nationalIdentityNumber"
+            }
+          ],
+          "official": "Horace Mann",
+          "parentOrg": {
+            "id": "did:example:123456789",
+            "type": [
+              "Profile"
+            ],
+            "name": "Universal Universities"
+          },
+          "sourcedId": "urn:uuid:86652531-6737-46be-ab28-ca720a7990c0",
+          "sisSourcedId": "67890"
+        },
+        "creditsAvailable": 36.0,
+        "criteria": {
+          "id": "https://1edtech.edu/achievements/degree",
+          "narrative": "# Degree Requirements\\nStudents must complete..."
+        },
+        "description": "1EdTech University Degree Description",
+        "endorsement": [
+          {
+            "@context": [
+              "https://www.w3.org/2018/credentials/v1",
+              "https://imsglobal.github.io/openbadges-specification/context.json",
+              "https://w3id.org/security/suites/ed25519-2020/v1"
+            ],
+            "type": [
+              "VerifiableCredential",
+              "EndorsementCredential"
+            ],
+            "issuer": {
+              "id": "https://accrediter.edu/issuers/565049",
+              "type": [
+                "Profile"
+              ],
+              "name": "Example Accrediting Agency"
+            },
+            "issuanceDate": "2010-01-01T00:00:00Z",
+            "expirationDate": "2020-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://1edtech.edu/issuers/565049",
+              "type": [
+                "EndorsementSubject"
+              ],
+              "endorsementComment": "1EdTech University is in good standing"
+            },
+            "credentialSchema": [
+              {
+                "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json",
+                "type": "1EdTechJsonSchemaValidator2019"
+              },
+              {
+                "id": "https://accrediter.edu/schema/endorsementcredential.json",
+                "type": "JsonSchemaValidator2018"
+              }
+            ],
+            "credentialStatus": {
+              "id": "https://1edtech.edu/credentials/3732/revocations",
+              "type": "1EdTechRevocationList"
+            },
+            "refreshService": {
+              "id": "http://1edtech.edu/credentials/3732",
+              "type": "1EdTechCredentialRefresh"
+            },
+            "proof": [
+              {
+                "type": "Ed25519Signature2020",
+                "created": "2022-05-26T18:17:08Z",
+                "verificationMethod": "https://accrediter.edu/issuers/565049#key-1",
+                "proofPurpose": "assertionMethod",
+                "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+              }
+            ]
+          }
+        ],
+        "fieldOfStudy": "Research",
+        "humanCode": "R1",
+        "image": {
+          "id": "https://1edtech.edu/achievements/degree/image",
+          "type": "Image",
+          "caption": "1EdTech University Degree"
+        },
+        "name": "1EdTech University Degree",
+        "otherIdentifier": [
+          {
+            "type": "IdentifierEntry",
+            "identifier": "abde",
+            "identifierType": "identifier"
+          }
+        ],
+        "resultDescription": [
+          {
+            "id": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+            "type": [
+              "ResultDescription"
+            ],
+            "alignment": [
+              {
+                "type": [
+                  "Alignment"
+                ],
+                "targetCode": "project",
+                "targetDescription": "Project description",
+                "targetName": "Final Project",
+                "targetFramework": "1EdTech University Program and Course Catalog",
+                "targetType": "CFItem",
+                "targetUrl": "https://1edtech.edu/catalog/degree/project"
+              }
+            ],
+            "allowedValue": [
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "name": "Final Project Grade",
+            "requiredValue": "C",
+            "resultType": "LetterGrade"
+          },
+          {
+            "id": "urn:uuid:a70ddc6a-4c4a-4bd8-8277-cb97c79f40c5",
+            "type": [
+              "ResultDescription"
+            ],
+            "alignment": [
+              {
+                "type": [
+                  "Alignment"
+                ],
+                "targetCode": "project",
+                "targetDescription": "Project description",
+                "targetName": "Final Project",
+                "targetFramework": "1EdTech University Program and Course Catalog",
+                "targetType": "CFItem",
+                "targetUrl": "https://1edtech.edu/catalog/degree/project"
+              }
+            ],
+            "allowedValue": [
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "name": "Final Project Grade",
+            "requiredLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+            "resultType": "RubricCriterionLevel",
+            "rubricCriterionLevel": [
+              {
+                "id": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+                "type": [
+                  "RubricCriterionLevel"
+                ],
+                "alignment": [
+                  {
+                    "type": [
+                      "Alignment"
+                    ],
+                    "targetCode": "project",
+                    "targetDescription": "Project description",
+                    "targetName": "Final Project",
+                    "targetFramework": "1EdTech University Program and Course Catalog",
+                    "targetType": "CFRubricCriterionLevel",
+                    "targetUrl": "https://1edtech.edu/catalog/degree/project/rubric/levels/mastered"
+                  }
+                ],
+                "description": "The author demonstrated...",
+                "level": "Mastered",
+                "name": "Mastery",
+                "points": "4"
+              },
+              {
+                "id": "urn:uuid:6b84b429-31ee-4dac-9d20-e5c55881f80e",
+                "type": [
+                  "RubricCriterionLevel"
+                ],
+                "alignment": [
+                  {
+                    "type": [
+                      "Alignment"
+                    ],
+                    "targetCode": "project",
+                    "targetDescription": "Project description",
+                    "targetName": "Final Project",
+                    "targetFramework": "1EdTech University Program and Course Catalog",
+                    "targetType": "CFRubricCriterionLevel",
+                    "targetUrl": "https://1edtech.edu/catalog/degree/project/rubric/levels/basic"
+                  }
+                ],
+                "description": "The author demonstrated...",
+                "level": "Basic",
+                "name": "Basic",
+                "points": "4"
+              }
+            ]
+          },
+          {
+            "id": "urn:uuid:b07c0387-f2d6-4b65-a3f4-f4e4302ea8f7",
+            "type": [
+              "ResultDescription"
+            ],
+            "name": "Project Status",
+            "resultType": "Status"
+          }
+        ],
+        "specialization": "Computer Science Research",
+        "tag": [
+          "research",
+          "computer science"
+        ]
+      },
+      "image": {
+        "id": "https://1edtech.edu/credentials/3732/image",
+        "type": "Image",
+        "caption": "1EdTech University Degree for Example Student"
+      },
+      "narrative": "There is a final project report and source code evidence.",
+      "result": [
+        {
+          "type": [
+            "Result"
+          ],
+          "alignment": [
+            {
+              "type": [
+                "Alignment"
+              ],
+              "targetCode": "project",
+              "targetDescription": "Project description",
+              "targetName": "Final Project",
+              "targetFramework": "1EdTech University Program and Course Catalog",
+              "targetType": "CFItem",
+              "targetUrl": "https://1edtech.edu/catalog/degree/project/result/1"
+            }
+          ],
+          "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+          "value": "A"
+        },
+        {
+          "type": [
+            "Result"
+          ],
+          "achievedLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+          "alignment": [
+            {
+              "type": [
+                "Alignment"
+              ],
+              "targetCode": "project",
+              "targetDescription": "Project description",
+              "targetName": "Final Project",
+              "targetFramework": "1EdTech University Program and Course Catalog",
+              "targetType": "CFItem",
+              "targetUrl": "https://1edtech.edu/catalog/degree/project/result/1"
+            }
+          ],
+          "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c"
+        },
+        {
+          "type": [
+            "Result"
+          ],
+          "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+          "status": "Completed"
+        }
+      ]
+    },
+    "endorsement": [
+      {
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://imsglobal.github.io/openbadges-specification/context.json",
+          "https://w3id.org/security/suites/ed25519-2020/v1"
+        ],
+        "type": [
+          "VerifiableCredential",
+          "EndorsementCredential"
+        ],
+        "issuer": {
+          "id": "https://accrediter.edu/issuers/565049",
+          "type": [
+            "Profile"
+          ],
+          "name": "Example Accrediting Agency"
+        },
+        "issuanceDate": "2010-01-01T00:00:00Z",
+        "expirationDate": "2020-01-01T00:00:00Z",
+        "credentialSubject": {
+          "id": "https://1edtech.edu/issuers/565049",
+          "type": [
+            "EndorsementSubject"
+          ],
+          "endorsementComment": "1EdTech University is in good standing"
+        },
+        "credentialSchema": [
+          {
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+          },
+          {
+            "id": "https://accrediter.edu/schema/endorsementcredential.json",
+            "type": "JsonSchemaValidator2018"
+          }
+        ],
+        "credentialStatus": {
+          "id": "https://1edtech.edu/credentials/3732/revocations",
+          "type": "1EdTechRevocationList"
+        },
+        "refreshService": {
+          "id": "http://1edtech.edu/credentials/3732",
+          "type": "1EdTechCredentialRefresh"
+        },
+        "proof": [
+          {
+            "type": "Ed25519Signature2020",
+            "created": "2022-05-26T18:17:08Z",
+            "verificationMethod": "https://accrediter.edu/issuers/565049#key-1",
+            "proofPurpose": "assertionMethod",
+            "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "id": "https://1edtech.edu/credentials/3732/evidence/1",
+        "type": [
+          "Evidence"
+        ],
+        "narrative": "# Final Project Report \\n This project was ...",
+        "name": "Final Project Report",
+        "description": "This is the final project report.",
+        "genre": "Research",
+        "audience": "Department"
+      },
+      {
+        "id": "https://github.com/somebody/project",
+        "type": [
+          "Evidence"
+        ],
+        "name": "Final Project Code",
+        "description": "This is the source code for the final project app.",
+        "genre": "Research",
+        "audience": "Department"
+      }
+    ],
+    "issuer": {
+      "id": "https://1edtech.edu/issuers/565049",
+      "type": [
+        "Profile"
+      ],
+      "name": "1EdTech University",
+      "url": "https://1edtech.edu",
+      "phone": "1-222-333-4444",
+      "description": "1EdTech University provides online degree programs.",
+      "endorsement": [
+        {
+          "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://imsglobal.github.io/openbadges-specification/context.json",
+            "https://w3id.org/security/suites/ed25519-2020/v1"
+          ],
+          "type": [
+            "VerifiableCredential",
+            "EndorsementCredential"
+          ],
+          "issuer": {
+            "id": "https://accrediter.edu/issuers/565049",
+            "type": [
+              "Profile"
+            ],
+            "name": "Example Accrediting Agency"
+          },
+          "issuanceDate": "2010-01-01T00:00:00Z",
+          "expirationDate": "2020-01-01T00:00:00Z",
+          "credentialSubject": {
+            "id": "https://1edtech.edu/issuers/565049",
+            "type": [
+              "EndorsementSubject"
+            ],
+            "endorsementComment": "1EdTech University is in good standing"
+          },
+          "credentialSchema": [
+            {
+              "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcredential.json",
+              "type": "1EdTechJsonSchemaValidator2019"
+            },
+            {
+              "id": "https://accrediter.edu/schema/endorsementcredential.json",
+              "type": "JsonSchemaValidator2018"
+            }
+          ],
+          "credentialStatus": {
+            "id": "https://1edtech.edu/credentials/3732/revocations",
+            "type": "1EdTechRevocationList"
+          },
+          "refreshService": {
+            "id": "http://1edtech.edu/credentials/3732",
+            "type": "1EdTechCredentialRefresh"
+          },
+          "proof": [
+            {
+              "type": "Ed25519Signature2020",
+              "created": "2022-05-26T18:17:08Z",
+              "verificationMethod": "https://accrediter.edu/issuers/565049#key-1",
+              "proofPurpose": "assertionMethod",
+              "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+            }
+          ]
+        }
+      ],
+      "image": {
+        "id": "https://1edtech.edu/logo.png",
+        "type": "Image",
+        "caption": "1EdTech University logo"
+      },
+      "email": "registrar@1edtech.edu",
+      "address": {
+        "type": [
+          "Address"
+        ],
+        "addressCountry": "USA",
+        "addressCountryCode": "US",
+        "addressRegion": "TX",
+        "addressLocality": "Austin",
+        "streetAddress": "123 First St",
+        "postOfficeBoxNumber": "1",
+        "postalCode": "12345",
+        "geo": {
+          "type": "GeoCoordinates",
+          "latitude": 1.0,
+          "longitude": 1.0
+        }
+      },
+      "otherIdentifier": [
+        {
+          "type": "IdentifierEntry",
+          "identifier": "12345",
+          "identifierType": "sourcedId"
+        },
+        {
+          "type": "IdentifierEntry",
+          "identifier": "67890",
+          "identifierType": "nationalIdentityNumber"
+        }
+      ],
+      "official": "Horace Mann",
+      "parentOrg": {
+        "id": "did:example:123456789",
+        "type": [
+          "Profile"
+        ],
+        "name": "Universal Universities"
+      },
+      "sourcedId": "urn:uuid:974d0529-875a-4f38-bbe2-bbc02e394df9",
+      "sisSourcedId": "67890"
+    },
+    "issuanceDate": "2010-01-01T00:00:00Z",
+    "expirationDate": "2020-01-01T00:00:00Z",
+    "credentialSchema": [
+      {
+        "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/achievementcredential.json",
+        "type": "1EdTechJsonSchemaValidator2019"
+      }
+    ],
+    "credentialStatus": {
+      "id": "https://1edtech.edu/credentials/3732/revocations",
+      "type": "1EdTechRevocationList"
+    },
+    "refreshService": {
+      "id": "http://1edtech.edu/credentials/3732",
+      "type": "1EdTechCredentialRefresh"
+    }
+  }
+</pre>
+
+`;

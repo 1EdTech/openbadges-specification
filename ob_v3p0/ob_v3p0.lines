@@ -19,13 +19,13 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
             Response default Imsx_StatusInfo 1                      "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
 
         Operation postCredential POST /credentials                  "Create or replace an AchievementCredential on the [=resource server=]."
-            Body AchievementCredential 1 application/json             "If the AchievementCredential is not signed with the VC-JWT Proof Format, the request body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
+            Body AchievementCredential 1 application/json           "If the AchievementCredential is not signed with the VC-JWT Proof Format, the request body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
             Body CompactJws 1 text/plain                            "If the AchievementCredential is signed with the VC-JWT Proof Format, the request body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
             Response 200                                            "The AchievementCredential was successfully replaced on the [=resource server=]. The response body MUST be the AchievementCredential in the request."
-                Body AchievementCredential 1 application/json         "If the AchievementCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
+                Body AchievementCredential 1 application/json       "If the AchievementCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
                 Body CompactJws 1 text/plain                        "If the AchievementCredential is signed with the VC-JWT Proof Format, the response body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
             Response 201                                            "The AchievementCredential was successfully created on the [=resource server=]. The response body MUST be the AchievementCredential in the request."
-                Body AchievementCredential 1 application/json         "If the AchievementCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
+                Body AchievementCredential 1 application/json       "If the AchievementCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
                 Body CompactJws 1 text/plain                        "If the AchievementCredential is signed with the VC-JWT Proof Format, the response body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
             Response default Imsx_StatusInfo 1                      "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
 
