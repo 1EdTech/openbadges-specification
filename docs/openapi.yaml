@@ -879,6 +879,14 @@ components:
           description: Unique URI for the Achievement. Required so the achievement
             can be the subject of an endorsement.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
+        resultDescription:
+          minItems: 0
+          type: array
+          description: he set of result descriptions that may be asserted as results
+            with this achievement.
+          items:
+            $ref: '#/components/schemas/ResultDescription'
+          x-srcprop-pid: org.1edtech.ob.v3p0.resultdescription.class
         tag:
           minItems: 0
           type: array
@@ -1046,6 +1054,56 @@ components:
       additionalProperties: false
       description: Defines an OAuth2 security scheme that can be used by the operations.
       x-class-pid: org.1edtech.ob.v3p0.openapioauth2securityscheme.class
+    RubricCriterionLevel:
+      required:
+      - id
+      - type
+      - name
+      type: object
+      properties:
+        level:
+          type: string
+          description: The rubric performance level in terms of success.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+        name:
+          type: string
+          description: The name of the rubric criterion level.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+        description:
+          type: string
+          description: Description of the rubric criterion level.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+        id:
+          type: string
+          description: The unique URI for this rubric criterion level. Required so
+            a result can link to this rubric criterion level.
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
+        type:
+          minItems: 1
+          type: array
+          description: The value of the type property MUST be an unordered set. One
+            of the items MUST be the IRI 'RubricCriterionLevel'.
+          items:
+            type: string
+            description: "A `NormalizedString` that represents an Internationalized\
+              \ Resource Identifier (IRI), which extends the ASCII characters subset\
+              \ of the Uniform Resource Identifier (URI)."
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
+        alignment:
+          minItems: 0
+          type: array
+          description: Alignments between this rubric criterion level and a rubric
+            criterion levels defined in external frameworks.
+          items:
+            $ref: '#/components/schemas/Alignment'
+          x-srcprop-pid: org.1edtech.ob.v3p0.alignment.class
+        points:
+          type: string
+          description: The points associated with this rubric criterion level.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+      additionalProperties: true
+      description: Describes a rubric criterion level.
+      x-class-pid: org.1edtech.ob.v3p0.rubriccriterionlevel.class
     OpenApiInfo:
       required:
       - termsOfService
@@ -1285,6 +1343,104 @@ components:
       additionalProperties: false
       description: Identifies a related achievement.
       x-class-pid: org.1edtech.ob.v3p0.related.class
+    ResultDescription:
+      required:
+      - id
+      - type
+      - name
+      - resultType
+      type: object
+      properties:
+        valueMax:
+          type: string
+          description: The maximum possible `value` that may be asserted in a linked
+            result.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+        valueMin:
+          type: string
+          description: The minimum possible `value` that may be asserted in a linked
+            result.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+        rubricCriterionLevel:
+          minItems: 0
+          type: array
+          description: An ordered array of rubric criterion levels that may be asserted
+            in the linked result. The levels should be ordered from low to high as
+            determined by the achievement creator.
+          items:
+            $ref: '#/components/schemas/RubricCriterionLevel'
+          x-srcprop-pid: org.1edtech.ob.v3p0.rubriccriterionlevel.class
+        requiredLevel:
+          type: string
+          description: The `id` of the rubric criterion level required to pass as
+            determined by the achievement creator.
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
+        name:
+          type: string
+          description: The name of the result.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+        id:
+          type: string
+          description: The unique URI for this result description. Required so a result
+            can link to this result description.
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
+        allowedValue:
+          minItems: 0
+          type: array
+          description: An ordered list of allowed values. The values should be ordered
+            from low to high as determined by the achievement creator.
+          items:
+            type: string
+            description: Character strings.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+        type:
+          minItems: 1
+          type: array
+          description: The value of the type property MUST be an unordered set. One
+            of the items MUST be the IRI 'ResultDescription'.
+          items:
+            type: string
+            description: "A `NormalizedString` that represents an Internationalized\
+              \ Resource Identifier (IRI), which extends the ASCII characters subset\
+              \ of the Uniform Resource Identifier (URI)."
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
+        alignment:
+          minItems: 0
+          type: array
+          description: Alignments between this result description and nodes in external
+            frameworks.
+          items:
+            $ref: '#/components/schemas/Alignment'
+          x-srcprop-pid: org.1edtech.ob.v3p0.alignment.class
+        resultType:
+          description: The type of result this description represents. This is an
+            extensible enumerated vocabulary.
+          anyOf:
+          - type: string
+            enum:
+            - GradePointAverage
+            - LetterGrade
+            - Percent
+            - PerformanceLevel
+            - PredictedScore
+            - RawScore
+            - Result
+            - RubricCriterion
+            - RubricCriterionLevel
+            - RubricScore
+            - ScaledScore
+            - Status
+          - pattern: "(ext:)[a-zA-Z0-9\\.\\-_]+"
+            type: string
+          x-srcprop-pid: org.1edtech.ob.v3p0.resulttype.class
+        requiredValue:
+          type: string
+          description: A value from `allowedValue` or within the range of `valueMin`
+            to `valueMax` required to pass as determined by the achievement creator.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+      additionalProperties: true
+      description: Describes a possible achievement result.
+      x-class-pid: org.1edtech.ob.v3p0.resultdescription.class
     Proof:
       required:
       - type
