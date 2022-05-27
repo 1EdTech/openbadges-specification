@@ -186,7 +186,7 @@ body{-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;color:var(--fgclr1)}
 .caption,caption,figcaption{display:block;padding:.5em 0 .5em .5em}
 </style>
 <title>Open Badges Specification 3.0 
-    IMS Base Document</title>
+    Base Document</title>
 <meta name="description" content="This specification is a new version of the IMS Global Open Badges Specification that aligns with the conventions of the Verifiable Credentials Data Model v1.1 for the use cases of Defined Achievement Claim and a Skill Claim. The credentials that are produced are easily be bundled into Comprehensive Learner Records and Verifiable Presentations. Portability and learner data privacy are improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.">
 <link rel="canonical" href="https://www.imsglobal.org/spec/ob/v3p0/main/">
 <style>
@@ -293,7 +293,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "specType": "main",
   "specVersion": "3.0",
   "docVersion": "0",
-  "specStatus": "IMS Base Document",
+  "specStatus": "Base Document",
   "contributors": [
     {
       "name": "Nate Otto",
@@ -1528,8 +1528,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </a>
     </div>
     <div class="subtitle">
-        IMS Base Document<br>Spec Version 3.0
-      </div> <span class="statusPD" data-content="IMS Base Document">IMS Base Document</span>
+        Base Document<br>Spec Version 3.0
+      </div> <span class="statusPD" data-content="Base Document">Base Document</span>
     <table id="version-table" title="Version/Release Details">
     <tbody>
       <tr>
@@ -1538,11 +1538,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </tr>
       <tr>
         <td>Date Issued:</td>
-        <td>@@@FIXME(conf.specDate)</td>
+        <td>27 May 2022</td>
       </tr>
       <tr>
         <td>Status:</td>
-        <td>Unknown &lt;code&gt;specStatus: "IMS Base Document"&lt;/code&gt;</td>
+        <td>This document is for review and comment by 1EdTech Contributing Members.</td>
       </tr>
       <tr>
         <td>This version:</td>
@@ -1950,11 +1950,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-05-27T17:56:55Z",
+      "created": "2022-05-27T17:59:57Z",
       "verificationMethod": "https://example.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z2w13HfLTBPJ4dwrDSWT5GFvqADaCz2G1vfQL8FfhqSNHAw12z18foRMGNi
-BGSWFpsTcUqNosVZXFQYeQ8Pa4wLPa"
+      "proofValue": "z3nYfapsf4KbJmEsAgGnw25KeMH9FZ1C6TQs9AJz6ywYLRXLvLycGoBrBCb
+dvvkeWrwS5DFyWBeKL43FKTnfdXvRr"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -2019,12 +2019,12 @@ lbWEiOlt7ImlkIjoiaHR0cHM6Ly9pbXN1bTIuaGVyb2t1YXBwLmNvbS9qc29uc2NoZW1hP2NsYXNzSWQ
 9b3JnLjFlZHRlY2gub2IudjNwMC5hY2hpZXZlbWVudGNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnN
 vblNjaGVtYVZhbGlkYXRvcjIwMTkifV19LCJpc3MiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnM
 vNTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGl
-hbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.RX
-9v56VOmHxmWv39io9p17CPxI21UpNI3M-XPqrZacRFduQ98qc1VXTmhMB0YYdSq8DM3iZfcHmYIwfEIZ
-H4jYLxr8jOPpSlRCCQd2_Ch5uvtnCM_lQkiVitPS-eR_se98ydtgrHSCxgyx6Nvt0I9qJpyLAOf_eliP
-WSzZvY-yxUeF5ZEsoIcU_cXiK3vrGwwjGd2Wum6qfmuCsae3kK6OgnWdjoe8j8bDRjjnlpwZMyXgcktB
-0uo47FBWdFP07t2JDAcFJga05ml9YC0_JEVZuskbqwTOt6mePe75xuGzzwpCSbnU3szKnWA1M22k158i
-rRDgkxwmSaTrq2QPAnKA</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
+hbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.Ig
+JONLSXzDoxq016c-EA0ZWd5ZOeEVW7JxEXHHJLiZMRQaPPjaaUqibrI_K_AcKoQXEWkOnvBYuhFHy8Cv
+yk7uhZTUROscWci4lL7D9KyXfO092A3sqWsW79um3Qk958Gs_LS0Kp9kgbiGckiB2j37WQiYIFsAmp4O
+1W0oBrXYUSR5znfaoP3fc0EG6EsHz_s3inI4Q4PgqgN1f40PuRXUenYeZbtzV2MqO10gAG27XrM3E88Y
+0MkQkADVp6ortgW5vLVkiDbZ-d1HufcHE__CH7QgwblQ55_l9kckRw92GMlz2wQ4yPrYig4QcdstH7lE
+t3sXMONSR3g3wlf8PZQQ</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">Example<bdi> 2</bdi></a><span class="example-title">: An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)</span>
   </div> <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">var</span> chunk = <span class="hljs-keyword">new</span> iTXt({
@@ -5078,7 +5078,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
     <td>resultDescription</td>
     <td><a href="#org.1edtech.ob.v3p0.resultdescription.class"><samp>ResultDescription</samp></a></td>
     <td>
-      he set of result descriptions that may be asserted as results with this achievement.
+      The set of result descriptions that may be asserted as results with this achievement.
       
       
     </td>
@@ -8458,11 +8458,11 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-05-27T17:56:55Z",
+      "created": "2022-05-27T17:59:57Z",
       "verificationMethod": "https://example.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z2HZkK3BNQGqQYqvrXhWA9oBVCVYkYuwpCiUz1Ps4HpsXUHigtLinfGqfHE
-knD5bp1qSvpTVxR3TpYPXXXjDgRGWh"
+      "proofValue": "z5rrge4eVKM654YUTrER9fjR7zz4bDB3m2cZRQbE34t4ZF2sSfiVK84HEwK
+6bucTMm7dG1uPFDLNzcueMz4tRi4Rf"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -8518,11 +8518,11 @@ lZ3JlZSIsImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZ
 mMWMyNzZlMTJlYzIxIiwidHlwZSI6WyJBY2hpZXZlbWVudFN1YmplY3QiXX19LCJpc3MiOiJodHRwczo
 vL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8
 vZXhhbXBsZS5lZHUvY3JlZGVudGlhbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJ
-lYmM2ZjFjMjc2ZTEyZWMyMSJ9.OKgonYpXGWbOU8kKD2TxtmQzlz8Qp6NjbOIP1d3R71Pa5XKEJQPzJ8
-nG0xM4X_rFwVDHjwJRVe3OTsraclB_2B7RqAzcmVPSpwk1zqgaIwbN2-pD7nb_K3fGFZZ-zpz11rAzrB
-r7QPrlFkjbHXQhydjdLV4UKJDkfPrLh23HqDcfU1RW983E-4s1O_ZSgeolW5tuSfU2xrl_H4uFRQ1_r9
-7Lsid_k4zyTa3yYCuk8ow4iNYWJWuQo9-ZoQPlpJkPFk0RJq3zXm1BVjmtAA5nEfAmvZndX97o2HnFzV
-XnGTDMOgRr_zW3f1JHWCO9C0JzkTY0EO_kywwFG54hwEEMsw</pre></div></div></div>
+lYmM2ZjFjMjc2ZTEyZWMyMSJ9.YoP7Af8Kzl8j8erHkD6R10RfSJkszKYmiM3285APPudM-Z9JIUp4eC
+cPJkEYeZ8zCA0bgdMbYBzlz4-xN9942-qLpxX5EUPuI1d01n1Cr9op8jjCf1k_1qQvDSNyTvvekrJcms
+gxej5ZatZPjZkBZJzzfEOJ7mtxZ397d6puvwOp-At0daxw7rByYrk-aJQgWNwQL0xl4LxW_Kmss7gt4o
+qQxWDHGYUpZzrjtG_S07c41Q0surCdChX76QTHuZXfaLmNm96fonWHgSI5VVrjtaVXGYti6Pi5HNlcMc
+sLM9jursW9mD09wuRxgjjvBLW0jdFHQQMkDc2CdQWnJ6Hybw</pre></div></div></div>
 
 
     </section>
@@ -8536,15 +8536,11 @@ XnGTDMOgRr_zW3f1JHWCO9C0JzkTY0EO_kywwFG54hwEEMsw</pre></div></div></div>
       </div></div>
       
 
-<div class="issue" id="issue-container-number-4"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="4"><span>Issue 4</span><span class="issue-label">: Invalid JSON</span></div><div class="">
-          <p>NOTE: This example contains invalid JSON for org.1edtech.ob.v3p0.achievementcredential.class.</p>
-          <ul>
-            <li>/credentialSubject/achievement/creator: must NOT have additional properties (additional property: "sourcedId)"</li><li>/credentialSubject/achievement/creator: must NOT have additional properties (additional property: "sisSourcedId)"</li><li>/issuer: must NOT have additional properties (additional property: "sourcedId)"</li><li>/issuer: must NOT have additional properties (additional property: "sisSourcedId)"</li>
-          </ul>
-        </div></div><div class="example" id="example-complete-openbadgecredential">
+<div class="example" id="example-complete-openbadgecredential">
         <div class="marker">
     <a class="self-link" href="#example-complete-openbadgecredential">Example<bdi> 34</bdi></a><span class="example-title">: Complete OpenBadgeCredential</span>
-  </div> <pre class="vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class" data-allowadditionalproperties="false" data-vc-vm="https://1edtech.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
+  </div> 
+      <div class="vc-tabbed"><input type="radio" id="vc-tab31" name="vc-tabs3" checked="checked"><input type="radio" id="vc-tab32" name="vc-tabs3"><input type="radio" id="vc-tab33" name="vc-tabs3"><ul class="vc-tabs"><li class="vc-tab"><label for="vc-tab31">Credential</label></li><li class="vc-tab"><label for="vc-tab32">Verifiable Credential (with proof)</label></li><li class="vc-tab"><label for="vc-tab33">Verifiable Credential (as JWT)</label></li></ul><div class="vc-tab-content"><pre class="vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class" data-allowadditionalproperties="false" data-vc-vm="https://1edtech.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
   <span class="hljs-attr">"@context"</span>: [
     <span class="hljs-string">"https://www.w3.org/2018/credentials/v1"</span>,
     <span class="hljs-string">"https://imsglobal.github.io/openbadges-specification/context.json"</span>
@@ -8784,9 +8780,7 @@ XnGTDMOgRr_zW3f1JHWCO9C0JzkTY0EO_kywwFG54hwEEMsw</pre></div></div></div>
             <span class="hljs-string">"Profile"</span>
           ],
           <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Universal Universities"</span>
-        },
-        <span class="hljs-attr">"sourcedId"</span>: <span class="hljs-string">"urn:uuid:86652531-6737-46be-ab28-ca720a7990c0"</span>,
-        <span class="hljs-attr">"sisSourcedId"</span>: <span class="hljs-string">"67890"</span>
+        }
       },
       <span class="hljs-attr">"creditsAvailable"</span>: <span class="hljs-number">36.0</span>,
       <span class="hljs-attr">"criteria"</span>: {
@@ -9227,9 +9221,7 @@ XnGTDMOgRr_zW3f1JHWCO9C0JzkTY0EO_kywwFG54hwEEMsw</pre></div></div></div>
         <span class="hljs-string">"Profile"</span>
       ],
       <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Universal Universities"</span>
-    },
-    <span class="hljs-attr">"sourcedId"</span>: <span class="hljs-string">"urn:uuid:974d0529-875a-4f38-bbe2-bbc02e394df9"</span>,
-    <span class="hljs-attr">"sisSourcedId"</span>: <span class="hljs-string">"67890"</span>
+    }
   },
   <span class="hljs-attr">"issuanceDate"</span>: <span class="hljs-string">"2010-01-01T00:00:00Z"</span>,
   <span class="hljs-attr">"expirationDate"</span>: <span class="hljs-string">"2020-01-01T00:00:00Z"</span>,
@@ -9247,8 +9239,1748 @@ XnGTDMOgRr_zW3f1JHWCO9C0JzkTY0EO_kywwFG54hwEEMsw</pre></div></div></div>
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://1edtech.edu/credentials/3732"</span>,
     <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechCredentialRefresh"</span>
   }
-}</code></pre>
-      </div>
+}</code></pre></div><div class="vc-tab-content"><pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://imsglobal.github.io/openbadges-specification/context.json",
+    "https://w3id.org/security/suites/ed25519-2020/v1"
+  ],
+  "id": "http://1edtech.edu/credentials/3732",
+  "type": [
+    "VerifiableCredential",
+    "OpenBadgeCredential"
+  ],
+  "name": "1EdTech University Degree for Example Student",
+  "description": "1EdTech University Degree Description",
+  "image": {
+    "id": "https://1edtech.edu/credentials/3732/image",
+    "type": "Image",
+    "caption": "1EdTech University Degree for Example Student"
+  },
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": [
+      "AchievementSubject"
+    ],
+    "activityEndDate": "2010-01-02T00:00:00Z",
+    "activityStartDate": "2010-01-01T00:00:00Z",
+    "creditsEarned": 42,
+    "licenseNumber": "A-9320041",
+    "role": "Major Domo",
+    "source": {
+      "id": "https://school.edu/issuers/201234",
+      "type": [
+        "Profile"
+      ],
+      "name": "1EdTech College of Arts"
+    },
+    "term": "Fall",
+    "identifier": [
+      {
+        "type": "IdentityObject",
+        "identityHash": "student@1edtech.edu",
+        "identityType": "email",
+        "hashed": false,
+        "salt": "not-used"
+      },
+      {
+        "type": "IdentityObject",
+        "identityHash": "somebody@gmail.com",
+        "identityType": "email",
+        "hashed": false,
+        "salt": "not-used"
+      }
+    ],
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/degree",
+      "type": [
+        "Achievement"
+      ],
+      "alignment": [
+        {
+          "type": [
+            "Alignment"
+          ],
+          "targetCode": "degree",
+          "targetDescription": "1EdTech University Degree programs.",
+          "targetName": "1EdTech University Degree",
+          "targetFramework": "1EdTech University Program and Course Catalog",
+          "targetType": "CFItem",
+          "targetUrl": "https://1edtech.edu/catalog/degree"
+        },
+        {
+          "type": [
+            "Alignment"
+          ],
+          "targetCode": "degree",
+          "targetDescription": "1EdTech University Degree programs.",
+          "targetName": "1EdTech University Degree",
+          "targetFramework": "1EdTech University Program and Course Catalog",
+          "targetType": "CTDL",
+          "targetUrl": "https://credentialengineregistry.org/resources/ce-98cb02
+7b-95ef-4494-908d-6f7790ec6b6b"
+        }
+      ],
+      "achievementType": "Degree",
+      "creator": {
+        "id": "https://1edtech.edu/issuers/565049",
+        "type": [
+          "Profile"
+        ],
+        "name": "1EdTech University",
+        "url": "https://1edtech.edu",
+        "phone": "1-222-333-4444",
+        "description": "1EdTech University provides online degree programs.",
+        "endorsement": [
+          {
+            "@context": [
+              "https://www.w3.org/2018/credentials/v1",
+              "https://imsglobal.github.io/openbadges-specification/context.json
+",
+              "https://w3id.org/security/suites/ed25519-2020/v1"
+            ],
+            "type": [
+              "VerifiableCredential",
+              "EndorsementCredential"
+            ],
+            "issuer": {
+              "id": "https://accrediter.edu/issuers/565049",
+              "type": [
+                "Profile"
+              ],
+              "name": "Example Accrediting Agency"
+            },
+            "issuanceDate": "2010-01-01T00:00:00Z",
+            "expirationDate": "2020-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://1edtech.edu/issuers/565049",
+              "type": [
+                "EndorsementSubject"
+              ],
+              "endorsementComment": "1EdTech University is in good standing"
+            },
+            "credentialSchema": [
+              {
+                "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsemen
+tcredential.json",
+                "type": "1EdTechJsonSchemaValidator2019"
+              },
+              {
+                "id": "https://accrediter.edu/schema/endorsementcredential.json"
+,
+                "type": "JsonSchemaValidator2018"
+              }
+            ],
+            "credentialStatus": {
+              "id": "https://1edtech.edu/credentials/3732/revocations",
+              "type": "1EdTechRevocationList"
+            },
+            "refreshService": {
+              "id": "http://1edtech.edu/credentials/3732",
+              "type": "1EdTechCredentialRefresh"
+            },
+            "proof": [
+              {
+                "type": "Ed25519Signature2020",
+                "created": "2022-05-26T18:17:08Z",
+                "verificationMethod": "https://accrediter.edu/issuers/565049#key
+-1",
+                "proofPurpose": "assertionMethod",
+                "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQ
+HqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+              }
+            ]
+          },
+          {
+            "@context": [
+              "https://www.w3.org/2018/credentials/v1",
+              "https://imsglobal.github.io/openbadges-specification/context.json
+",
+              "https://w3id.org/security/suites/ed25519-2020/v1"
+            ],
+            "type": [
+              "VerifiableCredential",
+              "EndorsementCredential"
+            ],
+            "issuer": {
+              "id": "https://state.gov/issuers/565049",
+              "type": [
+                "Profile"
+              ],
+              "name": "State Department of Education"
+            },
+            "issuanceDate": "2010-01-01T00:00:00Z",
+            "expirationDate": "2020-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://1edtech.edu/issuers/565049",
+              "type": [
+                "EndorsementSubject"
+              ],
+              "endorsementComment": "1EdTech University is in good standing"
+            },
+            "credentialSchema": [
+              {
+                "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsemen
+tcredential.json",
+                "type": "1EdTechJsonSchemaValidator2019"
+              },
+              {
+                "id": "https://state.gov/schema/endorsementcredential.json",
+                "type": "JsonSchemaValidator2018"
+              }
+            ],
+            "credentialStatus": {
+              "id": "https://state.gov/credentials/3732/revocations",
+              "type": "1EdTechRevocationList"
+            },
+            "refreshService": {
+              "id": "http://state.gov/credentials/3732",
+              "type": "1EdTechCredentialRefresh"
+            },
+            "proof": [
+              {
+                "type": "Ed25519Signature2020",
+                "created": "2022-05-26T18:25:59Z",
+                "verificationMethod": "https://accrediter.edu/issuers/565049#key
+-1",
+                "proofPurpose": "assertionMethod",
+                "proofValue": "z5bDnmSgDczXwZGya6ZjxKaxkdKxzsCMiVSsgEVWxnaWK7Zqb
+KnzcCd7mUKE9DQaAL2QMXP5AquPeW6W2CWrZ7jNC"
+              }
+            ]
+          }
+        ],
+        "image": {
+          "id": "https://1edtech.edu/logo.png",
+          "type": "Image",
+          "caption": "1EdTech University logo"
+        },
+        "email": "registrar@1edtech.edu",
+        "address": {
+          "type": [
+            "Address"
+          ],
+          "addressCountry": "USA",
+          "addressCountryCode": "US",
+          "addressRegion": "TX",
+          "addressLocality": "Austin",
+          "streetAddress": "123 First St",
+          "postOfficeBoxNumber": "1",
+          "postalCode": "12345",
+          "geo": {
+            "type": "GeoCoordinates",
+            "latitude": 1,
+            "longitude": 1
+          }
+        },
+        "otherIdentifier": [
+          {
+            "type": "IdentifierEntry",
+            "identifier": "12345",
+            "identifierType": "sourcedId"
+          },
+          {
+            "type": "IdentifierEntry",
+            "identifier": "67890",
+            "identifierType": "nationalIdentityNumber"
+          }
+        ],
+        "official": "Horace Mann",
+        "parentOrg": {
+          "id": "did:example:123456789",
+          "type": [
+            "Profile"
+          ],
+          "name": "Universal Universities"
+        }
+      },
+      "creditsAvailable": 36,
+      "criteria": {
+        "id": "https://1edtech.edu/achievements/degree",
+        "narrative": "# Degree Requirements\nStudents must complete..."
+      },
+      "description": "1EdTech University Degree Description",
+      "endorsement": [
+        {
+          "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://imsglobal.github.io/openbadges-specification/context.json",
+            "https://w3id.org/security/suites/ed25519-2020/v1"
+          ],
+          "type": [
+            "VerifiableCredential",
+            "EndorsementCredential"
+          ],
+          "issuer": {
+            "id": "https://accrediter.edu/issuers/565049",
+            "type": [
+              "Profile"
+            ],
+            "name": "Example Accrediting Agency"
+          },
+          "issuanceDate": "2010-01-01T00:00:00Z",
+          "expirationDate": "2020-01-01T00:00:00Z",
+          "credentialSubject": {
+            "id": "https://1edtech.edu/issuers/565049",
+            "type": [
+              "EndorsementSubject"
+            ],
+            "endorsementComment": "1EdTech University is in good standing"
+          },
+          "credentialSchema": [
+            {
+              "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementc
+redential.json",
+              "type": "1EdTechJsonSchemaValidator2019"
+            },
+            {
+              "id": "https://accrediter.edu/schema/endorsementcredential.json",
+              "type": "JsonSchemaValidator2018"
+            }
+          ],
+          "credentialStatus": {
+            "id": "https://1edtech.edu/credentials/3732/revocations",
+            "type": "1EdTechRevocationList"
+          },
+          "refreshService": {
+            "id": "http://1edtech.edu/credentials/3732",
+            "type": "1EdTechCredentialRefresh"
+          },
+          "proof": [
+            {
+              "type": "Ed25519Signature2020",
+              "created": "2022-05-26T18:17:08Z",
+              "verificationMethod": "https://accrediter.edu/issuers/565049#key-1
+",
+              "proofPurpose": "assertionMethod",
+              "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHq
+G7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+            }
+          ]
+        }
+      ],
+      "fieldOfStudy": "Research",
+      "humanCode": "R1",
+      "image": {
+        "id": "https://1edtech.edu/achievements/degree/image",
+        "type": "Image",
+        "caption": "1EdTech University Degree"
+      },
+      "name": "1EdTech University Degree",
+      "otherIdentifier": [
+        {
+          "type": "IdentifierEntry",
+          "identifier": "abde",
+          "identifierType": "identifier"
+        }
+      ],
+      "resultDescription": [
+        {
+          "id": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+          "type": [
+            "ResultDescription"
+          ],
+          "alignment": [
+            {
+              "type": [
+                "Alignment"
+              ],
+              "targetCode": "project",
+              "targetDescription": "Project description",
+              "targetName": "Final Project",
+              "targetFramework": "1EdTech University Program and Course Catalog"
+,
+              "targetType": "CFItem",
+              "targetUrl": "https://1edtech.edu/catalog/degree/project"
+            }
+          ],
+          "allowedValue": [
+            "D",
+            "C",
+            "B",
+            "A"
+          ],
+          "name": "Final Project Grade",
+          "requiredValue": "C",
+          "resultType": "LetterGrade"
+        },
+        {
+          "id": "urn:uuid:a70ddc6a-4c4a-4bd8-8277-cb97c79f40c5",
+          "type": [
+            "ResultDescription"
+          ],
+          "alignment": [
+            {
+              "type": [
+                "Alignment"
+              ],
+              "targetCode": "project",
+              "targetDescription": "Project description",
+              "targetName": "Final Project",
+              "targetFramework": "1EdTech University Program and Course Catalog"
+,
+              "targetType": "CFItem",
+              "targetUrl": "https://1edtech.edu/catalog/degree/project"
+            }
+          ],
+          "allowedValue": [
+            "D",
+            "C",
+            "B",
+            "A"
+          ],
+          "name": "Final Project Grade",
+          "requiredLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+          "resultType": "RubricCriterionLevel",
+          "rubricCriterionLevel": [
+            {
+              "id": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+              "type": [
+                "RubricCriterionLevel"
+              ],
+              "alignment": [
+                {
+                  "type": [
+                    "Alignment"
+                  ],
+                  "targetCode": "project",
+                  "targetDescription": "Project description",
+                  "targetName": "Final Project",
+                  "targetFramework": "1EdTech University Program and Course Cata
+log",
+                  "targetType": "CFRubricCriterionLevel",
+                  "targetUrl": "https://1edtech.edu/catalog/degree/project/rubri
+c/levels/mastered"
+                }
+              ],
+              "description": "The author demonstrated...",
+              "level": "Mastered",
+              "name": "Mastery",
+              "points": "4"
+            },
+            {
+              "id": "urn:uuid:6b84b429-31ee-4dac-9d20-e5c55881f80e",
+              "type": [
+                "RubricCriterionLevel"
+              ],
+              "alignment": [
+                {
+                  "type": [
+                    "Alignment"
+                  ],
+                  "targetCode": "project",
+                  "targetDescription": "Project description",
+                  "targetName": "Final Project",
+                  "targetFramework": "1EdTech University Program and Course Cata
+log",
+                  "targetType": "CFRubricCriterionLevel",
+                  "targetUrl": "https://1edtech.edu/catalog/degree/project/rubri
+c/levels/basic"
+                }
+              ],
+              "description": "The author demonstrated...",
+              "level": "Basic",
+              "name": "Basic",
+              "points": "4"
+            }
+          ]
+        },
+        {
+          "id": "urn:uuid:b07c0387-f2d6-4b65-a3f4-f4e4302ea8f7",
+          "type": [
+            "ResultDescription"
+          ],
+          "name": "Project Status",
+          "resultType": "Status"
+        }
+      ],
+      "specialization": "Computer Science Research",
+      "tag": [
+        "research",
+        "computer science"
+      ]
+    },
+    "image": {
+      "id": "https://1edtech.edu/credentials/3732/image",
+      "type": "Image",
+      "caption": "1EdTech University Degree for Example Student"
+    },
+    "narrative": "There is a final project report and source code evidence.",
+    "result": [
+      {
+        "type": [
+          "Result"
+        ],
+        "alignment": [
+          {
+            "type": [
+              "Alignment"
+            ],
+            "targetCode": "project",
+            "targetDescription": "Project description",
+            "targetName": "Final Project",
+            "targetFramework": "1EdTech University Program and Course Catalog",
+            "targetType": "CFItem",
+            "targetUrl": "https://1edtech.edu/catalog/degree/project/result/1"
+          }
+        ],
+        "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+        "value": "A"
+      },
+      {
+        "type": [
+          "Result"
+        ],
+        "achievedLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+        "alignment": [
+          {
+            "type": [
+              "Alignment"
+            ],
+            "targetCode": "project",
+            "targetDescription": "Project description",
+            "targetName": "Final Project",
+            "targetFramework": "1EdTech University Program and Course Catalog",
+            "targetType": "CFItem",
+            "targetUrl": "https://1edtech.edu/catalog/degree/project/result/1"
+          }
+        ],
+        "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c"
+      },
+      {
+        "type": [
+          "Result"
+        ],
+        "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+        "status": "Completed"
+      }
+    ]
+  },
+  "endorsement": [
+    {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://imsglobal.github.io/openbadges-specification/context.json",
+        "https://w3id.org/security/suites/ed25519-2020/v1"
+      ],
+      "type": [
+        "VerifiableCredential",
+        "EndorsementCredential"
+      ],
+      "issuer": {
+        "id": "https://accrediter.edu/issuers/565049",
+        "type": [
+          "Profile"
+        ],
+        "name": "Example Accrediting Agency"
+      },
+      "issuanceDate": "2010-01-01T00:00:00Z",
+      "expirationDate": "2020-01-01T00:00:00Z",
+      "credentialSubject": {
+        "id": "https://1edtech.edu/issuers/565049",
+        "type": [
+          "EndorsementSubject"
+        ],
+        "endorsementComment": "1EdTech University is in good standing"
+      },
+      "credentialSchema": [
+        {
+          "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcrede
+ntial.json",
+          "type": "1EdTechJsonSchemaValidator2019"
+        },
+        {
+          "id": "https://accrediter.edu/schema/endorsementcredential.json",
+          "type": "JsonSchemaValidator2018"
+        }
+      ],
+      "credentialStatus": {
+        "id": "https://1edtech.edu/credentials/3732/revocations",
+        "type": "1EdTechRevocationList"
+      },
+      "refreshService": {
+        "id": "http://1edtech.edu/credentials/3732",
+        "type": "1EdTechCredentialRefresh"
+      },
+      "proof": [
+        {
+          "type": "Ed25519Signature2020",
+          "created": "2022-05-26T18:17:08Z",
+          "verificationMethod": "https://accrediter.edu/issuers/565049#key-1",
+          "proofPurpose": "assertionMethod",
+          "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fM
+eMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "https://1edtech.edu/credentials/3732/evidence/1",
+      "type": [
+        "Evidence"
+      ],
+      "narrative": "# Final Project Report \n This project was ...",
+      "name": "Final Project Report",
+      "description": "This is the final project report.",
+      "genre": "Research",
+      "audience": "Department"
+    },
+    {
+      "id": "https://github.com/somebody/project",
+      "type": [
+        "Evidence"
+      ],
+      "name": "Final Project Code",
+      "description": "This is the source code for the final project app.",
+      "genre": "Research",
+      "audience": "Department"
+    }
+  ],
+  "issuer": {
+    "id": "https://1edtech.edu/issuers/565049",
+    "type": [
+      "Profile"
+    ],
+    "name": "1EdTech University",
+    "url": "https://1edtech.edu",
+    "phone": "1-222-333-4444",
+    "description": "1EdTech University provides online degree programs.",
+    "endorsement": [
+      {
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://imsglobal.github.io/openbadges-specification/context.json",
+          "https://w3id.org/security/suites/ed25519-2020/v1"
+        ],
+        "type": [
+          "VerifiableCredential",
+          "EndorsementCredential"
+        ],
+        "issuer": {
+          "id": "https://accrediter.edu/issuers/565049",
+          "type": [
+            "Profile"
+          ],
+          "name": "Example Accrediting Agency"
+        },
+        "issuanceDate": "2010-01-01T00:00:00Z",
+        "expirationDate": "2020-01-01T00:00:00Z",
+        "credentialSubject": {
+          "id": "https://1edtech.edu/issuers/565049",
+          "type": [
+            "EndorsementSubject"
+          ],
+          "endorsementComment": "1EdTech University is in good standing"
+        },
+        "credentialSchema": [
+          {
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcre
+dential.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+          },
+          {
+            "id": "https://accrediter.edu/schema/endorsementcredential.json",
+            "type": "JsonSchemaValidator2018"
+          }
+        ],
+        "credentialStatus": {
+          "id": "https://1edtech.edu/credentials/3732/revocations",
+          "type": "1EdTechRevocationList"
+        },
+        "refreshService": {
+          "id": "http://1edtech.edu/credentials/3732",
+          "type": "1EdTechCredentialRefresh"
+        },
+        "proof": [
+          {
+            "type": "Ed25519Signature2020",
+            "created": "2022-05-26T18:17:08Z",
+            "verificationMethod": "https://accrediter.edu/issuers/565049#key-1",
+            "proofPurpose": "assertionMethod",
+            "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7
+fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+          }
+        ]
+      }
+    ],
+    "image": {
+      "id": "https://1edtech.edu/logo.png",
+      "type": "Image",
+      "caption": "1EdTech University logo"
+    },
+    "email": "registrar@1edtech.edu",
+    "address": {
+      "type": [
+        "Address"
+      ],
+      "addressCountry": "USA",
+      "addressCountryCode": "US",
+      "addressRegion": "TX",
+      "addressLocality": "Austin",
+      "streetAddress": "123 First St",
+      "postOfficeBoxNumber": "1",
+      "postalCode": "12345",
+      "geo": {
+        "type": "GeoCoordinates",
+        "latitude": 1,
+        "longitude": 1
+      }
+    },
+    "otherIdentifier": [
+      {
+        "type": "IdentifierEntry",
+        "identifier": "12345",
+        "identifierType": "sourcedId"
+      },
+      {
+        "type": "IdentifierEntry",
+        "identifier": "67890",
+        "identifierType": "nationalIdentityNumber"
+      }
+    ],
+    "official": "Horace Mann",
+    "parentOrg": {
+      "id": "did:example:123456789",
+      "type": [
+        "Profile"
+      ],
+      "name": "Universal Universities"
+    }
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "expirationDate": "2020-01-01T00:00:00Z",
+  "credentialSchema": [
+    {
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/achievementcredentia
+l.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    }
+  ],
+  "credentialStatus": {
+    "id": "https://1edtech.edu/credentials/3732/revocations",
+    "type": "1EdTechRevocationList"
+  },
+  "refreshService": {
+    "id": "http://1edtech.edu/credentials/3732",
+    "type": "1EdTechCredentialRefresh"
+  },
+  "proof": [
+    {
+      "type": "Ed25519Signature2020",
+      "created": "2022-05-27T17:59:57Z",
+      "verificationMethod": "https://1edtech.edu/issuers/565049#key-1",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zakYZqbgLPKjMsPw6DzjkfTR33zjWYKmnG3F1aiYe34KGbddVBpZsVoAmQi
+BkewMoZn8vCBz6i5pnRXUYMHyJLtc"
+    }
+  ]
+}</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
+{
+  "alg": "RS256",
+  "typ": "JWT"
+}
+--------------- JWT payload ---------------
+// NOTE: The example below uses a valid VC-JWT serialization
+//       that duplicates the iss, nbf, jti, and sub fields in the
+//       Verifiable Credential (vc) field.
+{
+  "vc": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://imsglobal.github.io/openbadges-specification/context.json"
+    ],
+    "id": "http://1edtech.edu/credentials/3732",
+    "type": [
+      "VerifiableCredential",
+      "OpenBadgeCredential"
+    ],
+    "name": "1EdTech University Degree for Example Student",
+    "description": "1EdTech University Degree Description",
+    "image": {
+      "id": "https://1edtech.edu/credentials/3732/image",
+      "type": "Image",
+      "caption": "1EdTech University Degree for Example Student"
+    },
+    "credentialSubject": {
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+      "type": [
+        "AchievementSubject"
+      ],
+      "activityEndDate": "2010-01-02T00:00:00Z",
+      "activityStartDate": "2010-01-01T00:00:00Z",
+      "creditsEarned": 42,
+      "licenseNumber": "A-9320041",
+      "role": "Major Domo",
+      "source": {
+        "id": "https://school.edu/issuers/201234",
+        "type": [
+          "Profile"
+        ],
+        "name": "1EdTech College of Arts"
+      },
+      "term": "Fall",
+      "identifier": [
+        {
+          "type": "IdentityObject",
+          "identityHash": "student@1edtech.edu",
+          "identityType": "email",
+          "hashed": false,
+          "salt": "not-used"
+        },
+        {
+          "type": "IdentityObject",
+          "identityHash": "somebody@gmail.com",
+          "identityType": "email",
+          "hashed": false,
+          "salt": "not-used"
+        }
+      ],
+      "achievement": {
+        "id": "https://1edtech.edu/achievements/degree",
+        "type": [
+          "Achievement"
+        ],
+        "alignment": [
+          {
+            "type": [
+              "Alignment"
+            ],
+            "targetCode": "degree",
+            "targetDescription": "1EdTech University Degree programs.",
+            "targetName": "1EdTech University Degree",
+            "targetFramework": "1EdTech University Program and Course Catalog",
+            "targetType": "CFItem",
+            "targetUrl": "https://1edtech.edu/catalog/degree"
+          },
+          {
+            "type": [
+              "Alignment"
+            ],
+            "targetCode": "degree",
+            "targetDescription": "1EdTech University Degree programs.",
+            "targetName": "1EdTech University Degree",
+            "targetFramework": "1EdTech University Program and Course Catalog",
+            "targetType": "CTDL",
+            "targetUrl": "https://credentialengineregistry.org/resources/ce-98cb
+027b-95ef-4494-908d-6f7790ec6b6b"
+          }
+        ],
+        "achievementType": "Degree",
+        "creator": {
+          "id": "https://1edtech.edu/issuers/565049",
+          "type": [
+            "Profile"
+          ],
+          "name": "1EdTech University",
+          "url": "https://1edtech.edu",
+          "phone": "1-222-333-4444",
+          "description": "1EdTech University provides online degree programs.",
+          "endorsement": [
+            {
+              "@context": [
+                "https://www.w3.org/2018/credentials/v1",
+                "https://imsglobal.github.io/openbadges-specification/context.js
+on",
+                "https://w3id.org/security/suites/ed25519-2020/v1"
+              ],
+              "type": [
+                "VerifiableCredential",
+                "EndorsementCredential"
+              ],
+              "issuer": {
+                "id": "https://accrediter.edu/issuers/565049",
+                "type": [
+                  "Profile"
+                ],
+                "name": "Example Accrediting Agency"
+              },
+              "issuanceDate": "2010-01-01T00:00:00Z",
+              "expirationDate": "2020-01-01T00:00:00Z",
+              "credentialSubject": {
+                "id": "https://1edtech.edu/issuers/565049",
+                "type": [
+                  "EndorsementSubject"
+                ],
+                "endorsementComment": "1EdTech University is in good standing"
+              },
+              "credentialSchema": [
+                {
+                  "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsem
+entcredential.json",
+                  "type": "1EdTechJsonSchemaValidator2019"
+                },
+                {
+                  "id": "https://accrediter.edu/schema/endorsementcredential.jso
+n",
+                  "type": "JsonSchemaValidator2018"
+                }
+              ],
+              "credentialStatus": {
+                "id": "https://1edtech.edu/credentials/3732/revocations",
+                "type": "1EdTechRevocationList"
+              },
+              "refreshService": {
+                "id": "http://1edtech.edu/credentials/3732",
+                "type": "1EdTechCredentialRefresh"
+              },
+              "proof": [
+                {
+                  "type": "Ed25519Signature2020",
+                  "created": "2022-05-26T18:17:08Z",
+                  "verificationMethod": "https://accrediter.edu/issuers/565049#k
+ey-1",
+                  "proofPurpose": "assertionMethod",
+                  "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCA
+wQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+                }
+              ]
+            },
+            {
+              "@context": [
+                "https://www.w3.org/2018/credentials/v1",
+                "https://imsglobal.github.io/openbadges-specification/context.js
+on",
+                "https://w3id.org/security/suites/ed25519-2020/v1"
+              ],
+              "type": [
+                "VerifiableCredential",
+                "EndorsementCredential"
+              ],
+              "issuer": {
+                "id": "https://state.gov/issuers/565049",
+                "type": [
+                  "Profile"
+                ],
+                "name": "State Department of Education"
+              },
+              "issuanceDate": "2010-01-01T00:00:00Z",
+              "expirationDate": "2020-01-01T00:00:00Z",
+              "credentialSubject": {
+                "id": "https://1edtech.edu/issuers/565049",
+                "type": [
+                  "EndorsementSubject"
+                ],
+                "endorsementComment": "1EdTech University is in good standing"
+              },
+              "credentialSchema": [
+                {
+                  "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsem
+entcredential.json",
+                  "type": "1EdTechJsonSchemaValidator2019"
+                },
+                {
+                  "id": "https://state.gov/schema/endorsementcredential.json",
+                  "type": "JsonSchemaValidator2018"
+                }
+              ],
+              "credentialStatus": {
+                "id": "https://state.gov/credentials/3732/revocations",
+                "type": "1EdTechRevocationList"
+              },
+              "refreshService": {
+                "id": "http://state.gov/credentials/3732",
+                "type": "1EdTechCredentialRefresh"
+              },
+              "proof": [
+                {
+                  "type": "Ed25519Signature2020",
+                  "created": "2022-05-26T18:25:59Z",
+                  "verificationMethod": "https://accrediter.edu/issuers/565049#k
+ey-1",
+                  "proofPurpose": "assertionMethod",
+                  "proofValue": "z5bDnmSgDczXwZGya6ZjxKaxkdKxzsCMiVSsgEVWxnaWK7Z
+qbKnzcCd7mUKE9DQaAL2QMXP5AquPeW6W2CWrZ7jNC"
+                }
+              ]
+            }
+          ],
+          "image": {
+            "id": "https://1edtech.edu/logo.png",
+            "type": "Image",
+            "caption": "1EdTech University logo"
+          },
+          "email": "registrar@1edtech.edu",
+          "address": {
+            "type": [
+              "Address"
+            ],
+            "addressCountry": "USA",
+            "addressCountryCode": "US",
+            "addressRegion": "TX",
+            "addressLocality": "Austin",
+            "streetAddress": "123 First St",
+            "postOfficeBoxNumber": "1",
+            "postalCode": "12345",
+            "geo": {
+              "type": "GeoCoordinates",
+              "latitude": 1,
+              "longitude": 1
+            }
+          },
+          "otherIdentifier": [
+            {
+              "type": "IdentifierEntry",
+              "identifier": "12345",
+              "identifierType": "sourcedId"
+            },
+            {
+              "type": "IdentifierEntry",
+              "identifier": "67890",
+              "identifierType": "nationalIdentityNumber"
+            }
+          ],
+          "official": "Horace Mann",
+          "parentOrg": {
+            "id": "did:example:123456789",
+            "type": [
+              "Profile"
+            ],
+            "name": "Universal Universities"
+          }
+        },
+        "creditsAvailable": 36,
+        "criteria": {
+          "id": "https://1edtech.edu/achievements/degree",
+          "narrative": "# Degree Requirements\nStudents must complete..."
+        },
+        "description": "1EdTech University Degree Description",
+        "endorsement": [
+          {
+            "@context": [
+              "https://www.w3.org/2018/credentials/v1",
+              "https://imsglobal.github.io/openbadges-specification/context.json
+",
+              "https://w3id.org/security/suites/ed25519-2020/v1"
+            ],
+            "type": [
+              "VerifiableCredential",
+              "EndorsementCredential"
+            ],
+            "issuer": {
+              "id": "https://accrediter.edu/issuers/565049",
+              "type": [
+                "Profile"
+              ],
+              "name": "Example Accrediting Agency"
+            },
+            "issuanceDate": "2010-01-01T00:00:00Z",
+            "expirationDate": "2020-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://1edtech.edu/issuers/565049",
+              "type": [
+                "EndorsementSubject"
+              ],
+              "endorsementComment": "1EdTech University is in good standing"
+            },
+            "credentialSchema": [
+              {
+                "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsemen
+tcredential.json",
+                "type": "1EdTechJsonSchemaValidator2019"
+              },
+              {
+                "id": "https://accrediter.edu/schema/endorsementcredential.json"
+,
+                "type": "JsonSchemaValidator2018"
+              }
+            ],
+            "credentialStatus": {
+              "id": "https://1edtech.edu/credentials/3732/revocations",
+              "type": "1EdTechRevocationList"
+            },
+            "refreshService": {
+              "id": "http://1edtech.edu/credentials/3732",
+              "type": "1EdTechCredentialRefresh"
+            },
+            "proof": [
+              {
+                "type": "Ed25519Signature2020",
+                "created": "2022-05-26T18:17:08Z",
+                "verificationMethod": "https://accrediter.edu/issuers/565049#key
+-1",
+                "proofPurpose": "assertionMethod",
+                "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQ
+HqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+              }
+            ]
+          }
+        ],
+        "fieldOfStudy": "Research",
+        "humanCode": "R1",
+        "image": {
+          "id": "https://1edtech.edu/achievements/degree/image",
+          "type": "Image",
+          "caption": "1EdTech University Degree"
+        },
+        "name": "1EdTech University Degree",
+        "otherIdentifier": [
+          {
+            "type": "IdentifierEntry",
+            "identifier": "abde",
+            "identifierType": "identifier"
+          }
+        ],
+        "resultDescription": [
+          {
+            "id": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+            "type": [
+              "ResultDescription"
+            ],
+            "alignment": [
+              {
+                "type": [
+                  "Alignment"
+                ],
+                "targetCode": "project",
+                "targetDescription": "Project description",
+                "targetName": "Final Project",
+                "targetFramework": "1EdTech University Program and Course Catalo
+g",
+                "targetType": "CFItem",
+                "targetUrl": "https://1edtech.edu/catalog/degree/project"
+              }
+            ],
+            "allowedValue": [
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "name": "Final Project Grade",
+            "requiredValue": "C",
+            "resultType": "LetterGrade"
+          },
+          {
+            "id": "urn:uuid:a70ddc6a-4c4a-4bd8-8277-cb97c79f40c5",
+            "type": [
+              "ResultDescription"
+            ],
+            "alignment": [
+              {
+                "type": [
+                  "Alignment"
+                ],
+                "targetCode": "project",
+                "targetDescription": "Project description",
+                "targetName": "Final Project",
+                "targetFramework": "1EdTech University Program and Course Catalo
+g",
+                "targetType": "CFItem",
+                "targetUrl": "https://1edtech.edu/catalog/degree/project"
+              }
+            ],
+            "allowedValue": [
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "name": "Final Project Grade",
+            "requiredLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+            "resultType": "RubricCriterionLevel",
+            "rubricCriterionLevel": [
+              {
+                "id": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+                "type": [
+                  "RubricCriterionLevel"
+                ],
+                "alignment": [
+                  {
+                    "type": [
+                      "Alignment"
+                    ],
+                    "targetCode": "project",
+                    "targetDescription": "Project description",
+                    "targetName": "Final Project",
+                    "targetFramework": "1EdTech University Program and Course Ca
+talog",
+                    "targetType": "CFRubricCriterionLevel",
+                    "targetUrl": "https://1edtech.edu/catalog/degree/project/rub
+ric/levels/mastered"
+                  }
+                ],
+                "description": "The author demonstrated...",
+                "level": "Mastered",
+                "name": "Mastery",
+                "points": "4"
+              },
+              {
+                "id": "urn:uuid:6b84b429-31ee-4dac-9d20-e5c55881f80e",
+                "type": [
+                  "RubricCriterionLevel"
+                ],
+                "alignment": [
+                  {
+                    "type": [
+                      "Alignment"
+                    ],
+                    "targetCode": "project",
+                    "targetDescription": "Project description",
+                    "targetName": "Final Project",
+                    "targetFramework": "1EdTech University Program and Course Ca
+talog",
+                    "targetType": "CFRubricCriterionLevel",
+                    "targetUrl": "https://1edtech.edu/catalog/degree/project/rub
+ric/levels/basic"
+                  }
+                ],
+                "description": "The author demonstrated...",
+                "level": "Basic",
+                "name": "Basic",
+                "points": "4"
+              }
+            ]
+          },
+          {
+            "id": "urn:uuid:b07c0387-f2d6-4b65-a3f4-f4e4302ea8f7",
+            "type": [
+              "ResultDescription"
+            ],
+            "name": "Project Status",
+            "resultType": "Status"
+          }
+        ],
+        "specialization": "Computer Science Research",
+        "tag": [
+          "research",
+          "computer science"
+        ]
+      },
+      "image": {
+        "id": "https://1edtech.edu/credentials/3732/image",
+        "type": "Image",
+        "caption": "1EdTech University Degree for Example Student"
+      },
+      "narrative": "There is a final project report and source code evidence.",
+      "result": [
+        {
+          "type": [
+            "Result"
+          ],
+          "alignment": [
+            {
+              "type": [
+                "Alignment"
+              ],
+              "targetCode": "project",
+              "targetDescription": "Project description",
+              "targetName": "Final Project",
+              "targetFramework": "1EdTech University Program and Course Catalog"
+,
+              "targetType": "CFItem",
+              "targetUrl": "https://1edtech.edu/catalog/degree/project/result/1"
+            }
+          ],
+          "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+          "value": "A"
+        },
+        {
+          "type": [
+            "Result"
+          ],
+          "achievedLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+          "alignment": [
+            {
+              "type": [
+                "Alignment"
+              ],
+              "targetCode": "project",
+              "targetDescription": "Project description",
+              "targetName": "Final Project",
+              "targetFramework": "1EdTech University Program and Course Catalog"
+,
+              "targetType": "CFItem",
+              "targetUrl": "https://1edtech.edu/catalog/degree/project/result/1"
+            }
+          ],
+          "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c"
+        },
+        {
+          "type": [
+            "Result"
+          ],
+          "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+          "status": "Completed"
+        }
+      ]
+    },
+    "endorsement": [
+      {
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://imsglobal.github.io/openbadges-specification/context.json",
+          "https://w3id.org/security/suites/ed25519-2020/v1"
+        ],
+        "type": [
+          "VerifiableCredential",
+          "EndorsementCredential"
+        ],
+        "issuer": {
+          "id": "https://accrediter.edu/issuers/565049",
+          "type": [
+            "Profile"
+          ],
+          "name": "Example Accrediting Agency"
+        },
+        "issuanceDate": "2010-01-01T00:00:00Z",
+        "expirationDate": "2020-01-01T00:00:00Z",
+        "credentialSubject": {
+          "id": "https://1edtech.edu/issuers/565049",
+          "type": [
+            "EndorsementSubject"
+          ],
+          "endorsementComment": "1EdTech University is in good standing"
+        },
+        "credentialSchema": [
+          {
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementcre
+dential.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+          },
+          {
+            "id": "https://accrediter.edu/schema/endorsementcredential.json",
+            "type": "JsonSchemaValidator2018"
+          }
+        ],
+        "credentialStatus": {
+          "id": "https://1edtech.edu/credentials/3732/revocations",
+          "type": "1EdTechRevocationList"
+        },
+        "refreshService": {
+          "id": "http://1edtech.edu/credentials/3732",
+          "type": "1EdTechCredentialRefresh"
+        },
+        "proof": [
+          {
+            "type": "Ed25519Signature2020",
+            "created": "2022-05-26T18:17:08Z",
+            "verificationMethod": "https://accrediter.edu/issuers/565049#key-1",
+            "proofPurpose": "assertionMethod",
+            "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7
+fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "id": "https://1edtech.edu/credentials/3732/evidence/1",
+        "type": [
+          "Evidence"
+        ],
+        "narrative": "# Final Project Report \n This project was ...",
+        "name": "Final Project Report",
+        "description": "This is the final project report.",
+        "genre": "Research",
+        "audience": "Department"
+      },
+      {
+        "id": "https://github.com/somebody/project",
+        "type": [
+          "Evidence"
+        ],
+        "name": "Final Project Code",
+        "description": "This is the source code for the final project app.",
+        "genre": "Research",
+        "audience": "Department"
+      }
+    ],
+    "issuer": {
+      "id": "https://1edtech.edu/issuers/565049",
+      "type": [
+        "Profile"
+      ],
+      "name": "1EdTech University",
+      "url": "https://1edtech.edu",
+      "phone": "1-222-333-4444",
+      "description": "1EdTech University provides online degree programs.",
+      "endorsement": [
+        {
+          "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://imsglobal.github.io/openbadges-specification/context.json",
+            "https://w3id.org/security/suites/ed25519-2020/v1"
+          ],
+          "type": [
+            "VerifiableCredential",
+            "EndorsementCredential"
+          ],
+          "issuer": {
+            "id": "https://accrediter.edu/issuers/565049",
+            "type": [
+              "Profile"
+            ],
+            "name": "Example Accrediting Agency"
+          },
+          "issuanceDate": "2010-01-01T00:00:00Z",
+          "expirationDate": "2020-01-01T00:00:00Z",
+          "credentialSubject": {
+            "id": "https://1edtech.edu/issuers/565049",
+            "type": [
+              "EndorsementSubject"
+            ],
+            "endorsementComment": "1EdTech University is in good standing"
+          },
+          "credentialSchema": [
+            {
+              "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/endorsementc
+redential.json",
+              "type": "1EdTechJsonSchemaValidator2019"
+            },
+            {
+              "id": "https://accrediter.edu/schema/endorsementcredential.json",
+              "type": "JsonSchemaValidator2018"
+            }
+          ],
+          "credentialStatus": {
+            "id": "https://1edtech.edu/credentials/3732/revocations",
+            "type": "1EdTechRevocationList"
+          },
+          "refreshService": {
+            "id": "http://1edtech.edu/credentials/3732",
+            "type": "1EdTechCredentialRefresh"
+          },
+          "proof": [
+            {
+              "type": "Ed25519Signature2020",
+              "created": "2022-05-26T18:17:08Z",
+              "verificationMethod": "https://accrediter.edu/issuers/565049#key-1
+",
+              "proofPurpose": "assertionMethod",
+              "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHq
+G7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+            }
+          ]
+        }
+      ],
+      "image": {
+        "id": "https://1edtech.edu/logo.png",
+        "type": "Image",
+        "caption": "1EdTech University logo"
+      },
+      "email": "registrar@1edtech.edu",
+      "address": {
+        "type": [
+          "Address"
+        ],
+        "addressCountry": "USA",
+        "addressCountryCode": "US",
+        "addressRegion": "TX",
+        "addressLocality": "Austin",
+        "streetAddress": "123 First St",
+        "postOfficeBoxNumber": "1",
+        "postalCode": "12345",
+        "geo": {
+          "type": "GeoCoordinates",
+          "latitude": 1,
+          "longitude": 1
+        }
+      },
+      "otherIdentifier": [
+        {
+          "type": "IdentifierEntry",
+          "identifier": "12345",
+          "identifierType": "sourcedId"
+        },
+        {
+          "type": "IdentifierEntry",
+          "identifier": "67890",
+          "identifierType": "nationalIdentityNumber"
+        }
+      ],
+      "official": "Horace Mann",
+      "parentOrg": {
+        "id": "did:example:123456789",
+        "type": [
+          "Profile"
+        ],
+        "name": "Universal Universities"
+      }
+    },
+    "issuanceDate": "2010-01-01T00:00:00Z",
+    "expirationDate": "2020-01-01T00:00:00Z",
+    "credentialSchema": [
+      {
+        "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/achievementcredent
+ial.json",
+        "type": "1EdTechJsonSchemaValidator2019"
+      }
+    ],
+    "credentialStatus": {
+      "id": "https://1edtech.edu/credentials/3732/revocations",
+      "type": "1EdTechRevocationList"
+    },
+    "refreshService": {
+      "id": "http://1edtech.edu/credentials/3732",
+      "type": "1EdTechCredentialRefresh"
+    }
+  },
+  "exp": 1577836800,
+  "iss": "https://1edtech.edu/issuers/565049",
+  "nbf": 1262304000,
+  "jti": "http://1edtech.edu/credentials/3732",
+  "sub": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+}
+--------------- JWT ---------------
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy5
+3My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmFsLmdpdGh1Yi5pby9vcGV
+uYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlkIjoiaHR0cDovLzFlZHRlY2guZWR
+1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiT3BlbkJhZGd
+lQ3JlZGVudGlhbCJdLCJuYW1lIjoiMUVkVGVjaCBVbml2ZXJzaXR5IERlZ3JlZSBmb3IgRXhhbXBsZSB
+TdHVkZW50IiwiZGVzY3JpcHRpb24iOiIxRWRUZWNoIFVuaXZlcnNpdHkgRGVncmVlIERlc2NyaXB0aW9
+uIiwiaW1hZ2UiOnsiaWQiOiJodHRwczovLzFlZHRlY2guZWR1L2NyZWRlbnRpYWxzLzM3MzIvaW1hZ2U
+iLCJ0eXBlIjoiSW1hZ2UiLCJjYXB0aW9uIjoiMUVkVGVjaCBVbml2ZXJzaXR5IERlZ3JlZSBmb3IgRXh
+hbXBsZSBTdHVkZW50In0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmV4YW1wbGU6ZWJmZWI
+xZjcxMmViYzZmMWMyNzZlMTJlYzIxIiwidHlwZSI6WyJBY2hpZXZlbWVudFN1YmplY3QiXSwiYWN0aXZ
+pdHlFbmREYXRlIjoiMjAxMC0wMS0wMlQwMDowMDowMFoiLCJhY3Rpdml0eVN0YXJ0RGF0ZSI6IjIwMTA
+tMDEtMDFUMDA6MDA6MDBaIiwiY3JlZGl0c0Vhcm5lZCI6NDIsImxpY2Vuc2VOdW1iZXIiOiJBLTkzMjA
+wNDEiLCJyb2xlIjoiTWFqb3IgRG9tbyIsInNvdXJjZSI6eyJpZCI6Imh0dHBzOi8vc2Nob29sLmVkdS9
+pc3N1ZXJzLzIwMTIzNCIsInR5cGUiOlsiUHJvZmlsZSJdLCJuYW1lIjoiMUVkVGVjaCBDb2xsZWdlIG9
+mIEFydHMifSwidGVybSI6IkZhbGwiLCJpZGVudGlmaWVyIjpbeyJ0eXBlIjoiSWRlbnRpdHlPYmplY3Q
+iLCJpZGVudGl0eUhhc2giOiJzdHVkZW50QDFlZHRlY2guZWR1IiwiaWRlbnRpdHlUeXBlIjoiZW1haWw
+iLCJoYXNoZWQiOmZhbHNlLCJzYWx0Ijoibm90LXVzZWQifSx7InR5cGUiOiJJZGVudGl0eU9iamVjdCI
+sImlkZW50aXR5SGFzaCI6InNvbWVib2R5QGdtYWlsLmNvbSIsImlkZW50aXR5VHlwZSI6ImVtYWlsIiw
+iaGFzaGVkIjpmYWxzZSwic2FsdCI6Im5vdC11c2VkIn1dLCJhY2hpZXZlbWVudCI6eyJpZCI6Imh0dHB
+zOi8vMWVkdGVjaC5lZHUvYWNoaWV2ZW1lbnRzL2RlZ3JlZSIsInR5cGUiOlsiQWNoaWV2ZW1lbnQiXSw
+iYWxpZ25tZW50IjpbeyJ0eXBlIjpbIkFsaWdubWVudCJdLCJ0YXJnZXRDb2RlIjoiZGVncmVlIiwidGF
+yZ2V0RGVzY3JpcHRpb24iOiIxRWRUZWNoIFVuaXZlcnNpdHkgRGVncmVlIHByb2dyYW1zLiIsInRhcmd
+ldE5hbWUiOiIxRWRUZWNoIFVuaXZlcnNpdHkgRGVncmVlIiwidGFyZ2V0RnJhbWV3b3JrIjoiMUVkVGV
+jaCBVbml2ZXJzaXR5IFByb2dyYW0gYW5kIENvdXJzZSBDYXRhbG9nIiwidGFyZ2V0VHlwZSI6IkNGSXR
+lbSIsInRhcmdldFVybCI6Imh0dHBzOi8vMWVkdGVjaC5lZHUvY2F0YWxvZy9kZWdyZWUifSx7InR5cGU
+iOlsiQWxpZ25tZW50Il0sInRhcmdldENvZGUiOiJkZWdyZWUiLCJ0YXJnZXREZXNjcmlwdGlvbiI6IjF
+FZFRlY2ggVW5pdmVyc2l0eSBEZWdyZWUgcHJvZ3JhbXMuIiwidGFyZ2V0TmFtZSI6IjFFZFRlY2ggVW5
+pdmVyc2l0eSBEZWdyZWUiLCJ0YXJnZXRGcmFtZXdvcmsiOiIxRWRUZWNoIFVuaXZlcnNpdHkgUHJvZ3J
+hbSBhbmQgQ291cnNlIENhdGFsb2ciLCJ0YXJnZXRUeXBlIjoiQ1RETCIsInRhcmdldFVybCI6Imh0dHB
+zOi8vY3JlZGVudGlhbGVuZ2luZXJlZ2lzdHJ5Lm9yZy9yZXNvdXJjZXMvY2UtOThjYjAyN2ItOTVlZi0
+0NDk0LTkwOGQtNmY3NzkwZWM2YjZiIn1dLCJhY2hpZXZlbWVudFR5cGUiOiJEZWdyZWUiLCJjcmVhdG9
+yIjp7ImlkIjoiaHR0cHM6Ly8xZWR0ZWNoLmVkdS9pc3N1ZXJzLzU2NTA0OSIsInR5cGUiOlsiUHJvZml
+sZSJdLCJuYW1lIjoiMUVkVGVjaCBVbml2ZXJzaXR5IiwidXJsIjoiaHR0cHM6Ly8xZWR0ZWNoLmVkdSI
+sInBob25lIjoiMS0yMjItMzMzLTQ0NDQiLCJkZXNjcmlwdGlvbiI6IjFFZFRlY2ggVW5pdmVyc2l0eSB
+wcm92aWRlcyBvbmxpbmUgZGVncmVlIHByb2dyYW1zLiIsImVuZG9yc2VtZW50IjpbeyJAY29udGV4dCI
+6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmF
+sLmdpdGh1Yi5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIiwiaHR0cHM6Ly9
+3M2lkLm9yZy9zZWN1cml0eS9zdWl0ZXMvZWQyNTUxOS0yMDIwL3YxIl0sInR5cGUiOlsiVmVyaWZpYWJ
+sZUNyZWRlbnRpYWwiLCJFbmRvcnNlbWVudENyZWRlbnRpYWwiXSwiaXNzdWVyIjp7ImlkIjoiaHR0cHM
+6Ly9hY2NyZWRpdGVyLmVkdS9pc3N1ZXJzLzU2NTA0OSIsInR5cGUiOlsiUHJvZmlsZSJdLCJuYW1lIjo
+iRXhhbXBsZSBBY2NyZWRpdGluZyBBZ2VuY3kifSwiaXNzdWFuY2VEYXRlIjoiMjAxMC0wMS0wMVQwMDo
+wMDowMFoiLCJleHBpcmF0aW9uRGF0ZSI6IjIwMjAtMDEtMDFUMDA6MDA6MDBaIiwiY3JlZGVudGlhbFN
+1YmplY3QiOnsiaWQiOiJodHRwczovLzFlZHRlY2guZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6WyJ
+FbmRvcnNlbWVudFN1YmplY3QiXSwiZW5kb3JzZW1lbnRDb21tZW50IjoiMUVkVGVjaCBVbml2ZXJzaXR
+5IGlzIGluIGdvb2Qgc3RhbmRpbmcifSwiY3JlZGVudGlhbFNjaGVtYSI6W3siaWQiOiJodHRwczovL3B
+1cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvc2NoZW1hL2VuZG9yc2VtZW50Y3JlZGVudGlhbC5
+qc29uIiwidHlwZSI6IjFFZFRlY2hKc29uU2NoZW1hVmFsaWRhdG9yMjAxOSJ9LHsiaWQiOiJodHRwczo
+vL2FjY3JlZGl0ZXIuZWR1L3NjaGVtYS9lbmRvcnNlbWVudGNyZWRlbnRpYWwuanNvbiIsInR5cGUiOiJ
+Kc29uU2NoZW1hVmFsaWRhdG9yMjAxOCJ9XSwiY3JlZGVudGlhbFN0YXR1cyI6eyJpZCI6Imh0dHBzOi8
+vMWVkdGVjaC5lZHUvY3JlZGVudGlhbHMvMzczMi9yZXZvY2F0aW9ucyIsInR5cGUiOiIxRWRUZWNoUmV
+2b2NhdGlvbkxpc3QifSwicmVmcmVzaFNlcnZpY2UiOnsiaWQiOiJodHRwOi8vMWVkdGVjaC5lZHUvY3J
+lZGVudGlhbHMvMzczMiIsInR5cGUiOiIxRWRUZWNoQ3JlZGVudGlhbFJlZnJlc2gifSwicHJvb2YiOlt
+7InR5cGUiOiJFZDI1NTE5U2lnbmF0dXJlMjAyMCIsImNyZWF0ZWQiOiIyMDIyLTA1LTI2VDE4OjE3OjA
+4WiIsInZlcmlmaWNhdGlvbk1ldGhvZCI6Imh0dHBzOi8vYWNjcmVkaXRlci5lZHUvaXNzdWVycy81NjU
+wNDkja2V5LTEiLCJwcm9vZlB1cnBvc2UiOiJhc3NlcnRpb25NZXRob2QiLCJwcm9vZlZhbHVlIjoienZ
+Qa1FpVUZmSnJnbkNSaHlQa1RTa2dyR1hibkxSMTVwSEg1SFpWWU5kTTRUQ0F3UUhxRzdmTWVNUEx0WU5
+SbkVnb1YxYUpkUjVFNjFlV3U1c1dSWWd0QSJ9XX0seyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5
+vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmFsLmdpdGh1Yi5pby9vcGVuYmF
+kZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIiwiaHR0cHM6Ly93M2lkLm9yZy9zZWN1cml0eS9
+zdWl0ZXMvZWQyNTUxOS0yMDIwL3YxIl0sInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJFbmR
+vcnNlbWVudENyZWRlbnRpYWwiXSwiaXNzdWVyIjp7ImlkIjoiaHR0cHM6Ly9zdGF0ZS5nb3YvaXNzdWV
+ycy81NjUwNDkiLCJ0eXBlIjpbIlByb2ZpbGUiXSwibmFtZSI6IlN0YXRlIERlcGFydG1lbnQgb2YgRWR
+1Y2F0aW9uIn0sImlzc3VhbmNlRGF0ZSI6IjIwMTAtMDEtMDFUMDA6MDA6MDBaIiwiZXhwaXJhdGlvbkR
+hdGUiOiIyMDIwLTAxLTAxVDAwOjAwOjAwWiIsImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiaHR0cHM
+6Ly8xZWR0ZWNoLmVkdS9pc3N1ZXJzLzU2NTA0OSIsInR5cGUiOlsiRW5kb3JzZW1lbnRTdWJqZWN0Il0
+sImVuZG9yc2VtZW50Q29tbWVudCI6IjFFZFRlY2ggVW5pdmVyc2l0eSBpcyBpbiBnb29kIHN0YW5kaW5
+nIn0sImNyZWRlbnRpYWxTY2hlbWEiOlt7ImlkIjoiaHR0cHM6Ly9wdXJsLmltc2dsb2JhbC5vcmcvc3B
+lYy9vYi92M3AwL3NjaGVtYS9lbmRvcnNlbWVudGNyZWRlbnRpYWwuanNvbiIsInR5cGUiOiIxRWRUZWN
+oSnNvblNjaGVtYVZhbGlkYXRvcjIwMTkifSx7ImlkIjoiaHR0cHM6Ly9zdGF0ZS5nb3Yvc2NoZW1hL2V
+uZG9yc2VtZW50Y3JlZGVudGlhbC5qc29uIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDE4In1
+dLCJjcmVkZW50aWFsU3RhdHVzIjp7ImlkIjoiaHR0cHM6Ly9zdGF0ZS5nb3YvY3JlZGVudGlhbHMvMzc
+zMi9yZXZvY2F0aW9ucyIsInR5cGUiOiIxRWRUZWNoUmV2b2NhdGlvbkxpc3QifSwicmVmcmVzaFNlcnZ
+pY2UiOnsiaWQiOiJodHRwOi8vc3RhdGUuZ292L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjoiMUVkVGV
+jaENyZWRlbnRpYWxSZWZyZXNoIn0sInByb29mIjpbeyJ0eXBlIjoiRWQyNTUxOVNpZ25hdHVyZTIwMjA
+iLCJjcmVhdGVkIjoiMjAyMi0wNS0yNlQxODoyNTo1OVoiLCJ2ZXJpZmljYXRpb25NZXRob2QiOiJodHR
+wczovL2FjY3JlZGl0ZXIuZWR1L2lzc3VlcnMvNTY1MDQ5I2tleS0xIiwicHJvb2ZQdXJwb3NlIjoiYXN
+zZXJ0aW9uTWV0aG9kIiwicHJvb2ZWYWx1ZSI6Ino1YkRubVNnRGN6WHdaR3lhNlpqeEtheGtkS3h6c0N
+NaVZTc2dFVld4bmFXSzdacWJLbnpjQ2Q3bVVLRTlEUWFBTDJRTVhQNUFxdVBlVzZXMkNXclo3ak5DIn1
+dfV0sImltYWdlIjp7ImlkIjoiaHR0cHM6Ly8xZWR0ZWNoLmVkdS9sb2dvLnBuZyIsInR5cGUiOiJJbWF
+nZSIsImNhcHRpb24iOiIxRWRUZWNoIFVuaXZlcnNpdHkgbG9nbyJ9LCJlbWFpbCI6InJlZ2lzdHJhckA
+xZWR0ZWNoLmVkdSIsImFkZHJlc3MiOnsidHlwZSI6WyJBZGRyZXNzIl0sImFkZHJlc3NDb3VudHJ5Ijo
+iVVNBIiwiYWRkcmVzc0NvdW50cnlDb2RlIjoiVVMiLCJhZGRyZXNzUmVnaW9uIjoiVFgiLCJhZGRyZXN
+zTG9jYWxpdHkiOiJBdXN0aW4iLCJzdHJlZXRBZGRyZXNzIjoiMTIzIEZpcnN0IFN0IiwicG9zdE9mZml
+jZUJveE51bWJlciI6IjEiLCJwb3N0YWxDb2RlIjoiMTIzNDUiLCJnZW8iOnsidHlwZSI6Ikdlb0Nvb3J
+kaW5hdGVzIiwibGF0aXR1ZGUiOjEsImxvbmdpdHVkZSI6MX19LCJvdGhlcklkZW50aWZpZXIiOlt7InR
+5cGUiOiJJZGVudGlmaWVyRW50cnkiLCJpZGVudGlmaWVyIjoiMTIzNDUiLCJpZGVudGlmaWVyVHlwZSI
+6InNvdXJjZWRJZCJ9LHsidHlwZSI6IklkZW50aWZpZXJFbnRyeSIsImlkZW50aWZpZXIiOiI2Nzg5MCI
+sImlkZW50aWZpZXJUeXBlIjoibmF0aW9uYWxJZGVudGl0eU51bWJlciJ9XSwib2ZmaWNpYWwiOiJIb3J
+hY2UgTWFubiIsInBhcmVudE9yZyI6eyJpZCI6ImRpZDpleGFtcGxlOjEyMzQ1Njc4OSIsInR5cGUiOls
+iUHJvZmlsZSJdLCJuYW1lIjoiVW5pdmVyc2FsIFVuaXZlcnNpdGllcyJ9fSwiY3JlZGl0c0F2YWlsYWJ
+sZSI6MzYsImNyaXRlcmlhIjp7ImlkIjoiaHR0cHM6Ly8xZWR0ZWNoLmVkdS9hY2hpZXZlbWVudHMvZGV
+ncmVlIiwibmFycmF0aXZlIjoiIyBEZWdyZWUgUmVxdWlyZW1lbnRzXG5TdHVkZW50cyBtdXN0IGNvbXB
+sZXRlLi4uIn0sImRlc2NyaXB0aW9uIjoiMUVkVGVjaCBVbml2ZXJzaXR5IERlZ3JlZSBEZXNjcmlwdGl
+vbiIsImVuZG9yc2VtZW50IjpbeyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmV
+kZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmFsLmdpdGh1Yi5pby9vcGVuYmFkZ2VzLXNwZWNpZml
+jYXRpb24vY29udGV4dC5qc29uIiwiaHR0cHM6Ly93M2lkLm9yZy9zZWN1cml0eS9zdWl0ZXMvZWQyNTU
+xOS0yMDIwL3YxIl0sInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJFbmRvcnNlbWVudENyZWR
+lbnRpYWwiXSwiaXNzdWVyIjp7ImlkIjoiaHR0cHM6Ly9hY2NyZWRpdGVyLmVkdS9pc3N1ZXJzLzU2NTA
+0OSIsInR5cGUiOlsiUHJvZmlsZSJdLCJuYW1lIjoiRXhhbXBsZSBBY2NyZWRpdGluZyBBZ2VuY3kifSw
+iaXNzdWFuY2VEYXRlIjoiMjAxMC0wMS0wMVQwMDowMDowMFoiLCJleHBpcmF0aW9uRGF0ZSI6IjIwMjA
+tMDEtMDFUMDA6MDA6MDBaIiwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJodHRwczovLzFlZHRlY2g
+uZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6WyJFbmRvcnNlbWVudFN1YmplY3QiXSwiZW5kb3JzZW1
+lbnRDb21tZW50IjoiMUVkVGVjaCBVbml2ZXJzaXR5IGlzIGluIGdvb2Qgc3RhbmRpbmcifSwiY3JlZGV
+udGlhbFNjaGVtYSI6W3siaWQiOiJodHRwczovL3B1cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDA
+vc2NoZW1hL2VuZG9yc2VtZW50Y3JlZGVudGlhbC5qc29uIiwidHlwZSI6IjFFZFRlY2hKc29uU2NoZW1
+hVmFsaWRhdG9yMjAxOSJ9LHsiaWQiOiJodHRwczovL2FjY3JlZGl0ZXIuZWR1L3NjaGVtYS9lbmRvcnN
+lbWVudGNyZWRlbnRpYWwuanNvbiIsInR5cGUiOiJKc29uU2NoZW1hVmFsaWRhdG9yMjAxOCJ9XSwiY3J
+lZGVudGlhbFN0YXR1cyI6eyJpZCI6Imh0dHBzOi8vMWVkdGVjaC5lZHUvY3JlZGVudGlhbHMvMzczMi9
+yZXZvY2F0aW9ucyIsInR5cGUiOiIxRWRUZWNoUmV2b2NhdGlvbkxpc3QifSwicmVmcmVzaFNlcnZpY2U
+iOnsiaWQiOiJodHRwOi8vMWVkdGVjaC5lZHUvY3JlZGVudGlhbHMvMzczMiIsInR5cGUiOiIxRWRUZWN
+oQ3JlZGVudGlhbFJlZnJlc2gifSwicHJvb2YiOlt7InR5cGUiOiJFZDI1NTE5U2lnbmF0dXJlMjAyMCI
+sImNyZWF0ZWQiOiIyMDIyLTA1LTI2VDE4OjE3OjA4WiIsInZlcmlmaWNhdGlvbk1ldGhvZCI6Imh0dHB
+zOi8vYWNjcmVkaXRlci5lZHUvaXNzdWVycy81NjUwNDkja2V5LTEiLCJwcm9vZlB1cnBvc2UiOiJhc3N
+lcnRpb25NZXRob2QiLCJwcm9vZlZhbHVlIjoienZQa1FpVUZmSnJnbkNSaHlQa1RTa2dyR1hibkxSMTV
+wSEg1SFpWWU5kTTRUQ0F3UUhxRzdmTWVNUEx0WU5SbkVnb1YxYUpkUjVFNjFlV3U1c1dSWWd0QSJ9XX1
+dLCJmaWVsZE9mU3R1ZHkiOiJSZXNlYXJjaCIsImh1bWFuQ29kZSI6IlIxIiwiaW1hZ2UiOnsiaWQiOiJ
+odHRwczovLzFlZHRlY2guZWR1L2FjaGlldmVtZW50cy9kZWdyZWUvaW1hZ2UiLCJ0eXBlIjoiSW1hZ2U
+iLCJjYXB0aW9uIjoiMUVkVGVjaCBVbml2ZXJzaXR5IERlZ3JlZSJ9LCJuYW1lIjoiMUVkVGVjaCBVbml
+2ZXJzaXR5IERlZ3JlZSIsIm90aGVySWRlbnRpZmllciI6W3sidHlwZSI6IklkZW50aWZpZXJFbnRyeSI
+sImlkZW50aWZpZXIiOiJhYmRlIiwiaWRlbnRpZmllclR5cGUiOiJpZGVudGlmaWVyIn1dLCJyZXN1bHR
+EZXNjcmlwdGlvbiI6W3siaWQiOiJ1cm46dXVpZDpmNmFiMjRjZC04NmU4LTRlYWYtYjhjNi1kZWQ3NGU
+4ZmQ0MWMiLCJ0eXBlIjpbIlJlc3VsdERlc2NyaXB0aW9uIl0sImFsaWdubWVudCI6W3sidHlwZSI6WyJ
+BbGlnbm1lbnQiXSwidGFyZ2V0Q29kZSI6InByb2plY3QiLCJ0YXJnZXREZXNjcmlwdGlvbiI6IlByb2p
+lY3QgZGVzY3JpcHRpb24iLCJ0YXJnZXROYW1lIjoiRmluYWwgUHJvamVjdCIsInRhcmdldEZyYW1ld29
+yayI6IjFFZFRlY2ggVW5pdmVyc2l0eSBQcm9ncmFtIGFuZCBDb3Vyc2UgQ2F0YWxvZyIsInRhcmdldFR
+5cGUiOiJDRkl0ZW0iLCJ0YXJnZXRVcmwiOiJodHRwczovLzFlZHRlY2guZWR1L2NhdGFsb2cvZGVncmV
+lL3Byb2plY3QifV0sImFsbG93ZWRWYWx1ZSI6WyJEIiwiQyIsIkIiLCJBIl0sIm5hbWUiOiJGaW5hbCB
+Qcm9qZWN0IEdyYWRlIiwicmVxdWlyZWRWYWx1ZSI6IkMiLCJyZXN1bHRUeXBlIjoiTGV0dGVyR3JhZGU
+ifSx7ImlkIjoidXJuOnV1aWQ6YTcwZGRjNmEtNGM0YS00YmQ4LTgyNzctY2I5N2M3OWY0MGM1IiwidHl
+wZSI6WyJSZXN1bHREZXNjcmlwdGlvbiJdLCJhbGlnbm1lbnQiOlt7InR5cGUiOlsiQWxpZ25tZW50Il0
+sInRhcmdldENvZGUiOiJwcm9qZWN0IiwidGFyZ2V0RGVzY3JpcHRpb24iOiJQcm9qZWN0IGRlc2NyaXB
+0aW9uIiwidGFyZ2V0TmFtZSI6IkZpbmFsIFByb2plY3QiLCJ0YXJnZXRGcmFtZXdvcmsiOiIxRWRUZWN
+oIFVuaXZlcnNpdHkgUHJvZ3JhbSBhbmQgQ291cnNlIENhdGFsb2ciLCJ0YXJnZXRUeXBlIjoiQ0ZJdGV
+tIiwidGFyZ2V0VXJsIjoiaHR0cHM6Ly8xZWR0ZWNoLmVkdS9jYXRhbG9nL2RlZ3JlZS9wcm9qZWN0In1
+dLCJhbGxvd2VkVmFsdWUiOlsiRCIsIkMiLCJCIiwiQSJdLCJuYW1lIjoiRmluYWwgUHJvamVjdCBHcmF
+kZSIsInJlcXVpcmVkTGV2ZWwiOiJ1cm46dXVpZDpkMDVhMDg2Ny1kMGFkLTRiMDMtYmRiNS0yOGZiNWQ
+yYWFiN2EiLCJyZXN1bHRUeXBlIjoiUnVicmljQ3JpdGVyaW9uTGV2ZWwiLCJydWJyaWNDcml0ZXJpb25
+MZXZlbCI6W3siaWQiOiJ1cm46dXVpZDpkMDVhMDg2Ny1kMGFkLTRiMDMtYmRiNS0yOGZiNWQyYWFiN2E
+iLCJ0eXBlIjpbIlJ1YnJpY0NyaXRlcmlvbkxldmVsIl0sImFsaWdubWVudCI6W3sidHlwZSI6WyJBbGl
+nbm1lbnQiXSwidGFyZ2V0Q29kZSI6InByb2plY3QiLCJ0YXJnZXREZXNjcmlwdGlvbiI6IlByb2plY3Q
+gZGVzY3JpcHRpb24iLCJ0YXJnZXROYW1lIjoiRmluYWwgUHJvamVjdCIsInRhcmdldEZyYW1ld29yayI
+6IjFFZFRlY2ggVW5pdmVyc2l0eSBQcm9ncmFtIGFuZCBDb3Vyc2UgQ2F0YWxvZyIsInRhcmdldFR5cGU
+iOiJDRlJ1YnJpY0NyaXRlcmlvbkxldmVsIiwidGFyZ2V0VXJsIjoiaHR0cHM6Ly8xZWR0ZWNoLmVkdS9
+jYXRhbG9nL2RlZ3JlZS9wcm9qZWN0L3J1YnJpYy9sZXZlbHMvbWFzdGVyZWQifV0sImRlc2NyaXB0aW9
+uIjoiVGhlIGF1dGhvciBkZW1vbnN0cmF0ZWQuLi4iLCJsZXZlbCI6Ik1hc3RlcmVkIiwibmFtZSI6Ik1
+hc3RlcnkiLCJwb2ludHMiOiI0In0seyJpZCI6InVybjp1dWlkOjZiODRiNDI5LTMxZWUtNGRhYy05ZDI
+wLWU1YzU1ODgxZjgwZSIsInR5cGUiOlsiUnVicmljQ3JpdGVyaW9uTGV2ZWwiXSwiYWxpZ25tZW50Ijp
+beyJ0eXBlIjpbIkFsaWdubWVudCJdLCJ0YXJnZXRDb2RlIjoicHJvamVjdCIsInRhcmdldERlc2NyaXB
+0aW9uIjoiUHJvamVjdCBkZXNjcmlwdGlvbiIsInRhcmdldE5hbWUiOiJGaW5hbCBQcm9qZWN0IiwidGF
+yZ2V0RnJhbWV3b3JrIjoiMUVkVGVjaCBVbml2ZXJzaXR5IFByb2dyYW0gYW5kIENvdXJzZSBDYXRhbG9
+nIiwidGFyZ2V0VHlwZSI6IkNGUnVicmljQ3JpdGVyaW9uTGV2ZWwiLCJ0YXJnZXRVcmwiOiJodHRwczo
+vLzFlZHRlY2guZWR1L2NhdGFsb2cvZGVncmVlL3Byb2plY3QvcnVicmljL2xldmVscy9iYXNpYyJ9XSw
+iZGVzY3JpcHRpb24iOiJUaGUgYXV0aG9yIGRlbW9uc3RyYXRlZC4uLiIsImxldmVsIjoiQmFzaWMiLCJ
+uYW1lIjoiQmFzaWMiLCJwb2ludHMiOiI0In1dfSx7ImlkIjoidXJuOnV1aWQ6YjA3YzAzODctZjJkNi0
+0YjY1LWEzZjQtZjRlNDMwMmVhOGY3IiwidHlwZSI6WyJSZXN1bHREZXNjcmlwdGlvbiJdLCJuYW1lIjo
+iUHJvamVjdCBTdGF0dXMiLCJyZXN1bHRUeXBlIjoiU3RhdHVzIn1dLCJzcGVjaWFsaXphdGlvbiI6IkN
+vbXB1dGVyIFNjaWVuY2UgUmVzZWFyY2giLCJ0YWciOlsicmVzZWFyY2giLCJjb21wdXRlciBzY2llbmN
+lIl19LCJpbWFnZSI6eyJpZCI6Imh0dHBzOi8vMWVkdGVjaC5lZHUvY3JlZGVudGlhbHMvMzczMi9pbWF
+nZSIsInR5cGUiOiJJbWFnZSIsImNhcHRpb24iOiIxRWRUZWNoIFVuaXZlcnNpdHkgRGVncmVlIGZvciB
+FeGFtcGxlIFN0dWRlbnQifSwibmFycmF0aXZlIjoiVGhlcmUgaXMgYSBmaW5hbCBwcm9qZWN0IHJlcG9
+ydCBhbmQgc291cmNlIGNvZGUgZXZpZGVuY2UuIiwicmVzdWx0IjpbeyJ0eXBlIjpbIlJlc3VsdCJdLCJ
+hbGlnbm1lbnQiOlt7InR5cGUiOlsiQWxpZ25tZW50Il0sInRhcmdldENvZGUiOiJwcm9qZWN0IiwidGF
+yZ2V0RGVzY3JpcHRpb24iOiJQcm9qZWN0IGRlc2NyaXB0aW9uIiwidGFyZ2V0TmFtZSI6IkZpbmFsIFB
+yb2plY3QiLCJ0YXJnZXRGcmFtZXdvcmsiOiIxRWRUZWNoIFVuaXZlcnNpdHkgUHJvZ3JhbSBhbmQgQ29
+1cnNlIENhdGFsb2ciLCJ0YXJnZXRUeXBlIjoiQ0ZJdGVtIiwidGFyZ2V0VXJsIjoiaHR0cHM6Ly8xZWR
+0ZWNoLmVkdS9jYXRhbG9nL2RlZ3JlZS9wcm9qZWN0L3Jlc3VsdC8xIn1dLCJyZXN1bHREZXNjcmlwdGl
+vbiI6InVybjp1dWlkOmY2YWIyNGNkLTg2ZTgtNGVhZi1iOGM2LWRlZDc0ZThmZDQxYyIsInZhbHVlIjo
+iQSJ9LHsidHlwZSI6WyJSZXN1bHQiXSwiYWNoaWV2ZWRMZXZlbCI6InVybjp1dWlkOmQwNWEwODY3LWQ
+wYWQtNGIwMy1iZGI1LTI4ZmI1ZDJhYWI3YSIsImFsaWdubWVudCI6W3sidHlwZSI6WyJBbGlnbm1lbnQ
+iXSwidGFyZ2V0Q29kZSI6InByb2plY3QiLCJ0YXJnZXREZXNjcmlwdGlvbiI6IlByb2plY3QgZGVzY3J
+pcHRpb24iLCJ0YXJnZXROYW1lIjoiRmluYWwgUHJvamVjdCIsInRhcmdldEZyYW1ld29yayI6IjFFZFR
+lY2ggVW5pdmVyc2l0eSBQcm9ncmFtIGFuZCBDb3Vyc2UgQ2F0YWxvZyIsInRhcmdldFR5cGUiOiJDRkl
+0ZW0iLCJ0YXJnZXRVcmwiOiJodHRwczovLzFlZHRlY2guZWR1L2NhdGFsb2cvZGVncmVlL3Byb2plY3Q
+vcmVzdWx0LzEifV0sInJlc3VsdERlc2NyaXB0aW9uIjoidXJuOnV1aWQ6ZjZhYjI0Y2QtODZlOC00ZWF
+mLWI4YzYtZGVkNzRlOGZkNDFjIn0seyJ0eXBlIjpbIlJlc3VsdCJdLCJyZXN1bHREZXNjcmlwdGlvbiI
+6InVybjp1dWlkOmY2YWIyNGNkLTg2ZTgtNGVhZi1iOGM2LWRlZDc0ZThmZDQxYyIsInN0YXR1cyI6IkN
+vbXBsZXRlZCJ9XX0sImVuZG9yc2VtZW50IjpbeyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmc
+vMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1zZ2xvYmFsLmdpdGh1Yi5pby9vcGVuYmFkZ2V
+zLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIiwiaHR0cHM6Ly93M2lkLm9yZy9zZWN1cml0eS9zdWl
+0ZXMvZWQyNTUxOS0yMDIwL3YxIl0sInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJFbmRvcnN
+lbWVudENyZWRlbnRpYWwiXSwiaXNzdWVyIjp7ImlkIjoiaHR0cHM6Ly9hY2NyZWRpdGVyLmVkdS9pc3N
+1ZXJzLzU2NTA0OSIsInR5cGUiOlsiUHJvZmlsZSJdLCJuYW1lIjoiRXhhbXBsZSBBY2NyZWRpdGluZyB
+BZ2VuY3kifSwiaXNzdWFuY2VEYXRlIjoiMjAxMC0wMS0wMVQwMDowMDowMFoiLCJleHBpcmF0aW9uRGF
+0ZSI6IjIwMjAtMDEtMDFUMDA6MDA6MDBaIiwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJodHRwczo
+vLzFlZHRlY2guZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6WyJFbmRvcnNlbWVudFN1YmplY3QiXSw
+iZW5kb3JzZW1lbnRDb21tZW50IjoiMUVkVGVjaCBVbml2ZXJzaXR5IGlzIGluIGdvb2Qgc3RhbmRpbmc
+ifSwiY3JlZGVudGlhbFNjaGVtYSI6W3siaWQiOiJodHRwczovL3B1cmwuaW1zZ2xvYmFsLm9yZy9zcGV
+jL29iL3YzcDAvc2NoZW1hL2VuZG9yc2VtZW50Y3JlZGVudGlhbC5qc29uIiwidHlwZSI6IjFFZFRlY2h
+Kc29uU2NoZW1hVmFsaWRhdG9yMjAxOSJ9LHsiaWQiOiJodHRwczovL2FjY3JlZGl0ZXIuZWR1L3NjaGV
+tYS9lbmRvcnNlbWVudGNyZWRlbnRpYWwuanNvbiIsInR5cGUiOiJKc29uU2NoZW1hVmFsaWRhdG9yMjA
+xOCJ9XSwiY3JlZGVudGlhbFN0YXR1cyI6eyJpZCI6Imh0dHBzOi8vMWVkdGVjaC5lZHUvY3JlZGVudGl
+hbHMvMzczMi9yZXZvY2F0aW9ucyIsInR5cGUiOiIxRWRUZWNoUmV2b2NhdGlvbkxpc3QifSwicmVmcmV
+zaFNlcnZpY2UiOnsiaWQiOiJodHRwOi8vMWVkdGVjaC5lZHUvY3JlZGVudGlhbHMvMzczMiIsInR5cGU
+iOiIxRWRUZWNoQ3JlZGVudGlhbFJlZnJlc2gifSwicHJvb2YiOlt7InR5cGUiOiJFZDI1NTE5U2lnbmF
+0dXJlMjAyMCIsImNyZWF0ZWQiOiIyMDIyLTA1LTI2VDE4OjE3OjA4WiIsInZlcmlmaWNhdGlvbk1ldGh
+vZCI6Imh0dHBzOi8vYWNjcmVkaXRlci5lZHUvaXNzdWVycy81NjUwNDkja2V5LTEiLCJwcm9vZlB1cnB
+vc2UiOiJhc3NlcnRpb25NZXRob2QiLCJwcm9vZlZhbHVlIjoienZQa1FpVUZmSnJnbkNSaHlQa1RTa2d
+yR1hibkxSMTVwSEg1SFpWWU5kTTRUQ0F3UUhxRzdmTWVNUEx0WU5SbkVnb1YxYUpkUjVFNjFlV3U1c1d
+SWWd0QSJ9XX1dLCJldmlkZW5jZSI6W3siaWQiOiJodHRwczovLzFlZHRlY2guZWR1L2NyZWRlbnRpYWx
+zLzM3MzIvZXZpZGVuY2UvMSIsInR5cGUiOlsiRXZpZGVuY2UiXSwibmFycmF0aXZlIjoiIyBGaW5hbCB
+Qcm9qZWN0IFJlcG9ydCBcbiBUaGlzIHByb2plY3Qgd2FzIC4uLiIsIm5hbWUiOiJGaW5hbCBQcm9qZWN
+0IFJlcG9ydCIsImRlc2NyaXB0aW9uIjoiVGhpcyBpcyB0aGUgZmluYWwgcHJvamVjdCByZXBvcnQuIiw
+iZ2VucmUiOiJSZXNlYXJjaCIsImF1ZGllbmNlIjoiRGVwYXJ0bWVudCJ9LHsiaWQiOiJodHRwczovL2d
+pdGh1Yi5jb20vc29tZWJvZHkvcHJvamVjdCIsInR5cGUiOlsiRXZpZGVuY2UiXSwibmFtZSI6IkZpbmF
+sIFByb2plY3QgQ29kZSIsImRlc2NyaXB0aW9uIjoiVGhpcyBpcyB0aGUgc291cmNlIGNvZGUgZm9yIHR
+oZSBmaW5hbCBwcm9qZWN0IGFwcC4iLCJnZW5yZSI6IlJlc2VhcmNoIiwiYXVkaWVuY2UiOiJEZXBhcnR
+tZW50In1dLCJpc3N1ZXIiOnsiaWQiOiJodHRwczovLzFlZHRlY2guZWR1L2lzc3VlcnMvNTY1MDQ5Iiw
+idHlwZSI6WyJQcm9maWxlIl0sIm5hbWUiOiIxRWRUZWNoIFVuaXZlcnNpdHkiLCJ1cmwiOiJodHRwczo
+vLzFlZHRlY2guZWR1IiwicGhvbmUiOiIxLTIyMi0zMzMtNDQ0NCIsImRlc2NyaXB0aW9uIjoiMUVkVGV
+jaCBVbml2ZXJzaXR5IHByb3ZpZGVzIG9ubGluZSBkZWdyZWUgcHJvZ3JhbXMuIiwiZW5kb3JzZW1lbnQ
+iOlt7IkBjb250ZXh0IjpbImh0dHBzOi8vd3d3LnczLm9yZy8yMDE4L2NyZWRlbnRpYWxzL3YxIiwiaHR
+0cHM6Ly9pbXNnbG9iYWwuZ2l0aHViLmlvL29wZW5iYWRnZXMtc3BlY2lmaWNhdGlvbi9jb250ZXh0Lmp
+zb24iLCJodHRwczovL3czaWQub3JnL3NlY3VyaXR5L3N1aXRlcy9lZDI1NTE5LTIwMjAvdjEiXSwidHl
+wZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCIsIkVuZG9yc2VtZW50Q3JlZGVudGlhbCJdLCJpc3N1ZXI
+iOnsiaWQiOiJodHRwczovL2FjY3JlZGl0ZXIuZWR1L2lzc3VlcnMvNTY1MDQ5IiwidHlwZSI6WyJQcm9
+maWxlIl0sIm5hbWUiOiJFeGFtcGxlIEFjY3JlZGl0aW5nIEFnZW5jeSJ9LCJpc3N1YW5jZURhdGUiOiI
+yMDEwLTAxLTAxVDAwOjAwOjAwWiIsImV4cGlyYXRpb25EYXRlIjoiMjAyMC0wMS0wMVQwMDowMDowMFo
+iLCJjcmVkZW50aWFsU3ViamVjdCI6eyJpZCI6Imh0dHBzOi8vMWVkdGVjaC5lZHUvaXNzdWVycy81NjU
+wNDkiLCJ0eXBlIjpbIkVuZG9yc2VtZW50U3ViamVjdCJdLCJlbmRvcnNlbWVudENvbW1lbnQiOiIxRWR
+UZWNoIFVuaXZlcnNpdHkgaXMgaW4gZ29vZCBzdGFuZGluZyJ9LCJjcmVkZW50aWFsU2NoZW1hIjpbeyJ
+pZCI6Imh0dHBzOi8vcHVybC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9zY2hlbWEvZW5kb3JzZW1
+lbnRjcmVkZW50aWFsLmpzb24iLCJ0eXBlIjoiMUVkVGVjaEpzb25TY2hlbWFWYWxpZGF0b3IyMDE5In0
+seyJpZCI6Imh0dHBzOi8vYWNjcmVkaXRlci5lZHUvc2NoZW1hL2VuZG9yc2VtZW50Y3JlZGVudGlhbC5
+qc29uIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDE4In1dLCJjcmVkZW50aWFsU3RhdHVzIjp
+7ImlkIjoiaHR0cHM6Ly8xZWR0ZWNoLmVkdS9jcmVkZW50aWFscy8zNzMyL3Jldm9jYXRpb25zIiwidHl
+wZSI6IjFFZFRlY2hSZXZvY2F0aW9uTGlzdCJ9LCJyZWZyZXNoU2VydmljZSI6eyJpZCI6Imh0dHA6Ly8
+xZWR0ZWNoLmVkdS9jcmVkZW50aWFscy8zNzMyIiwidHlwZSI6IjFFZFRlY2hDcmVkZW50aWFsUmVmcmV
+zaCJ9LCJwcm9vZiI6W3sidHlwZSI6IkVkMjU1MTlTaWduYXR1cmUyMDIwIiwiY3JlYXRlZCI6IjIwMjI
+tMDUtMjZUMTg6MTc6MDhaIiwidmVyaWZpY2F0aW9uTWV0aG9kIjoiaHR0cHM6Ly9hY2NyZWRpdGVyLmV
+kdS9pc3N1ZXJzLzU2NTA0OSNrZXktMSIsInByb29mUHVycG9zZSI6ImFzc2VydGlvbk1ldGhvZCIsInB
+yb29mVmFsdWUiOiJ6dlBrUWlVRmZKcmduQ1JoeVBrVFNrZ3JHWGJuTFIxNXBISDVIWlZZTmRNNFRDQXd
+RSHFHN2ZNZU1QTHRZTlJuRWdvVjFhSmRSNUU2MWVXdTVzV1JZZ3RBIn1dfV0sImltYWdlIjp7ImlkIjo
+iaHR0cHM6Ly8xZWR0ZWNoLmVkdS9sb2dvLnBuZyIsInR5cGUiOiJJbWFnZSIsImNhcHRpb24iOiIxRWR
+UZWNoIFVuaXZlcnNpdHkgbG9nbyJ9LCJlbWFpbCI6InJlZ2lzdHJhckAxZWR0ZWNoLmVkdSIsImFkZHJ
+lc3MiOnsidHlwZSI6WyJBZGRyZXNzIl0sImFkZHJlc3NDb3VudHJ5IjoiVVNBIiwiYWRkcmVzc0NvdW5
+0cnlDb2RlIjoiVVMiLCJhZGRyZXNzUmVnaW9uIjoiVFgiLCJhZGRyZXNzTG9jYWxpdHkiOiJBdXN0aW4
+iLCJzdHJlZXRBZGRyZXNzIjoiMTIzIEZpcnN0IFN0IiwicG9zdE9mZmljZUJveE51bWJlciI6IjEiLCJ
+wb3N0YWxDb2RlIjoiMTIzNDUiLCJnZW8iOnsidHlwZSI6Ikdlb0Nvb3JkaW5hdGVzIiwibGF0aXR1ZGU
+iOjEsImxvbmdpdHVkZSI6MX19LCJvdGhlcklkZW50aWZpZXIiOlt7InR5cGUiOiJJZGVudGlmaWVyRW5
+0cnkiLCJpZGVudGlmaWVyIjoiMTIzNDUiLCJpZGVudGlmaWVyVHlwZSI6InNvdXJjZWRJZCJ9LHsidHl
+wZSI6IklkZW50aWZpZXJFbnRyeSIsImlkZW50aWZpZXIiOiI2Nzg5MCIsImlkZW50aWZpZXJUeXBlIjo
+ibmF0aW9uYWxJZGVudGl0eU51bWJlciJ9XSwib2ZmaWNpYWwiOiJIb3JhY2UgTWFubiIsInBhcmVudE9
+yZyI6eyJpZCI6ImRpZDpleGFtcGxlOjEyMzQ1Njc4OSIsInR5cGUiOlsiUHJvZmlsZSJdLCJuYW1lIjo
+iVW5pdmVyc2FsIFVuaXZlcnNpdGllcyJ9fSwiaXNzdWFuY2VEYXRlIjoiMjAxMC0wMS0wMVQwMDowMDo
+wMFoiLCJleHBpcmF0aW9uRGF0ZSI6IjIwMjAtMDEtMDFUMDA6MDA6MDBaIiwiY3JlZGVudGlhbFNjaGV
+tYSI6W3siaWQiOiJodHRwczovL3B1cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvc2NoZW1hL2F
+jaGlldmVtZW50Y3JlZGVudGlhbC5qc29uIiwidHlwZSI6IjFFZFRlY2hKc29uU2NoZW1hVmFsaWRhdG9
+yMjAxOSJ9XSwiY3JlZGVudGlhbFN0YXR1cyI6eyJpZCI6Imh0dHBzOi8vMWVkdGVjaC5lZHUvY3JlZGV
+udGlhbHMvMzczMi9yZXZvY2F0aW9ucyIsInR5cGUiOiIxRWRUZWNoUmV2b2NhdGlvbkxpc3QifSwicmV
+mcmVzaFNlcnZpY2UiOnsiaWQiOiJodHRwOi8vMWVkdGVjaC5lZHUvY3JlZGVudGlhbHMvMzczMiIsInR
+5cGUiOiIxRWRUZWNoQ3JlZGVudGlhbFJlZnJlc2gifX0sImV4cCI6MTU3NzgzNjgwMCwiaXNzIjoiaHR
+0cHM6Ly8xZWR0ZWNoLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5iZiI6MTI2MjMwNDAwMCwianRpIjoiaHR
+0cDovLzFlZHRlY2guZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhbXBsZTplYmZlYjF
+mNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.pYfm17-IHEewR5L2nD3QpWplh8QpLg88BZ5bTcTQKD58z9bL
+ggJ4me9g6PFbWFqZd-h1ig-UI_DPkeVm-LK-9mthWa7lTUH4NwiULZEDPpHiOfi1uM_liABs67Jcdm7C
+dOKHihZkX-_l93oXWaJn62GqY5YArL1hmqasg192lPiGslzN49yQNmteq_PehYlFadSvNo4c6rYPH27O
+HXShgbGMWrgzAZ3ju6MoWzdpgLpb_OXcm28wHbDDCTu3xPKqkQYOej1OnhB9krp6vuq7rgaYaFgBhWNP
+GM8aF-Hhqjz8FvU5UWCebcXfi29SgPR9-PV5fC4hYMkDoUBW1vk2ng</pre></div></div></div>
 
 
     </section>
@@ -9352,11 +11084,11 @@ l.json",
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-05-27T17:56:55Z",
+      "created": "2022-05-27T17:59:57Z",
       "verificationMethod": "https://accrediter.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z2KHM7vFriyMnBWoxfeTPMRBy6LW8zm7PY3hKVFDPLFtGF1W8zr47u1ALv9
-QV7iLjVSRnHEkU66wUjHCJmuNsYFE9"
+      "proofValue": "z62WTj7jjQK289c7p6zunFLbNtA9xpBnrxrGMwhYUDLqH5hBQNqXqjng47B
+7yDxDTb6NU9gNHXUSNT8aph6r8ahT7"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -9440,11 +11172,11 @@ vMzczMi9yZXZvY2F0aW9ucyIsInR5cGUiOiIxRWRUZWNoUmV2b2NhdGlvbkxpc3QifSwicmVmcmVzaFN
 lcnZpY2UiOnsiaWQiOiJodHRwOi8vc3RhdGUuZ292L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjoiMUV
 kVGVjaENyZWRlbnRpYWxSZWZyZXNoIn19LCJleHAiOjE1Nzc4MzY4MDAsImlzcyI6Imh0dHBzOi8vc3R
 hdGUuZ292L2lzc3VlcnMvNTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAwLCJzdWIiOiJodHRwczovLzFlZHR
-lY2guZWR1L2lzc3VlcnMvNTY1MDQ5In0.YQzThsAyx31if33_v8F90nUIu_luUw_H4pz5tdrbSvDIR1h
-TVlXME3_51Wf_ypGaixBNnHbpz9okIkL1KSDQ9ya4FQtAwsrot0ROXaGWs81JQQi7_gr02CQSh5FNBt5
-ZGT8dw92HqiTgY-HCyIDdmdlAl0nupJBijyIg2UE5LUYCfizNrsuoLc8JGq4EhwnDXsW8zzVEzaXs--B
-nlJpf0TnOj446z961qayhIC0xqGt6ZIN7S1QbSR75n9KjiIsbO-U5fBSyZn7OYicYQqJI1j6uDA-Oldk
-aS0NzZO_pkipQf3UPRmiQDVtVa-sLxOU2Cm2bOJn7nTB31hvZUI9teQ</pre></div></div></div>
+lY2guZWR1L2lzc3VlcnMvNTY1MDQ5In0.a-kdTDaq8R07Cb67C7lsC7MCHBz_SShl9TtGANtblh86qTY
+jbRg2HveX_6UcxHdzrx2kvUoxinBx1cWbRKa8g11e6114-L_O1mh60NLqMiMmpO8g6apLHJC530BkG3_
+FrXexaO3VhoapwzhHI-uy4jqdF6KMVXzru9hgnc_DAlbdEUFBp-WVYlsvNqPeLzZsOssHatjSXF2xy5G
+Hfda8Yc3OSSZmvlBxSPxWp8MQfjJgGk5a5DL4H5RwhYnGmzF23ZvWtC2VeyJI-BlTnh6Rwum_W2pTdxr
+T7tMT4U3c0vUjkFBHDx-sPwhieDUtsY0jKlqRTu7koRUqsZYbcvuL5A</pre></div></div></div>
 
 
     </section>
@@ -9471,7 +11203,7 @@ aS0NzZO_pkipQf3UPRmiQDVtVa-sLxOU2Cm2bOJn7nTB31hvZUI9teQ</pre></div></div></div>
       </ul></section>
   <section class="appendix" id="issue-summary"><h2 id="f-issue-summary"><bdi class="secno">F. </bdi>Issue Summary<a class="self-link" aria-label="§" href="#issue-summary"></a></h2>
     <h1>Issue Summary</h1>
-  <ul><li><a href="#issue-container-number-1">Issue 1</a><span style="text-transform: none">: Verify the schema</span></li><li><a href="#issue-container-number-2">Issue 2</a><span style="text-transform: none">: Use credentialStatus to determine if the credential has been revoked</span></li><li><a href="#issue-container-number-3">Issue 3</a><span style="text-transform: none">: Should nested assertions be verified?</span></li><li><a href="#issue-container-number-4">Issue 4</a><span style="text-transform: none">: Invalid JSON</span></li></ul></section>
+  <ul><li><a href="#issue-container-number-1">Issue 1</a><span style="text-transform: none">: Verify the schema</span></li><li><a href="#issue-container-number-2">Issue 2</a><span style="text-transform: none">: Use credentialStatus to determine if the credential has been revoked</span></li><li><a href="#issue-container-number-3">Issue 3</a><span style="text-transform: none">: Should nested assertions be verified?</span></li></ul></section>
 
   <section id="history" class="appendix">
     <h2 id="g-revision-history"><bdi class="secno">G. </bdi>Revision History<a class="self-link" aria-label="§" href="#history"></a></h2>
@@ -10506,7 +12238,7 @@ function hidePanel(panel) {
         Please refer to Document Name: Open Badges Specification
         3.0
       </p>
-      <p>Date: @@@FIXME(conf.specDate)</p>
+      <p>Date: 27 May 2022</p>
       <div></div>
     </div>
   </footer></body></html>
