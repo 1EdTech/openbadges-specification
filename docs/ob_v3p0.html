@@ -1523,14 +1523,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 <body class="informative toc-inline" data-cite="did-core vc-data-model"><header>
     <div class="header-top">
       <h1 class="title" id="title">Open Badges Specification</h1>
-      <a href="https://www.imsglobal.org" id="ims-logo">
-        <img src="https://www.imsglobal.org/sites/default/files/IMSglobalreg2_2.png" alt="IMS logo">
+      <a href="https://www.1edtech.org" id="1edtech-logo" style="margin-left:27px">
+        <img src="https://purl.imsglobal.org/respec/1edtech_logo_color_with_tagline.svg" width="300" height="105" alt="1EdTech logo">
       </a>
     </div>
     <div class="subtitle">
         IMS Base Document<br>Spec Version 3.0
       </div> <span class="statusPD" data-content="IMS Base Document">IMS Base Document</span>
-    <table id="version-table" title="Version/Release Details" summary="Details about the version and release.">
+    <table id="version-table" title="Version/Release Details">
     <tbody>
       <tr>
         <td>Document Version:</td>
@@ -1538,11 +1538,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </tr>
       <tr>
         <td>Date Issued:</td>
-        <td>26 May 2022</td>
+        <td>@@@FIXME(conf.specDate)</td>
       </tr>
       <tr>
         <td>Status:</td>
-        <td>This document is for review and comment by IMS Contributing Members.</td>
+        <td>Unknown &lt;code&gt;specStatus: "IMS Base Document"&lt;/code&gt;</td>
       </tr>
       <tr>
         <td>This version:</td>
@@ -1558,8 +1558,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <tr>
       <td>Issue Tracker</td>
       <td>
+        <table style="margin:0;border:none">
+          <tbody><tr>
+            <td>
     <a href="https://github.com/IMSGlobal/openbadges-specification/issues">https://github.com/IMSGlobal/openbadges-specification/issues</a>
   </td>
+          </tr>
+        </tbody></table>
+      </td>
     </tr>
     </tbody>
   </table> <div id="ipr">
@@ -1572,13 +1578,13 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         document, and to provide supporting documentation.
       </p>
       <p>
-        IMS takes no position regarding the validity or scope of any
+        1EdTech takes no position regarding the validity or scope of any
         intellectual property or other rights that might be claimed to pertain
         implementation or use of the technology described in this document or
         the extent to which any license under such rights might or might not be
         available; neither does it represent that it has made any effort to
-        identify any such rights. Information on IMS's procedures with respect
-        to rights in IMS specifications can be found at the IMS Intellectual
+        identify any such rights. Information on 1EdTech's procedures with respect
+        to rights in 1EdTech specifications can be found at the 1EdTech Intellectual
         Property Rights webpage:
         <a href="http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf">
           http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf </a>.
@@ -1621,7 +1627,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </table> <div id="disclosure">
       <p>
         Use of this specification to develop products or services is governed by
-        the license with IMS found on the IMS website:
+        the license with 1EdTech found on the 1EdTech website:
         <a href="http://www.imsglobal.org/speclicense.html">
           http://www.imsglobal.org/speclicense.html</a>.
       </p>
@@ -1631,7 +1637,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </p>
       <p>
         The limited permissions granted above are perpetual and will not be
-        revoked by IMS or its successors or assigns.
+        revoked by 1EdTech or its successors or assigns.
       </p>
       <p>
         THIS SPECIFICATION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND
@@ -1651,8 +1657,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     </div>
     <div id="cpr">
     <p>
-      © 2022 IMS Global Learning Consortium, Inc. All
-      Rights Reserved.
+      © 2022 1EdTech™ Consortium, Inc. All Rights Reserved.
     </p>
     <p>
       Trademark information:
@@ -1662,7 +1667,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </div>
   </header>
 
-  <section id="abstract" data-format="markdown" class="introductory"><h2 id="abstract-0">Abstract<a class="self-link" aria-label="§" href="#abstract"></a></h2><p>This specification is a new version of the <a href="https://www.imsglobal.org/activity/digital-badges">IMS Global Open Badges Specification</a> that aligns with the conventions of the <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite> for the use cases of <a data-link-type="dfn" href="#dfn-defined-achievement-claim" class="internalDFN" id="ref-for-dfn-defined-achievement-claim-1" title="Defined Achievement Claim: An assertion that the learner achieved a specific achievement.">Defined Achievement Claim</a> and a <a data-link-type="dfn" href="#dfn-skill-claim" class="internalDFN" id="ref-for-dfn-skill-claim-1" title="Skill Claim: An assertion that the learner has the specified skill.">Skill Claim</a>. The credentials that are produced are easily be bundled into <a data-link-type="dfn" href="#dfn-clr" class="internalDFN" id="ref-for-dfn-clr-1" title="Comprehensive Learner Record (CLR): Set of assertions that can be packaged as a verifiable credential.">Comprehensive Learner Records</a> and <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-1" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">Verifiable Presentations</a>. Portability and learner data privacy are improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract-0">Abstract<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#audiences"><bdi class="secno">1.1 </bdi>Audiences<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#document-set"><bdi class="secno">1.2 </bdi>Document Set<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#docs-openapi"><bdi class="secno">1.2.1 </bdi>OpenAPI 3.0 Files for the Badge Connect API<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#json-ld-context-file"><bdi class="secno">1.2.2 </bdi>JSON-LD Context File<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#json-schema"><bdi class="secno">1.2.3 </bdi>JSON Schema<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1.3 </bdi>Conformance Statements<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">1.4 </bdi>Terminology<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#conceptual-model"><bdi class="secno">1.5 </bdi>Conceptual Model<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">2. </bdi>Overview<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#what-is-the-problem-this-solves-for"><bdi class="secno">2.1 </bdi>What is the problem this solves for?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#what-does-adopting-verifiable-credentials-entail"><bdi class="secno">2.2 </bdi>What does adopting Verifiable Credentials entail?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#benefits-and-opportunities"><bdi class="secno">2.3 </bdi>Benefits and Opportunities<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#interoperability-with-digital-wallets-verifiable-presentations-and-learner-experiences"><bdi class="secno">2.3.1 </bdi>Interoperability with Digital Wallets, Verifiable Presentations, and Learner Experiences<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiable-credentials-support-increases-learner-data-privacy-and-trustworthiness-of-open-badges"><bdi class="secno">2.3.2 </bdi>Verifiable Credentials Support Increases Learner Data Privacy and Trustworthiness of Open Badges<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#decentralized-identifiers-and-self-sovereign-identity"><bdi class="secno">2.3.3 </bdi>Decentralized Identifiers and Self-Sovereign Identity<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#aligning-open-badges-and-clr-with-common-assertion-and-achievement-models"><bdi class="secno">2.3.4 </bdi>Aligning Open Badges and CLR with Common Assertion and Achievement Models<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#differentiating-issuers-and-creators"><bdi class="secno">2.3.5 </bdi>Differentiating Issuers and Creators<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#skill-assertions"><bdi class="secno">2.4 </bdi>Skill Assertions<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">3. </bdi>Use Cases<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#assertion-issuance-to-wallet"><bdi class="secno">3.1 </bdi>Assertion Issuance to Wallet<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#assertion-issuance-without-a-wallet"><bdi class="secno">3.2 </bdi>Assertion Issuance Without a Wallet<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#recipient-presentation-of-assertion"><bdi class="secno">3.3 </bdi>Recipient Presentation of Assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#license-issuance"><bdi class="secno">3.4 </bdi>License Issuance<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#single-skill-assertion"><bdi class="secno">3.5 </bdi>Single Skill Assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#mapping-skills"><bdi class="secno">3.6 </bdi>Mapping Skills<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifying-continuing-education"><bdi class="secno">3.7 </bdi>Verifying Continuing Education<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#self-assertion"><bdi class="secno">3.8 </bdi>Self-assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsement"><bdi class="secno">3.9 </bdi>Endorsement<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#re-issue-a-3-0-badge-to-a-3-0-badge"><bdi class="secno">3.10 </bdi>Re-issue a &lt;= 3.0 Badge to a 3.0 Badge<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#authorization-to-issue-given-by-creator-to-issuer"><bdi class="secno">3.11 </bdi>Authorization to Issue Given by Creator to Issuer<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#revocation-of-an-issued-credential"><bdi class="secno">3.12 </bdi>Revocation of an Issued Credential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#badge-class-status"><bdi class="secno">3.13 </bdi>Badge Class Status<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#getting-started"><bdi class="secno">4. </bdi>Getting Started<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#new-to-open-badges"><bdi class="secno">4.1 </bdi>New to Open Badges<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#migrating-from-open-badges-2-x"><bdi class="secno">4.2 </bdi>Migrating from Open Badges 2.x<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#differences-between-version-2-0-and-3-0"><bdi class="secno">4.2.1 </bdi>Differences Between Version 2.0 and 3.0<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#differences-between-version-2-1-and-3-0"><bdi class="secno">4.2.2 </bdi>Differences Between Version 2.1 and 3.0<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#docformat"><bdi class="secno">5. </bdi>Open Badges Document Formats<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#file-format"><bdi class="secno">5.1 </bdi>File Format<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#web-resource"><bdi class="secno">5.2 </bdi>Web Resource<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#png"><bdi class="secno">5.3.1 </bdi>PNG<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#png-extracting"><bdi class="secno">5.3.1.2 </bdi>Extracting<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#svg"><bdi class="secno">5.3.2 </bdi>SVG<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#svg-baking"><bdi class="secno">5.3.2.1 </bdi>Baking<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#extracting"><bdi class="secno">5.3.2.2 </bdi>Extracting<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#api"><bdi class="secno">6. </bdi>Open Badges API<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">6.1 </bdi>Architecture<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#api-endpoints"><bdi class="secno">6.2 </bdi>Secure REST Endpoints<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#getcredentials"><bdi class="secno">6.2.1 </bdi>getCredentials<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#postcredential"><bdi class="secno">6.2.2 </bdi>postCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#getprofile"><bdi class="secno">6.2.3 </bdi>getProfile<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#postprofile"><bdi class="secno">6.2.4 </bdi>postProfile<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#discovery-endpoints"><bdi class="secno">6.3 </bdi>Service Discovery Endpoint<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#getservicedescription"><bdi class="secno">6.3.1 </bdi>getServiceDescription<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#paging-0"><bdi class="secno">6.4 </bdi>Paging<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#retry-behavior-0"><bdi class="secno">6.5 </bdi>Retry Behavior<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#api-security"><bdi class="secno">7. </bdi>Open Badges API Security<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#oauth2acg"><bdi class="secno">7.1 </bdi>Using OAuth 2.0 Authorization Code Grant<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#acg-registration"><bdi class="secno">7.1.1 </bdi>Dynamic Client Registration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#acg-tokens"><bdi class="secno">7.1.2 </bdi>Obtaining Tokens<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#acg-authenticating"><bdi class="secno">7.1.3 </bdi>Authenticating with Tokens<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#token-refresh"><bdi class="secno">7.2 </bdi>Token Refresh<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#token-revocation"><bdi class="secno">7.3 </bdi>Token Revocation<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#data-integrity"><bdi class="secno">8. </bdi>Proofs (Signatures)<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#proof-formats"><bdi class="secno">8.1 </bdi>Proof Formats<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-proof"><bdi class="secno">8.2 </bdi>JSON Web Token Proof Format<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jwt-terminology"><bdi class="secno">8.2.1 </bdi>Terminology<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-overview"><bdi class="secno">8.2.2 </bdi>Overview<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#joseheader"><bdi class="secno">8.2.3 </bdi>Create the JOSE Header<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#create-the-jwt-payload"><bdi class="secno">8.2.4 </bdi>Create the JWT Payload<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sign-nested-credentials"><bdi class="secno">8.2.4.1 </bdi>Sign Nested Credentials<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-payload-format"><bdi class="secno">8.2.4.2 </bdi>JWT Payload Format<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#jwt-signing"><bdi class="secno">8.2.5 </bdi>Create the Proof<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-verify"><bdi class="secno">8.2.6 </bdi>Verify a Credential or Presentation<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jwt-verify-credential"><bdi class="secno">8.2.6.1 </bdi>Verify a Credential VC-JWT Signature<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-verify-presentation"><bdi class="secno">8.2.6.2 </bdi>Verify a Presentation VC-JWT Signature<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#lds-proof"><bdi class="secno">8.3 </bdi>Linked Data Proof Format<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#create-the-proof"><bdi class="secno">8.3.1 </bdi>Create the Proof<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#lds-verify"><bdi class="secno">8.3.2 </bdi>Verify a CLR Credential or Presentation Linked Data Signature<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#key-management"><bdi class="secno">8.4 </bdi>Key Management<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#dereference"><bdi class="secno">8.5 </bdi>Dereferencing the Public Key<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#verification"><bdi class="secno">9. </bdi>Verification<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#vc-extensions"><bdi class="secno">10. </bdi>Verifiable Credentials Extensions<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#best-practices-and-implementation-guide"><bdi class="secno">11. </bdi>Best Practices and Implementation Guide<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#terminology-0"><bdi class="secno">11.1 </bdi>Terminology<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#support-for-decentralized-identifiers-dids"><bdi class="secno">11.2 </bdi>Support for Decentralized Identifiers (DIDs)<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance-and-certification-guide"><bdi class="secno">12. </bdi>Conformance and Certification Guide<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#the-conformance-process"><bdi class="secno">12.1 </bdi>The Conformance Process<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#issuer-conformance"><bdi class="secno">12.2 </bdi>Open Badges 3.0 Issuer Service Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#issuer-tests"><bdi class="secno">12.2.1 </bdi>Tests<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#displayer-conformance"><bdi class="secno">12.3 </bdi>Open Badges 3.0 Displayer Service Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#display-tests"><bdi class="secno">12.3.1 </bdi>Tests<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#host-conformance"><bdi class="secno">12.4 </bdi>Open Badges 3.0 Host Service Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#tests-host"><bdi class="secno">12.4.1 </bdi>Tests<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-consumer-read"><bdi class="secno">12.5 </bdi>Service Consumer (Read) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-consumer-read-endpoint-support"><bdi class="secno">12.5.1 </bdi>Required Service Consumer (Read) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-consumer-read-compliance"><bdi class="secno">12.5.2 </bdi>Service Consumer (Read) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-consumer-write"><bdi class="secno">12.6 </bdi>Service Consumer (Write) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-consumer-write-endpoint-support"><bdi class="secno">12.6.1 </bdi>Required Service Consumer (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#optional-service-consumer-write-endpoint-support"><bdi class="secno">12.6.2 </bdi>Optional Service Consumer (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-consumer-write-compliance"><bdi class="secno">12.6.3 </bdi>Service Consumer (Write) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-provider-read"><bdi class="secno">12.7 </bdi>Service Provider (Read) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-provider-read-endpoint-support"><bdi class="secno">12.7.1 </bdi>Required Service Provider (Read) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-provider-read-compliance"><bdi class="secno">12.7.2 </bdi>Service Provider (Read) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-provider-write"><bdi class="secno">12.8 </bdi>Service Provider (Write) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-provider-write-endpoint-support"><bdi class="secno">12.8.1 </bdi>Required Service Provider (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#optional-service-provider-write-endpoint-support"><bdi class="secno">12.8.2 </bdi>Optional Service Provider (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-provider-write-compliance"><bdi class="secno">12.8.3 </bdi>Service Provider (Write) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#serialization"><bdi class="secno">A. </bdi>Serialization<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#json"><bdi class="secno">A.1 </bdi>JSON<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#json-ld"><bdi class="secno">A.2 </bdi>JSON-LD<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#datamodels"><bdi class="secno">B. </bdi>Data Models</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-0"><bdi class="secno">B.1 </bdi>Shared Digital Credentials Data Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#achievementcredential"><bdi class="secno">B.1.1 </bdi>AchievementCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#achievementsubject"><bdi class="secno">B.1.2 </bdi>AchievementSubject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#achievement-0"><bdi class="secno">B.1.3 </bdi>Achievement<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#address"><bdi class="secno">B.1.4 </bdi>Address<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#alignment"><bdi class="secno">B.1.5 </bdi>Alignment<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#criteria"><bdi class="secno">B.1.6 </bdi>Criteria<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsementcredential"><bdi class="secno">B.1.7 </bdi>EndorsementCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsementsubject"><bdi class="secno">B.1.8 </bdi>EndorsementSubject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#evidence"><bdi class="secno">B.1.9 </bdi>Evidence<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#geocoordinates"><bdi class="secno">B.1.10 </bdi>GeoCoordinates<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#identifierentry"><bdi class="secno">B.1.11 </bdi>IdentifierEntry<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#identityobject"><bdi class="secno">B.1.12 </bdi>IdentityObject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#image"><bdi class="secno">B.1.13 </bdi>Image<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#profile"><bdi class="secno">B.1.14 </bdi>Profile<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#related"><bdi class="secno">B.1.15 </bdi>Related<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#result-0"><bdi class="secno">B.1.16 </bdi>Result<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#resultdescription"><bdi class="secno">B.1.17 </bdi>ResultDescription<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#rubriccriterionlevel-0"><bdi class="secno">B.1.18 </bdi>RubricCriterionLevel<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiablecredential"><bdi class="secno">B.1.19 </bdi>VerifiableCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiablepresentation"><bdi class="secno">B.1.20 </bdi>VerifiablePresentation<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#credentialschema"><bdi class="secno">B.1.21 </bdi>CredentialSchema<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#credentialstatus"><bdi class="secno">B.1.22 </bdi>CredentialStatus<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#credentialsubject"><bdi class="secno">B.1.23 </bdi>CredentialSubject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#proof"><bdi class="secno">B.1.24 </bdi>Proof<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#refreshservice"><bdi class="secno">B.1.25 </bdi>RefreshService<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#achievementtype-enumeration"><bdi class="secno">B.1.26 </bdi>AchievementType Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#alignmenttargettype-enumeration"><bdi class="secno">B.1.27 </bdi>AlignmentTargetType Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#identifiertypeenum-enumeration"><bdi class="secno">B.1.28 </bdi>IdentifierTypeEnum Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#resulttype-enumeration"><bdi class="secno">B.1.29 </bdi>ResultType Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#resultstatustype-enumeration"><bdi class="secno">B.1.30 </bdi>ResultStatusType Enumeration<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-1"><bdi class="secno">B.2 </bdi>Open Badges API Data Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#getopenbadgecredentialsresponse"><bdi class="secno">B.2.1 </bdi>GetOpenBadgeCredentialsResponse<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#servicedescriptiondocument"><bdi class="secno">B.2.2 </bdi>ServiceDescriptionDocument<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapicomponents"><bdi class="secno">B.2.3 </bdi>OpenApiComponents<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapiinfo"><bdi class="secno">B.2.4 </bdi>OpenApiInfo<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapioauth2securityscheme"><bdi class="secno">B.2.5 </bdi>OpenApiOAuth2SecurityScheme<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapisecurityschemes"><bdi class="secno">B.2.6 </bdi>OpenApiSecuritySchemes<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-2"><bdi class="secno">B.3 </bdi>Shared API Data Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#imsx_statusinfo"><bdi class="secno">B.3.1 </bdi>Imsx_StatusInfo<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codemajor-enumeration"><bdi class="secno">B.3.2 </bdi>Imsx_CodeMajor Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_severity-enumeration"><bdi class="secno">B.3.3 </bdi>Imsx_Severity Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codeminor"><bdi class="secno">B.3.4 </bdi>Imsx_CodeMinor<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codeminorfield"><bdi class="secno">B.3.5 </bdi>Imsx_CodeMinorField<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codeminorfieldvalue-enumeration"><bdi class="secno">B.3.6 </bdi>Imsx_CodeMinorFieldValue Enumeration<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-3"><bdi class="secno">B.4 </bdi>Shared OAuth 2.0 Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#authorizationerror-vocabulary"><bdi class="secno">B.4.1 </bdi>AuthorizationError Vocabulary<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#registrationerror-vocabulary"><bdi class="secno">B.4.2 </bdi>RegistrationError Vocabulary<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#tokenerror-vocabulary"><bdi class="secno">B.4.3 </bdi>TokenError Vocabulary<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-4"><bdi class="secno">B.5 </bdi>Shared Proof Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#presentationjwspayload"><bdi class="secno">B.5.1 </bdi>PresentationJwsPayload<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#ed25519verificationkey2020"><bdi class="secno">B.5.2 </bdi>Ed25519VerificationKey2020<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwk"><bdi class="secno">B.5.3 </bdi>JWK<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwks"><bdi class="secno">B.5.4 </bdi>JWKS<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-5"><bdi class="secno">B.6 </bdi>Derived Types<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-6"><bdi class="secno">B.7 </bdi>Primitive Types<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#extending"><bdi class="secno">C. </bdi>Extending and Profiling the Standard<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#extending-the-data-model"><bdi class="secno">C.1 </bdi>Extending the Data Model<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#extending-enumerated-vocabularies"><bdi class="secno">C.2 </bdi>Extending Enumerated Vocabularies<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#extending-the-api"><bdi class="secno">C.3 </bdi>Extending the API<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#profiles"><bdi class="secno">C.4 </bdi>Profiles<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#examples"><bdi class="secno">D. </bdi>Examples<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#basic-openbadgecredential"><bdi class="secno">D.1 </bdi>Basic OpenBadgeCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#complete-openbadgecredential"><bdi class="secno">D.2 </bdi>Complete OpenBadgeCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsementcredential-0"><bdi class="secno">D.3 </bdi>EndorsementCredential<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">E. </bdi>List of Figures</a></li><li class="tocline"><a class="tocxref" href="#issue-summary"><bdi class="secno">F. </bdi>Issue Summary</a></li><li class="tocline"><a class="tocxref" href="#history"><bdi class="secno">G. </bdi>Revision History</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">H. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">H.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">H.2 </bdi>Informative references</a></li></ol></li><li class="tocline"><a class="tocxref" href="#contributors"><bdi class="secno">I. </bdi>List of Contributors</a></li></ol></nav>
+  <section id="abstract" data-format="markdown" class="introductory"><h2 id="abstract-0">Abstract<a class="self-link" aria-label="§" href="#abstract"></a></h2><p>This specification is a new version of the <a href="https://www.imsglobal.org/activity/digital-badges">IMS Global Open Badges Specification</a> that aligns with the conventions of the <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite> for the use cases of <a data-link-type="dfn" href="#dfn-defined-achievement-claim" class="internalDFN" id="ref-for-dfn-defined-achievement-claim-1" title="Defined Achievement Claim: An assertion that the learner achieved a specific achievement.">Defined Achievement Claim</a> and a <a data-link-type="dfn" href="#dfn-skill-claim" class="internalDFN" id="ref-for-dfn-skill-claim-1" title="Skill Claim: An assertion that the learner has the specified skill.">Skill Claim</a>. The credentials that are produced are easily be bundled into <a data-link-type="dfn" href="#dfn-clr" class="internalDFN" id="ref-for-dfn-clr-1" title="Comprehensive Learner Record (CLR): Set of assertions that can be packaged as a verifiable credential.">Comprehensive Learner Records</a> and <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-1" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">Verifiable Presentations</a>. Portability and learner data privacy are improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract-0">Abstract<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#audiences"><bdi class="secno">1.1 </bdi>Audiences<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#document-set"><bdi class="secno">1.2 </bdi>Document Set<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#docs-openapi"><bdi class="secno">1.2.1 </bdi>OpenAPI 3.0 Files for the Badge Connect API<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#json-ld-context-file"><bdi class="secno">1.2.2 </bdi>JSON-LD Context File<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#json-schema"><bdi class="secno">1.2.3 </bdi>JSON Schema<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1.3 </bdi>Conformance Statements<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">1.4 </bdi>Terminology<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#conceptual-model"><bdi class="secno">1.5 </bdi>Conceptual Model<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">2. </bdi>Overview<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#what-is-the-problem-this-solves-for"><bdi class="secno">2.1 </bdi>What is the problem this solves for?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#what-does-adopting-verifiable-credentials-entail"><bdi class="secno">2.2 </bdi>What does adopting Verifiable Credentials entail?<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#benefits-and-opportunities"><bdi class="secno">2.3 </bdi>Benefits and Opportunities<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#interoperability-with-digital-wallets-verifiable-presentations-and-learner-experiences"><bdi class="secno">2.3.1 </bdi>Interoperability with Digital Wallets, Verifiable Presentations, and Learner Experiences<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiable-credentials-support-increases-learner-data-privacy-and-trustworthiness-of-open-badges"><bdi class="secno">2.3.2 </bdi>Verifiable Credentials Support Increases Learner Data Privacy and Trustworthiness of Open Badges<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#decentralized-identifiers-and-self-sovereign-identity"><bdi class="secno">2.3.3 </bdi>Decentralized Identifiers and Self-Sovereign Identity<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#aligning-open-badges-and-clr-with-common-assertion-and-achievement-models"><bdi class="secno">2.3.4 </bdi>Aligning Open Badges and CLR with Common Assertion and Achievement Models<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#differentiating-issuers-and-creators"><bdi class="secno">2.3.5 </bdi>Differentiating Issuers and Creators<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#skill-assertions"><bdi class="secno">2.4 </bdi>Skill Assertions<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">3. </bdi>Use Cases<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#assertion-issuance-to-wallet"><bdi class="secno">3.1 </bdi>Assertion Issuance to Wallet<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#assertion-issuance-without-a-wallet"><bdi class="secno">3.2 </bdi>Assertion Issuance Without a Wallet<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#recipient-presentation-of-assertion"><bdi class="secno">3.3 </bdi>Recipient Presentation of Assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#license-issuance"><bdi class="secno">3.4 </bdi>License Issuance<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#single-skill-assertion"><bdi class="secno">3.5 </bdi>Single Skill Assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#mapping-skills"><bdi class="secno">3.6 </bdi>Mapping Skills<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifying-continuing-education"><bdi class="secno">3.7 </bdi>Verifying Continuing Education<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#self-assertion"><bdi class="secno">3.8 </bdi>Self-assertion<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsement"><bdi class="secno">3.9 </bdi>Endorsement<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#re-issue-a-3-0-badge-to-a-3-0-badge"><bdi class="secno">3.10 </bdi>Re-issue a &lt;= 3.0 Badge to a 3.0 Badge<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#authorization-to-issue-given-by-creator-to-issuer"><bdi class="secno">3.11 </bdi>Authorization to Issue Given by Creator to Issuer<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#revocation-of-an-issued-credential"><bdi class="secno">3.12 </bdi>Revocation of an Issued Credential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#badge-class-status"><bdi class="secno">3.13 </bdi>Badge Class Status<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#getting-started"><bdi class="secno">4. </bdi>Getting Started<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#new-to-open-badges"><bdi class="secno">4.1 </bdi>New to Open Badges<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#migrating-from-open-badges-2-x"><bdi class="secno">4.2 </bdi>Migrating from Open Badges 2.x<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#differences-between-version-2-0-and-3-0"><bdi class="secno">4.2.1 </bdi>Differences Between Version 2.0 and 3.0<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#differences-between-version-2-1-and-3-0"><bdi class="secno">4.2.2 </bdi>Differences Between Version 2.1 and 3.0<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#docformat"><bdi class="secno">5. </bdi>Open Badges Document Formats<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#file-format"><bdi class="secno">5.1 </bdi>File Format<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#web-resource"><bdi class="secno">5.2 </bdi>Web Resource<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#png"><bdi class="secno">5.3.1 </bdi>PNG<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#png-extracting"><bdi class="secno">5.3.1.2 </bdi>Extracting<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#svg"><bdi class="secno">5.3.2 </bdi>SVG<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#svg-baking"><bdi class="secno">5.3.2.1 </bdi>Baking<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#extracting"><bdi class="secno">5.3.2.2 </bdi>Extracting<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#api"><bdi class="secno">6. </bdi>Open Badges API<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">6.1 </bdi>Architecture<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#api-endpoints"><bdi class="secno">6.2 </bdi>Secure REST Endpoints<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#getcredentials"><bdi class="secno">6.2.1 </bdi>getCredentials<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#postcredential"><bdi class="secno">6.2.2 </bdi>postCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#getprofile"><bdi class="secno">6.2.3 </bdi>getProfile<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#postprofile"><bdi class="secno">6.2.4 </bdi>postProfile<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#discovery-endpoints"><bdi class="secno">6.3 </bdi>Service Discovery Endpoint<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#getservicedescription"><bdi class="secno">6.3.1 </bdi>getServiceDescription<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#paging-0"><bdi class="secno">6.4 </bdi>Paging<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#retry-behavior-0"><bdi class="secno">6.5 </bdi>Retry Behavior<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#api-security"><bdi class="secno">7. </bdi>Open Badges API Security<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#oauth2acg"><bdi class="secno">7.1 </bdi>Using OAuth 2.0 Authorization Code Grant<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#acg-registration"><bdi class="secno">7.1.1 </bdi>Dynamic Client Registration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#acg-tokens"><bdi class="secno">7.1.2 </bdi>Obtaining Tokens<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#acg-authenticating"><bdi class="secno">7.1.3 </bdi>Authenticating with Tokens<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#token-refresh"><bdi class="secno">7.2 </bdi>Token Refresh<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#token-revocation"><bdi class="secno">7.3 </bdi>Token Revocation<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#data-integrity"><bdi class="secno">8. </bdi>Proofs (Signatures)<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#proof-formats"><bdi class="secno">8.1 </bdi>Proof Formats<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-proof"><bdi class="secno">8.2 </bdi>JSON Web Token Proof Format<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jwt-terminology"><bdi class="secno">8.2.1 </bdi>Terminology<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-overview"><bdi class="secno">8.2.2 </bdi>Overview<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#joseheader"><bdi class="secno">8.2.3 </bdi>Create the JOSE Header<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#create-the-jwt-payload"><bdi class="secno">8.2.4 </bdi>Create the JWT Payload<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sign-nested-credentials"><bdi class="secno">8.2.4.1 </bdi>Sign Nested Credentials<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-payload-format"><bdi class="secno">8.2.4.2 </bdi>JWT Payload Format<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#jwt-signing"><bdi class="secno">8.2.5 </bdi>Create the Proof<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-verify"><bdi class="secno">8.2.6 </bdi>Verify a Credential or Presentation<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jwt-verify-credential"><bdi class="secno">8.2.6.1 </bdi>Verify a Credential VC-JWT Signature<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwt-verify-presentation"><bdi class="secno">8.2.6.2 </bdi>Verify a Presentation VC-JWT Signature<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#lds-proof"><bdi class="secno">8.3 </bdi>Linked Data Proof Format<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#create-the-proof"><bdi class="secno">8.3.1 </bdi>Create the Proof<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#lds-verify"><bdi class="secno">8.3.2 </bdi>Verify a CLR Credential or Presentation Linked Data Signature<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#key-management"><bdi class="secno">8.4 </bdi>Key Management<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#dereference"><bdi class="secno">8.5 </bdi>Dereferencing the Public Key<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#verification"><bdi class="secno">9. </bdi>Verification<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#vc-extensions"><bdi class="secno">10. </bdi>Verifiable Credentials Extensions<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#best-practices-and-implementation-guide"><bdi class="secno">11. </bdi>Best Practices and Implementation Guide<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#terminology-0"><bdi class="secno">11.1 </bdi>Terminology<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#support-for-decentralized-identifiers-dids"><bdi class="secno">11.2 </bdi>Support for Decentralized Identifiers (DIDs)<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance-and-certification-guide"><bdi class="secno">12. </bdi>Conformance and Certification Guide<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#the-conformance-process"><bdi class="secno">12.1 </bdi>The Conformance Process<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#issuer-conformance"><bdi class="secno">12.2 </bdi>Open Badges 3.0 Issuer Service Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#issuer-tests"><bdi class="secno">12.2.1 </bdi>Tests<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#displayer-conformance"><bdi class="secno">12.3 </bdi>Open Badges 3.0 Displayer Service Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#display-tests"><bdi class="secno">12.3.1 </bdi>Tests<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#host-conformance"><bdi class="secno">12.4 </bdi>Open Badges 3.0 Host Service Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#tests-host"><bdi class="secno">12.4.1 </bdi>Tests<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-consumer-read"><bdi class="secno">12.5 </bdi>Service Consumer (Read) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-consumer-read-endpoint-support"><bdi class="secno">12.5.1 </bdi>Required Service Consumer (Read) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-consumer-read-compliance"><bdi class="secno">12.5.2 </bdi>Service Consumer (Read) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-consumer-write"><bdi class="secno">12.6 </bdi>Service Consumer (Write) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-consumer-write-endpoint-support"><bdi class="secno">12.6.1 </bdi>Required Service Consumer (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#optional-service-consumer-write-endpoint-support"><bdi class="secno">12.6.2 </bdi>Optional Service Consumer (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-consumer-write-compliance"><bdi class="secno">12.6.3 </bdi>Service Consumer (Write) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-provider-read"><bdi class="secno">12.7 </bdi>Service Provider (Read) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-provider-read-endpoint-support"><bdi class="secno">12.7.1 </bdi>Required Service Provider (Read) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-provider-read-compliance"><bdi class="secno">12.7.2 </bdi>Service Provider (Read) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-provider-write"><bdi class="secno">12.8 </bdi>Service Provider (Write) Conformance<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-service-provider-write-endpoint-support"><bdi class="secno">12.8.1 </bdi>Required Service Provider (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#optional-service-provider-write-endpoint-support"><bdi class="secno">12.8.2 </bdi>Optional Service Provider (Write) Endpoint Support<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-provider-write-compliance"><bdi class="secno">12.8.3 </bdi>Service Provider (Write) Compliance<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#serialization"><bdi class="secno">A. </bdi>Serialization<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#json"><bdi class="secno">A.1 </bdi>JSON<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#json-ld"><bdi class="secno">A.2 </bdi>JSON-LD<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#datamodels"><bdi class="secno">B. </bdi>Data Models</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-0"><bdi class="secno">B.1 </bdi>Shared Digital Credentials Data Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#achievementcredential"><bdi class="secno">B.1.1 </bdi>AchievementCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#achievementsubject"><bdi class="secno">B.1.2 </bdi>AchievementSubject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#achievement"><bdi class="secno">B.1.3 </bdi>Achievement<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#address"><bdi class="secno">B.1.4 </bdi>Address<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#alignment"><bdi class="secno">B.1.5 </bdi>Alignment<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#criteria"><bdi class="secno">B.1.6 </bdi>Criteria<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsementcredential"><bdi class="secno">B.1.7 </bdi>EndorsementCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsementsubject"><bdi class="secno">B.1.8 </bdi>EndorsementSubject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#evidence"><bdi class="secno">B.1.9 </bdi>Evidence<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#geocoordinates"><bdi class="secno">B.1.10 </bdi>GeoCoordinates<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#identifierentry"><bdi class="secno">B.1.11 </bdi>IdentifierEntry<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#identityobject"><bdi class="secno">B.1.12 </bdi>IdentityObject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#image"><bdi class="secno">B.1.13 </bdi>Image<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#profile"><bdi class="secno">B.1.14 </bdi>Profile<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#related"><bdi class="secno">B.1.15 </bdi>Related<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#result"><bdi class="secno">B.1.16 </bdi>Result<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#resultdescription"><bdi class="secno">B.1.17 </bdi>ResultDescription<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#rubriccriterionlevel"><bdi class="secno">B.1.18 </bdi>RubricCriterionLevel<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiablecredential"><bdi class="secno">B.1.19 </bdi>VerifiableCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#verifiablepresentation"><bdi class="secno">B.1.20 </bdi>VerifiablePresentation<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#credentialschema"><bdi class="secno">B.1.21 </bdi>CredentialSchema<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#credentialstatus"><bdi class="secno">B.1.22 </bdi>CredentialStatus<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#credentialsubject"><bdi class="secno">B.1.23 </bdi>CredentialSubject<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#proof"><bdi class="secno">B.1.24 </bdi>Proof<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#refreshservice"><bdi class="secno">B.1.25 </bdi>RefreshService<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#achievementtype-enumeration"><bdi class="secno">B.1.26 </bdi>AchievementType Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#alignmenttargettype-enumeration"><bdi class="secno">B.1.27 </bdi>AlignmentTargetType Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#identifiertypeenum-enumeration"><bdi class="secno">B.1.28 </bdi>IdentifierTypeEnum Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#resulttype-enumeration"><bdi class="secno">B.1.29 </bdi>ResultType Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#resultstatustype-enumeration"><bdi class="secno">B.1.30 </bdi>ResultStatusType Enumeration<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-1"><bdi class="secno">B.2 </bdi>Open Badges API Data Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#getopenbadgecredentialsresponse"><bdi class="secno">B.2.1 </bdi>GetOpenBadgeCredentialsResponse<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#servicedescriptiondocument"><bdi class="secno">B.2.2 </bdi>ServiceDescriptionDocument<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapicomponents"><bdi class="secno">B.2.3 </bdi>OpenApiComponents<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapiinfo"><bdi class="secno">B.2.4 </bdi>OpenApiInfo<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapioauth2securityscheme"><bdi class="secno">B.2.5 </bdi>OpenApiOAuth2SecurityScheme<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#openapisecurityschemes"><bdi class="secno">B.2.6 </bdi>OpenApiSecuritySchemes<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-2"><bdi class="secno">B.3 </bdi>Shared API Data Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#imsx_statusinfo"><bdi class="secno">B.3.1 </bdi>Imsx_StatusInfo<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codemajor-enumeration"><bdi class="secno">B.3.2 </bdi>Imsx_CodeMajor Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_severity-enumeration"><bdi class="secno">B.3.3 </bdi>Imsx_Severity Enumeration<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codeminor"><bdi class="secno">B.3.4 </bdi>Imsx_CodeMinor<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codeminorfield"><bdi class="secno">B.3.5 </bdi>Imsx_CodeMinorField<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#imsx_codeminorfieldvalue-enumeration"><bdi class="secno">B.3.6 </bdi>Imsx_CodeMinorFieldValue Enumeration<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-3"><bdi class="secno">B.4 </bdi>Shared OAuth 2.0 Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#authorizationerror-vocabulary"><bdi class="secno">B.4.1 </bdi>AuthorizationError Vocabulary<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#registrationerror-vocabulary"><bdi class="secno">B.4.2 </bdi>RegistrationError Vocabulary<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#tokenerror-vocabulary"><bdi class="secno">B.4.3 </bdi>TokenError Vocabulary<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-4"><bdi class="secno">B.5 </bdi>Shared Proof Models<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#presentationjwspayload"><bdi class="secno">B.5.1 </bdi>PresentationJwsPayload<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#ed25519verificationkey2020"><bdi class="secno">B.5.2 </bdi>Ed25519VerificationKey2020<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwk"><bdi class="secno">B.5.3 </bdi>JWK<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#jwks"><bdi class="secno">B.5.4 </bdi>JWKS<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-5"><bdi class="secno">B.6 </bdi>Derived Types<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#org-1edtech-ob-v3p0-model-6"><bdi class="secno">B.7 </bdi>Primitive Types<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#extending"><bdi class="secno">C. </bdi>Extending and Profiling the Standard<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#extending-the-data-model"><bdi class="secno">C.1 </bdi>Extending the Data Model<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#extending-enumerated-vocabularies"><bdi class="secno">C.2 </bdi>Extending Enumerated Vocabularies<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#extending-the-api"><bdi class="secno">C.3 </bdi>Extending the API<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#profiles"><bdi class="secno">C.4 </bdi>Profiles<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#examples"><bdi class="secno">D. </bdi>Examples<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#basic-openbadgecredential"><bdi class="secno">D.1 </bdi>Basic OpenBadgeCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#complete-openbadgecredential"><bdi class="secno">D.2 </bdi>Complete OpenBadgeCredential<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#endorsementcredential-0"><bdi class="secno">D.3 </bdi>EndorsementCredential<span class="formerLink" aria-label="§"></span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">E. </bdi>List of Figures</a></li><li class="tocline"><a class="tocxref" href="#issue-summary"><bdi class="secno">F. </bdi>Issue Summary</a></li><li class="tocline"><a class="tocxref" href="#history"><bdi class="secno">G. </bdi>Revision History</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">H. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">H.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">H.2 </bdi>Informative references</a></li></ol></li><li class="tocline"><a class="tocxref" href="#contributors"><bdi class="secno">I. </bdi>List of Contributors</a></li></ol></nav>
 
   <section data-format="markdown" id="introduction-0"><h2 id="introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a><a class="self-link" aria-label="§" href="#introduction"></a></h2><section id="audiences-0"><h3 id="audiences"><bdi class="secno">1.1 </bdi>Audiences<a class="self-link" aria-label="§" href="#audiences"></a><a class="self-link" aria-label="§" href="#audiences"></a></h3><p>The target readers for this document are:</p><ul>
 <li>Business Leaders - the people who are responsible for identifying the business case for using verifiable digital credentials and badges</li>
@@ -1945,11 +1950,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-05-26T20:47:59Z",
+      "created": "2022-05-27T17:56:55Z",
       "verificationMethod": "https://example.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z5gyEKP3Ee2quhpEigfdvxE8WV22SYWeo9k2G9HWnzDzBxPji3nKDpH8upL
-zs4YpLmDtssnMjmnxEYmGamsFGMr97"
+      "proofValue": "z2w13HfLTBPJ4dwrDSWT5GFvqADaCz2G1vfQL8FfhqSNHAw12z18foRMGNi
+BGSWFpsTcUqNosVZXFQYeQ8Pa4wLPa"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -2014,12 +2019,12 @@ lbWEiOlt7ImlkIjoiaHR0cHM6Ly9pbXN1bTIuaGVyb2t1YXBwLmNvbS9qc29uc2NoZW1hP2NsYXNzSWQ
 9b3JnLjFlZHRlY2gub2IudjNwMC5hY2hpZXZlbWVudGNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnN
 vblNjaGVtYVZhbGlkYXRvcjIwMTkifV19LCJpc3MiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnM
 vNTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGl
-hbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.UA
-A1EyhNSyLK5HAAJ6fBg2dt3LuAh4A75FuMnnmGR1e0L4QUZH5K2x7jKIlpD7yxBA_d4N16BegodAIb6J
-NNtf8SYJ0-hDZ0mhW4akPPDnuwoG4erCexd0JWaztD0VuOLmi7jjD7zpw9loSEgKlcB3TWFfJT1UzLiU
-G8TO8sUWEtzJkTLb26XL77GRFNDegYi-j9kYqaBh9bgqyjAWwi4eDaNUa0m1CpQ9HW1XGwwnNtI3nwrU
-_AEHTGxxqmi6oXVN5SqMsvOMBlOcOVZntRFboW_ZpHJw1Ff0CZh2VdjkzGBkZbXBVZy7udAO71dY2KJk
-z0W3-gYfaKyO1E8jxg9w</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
+hbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.RX
+9v56VOmHxmWv39io9p17CPxI21UpNI3M-XPqrZacRFduQ98qc1VXTmhMB0YYdSq8DM3iZfcHmYIwfEIZ
+H4jYLxr8jOPpSlRCCQd2_Ch5uvtnCM_lQkiVitPS-eR_se98ydtgrHSCxgyx6Nvt0I9qJpyLAOf_eliP
+WSzZvY-yxUeF5ZEsoIcU_cXiK3vrGwwjGd2Wum6qfmuCsae3kK6OgnWdjoe8j8bDRjjnlpwZMyXgcktB
+0uo47FBWdFP07t2JDAcFJga05ml9YC0_JEVZuskbqwTOt6mePe75xuGzzwpCSbnU3szKnWA1M22k158i
+rRDgkxwmSaTrq2QPAnKA</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">Example<bdi> 2</bdi></a><span class="example-title">: An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)</span>
   </div> <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">var</span> chunk = <span class="hljs-keyword">new</span> iTXt({
@@ -4915,7 +4920,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
           
         </tbody>
       </table></section>
-  <section data-class="org.1edtech.ob.v3p0.achievement.class" id="org.1edtech.ob.v3p0.achievement.class"><h4 id="achievement-0"><bdi class="secno">B.1.3 </bdi>Achievement<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.achievement.class"></a><a class="self-link" aria-label="§" href="#achievement-0"></a></h4><p>A collection of information about the accomplishment recognized by the Assertion. Many assertions may be created corresponding to one Achievement.</p><table class="simple">
+  <section data-class="org.1edtech.ob.v3p0.achievement.class" id="org.1edtech.ob.v3p0.achievement.class"><h4 id="achievement"><bdi class="secno">B.1.3 </bdi>Achievement<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.achievement.class"></a><a class="self-link" aria-label="§" href="#achievement"></a></h4><p>A collection of information about the accomplishment recognized by the Assertion. Many assertions may be created corresponding to one Achievement.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -5065,6 +5070,15 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
     <td><a href="#org.1edtech.ob.v3p0.related.class"><samp>Related</samp></a></td>
     <td>
       The related property identifies another Achievement that should be considered the same for most purposes. It is primarily intended to identify alternate language editions or previous versions of Achievements.
+      
+      
+    </td>
+    <td>[0..*]</td>
+  </tr><tr>
+    <td>resultDescription</td>
+    <td><a href="#org.1edtech.ob.v3p0.resultdescription.class"><samp>ResultDescription</samp></a></td>
+    <td>
+      he set of result descriptions that may be asserted as results with this achievement.
       
       
     </td>
@@ -5969,7 +5983,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   </tr>
           
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.result.class" id="org.1edtech.ob.v3p0.result.class"><h4 id="result-0"><bdi class="secno">B.1.16 </bdi>Result<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.result.class"></a><a class="self-link" aria-label="§" href="#result-0"></a></h4><p>Describes a result that was achieved.</p><table class="simple">
+      </table></section><section data-class="org.1edtech.ob.v3p0.result.class" id="org.1edtech.ob.v3p0.result.class"><h4 id="result"><bdi class="secno">B.1.16 </bdi>Result<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.result.class"></a><a class="self-link" aria-label="§" href="#result"></a></h4><p>Describes a result that was achieved.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -6156,7 +6170,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
       </td>
     </tr>
         </tbody>
-      </table></section><section data-class="org.1edtech.ob.v3p0.rubriccriterionlevel.class" id="org.1edtech.ob.v3p0.rubriccriterionlevel.class"><h4 id="rubriccriterionlevel-0"><bdi class="secno">B.1.18 </bdi>RubricCriterionLevel<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.rubriccriterionlevel.class"></a><a class="self-link" aria-label="§" href="#rubriccriterionlevel-0"></a></h4><p>Describes a rubric criterion level.</p><table class="simple">
+      </table></section><section data-class="org.1edtech.ob.v3p0.rubriccriterionlevel.class" id="org.1edtech.ob.v3p0.rubriccriterionlevel.class"><h4 id="rubriccriterionlevel"><bdi class="secno">B.1.18 </bdi>RubricCriterionLevel<a class="self-link" aria-label="§" href="#org.1edtech.ob.v3p0.rubriccriterionlevel.class"></a><a class="self-link" aria-label="§" href="#rubriccriterionlevel"></a></h4><p>Describes a rubric criterion level.</p><table class="simple">
         <thead>
           <tr>
             <th>Property</th>
@@ -6644,217 +6658,217 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
         </thead>
         <tbody>
           <tr>
-    <td id="achievement">Achievement</td>
+    <td id="achievementtype.achievement">Achievement</td>
     <td>
       Represents a generic achievement.
       
       
     </td>
   </tr><tr>
-    <td id="apprenticeshipcertificate">ApprenticeshipCertificate</td>
+    <td id="achievementtype.apprenticeshipcertificate">ApprenticeshipCertificate</td>
     <td>
       Credential earned through work-based learning and earn-and-learn models that meet standards and are applicable to industry trades and professions. This is an exact match of <code>ApprenticeshipCertificate</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="assessment">Assessment</td>
+    <td id="achievementtype.assessment">Assessment</td>
     <td>
       Direct, indirect, formative, and summative evaluation or estimation of the nature, ability, or quality of an entity, performance, or outcome of an action. This is an exact match of <code>Assessment</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="assignment">Assignment</td>
+    <td id="achievementtype.assignment">Assignment</td>
     <td>
       Represents the result of a curricular, or co-curricular assignment or exam.
       
       
     </td>
   </tr><tr>
-    <td id="associatedegree">AssociateDegree</td>
+    <td id="achievementtype.associatedegree">AssociateDegree</td>
     <td>
       College/university award for students typically completing the first one to two years of post secondary school education. Equivalent to an award at UNESCO ISCED 2011, Level 5. This is an exact match of <code>AssociateDegree</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="award">Award</td>
+    <td id="achievementtype.award">Award</td>
     <td>
       Represents an award.
       
       
     </td>
   </tr><tr>
-    <td id="badge">Badge</td>
+    <td id="achievementtype.badge">Badge</td>
     <td>
       Visual symbol containing verifiable claims in accordance with the Open Badges specification and delivered digitally. This is an exact match of <code>Badge</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="bachelordegree">BachelorDegree</td>
+    <td id="achievementtype.bachelordegree">BachelorDegree</td>
     <td>
       College/university award for students typically completing three to five years of education where course work and activities advance skills beyond those of the first one to two years of college/university study. Equivalent to an award at UNESCO ISCED 2011, Level 6. Use for 5-year cooperative (work-study) programs. A cooperative plan provides for alternate class attendance and employment in business, industry, or government; thus, it allows students to combine actual work experience with their college studies. Also includes bachelor's degrees in which the normal 4 years of work are completed in 3 years. This is an exact match of <code>BachelorDegree</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="certificate">Certificate</td>
+    <td id="achievementtype.certificate">Certificate</td>
     <td>
       Credential that designates requisite knowledge and skills of an occupation, profession, or academic program. This is an exact match of <code>Certificate</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="certificateofcompletion">CertificateOfCompletion</td>
+    <td id="achievementtype.certificateofcompletion">CertificateOfCompletion</td>
     <td>
       Credential that acknowledges completion of an assignment, training or other activity. A record of the activity may or may not exist, and the credential may or may not be designed as preparation for another resource such as a credential, assessment, or learning opportunity. This is an exact match of <code>CertificateOfCompletion</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="certification">Certification</td>
+    <td id="achievementtype.certification">Certification</td>
     <td>
       Time-limited, revocable, renewable credential awarded by an authoritative body for demonstrating the knowledge, skills, and abilities to perform specific tasks or an occupation. Certifications can typically be revoked if not renewed, for a violation of a code of ethics (if applicable) or proven incompetence after due process. Description of revocation criteria for a specific Certification should be defined using Revocation Profile. This is an exact match of <code>Certification</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="communityservice">CommunityService</td>
+    <td id="achievementtype.communityservice">CommunityService</td>
     <td>
       Represents community service.
       
       
     </td>
   </tr><tr>
-    <td id="competency">Competency</td>
+    <td id="achievementtype.competency">Competency</td>
     <td>
       Measurable or observable knowledge, skill, or ability necessary to successful performance of a person. This is an exact match of <code>Competency</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-asn-terms" title="Credential Transparency Description Language ASN Terms">CTDL-ASN-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="course">Course</td>
+    <td id="achievementtype.course">Course</td>
     <td>
       Represents a course completion.
       
       
     </td>
   </tr><tr>
-    <td id="cocurricular">CoCurricular</td>
+    <td id="achievementtype.cocurricular">CoCurricular</td>
     <td>
       Represents a co-curricular activity.
       
       
     </td>
   </tr><tr>
-    <td id="degree">Degree</td>
+    <td id="achievementtype.degree">Degree</td>
     <td>
       Academic credential conferred upon completion of a program or course of study, typically over multiple years at a college or university. This is an exact match of <code>Degree</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="diploma">Diploma</td>
+    <td id="achievementtype.diploma">Diploma</td>
     <td>
       Credential awarded by educational institutions for successful completion of a course of study or its equivalent. This is an exact match of <code>Diploma</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="doctoraldegree">DoctoralDegree</td>
+    <td id="achievementtype.doctoraldegree">DoctoralDegree</td>
     <td>
       Highest credential award for students who have completed both a bachelor's degree and a master's degree or their equivalent as well as independent research and/or a significant project or paper. Equivalent to UNESCO ISCED, Level 8. This is an exact match of <code>DoctoralDegree</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="fieldwork">Fieldwork</td>
+    <td id="achievementtype.fieldwork">Fieldwork</td>
     <td>
       Represents practical activities that are done away school, college, or place of work. Includes internships and practicums.
       
       
     </td>
   </tr><tr>
-    <td id="generaleducationdevelopment">GeneralEducationDevelopment</td>
+    <td id="achievementtype.generaleducationdevelopment">GeneralEducationDevelopment</td>
     <td>
       (GED) Credential awarded by examination that demonstrates that an individual has acquired secondary school-level academic skills. Equivalent to a secondary school diploma, based on passing a state- or province-selected examination such as GED, HiSET, or TASC; or to an award at UNESCO ISCED 2011 Levels 2 or 3. This is an exact match of <code>GeneralEducationDevelopment</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="journeymancertificate">JourneymanCertificate</td>
+    <td id="achievementtype.journeymancertificate">JourneymanCertificate</td>
     <td>
       Credential awarded to skilled workers on successful completion of an apprenticeship in industry trades and professions. This is an exact match of <code>JourneymanCertificate</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="learningprogram">LearningProgram</td>
+    <td id="achievementtype.learningprogram">LearningProgram</td>
     <td>
       Set of learning opportunities that leads to an outcome, usually a credential like a degree or certificate. This is an exact match of <code>LearningProgram</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="license">License</td>
+    <td id="achievementtype.license">License</td>
     <td>
       Credential awarded by a government agency or other authorized organization that constitutes legal authority to do a specific job and/or utilize a specific item, system or infrastructure and are typically earned through some combination of degree or certificate attainment, certifications, assessments, work experience, and/or fees, and are time-limited and must be renewed periodically. This is an exact match of <code>License</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="membership">Membership</td>
+    <td id="achievementtype.membership">Membership</td>
     <td>
       Represents membership.
       
       
     </td>
   </tr><tr>
-    <td id="professionaldoctorate">ProfessionalDoctorate</td>
+    <td id="achievementtype.professionaldoctorate">ProfessionalDoctorate</td>
     <td>
       Doctoral degree conferred upon completion of a program providing the knowledge and skills for the recognition, credential, or license required for professional practice. Equivalent to an award at UNESCO ISCED 2011, Level 8. This is an exact match of <code>ProfessionalDoctorate</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="qualityassurancecredential">QualityAssuranceCredential</td>
+    <td id="achievementtype.qualityassurancecredential">QualityAssuranceCredential</td>
     <td>
       Credential assuring that an organization, program, or awarded credential meets prescribed requirements and may include development and administration of qualifying examinations. This is an exact match of <code>QualityAssuranceCredential</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="mastercertificate">MasterCertificate</td>
+    <td id="achievementtype.mastercertificate">MasterCertificate</td>
     <td>
       Credential awarded upon demonstration through apprenticeship of the highest level of skills and performance in industry trades and professions. This is an exact match of <code>MasterCertificate</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="masterdegree">MasterDegree</td>
+    <td id="achievementtype.masterdegree">MasterDegree</td>
     <td>
       Credential awarded for a graduate level course of study where course work and activities advance skills beyond those of the bachelor's degree or its equivalent. Equivalent to an award at UNESCO ISCED 2011, Level 7. This is an exact match of <code>MasterDegree</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="microcredential">MicroCredential</td>
+    <td id="achievementtype.microcredential">MicroCredential</td>
     <td>
       Credential that addresses a subset of field-specific knowledge, skills, or competencies; often developmental with relationships to other micro-credentials and field credentials. This is an exact match of <code>MicroCredential</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="researchdoctorate">ResearchDoctorate</td>
+    <td id="achievementtype.researchdoctorate">ResearchDoctorate</td>
     <td>
       Doctoral degree conferred for advanced work beyond the master level, including the preparation and defense of a thesis or dissertation based on original research, or the planning and execution of an original project demonstrating substantial artistic or scholarly achievement. Equivalent to an award at UNESCO ISCED 2011, Level 8. This is an exact match of <code>ResearchDoctorate</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
       
     </td>
   </tr><tr>
-    <td id="secondaryschooldiploma">SecondarySchoolDiploma</td>
+    <td id="achievementtype.secondaryschooldiploma">SecondarySchoolDiploma</td>
     <td>
       Diploma awarded by secondary education institutions for successful completion of a secondary school program of study. Equivalent to an award at UNESCO ISCED 2011 Levels 2 or 3. This is an exact match of <code>SecondarySchoolDiploma</code> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ctdl-terms" title="Credential Transparency Description Language Terms">CTDL-TERMS</a></cite>].
       
@@ -6877,35 +6891,35 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
         </thead>
         <tbody>
           <tr>
-    <td id="cfitem">CFItem</td>
+    <td id="alignmenttargettype.cfitem">CFItem</td>
     <td>
       An alignment to a CASE Framework Item.
       
       
     </td>
   </tr><tr>
-    <td id="cfrubric">CFRubric</td>
+    <td id="alignmenttargettype.cfrubric">CFRubric</td>
     <td>
       An alignment to a CASE Framework Rubric.
       
       
     </td>
   </tr><tr>
-    <td id="cfrubriccriterion">CFRubricCriterion</td>
+    <td id="alignmenttargettype.cfrubriccriterion">CFRubricCriterion</td>
     <td>
       An alignment to a CASE Framework Rubric Criterion.
       
       
     </td>
   </tr><tr>
-    <td id="cfrubriccriterionlevel">CFRubricCriterionLevel</td>
+    <td id="alignmenttargettype.cfrubriccriterionlevel">CFRubricCriterionLevel</td>
     <td>
       An alignment to a CASE Framework Rubric Criterion Level.
       
       
     </td>
   </tr><tr>
-    <td id="ctdl">CTDL</td>
+    <td id="alignmenttargettype.ctdl">CTDL</td>
     <td>
       An alignment to a Credential Engine Item.
       
@@ -6928,126 +6942,126 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
         </thead>
         <tbody>
           <tr>
-    <td id="sourcedid">sourcedId</td>
+    <td id="identifiertypeenum.sourcedid">sourcedId</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="systemid">systemId</td>
+    <td id="identifiertypeenum.systemid">systemId</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="productid">productId</td>
+    <td id="identifiertypeenum.productid">productId</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="username">userName</td>
+    <td id="identifiertypeenum.username">userName</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="accountid">accountId</td>
+    <td id="identifiertypeenum.accountid">accountId</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="emailaddress">emailAddress</td>
+    <td id="identifiertypeenum.emailaddress">emailAddress</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="nationalidentitynumber">nationalIdentityNumber</td>
+    <td id="identifiertypeenum.nationalidentitynumber">nationalIdentityNumber</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="isbn">isbn</td>
+    <td id="identifiertypeenum.isbn">isbn</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="issn">issn</td>
+    <td id="identifiertypeenum.issn">issn</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="lissourcedid">lisSourcedId</td>
+    <td id="identifiertypeenum.lissourcedid">lisSourcedId</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="onerostersourcedid">oneRosterSourcedId</td>
+    <td id="identifiertypeenum.onerostersourcedid">oneRosterSourcedId</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="sissourcedid">sisSourcedId</td>
+    <td id="identifiertypeenum.sissourcedid">sisSourcedId</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="lticontextid">ltiContextId</td>
+    <td id="identifiertypeenum.lticontextid">ltiContextId</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="ltideploymentid">ltiDeploymentId</td>
+    <td id="identifiertypeenum.ltideploymentid">ltiDeploymentId</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="ltitoolid">ltiToolId</td>
+    <td id="identifiertypeenum.ltitoolid">ltiToolId</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="ltiplatformid">ltiPlatformId</td>
+    <td id="identifiertypeenum.ltiplatformid">ltiPlatformId</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="ltiuserid">ltiUserId</td>
+    <td id="identifiertypeenum.ltiuserid">ltiUserId</td>
     <td>
       
       
       
     </td>
   </tr><tr>
-    <td id="identifier">identifier</td>
+    <td id="identifiertypeenum.identifier">identifier</td>
     <td>
       
       
@@ -7070,84 +7084,84 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
         </thead>
         <tbody>
           <tr>
-    <td id="gradepointaverage">GradePointAverage</td>
+    <td id="resulttype.gradepointaverage">GradePointAverage</td>
     <td>
       The result is a grade point average.
       
       
     </td>
   </tr><tr>
-    <td id="lettergrade">LetterGrade</td>
+    <td id="resulttype.lettergrade">LetterGrade</td>
     <td>
       The result is a letter grade.
       
       
     </td>
   </tr><tr>
-    <td id="percent">Percent</td>
+    <td id="resulttype.percent">Percent</td>
     <td>
       The result is a percent score.
       
       
     </td>
   </tr><tr>
-    <td id="performancelevel">PerformanceLevel</td>
+    <td id="resulttype.performancelevel">PerformanceLevel</td>
     <td>
       The result is a performance level.
       
       
     </td>
   </tr><tr>
-    <td id="predictedscore">PredictedScore</td>
+    <td id="resulttype.predictedscore">PredictedScore</td>
     <td>
       The result is a predicted score.
       
       
     </td>
   </tr><tr>
-    <td id="rawscore">RawScore</td>
+    <td id="resulttype.rawscore">RawScore</td>
     <td>
       The result is a raw score.
       
       
     </td>
   </tr><tr>
-    <td id="result">Result</td>
+    <td id="resulttype.result">Result</td>
     <td>
       A generic result.
       
       
     </td>
   </tr><tr>
-    <td id="rubriccriterion">RubricCriterion</td>
+    <td id="resulttype.rubriccriterion">RubricCriterion</td>
     <td>
       The result is from a rubric criterion.
       
       
     </td>
   </tr><tr>
-    <td id="rubriccriterionlevel">RubricCriterionLevel</td>
+    <td id="resulttype.rubriccriterionlevel">RubricCriterionLevel</td>
     <td>
       The result is a rubric criterion level.
       
       
     </td>
   </tr><tr>
-    <td id="rubricscore">RubricScore</td>
+    <td id="resulttype.rubricscore">RubricScore</td>
     <td>
       The result represents a rubric score with both a name and a numeric value.
       
       
     </td>
   </tr><tr>
-    <td id="scaledscore">ScaledScore</td>
+    <td id="resulttype.scaledscore">ScaledScore</td>
     <td>
       The result is a scaled score.
       
       
     </td>
   </tr><tr>
-    <td id="status">Status</td>
+    <td id="resulttype.status">Status</td>
     <td>
       The result conveys the status of the achievement.
       
@@ -7170,42 +7184,42 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
         </thead>
         <tbody>
           <tr>
-    <td id="completed">Completed</td>
+    <td id="resultstatustype.completed">Completed</td>
     <td>
       The learner has successfully completed the achievement. This is the default status if no status result is included.
       
       
     </td>
   </tr><tr>
-    <td id="enrolled">Enrolled</td>
+    <td id="resultstatustype.enrolled">Enrolled</td>
     <td>
       The learner is enrolled in the activity described by the achievement.
       
       
     </td>
   </tr><tr>
-    <td id="failed">Failed</td>
+    <td id="resultstatustype.failed">Failed</td>
     <td>
       The learner has unsuccessfully completed the achievement.
       
       
     </td>
   </tr><tr>
-    <td id="inprogress">InProgress</td>
+    <td id="resultstatustype.inprogress">InProgress</td>
     <td>
       The learner has started progress in the activity described by the achievement.
       
       
     </td>
   </tr><tr>
-    <td id="onhold">OnHold</td>
+    <td id="resultstatustype.onhold">OnHold</td>
     <td>
       The learner has completed the activity described by the achievement, but successful completion has not been awarded, typically for administrative reasons.
       
       
     </td>
   </tr><tr>
-    <td id="withdrew">Withdrew</td>
+    <td id="resultstatustype.withdrew">Withdrew</td>
     <td>
       The learner withdrew from the activity described by the achievement before completion.
       
@@ -7504,28 +7518,28 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
         </thead>
         <tbody>
           <tr>
-    <td id="failure">failure</td>
+    <td id="imsx_codemajor.failure">failure</td>
     <td>
       Denotes that the transaction request has failed. The detailed reason will be reported in the accompanying 'codeMinor' fields.
       
       
     </td>
   </tr><tr>
-    <td id="processing">processing</td>
+    <td id="imsx_codemajor.processing">processing</td>
     <td>
       Denotes that the request is being processed at the destination or there has been a local transmission failure. This value is used in asynchronous services.
       
       
     </td>
   </tr><tr>
-    <td id="success">success</td>
+    <td id="imsx_codemajor.success">success</td>
     <td>
       Denotes that the request has been successfully completed. If the associated 'severity' value is 'warning' then the request has been partially successful i.e. best effort by the service provider. Other parts of the status information may provide more insight into a partial success response.
       
       
     </td>
   </tr><tr>
-    <td id="unsupported">unsupported</td>
+    <td id="imsx_codemajor.unsupported">unsupported</td>
     <td>
       Denotes that the service provider does not support the requested operation. This is the required default response for an unsupported operation by an implementation.
       
@@ -7543,21 +7557,21 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
         </thead>
         <tbody>
           <tr>
-    <td id="error">error</td>
+    <td id="imsx_severity.error">error</td>
     <td>
       A catastrophic error has occurred in processing the request and so the request was not completed (the Service Provider may not even have received the request).
       
       
     </td>
   </tr><tr>
-    <td id="status">status</td>
+    <td id="imsx_severity.status">status</td>
     <td>
       The request has been completed and a response was received from the Service Provider.
       
       
     </td>
   </tr><tr>
-    <td id="warning">warning</td>
+    <td id="imsx_severity.warning">warning</td>
     <td>
       The request has only been partially completed. For an asynchronous service a further response should be expected.
       
@@ -7628,84 +7642,84 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
         </thead>
         <tbody>
           <tr>
-    <td id="forbidden">forbidden</td>
+    <td id="imsx_codeminorfieldvalue.forbidden">forbidden</td>
     <td>
       This is used to indicate that the server can be reached and process the request but refuses to take any further action. This would be accompanied by the 'codeMajor/severity' values of 'failure/error' and for a REST binding a HTTP code of '403'.
       
       
     </td>
   </tr><tr>
-    <td id="fullsuccess">fullsuccess</td>
+    <td id="imsx_codeminorfieldvalue.fullsuccess">fullsuccess</td>
     <td>
       The request has been fully and successfully implemented by the service provider. For a REST binding this will have an HTTP code of '200' for a successful search request.
       
       
     </td>
   </tr><tr>
-    <td id="internal_server_error">internal_server_error</td>
+    <td id="imsx_codeminorfieldvalue.internal_server_error">internal_server_error</td>
     <td>
       This should be used only if there is catastrophic error and there is not a more appropriate code. This would be accompanied by the 'codeMajor/severity' values of 'failure/error' and for a REST binding a HTTP code of '500'.
       
       
     </td>
   </tr><tr>
-    <td id="invalid_data">invalid_data</td>
+    <td id="imsx_codeminorfieldvalue.invalid_data">invalid_data</td>
     <td>
       This error condition may occur if a JSON request/response body contains well-formed (i.e. syntactically correct), but semantically erroneous, JSON instructions. This would be accompanied by the 'codeMajor/severity' values of 'failure/error' and a HTTP code of '422'.
       
       
     </td>
   </tr><tr>
-    <td id="invalid_query_parameter">invalid_query_parameter</td>
+    <td id="imsx_codeminorfieldvalue.invalid_query_parameter">invalid_query_parameter</td>
     <td>
       An invalid data query parameter field was supplied and the query could not be processed. This would be accompanied by the 'codeMajor/severity' values of 'failure/error' and for a REST binding a HTTP code of '400'.
       
       
     </td>
   </tr><tr>
-    <td id="misdirected_request">misdirected_request</td>
+    <td id="imsx_codeminorfieldvalue.misdirected_request">misdirected_request</td>
     <td>
       This is used to indicate that the request was made with a protocol that is not supported by the server. This would be accompanied by the 'codeMajor/severity' values of 'failure/error' and for a REST binding a HTTP code of '421'.
       
       
     </td>
   </tr><tr>
-    <td id="not_acceptable">not_acceptable</td>
+    <td id="imsx_codeminorfieldvalue.not_acceptable">not_acceptable</td>
     <td>
       This is used to indicate that the server cannot provide a response with a Content-Type that matches any of the content types in the request Accept header. This would be accompanied by the 'codeMajor/severity' values of 'failure/error' and for a REST binding a HTTP code of '406'.
       
       
     </td>
   </tr><tr>
-    <td id="not_allowed">not_allowed</td>
+    <td id="imsx_codeminorfieldvalue.not_allowed">not_allowed</td>
     <td>
       This is used to indicate that the server does not allow the HTTP method. This would be accompanied by the 'codeMajor/severity' values of 'failure/error' and for a REST binding a HTTP code of '405'.
       
       
     </td>
   </tr><tr>
-    <td id="not_modified">not_modified</td>
+    <td id="imsx_codeminorfieldvalue.not_modified">not_modified</td>
     <td>
       This is used to indicate that the server did not modify the resource. This would be accompanied by the 'codeMajor/severity' values of 'success/status' and for a REST binding a HTTP code of '304'.
       
       
     </td>
   </tr><tr>
-    <td id="server_busy">server_busy</td>
+    <td id="imsx_codeminorfieldvalue.server_busy">server_busy</td>
     <td>
       The server is receiving too many requests. Retry at a later time. This would be accompanied by the 'codeMajor/severity' values of 'failure/error' and for a REST binding a HTTP code of '429'.
       
       
     </td>
   </tr><tr>
-    <td id="unauthorizedrequest">unauthorizedrequest</td>
+    <td id="imsx_codeminorfieldvalue.unauthorizedrequest">unauthorizedrequest</td>
     <td>
       The request was not correctly authorised. This would be accompanied by the 'codeMajor/severity' values of 'failure/error' and for a REST binding a HTTP code of '401'.
       
       
     </td>
   </tr><tr>
-    <td id="unknown">unknown</td>
+    <td id="imsx_codeminorfieldvalue.unknown">unknown</td>
     <td>
       Any other error occurred. This would be accompanied by the 'codeMajor/severity' values of 'failure/error' and for a REST binding a HTTP code corresponding to the error.
       
@@ -7728,49 +7742,49 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
         </thead>
         <tbody>
           <tr>
-    <td id="invalid_request">invalid_request</td>
+    <td id="authorizationerror.invalid_request">invalid_request</td>
     <td>
       The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed.
       
       
     </td>
   </tr><tr>
-    <td id="unauthorized_client">unauthorized_client</td>
+    <td id="authorizationerror.unauthorized_client">unauthorized_client</td>
     <td>
       The client is not authorized to request an authorization code using this method.
       
       
     </td>
   </tr><tr>
-    <td id="access_denied">access_denied</td>
+    <td id="authorizationerror.access_denied">access_denied</td>
     <td>
       The resource owner or authorization server denied the request.
       
       
     </td>
   </tr><tr>
-    <td id="unsupported_response_type">unsupported_response_type</td>
+    <td id="authorizationerror.unsupported_response_type">unsupported_response_type</td>
     <td>
       The authorization server does not support obtaining an authorization code using this method.
       
       
     </td>
   </tr><tr>
-    <td id="invalid_scope">invalid_scope</td>
+    <td id="authorizationerror.invalid_scope">invalid_scope</td>
     <td>
       The requested scope is invalid, unknown, or malformed.
       
       
     </td>
   </tr><tr>
-    <td id="server_error">server_error</td>
+    <td id="authorizationerror.server_error">server_error</td>
     <td>
       The authorization server encountered an unexpected condition that prevented it from fulfilling the request. (This error code is needed because a 500 Internal Server Error HTTP status code cannot be returned to the client via an HTTP redirect.)
       
       
     </td>
   </tr><tr>
-    <td id="temporarily_unavailable">temporarily_unavailable</td>
+    <td id="authorizationerror.temporarily_unavailable">temporarily_unavailable</td>
     <td>
       The authorization server is currently unable to handle the request due to a temporary overloading or maintenance of the server. (This error code is needed because a 503 Service Unavailable HTTP status code cannot be returned to the client via an HTTP redirect.)
       
@@ -7788,28 +7802,28 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
         </thead>
         <tbody>
           <tr>
-    <td id="invalid_redirect_uri">invalid_redirect_uri</td>
+    <td id="registrationerror.invalid_redirect_uri">invalid_redirect_uri</td>
     <td>
       The value of one or more redirection URIs is invalid.
       
       
     </td>
   </tr><tr>
-    <td id="invalid_client_metadata">invalid_client_metadata</td>
+    <td id="registrationerror.invalid_client_metadata">invalid_client_metadata</td>
     <td>
       The value of one of the client metadata fields is invalid and the server has rejected this request. Note that an authorization server <em class="rfc2119">MAY</em> choose to substitute a valid value for any requested parameter of a client's metadata.
       
       
     </td>
   </tr><tr>
-    <td id="invalid_software_statement">invalid_software_statement</td>
+    <td id="registrationerror.invalid_software_statement">invalid_software_statement</td>
     <td>
       The software statement presented is invalid. This <em class="rfc2119">MUST</em> only be returned if a Software Statement has been supplied in the registration request. Use of a Software Statement is <em class="rfc2119">NOT RECOMMENDED</em>.
       
       
     </td>
   </tr><tr>
-    <td id="unapproved_software_statement">unapproved_software_statement</td>
+    <td id="registrationerror.unapproved_software_statement">unapproved_software_statement</td>
     <td>
       The software statement presented is not approved for use by this authorization server. This <em class="rfc2119">MUST</em> only be returned if a Software Statement has been supplied in the registration request. Use of a Software Statement is <em class="rfc2119">NOT RECOMMENDED</em>.
       
@@ -7827,49 +7841,49 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
         </thead>
         <tbody>
           <tr>
-    <td id="invalid_request">invalid_request</td>
+    <td id="tokenerror.invalid_request">invalid_request</td>
     <td>
       The request is missing a required parameter, includes an unsupported parameter value (other than grant type), repeats a parameter, includes multiple credentials, utilizes more than one mechanism for authenticating the client, or is otherwise malformed.
       
       
     </td>
   </tr><tr>
-    <td id="invalid_client">invalid_client</td>
+    <td id="tokenerror.invalid_client">invalid_client</td>
     <td>
       Client authentication failed (e.g., unknown client, no client authentication included, or unsupported authentication method). The authorization server <em class="rfc2119">MAY</em> return an HTTP 401 (Unauthorized) status code to indicate which HTTP authentication schemes are supported. If the client attempted to authenticate via the "Authorization" request header field, the authorization server <em class="rfc2119">MUST</em> respond with an HTTP 401 (Unauthorized) status code and include the "WWW-Authenticate" response header field matching the authentication scheme used by the client.
       
       
     </td>
   </tr><tr>
-    <td id="invalid_grant">invalid_grant</td>
+    <td id="tokenerror.invalid_grant">invalid_grant</td>
     <td>
       The provided authorization grant (e.g., authorization code, resource owner credentials) or refresh token is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client.
       
       
     </td>
   </tr><tr>
-    <td id="unauthorized_client">unauthorized_client</td>
+    <td id="tokenerror.unauthorized_client">unauthorized_client</td>
     <td>
       The authenticated client is not authorized to use this authorization grant type.
       
       
     </td>
   </tr><tr>
-    <td id="unsupported_grant_type">unsupported_grant_type</td>
+    <td id="tokenerror.unsupported_grant_type">unsupported_grant_type</td>
     <td>
       The authorization grant type is not supported by the authorization server.
       
       
     </td>
   </tr><tr>
-    <td id="unsupported_token_type">unsupported_token_type</td>
+    <td id="tokenerror.unsupported_token_type">unsupported_token_type</td>
     <td>
       The authorization server does not support the revocation of the presented token type. That is, the client tried to revoke an access token on a server not supporting this feature.
       
       
     </td>
   </tr><tr>
-    <td id="invalid_scope">invalid_scope</td>
+    <td id="tokenerror.invalid_scope">invalid_scope</td>
     <td>
       The requested scope is invalid, unknown, malformed, or exceeds the scope granted by the resource owner.
       
@@ -8444,11 +8458,11 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-05-26T20:47:59Z",
+      "created": "2022-05-27T17:56:55Z",
       "verificationMethod": "https://example.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z43eXkmcPxfoomCg4FFwsEJjLr2Ru2QWiyouueLemgJVFCQL65n45V8p7cs
-uUaWQtC3MfcJ3hAcP42HGKaRkmLeN1"
+      "proofValue": "z2HZkK3BNQGqQYqvrXhWA9oBVCVYkYuwpCiUz1Ps4HpsXUHigtLinfGqfHE
+knD5bp1qSvpTVxR3TpYPXXXjDgRGWh"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -8504,11 +8518,11 @@ lZ3JlZSIsImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZ
 mMWMyNzZlMTJlYzIxIiwidHlwZSI6WyJBY2hpZXZlbWVudFN1YmplY3QiXX19LCJpc3MiOiJodHRwczo
 vL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8
 vZXhhbXBsZS5lZHUvY3JlZGVudGlhbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJ
-lYmM2ZjFjMjc2ZTEyZWMyMSJ9.CY5c_LQO7DuvCesQZMOS96WM-ZmvB8Jy8RnCSG11YWM_0DBICX9kJs
-E0fd21WThUzoVn8kF61LsWiA0PwAfabyZTKR234xqQead3DKcL7G1eynii5Pdfnw3vhHa1Fwx8sxHEPw
-9QyHhbKaZ86jl9DWIfWfOzUtfpM0QOKlppQa1yCGCzjD4Ev422LQ9ygf86Vl9PfYfiZS9U_rJ2WkV9GI
-yn0LeZt3WAQOTKSjZDFtNmBWZlD9EqgcrpympbsC4U3sCNpmEjj5KEd9i3djhkrecgYWM1oAJOFCDO1b
-SJ4VzBMdtaZ0neABP7ktnuiixmyVL9rUMZzx46sTADNiRJRg</pre></div></div></div>
+lYmM2ZjFjMjc2ZTEyZWMyMSJ9.OKgonYpXGWbOU8kKD2TxtmQzlz8Qp6NjbOIP1d3R71Pa5XKEJQPzJ8
+nG0xM4X_rFwVDHjwJRVe3OTsraclB_2B7RqAzcmVPSpwk1zqgaIwbN2-pD7nb_K3fGFZZ-zpz11rAzrB
+r7QPrlFkjbHXQhydjdLV4UKJDkfPrLh23HqDcfU1RW983E-4s1O_ZSgeolW5tuSfU2xrl_H4uFRQ1_r9
+7Lsid_k4zyTa3yYCuk8ow4iNYWJWuQo9-ZoQPlpJkPFk0RJq3zXm1BVjmtAA5nEfAmvZndX97o2HnFzV
+XnGTDMOgRr_zW3f1JHWCO9C0JzkTY0EO_kywwFG54hwEEMsw</pre></div></div></div>
 
 
     </section>
@@ -8522,7 +8536,12 @@ SJ4VzBMdtaZ0neABP7ktnuiixmyVL9rUMZzx46sTADNiRJRg</pre></div></div></div>
       </div></div>
       
 
-<div class="example" id="example-complete-openbadgecredential">
+<div class="issue" id="issue-container-number-4"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="4"><span>Issue 4</span><span class="issue-label">: Invalid JSON</span></div><div class="">
+          <p>NOTE: This example contains invalid JSON for org.1edtech.ob.v3p0.achievementcredential.class.</p>
+          <ul>
+            <li>/credentialSubject/achievement/creator: must NOT have additional properties (additional property: "sourcedId)"</li><li>/credentialSubject/achievement/creator: must NOT have additional properties (additional property: "sisSourcedId)"</li><li>/issuer: must NOT have additional properties (additional property: "sourcedId)"</li><li>/issuer: must NOT have additional properties (additional property: "sisSourcedId)"</li>
+          </ul>
+        </div></div><div class="example" id="example-complete-openbadgecredential">
         <div class="marker">
     <a class="self-link" href="#example-complete-openbadgecredential">Example<bdi> 34</bdi></a><span class="example-title">: Complete OpenBadgeCredential</span>
   </div> <pre class="vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class" data-allowadditionalproperties="false" data-vc-vm="https://1edtech.edu/issuers/565049#key-1" aria-busy="false"><code class="hljs json">{
@@ -9333,11 +9352,11 @@ l.json",
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-05-26T20:47:59Z",
+      "created": "2022-05-27T17:56:55Z",
       "verificationMethod": "https://accrediter.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z2WNLKjhSbnyx4gsqF7R3KbVYh1SU24XS7S3WFT8K4ma1PaYEVfZ4BHnz2R
-rXaZqocRdEhV2Rg6TmSo4XmyPtnxrx"
+      "proofValue": "z2KHM7vFriyMnBWoxfeTPMRBy6LW8zm7PY3hKVFDPLFtGF1W8zr47u1ALv9
+QV7iLjVSRnHEkU66wUjHCJmuNsYFE9"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -9421,11 +9440,11 @@ vMzczMi9yZXZvY2F0aW9ucyIsInR5cGUiOiIxRWRUZWNoUmV2b2NhdGlvbkxpc3QifSwicmVmcmVzaFN
 lcnZpY2UiOnsiaWQiOiJodHRwOi8vc3RhdGUuZ292L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjoiMUV
 kVGVjaENyZWRlbnRpYWxSZWZyZXNoIn19LCJleHAiOjE1Nzc4MzY4MDAsImlzcyI6Imh0dHBzOi8vc3R
 hdGUuZ292L2lzc3VlcnMvNTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAwLCJzdWIiOiJodHRwczovLzFlZHR
-lY2guZWR1L2lzc3VlcnMvNTY1MDQ5In0.SrUafmOhtgTBykHqsVVBo5yX8BiHfo8lr6wh3zGIWaCRvX3
-5Gq6Wqf7_lPtj9hpsb54OVzBNHxTVwsqFFnu3T3gp87cCQ5YoaDavyoVD4Tj35I8L1WmfLy7CTVdLvVZ
-zVjwqOOhwnIHqeW7Pnmm-UIwAEY3xf3lOJ1uEaFxtOZQJ1UpRew9PwHldKcCK57-BbygSUeTcrCnrLPR
-_m_J5ayGQOTXpfJbZi3qUAoJDifa2ykE9ZilbJaEdNk2s1h62rOghMLkJOgPTohla8L0klU3iiJ3OT35
-dt7CaFx1fqo2mKlqbP8sO-iYP4B2mXqTo9XuDEftDuTOosuxAwJrcuA</pre></div></div></div>
+lY2guZWR1L2lzc3VlcnMvNTY1MDQ5In0.YQzThsAyx31if33_v8F90nUIu_luUw_H4pz5tdrbSvDIR1h
+TVlXME3_51Wf_ypGaixBNnHbpz9okIkL1KSDQ9ya4FQtAwsrot0ROXaGWs81JQQi7_gr02CQSh5FNBt5
+ZGT8dw92HqiTgY-HCyIDdmdlAl0nupJBijyIg2UE5LUYCfizNrsuoLc8JGq4EhwnDXsW8zzVEzaXs--B
+nlJpf0TnOj446z961qayhIC0xqGt6ZIN7S1QbSR75n9KjiIsbO-U5fBSyZn7OYicYQqJI1j6uDA-Oldk
+aS0NzZO_pkipQf3UPRmiQDVtVa-sLxOU2Cm2bOJn7nTB31hvZUI9teQ</pre></div></div></div>
 
 
     </section>
@@ -9452,7 +9471,7 @@ dt7CaFx1fqo2mKlqbP8sO-iYP4B2mXqTo9XuDEftDuTOosuxAwJrcuA</pre></div></div></div>
       </ul></section>
   <section class="appendix" id="issue-summary"><h2 id="f-issue-summary"><bdi class="secno">F. </bdi>Issue Summary<a class="self-link" aria-label="§" href="#issue-summary"></a></h2>
     <h1>Issue Summary</h1>
-  <ul><li><a href="#issue-container-number-1">Issue 1</a><span style="text-transform: none">: Verify the schema</span></li><li><a href="#issue-container-number-2">Issue 2</a><span style="text-transform: none">: Use credentialStatus to determine if the credential has been revoked</span></li><li><a href="#issue-container-number-3">Issue 3</a><span style="text-transform: none">: Should nested assertions be verified?</span></li></ul></section>
+  <ul><li><a href="#issue-container-number-1">Issue 1</a><span style="text-transform: none">: Verify the schema</span></li><li><a href="#issue-container-number-2">Issue 2</a><span style="text-transform: none">: Use credentialStatus to determine if the credential has been revoked</span></li><li><a href="#issue-container-number-3">Issue 3</a><span style="text-transform: none">: Should nested assertions be verified?</span></li><li><a href="#issue-container-number-4">Issue 4</a><span style="text-transform: none">: Invalid JSON</span></li></ul></section>
 
   <section id="history" class="appendix">
     <h2 id="g-revision-history"><bdi class="secno">G. </bdi>Revision History<a class="self-link" aria-label="§" href="#history"></a></h2>
@@ -10458,15 +10477,15 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><script type="text/javascript" src="https://purl.imsglobal.org/spec/fixup.js"></script><footer>
+})()</script><script src="https://purl.imsglobal.org/spec/fixup.js"></script><footer>
     <div id="endWarranty">
       <p>
-        IMS Global Learning Consortium, Inc. ("IMS Global") is publishing the
+        1EdTech™ Consortium, Inc. ("1EdTech") is publishing the
         information contained in this document ("Specification") for purposes of
         scientific, experimental, and scholarly collaboration only.
       </p>
       <p>
-        IMS Global makes no warranty or representation regarding the accuracy or
+        1EdTech makes no warranty or representation regarding the accuracy or
         completeness of the Specification.
       </p>
       <p>This material is provided on an "As Is" and "As Available" basis.</p>
@@ -10478,18 +10497,16 @@ function hidePanel(panel) {
         It is your sole responsibility to evaluate the usefulness, accuracy, and
         completeness of the Specification as it relates to you.
       </p>
+      <p>1EdTech would appreciate receiving your comments and suggestions.</p>
       <p>
-        IMS Global would appreciate receiving your comments and suggestions.
-      </p>
-      <p>
-        Please contact IMS Global through our website at
-        http://www.imsglobal.org.
+        Please contact 1EdTech through our website at
+        <a href="https://www.1edtech.org">www.1edtech.org</a>.
       </p>
       <p>
         Please refer to Document Name: Open Badges Specification
         3.0
       </p>
-      <p>Date: 26 May 2022</p>
+      <p>Date: @@@FIXME(conf.specDate)</p>
       <div></div>
     </div>
   </footer></body></html>
