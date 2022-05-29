@@ -453,8 +453,7 @@ components:
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
         id:
           type: string
-          description: Unique URI for the Issuer/Profile file. Required so the entity
-            can be the subject of an endorsement.
+          description: Unique URI for the Issuer/Profile file.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
         otherIdentifier:
           minItems: 0
@@ -876,8 +875,7 @@ components:
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
         id:
           type: string
-          description: Unique URI for the Achievement. Required so the achievement
-            can be the subject of an endorsement.
+          description: Unique URI for the Achievement.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
         resultDescription:
           minItems: 0
@@ -1258,8 +1256,7 @@ components:
           $ref: '#/components/schemas/RefreshService'
         id:
           type: string
-          description: Unambiguous reference to the credential. Required so it can
-            be the subject of an endorsement.
+          description: Unambiguous reference to the credential.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
         proof:
           minItems: 0
