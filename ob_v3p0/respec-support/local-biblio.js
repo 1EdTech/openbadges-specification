@@ -123,19 +123,19 @@ var _localBiblio = {
     "title": "1EdTech Revocation List Status Method",
     "href": "https://imsglobal.org/spec/vcrl/v1p0/",
     "status": "IMS Base Document",
-    "publisher": "1EdTech&trade; Consortium"
+    "publisher": "1EdTech"
   },
   "VCCR-10": {
     "title": "1EdTech Credential Refresh Service",
     "href": "https://imsglobal.org/spec/vccr/v1p0/",
     "status": "IMS Base Document",
-    "publisher": "1EdTech&trade; Consortium"
+    "publisher": "1EdTech"
   },
   "VCCS-10": {
     "title": "1EdTech JSON Schema Validator 2019",
     "href": "https://imsglobal.org/spec/vccs/v1p0/",
     "status": "IMS Base Document",
-    "publisher": "1EdTech&trade; Consortium"
+    "publisher": "1EdTech"
   },
   "LDS-ED25519-2020": {
     "title": "Ed25519 Signature 2020",
