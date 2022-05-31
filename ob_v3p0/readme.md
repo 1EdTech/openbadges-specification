@@ -1,6 +1,6 @@
 # Open Badges 3.0
 
-This version aligns IMS Open Badges Specification to the conventions of the [W3C Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/) for the use cases of Defined Achievement Claim and a Skill Claim.
+This version aligns 1EdTech Open Badges Specification to the conventions of the [W3C Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/) for the use cases of Defined Achievement Claim and a Skill Claim.
 
 This consists of several specific proposed changes to Open Badges to:
 
@@ -14,7 +14,7 @@ The credentials that would be produced under this proposal could easily be bundl
 
 [Reading List](readinglist.md) - This reading list has links to resources about Verifiable Credentials.
 
-## IMS Base Document Workflow
+## Base Document Workflow
 
 Currently, all content is being collected in a single Respec document: [http://imsglobal.github.io/openbadges-specification/ob_v3p0.html](http://imsglobal.github.io/openbadges-specification/ob_v3p0.html). This document is assembled from many sources:
 
@@ -26,15 +26,15 @@ Currently, all content is being collected in a single Respec document: [http://i
   - [Certification Requirements](certification.md)
   - etc
 
-- The Data Model sections are created by a custom IMS Respec plug-in that reads the data model from the MPS (Model Processing Service) and renders the Respec HTML
+- The Data Model sections are created by a custom 1EdTech Respec plug-in that reads the data model from the MPS (Model Processing Service) and renders the Respec HTML
 - The API (Service Model) section will be created in the same way in the future. Currently the API section is pulled in from [api.html](api.html)
-- As the spec nears IMS Candidate Final status, we will likely split up the single document into 2 or more documents for more focussed sets of audiences
+- As the spec nears Candidate Final status, we will likely split up the single document into 2 or more documents for more focussed sets of audiences
 
 ### Artifacts
 
 JSON Schema, OpenAPI, and maybe even context files will also be generated in the future. But for now the context file is [hand written](context.json) and available at [http://imsglobal.github.io/openbadges-specification/context.json](http://imsglobal.github.io/openbadges-specification/context.json).
 
-### Updating the IMS Base Document
+### Updating the Base Document
 
 Every commit and PR merge to the develop branch/ob_v3p0 folder will kick off a GitHub action that will:
 
@@ -50,7 +50,7 @@ Every commit and PR merge to the develop branch/ob_v3p0/context.json file will k
 
 1. Copy the file to [https://imsglobal.github.io/openbadges-specification/context.json](https://imsglobal.github.io/openbadges-specification/context.json)
 
-The context file will eventually live on the IMS PURL server. But please use https://imsglobal.github.io/openbadges-specification/context.json for now.
+The context file will eventually live on the 1EdTech PURL server. But please use https://imsglobal.github.io/openbadges-specification/context.json for now.
 
 ### Editing the .lines files
 
@@ -61,7 +61,7 @@ The data model is defined using "lines" files. There are two "lines" files in th
 
 The format for "lines" files is explained in [lines.md](lines.md).
 
-IMS provides a tool to update the data model in the MPS and browse the data model in a web page. This tool makes it fairly easy to detect errors prior to updating the IMS Base Document.
+1EdTech provides a tool to update the data model in the MPS and browse the data model in a web page. This tool makes it fairly easy to detect errors prior to updating the Base Document.
 
 To load your local changes to [ob_v3p0.lines](ob_v3p0.lines) into the browser, simply upload the file to MPS.
 

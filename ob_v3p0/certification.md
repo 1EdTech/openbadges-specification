@@ -2,9 +2,9 @@ var certification=`
 
 ## Conformance and Certification Guide
 
-The goal of IMS certification for Open Badges [[OB-30]] is to ensure interoperable implementations of badging systems that generate and issue digital badges as well as those that host and display badges.
+The goal of 1EdTech certification for Open Badges [[OB-30]] is to ensure interoperable implementations of badging systems that generate and issue digital badges as well as those that host and display badges.
 
-IMS certification for Open Badges demands features and capabilities beyond those that are strictly required by the specification. These additional features are defined in this document. The specification is intentionally left very flexible to allow it to be used for many purposes. Gaining this certification is expected to be more difficult than simply meeting the minimum requirements for producing a valid Open Badge.
+1EdTech certification for Open Badges demands features and capabilities beyond those that are strictly required by the specification. These additional features are defined in this document. The specification is intentionally left very flexible to allow it to be used for many purposes. Gaining this certification is expected to be more difficult than simply meeting the minimum requirements for producing a valid Open Badge.
 
 Certification may be achieved in one or more of the following services:
 
@@ -18,16 +18,16 @@ The service types and associated certification tests are defined below.
 
 The process for conformance testing role implementations of Open Badges includes the following:
 
-* First, go to the IMS Conformance Test Suite for Open Badges 3.0 and follow the onscreen instructions to run the tests.
+* First, go to the 1EdTech Conformance Test Suite for Open Badges 3.0 and follow the onscreen instructions to run the tests.
 * Once the tests have been successfully run, submit your test results. A copy of your test results will be sent to your email address.
 
 To pass certification, you must take the following steps:
 
-* You must be an IMS Digital Credentials and Badges Alliance Member, an IMS Affiliate Member, or IMS Contributing Member.
-* You must pass all the tests associated with the services you are applying for using the certification suite hosted on the IMS website.
-* The tests must be completed by a designated representative of the IMS member organization, and you must agree that there is no misrepresentation or manipulation of results in the submitted information.
+* You must be an 1EdTech Digital Credentials and Badges Alliance Member, an 1EdTech Affiliate Member, or 1EdTech Contributing Member.
+* You must pass all the tests associated with the services you are applying for using the certification suite hosted on the 1EdTech website.
+* The tests must be completed by a designated representative of the 1EdTech member organization, and you must agree that there is no misrepresentation or manipulation of results in the submitted information.
 
-After IMS reviews your submitted information and notifies you that your application is approved, you can claim certification to Open Badges 3.0 and display the IMS certified logo on your website and in your software. The IMS Global Certified Products Directory will list your conformance details.
+After 1EdTech reviews your submitted information and notifies you that your application is approved, you can claim certification to Open Badges 3.0 and display the 1EdTech certified logo on your website and in your software. The 1EdTech Global Certified Products Directory will list your conformance details.
 
 ### Open Badges 3.0 Issuer Service Conformance {#issuer-conformance}
 

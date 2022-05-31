@@ -10,9 +10,9 @@ The verification process in this standard is very similar to the [SignedBadge Ve
    <div class="note">
     The credential or presentation may have a VC-JWT proof and one or more Linked Data proofs. In this case, the Linked Data proofs will be attached to the credential in the \`vc\` or presentation in the \`vp\` claim of the signed JWT Payload. You may accept any one proof for verification. You do not need to verify all the signatures.
    </div>
-1. If the \`refreshService\` property is present, and the \`type\` of the [RefreshService](#refreshservice) object is "ImsCredentialRefresh", refresh the credential as shown in [[[VCCR-10]]] and then repeat step 1.
-1. If the \`credentialStatus\` property is present, and the \`type\` of the [CredentialStatus](#credentialstatus) object is "ImsRevocationList", determine if the credential has been revoked as shown in [[[VCRL-10]]].
-1. If the \`credentialSchema\` property is present, and the \`type\` of the [CredentialSchema](#credentialschema) object is "JsonSchemaValidator2019", perform data validation as shown in [[[VCCS-10]]].
+1. If the \`refreshService\` property is present, and the \`type\` of the [RefreshService](#refreshservice) object is "1EdTechCredentialRefresh", refresh the credential as shown in [[[VCCR-10]]] and then repeat step 1.
+1. If the \`credentialStatus\` property is present, and the \`type\` of the [CredentialStatus](#credentialstatus) object is "1EdTechRevocationList", determine if the credential has been revoked as shown in [[[VCRL-10]]].
+1. If the \`credentialSchema\` property is present, and the \`type\` of the [CredentialSchema](#credentialschema) object is "1EdTechJsonSchemaValidator2019", perform data validation as shown in [[[VCCS-10]]].
 1. If all the above steps pass, the credential or presentation may be treated as valid.
 
 `;
