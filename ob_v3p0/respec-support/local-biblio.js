@@ -3,55 +3,55 @@ var _localBiblio = {
     "title": "Open Badges Specification v3.0",
     "href": "https://www.imsglobal.org/spec/ob/v3p0/",
     "status": "IMS Base Document",
-    "publisher": "IMS Global Learning Consortium"
+    "publisher": "1EdTech"
   },
   "OB-CERT-30": {
     "title": "Open Badges Specification Conformance and Certification Guide v3.0",
     "href": "https://www.imsglobal.org/spec/ob/v3p0/cert/",
     "status": "IMS Base Document",
-    "publisher": "IMS Global Learning Consortium"
+    "publisher": "1EdTech"
   },
   "OB-INFO-30": {
     "title": "Open Badges Specification Information Model v3.0",
     "href": "https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html",
     "status": "IMS Base Document",
-    "publisher": "IMS Global Learning Consortium"
+    "publisher": "1EdTech"
   },
   "OB-BAKE-30": {
     "title": "Open Badges Specification Baking a Badge v3.0",
     "href": "https://www.imsglobal.org/spec/ob/v3p0/ImageBinding/ob_ImageBinding.html",
     "status": "IMS Base Document",
-    "publisher": "IMS Global Learning Consortium"
+    "publisher": "1EdTech"
   },
   "OB-REST-30": {
     "title": "Open Badges Specification REST/JSON API v3.0",
     "href": "https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html",
     "status": "IMS Base Document",
-    "publisher": "IMS Global Learning Consortium"
+    "publisher": "1EdTech"
   },
   "OB-OPEN-30": {
     "title": "Open Badges Specification OpenAPI Schema v3.0",
     "href": "https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/",
     "status": "IMS Base Document",
-    "publisher": "IMS Global Learning Consortium"
+    "publisher": "1EdTech"
   },
   "OB-JSON-30": {
     "title": "Open Badges Specification JSON Schema v3.0",
     "href": "https://www.imsglobal.org/spec/ob/v3p0/schema/json",
     "status": "IMS Base Document",
-    "publisher": "IMS Global Learning Consortium"
+    "publisher": "1EdTech"
   },
   "OB-JSONLD-30": {
     "title": "Open Badges Specification JSON-LD Context v3.0",
     "href": "https://www.imsglobal.org/spec/ob/v3p0/",
     "status": "IMS Base Document",
-    "publisher": "IMS Global Learning Consortium"
+    "publisher": "1EdTech"
   },
   "CLR-20": {
     "title": "Comprehensive Learner Record Standard v2.0",
     "href": "https://www.imsglobal.org/spec/clr/v2p0/",
     "status": "IMS Base Document",
-    "publisher": "IMS Global Learning Consortium"
+    "publisher": "1EdTech"
   },
   "CEDS": {
     "title": "Common Education Data Standards (CEDS) Version 7 Data Model Guide",
@@ -123,19 +123,19 @@ var _localBiblio = {
     "title": "1EdTech Revocation List Status Method",
     "href": "https://imsglobal.org/spec/vcrl/v1p0/",
     "status": "IMS Base Document",
-    "publisher": "1EdTech&trade; Consortium"
+    "publisher": "1EdTech"
   },
   "VCCR-10": {
     "title": "1EdTech Credential Refresh Service",
     "href": "https://imsglobal.org/spec/vccr/v1p0/",
     "status": "IMS Base Document",
-    "publisher": "1EdTech&trade; Consortium"
+    "publisher": "1EdTech"
   },
   "VCCS-10": {
     "title": "1EdTech JSON Schema Validator 2019",
     "href": "https://imsglobal.org/spec/vccs/v1p0/",
     "status": "IMS Base Document",
-    "publisher": "1EdTech&trade; Consortium"
+    "publisher": "1EdTech"
   },
   "LDS-ED25519-2020": {
     "title": "Ed25519 Signature 2020",
