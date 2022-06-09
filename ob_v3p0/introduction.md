@@ -106,6 +106,8 @@ This specification includes JSON Schema files for every class in the data model 
 
 - <dfn>Skill Claim</dfn>: An [=assertion=] that the learner has the specified [=skill=].
 
+- <dfn>Validation</dfn>: The process of assuring the verifiable credential or verifiable presentation meets the needs of the verifier and other dependent stakeholders. Validating verifiable credentials or verifiable presentations is outside the scope of this specification.
+
 - <dfn data-lt="VC">Verifiable Credential</dfn> (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [[vc-data-model]].
 
 - <dfn data-lt="VP">Verifiable Presentation</dfn> (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [[vc-data-model]]
