@@ -34,10 +34,12 @@ This section applies to Verifiable Credentials with a \`type\` of "OpenBadgeCred
    1. If the \`credentialStatus\` property is present, and the \`type\` of the [CredentialStatus](#credentialstatus) object is "1EdTechRevocationList", determine if the OpenBadgeCredential has been revoked as shown in [[[VCRL-10]]].
    1. If the current date and time is before the \`issuanceDate\`, the OpenBadgeCredential is not yet valid.
    1. If the current date and time is after the \`expirationDate\`, the OpenBadgeCredential is expired.
+1. Verify EndorsementCredentials:
+   1. If the OpenBadgeCredential contains any EndorsementCredentials, verify the EndorsementCredentials as shown in [[[#endorsement-verification]]].
 
 If all the above steps pass, the OpenBadgeCredential may be treated as verified.
 
-### EndorsementCredential Verification
+### EndorsementCredential Verification {#endorsement-verification}
 
 This section applies to Verifiable Credentials with a \`type\` of "EndorsementCredential".
 
