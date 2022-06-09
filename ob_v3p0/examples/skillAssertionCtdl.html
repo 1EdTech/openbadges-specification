@@ -1,0 +1,46 @@
+var skillAssertionCtdl = `
+
+<div class="note">
+  A Skill Assertion credential should only have one <code>Result</code> and one <code>Alignment</code>.
+</div>
+<pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    data-allowadditionalproperties="false" title="Skill Assertion (Credential Registry)"
+    data-vc-vm="did:example:issuer">
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://imsglobal.github.io/openbadges-specification/context.json"
+  ],
+  "type": ["VerifiableCredential", "OpenBadgeCredential"],
+  "id": "https://issuer-website.com/awards/abc123",
+  "issuer": {
+    "id": "did:example:issuer",
+    "type": ["Profile"],
+    "name": "An Example Issuer",
+    "image": {
+      "id": "https://example.org/logo.png",
+      "type": "Image"
+    },
+    "url": "https://example.org",
+    "email": "contact@example.org"
+  },
+  "issuanceDate": "2022-05-01T19:23:24Z",
+  "name": "Solve and graph linear equations and inequalities",
+  "credentialSubject": {
+    "id": "did:example:learner",
+    "type": ["AchievementSubject"],
+    "result": [{
+      "type": ["Result"],
+      "alignment": [{
+        "type": ["Alignment"],
+        "targetCode": "ce-6369c51f-4d86-4592-a761-8b32ae70a045",
+        "targetFramework": "Ivy Tech Community College of Indiana, MATH 135, FINITE MATH",
+        "targetName": "Solve and graph linear equations and inequalities",
+        "targetType": "ceasn:Competency",
+        "targetUrl": "https://credentialfinder.org/competency/ce-6369c51f-4d86-4592-a761-8b32ae70a045"
+      }]
+    }]
+  }
+}
+</pre>
+`;
