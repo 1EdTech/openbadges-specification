@@ -52,29 +52,3 @@ Package ApiDataModel DataModel
     Class GetOpenBadgeCredentialsResponse Unordered false []
         Property credential AchievementCredential 0..*              "OpenBadgeCredentials that have not been signed with the VC-JWT Proof Format MUST be in the `credential` array."
         Property compactJwsString CompactJws 0..*                   "OpenBadgeCredentials that have been signed with the VC-JWT Proof Format MUST be in the `compactJwsString` array."
-
-    // The following schema is based on the OpenAPI 3.0 schema
-
-    Class ServiceDescriptionDocument Unordered false []             "The Service Description Document (SDD) is a machine readable document that contains the description of the service features supported by the Provider/Platform. The SDD is an OpenAPI 3.0 (JSON) [[OPENAPIS-3.0]] structured document that MUST be a profiled version of the OpenAPI 3.0 (JSON) file provided provided with this specification. This profiled version contains all of the details about the supported set of service end-points, the supported optional data fields, definitions of the proprietary data fields supplied using the permitted extension mechanisms, definitions of the available proprietary endpoints, and information about the security mechanisms." "n:Only a subset of the object properties are shown here."
-        Property openapi String 1                                   "This string MUST be the semantic version number of the OpenAPI Specification version that the OpenAPI document uses. The openapi field SHOULD be used by tooling specifications and clients to interpret the OpenAPI document. This is not related to the API info.version string."
-        Property info OpenApiInfo 1                                 "Information about the API and the [=resource server=]." "n:The proprietary fields `x-imssf-image` and `x-imssf-privacyPolicyUrl` are found here."
-        Property components OpenApiComponents 1                     "Holds a set of reusable objects for different aspects of the OAS." "n:The proprietary field `x-imssf-registrationUrl` is found in the `securitySchemes` components."
-
-    Class OpenApiComponents Unordered false []                      "Holds a set of reusable objects for different aspects of the OAS. All objects defined within the components object will have no effect on the API unless they are explicitly referenced from properties outside the components object." "n:Only a subset of the object properties are shown here."
-        Property securitySchemes OpenApiSecuritySchemes 1           "The Map of security scheme objects supported by this specification."
-
-    Class OpenApiInfo Unordered false []                            "The object provides metadata about the API. The metadata MAY be used by the clients if needed, and MAY be presented in editing or documentation generation tools for convenience." "n:Only a subset of the object properties are shown here."
-        Property termsOfService URL 1                               "A fully qualified URL to the [=resource server=]'s terms of service."
-        Property title String 1                                     "The name of the [=resource server=]."
-        Property version String 1                                   "The version of the API."
-        Property x-imssf-image URI 0..1                             "An image representing the [=resource server=]. MAY be a Data URI or the URL where the image may be found."
-        Property x-imssf-privacyPolicyUrl URL 1                     "A fully qualified URL to the [=resource server=]'s privacy policy."
-
-    Class OpenApiOAuth2SecurityScheme Unordered false []            "Defines an OAuth2 security scheme that can be used by the operations." "n:Only a subset of the object properties are shown here."
-        Property type String 1                                      "MUST be the string `oauth2`."
-        Property description String 0..1                            "A short description for the security scheme."
-        Property x-imssf-registrationUrl URL 1                      "A fully qualified URL to the Client Registration endpoint."
-
-    Class OpenApiSecuritySchemes Unordered false []                 "The Map of security scheme objects supported by this specification." "n:Only a subset of the object properties are shown here."
-        Property OAuth2CCG OpenApiOAuth2SecurityScheme 0..1         "REQUIRED if the [=authorization server=] supports the Client Credentials Grant Flow."
-        Property OAuth2ACG OpenApiOAuth2SecurityScheme 0..1         "REQUIRED if the [=authorization server=] supports the Authorization Code Grant Flow."
