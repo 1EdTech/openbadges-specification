@@ -430,7 +430,7 @@
           },
           "type" : {
             "type" : "string",
-            "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Image'.",
+            "description" : "MUST be the IRI 'Image'.",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.iri.class"
           }
         },
@@ -927,7 +927,7 @@
         "properties" : {
           "salt" : {
             "type" : "string",
-            "description" : "If the recipient is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.",
+            "description" : "If the `identityHash` is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.primitive.string.class"
           },
           "identityHash" : {
@@ -936,18 +936,24 @@
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.primitive.string.class"
           },
           "identityType" : {
-            "type" : "string",
-            "description" : "The IRI of the property by which the recipient of the achievement is identified. This value should be an IRI mapped in the present context. For example, 'email' maps to 'http://schema.org/email' and indicates that the identity of the IdentityObject will represent a value of a Profile's 'email' property. See [[#profile-identifier-properties]].",
-            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.iri.class"
+            "description" : "The identity type.",
+            "anyOf" : [ {
+              "type" : "string",
+              "enum" : [ "sourcedId", "systemId", "productId", "userName", "accountId", "emailAddress", "nationalIdentityNumber", "isbn", "issn", "lisSourcedId", "oneRosterSourcedId", "sisSourcedId", "ltiContextId", "ltiDeploymentId", "ltiToolId", "ltiPlatformId", "ltiUserId", "identifier" ]
+            }, {
+              "pattern" : "(ext:)[a-zA-Z0-9\\.\\-_]+",
+              "type" : "string"
+            } ],
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.identifiertypeenum.class"
           },
           "hashed" : {
             "type" : "boolean",
-            "description" : "Whether or not the `identity` value is hashed.",
+            "description" : "Whether or not the `identityHash` value is hashed.",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.primitive.boolean.class"
           },
           "type" : {
             "type" : "string",
-            "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'IdentityObject'.",
+            "description" : "MUST be the IRI 'IdentityObject'.",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.iri.class"
           }
         },
