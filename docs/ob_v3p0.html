@@ -1953,11 +1953,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-20T15:20:42Z",
+      "created": "2022-06-20T15:44:03Z",
       "verificationMethod": "https://example.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zRjSnuMrKJ2bP55aHV8eiYNYw9xhetpJfh4vVMQf124pqsMMbcvUk2QH7WL
-gRMfZtXK5yamVJvyCAvhp9cySy2Hz"
+      "proofValue": "zxsbNTgDgPCjH4pSjHxCVJQgvER3sQeys1UvVMJoesfXT8iRV7DL1Cfq8bw
+yUeX9RAyY4qghniesaij8pTczvkKj"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -2022,12 +2022,12 @@ lbWEiOlt7ImlkIjoiaHR0cHM6Ly9pbXN1bTIuaGVyb2t1YXBwLmNvbS9qc29uc2NoZW1hP2NsYXNzSWQ
 9b3JnLjFlZHRlY2gub2IudjNwMC5hY2hpZXZlbWVudGNyZWRlbnRpYWwuY2xhc3MiLCJ0eXBlIjoiSnN
 vblNjaGVtYVZhbGlkYXRvcjIwMTkifV19LCJpc3MiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnM
 vNTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGl
-hbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.Xy
-v3DWsMJRvSqF-2epZhJRVHw4--dYgj33TkleBVUzuckMVbQeY2_90PMcDLqFQbNPo3Cu5N5-sJV9wUKw
-WACliOSLr7owsuQeF0Hpmd-N-Mnmj8SOP6TUhnsMKT3Z3fMqoYZlIP0mNKMCDz0fmlQE4hFbcsLKAXB4
-1NuY--NUJVY0R5tPS_KnP4zkN08P3jloIt0ZAMA0KZrKbyqE3dr6hYarz631vBGpXtPXzhlab_5zues9
-QPPlSz7SbHiO1MnqE93Nhyz__qfbhIXD8eotH_jo3W5ISsVSAq3tKDIb-gSATrcFfVWaT7gRDzCaFKJq
-tosk1LDYvqQs3zbTYGow</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
+hbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.AO
+7wMORHv3H8IRNVd6JkbWTdS5faJoNYVTVryu3J0u3HN8_BUIdxIjli9gWkeBTVrbJvvuZ-5jrBaBC7T5
+ZHPSCs38wwxaXoN3wZORgTdXLLsEkxFRJlGNSo6DhcnP6V7iq_jEft9EbTyBG_NQaQ43ma1gGO1bZNWo
+E4HJ5dom1tQ8dcg72rIV7RdJJFdUDmcYtb-sVVuwC7gtBTAAQzn26bnIf7BE7qebQ2Mbr38ExeCLpB8f
+le4830_QAWK9D_m3yI57E238HjfjVpH8XLuKn_aJwXFyCxbnOWFAKl6Jc8tB-Ke-sK5nWpI8iWTcX2DP
+yNr4KKggPD7QgeLJQuBg</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">Example<bdi> 2</bdi></a><span class="example-title">: An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)</span>
   </div> <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">var</span> chunk = <span class="hljs-keyword">new</span> iTXt({
@@ -5723,7 +5723,7 @@ Only perform Refresh once. That is, do not complete Refresh a second time even i
     <td>[1]</td>
   </tr><tr>
     <td>identityHash</td>
-    <td><a href="#org.1edtech.ob.v3p0.primitive.string.class"><samp>String</samp></a></td>
+    <td><a href="#org.1edtech.ob.v3p0.derived.identityhash.class"><samp>IdentityHash</samp></a></td>
     <td>
       Either the IdentityHash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information where there is an expectation of privacy, it is strongly recommended that an IdentityHash be used.
       
@@ -8526,11 +8526,11 @@ Only perform Refresh once. That is, do not complete Refresh a second time even i
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-20T15:20:42Z",
+      "created": "2022-06-20T15:44:04Z",
       "verificationMethod": "https://example.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z4RBqa9nq5xKugdxXuQP5dwgrskZFhJqCtDx95RU6t85eWYbV6ni2ydTZH8
-ECiS1Sjk1wtwQxKCdUH51m8bTYoeeS"
+      "proofValue": "z5H2p1LQqSxtudouxay7PHGpYYVNZzrUkbHkpznaDe2Ux33cn7PXstD77tm
+v1uxkufKqyq4yFRPzjyeFy6oCQD8XB"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -8586,11 +8586,11 @@ lZ3JlZSIsImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZ
 mMWMyNzZlMTJlYzIxIiwidHlwZSI6WyJBY2hpZXZlbWVudFN1YmplY3QiXX19LCJpc3MiOiJodHRwczo
 vL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8
 vZXhhbXBsZS5lZHUvY3JlZGVudGlhbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJ
-lYmM2ZjFjMjc2ZTEyZWMyMSJ9.jF3WQutd50yRMt_Pctw7yeTshqcyzrZTwCoeThYssnkAc5jwSIZ92C
-WAIECpoC73MvJJwCpYAYftF6XBMV7Tj528iZ-cX09glQ-X0DyogP86iOXnO6Ltbz13O8Y--rmsHvytE5
-d9p9hTwSwMOjDqoa5oOHJNJ2xzW34Aw0GZVa7Xjdsi9qAY7I1DlWpmzxXL4-MCLs6srZswCY2ijKaYT6
-sArHMnoFnubwrpzENagXMScLtVfiy6X5bnwPXELj2QQr7Hqnvmb_QDrNXl4cbliqJeX5RbmR22p4yHOy
--DNbagpdxSdBGn2jLXmOwaGof0h1YAEhcMLUEa56_U_RoWUQ</pre></div></div></div>
+lYmM2ZjFjMjc2ZTEyZWMyMSJ9.FarWiJQF7uzaHWMPLXu82I_fzOQwFa5NbDHlm23_vgyuBrIPgZL51o
+YJTbMiW3ZNhqdxGD3Q-wm1UihGIL6CxVEqa4O2th0O64554Qvtr3fglJgG6t0_K-7beGlf86tjMNb7OV
+IK51AJomnzjVYuZ4bjOj_msX9RUmks34s5A9zXJx7LwSn8tGGrnbOfGzxcTaDEPC7SWdwS7bCI2oIDrp
+fijB7OGziice6I7Kk_l2q_uLWYYxtbHduh5aFPttimKAr8vZquRd2oNXV55BTRQYsegpiWygDjukZHZM
+KGTMZsboYPcjpc1nQMpB2AzfUjN-cKFrq7tdiEw99th4gEAg</pre></div></div></div>
 
 
     </section>
@@ -10041,11 +10041,11 @@ l.json",
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-20T15:20:42Z",
+      "created": "2022-06-20T15:44:04Z",
       "verificationMethod": "https://1edtech.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z25crqkiAHpRW4k2GxVZtgXwqdXTUXq9tTZnccgxwB8VPUrJYzLvke453ao
-M68Z5NtFYaVcDHh9p395DvRiJzuzR3"
+      "proofValue": "z5omTRveD5ARYaBADNHDGEYoeCRei42rrRBFZyWf7u1zHJNXjtyhEMZMCeb
+59WvjCdzB3HmR5nAmpMa7sygz6TYNr"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -11049,11 +11049,11 @@ mcmVzaFNlcnZpY2UiOnsiaWQiOiJodHRwOi8vMWVkdGVjaC5lZHUvY3JlZGVudGlhbHMvMzczMiIsInR
 5cGUiOiIxRWRUZWNoQ3JlZGVudGlhbFJlZnJlc2gifX0sImV4cCI6MTU3NzgzNjgwMCwiaXNzIjoiaHR
 0cHM6Ly8xZWR0ZWNoLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5iZiI6MTI2MjMwNDAwMCwianRpIjoiaHR
 0cDovLzFlZHRlY2guZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhbXBsZTplYmZlYjF
-mNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.EI47VOJmZLTboSvdUl3ROT6eLTDTGv6z7wlA-s4vnV-CC78G
-0qOlEaiO3M8aYzH1VnzNP47Cnqno39YN-6VPbfZ4HfPVd-n7z4vZ-llMeCW7MsEmmIb4eMBw4NOzXeiS
-agVeOabzibi1sIbbMBGqKVTLYDB4M1RaxUlJzw_cXMgP56SRJUwmwtE_9-mP705F0UZ_l6T8ECmeR2A_
-fK98dsrg4uxdlyZjFfog9Q7a_KbNNy5qNFOij_Ri47md_EqEZdA2P4ruGsWnaKe8uP7TjUW_cp54KN74
-oqD3fvItukENT8s76Nvoqn-eUngtejSATcYV4FqhiAgsUid-CvMfGA</pre></div></div></div>
+mNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.JMgJzif58PLypfx37aK1JmITqC1JL9_0b2N1BhOILDJAPNT3
+rTzRvYLojA8ZjW4W6XK5cM5dPJaUBh-_OPHyRgXkkL3UU94fARiWyEdVW3tH9hhbJ-lofWAwAw9G4YhH
+Us-r9N0Cd5Ymxhpe4Wz18qxgvr1k4ikpofE45kRyqP2FLgtV9UkRA1lU56VZ_uN7KcEELNiKJMO8pAnN
+sZ7rqym7QwukRF_D0QcTVVssni9zxP-FLUm-fMWtNxWusgl7uWXu154pqiyhs6FO_ch0_iv1ZLxes2Es
+qi7jG6HFq0hZeEtfk3efcf_K-Cu8T-VnzUWL5fX1vIBFw8J8gU8Y0g</pre></div></div></div>
 
 
     </section>
@@ -11157,11 +11157,11 @@ l.json",
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-20T15:20:43Z",
+      "created": "2022-06-20T15:44:04Z",
       "verificationMethod": "https://accrediter.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z4sC2iAPn18DGfvRtht689dXm4cvCqmkSqy4TxFdFZyHx6aatWjaPKiFFcY
-TuDa79u6SoGakSX78WiudGBFkiie7Y"
+      "proofValue": "z1Q1gnHLGQ4rMALUFdUG6dFwYyyWVpvEdeG3YhYXww7nBiYvRExiTF8dtrB
+iCQxZr8q8Ri8ie5CLs1EsJR9ZFrid"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -11245,11 +11245,11 @@ vMzczMi9yZXZvY2F0aW9ucyIsInR5cGUiOiIxRWRUZWNoUmV2b2NhdGlvbkxpc3QifSwicmVmcmVzaFN
 lcnZpY2UiOnsiaWQiOiJodHRwOi8vc3RhdGUuZ292L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjoiMUV
 kVGVjaENyZWRlbnRpYWxSZWZyZXNoIn19LCJleHAiOjE1Nzc4MzY4MDAsImlzcyI6Imh0dHBzOi8vc3R
 hdGUuZ292L2lzc3VlcnMvNTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAwLCJzdWIiOiJodHRwczovLzFlZHR
-lY2guZWR1L2lzc3VlcnMvNTY1MDQ5In0.KTjPaC5tf7EvHx_lsf7out7ax_KIvUhkmBqpZVeynQ1xfxp
-xRenZK_zMiFZSqsHik3UCZgi8OWT8OCBD3stnQzcjNtHzjKRV8EiNdzuXY_jyFbmsrec-SbSDR4vOU4J
-Y4GQp6791s6y8qIyQh8bO-VeDf44Q2FmNRdwv9fWKOBivq45DSwPAu-Qu-y2t8tNFkp4hYF-H0DFS9gu
-kDSkHvcvl4rcBNj7y1szC2UdMfEY8igO4wI5q3KyVlPPlY0U3PVAUYKxwJz3_MOAC7hVanAKgLCPL_Mp
-6KinG8Ea6VJk20rjDV-MtbAr0PyWklzmst3qO59ggn5UroM0Ebj7D5Q</pre></div></div></div>
+lY2guZWR1L2lzc3VlcnMvNTY1MDQ5In0.Wlb0FcyUSrXzRM9K9lFw5uTib4kIjyTTop-bD4MGGxQQfWv
+Buzj43aoazaNNJ5J09_oQjyzEmrsBD2I2IwFth8c_Cv7zIdkjgeRxIrxZu2O0aajnp5MtengWhJ7My77
+T2gy-5kknG1bSm3rnZaApWOupg8dJNn644WkOauVnScMpJS_hnk4wG5xuiFR7OHNMsWSNub2LprNE0qN
+1A_IT80BuoF-MPacWbL6sX951bthNVSLJOrro-V-zJKMwtALEjeKsh_q_KXM168hsr_tpBDzFdl3uxqA
+D0Yr-sQdS--FphcRbr6tEe2N2kVH6lTwcC2Iei32--HltXLi5o6G3hQ</pre></div></div></div>
 
 
     </section>
@@ -11351,11 +11351,11 @@ ts_Analysis"
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-20T15:20:43Z",
+      "created": "2022-06-20T15:44:04Z",
       "verificationMethod": "https://example.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z3bcG4qwprucaEddzTmumUUzSgv6uU9x3R7ryMkFZKNKhnMv1i81Nw88ofo
-So2ycrzTFBkZPDz8eAULhsAmEdVnsX"
+      "proofValue": "z3wjqFt2wyGEzczjCHfFaRbfBzGrqWE9PBpQojSQRcRzxaN7erA88ANT3GX
+FUyAb2egAZEq2RFVnT5dMv2r6ce2vC"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -11448,11 +11448,11 @@ wZSI6ImNldGVybXM6Q3JlZGVudGlhbCIsInRhcmdldFVybCI6Imh0dHBzOi8vY3JlZGVudGlhbGZpbmR
 lci5vcmcvY3JlZGVudGlhbC8yMDIyOS9SZXF1aXJlbWVudHNfQW5hbHlzaXMifV19fX0sImlzcyI6Imh
 0dHBzOi8vZXhhbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAsImp0aSI6Imh
 0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3ViIjoiZGlkOmV4YW1wbGU6ZWJmZWI
-xZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.Rw7ctS0L7aC6ZwtSD8jkgeBw-jGqtWJTbWcjXkGWGB8av4N
-4nDwPv8uzMLG95P8-NXTExSd1fd7VsXoa_fqb0iFyXjK_uO5CYLK6JiXNHrKzd6-HqiqJY3cOjZntulS
-Nibd2hiL7q31OqKCVlZ9QjGeOk8E67mS53t8bXFmhej8pfbeIrqQVyD84TEYFTXsriEX3MJ7mGjj8t9j
-HcsBuUQOwT-5HDG5OtB66yQqp219dURv22XXJVOjW8BjUN5daGlH9wwr3Nw3NpKztZqPYYf9W6W3tIIT
-kjKB4ODJo7fKTLtdEPpxPwM3asiXaDAfaWO4jMVyx0SgtVN19mXnQ8Q</pre></div></div></div>
+xZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.Hm1-2CZvvncHrOIaE0Q2iKnBcOBt9Mw6SpCzz2FkWS9lvPS
+LMcn-5bkSCROcdgauNXFeJBsdir5P62imxTgJ0AEDOshduuvJKIN6vGX-mVgGc68e_TUhVGZHIriPOK3
+WUvtx_fqYevf4FhIaA-kkjLvJO_uDSY2ZFo03KUVIyQpZvDbenV_-2-cHp8HfG8Hw2XEzrOFlW9PjnRo
+WaYMDdIBQ5Ad7ZVYg89ByW38L0W_SuLteMBo3bSRAtUn5ZrPggsO6D5_bkQniOpjL8kw19SgUGJL0-Fr
+ARlOP18YDwSK_1frKpe3OXxGlQwoYe_WjVuAchjl1zggx7CRAN_gYKQ</pre></div></div></div>
 
 
     </section>
@@ -11554,11 +11554,11 @@ ts_Analysis"
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-20T15:20:43Z",
+      "created": "2022-06-20T15:44:04Z",
       "verificationMethod": "https://example.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z3bcG4qwprucaEddzTmumUUzSgv6uU9x3R7ryMkFZKNKhnMv1i81Nw88ofo
-So2ycrzTFBkZPDz8eAULhsAmEdVnsX"
+      "proofValue": "z3wjqFt2wyGEzczjCHfFaRbfBzGrqWE9PBpQojSQRcRzxaN7erA88ANT3GX
+FUyAb2egAZEq2RFVnT5dMv2r6ce2vC"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -11651,11 +11651,11 @@ wZSI6ImNldGVybXM6Q3JlZGVudGlhbCIsInRhcmdldFVybCI6Imh0dHBzOi8vY3JlZGVudGlhbGZpbmR
 lci5vcmcvY3JlZGVudGlhbC8yMDIyOS9SZXF1aXJlbWVudHNfQW5hbHlzaXMifV19fX0sImlzcyI6Imh
 0dHBzOi8vZXhhbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAsImp0aSI6Imh
 0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3ViIjoiZGlkOmV4YW1wbGU6ZWJmZWI
-xZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.Rw7ctS0L7aC6ZwtSD8jkgeBw-jGqtWJTbWcjXkGWGB8av4N
-4nDwPv8uzMLG95P8-NXTExSd1fd7VsXoa_fqb0iFyXjK_uO5CYLK6JiXNHrKzd6-HqiqJY3cOjZntulS
-Nibd2hiL7q31OqKCVlZ9QjGeOk8E67mS53t8bXFmhej8pfbeIrqQVyD84TEYFTXsriEX3MJ7mGjj8t9j
-HcsBuUQOwT-5HDG5OtB66yQqp219dURv22XXJVOjW8BjUN5daGlH9wwr3Nw3NpKztZqPYYf9W6W3tIIT
-kjKB4ODJo7fKTLtdEPpxPwM3asiXaDAfaWO4jMVyx0SgtVN19mXnQ8Q</pre></div></div></div>
+xZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.Hm1-2CZvvncHrOIaE0Q2iKnBcOBt9Mw6SpCzz2FkWS9lvPS
+LMcn-5bkSCROcdgauNXFeJBsdir5P62imxTgJ0AEDOshduuvJKIN6vGX-mVgGc68e_TUhVGZHIriPOK3
+WUvtx_fqYevf4FhIaA-kkjLvJO_uDSY2ZFo03KUVIyQpZvDbenV_-2-cHp8HfG8Hw2XEzrOFlW9PjnRo
+WaYMDdIBQ5Ad7ZVYg89ByW38L0W_SuLteMBo3bSRAtUn5ZrPggsO6D5_bkQniOpjL8kw19SgUGJL0-Fr
+ARlOP18YDwSK_1frKpe3OXxGlQwoYe_WjVuAchjl1zggx7CRAN_gYKQ</pre></div></div></div>
 
 
     </section>
@@ -11764,11 +11764,11 @@ ext, including determining where the text leaves matters uncertain",
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-20T15:20:43Z",
+      "created": "2022-06-20T15:44:04Z",
       "verificationMethod": "did:example:issuer",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z4YuNzGeuprNtScCWz7HZ2Q9oFGSPQgSuUB8rEB3DDsBXokNjxEoND28Y4Q
-1dbZCFHg8E4ebrt4MwuxwUPHHq8Cdy"
+      "proofValue": "z36zV7W3VJvubJ6PkNA1R2mvPoXUhS4owS3M6j7pzWNbuGZq89xvcLTtQZS
+9PvA5MrzvTG38PD8h2d7HgiPuf5mrw"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -11867,11 +11867,11 @@ uZyB3aGVyZSB0aGUgdGV4dCBsZWF2ZXMgbWF0dGVycyB1bmNlcnRhaW4iLCJ0YXJnZXRUeXBlIjoiQ0Z
 JdGVtIiwidGFyZ2V0VXJsIjoiaHR0cHM6Ly9jYXNlcmVnaXN0cnkuaW1zZ2xvYmFsLm9yZy91cmkvNzR
 mNWJiN2QtZDdjYy0xMWU4LTgyNGYtMDI0MmFjMTYwMDAyIn1dfV19fSwiaXNzIjoiZGlkOmV4YW1wbGU
 6aXNzdWVyIiwibmJmIjoxNjUxNDMzMDA0LCJqdGkiOiJodHRwczovL2lzc3Vlci13ZWJzaXRlLmNvbS9
-hd2FyZHMvYWJjMTIzIiwic3ViIjoiZGlkOmV4YW1wbGU6bGVhcm5lciJ9.w311meRvwDl_mBETVjw8Rp
-K9cAllQsRvprOm-oO5VhissOx3p-Y1TgC0g-1N2ivx2Sq5YfP2PeyZz_QTzEcfhL3qICu9OO3wKBt_NY
-AYOUWU11gNYuDxQRSjZ_0fWE7iZF3sNdRa1xOwBxGjAd4ZIEfpN5BcIOdO9X-b0N8gzLDDW8DyGt5pqq
-Sezpi4Jtzh0Ps3x25suGuzRS_duhUnRPZXjAeH-hfauNPu5p8jjDA34iPr4K_8AXf6_JyrmjSAb374Ga
-Bj1zH3qVkx_l5QxJvFSGbyu9o7QrfEKJPJd19F_iJ4SWi7gdy5n5Jlow7zFSB-bLVLbfnmJhCPP4xc2A</pre></div></div></div>
+hd2FyZHMvYWJjMTIzIiwic3ViIjoiZGlkOmV4YW1wbGU6bGVhcm5lciJ9.LZypQyf7RQTr0C6iZXKyFP
+Oj09Z0DTXRaN1XdwjgVsDmWIVbLS9qAd1J1KtOM4aqbvyFiPPdceA5JTkOw-FuPQti37sYjuHs_Y8Oe5
+bjE5L3s1buxuvpGOPWEQEnxajlNjbtL3ZtNKRcS-0DXWTPDnzwOKFkKy0YgMy4CITfsKBRMciVuk0gwG
+3KhiMuyKLFt9zu1ZdyDxABhaetTbtJAPt3eI4AhTswmJR-iHa88wETqw5jg2YYlC6t9GDl_-ycp2-I-9
+qBW_nHqV1b4WeB331mMG_IDyp2anKKrP7MVLmJxtIB0ZkYbhofyFWE4LUm90mvNrI6sbdcykg4b1cacQ</pre></div></div></div>
 
     </section>
     <section id="skill-assertion-credential-engine-0">
@@ -11976,11 +11976,11 @@ Bj1zH3qVkx_l5QxJvFSGbyu9o7QrfEKJPJd19F_iJ4SWi7gdy5n5Jlow7zFSB-bLVLbfnmJhCPP4xc2A
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-20T15:20:43Z",
+      "created": "2022-06-20T15:44:04Z",
       "verificationMethod": "did:example:issuer",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zGupFKzqnBx5nKZsbDh9f39ebknPQRjcNib4r5HPAj5MW6S2FqbhDZWujxy
-9Vn7NUUuwuyuB5vWgdbWsPheQdJR1"
+      "proofValue": "z3d5tUvQ3QNoDG5625hkvikuvACdg4dTVHaznPXAqZv7cDdHiZGSkWfcw16
+gtAsieSjHE6GjVwXkn4LEjQyL1ibeV"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -12071,11 +12071,11 @@ sInRhcmdldFR5cGUiOiJjZWFzbjpDb21wZXRlbmN5IiwidGFyZ2V0VXJsIjoiaHR0cHM6Ly9jcmVkZW5
 0aWFsZmluZGVyLm9yZy9jb21wZXRlbmN5L2NlLTYzNjljNTFmLTRkODYtNDU5Mi1hNzYxLThiMzJhZTc
 wYTA0NSJ9XX1dfX0sImlzcyI6ImRpZDpleGFtcGxlOmlzc3VlciIsIm5iZiI6MTY1MTQzMzAwNCwianR
 pIjoiaHR0cHM6Ly9pc3N1ZXItd2Vic2l0ZS5jb20vYXdhcmRzL2FiYzEyMyIsInN1YiI6ImRpZDpleGF
-tcGxlOmxlYXJuZXIifQ.nm-yCJ1ZgAI8kJ7BDT6cB5Z-8YhPP568bgxthrLTNkfmVCvEn7QGVcq6Dc8P
-tKj3P_flAkNzmg23N6Ckw-1-ILbqnEZYOrIivnBVaXMSQ4B5w41lBMtBgSRm2vamTHbiUHVoitsvusdA
-YLDIM7Cr73-OI9Wh1Bad10BNcs_msOohb5C2BUopMZjkOapTDR-lbCpktkyvCV2UynFroD89lP0G5Q6x
-_Qvg7u1Erj14kN0SaV5aTQ8YTO0E7YbYLl0N0SALkUJ1Ic8Pxf7vN7CPAOq-wHiLKHfMLy3J6Gk5VPvD
-Nxh0vO8hVPsmjwygTU9BkbA_1glHWkv9QHkEkcgAXQ</pre></div></div></div>
+tcGxlOmxlYXJuZXIifQ.UzbI_hmS61k_Uhw1mSM4ctWoreIYl2mWUy0QGtGbYIM9nZinkVQ5UggqLktD
+gI96Hf_By09hfQJTrkjUqtb-u_kCTtTz3_lJ9kgO88Nh7rCpnITdqjmL7we16cN94CgbtT8iukStjf98
+YS6iN-VOecTSfB22XcIq6HQDId4Too9lJplwl12M4LlS3K94fw0t09mJhSKUpNNCOVt4qhF8ZKciXcwV
+ULPVkwzXBJmwnMblL4DOXWghtGFR5Tu8G2TKvDRQdCxzpYPpx7lBfFz4J0ogCTGt2HCYmQvQOt8Tiov2
+ujQYa-U8xNznPDhAf6rlaBrotHgFf1MUxayaD92uCg</pre></div></div></div>
 
     </section>
   </section>
