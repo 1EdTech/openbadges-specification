@@ -17,16 +17,14 @@ The Open Badges Specification has several related documents and artifacts shown 
 - [[[OB-30]]] - The main Open Badges Specification document.
 - [[[OB-CERT-30]]] - Specifies the conformance tests and certification requirements for this specification.
 
-#### OpenAPI 3.0 Files for the Badge Connect API {#docs-openapi}
+#### OpenAPI 3.0 Files {#docs-openapi}
 
 > The Open API Specification (OAS) defines a standard, programming language-agnostic interface description for HTTP APIs, which allows both humans and computers to discover and understand the capabilities of a service without requiring access to source code, additional documentation, or inspection of network traffic. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interface descriptions have done for lower-level programming, the OpenAPI Specification removes guesswork in calling a service.
 >
 > -- [[[OPENAPIS]]]
 
-This standard has OpenAPI 3.0 files for the Badge Connect API in both JSON and YAML format:
-
-- [JSON OpenAPI File](https://imsglobal.github.io/openbadges-specification/openapi.json)
-- [YAML OpenAPI File](https://imsglobal.github.io/openbadges-specification/openapi.yaml)
+- [JSON OpenAPI File](https://imsglobal.github.io/openbadges-specification/openapi/openapi.json)
+- [YAML OpenAPI File](https://imsglobal.github.io/openbadges-specification/openapi/openapi.yaml)
   
 #### JSON-LD Context File
 
@@ -36,15 +34,17 @@ This standard has OpenAPI 3.0 files for the Badge Connect API in both JSON and Y
 >
 > -- [[[json-ld11]]]
 
-This specification includes this JSON-LD Context file:
-
 - [https://imsglobal.github.io/openbadges-specification/context.json](https://imsglobal.github.io/openbadges-specification/context.json)
 
 #### JSON Schema
 
-This specification includes JSON Schema files for every class in the data model and every payload in the API.
+All JSON Schema can be found in [[[#json-schema]]]. JSON Schema files for credential and API schema verification are available online:
 
-- [[[OB-JSON-30]]] - Links to the JSON Schema files for all data model classes and API payloads.
+- AchievementCredential<br/>[https://imsglobal.github.io/openbadges-specification/schema/achievementcredential.json](https://imsglobal.github.io/openbadges-specification/schema/achievementcredential.json)
+- EndorsementCredential<br/>[https://imsglobal.github.io/openbadges-specification/schema/endorsementcredential.json](https://imsglobal.github.io/openbadges-specification/schema/endorsementcredential.json)
+- GetOpenBadgeCredentialsResponse<br/>[https://imsglobal.github.io/openbadges-specification/schema/getopenbadgecredentialsresponse.json](https://imsglobal.github.io/openbadges-specification/schema/getopenbadgecredentialsresponse.json)
+- Imsx_StatusInfo<br/>[https://imsglobal.github.io/openbadges-specification/schema/imsx_statusinfo.json)](https://imsglobal.github.io/openbadges-specification/schema/imsx_statusinfo.json)
+- Profile<br/>[https://imsglobal.github.io/openbadges-specification/schema/profile.json)](https://imsglobal.github.io/openbadges-specification/schema/profile.json)
 
 ### Conformance Statements {#conformance}
 
