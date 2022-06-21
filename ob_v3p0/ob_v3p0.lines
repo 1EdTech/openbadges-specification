@@ -47,7 +47,7 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
             Body ServiceDescriptionDocument 1 application/json      "The service discovery document."
         Response default Imsx_StatusInfo 1                          "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
 
-Package ApiDataModel DataModel
+Package ApiDataModels DataModel
 
     Class GetOpenBadgeCredentialsResponse Unordered false []
         Property credential AchievementCredential 0..*              "OpenBadgeCredentials that have not been signed with the VC-JWT Proof Format MUST be in the `credential` array."
