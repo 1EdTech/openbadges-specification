@@ -51,7 +51,7 @@ jobs:
       - name: Download the JSON Schema files
         uses: actions/download-artifact@v3
         with: 
-          name: *.json
+          name: '*.json'
           path: docs
       - name: Commit the new/updated docs
         run: |
