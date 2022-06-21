@@ -35,6 +35,8 @@ jobs:
       - uses: actions/checkout@v2
       - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' https://datamodels-staging.imsglobal.org/jsonschema/org.1edtech.ob.v3p0.achievementcredential.class --output achievementcredential.json
       - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' https://datamodels-staging.imsglobal.org/jsonschema/org.1edtech.ob.v3p0.endorsementcredential.class --output endorsementcredential.json
+      - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' https://datamodels-staging.imsglobal.org/jsonschema/org.1edtech.ob.v3p0.getopenbadgecredentialsresponse.class --output getopenbadgecredentialsresponse.json
+      - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' https://datamodels-staging.imsglobal.org/jsonschema/org.1edtech.ob.v3p0.imsx_statusinfo.class --output imsx_statusinfo.json
       - name: Upload the JSON Schema files
         uses: actions/upload-artifact@v3
         with: 
@@ -44,6 +46,14 @@ jobs:
         with:
           name: endorsementcredential.json
           path: endorsementcredential.json
+      - uses: actions/upload-artifact@v3
+        with:
+          name: getopenbadgecredentialsresponse.json
+          path: getopenbadgecredentialsresponse.json
+      - uses: actions/upload-artifact@v3
+        with:
+          name: imsx_statusinfo.json
+          path: imsx_statusinfo.json
       - name: Switch to gh-pages branch
         uses: actions/checkout@v2
         with:
@@ -56,6 +66,14 @@ jobs:
       - uses: actions/download-artifact@v3
         with: 
           name: endorsementcredential.json
+          path: docs/schema
+      - uses: actions/download-artifact@v3
+        with: 
+          name: getopenbadgecredentialsresponse.json
+          path: docs/schema
+      - uses: actions/download-artifact@v3
+        with: 
+          name: imsx_statusinfo.json
           path: docs/schema
       - name: Commit the new/updated docs
         run: |
