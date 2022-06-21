@@ -51,7 +51,12 @@ jobs:
       - name: Download the JSON Schema files
         uses: actions/download-artifact@v3
         with: 
-          path: docs
+          name: achievementcredential.json
+          path: docs/schema
+      - uses: actions/download-artifact@v3
+        with: 
+          name: endorsementcredential.json
+          path: docs/schema
       - name: Commit the new/updated docs
         run: |
           git add docs/*
