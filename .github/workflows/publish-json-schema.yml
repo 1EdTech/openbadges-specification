@@ -1,0 +1,61 @@
+name: Publish JSON Schema files
+
+on:
+
+  push:
+    branches: 
+      - develop
+    paths: 
+      - 'ob_v3p0/ob_v3p0.lines'
+      - 'ob_v3p0/common_credentials.lines'
+  
+  pull_request:
+    branches: 
+      - develop
+    paths: 
+      - 'ob_v3p0/ob_v3p0.lines'
+      - 'ob_v3p0/common_credentials.lines'
+
+jobs:
+
+  sideload:
+    name: Sideload the ob_v3p0.lines file
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' -F 'file=@ob_v3p0/ob_v3p0.lines' https://datamodels-staging.imsglobal.org/upload
+        continue-on-error: false
+        
+  publish:
+    name: Generate the JSON Schema files
+    needs: sideload
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' https://datamodels-staging.imsglobal.org/jsonschema/org.1edtech.ob.v3p0.achievementcredential.class --output achievementcredential.json
+      - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' https://datamodels-staging.imsglobal.org/jsonschema/org.1edtech.ob.v3p0.endorsementcredential.class --output endorsementcredential.json
+      - name: Upload the JSON Schema files
+        uses: actions/upload-artifact@v3
+        with: 
+          name: achievementcredential.json
+          path: achievementcredential.json
+      - uses: actions/upload-artifact@v3
+        with:
+          name: endorsementcredential.json
+          path: endorsementcredential.json
+      - name: Switch to gh-pages branch
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - name: Download the JSON Schema files
+        uses: actions/download-artifact@v3
+        with: 
+          name: *.json
+          path: docs
+      - name: Commit the new/updated docs
+        run: |
+          git add docs/*
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git commit --allow-empty -m "Automated build"
+          git push origin
