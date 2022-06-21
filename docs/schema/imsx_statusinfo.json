@@ -1,0 +1,72 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema#",
+  "$id" : "https://example.org/404/ob/imsx_statusinfov3p0.schema.json",
+  "$comment" : "This is a dynamically generated schema made available only for testing purposes; it does not have normative status and must not be persisted or served to the public.",
+  "title" : "JSON Schema for the Imsx_StatusInfo class.",
+  "description" : "This is the container for the status code and associated information returned within the HTTP messages received from the Service Provider.",
+  "type" : "object",
+  "properties" : {
+    "imsx_codeMajor" : {
+      "description" : "The code major value (from the corresponding enumerated vocabulary).",
+      "$comment" : "Origin: Imsx_CodeMajor (Enumeration); This is the set of primary status report values i.e. the major code assigned to the status block. This is used in conjunction with the 'Severity' structure in the status object.",
+      "type" : "string",
+      "enum" : [ "failure", "processing", "success", "unsupported" ]
+    },
+    "imsx_severity" : {
+      "description" : "The severity value (from the corresponding enumerated vocabulary).",
+      "$comment" : "Origin: Imsx_Severity (Enumeration); This is the context for the status report values. This is used in conjunction with the 'CodeMajor' structure in the status object.",
+      "type" : "string",
+      "enum" : [ "error", "status", "warning" ]
+    },
+    "imsx_description" : {
+      "description" : "A human readable description supplied by the entity creating the status code information.",
+      "$comment" : "Origin: String (PrimitiveType); Character strings.",
+      "type" : "string"
+    },
+    "imsx_codeMinor" : {
+      "description" : "The set of reported code minor status codes.",
+      "$comment" : "Origin: Imsx_CodeMinor (Unordered); This is the container for the set of code minor status codes reported in the responses from the Service Provider.",
+      "$ref" : "#/$defs/Imsx_CodeMinor"
+    }
+  },
+  "required" : [ "imsx_codeMajor", "imsx_severity" ],
+  "additionalProperties" : false,
+  "$defs" : {
+    "Imsx_CodeMinor" : {
+      "description" : "This is the container for the set of code minor status codes reported in the responses from the Service Provider.",
+      "type" : "object",
+      "properties" : {
+        "imsx_codeMinorField" : {
+          "description" : "Each reported code minor status code.",
+          "$comment" : "Origin: Imsx_CodeMinorField (Unordered); This is the container for a single code minor status code.",
+          "type" : "array",
+          "minItems" : 1,
+          "items" : {
+            "$ref" : "#/$defs/Imsx_CodeMinorField"
+          }
+        }
+      },
+      "required" : [ "imsx_codeMinorField" ],
+      "additionalProperties" : false
+    },
+    "Imsx_CodeMinorField" : {
+      "description" : "This is the container for a single code minor status code.",
+      "type" : "object",
+      "properties" : {
+        "imsx_codeMinorFieldName" : {
+          "description" : "This should contain the identity of the system that has produced the code minor status code report.",
+          "$comment" : "Origin: NormalizedString (PrimitiveType); A `String` conforming to the `normalizedString` definition in [[XMLSCHEMA-2]].",
+          "type" : "string"
+        },
+        "imsx_codeMinorFieldValue" : {
+          "description" : "The code minor status code (this is a value from the corresponding enumerated vocabulary).",
+          "$comment" : "Origin: Imsx_CodeMinorFieldValue (Enumeration); This is the set of codeMinor status codes that are used to provide further insight into the completion status of the end-to-end transaction i.e. this should be used to provide more information than would be supplied by an HTTP code.",
+          "type" : "string",
+          "enum" : [ "forbidden", "fullsuccess", "internal_server_error", "invalid_data", "invalid_query_parameter", "misdirected_request", "not_acceptable", "not_allowed", "not_modified", "server_busy", "unauthorizedrequest", "unknown" ]
+        }
+      },
+      "required" : [ "imsx_codeMinorFieldName", "imsx_codeMinorFieldValue" ],
+      "additionalProperties" : false
+    }
+  }
+}
