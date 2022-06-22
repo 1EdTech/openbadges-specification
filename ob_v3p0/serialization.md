@@ -2,7 +2,7 @@ var serialization=`
 
 ## Serialization
 
-The data model as described in Appendix [[[#datamodels]]] is the canonical structural representation of an Open Badges [=verifiable credential=] ([AchievementCredential](#org.1edtech.ob.v3p0.achievementcredential.class)) and [=verifiable presentation=] ([VerifiablePresentation](#org.1edtech.ob.v3p0.verifiablepresentation.class)). All serializations are representations of that data model in a specific format. This section specifies how the data model is realized in JSON-LD and plain JSON.
+The data model as described in Appendix [[[#datamodels]]] is the canonical structural representation of an Open Badges [=verifiable credential=] ([AchievementCredential](#org.1edtech.ob.v3p0.achievementcredential.class)). All serializations are representations of that data model in a specific format. This section specifies how the data model is realized in JSON-LD and plain JSON.
 
 ### JSON
 
