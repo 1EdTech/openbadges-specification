@@ -35,7 +35,7 @@ Some of the terms used in this section include:
 A [=JWS=] is a signed [=JWT=] with three parts separated by period (".") characters. Each part contains a base64url-encoded value.
 
 - <dfn>JOSE Header</dfn> - Describes the cryptographic operations applied to the JWT and optionally, additional properties of the JWT. [[RFC7515]]
-- <dfn>JWT Payload</dfn> - The JSON object that will be signed. In this specification, the JWT Payload includes either the CLR Credential or CLR Presentation.
+- <dfn>JWT Payload</dfn> - The JSON object that will be signed. In this specification, the JWT Payload includes the OpenBadgeCredential.
 - <dfn>JWS Signature</dfn> - The computed signature of the JWT Payload.
 
 The JOSE Header, JWT Payload, and JWS Signature are combined to form a Compact JWS. To transform a [=credential=] or [=presentation=] into a [=Compact JWS=] takes 4 steps:
