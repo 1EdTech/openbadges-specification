@@ -4,7 +4,7 @@ var overview=`
 
 ### What is the problem this solves for?
 
-Verifiable Credentials (VCs) are a format that is used to publish a limitless variety of [=claims=] about a [=subject=] person or other entity, typically through a cryptographic proof. VCs can be collected and delivered as part of a [=presentation=] whereby authorship of each VC from the same or multiple issuers can be trusted via cryptographic verification. The presentation can also be cryptographically signed to demonstrate that the [=holder=] has assembled and sent the collection of VCs.
+Verifiable Credentials (VCs) are a format that is used to publish a limitless variety of [=claims=] about a [=subject=] person or other entity, typically through a cryptographic proof. VCs can be collected and delivered as part of a [=presentation=] whereby authorship of each VC from the same or multiple issuers can be trusted via cryptographic verification.
 
 These layers of cryptographic proof can provide security and privacy enhancements to Open Badges that were not available in version 2.0. Adoption of Verifiable Credentials will increase market penetration and use of Open Badges by addressing market needs for trustworthy machine-ready data to power connected ecosystems in education and workforce. This will unlock the door for Open Badges credentials to be included in a growing number of multi-purpose digital credential wallets entering the market. Stepping further into signed VCs and another associated technology, [[[DID-CORE]]], unlocks increased longevity and resilience of Open Badges that can describe achievements even more expressively than they do today.
 

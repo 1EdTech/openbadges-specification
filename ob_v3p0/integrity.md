@@ -12,7 +12,7 @@ The proof formats included in this specification fall into two categories:
 - Linked Data Proofs - The credential is signed and the signature is used to form a [Proof](#proof) object which is appended to the credential. This format supports many different proof types. These are called embedded proofs because the proof is embedded in the data.
 
 <div class="note">
-    The [=issuer=] or [=holder=] MAY use multiple proofs. If multiple proofs are provided, the [=verifier=] MAY use any one proof to verify the credential.
+    The [=issuer=] MAY use multiple proofs. If multiple proofs are provided, the [=verifier=] MAY use any one proof to verify the credential.
 </div>
 
 A third category of proof format called Non-Signature Proof is not covered by this specification. This category includes proofs such as proof of work.
@@ -156,7 +156,7 @@ Verify the Linked Data Proof signature as shown in [Section 7.2 Proof Verificati
 
 ### Key Management
 
-[=Issuers=] and [=holders=] will need to manage asymmetric keys. The mechanisms by which keys are minted and distributed is outside the scope of this specification. See Section 6. Key Management of the [[[SEC-11]]].
+[=Issuers=] will need to manage asymmetric keys. The mechanisms by which keys are minted and distributed is outside the scope of this specification. See Section 6. Key Management of the [[[SEC-11]]].
 
 ### Dereferencing the Public Key {#dereference}
 
