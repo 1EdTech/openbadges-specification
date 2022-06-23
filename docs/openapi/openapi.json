@@ -448,7 +448,7 @@
           "endorsement" : {
             "minItems" : 0,
             "type" : "array",
-            "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile.",
+            "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.",
             "items" : {
               "$ref" : "#/components/schemas/EndorsementCredential"
             },
@@ -496,6 +496,17 @@
             "type" : "string",
             "description" : "The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP.",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.uri.class"
+          },
+          "endorsementJwt" : {
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
+            "items" : {
+              "pattern" : "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$",
+              "type" : "string",
+              "description" : "A `String` in Compact JWS format [[RFC7515]]."
+            },
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.compactjws.class"
           },
           "honorificSuffix" : {
             "type" : "string",
@@ -806,7 +817,7 @@
           "endorsement" : {
             "minItems" : 0,
             "type" : "array",
-            "description" : "Allows endorsers to make specific claims about the Achievement.",
+            "description" : "Allows endorsers to make specific claims about the Achievement. These endorsements are signed with a Data Integrity proof format.",
             "items" : {
               "$ref" : "#/components/schemas/EndorsementCredential"
             },
@@ -838,6 +849,17 @@
             "type" : "string",
             "description" : "The version property allows issuers to set a version string for an Achievement. This is particularly useful when replacing a previous version with an update.",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.primitive.string.class"
+          },
+          "endorsementJwt" : {
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "Allows endorsers to make specific claims about the Achievement. These endorsements are signed with the VC-JWT proof format.",
+            "items" : {
+              "pattern" : "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$",
+              "type" : "string",
+              "description" : "A `String` in Compact JWS format [[RFC7515]]."
+            },
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.compactjws.class"
           },
           "creditsAvailable" : {
             "type" : "number",
@@ -1186,7 +1208,7 @@
           "endorsement" : {
             "minItems" : 0,
             "type" : "array",
-            "description" : "Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential.",
+            "description" : "Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential. These endorsements are signed with a Data Integrity proof format.",
             "items" : {
               "$ref" : "#/components/schemas/EndorsementCredential"
             },
@@ -1234,6 +1256,17 @@
           },
           "credentialStatus" : {
             "$ref" : "#/components/schemas/CredentialStatus"
+          },
+          "endorsementJwt" : {
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential. These endorsements are signed with the VC-JWT proof format.",
+            "items" : {
+              "pattern" : "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$",
+              "type" : "string",
+              "description" : "A `String` in Compact JWS format [[RFC7515]]."
+            },
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.compactjws.class"
           },
           "issuanceDate" : {
             "type" : "string",
