@@ -41,11 +41,20 @@
       "type" : "string"
     },
     "endorsement" : {
-      "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile.",
+      "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.",
       "$comment" : "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
       "type" : "array",
       "items" : {
         "$ref" : "#/$defs/EndorsementCredential"
+      }
+    },
+    "endorsementJwt" : {
+      "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
+      "$comment" : "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+      "type" : "array",
+      "items" : {
+        "type" : "string",
+        "pattern" : "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
       }
     },
     "image" : {
@@ -488,11 +497,20 @@
           "type" : "string"
         },
         "endorsement" : {
-          "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile.",
+          "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.",
           "$comment" : "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
           "type" : "array",
           "items" : {
             "$ref" : "#/$defs/EndorsementCredential"
+          }
+        },
+        "endorsementJwt" : {
+          "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
+          "$comment" : "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "pattern" : "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
           }
         },
         "image" : {
