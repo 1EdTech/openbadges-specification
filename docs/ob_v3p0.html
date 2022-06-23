@@ -1796,7 +1796,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </li>
 </ul></section></section>
 
-  <section data-format="markdown" class="informative" id="overview-0"><h2 id="overview"><bdi class="secno">2. </bdi>Overview<a class="self-link" aria-label="§" href="#overview"></a><a class="self-link" aria-label="§" href="#overview"></a></h2><p><em>This section is non-normative.</em></p><section id="what-is-the-problem-this-solves-for-0"><h3 id="what-is-the-problem-this-solves-for"><bdi class="secno">2.1 </bdi>What is the problem this solves for?<a class="self-link" aria-label="§" href="#what-is-the-problem-this-solves-for"></a><a class="self-link" aria-label="§" href="#what-is-the-problem-this-solves-for"></a></h3><p>Verifiable Credentials (VCs) are a format that is used to publish a limitless variety of <a data-link-type="dfn" href="#dfn-claim" class="internalDFN" id="ref-for-dfn-claim-1" title="Claim: A statement about the Credential Subject. A claim may include associated evidence, results, or other metadata regarding a specific achievement, skill or assertion.">claims</a> about a <a data-link-type="dfn" href="#dfn-subject" class="internalDFN" id="ref-for-dfn-subject-1" title="Subject: A person about which claims are made.">subject</a> person or other entity, typically through a cryptographic proof. VCs can be collected and delivered as part of a <a data-link-type="dfn" href="#dfn-presentation" class="internalDFN" id="ref-for-dfn-presentation-1" title="Presentation: Data derived from one or more verifiable credentials, issued by one or more [=issuers=, that is shared with a specific verifier. A verifiable presentation is a tamper-evident presentation encoded in such a way that authorship of the data can be trusted after a process of cryptographic verification.">presentation</a> whereby authorship of each VC from the same or multiple issuers can be trusted via cryptographic verification. The presentation can also be cryptographically signed to demonstrate that the <a data-link-type="dfn" href="#dfn-holder" class="internalDFN" id="ref-for-dfn-holder-1" title="Holder: The entity that makes a presentation. The holder may also be the issuer or subject of one or more credentials in the presentation.">holder</a> has assembled and sent the collection of VCs.</p><p>These layers of cryptographic proof can provide security and privacy enhancements to Open Badges that were not available in version 2.0. Adoption of Verifiable Credentials will increase market penetration and use of Open Badges by addressing market needs for trustworthy machine-ready data to power connected ecosystems in education and workforce. This will unlock the door for Open Badges credentials to be included in a growing number of multi-purpose digital credential wallets entering the market. Stepping further into signed VCs and another associated technology, <cite><a href="https://www.w3.org/TR/did-core/">Decentralized Identifiers (DIDs) v1.0</a></cite>, unlocks increased longevity and resilience of Open Badges that can describe achievements even more expressively than they do today.</p></section><section id="what-does-adopting-verifiable-credentials-entail-0"><h3 id="what-does-adopting-verifiable-credentials-entail"><bdi class="secno">2.2 </bdi>What does adopting Verifiable Credentials entail?<a class="self-link" aria-label="§" href="#what-does-adopting-verifiable-credentials-entail"></a><a class="self-link" aria-label="§" href="#what-does-adopting-verifiable-credentials-entail"></a></h3><p>This specification changes the structure of the Open Badges <a href="#achievementcredential">Assertion</a> class, to adopt the conventions of the <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite>. This means that badges issued under this specification will not be conformant to all of the existing 2.x data model requirements.</p><p>Previous versions of an Open Badges Assertion, illustrated in the graphic below, structures its objects like this:
+  <section data-format="markdown" class="informative" id="overview-0"><h2 id="overview"><bdi class="secno">2. </bdi>Overview<a class="self-link" aria-label="§" href="#overview"></a><a class="self-link" aria-label="§" href="#overview"></a></h2><p><em>This section is non-normative.</em></p><section id="what-is-the-problem-this-solves-for-0"><h3 id="what-is-the-problem-this-solves-for"><bdi class="secno">2.1 </bdi>What is the problem this solves for?<a class="self-link" aria-label="§" href="#what-is-the-problem-this-solves-for"></a><a class="self-link" aria-label="§" href="#what-is-the-problem-this-solves-for"></a></h3><p>Verifiable Credentials (VCs) are a format that is used to publish a limitless variety of <a data-link-type="dfn" href="#dfn-claim" class="internalDFN" id="ref-for-dfn-claim-1" title="Claim: A statement about the Credential Subject. A claim may include associated evidence, results, or other metadata regarding a specific achievement, skill or assertion.">claims</a> about a <a data-link-type="dfn" href="#dfn-subject" class="internalDFN" id="ref-for-dfn-subject-1" title="Subject: A person about which claims are made.">subject</a> person or other entity, typically through a cryptographic proof. VCs can be collected and delivered as part of a <a data-link-type="dfn" href="#dfn-presentation" class="internalDFN" id="ref-for-dfn-presentation-1" title="Presentation: Data derived from one or more verifiable credentials, issued by one or more [=issuers=, that is shared with a specific verifier. A verifiable presentation is a tamper-evident presentation encoded in such a way that authorship of the data can be trusted after a process of cryptographic verification.">presentation</a> whereby authorship of each VC from the same or multiple issuers can be trusted via cryptographic verification.</p><p>These layers of cryptographic proof can provide security and privacy enhancements to Open Badges that were not available in version 2.0. Adoption of Verifiable Credentials will increase market penetration and use of Open Badges by addressing market needs for trustworthy machine-ready data to power connected ecosystems in education and workforce. This will unlock the door for Open Badges credentials to be included in a growing number of multi-purpose digital credential wallets entering the market. Stepping further into signed VCs and another associated technology, <cite><a href="https://www.w3.org/TR/did-core/">Decentralized Identifiers (DIDs) v1.0</a></cite>, unlocks increased longevity and resilience of Open Badges that can describe achievements even more expressively than they do today.</p></section><section id="what-does-adopting-verifiable-credentials-entail-0"><h3 id="what-does-adopting-verifiable-credentials-entail"><bdi class="secno">2.2 </bdi>What does adopting Verifiable Credentials entail?<a class="self-link" aria-label="§" href="#what-does-adopting-verifiable-credentials-entail"></a><a class="self-link" aria-label="§" href="#what-does-adopting-verifiable-credentials-entail"></a></h3><p>This specification changes the structure of the Open Badges <a href="#achievementcredential">Assertion</a> class, to adopt the conventions of the <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite>. This means that badges issued under this specification will not be conformant to all of the existing 2.x data model requirements.</p><p>Previous versions of an Open Badges Assertion, illustrated in the graphic below, structures its objects like this:
 An Assertion identifies a recipient with a "recipient" relationship to an IdentityObject that contains identifying properties. It identifies which badge it represents with a "badge" relationship to a BadgeClass. It identifies its verification information with a "verification" relationship to a VerificationObject. It identifies its issuer with an "issuer" relationship between the BadgeClass and the Issuer.</p><figure id="fig-open-badges-2-0-diagram">
   <img src="images/figure01-openbadges-2.0-diagram.png" width="640" alt="Open Badges 2.0 Diagram">
   <figcaption>Figure <bdi class="figno">2</bdi> <span class="fig-title">Open Badges 2.0 Diagram</span></figcaption>
@@ -1955,10 +1955,10 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-23T16:40:06Z",
+      "created": "2022-06-23T21:10:05Z",
       "verificationMethod": "https://example.edu/issuers/565049#key-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zkxXfFFPrdENnJ5QSFC484H7dvB2Q3KfwuRHaoEmnaTgNRJkfXP12k9xkxdgRN5iJL5UFJRBnJeUjArSPGuEVzev"
+      "proofValue": "z32nK4WHjpaByRjHYkzhQn7CtQyfwTop3h8xCJJKMExi1vkwey9ScU7WaR6wmsMCvYyp7az7pM55THSaKK2orpaJc"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -1968,11 +1968,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "z9r0FUI321rnIpmsAH5_d73QwlCr3k7bGClaOCO_-5fy7vxIVbtmmY0mgy_27lIcOYyrNS
-QoOgmNoExA9wrDLy5yOlcTtpNXiI07Jd8JM3b_iK_ImnAwhRLwcEl3lNpH4zE97542MLN5-pBPW_vGBn
-K0aAnEwSZMzDcGi1f0fttyMVrFjORX4S0SmF-1eAmOjAKO6A6J8l-KmsQkoTC6RzzecareOoYOTUezro
-o0I7vp0eiUmjGjzdzwaGx2N_-P_toaGFQlACBMOv0t3r8wZMq3W9XNW9Yx-qJxjKlpd8iWi2jowCL_5q
-53mDffrrsrZf7e_9Gxbj25-I6YCcDmaw"
+    "n": "tK3phlIki7DAtm4OwQbPfmFeHse-JyJwHeTAzUN87qRJSzHzccUXjq2OyTsrTEPekjlnJS
+mITK5ipScxvcPg_GtErNIOafs8DyI9PsEzWaIieN1-0Ugy8nzFh4yBO29fOn2WuOTZr-yyyY7U_0t4Rk
+n0_H2XI8_ZCuWXhs7xty5H7Z3hP_wBlL79qnboQw02_xvFzMlTU1qXlEnRINzp-rC9gqnEskdk2lmgUN
+4eMIhi2F2fxZW-tRNmTkBbSwfus0ot4-PMNMsUiH0pt51NPJsBANpI0ebWfBn0N52l-J_TFY0osHXLqI
+T9UHcAFUv-3higmaFXJhqlLeFYyMSA3Q"
   }
 }
 --------------- JWT payload ---------------
@@ -2020,12 +2020,12 @@ p0.achievementcredential.class",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ6OXIwRlVJMzIxcm5JcG1zQUg1X2Q3M1F3bENyM2s3YkdDbGFPQ09fLTVmeTd2eElWYnRtbVkwbWd5
-XzI3bEljT1l5ck5TUW9PZ21Ob0V4QTl3ckRMeTV5T2xjVHRwTlhpSTA3SmQ4Sk0zYl9pS19JbW5Bd2hS
-THdjRWwzbE5wSDR6RTk3NTQyTUxONS1wQlBXX3ZHQm5LMGFBbkV3U1pNekRjR2kxZjBmdHR5TVZyRmpP
-Ulg0UzBTbUYtMWVBbU9qQUtPNkE2SjhsLUttc1Frb1RDNlJ6emVjYXJlT29ZT1RVZXpyb28wSTd2cDBl
-aVVtakdqemR6d2FHeDJOXy1QX3RvYUdGUWxBQ0JNT3YwdDNyOHdaTXEzVzlYTlc5WXgtcUp4aktscGQ4
-aVdpMmpvd0NMXzVxNTNtRGZmcnJzclpmN2VfOUd4YmoyNS1JNllDY0RtYXcifX0.eyJ2YyI6eyJAY29u
+OiJ0SzNwaGxJa2k3REF0bTRPd1FiUGZtRmVIc2UtSnlKd0hlVEF6VU44N3FSSlN6SHpjY1VYanEyT3lU
+c3JURVBla2psbkpTbUlUSzVpcFNjeHZjUGdfR3RFck5JT2FmczhEeUk5UHNFeldhSWllTjEtMFVneThu
+ekZoNHlCTzI5Zk9uMld1T1Raci15eXlZN1VfMHQ0UmtuMF9IMlhJOF9aQ3VXWGhzN3h0eTVIN1ozaFBf
+d0JsTDc5cW5ib1F3MDJfeHZGek1sVFUxcVhsRW5SSU56cC1yQzlncW5Fc2tkazJsbWdVTjRlTUloaTJG
+MmZ4WlctdFJObVRrQmJTd2Z1czBvdDQtUE1OTXNVaUgwcHQ1MU5QSnNCQU5wSTBlYldmQm4wTjUybC1K
+X1RGWTBvc0hYTHFJVDlVSGNBRlV2LTNoaWdtYUZYSmhxbExlRll5TVNBM1EifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1z
 Z2xvYmFsLmdpdGh1Yi5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlk
 IjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVD
@@ -2039,11 +2039,11 @@ bS9qc29uc2NoZW1hP2NsYXNzSWQ9b3JnLjFlZHRlY2gub2IudjNwMC5hY2hpZXZlbWVudGNyZWRlbnRp
 YWwuY2xhc3MiLCJ0eXBlIjoiSnNvblNjaGVtYVZhbGlkYXRvcjIwMTkifV19LCJpc3MiOiJodHRwczov
 L2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8v
 ZXhhbXBsZS5lZHUvY3JlZGVudGlhbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJl
-YmM2ZjFjMjc2ZTEyZWMyMSJ9.JA1sO6Gv1cfnED7Q7KJPFV_8nnd3AlroEd1zwYGbHd3_C7iS-DmEC47
-1zbUnjDULL_lH0YBvt8FJtgS3xWCJlzc2XtpLNuaCpFUczrResp7Z_ef8p7helerM0FEJIDWEsJ7VRbb
-Dw9N5GGYOqRWW6Fm3A0BSiZ6pJ_j20EngWhh1HCWohrv-Zr8Qu2ytdXjCHx7x_4FOj8B498Yw2Yb_eVb
-B8ykIp-FLe0To1uDNhmz-JBDKxnIlQBLMdh-zccK4Z6UHX0_PfPGsPWgIKyOypBWFL0_lHtSuZUrbppb
-PyEaVXZED1O6p3i8yEl7VZne-WYDDz3zZ8JS3edFSOH5IxQ</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
+YmM2ZjFjMjc2ZTEyZWMyMSJ9.BXAXEUNQ47sT02zXJyiesIoCi1hRU7EnkyGXjt90IkkBEjZu1MZxGE2
+KPKAWpX94aUV_4M5we_pFoC8z3dtn1t7p1KZEYgZHmeKKr1PwVxOnXkSRNRqo_puElmFz5tjYQDP-AK4
+ZX4lhUIpN57b7PpBDsmRLjdTD_1KcN55NdZlE41wPdL2li56nH5OD1fnuEXomktJGwoj771Ij9GUbSd-
+GTor--PQhCWgjSDmvy8AYOPdRD6GYODhbFBDob9R5y2Xi0DHcu6zUAavpsimMEca7KGxZYuMvvqiUvnV
+SYyXfTsdZOto5jCHpWC2LahgWURupjLXUkwkr6ncEYfqjzg</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">Example<bdi> 2</bdi></a><span class="example-title">: An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)</span>
   </div> <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">var</span> chunk = <span class="hljs-keyword">new</span> iTXt({
@@ -4072,7 +4072,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
 <li>JSON Web Token Proof - Somtimes called VC-JWT, this format has a single implementation: the credential is encoded into a <a data-link-type="dfn" href="#dfn-jwt" class="internalDFN" id="ref-for-dfn-jwt-1" title="JWT - &quot;JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted.&quot; [RFC7519]">JWT</a> which is then signed and encoded as a <a data-link-type="dfn" href="#dfn-jws" class="internalDFN" id="ref-for-dfn-jws-1" title="JWS - &quot;JSON Web Signature (JWS) represents content secured with digital signatures or Message Authentication Codes (MACs) using JSON-based data structures. Cryptographic algorithms and identifiers for use with this specification are described in the separate JSON Web Algorithms (JWA) specification and an IANA registry defined by that specification.&quot; [RFC7515]">JWS</a>. The JSON Web Token proof is called an external proof because the proof wraps the <a data-link-type="dfn" href="#dfn-credential" class="internalDFN" id="ref-for-dfn-credential-2" title="Credential: A set of one or more claims made by an issuer. A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build verifiable presentations, which can also be cryptographically verified.">credential</a> object.</li>
 <li>Linked Data Proofs - The credential is signed and the signature is used to form a <a href="#proof">Proof</a> object which is appended to the credential. This format supports many different proof types. These are called embedded proofs because the proof is embedded in the data.</li>
 </ul><div class="note" role="note" id="issue-container-generatedID-7"><div role="heading" class="note-title marker" id="h-note-1" aria-level="4"><span>Note</span></div><div class="">
-    The <a data-link-type="dfn" href="#dfn-issuer" class="internalDFN" id="ref-for-dfn-issuer-1" title="Issuer: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.">issuer</a> or <a data-link-type="dfn" href="#dfn-holder" class="internalDFN" id="ref-for-dfn-holder-2" title="Holder: The entity that makes a presentation. The holder may also be the issuer or subject of one or more credentials in the presentation.">holder</a> <em class="rfc2119">MAY</em> use multiple proofs. If multiple proofs are provided, the <a data-link-type="dfn" href="#dfn-verifier" class="internalDFN" id="ref-for-dfn-verifier-1" title="Verifier: The entity that receives a verifiable credential or verifiable presentation and verifies the credential or presentation has not been tampered with.">verifier</a> <em class="rfc2119">MAY</em> use any one proof to verify the credential.
+    The <a data-link-type="dfn" href="#dfn-issuer" class="internalDFN" id="ref-for-dfn-issuer-1" title="Issuer: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.">issuer</a> <em class="rfc2119">MAY</em> use multiple proofs. If multiple proofs are provided, the <a data-link-type="dfn" href="#dfn-verifier" class="internalDFN" id="ref-for-dfn-verifier-1" title="Verifier: The entity that receives a verifiable credential or verifiable presentation and verifies the credential or presentation has not been tampered with.">verifier</a> <em class="rfc2119">MAY</em> use any one proof to verify the credential.
 </div></div><p>A third category of proof format called Non-Signature Proof is not covered by this specification. This category includes proofs such as proof of work.</p></section><section id="json-web-token-proof-format"><h3 id="jwt-proof"><bdi class="secno">8.2 </bdi>JSON Web Token Proof Format<a class="self-link" aria-label="§" href="#jwt-proof"></a><a class="self-link" aria-label="§" href="#jwt-proof"></a></h3><p>This proof format relies on the well established JWT (JSON Web Token) [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7519" title="JSON Web Token (JWT)">RFC7519</a></cite>] and JWS (JSON Web Signature) [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7515" title="JSON Web Signature (JWS)">RFC7515</a></cite>] specifications. A JSON Web Token Proof is a JWT signed and encoded as a <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-6" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string. The proof format is described in detail in Section 6.3.1 "JSON Web Token" of <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite>. That description allows several options which may inhibit interoperability. This specification limits the options while maintaining compatibility with [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model" title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>] to help ensure interoperability.</p><section id="terminology-2"><h4 id="jwt-terminology"><bdi class="secno">8.2.1 </bdi>Terminology<a class="self-link" aria-label="§" href="#jwt-terminology"></a><a class="self-link" aria-label="§" href="#jwt-terminology"></a></h4><p>Some of the terms used in this section include:</p><ul>
 <li><dfn id="dfn-jwt" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">JWT</dfn> - "JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally   signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted." [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7519" title="JSON Web Token (JWT)">RFC7519</a></cite>]</li>
 <li><dfn id="dfn-jws" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">JWS</dfn> - "JSON Web Signature (JWS) represents content secured with digital signatures or Message Authentication Codes (MACs) using JSON-based data structures.  Cryptographic algorithms and identifiers for use with this specification are described in the separate JSON Web Algorithms (JWA) specification and an IANA registry defined by that specification." [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7515" title="JSON Web Signature (JWS)">RFC7515</a></cite>]</li>
@@ -4209,7 +4209,7 @@ token=45ghiukldjahdnhzdauz&amp;token_type_hint=refresh_token</code></pre>
 <li>Create an instance of <a href="#ed25519verificationkey2020">Ed25519VerificationKey2020</a> as shown in <a href="https://w3c-ccg.github.io/lds-ed25519-2020/#ed25519verificationkey2020">Section 3.1.1 Ed25519VerificationKey2020</a> of [<cite><a class="bibref" data-link-type="biblio" href="#bib-lds-ed25519-2020" title="Ed25519 Signature 2020">LDS-ED25519-2020</a></cite>].</li>
 <li>Using the key material, sign the credential object as shown in <a href="https://w3c-ccg.github.io/data-integrity-spec/#proof-algorithm">Section 7.1 Proof Algothim</a> of [<cite><a class="bibref" data-link-type="biblio" href="#bib-data-integrity-spec" title="Data Integrity">DATA-INTEGRITY-SPEC</a></cite>] to produce a <a href="#proof">Proof</a> as shown in <a href="https://w3c-ccg.github.io/lds-ed25519-2020/#ed25519-signature-2020">Section 3.2.1 Ed25519 Signature 2020</a> with a <code>proofPurpose</code> of "assertionMethod".</li>
 <li>Add the resulting proof object to the credential <code>proof</code> property.</li>
-</ol></section><section id="verify-an-openbadgecredential-linked-data-signature"><h4 id="lds-verify"><bdi class="secno">8.3.2 </bdi>Verify an OpenBadgeCredential Linked Data Signature<a class="self-link" aria-label="§" href="#lds-verify"></a><a class="self-link" aria-label="§" href="#lds-verify"></a></h4><p>Verify the Linked Data Proof signature as shown in <a href="https://w3c-ccg.github.io/data-integrity-spec/#proof-verification-algorithm">Section 7.2 Proof Verification Algorthim</a> of [<cite><a class="bibref" data-link-type="biblio" href="#bib-data-integrity-spec" title="Data Integrity">DATA-INTEGRITY-SPEC</a></cite>].</p></section></section><section id="key-management-0"><h3 id="key-management"><bdi class="secno">8.4 </bdi>Key Management<a class="self-link" aria-label="§" href="#key-management"></a><a class="self-link" aria-label="§" href="#key-management"></a></h3><p><a data-link-type="dfn" href="#dfn-issuer" class="internalDFN" id="ref-for-dfn-issuer-3" title="Issuer: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.">Issuers</a> and <a data-link-type="dfn" href="#dfn-holder" class="internalDFN" id="ref-for-dfn-holder-3" title="Holder: The entity that makes a presentation. The holder may also be the issuer or subject of one or more credentials in the presentation.">holders</a> will need to manage asymmetric keys. The mechanisms by which keys are minted and distributed is outside the scope of this specification. See Section 6. Key Management of the <cite><a href="https://www.imsglobal.org/spec/security/v1p1/">IMS Global Security Framework v1.1</a></cite>.</p></section><section id="dereferencing-the-public-key"><h3 id="dereference"><bdi class="secno">8.5 </bdi>Dereferencing the Public Key<a class="self-link" aria-label="§" href="#dereference"></a><a class="self-link" aria-label="§" href="#dereference"></a></h3><p>All the proof formats in this specification, and all Digital Integrity proofs in general, require the <a data-link-type="dfn" href="#dfn-verifier" class="internalDFN" id="ref-for-dfn-verifier-2" title="Verifier: The entity that receives a verifiable credential or verifiable presentation and verifies the credential or presentation has not been tampered with.">verifier</a> to "dereference" the public key from a URI. Dereferencing means using the URI to get the public key in <a href="#jwk">JWK</a> format. This specification allows the use of an HTTP URL (e.g. <code>https://1edtech.org/keys/1</code>) or a DID URL (e.g. <code>did:key:123</code>), but only requires HTTP URL support.</p></section></section>
+</ol></section><section id="verify-an-openbadgecredential-linked-data-signature"><h4 id="lds-verify"><bdi class="secno">8.3.2 </bdi>Verify an OpenBadgeCredential Linked Data Signature<a class="self-link" aria-label="§" href="#lds-verify"></a><a class="self-link" aria-label="§" href="#lds-verify"></a></h4><p>Verify the Linked Data Proof signature as shown in <a href="https://w3c-ccg.github.io/data-integrity-spec/#proof-verification-algorithm">Section 7.2 Proof Verification Algorthim</a> of [<cite><a class="bibref" data-link-type="biblio" href="#bib-data-integrity-spec" title="Data Integrity">DATA-INTEGRITY-SPEC</a></cite>].</p></section></section><section id="key-management-0"><h3 id="key-management"><bdi class="secno">8.4 </bdi>Key Management<a class="self-link" aria-label="§" href="#key-management"></a><a class="self-link" aria-label="§" href="#key-management"></a></h3><p><a data-link-type="dfn" href="#dfn-issuer" class="internalDFN" id="ref-for-dfn-issuer-3" title="Issuer: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.">Issuers</a> will need to manage asymmetric keys. The mechanisms by which keys are minted and distributed is outside the scope of this specification. See Section 6. Key Management of the <cite><a href="https://www.imsglobal.org/spec/security/v1p1/">IMS Global Security Framework v1.1</a></cite>.</p></section><section id="dereferencing-the-public-key"><h3 id="dereference"><bdi class="secno">8.5 </bdi>Dereferencing the Public Key<a class="self-link" aria-label="§" href="#dereference"></a><a class="self-link" aria-label="§" href="#dereference"></a></h3><p>All the proof formats in this specification, and all Digital Integrity proofs in general, require the <a data-link-type="dfn" href="#dfn-verifier" class="internalDFN" id="ref-for-dfn-verifier-2" title="Verifier: The entity that receives a verifiable credential or verifiable presentation and verifies the credential or presentation has not been tampered with.">verifier</a> to "dereference" the public key from a URI. Dereferencing means using the URI to get the public key in <a href="#jwk">JWK</a> format. This specification allows the use of an HTTP URL (e.g. <code>https://1edtech.org/keys/1</code>) or a DID URL (e.g. <code>did:key:123</code>), but only requires HTTP URL support.</p></section></section>
 
   <section class="normative" data-format="markdown" id="verificaton-and-validation-0"><h2 id="verificaton-and-validation"><bdi class="secno">9. </bdi>Verificaton and Validation<a class="self-link" aria-label="§" href="#verificaton-and-validation"></a><a class="self-link" aria-label="§" href="#verificaton-and-validation"></a></h2><p><a data-link-type="dfn" href="#dfn-verifiable" class="internalDFN" id="ref-for-dfn-verifiable-2" title="Verification: The evaluation of whether a verifiable credential or verifiable presentation is an authentic and timely statement of the issuer or presenter, respectively. This includes checking that: the credential (or presentation) conforms to the specification; the proof method is satisfied; and, if present, the status check succeeds.">Verification</a> is the process to determine whether a <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-6" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credential</a> or <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-4" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">verifiable presentation</a> is an authentic and timely statement of the issuer or presenter respectively. This includes checking that: the credential (or presentation) conforms to the specification; the proof method is satisfied; and, if present, the status check succeeds. Verification of a credential does not imply evaluation of the truth of claims encoded in the credential.</p><p><a data-link-type="dfn" href="#dfn-validation" class="internalDFN" id="ref-for-dfn-validation-1" title="Validation: The process of assuring the verifiable credential or verifiable presentation meets the needs of the verifier and other dependent stakeholders. Validating verifiable credentials or verifiable presentations is outside the scope of this specification.">Validation</a> is the process of assuring the verifiable credential or verifiable presentation meets the needs of the verifier and other dependent stakeholders. Validating verifiable credentials or verifiable presentations is outside the scope of this specification.</p><div class="note" role="note" id="issue-container-generatedID-11"><div role="heading" class="note-title marker" id="h-note-5" aria-level="3"><span>Note</span></div><div class="">
    The 1EdTech Validator performs <a data-link-type="dfn" href="#dfn-verifiable" class="internalDFN" id="ref-for-dfn-verifiable-3" title="Verification: The evaluation of whether a verifiable credential or verifiable presentation is an authentic and timely statement of the issuer or presenter, respectively. This includes checking that: the credential (or presentation) conforms to the specification; the proof method is satisfied; and, if present, the status check succeeds.">verification</a> as described here.
@@ -4323,11 +4323,10 @@ Only perform Refresh once. That is, do not complete Refresh a second time even i
   <section class="informative" data-format="markdown" id="best-practices-and-implementation-guide-0"><h2 id="best-practices-and-implementation-guide"><bdi class="secno">11. </bdi>Best Practices and Implementation Guide<a class="self-link" aria-label="§" href="#best-practices-and-implementation-guide"></a><a class="self-link" aria-label="§" href="#best-practices-and-implementation-guide"></a></h2><p><em>This section is non-normative.</em></p><section id="terminology-3"><h3 id="terminology-0"><bdi class="secno">11.1 </bdi>Terminology<a class="self-link" aria-label="§" href="#terminology-0"></a><a class="self-link" aria-label="§" href="#terminology-0"></a></h3><p>Some of the terms used in this section:</p><ul>
 <li><dfn id="dfn-credential" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Credential</dfn>: A set of one or more <a data-link-type="dfn" href="#dfn-claim" class="internalDFN" id="ref-for-dfn-claim-2" title="Claim: A statement about the Credential Subject. A claim may include associated evidence, results, or other metadata regarding a specific achievement, skill or assertion.">claims</a> made by an <a data-link-type="dfn" href="#dfn-issuer" class="internalDFN" id="ref-for-dfn-issuer-4" title="Issuer: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.">issuer</a>. A <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-8" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credential</a> is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-5" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">verifiable presentations</a>, which can also be cryptographically verified.</li>
 <li><dfn data-plurals="did urls" id="dfn-did-url" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">DID URL</dfn>: A DID plus any additional syntactic component that conforms to the definition in Section 3.2 DID URL Syntax of [<cite><a class="bibref" data-link-type="biblio" href="#bib-did-core" title="Decentralized Identifiers (DIDs) v1.0">DID-CORE</a></cite>]. This includes an optional DID path (with its leading / character), optional DID query (with its leading ? character), and optional DID fragment (with its leading # character).</li>
-<li><dfn data-plurals="holders" id="dfn-holder" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Holder</dfn>: The entity that makes a <a data-link-type="dfn" href="#dfn-presentation" class="internalDFN" id="ref-for-dfn-presentation-2" title="Presentation: Data derived from one or more verifiable credentials, issued by one or more [=issuers=, that is shared with a specific verifier. A verifiable presentation is a tamper-evident presentation encoded in such a way that authorship of the data can be trusted after a process of cryptographic verification.">presentation</a>. The holder may also be the <a data-link-type="dfn" href="#dfn-issuer" class="internalDFN" id="ref-for-dfn-issuer-5" title="Issuer: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.">issuer</a> or <a data-link-type="dfn" href="#dfn-subject" class="internalDFN" id="ref-for-dfn-subject-2" title="Subject: A person about which claims are made.">subject</a> of one or more credentials in the presentation.</li>
 <li><dfn data-plurals="linked data proofs" id="dfn-linked-data-proof" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Linked Data Proof</dfn>: A type of embedded signature proof.</li>
 <li><dfn id="dfn-presentation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Presentation</dfn>: Data derived from one or more <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-9" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a>, issued by one or more [=issuers=, that is shared with a specific <a data-link-type="dfn" href="#dfn-verifier" class="internalDFN" id="ref-for-dfn-verifier-3" title="Verifier: The entity that receives a verifiable credential or verifiable presentation and verifies the credential or presentation has not been tampered with.">verifier</a>. A <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-6" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">verifiable presentation</a> is a tamper-evident presentation encoded in such a way that authorship of the data can be trusted after a process of cryptographic verification.</li>
 <li><dfn id="dfn-subject" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Subject</dfn>: A person about which <a data-link-type="dfn" href="#dfn-claim" class="internalDFN" id="ref-for-dfn-claim-3" title="Claim: A statement about the Credential Subject. A claim may include associated evidence, results, or other metadata regarding a specific achievement, skill or assertion.">claims</a> are made.</li>
-</ul></section><section id="support-for-decentralized-identifiers-dids-0"><h3 id="support-for-decentralized-identifiers-dids"><bdi class="secno">11.2 </bdi>Support for Decentralized Identifiers (DIDs)<a class="self-link" aria-label="§" href="#support-for-decentralized-identifiers-dids"></a><a class="self-link" aria-label="§" href="#support-for-decentralized-identifiers-dids"></a></h3><p>This specification supports the use of <a data-link-type="dfn" href="#dfn-did-url" class="internalDFN" id="ref-for-dfn-did-url-1" title="DID URL: A DID plus any additional syntactic component that conforms to the definition in Section 3.2 DID URL Syntax of [DID-CORE]. This includes an optional DID path (with its leading / character), optional DID query (with its leading ? character), and optional DID fragment (with its leading # character).">DID URLs</a> as an identifier for the <a data-link-type="dfn" href="#dfn-issuer" class="internalDFN" id="ref-for-dfn-issuer-6" title="Issuer: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.">issuer</a> and <a data-link-type="dfn" href="#dfn-subject" class="internalDFN" id="ref-for-dfn-subject-3" title="Subject: A person about which claims are made.">subject</a> of a <a data-link-type="dfn" href="#dfn-credential" class="internalDFN" id="ref-for-dfn-credential-6" title="Credential: A set of one or more claims made by an issuer. A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build verifiable presentations, which can also be cryptographically verified.">credential</a>, and the <a data-link-type="dfn" href="#dfn-holder" class="internalDFN" id="ref-for-dfn-holder-4" title="Holder: The entity that makes a presentation. The holder may also be the issuer or subject of one or more credentials in the presentation.">holder</a> of a <a data-link-type="dfn" href="#dfn-presentation" class="internalDFN" id="ref-for-dfn-presentation-3" title="Presentation: Data derived from one or more verifiable credentials, issued by one or more [=issuers=, that is shared with a specific verifier. A verifiable presentation is a tamper-evident presentation encoded in such a way that authorship of the data can be trusted after a process of cryptographic verification.">presentation</a>. This specification also supports the use of <a data-link-type="dfn" href="#dfn-did-url" class="internalDFN" id="ref-for-dfn-did-url-2" title="DID URL: A DID plus any additional syntactic component that conforms to the definition in Section 3.2 DID URL Syntax of [DID-CORE]. This includes an optional DID path (with its leading / character), optional DID query (with its leading ? character), and optional DID fragment (with its leading # character).">DID URLs</a> to identify the public key used to verify <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-10" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> and <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-7" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">verifiable presentations</a> with <a data-link-type="dfn" href="#dfn-linked-data-proof" class="internalDFN" id="ref-for-dfn-linked-data-proof-1" title="Linked Data Proof: A type of embedded signature proof.">Linked Data Proofs</a>. Until the <cite><a href="https://www.w3.org/TR/did-core/">Decentralized Identifiers (DIDs) v1.0</a></cite> specification is approved by W3C and this specification is updated, conformance will not require DID support.</p></section></section>
+</ul></section><section id="support-for-decentralized-identifiers-dids-0"><h3 id="support-for-decentralized-identifiers-dids"><bdi class="secno">11.2 </bdi>Support for Decentralized Identifiers (DIDs)<a class="self-link" aria-label="§" href="#support-for-decentralized-identifiers-dids"></a><a class="self-link" aria-label="§" href="#support-for-decentralized-identifiers-dids"></a></h3><p>This specification supports the use of <a data-link-type="dfn" href="#dfn-did-url" class="internalDFN" id="ref-for-dfn-did-url-1" title="DID URL: A DID plus any additional syntactic component that conforms to the definition in Section 3.2 DID URL Syntax of [DID-CORE]. This includes an optional DID path (with its leading / character), optional DID query (with its leading ? character), and optional DID fragment (with its leading # character).">DID URLs</a> as an identifier for the <a data-link-type="dfn" href="#dfn-issuer" class="internalDFN" id="ref-for-dfn-issuer-5" title="Issuer: The organization or entity that has made an assertion about a Credential Subject. The issuer of a DC Assertion is the authoritative source for that specific assertion.">issuer</a> and <a data-link-type="dfn" href="#dfn-subject" class="internalDFN" id="ref-for-dfn-subject-2" title="Subject: A person about which claims are made.">subject</a> of a <a data-link-type="dfn" href="#dfn-credential" class="internalDFN" id="ref-for-dfn-credential-6" title="Credential: A set of one or more claims made by an issuer. A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build verifiable presentations, which can also be cryptographically verified.">credential</a>. This specification also supports the use of <a data-link-type="dfn" href="#dfn-did-url" class="internalDFN" id="ref-for-dfn-did-url-2" title="DID URL: A DID plus any additional syntactic component that conforms to the definition in Section 3.2 DID URL Syntax of [DID-CORE]. This includes an optional DID path (with its leading / character), optional DID query (with its leading ? character), and optional DID fragment (with its leading # character).">DID URLs</a> to identify the public key used to verify <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-10" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credentials</a> with <a data-link-type="dfn" href="#dfn-linked-data-proof" class="internalDFN" id="ref-for-dfn-linked-data-proof-1" title="Linked Data Proof: A type of embedded signature proof.">Linked Data Proofs</a>. Until the <cite><a href="https://www.w3.org/TR/did-core/">Decentralized Identifiers (DIDs) v1.0</a></cite> specification is approved by W3C and this specification is updated, conformance will not require DID support.</p></section></section>
 
   <section data-format="markdown" id="conformance-and-certification-guide-0"><h2 id="conformance-and-certification-guide"><bdi class="secno">12. </bdi>Conformance and Certification Guide<a class="self-link" aria-label="§" href="#conformance-and-certification-guide"></a><a class="self-link" aria-label="§" href="#conformance-and-certification-guide"></a></h2><p>The goal of 1EdTech certification for Open Badges [<cite><a class="bibref" data-link-type="biblio" href="#bib-ob-30" title="Open Badges Specification v3.0">OB-30</a></cite>] is to ensure interoperable implementations of badging systems that generate and issue digital badges as well as those that host and display badges.</p><p>1EdTech certification for Open Badges demands features and capabilities beyond those that are strictly required by the specification. These additional features are defined in this document. The specification is intentionally left very flexible to allow it to be used for many purposes. Gaining this certification is expected to be more difficult than simply meeting the minimum requirements for producing a valid Open Badge.</p><p>Certification may be achieved in one or more of the following services:</p><ul>
 <li>Open Badges Issuer</li>
@@ -4746,7 +4745,16 @@ Only perform Refresh once. That is, do not complete Refresh a second time even i
     <td>endorsement</td>
     <td><a href="#org.1edtech.ob.v3p0.endorsementcredential.class"><samp>EndorsementCredential</samp></a></td>
     <td>
-      Allows endorsers to make specific claims about the Achievement.
+      Allows endorsers to make specific claims about the Achievement. These endorsements are signed with a Data Integrity proof format.
+      
+      
+    </td>
+    <td>[0..*]</td>
+  </tr><tr>
+    <td>endorsementJwt</td>
+    <td><a href="#org.1edtech.ob.v3p0.derived.compactjws.class"><samp>CompactJws</samp></a></td>
+    <td>
+      Allows endorsers to make specific claims about the Achievement. These endorsements are signed with the VC-JWT proof format.
       
       
     </td>
@@ -4934,7 +4942,16 @@ Only perform Refresh once. That is, do not complete Refresh a second time even i
     <td>endorsement</td>
     <td><a href="#org.1edtech.ob.v3p0.endorsementcredential.class"><samp>EndorsementCredential</samp></a></td>
     <td>
-      Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential.
+      Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential. These endorsements are signed with a Data Integrity proof format.
+      
+      
+    </td>
+    <td>[0..*]</td>
+  </tr><tr>
+    <td>endorsementJwt</td>
+    <td><a href="#org.1edtech.ob.v3p0.derived.compactjws.class"><samp>CompactJws</samp></a></td>
+    <td>
+      Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential. These endorsements are signed with the VC-JWT proof format.
       
       
     </td>
@@ -5844,7 +5861,16 @@ Only perform Refresh once. That is, do not complete Refresh a second time even i
     <td>endorsement</td>
     <td><a href="#org.1edtech.ob.v3p0.endorsementcredential.class"><samp>EndorsementCredential</samp></a></td>
     <td>
-      Allows endorsers to make specific claims about the individual or organization represented by this profile.
+      Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.
+      
+      
+    </td>
+    <td>[0..*]</td>
+  </tr><tr>
+    <td>endorsementJwt</td>
+    <td><a href="#org.1edtech.ob.v3p0.derived.compactjws.class"><samp>CompactJws</samp></a></td>
+    <td>
+      Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.
       
       
     </td>
@@ -8374,10 +8400,10 @@ Only perform Refresh once. That is, do not complete Refresh a second time even i
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-23T16:40:06Z",
-      "verificationMethod": "did:key:z6Mkn5Lepe5FrYW6y7ZaBQd56WhDx5gFMjUHbYyPMutQpq1j",
+      "created": "2022-06-23T21:10:05Z",
+      "verificationMethod": "did:key:z6Mkug8d1Qc8N7XRER9ZkyDTpaeahgKSDQrsyWoimHqQUtve",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z4VLZiRkHkW4LuNaqFhKk4Mpmf9B1vZahr6kgC2BzUKMfKEyy83HvkHR4u1HLc8q1k2eWkoWw38rCk5ENkwhegMNA"
+      "proofValue": "z5n1RWMQZxQiKqXkLBo2bw9sKw6R1PhDq4izgjqaJkMzzmKXzru1QQTm87ijTKqDe71o4bNRF62ZZ1XrM3cZtuMhY"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -8387,11 +8413,11 @@ Only perform Refresh once. That is, do not complete Refresh a second time even i
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "z9r0FUI321rnIpmsAH5_d73QwlCr3k7bGClaOCO_-5fy7vxIVbtmmY0mgy_27lIcOYyrNS
-QoOgmNoExA9wrDLy5yOlcTtpNXiI07Jd8JM3b_iK_ImnAwhRLwcEl3lNpH4zE97542MLN5-pBPW_vGBn
-K0aAnEwSZMzDcGi1f0fttyMVrFjORX4S0SmF-1eAmOjAKO6A6J8l-KmsQkoTC6RzzecareOoYOTUezro
-o0I7vp0eiUmjGjzdzwaGx2N_-P_toaGFQlACBMOv0t3r8wZMq3W9XNW9Yx-qJxjKlpd8iWi2jowCL_5q
-53mDffrrsrZf7e_9Gxbj25-I6YCcDmaw"
+    "n": "tK3phlIki7DAtm4OwQbPfmFeHse-JyJwHeTAzUN87qRJSzHzccUXjq2OyTsrTEPekjlnJS
+mITK5ipScxvcPg_GtErNIOafs8DyI9PsEzWaIieN1-0Ugy8nzFh4yBO29fOn2WuOTZr-yyyY7U_0t4Rk
+n0_H2XI8_ZCuWXhs7xty5H7Z3hP_wBlL79qnboQw02_xvFzMlTU1qXlEnRINzp-rC9gqnEskdk2lmgUN
+4eMIhi2F2fxZW-tRNmTkBbSwfus0ot4-PMNMsUiH0pt51NPJsBANpI0ebWfBn0N52l-J_TFY0osHXLqI
+T9UHcAFUv-3higmaFXJhqlLeFYyMSA3Q"
   }
 }
 --------------- JWT payload ---------------
@@ -8432,12 +8458,12 @@ o0I7vp0eiUmjGjzdzwaGx2N_-P_toaGFQlACBMOv0t3r8wZMq3W9XNW9Yx-qJxjKlpd8iWi2jowCL_5q
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ6OXIwRlVJMzIxcm5JcG1zQUg1X2Q3M1F3bENyM2s3YkdDbGFPQ09fLTVmeTd2eElWYnRtbVkwbWd5
-XzI3bEljT1l5ck5TUW9PZ21Ob0V4QTl3ckRMeTV5T2xjVHRwTlhpSTA3SmQ4Sk0zYl9pS19JbW5Bd2hS
-THdjRWwzbE5wSDR6RTk3NTQyTUxONS1wQlBXX3ZHQm5LMGFBbkV3U1pNekRjR2kxZjBmdHR5TVZyRmpP
-Ulg0UzBTbUYtMWVBbU9qQUtPNkE2SjhsLUttc1Frb1RDNlJ6emVjYXJlT29ZT1RVZXpyb28wSTd2cDBl
-aVVtakdqemR6d2FHeDJOXy1QX3RvYUdGUWxBQ0JNT3YwdDNyOHdaTXEzVzlYTlc5WXgtcUp4aktscGQ4
-aVdpMmpvd0NMXzVxNTNtRGZmcnJzclpmN2VfOUd4YmoyNS1JNllDY0RtYXcifX0.eyJ2YyI6eyJAY29u
+OiJ0SzNwaGxJa2k3REF0bTRPd1FiUGZtRmVIc2UtSnlKd0hlVEF6VU44N3FSSlN6SHpjY1VYanEyT3lU
+c3JURVBla2psbkpTbUlUSzVpcFNjeHZjUGdfR3RFck5JT2FmczhEeUk5UHNFeldhSWllTjEtMFVneThu
+ekZoNHlCTzI5Zk9uMld1T1Raci15eXlZN1VfMHQ0UmtuMF9IMlhJOF9aQ3VXWGhzN3h0eTVIN1ozaFBf
+d0JsTDc5cW5ib1F3MDJfeHZGek1sVFUxcVhsRW5SSU56cC1yQzlncW5Fc2tkazJsbWdVTjRlTUloaTJG
+MmZ4WlctdFJObVRrQmJTd2Z1czBvdDQtUE1OTXNVaUgwcHQ1MU5QSnNCQU5wSTBlYldmQm4wTjUybC1K
+X1RGWTBvc0hYTHFJVDlVSGNBRlV2LTNoaWdtYUZYSmhxbExlRll5TVNBM1EifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1z
 Z2xvYmFsLmdpdGh1Yi5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlk
 IjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVD
@@ -8448,11 +8474,11 @@ RXhhbXBsZSBVbml2ZXJzaXR5IERlZ3JlZSIsImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmV4
 YW1wbGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIiwidHlwZSI6WyJBY2hpZXZlbWVudFN1Ympl
 Y3QiXX19LCJpc3MiOiJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwibmJmIjoxMjYy
 MzA0MDAwLCJqdGkiOiJodHRwOi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbHMvMzczMiIsInN1YiI6ImRp
-ZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.FGMlpnFK5SIQ-KXj8UGjLI4NIbU
-s2oc09481s1EwvIxqDqUwTs8YWnHnvVj185quHtrT7CaXUxPYcc2bQTpIeXklfsCOjP_8a4vj2GBaxRN
-e0R3ODZ7WCktZ96KJUnqeAjJ9i1LN-dyxl1legzflPq_OCN6BvzMdsx6JdP2gM0H2RuuOLsAntl8KBTo
-Zlor2oLhReof6NGNGYehaxUg-F0VDeXW1UFy7Z2PYLj3UcqYhmBE2I2U82J-ov5_4X0KWYUt-odLUVNk
-mWJoPVMnaIyboW9b-pik3yDPTHkoRgabNJMwnvSBinD1-QH7HVUbK5P5_xW_FmlzyyfZVZ3R03g</pre></div></div></div>
+ZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.U42NVn5iWEfEeGJSSxlju4dBKV8
+iXxvEalmZcXiFiidYYUDwkEe5uGQMAZrLn411xGnwOjkg4gcsJdntVvFLYzpqcXhL3rgkgJltJLrak8N
+XSJpE4ZvFI2SlVpN3EkPmlHNOFZnzs8kJFHqMffm_k99yl4y-GGrPTn2OwpKgMdf-2tROTbvRHkXi3ij
+wvIC36Yr_H_BGtUKl7GFLIQ5ChhxFwW82QZeID4BRpcZhrhpvI9NGhT5T6TyExWnMUbV4P2Wep2xjL6O
+mrAQ1z5Jb-uQuI7G0jj8J6b36VVWgkwNeECG7RdKYI_gUAXub8DbpWx-DL9dgxlmfofkhGMe0ow</pre></div></div></div>
 
 
     </section>
@@ -9874,10 +9900,10 @@ mWJoPVMnaIyboW9b-pik3yDPTHkoRgabNJMwnvSBinD1-QH7HVUbK5P5_xW_FmlzyyfZVZ3R03g</pre
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-23T16:40:06Z",
-      "verificationMethod": "did:key:z6Mkn5Lepe5FrYW6y7ZaBQd56WhDx5gFMjUHbYyPMutQpq1j",
+      "created": "2022-06-23T21:10:05Z",
+      "verificationMethod": "did:key:z6Mkug8d1Qc8N7XRER9ZkyDTpaeahgKSDQrsyWoimHqQUtve",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z5TUg2k1vvkHsiNsbUkbeSAPNfUfKA7gjQNnZadAv8B4E3oGUwLaT7uf85jFhf3KdzQxTNSUQ69C4fXTJdj1Kwb6B"
+      "proofValue": "zrBXpYoMPGNHUTdqDhfJDhwPVTjzDriV4sepzBY4dyArzpQgzsr8M7ydf7nErH7WMYFjP51yi4VAg8V8otxTJdof"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -9887,11 +9913,11 @@ mWJoPVMnaIyboW9b-pik3yDPTHkoRgabNJMwnvSBinD1-QH7HVUbK5P5_xW_FmlzyyfZVZ3R03g</pre
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "z9r0FUI321rnIpmsAH5_d73QwlCr3k7bGClaOCO_-5fy7vxIVbtmmY0mgy_27lIcOYyrNS
-QoOgmNoExA9wrDLy5yOlcTtpNXiI07Jd8JM3b_iK_ImnAwhRLwcEl3lNpH4zE97542MLN5-pBPW_vGBn
-K0aAnEwSZMzDcGi1f0fttyMVrFjORX4S0SmF-1eAmOjAKO6A6J8l-KmsQkoTC6RzzecareOoYOTUezro
-o0I7vp0eiUmjGjzdzwaGx2N_-P_toaGFQlACBMOv0t3r8wZMq3W9XNW9Yx-qJxjKlpd8iWi2jowCL_5q
-53mDffrrsrZf7e_9Gxbj25-I6YCcDmaw"
+    "n": "tK3phlIki7DAtm4OwQbPfmFeHse-JyJwHeTAzUN87qRJSzHzccUXjq2OyTsrTEPekjlnJS
+mITK5ipScxvcPg_GtErNIOafs8DyI9PsEzWaIieN1-0Ugy8nzFh4yBO29fOn2WuOTZr-yyyY7U_0t4Rk
+n0_H2XI8_ZCuWXhs7xty5H7Z3hP_wBlL79qnboQw02_xvFzMlTU1qXlEnRINzp-rC9gqnEskdk2lmgUN
+4eMIhi2F2fxZW-tRNmTkBbSwfus0ot4-PMNMsUiH0pt51NPJsBANpI0ebWfBn0N52l-J_TFY0osHXLqI
+T9UHcAFUv-3higmaFXJhqlLeFYyMSA3Q"
   }
 }
 --------------- JWT payload ---------------
@@ -10638,12 +10664,12 @@ ial.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ6OXIwRlVJMzIxcm5JcG1zQUg1X2Q3M1F3bENyM2s3YkdDbGFPQ09fLTVmeTd2eElWYnRtbVkwbWd5
-XzI3bEljT1l5ck5TUW9PZ21Ob0V4QTl3ckRMeTV5T2xjVHRwTlhpSTA3SmQ4Sk0zYl9pS19JbW5Bd2hS
-THdjRWwzbE5wSDR6RTk3NTQyTUxONS1wQlBXX3ZHQm5LMGFBbkV3U1pNekRjR2kxZjBmdHR5TVZyRmpP
-Ulg0UzBTbUYtMWVBbU9qQUtPNkE2SjhsLUttc1Frb1RDNlJ6emVjYXJlT29ZT1RVZXpyb28wSTd2cDBl
-aVVtakdqemR6d2FHeDJOXy1QX3RvYUdGUWxBQ0JNT3YwdDNyOHdaTXEzVzlYTlc5WXgtcUp4aktscGQ4
-aVdpMmpvd0NMXzVxNTNtRGZmcnJzclpmN2VfOUd4YmoyNS1JNllDY0RtYXcifX0.eyJ2YyI6eyJAY29u
+OiJ0SzNwaGxJa2k3REF0bTRPd1FiUGZtRmVIc2UtSnlKd0hlVEF6VU44N3FSSlN6SHpjY1VYanEyT3lU
+c3JURVBla2psbkpTbUlUSzVpcFNjeHZjUGdfR3RFck5JT2FmczhEeUk5UHNFeldhSWllTjEtMFVneThu
+ekZoNHlCTzI5Zk9uMld1T1Raci15eXlZN1VfMHQ0UmtuMF9IMlhJOF9aQ3VXWGhzN3h0eTVIN1ozaFBf
+d0JsTDc5cW5ib1F3MDJfeHZGek1sVFUxcVhsRW5SSU56cC1yQzlncW5Fc2tkazJsbWdVTjRlTUloaTJG
+MmZ4WlctdFJObVRrQmJTd2Z1czBvdDQtUE1OTXNVaUgwcHQ1MU5QSnNCQU5wSTBlYldmQm4wTjUybC1K
+X1RGWTBvc0hYTHFJVDlVSGNBRlV2LTNoaWdtYUZYSmhxbExlRll5TVNBM1EifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1z
 Z2xvYmFsLmdpdGh1Yi5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlk
 IjoiaHR0cDovLzFlZHRlY2guZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVD
@@ -10896,12 +10922,12 @@ dHlwZSI6IjFFZFRlY2hSZXZvY2F0aW9uTGlzdCJ9LCJyZWZyZXNoU2VydmljZSI6eyJpZCI6Imh0dHA6
 Ly8xZWR0ZWNoLmVkdS9jcmVkZW50aWFscy8zNzMyIiwidHlwZSI6IjFFZFRlY2hDcmVkZW50aWFsUmVm
 cmVzaCJ9fSwiZXhwIjoxNTc3ODM2ODAwLCJpc3MiOiJodHRwczovLzFlZHRlY2guZWR1L2lzc3VlcnMv
 NTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAwLCJqdGkiOiJodHRwOi8vMWVkdGVjaC5lZHUvY3JlZGVudGlh
-bHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.KIK
-VyuCh4HVaJqjZ-r3qfWHqVmSCRQBIJV2zodi3_FUfdODBhaldETw7P1eEqegStaAZ2Dvse_X8vhlP3bB
-7MqJWKUccgA8rDrakkzfkxJroUDUCt4DJTJ1tB6FCMqlGyFMS-9_jJ0yZTHblpHcmv1M5Vr9tfUl88fV
-TDnEGwVGtUpkIhwLypSAH_irRxhzLRH3XkAUHzsGGTirQz4DtR0-vt7iQAtvTrTd3dJIboY2j67lnnJx
-PWV8n_no1ZjFvCWSvbZxZoIeXGAHcWyIFoF21XsB9SR-5sS5nVeR4Ebu8PSnHunn7Jf53wnB2P-atcS1
-NYA2cjVoLVV3oMRd5tQ</pre></div></div></div>
+bHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.EE-
+y5ZUjt0Zl4ym0HsjLW1SZDomwZXEJggUia3i3qHCe7FSQhsQSvHo1zUMZAG9bxonCD7qctYxTk1TV6tU
+b39OmyULkLbmYLe0AVTFuL25eyWHMbNBC7B4WPW2lBJUmELdLUtjWAhVHoQni7fUeeev8am-W8XJWqeX
+c9vuq6tnWAkKZ7BpYdJ2lK6QzXwGSy5hY0ipBxbt5aF2RyToBuE5ge8KU8z6tIoByKEPyxHwmFJWvegm
+NKnEm_r-TMW3bf3sJD95iTutI4k-5-hUSRbT2-MP1fkEpxpJaRfTS5wtGU1eWmYPqIpA4dAKQTiG-9xT
+-wlNB6I3C3AbJ58zU-A</pre></div></div></div>
 
 
     </section>
@@ -11004,10 +11030,10 @@ NYA2cjVoLVV3oMRd5tQ</pre></div></div></div>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-23T16:40:06Z",
-      "verificationMethod": "did:key:z6Mkn5Lepe5FrYW6y7ZaBQd56WhDx5gFMjUHbYyPMutQpq1j",
+      "created": "2022-06-23T21:10:05Z",
+      "verificationMethod": "did:key:z6Mkug8d1Qc8N7XRER9ZkyDTpaeahgKSDQrsyWoimHqQUtve",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zTV6HHztyf6NH5HTDtc4wbLm6UM9vXhQVmhDaoBukcPBdm71Pm5peup3iMptcfEgZ16F7L5aHy3sWWZeaX2ffSt3"
+      "proofValue": "z5VP3tHyq9vn8jpcQA87M9qyp1dzCMss8pUSDMZCdAYfLRhcCuEnqXVfM7hXg22L1tBgm6gbLztgEA7tu7EhBzjnh"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -11017,11 +11043,11 @@ NYA2cjVoLVV3oMRd5tQ</pre></div></div></div>
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "z9r0FUI321rnIpmsAH5_d73QwlCr3k7bGClaOCO_-5fy7vxIVbtmmY0mgy_27lIcOYyrNS
-QoOgmNoExA9wrDLy5yOlcTtpNXiI07Jd8JM3b_iK_ImnAwhRLwcEl3lNpH4zE97542MLN5-pBPW_vGBn
-K0aAnEwSZMzDcGi1f0fttyMVrFjORX4S0SmF-1eAmOjAKO6A6J8l-KmsQkoTC6RzzecareOoYOTUezro
-o0I7vp0eiUmjGjzdzwaGx2N_-P_toaGFQlACBMOv0t3r8wZMq3W9XNW9Yx-qJxjKlpd8iWi2jowCL_5q
-53mDffrrsrZf7e_9Gxbj25-I6YCcDmaw"
+    "n": "tK3phlIki7DAtm4OwQbPfmFeHse-JyJwHeTAzUN87qRJSzHzccUXjq2OyTsrTEPekjlnJS
+mITK5ipScxvcPg_GtErNIOafs8DyI9PsEzWaIieN1-0Ugy8nzFh4yBO29fOn2WuOTZr-yyyY7U_0t4Rk
+n0_H2XI8_ZCuWXhs7xty5H7Z3hP_wBlL79qnboQw02_xvFzMlTU1qXlEnRINzp-rC9gqnEskdk2lmgUN
+4eMIhi2F2fxZW-tRNmTkBbSwfus0ot4-PMNMsUiH0pt51NPJsBANpI0ebWfBn0N52l-J_TFY0osHXLqI
+T9UHcAFUv-3higmaFXJhqlLeFYyMSA3Q"
   }
 }
 --------------- JWT payload ---------------
@@ -11082,12 +11108,12 @@ ial.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ6OXIwRlVJMzIxcm5JcG1zQUg1X2Q3M1F3bENyM2s3YkdDbGFPQ09fLTVmeTd2eElWYnRtbVkwbWd5
-XzI3bEljT1l5ck5TUW9PZ21Ob0V4QTl3ckRMeTV5T2xjVHRwTlhpSTA3SmQ4Sk0zYl9pS19JbW5Bd2hS
-THdjRWwzbE5wSDR6RTk3NTQyTUxONS1wQlBXX3ZHQm5LMGFBbkV3U1pNekRjR2kxZjBmdHR5TVZyRmpP
-Ulg0UzBTbUYtMWVBbU9qQUtPNkE2SjhsLUttc1Frb1RDNlJ6emVjYXJlT29ZT1RVZXpyb28wSTd2cDBl
-aVVtakdqemR6d2FHeDJOXy1QX3RvYUdGUWxBQ0JNT3YwdDNyOHdaTXEzVzlYTlc5WXgtcUp4aktscGQ4
-aVdpMmpvd0NMXzVxNTNtRGZmcnJzclpmN2VfOUd4YmoyNS1JNllDY0RtYXcifX0.eyJ2YyI6eyJAY29u
+OiJ0SzNwaGxJa2k3REF0bTRPd1FiUGZtRmVIc2UtSnlKd0hlVEF6VU44N3FSSlN6SHpjY1VYanEyT3lU
+c3JURVBla2psbkpTbUlUSzVpcFNjeHZjUGdfR3RFck5JT2FmczhEeUk5UHNFeldhSWllTjEtMFVneThu
+ekZoNHlCTzI5Zk9uMld1T1Raci15eXlZN1VfMHQ0UmtuMF9IMlhJOF9aQ3VXWGhzN3h0eTVIN1ozaFBf
+d0JsTDc5cW5ib1F3MDJfeHZGek1sVFUxcVhsRW5SSU56cC1yQzlncW5Fc2tkazJsbWdVTjRlTUloaTJG
+MmZ4WlctdFJObVRrQmJTd2Z1czBvdDQtUE1OTXNVaUgwcHQ1MU5QSnNCQU5wSTBlYldmQm4wTjUybC1K
+X1RGWTBvc0hYTHFJVDlVSGNBRlV2LTNoaWdtYUZYSmhxbExlRll5TVNBM1EifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1z
 Z2xvYmFsLmdpdGh1Yi5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIiwiaHR0
 cHM6Ly93M2lkLm9yZy9zZWN1cml0eS9zdWl0ZXMvZWQyNTUxOS0yMDIwL3YxIl0sInR5cGUiOlsiVmVy
@@ -11106,12 +11132,12 @@ dGF0ZS5nb3YvY3JlZGVudGlhbHMvMzczMi9yZXZvY2F0aW9ucyIsInR5cGUiOiIxRWRUZWNoUmV2b2Nh
 dGlvbkxpc3QifSwicmVmcmVzaFNlcnZpY2UiOnsiaWQiOiJodHRwOi8vc3RhdGUuZ292L2NyZWRlbnRp
 YWxzLzM3MzIiLCJ0eXBlIjoiMUVkVGVjaENyZWRlbnRpYWxSZWZyZXNoIn19LCJleHAiOjE1Nzc4MzY4
 MDAsImlzcyI6Imh0dHBzOi8vc3RhdGUuZ292L2lzc3VlcnMvNTY1MDQ5IiwibmJmIjoxMjYyMzA0MDAw
-LCJzdWIiOiJodHRwczovLzFlZHRlY2guZWR1L2lzc3VlcnMvNTY1MDQ5In0.DCLIvB4mlC0OznUKyIz5
-ElPx9bcLaMfvoH6NWIc_mW3_CSFGGd9PHBxYBYhjJb4kihxwK-dySJCfBjcFWMM1d3-pLmF-d-JkJFnC
-x6iyFvs8fE3YRvCa5-AmOewho-Yz8gDGExjneJAoNilrQQU3taQ2k5lSGHVnjOz2ZuQRrP-jROAOsUvJ
-ZYuNPpxYqNhPqioTCAFaY2Cjfu1l3Vz4_NYFuoFhSgMVk9jY4Kz1uM8pJB08ZizrUIWw3WSF3dguhobl
-JcsvpNfjLlBebsXQJODbrf0KRSEfb392ADJCiRIqfH1TuUua_hIFPO6L5Y9Ymoqcc0C6L-MswqZQX1JF
-xQ</pre></div></div></div>
+LCJzdWIiOiJodHRwczovLzFlZHRlY2guZWR1L2lzc3VlcnMvNTY1MDQ5In0.iKVpmAkI8OqAn5oLekjB
+zDXgp4oJySANSPbNYi4BE52sX37JrzcEsXH90VHmemvCfKwGm8lPQU7aPdA-1BFcCf4NWpDSHPe7w5tQ
+th0cHNr78gFfjm0EP19Xd_xnoMG24X5J_1-ELBrPu0CJSEXGjQ3ex23mRLxOCy94a9iumrIJjGXqnwXc
+zhjC7NVYf_tWnFtHZk8-uRBV5w0sp_eZe7SSye0B_srR7iyq07eUhKPqsyz3e0-p5ch2EU3WhGZYRpa0
+kCcjzkMPTFsmCUgRWbG_JMZbcZFIVdJnFJn0hLtj0maTx6Sn40cOVK_ZBFOGVO5oQl7ulzbB2jUrDRc-
+9Q</pre></div></div></div>
 
 
     </section>
@@ -11210,10 +11236,10 @@ xQ</pre></div></div></div>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-23T16:40:06Z",
-      "verificationMethod": "did:key:z6Mkn5Lepe5FrYW6y7ZaBQd56WhDx5gFMjUHbYyPMutQpq1j",
+      "created": "2022-06-23T21:10:05Z",
+      "verificationMethod": "did:key:z6Mkug8d1Qc8N7XRER9ZkyDTpaeahgKSDQrsyWoimHqQUtve",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z3VgzMMantnuaRdeiHqjyXieVAaVeamWLGjDWyTdxPA6cAx99aCtXzxy4HasMcWoMxmMXu326msdLccpfof7AHNSM"
+      "proofValue": "z2kCazuGuv44bBExmQZ2rp3AoipWmZg1pqDpcG4EnEqAyga8KTZdcKqWP9J9wSv5EQ6UosVXVUGCL5mWtnjcKZPky"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -11223,11 +11249,11 @@ xQ</pre></div></div></div>
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "z9r0FUI321rnIpmsAH5_d73QwlCr3k7bGClaOCO_-5fy7vxIVbtmmY0mgy_27lIcOYyrNS
-QoOgmNoExA9wrDLy5yOlcTtpNXiI07Jd8JM3b_iK_ImnAwhRLwcEl3lNpH4zE97542MLN5-pBPW_vGBn
-K0aAnEwSZMzDcGi1f0fttyMVrFjORX4S0SmF-1eAmOjAKO6A6J8l-KmsQkoTC6RzzecareOoYOTUezro
-o0I7vp0eiUmjGjzdzwaGx2N_-P_toaGFQlACBMOv0t3r8wZMq3W9XNW9Yx-qJxjKlpd8iWi2jowCL_5q
-53mDffrrsrZf7e_9Gxbj25-I6YCcDmaw"
+    "n": "tK3phlIki7DAtm4OwQbPfmFeHse-JyJwHeTAzUN87qRJSzHzccUXjq2OyTsrTEPekjlnJS
+mITK5ipScxvcPg_GtErNIOafs8DyI9PsEzWaIieN1-0Ugy8nzFh4yBO29fOn2WuOTZr-yyyY7U_0t4Rk
+n0_H2XI8_ZCuWXhs7xty5H7Z3hP_wBlL79qnboQw02_xvFzMlTU1qXlEnRINzp-rC9gqnEskdk2lmgUN
+4eMIhi2F2fxZW-tRNmTkBbSwfus0ot4-PMNMsUiH0pt51NPJsBANpI0ebWfBn0N52l-J_TFY0osHXLqI
+T9UHcAFUv-3higmaFXJhqlLeFYyMSA3Q"
   }
 }
 --------------- JWT payload ---------------
@@ -11294,12 +11320,12 @@ ents_Analysis"
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ6OXIwRlVJMzIxcm5JcG1zQUg1X2Q3M1F3bENyM2s3YkdDbGFPQ09fLTVmeTd2eElWYnRtbVkwbWd5
-XzI3bEljT1l5ck5TUW9PZ21Ob0V4QTl3ckRMeTV5T2xjVHRwTlhpSTA3SmQ4Sk0zYl9pS19JbW5Bd2hS
-THdjRWwzbE5wSDR6RTk3NTQyTUxONS1wQlBXX3ZHQm5LMGFBbkV3U1pNekRjR2kxZjBmdHR5TVZyRmpP
-Ulg0UzBTbUYtMWVBbU9qQUtPNkE2SjhsLUttc1Frb1RDNlJ6emVjYXJlT29ZT1RVZXpyb28wSTd2cDBl
-aVVtakdqemR6d2FHeDJOXy1QX3RvYUdGUWxBQ0JNT3YwdDNyOHdaTXEzVzlYTlc5WXgtcUp4aktscGQ4
-aVdpMmpvd0NMXzVxNTNtRGZmcnJzclpmN2VfOUd4YmoyNS1JNllDY0RtYXcifX0.eyJ2YyI6eyJAY29u
+OiJ0SzNwaGxJa2k3REF0bTRPd1FiUGZtRmVIc2UtSnlKd0hlVEF6VU44N3FSSlN6SHpjY1VYanEyT3lU
+c3JURVBla2psbkpTbUlUSzVpcFNjeHZjUGdfR3RFck5JT2FmczhEeUk5UHNFeldhSWllTjEtMFVneThu
+ekZoNHlCTzI5Zk9uMld1T1Raci15eXlZN1VfMHQ0UmtuMF9IMlhJOF9aQ3VXWGhzN3h0eTVIN1ozaFBf
+d0JsTDc5cW5ib1F3MDJfeHZGek1sVFUxcVhsRW5SSU56cC1yQzlncW5Fc2tkazJsbWdVTjRlTUloaTJG
+MmZ4WlctdFJObVRrQmJTd2Z1czBvdDQtUE1OTXNVaUgwcHQ1MU5QSnNCQU5wSTBlYldmQm4wTjUybC1K
+X1RGWTBvc0hYTHFJVDlVSGNBRlV2LTNoaWdtYUZYSmhxbExlRll5TVNBM1EifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1z
 Z2xvYmFsLmdpdGh1Yi5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlk
 IjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVD
@@ -11321,12 +11347,12 @@ IEFuYWx5c2lzIiwidGFyZ2V0VHlwZSI6ImNldGVybXM6Q3JlZGVudGlhbCIsInRhcmdldFVybCI6Imh0
 dHBzOi8vY3JlZGVudGlhbGZpbmRlci5vcmcvY3JlZGVudGlhbC8yMDIyOS9SZXF1aXJlbWVudHNfQW5h
 bHlzaXMifV19fX0sImlzcyI6Imh0dHBzOi8vZXhhbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYmYi
 OjEyNjIzMDQwMDAsImp0aSI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3Vi
-IjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.HnpdAk1o1mcHAN04nLqD
-PL3SeeTmXrRU-0lIgbEK_zfX7BfwZAYfCMTwpKXCncBV9lX7mDLvN4ig49uUgGXRpDS40zD9ueNZdA9c
-f0kpSFxotTBuZxCBJFfd-WjH0NnRo_XTchr6QZLMK4Ryp4e4ehwAE6DCm7ojgpbHb_g21vI4vxJUpgWz
-RRXsKeyCfaJv6AwXRR2K8toDk081UGBxF-9HbYU4FLBFUoTxVPVLPvjjbfa1xQgXNB4G8TyVU4QZg-Gv
-MR_JNG-SVF2ADWSOjo6eFx4Z2EKXW5EAp6YfbY7udOMCwf0HBLs5KnltJhXJnZQq9rmyxRwkEzTCFbKj
-jw</pre></div></div></div>
+IjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.VyrSzlYx5vFMCjqE27ez
+PR_BOrautIJ5QmGgvYzIYF6TIT3QUXEmh1y7ateF6JlJKj4Umv576Srl16GDj79uyu1R4rbLDLZkljEe
+b_byRpEz2miEtcv91uWRalKnKPVm-egYWt15DnEEQKSCLBI3fnmrxxQ1JdeRVmEOH8B88cajnnROrLBk
+Cb0FvudYzFydXlG2mFXsp27JcqyfQHhQIWcTEdPBai4brZuTPMqWyn0Zi04htM_JWEPMyJSZL1qKk6Pr
+MxRc1bEK32LE0ozh8xqTFHREzjFi1Pzmc5Uz3q5lr8c1fWLiMHPKri03ZCdymPWXz2maN19t5M_skgFf
+Yw</pre></div></div></div>
 
 
     </section>
@@ -11425,10 +11451,10 @@ jw</pre></div></div></div>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-23T16:40:06Z",
-      "verificationMethod": "did:key:z6Mkn5Lepe5FrYW6y7ZaBQd56WhDx5gFMjUHbYyPMutQpq1j",
+      "created": "2022-06-23T21:10:05Z",
+      "verificationMethod": "did:key:z6Mkug8d1Qc8N7XRER9ZkyDTpaeahgKSDQrsyWoimHqQUtve",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z3VgzMMantnuaRdeiHqjyXieVAaVeamWLGjDWyTdxPA6cAx99aCtXzxy4HasMcWoMxmMXu326msdLccpfof7AHNSM"
+      "proofValue": "z2kCazuGuv44bBExmQZ2rp3AoipWmZg1pqDpcG4EnEqAyga8KTZdcKqWP9J9wSv5EQ6UosVXVUGCL5mWtnjcKZPky"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -11438,11 +11464,11 @@ jw</pre></div></div></div>
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "z9r0FUI321rnIpmsAH5_d73QwlCr3k7bGClaOCO_-5fy7vxIVbtmmY0mgy_27lIcOYyrNS
-QoOgmNoExA9wrDLy5yOlcTtpNXiI07Jd8JM3b_iK_ImnAwhRLwcEl3lNpH4zE97542MLN5-pBPW_vGBn
-K0aAnEwSZMzDcGi1f0fttyMVrFjORX4S0SmF-1eAmOjAKO6A6J8l-KmsQkoTC6RzzecareOoYOTUezro
-o0I7vp0eiUmjGjzdzwaGx2N_-P_toaGFQlACBMOv0t3r8wZMq3W9XNW9Yx-qJxjKlpd8iWi2jowCL_5q
-53mDffrrsrZf7e_9Gxbj25-I6YCcDmaw"
+    "n": "tK3phlIki7DAtm4OwQbPfmFeHse-JyJwHeTAzUN87qRJSzHzccUXjq2OyTsrTEPekjlnJS
+mITK5ipScxvcPg_GtErNIOafs8DyI9PsEzWaIieN1-0Ugy8nzFh4yBO29fOn2WuOTZr-yyyY7U_0t4Rk
+n0_H2XI8_ZCuWXhs7xty5H7Z3hP_wBlL79qnboQw02_xvFzMlTU1qXlEnRINzp-rC9gqnEskdk2lmgUN
+4eMIhi2F2fxZW-tRNmTkBbSwfus0ot4-PMNMsUiH0pt51NPJsBANpI0ebWfBn0N52l-J_TFY0osHXLqI
+T9UHcAFUv-3higmaFXJhqlLeFYyMSA3Q"
   }
 }
 --------------- JWT payload ---------------
@@ -11509,12 +11535,12 @@ ents_Analysis"
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ6OXIwRlVJMzIxcm5JcG1zQUg1X2Q3M1F3bENyM2s3YkdDbGFPQ09fLTVmeTd2eElWYnRtbVkwbWd5
-XzI3bEljT1l5ck5TUW9PZ21Ob0V4QTl3ckRMeTV5T2xjVHRwTlhpSTA3SmQ4Sk0zYl9pS19JbW5Bd2hS
-THdjRWwzbE5wSDR6RTk3NTQyTUxONS1wQlBXX3ZHQm5LMGFBbkV3U1pNekRjR2kxZjBmdHR5TVZyRmpP
-Ulg0UzBTbUYtMWVBbU9qQUtPNkE2SjhsLUttc1Frb1RDNlJ6emVjYXJlT29ZT1RVZXpyb28wSTd2cDBl
-aVVtakdqemR6d2FHeDJOXy1QX3RvYUdGUWxBQ0JNT3YwdDNyOHdaTXEzVzlYTlc5WXgtcUp4aktscGQ4
-aVdpMmpvd0NMXzVxNTNtRGZmcnJzclpmN2VfOUd4YmoyNS1JNllDY0RtYXcifX0.eyJ2YyI6eyJAY29u
+OiJ0SzNwaGxJa2k3REF0bTRPd1FiUGZtRmVIc2UtSnlKd0hlVEF6VU44N3FSSlN6SHpjY1VYanEyT3lU
+c3JURVBla2psbkpTbUlUSzVpcFNjeHZjUGdfR3RFck5JT2FmczhEeUk5UHNFeldhSWllTjEtMFVneThu
+ekZoNHlCTzI5Zk9uMld1T1Raci15eXlZN1VfMHQ0UmtuMF9IMlhJOF9aQ3VXWGhzN3h0eTVIN1ozaFBf
+d0JsTDc5cW5ib1F3MDJfeHZGek1sVFUxcVhsRW5SSU56cC1yQzlncW5Fc2tkazJsbWdVTjRlTUloaTJG
+MmZ4WlctdFJObVRrQmJTd2Z1czBvdDQtUE1OTXNVaUgwcHQ1MU5QSnNCQU5wSTBlYldmQm4wTjUybC1K
+X1RGWTBvc0hYTHFJVDlVSGNBRlV2LTNoaWdtYUZYSmhxbExlRll5TVNBM1EifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1z
 Z2xvYmFsLmdpdGh1Yi5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sImlk
 IjoiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJ0eXBlIjpbIlZlcmlmaWFibGVD
@@ -11536,12 +11562,12 @@ IEFuYWx5c2lzIiwidGFyZ2V0VHlwZSI6ImNldGVybXM6Q3JlZGVudGlhbCIsInRhcmdldFVybCI6Imh0
 dHBzOi8vY3JlZGVudGlhbGZpbmRlci5vcmcvY3JlZGVudGlhbC8yMDIyOS9SZXF1aXJlbWVudHNfQW5h
 bHlzaXMifV19fX0sImlzcyI6Imh0dHBzOi8vZXhhbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYmYi
 OjEyNjIzMDQwMDAsImp0aSI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3Vi
-IjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.HnpdAk1o1mcHAN04nLqD
-PL3SeeTmXrRU-0lIgbEK_zfX7BfwZAYfCMTwpKXCncBV9lX7mDLvN4ig49uUgGXRpDS40zD9ueNZdA9c
-f0kpSFxotTBuZxCBJFfd-WjH0NnRo_XTchr6QZLMK4Ryp4e4ehwAE6DCm7ojgpbHb_g21vI4vxJUpgWz
-RRXsKeyCfaJv6AwXRR2K8toDk081UGBxF-9HbYU4FLBFUoTxVPVLPvjjbfa1xQgXNB4G8TyVU4QZg-Gv
-MR_JNG-SVF2ADWSOjo6eFx4Z2EKXW5EAp6YfbY7udOMCwf0HBLs5KnltJhXJnZQq9rmyxRwkEzTCFbKj
-jw</pre></div></div></div>
+IjoiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.VyrSzlYx5vFMCjqE27ez
+PR_BOrautIJ5QmGgvYzIYF6TIT3QUXEmh1y7ateF6JlJKj4Umv576Srl16GDj79uyu1R4rbLDLZkljEe
+b_byRpEz2miEtcv91uWRalKnKPVm-egYWt15DnEEQKSCLBI3fnmrxxQ1JdeRVmEOH8B88cajnnROrLBk
+Cb0FvudYzFydXlG2mFXsp27JcqyfQHhQIWcTEdPBai4brZuTPMqWyn0Zi04htM_JWEPMyJSZL1qKk6Pr
+MxRc1bEK32LE0ozh8xqTFHREzjFi1Pzmc5Uz3q5lr8c1fWLiMHPKri03ZCdymPWXz2maN19t5M_skgFf
+Yw</pre></div></div></div>
 
 
     </section>
@@ -11645,10 +11671,10 @@ jw</pre></div></div></div>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-23T16:40:06Z",
-      "verificationMethod": "did:key:z6Mkn5Lepe5FrYW6y7ZaBQd56WhDx5gFMjUHbYyPMutQpq1j",
+      "created": "2022-06-23T21:10:05Z",
+      "verificationMethod": "did:key:z6Mkug8d1Qc8N7XRER9ZkyDTpaeahgKSDQrsyWoimHqQUtve",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z4HcXVjCqDNrDpycDf2efVN9jtHMm3SsPK1Fqpp5jiP19aWr77yx4CQDDWCu1a2UmfvHczSmWMNJYAMbxJQjLTZWx"
+      "proofValue": "zMwT3KPmW1XCehT4GwVujmiNWSy7XfgUndwD5Z1digxFc6jJ4GtHmTGR6ibdqPjQmRe3icg94NEqPAyzu9U4BhbT"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -11658,11 +11684,11 @@ jw</pre></div></div></div>
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "z9r0FUI321rnIpmsAH5_d73QwlCr3k7bGClaOCO_-5fy7vxIVbtmmY0mgy_27lIcOYyrNS
-QoOgmNoExA9wrDLy5yOlcTtpNXiI07Jd8JM3b_iK_ImnAwhRLwcEl3lNpH4zE97542MLN5-pBPW_vGBn
-K0aAnEwSZMzDcGi1f0fttyMVrFjORX4S0SmF-1eAmOjAKO6A6J8l-KmsQkoTC6RzzecareOoYOTUezro
-o0I7vp0eiUmjGjzdzwaGx2N_-P_toaGFQlACBMOv0t3r8wZMq3W9XNW9Yx-qJxjKlpd8iWi2jowCL_5q
-53mDffrrsrZf7e_9Gxbj25-I6YCcDmaw"
+    "n": "tK3phlIki7DAtm4OwQbPfmFeHse-JyJwHeTAzUN87qRJSzHzccUXjq2OyTsrTEPekjlnJS
+mITK5ipScxvcPg_GtErNIOafs8DyI9PsEzWaIieN1-0Ugy8nzFh4yBO29fOn2WuOTZr-yyyY7U_0t4Rk
+n0_H2XI8_ZCuWXhs7xty5H7Z3hP_wBlL79qnboQw02_xvFzMlTU1qXlEnRINzp-rC9gqnEskdk2lmgUN
+4eMIhi2F2fxZW-tRNmTkBbSwfus0ot4-PMNMsUiH0pt51NPJsBANpI0ebWfBn0N52l-J_TFY0osHXLqI
+T9UHcAFUv-3higmaFXJhqlLeFYyMSA3Q"
   }
 }
 --------------- JWT payload ---------------
@@ -11734,12 +11760,12 @@ t analysis of what the text says explicitly as well as inferences drawn from the
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ6OXIwRlVJMzIxcm5JcG1zQUg1X2Q3M1F3bENyM2s3YkdDbGFPQ09fLTVmeTd2eElWYnRtbVkwbWd5
-XzI3bEljT1l5ck5TUW9PZ21Ob0V4QTl3ckRMeTV5T2xjVHRwTlhpSTA3SmQ4Sk0zYl9pS19JbW5Bd2hS
-THdjRWwzbE5wSDR6RTk3NTQyTUxONS1wQlBXX3ZHQm5LMGFBbkV3U1pNekRjR2kxZjBmdHR5TVZyRmpP
-Ulg0UzBTbUYtMWVBbU9qQUtPNkE2SjhsLUttc1Frb1RDNlJ6emVjYXJlT29ZT1RVZXpyb28wSTd2cDBl
-aVVtakdqemR6d2FHeDJOXy1QX3RvYUdGUWxBQ0JNT3YwdDNyOHdaTXEzVzlYTlc5WXgtcUp4aktscGQ4
-aVdpMmpvd0NMXzVxNTNtRGZmcnJzclpmN2VfOUd4YmoyNS1JNllDY0RtYXcifX0.eyJ2YyI6eyJAY29u
+OiJ0SzNwaGxJa2k3REF0bTRPd1FiUGZtRmVIc2UtSnlKd0hlVEF6VU44N3FSSlN6SHpjY1VYanEyT3lU
+c3JURVBla2psbkpTbUlUSzVpcFNjeHZjUGdfR3RFck5JT2FmczhEeUk5UHNFeldhSWllTjEtMFVneThu
+ekZoNHlCTzI5Zk9uMld1T1Raci15eXlZN1VfMHQ0UmtuMF9IMlhJOF9aQ3VXWGhzN3h0eTVIN1ozaFBf
+d0JsTDc5cW5ib1F3MDJfeHZGek1sVFUxcVhsRW5SSU56cC1yQzlncW5Fc2tkazJsbWdVTjRlTUloaTJG
+MmZ4WlctdFJObVRrQmJTd2Z1czBvdDQtUE1OTXNVaUgwcHQ1MU5QSnNCQU5wSTBlYldmQm4wTjUybC1K
+X1RGWTBvc0hYTHFJVDlVSGNBRlV2LTNoaWdtYUZYSmhxbExlRll5TVNBM1EifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1z
 Z2xvYmFsLmdpdGh1Yi5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sInR5
 cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJPcGVuQmFkZ2VDcmVkZW50aWFsIl0sImlkIjoiaHR0
@@ -11763,11 +11789,11 @@ aW4iLCJ0YXJnZXRUeXBlIjoiQ0ZJdGVtIiwidGFyZ2V0VXJsIjoiaHR0cHM6Ly9jYXNlcmVnaXN0cnku
 aW1zZ2xvYmFsLm9yZy91cmkvNzRmNWJiN2QtZDdjYy0xMWU4LTgyNGYtMDI0MmFjMTYwMDAyIn1dfV19
 fSwiaXNzIjoiZGlkOmV4YW1wbGU6aXNzdWVyIiwibmJmIjoxNjUxNDMzMDA0LCJqdGkiOiJodHRwczov
 L2lzc3Vlci13ZWJzaXRlLmNvbS9hd2FyZHMvYWJjMTIzIiwic3ViIjoiZGlkOmV4YW1wbGU6bGVhcm5l
-ciJ9.OUevWpRMbiysDxYR8TepwJ-uu7EesG8GPa2evsr9hSTvx4TFZ5thKGFA5SbCuGwtd_qrJxP45fj
-MJNiwYYkyiYIi95PFWRRa0lwWIWUI_IkJev0Z5H5PSK7ACVO7BAIpeRWyRe_B0gt51ImqNWHg7HBFxFE
-EDcqT8hi0kmaTTHL-bIYu8BRzpfYLzGJSD9IKgJipEsbUhPvkMso1URPp2432KpUgN9OSkJn9UZpONUg
-tf-pJUvGDV628s3FOkuHnxlbidyCGnF0Ui7VAnHO-wAC_PzcXLXSQnp0O3vPrnpL_gicRgF6Q_Z_YX13
-8CnHS1D31Z4qh3R9Pn2rje6E_zA</pre></div></div></div>
+ciJ9.V0CRd6DLmBieX8nV4a7SXp9IQf8XU4C_-tf3RoniumGrlk02S1k2EdSFahTgLYt5hsLv5vTtf59
+5RniGXqaVFc6jvBgai4Jw4RAdmmaGyceTwPOV2TrVy0UqGufYzMaZf7rnZn4AfRymA86lftAmEXKa5Ne
+IchGKUDQ4_uFsTFUYCGfn3m-mvqZCuuYGolnby52JVwOQ1htkrEZs62aTuDYhODvcWwuDmALyA7oKcIu
+XJ1nFd-AtE5mP-_YKCHPnJfR9wmCRYLg2JqNQRa6dqitWKVSFXaMQAO6kyNa8zkVPSnAiQcrhDCj7EHM
+UiNic7PbKyLUBwBQu7D2lUcBo7w</pre></div></div></div>
 
     </section>
     <section id="skill-assertion-credential-engine-0">
@@ -11870,10 +11896,10 @@ tf-pJUvGDV628s3FOkuHnxlbidyCGnF0Ui7VAnHO-wAC_PzcXLXSQnp0O3vPrnpL_gicRgF6Q_Z_YX13
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2022-06-23T16:40:06Z",
-      "verificationMethod": "did:key:z6Mkn5Lepe5FrYW6y7ZaBQd56WhDx5gFMjUHbYyPMutQpq1j",
+      "created": "2022-06-23T21:10:05Z",
+      "verificationMethod": "did:key:z6Mkug8d1Qc8N7XRER9ZkyDTpaeahgKSDQrsyWoimHqQUtve",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z3m1eQNaQXDfuEbxFaEKy2uStnaGW7QnvQ4Q9ZDrvmiaDbirZSn5MxWTDiyzJ2cQjHnC572BSJ597izhAyEDZAPHj"
+      "proofValue": "z2L9aFDCDiJX2mSPmpANafu4agjGLBy9rGjDK8gRAwMhv6BB5M7xVRM2hLHFhJ69CbMN74CC5dYVyWBbPE69k5eD8"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -11883,11 +11909,11 @@ tf-pJUvGDV628s3FOkuHnxlbidyCGnF0Ui7VAnHO-wAC_PzcXLXSQnp0O3vPrnpL_gicRgF6Q_Z_YX13
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "z9r0FUI321rnIpmsAH5_d73QwlCr3k7bGClaOCO_-5fy7vxIVbtmmY0mgy_27lIcOYyrNS
-QoOgmNoExA9wrDLy5yOlcTtpNXiI07Jd8JM3b_iK_ImnAwhRLwcEl3lNpH4zE97542MLN5-pBPW_vGBn
-K0aAnEwSZMzDcGi1f0fttyMVrFjORX4S0SmF-1eAmOjAKO6A6J8l-KmsQkoTC6RzzecareOoYOTUezro
-o0I7vp0eiUmjGjzdzwaGx2N_-P_toaGFQlACBMOv0t3r8wZMq3W9XNW9Yx-qJxjKlpd8iWi2jowCL_5q
-53mDffrrsrZf7e_9Gxbj25-I6YCcDmaw"
+    "n": "tK3phlIki7DAtm4OwQbPfmFeHse-JyJwHeTAzUN87qRJSzHzccUXjq2OyTsrTEPekjlnJS
+mITK5ipScxvcPg_GtErNIOafs8DyI9PsEzWaIieN1-0Ugy8nzFh4yBO29fOn2WuOTZr-yyyY7U_0t4Rk
+n0_H2XI8_ZCuWXhs7xty5H7Z3hP_wBlL79qnboQw02_xvFzMlTU1qXlEnRINzp-rC9gqnEskdk2lmgUN
+4eMIhi2F2fxZW-tRNmTkBbSwfus0ot4-PMNMsUiH0pt51NPJsBANpI0ebWfBn0N52l-J_TFY0osHXLqI
+T9UHcAFUv-3higmaFXJhqlLeFYyMSA3Q"
   }
 }
 --------------- JWT payload ---------------
@@ -11955,12 +11981,12 @@ o0I7vp0eiUmjGjzdzwaGx2N_-P_toaGFQlACBMOv0t3r8wZMq3W9XNW9Yx-qJxjKlpd8iWi2jowCL_5q
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ6OXIwRlVJMzIxcm5JcG1zQUg1X2Q3M1F3bENyM2s3YkdDbGFPQ09fLTVmeTd2eElWYnRtbVkwbWd5
-XzI3bEljT1l5ck5TUW9PZ21Ob0V4QTl3ckRMeTV5T2xjVHRwTlhpSTA3SmQ4Sk0zYl9pS19JbW5Bd2hS
-THdjRWwzbE5wSDR6RTk3NTQyTUxONS1wQlBXX3ZHQm5LMGFBbkV3U1pNekRjR2kxZjBmdHR5TVZyRmpP
-Ulg0UzBTbUYtMWVBbU9qQUtPNkE2SjhsLUttc1Frb1RDNlJ6emVjYXJlT29ZT1RVZXpyb28wSTd2cDBl
-aVVtakdqemR6d2FHeDJOXy1QX3RvYUdGUWxBQ0JNT3YwdDNyOHdaTXEzVzlYTlc5WXgtcUp4aktscGQ4
-aVdpMmpvd0NMXzVxNTNtRGZmcnJzclpmN2VfOUd4YmoyNS1JNllDY0RtYXcifX0.eyJ2YyI6eyJAY29u
+OiJ0SzNwaGxJa2k3REF0bTRPd1FiUGZtRmVIc2UtSnlKd0hlVEF6VU44N3FSSlN6SHpjY1VYanEyT3lU
+c3JURVBla2psbkpTbUlUSzVpcFNjeHZjUGdfR3RFck5JT2FmczhEeUk5UHNFeldhSWllTjEtMFVneThu
+ekZoNHlCTzI5Zk9uMld1T1Raci15eXlZN1VfMHQ0UmtuMF9IMlhJOF9aQ3VXWGhzN3h0eTVIN1ozaFBf
+d0JsTDc5cW5ib1F3MDJfeHZGek1sVFUxcVhsRW5SSU56cC1yQzlncW5Fc2tkazJsbWdVTjRlTUloaTJG
+MmZ4WlctdFJObVRrQmJTd2Z1czBvdDQtUE1OTXNVaUgwcHQ1MU5QSnNCQU5wSTBlYldmQm4wTjUybC1K
+X1RGWTBvc0hYTHFJVDlVSGNBRlV2LTNoaWdtYUZYSmhxbExlRll5TVNBM1EifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vaW1z
 Z2xvYmFsLmdpdGh1Yi5pby9vcGVuYmFkZ2VzLXNwZWNpZmljYXRpb24vY29udGV4dC5qc29uIl0sInR5
 cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJPcGVuQmFkZ2VDcmVkZW50aWFsIl0sImlkIjoiaHR0
@@ -11979,11 +12005,11 @@ bnMgYW5kIGluZXF1YWxpdGllcyIsInRhcmdldFR5cGUiOiJjZWFzbjpDb21wZXRlbmN5IiwidGFyZ2V0
 VXJsIjoiaHR0cHM6Ly9jcmVkZW50aWFsZmluZGVyLm9yZy9jb21wZXRlbmN5L2NlLTYzNjljNTFmLTRk
 ODYtNDU5Mi1hNzYxLThiMzJhZTcwYTA0NSJ9XX1dfX0sImlzcyI6ImRpZDpleGFtcGxlOmlzc3VlciIs
 Im5iZiI6MTY1MTQzMzAwNCwianRpIjoiaHR0cHM6Ly9pc3N1ZXItd2Vic2l0ZS5jb20vYXdhcmRzL2Fi
-YzEyMyIsInN1YiI6ImRpZDpleGFtcGxlOmxlYXJuZXIifQ.wNGmsNP_tdsUNLsnQDfHamlqtLfguhzoY
-QxQFoAVYk8HGpfbQp_J0GcRGX3ma3U6k-UByda7f-dvUDkhi8-SV1GdsGwNMpMslfp2GvcTt45j2peL_
-b9TMEKiXEYnqBaYSOt0V4iXBpPOwg4-_V9WBrlJC1qu0Wdhf8Y_sqKbH6GoOSUes9cUXcPx3R2XtyG4e
-YqbkVQXW2fYCjR-2nd3PeuJxAs4cRsgyoFP9ADelwuB1A-0yJhDIiTEgBo38s9Ue5ENAIN5l_UN1EZpR
-tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div></div></div>
+YzEyMyIsInN1YiI6ImRpZDpleGFtcGxlOmxlYXJuZXIifQ.ZPugtUqfTu6xHrssmdS4gOh1armD_mIH1
+G7xkED6SkmvlYYY-aTUXwAovUlRf-Dlcc8Q1225YQoobTeAeLjm8Zp_UnlPhJ3MQ-UHxblyRmmKt5Rzh
+K00O_hjGr50F4AvqkoJ-kzOlk7GSnePlikSRBHv8QyeB12U1lLSDi4GFQrUee0IwKHJWOXPQSkUp6LJI
+LAv1EkgPaixMfw2IfiS5Rsn47KCyJQOGa1lUjc6F5nGB8FPTEDVVSvm9ccYImixDTYNU9iFVf5f60CTH
+ybmvejo1mAgVnfCEA4D1WyKc2cYLa-EqV1qXJjvordcN_hgGk_gRWdaWLBYnid7dtQ-Sw</pre></div></div></div>
 
     </section>
   </section>
@@ -12533,11 +12559,20 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
       "type": "string"
     },
     "endorsement": {
-      "description": "Allows endorsers to make specific claims about the Achievement.",
+      "description": "Allows endorsers to make specific claims about the Achievement. These endorsements are signed with a Data Integrity proof format.",
       "$comment": "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
       "type": "array",
       "items": {
         "$ref": "#/$defs/EndorsementCredential"
+      }
+    },
+    "endorsementJwt": {
+      "description": "Allows endorsers to make specific claims about the Achievement. These endorsements are signed with the VC-JWT proof format.",
+      "$comment": "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
       }
     },
     "fieldOfStudy": {
@@ -13219,11 +13254,20 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           "type": "string"
         },
         "endorsement": {
-          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile.",
+          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.",
           "$comment": "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/EndorsementCredential"
+          }
+        },
+        "endorsementJwt": {
+          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
+          "$comment": "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
           }
         },
         "image": {
@@ -13467,11 +13511,20 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
       "$ref": "#/$defs/AchievementSubject"
     },
     "endorsement": {
-      "description": "Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential.",
+      "description": "Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential. These endorsements are signed with a Data Integrity proof format.",
       "$comment": "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
       "type": "array",
       "items": {
         "$ref": "#/$defs/EndorsementCredential"
+      }
+    },
+    "endorsementJwt": {
+      "description": "Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential. These endorsements are signed with the VC-JWT proof format.",
+      "$comment": "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
       }
     },
     "evidence": {
@@ -13943,11 +13996,20 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           "type": "string"
         },
         "endorsement": {
-          "description": "Allows endorsers to make specific claims about the Achievement.",
+          "description": "Allows endorsers to make specific claims about the Achievement. These endorsements are signed with a Data Integrity proof format.",
           "$comment": "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/EndorsementCredential"
+          }
+        },
+        "endorsementJwt": {
+          "description": "Allows endorsers to make specific claims about the Achievement. These endorsements are signed with the VC-JWT proof format.",
+          "$comment": "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
           }
         },
         "fieldOfStudy": {
@@ -14578,11 +14640,20 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           "type": "string"
         },
         "endorsement": {
-          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile.",
+          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.",
           "$comment": "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/EndorsementCredential"
+          }
+        },
+        "endorsementJwt": {
+          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
+          "$comment": "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
           }
         },
         "image": {
@@ -15029,11 +15100,20 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           "type": "string"
         },
         "endorsement": {
-          "description": "Allows endorsers to make specific claims about the Achievement.",
+          "description": "Allows endorsers to make specific claims about the Achievement. These endorsements are signed with a Data Integrity proof format.",
           "$comment": "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/EndorsementCredential"
+          }
+        },
+        "endorsementJwt": {
+          "description": "Allows endorsers to make specific claims about the Achievement. These endorsements are signed with the VC-JWT proof format.",
+          "$comment": "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
           }
         },
         "fieldOfStudy": {
@@ -15715,11 +15795,20 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           "type": "string"
         },
         "endorsement": {
-          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile.",
+          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.",
           "$comment": "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/EndorsementCredential"
+          }
+        },
+        "endorsementJwt": {
+          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
+          "$comment": "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
           }
         },
         "image": {
@@ -16404,11 +16493,20 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           "type": "string"
         },
         "endorsement": {
-          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile.",
+          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.",
           "$comment": "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/EndorsementCredential"
+          }
+        },
+        "endorsementJwt": {
+          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
+          "$comment": "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
           }
         },
         "image": {
@@ -17080,11 +17178,20 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
       "type": "string"
     },
     "endorsement": {
-      "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile.",
+      "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.",
       "$comment": "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
       "type": "array",
       "items": {
         "$ref": "#/$defs/EndorsementCredential"
+      }
+    },
+    "endorsementJwt": {
+      "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
+      "$comment": "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
       }
     },
     "image": {
@@ -17586,11 +17693,20 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           "type": "string"
         },
         "endorsement": {
-          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile.",
+          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.",
           "$comment": "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/EndorsementCredential"
+          }
+        },
+        "endorsementJwt": {
+          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
+          "$comment": "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
           }
         },
         "image": {
@@ -18448,11 +18564,20 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           "type": "string"
         },
         "endorsement": {
-          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile.",
+          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.",
           "$comment": "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/EndorsementCredential"
+          }
+        },
+        "endorsementJwt": {
+          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
+          "$comment": "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
           }
         },
         "image": {
@@ -20609,11 +20734,20 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           "$ref": "#/$defs/AchievementSubject"
         },
         "endorsement": {
-          "description": "Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential.",
+          "description": "Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential. These endorsements are signed with a Data Integrity proof format.",
           "$comment": "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/EndorsementCredential"
+          }
+        },
+        "endorsementJwt": {
+          "description": "Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential. These endorsements are signed with the VC-JWT proof format.",
+          "$comment": "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
           }
         },
         "evidence": {
@@ -21085,11 +21219,20 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           "type": "string"
         },
         "endorsement": {
-          "description": "Allows endorsers to make specific claims about the Achievement.",
+          "description": "Allows endorsers to make specific claims about the Achievement. These endorsements are signed with a Data Integrity proof format.",
           "$comment": "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/EndorsementCredential"
+          }
+        },
+        "endorsementJwt": {
+          "description": "Allows endorsers to make specific claims about the Achievement. These endorsements are signed with the VC-JWT proof format.",
+          "$comment": "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
           }
         },
         "fieldOfStudy": {
@@ -21720,11 +21863,20 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           "type": "string"
         },
         "endorsement": {
-          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile.",
+          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.",
           "$comment": "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/EndorsementCredential"
+          }
+        },
+        "endorsementJwt": {
+          "description": "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
+          "$comment": "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
           }
         },
         "image": {
@@ -22370,7 +22522,7 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           "endorsement" : {
             "minItems" : 0,
             "type" : "array",
-            "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile.",
+            "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.",
             "items" : {
               "$ref" : "#/components/schemas/EndorsementCredential"
             },
@@ -22418,6 +22570,17 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
             "type" : "string",
             "description" : "The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP.",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.uri.class"
+          },
+          "endorsementJwt" : {
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
+            "items" : {
+              "pattern" : "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$",
+              "type" : "string",
+              "description" : "A `String` in Compact JWS format [[RFC7515]]."
+            },
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.compactjws.class"
           },
           "honorificSuffix" : {
             "type" : "string",
@@ -22728,7 +22891,7 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           "endorsement" : {
             "minItems" : 0,
             "type" : "array",
-            "description" : "Allows endorsers to make specific claims about the Achievement.",
+            "description" : "Allows endorsers to make specific claims about the Achievement. These endorsements are signed with a Data Integrity proof format.",
             "items" : {
               "$ref" : "#/components/schemas/EndorsementCredential"
             },
@@ -22760,6 +22923,17 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
             "type" : "string",
             "description" : "The version property allows issuers to set a version string for an Achievement. This is particularly useful when replacing a previous version with an update.",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.primitive.string.class"
+          },
+          "endorsementJwt" : {
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "Allows endorsers to make specific claims about the Achievement. These endorsements are signed with the VC-JWT proof format.",
+            "items" : {
+              "pattern" : "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$",
+              "type" : "string",
+              "description" : "A `String` in Compact JWS format [[RFC7515]]."
+            },
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.compactjws.class"
           },
           "creditsAvailable" : {
             "type" : "number",
@@ -23108,7 +23282,7 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           "endorsement" : {
             "minItems" : 0,
             "type" : "array",
-            "description" : "Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential.",
+            "description" : "Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential. These endorsements are signed with a Data Integrity proof format.",
             "items" : {
               "$ref" : "#/components/schemas/EndorsementCredential"
             },
@@ -23156,6 +23330,17 @@ tL0SEN4bSlcw3Laf5wDkLgC_gnGTdAqoxoUjCLB8ORdnxgSqJBClF6zFq92K6gb_4ug2Q</pre></div
           },
           "credentialStatus" : {
             "$ref" : "#/components/schemas/CredentialStatus"
+          },
+          "endorsementJwt" : {
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential. These endorsements are signed with the VC-JWT proof format.",
+            "items" : {
+              "pattern" : "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$",
+              "type" : "string",
+              "description" : "A `String` in Compact JWS format [[RFC7515]]."
+            },
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.compactjws.class"
           },
           "issuanceDate" : {
             "type" : "string",
@@ -24020,7 +24205,8 @@ components:
           minItems: 0
           type: array
           description: Allows endorsers to make specific claims about the individual
-            or organization represented by this profile.
+            or organization represented by this profile. These endorsements are signed
+            with a Data Integrity proof format.
           items:
             $ref: '#/components/schemas/EndorsementCredential'
           x-srcprop-pid: org.1edtech.ob.v3p0.endorsementcredential.class
@@ -24065,6 +24251,17 @@ components:
           description: "The homepage or social media profile of the entity, whether\
             \ individual or institutional. Should be a URL/URI Accessible via HTTP."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
+        endorsementJwt:
+          minItems: 0
+          type: array
+          description: Allows endorsers to make specific claims about the individual
+            or organization represented by this profile. These endorsements are signed
+            with the VC-JWT proof format.
+          items:
+            pattern: "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
+            type: string
+            description: "A `String` in Compact JWS format [[RFC7515]]."
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.compactjws.class
         honorificSuffix:
           type: string
           description: "Honorific suffix(es) following a person's name (e.g. 'M.D,\
@@ -24459,6 +24656,7 @@ components:
           minItems: 0
           type: array
           description: Allows endorsers to make specific claims about the Achievement.
+            These endorsements are signed with a Data Integrity proof format.
           items:
             $ref: '#/components/schemas/EndorsementCredential'
           x-srcprop-pid: org.1edtech.ob.v3p0.endorsementcredential.class
@@ -24487,6 +24685,16 @@ components:
             for an Achievement. This is particularly useful when replacing a previous
             version with an update.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+        endorsementJwt:
+          minItems: 0
+          type: array
+          description: Allows endorsers to make specific claims about the Achievement.
+            These endorsements are signed with the VC-JWT proof format.
+          items:
+            pattern: "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
+            type: string
+            description: "A `String` in Compact JWS format [[RFC7515]]."
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.compactjws.class
         creditsAvailable:
           type: number
           description: "Credit hours associated with this entity, or credit hours\
@@ -24854,7 +25062,8 @@ components:
           minItems: 0
           type: array
           description: "Allows endorsers to make specific claims about the credential,\
-            \ and the achievement and profiles in the credential."
+            \ and the achievement and profiles in the credential. These endorsements\
+            \ are signed with a Data Integrity proof format."
           items:
             $ref: '#/components/schemas/EndorsementCredential'
           x-srcprop-pid: org.1edtech.ob.v3p0.endorsementcredential.class
@@ -24901,6 +25110,17 @@ components:
           $ref: '#/components/schemas/Profile'
         credentialStatus:
           $ref: '#/components/schemas/CredentialStatus'
+        endorsementJwt:
+          minItems: 0
+          type: array
+          description: "Allows endorsers to make specific claims about the credential,\
+            \ and the achievement and profiles in the credential. These endorsements\
+            \ are signed with the VC-JWT proof format."
+          items:
+            pattern: "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
+            type: string
+            description: "A `String` in Compact JWS format [[RFC7515]]."
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.compactjws.class
         issuanceDate:
           type: string
           description: Timestamp of when the credential was awarded.
@@ -25573,9 +25793,9 @@ components:
   </li><li>
     <a href="#ref-for-dfn-issuer-3" title="§ 8.4 Key Management">§ 8.4 Key Management</a> 
   </li><li>
-    <a href="#ref-for-dfn-issuer-4" title="§ 11.1 Terminology">§ 11.1 Terminology</a> <a href="#ref-for-dfn-issuer-5" title="Reference 2">(2)</a> 
+    <a href="#ref-for-dfn-issuer-4" title="§ 11.1 Terminology">§ 11.1 Terminology</a> 
   </li><li>
-    <a href="#ref-for-dfn-issuer-6" title="§ 11.2 Support for Decentralized Identifiers (DIDs)">§ 11.2 Support for Decentralized Identifiers (DIDs)</a> 
+    <a href="#ref-for-dfn-issuer-5" title="§ 11.2 Support for Decentralized Identifiers (DIDs)">§ 11.2 Support for Decentralized Identifiers (DIDs)</a> 
   </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-learner" aria-label="Links in this document to definition: Learner">
@@ -25810,8 +26030,6 @@ components:
     <a href="#ref-for-dfn-vp-4" title="§ 9. Verificaton and Validation">§ 9. Verificaton and Validation</a> 
   </li><li>
     <a href="#ref-for-dfn-vp-5" title="§ 11.1 Terminology">§ 11.1 Terminology</a> <a href="#ref-for-dfn-vp-6" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-vp-7" title="§ 11.2 Support for Decentralized Identifiers (DIDs)">§ 11.2 Support for Decentralized Identifiers (DIDs)</a> 
   </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-verifiable" aria-label="Links in this document to definition: Verification">
@@ -26074,24 +26292,6 @@ components:
     <a href="#ref-for-dfn-did-url-1" title="§ 11.2 Support for Decentralized Identifiers (DIDs)">§ 11.2 Support for Decentralized Identifiers (DIDs)</a> <a href="#ref-for-dfn-did-url-2" title="Reference 2">(2)</a> 
   </li>
   </ul>
-    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-holder" aria-label="Links in this document to definition: Holder">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-holder" aria-label="Permalink for definition: Holder. Activate to close this dialog.">Permalink</a>
-         
-      </div>
-      <p><b>Referenced in:</b></p>
-      <ul>
-    <li>
-    <a href="#ref-for-dfn-holder-1" title="§ 2.1 What is the problem this solves for?">§ 2.1 What is the problem this solves for?</a> 
-  </li><li>
-    <a href="#ref-for-dfn-holder-2" title="§ 8.1 Proof Formats">§ 8.1 Proof Formats</a> 
-  </li><li>
-    <a href="#ref-for-dfn-holder-3" title="§ 8.4 Key Management">§ 8.4 Key Management</a> 
-  </li><li>
-    <a href="#ref-for-dfn-holder-4" title="§ 11.2 Support for Decentralized Identifiers (DIDs)">§ 11.2 Support for Decentralized Identifiers (DIDs)</a> 
-  </li>
-  </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-linked-data-proof" aria-label="Links in this document to definition: Linked Data Proof">
       <span class="caret"></span>
       <div>
@@ -26114,10 +26314,6 @@ components:
       <ul>
     <li>
     <a href="#ref-for-dfn-presentation-1" title="§ 2.1 What is the problem this solves for?">§ 2.1 What is the problem this solves for?</a> 
-  </li><li>
-    <a href="#ref-for-dfn-presentation-2" title="§ 11.1 Terminology">§ 11.1 Terminology</a> 
-  </li><li>
-    <a href="#ref-for-dfn-presentation-3" title="§ 11.2 Support for Decentralized Identifiers (DIDs)">§ 11.2 Support for Decentralized Identifiers (DIDs)</a> 
   </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-subject" aria-label="Links in this document to definition: Subject">
@@ -26131,9 +26327,7 @@ components:
     <li>
     <a href="#ref-for-dfn-subject-1" title="§ 2.1 What is the problem this solves for?">§ 2.1 What is the problem this solves for?</a> 
   </li><li>
-    <a href="#ref-for-dfn-subject-2" title="§ 11.1 Terminology">§ 11.1 Terminology</a> 
-  </li><li>
-    <a href="#ref-for-dfn-subject-3" title="§ 11.2 Support for Decentralized Identifiers (DIDs)">§ 11.2 Support for Decentralized Identifiers (DIDs)</a> 
+    <a href="#ref-for-dfn-subject-2" title="§ 11.2 Support for Decentralized Identifiers (DIDs)">§ 11.2 Support for Decentralized Identifiers (DIDs)</a> 
   </li>
   </ul>
     </div><script id="respec-dfn-panel">(() => {
