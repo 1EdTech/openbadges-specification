@@ -17,6 +17,7 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
             Response 200 paging                                     "The set of OpenBadgeCredentials that meet the request parameters. Paging applies to the total number of OpenBadgeCredentials in the response."
                 Body GetOpenBadgeCredentialsResponse 1
             Response default Imsx_StatusInfo 1                      "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
+            Scopes [getCredentialsAcg, getCredentialsCcg]
 
         Operation postCredential POST /credentials                  "Create or replace an AchievementCredential on the [=resource server=]."
             Body AchievementCredential 1 application/json           "If the AchievementCredential is not signed with the VC-JWT Proof Format, the request body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
@@ -28,17 +29,20 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
                 Body AchievementCredential 1 application/json       "If the AchievementCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
                 Body CompactJws 1 text/plain                        "If the AchievementCredential is signed with the VC-JWT Proof Format, the response body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
             Response default Imsx_StatusInfo 1                      "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
+            Scopes [postCredentialAcg, postCredentialCcg]
 
         Operation getProfile GET /profile                           "Fetch the profile from the [=resource server=] for the supplied access token. Profiles that are received MAY contain attributes that a Host SHOULD authenticate before using in practice."
             Response 200
                 Body Profile 1 application/json                     "The matching profile."
             Response default Imsx_StatusInfo 1                      "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
+            Scopes [getProfileCcg, getProfileAcg]
 
         Operation postProfile POST /profile                         "Update the profile for the authenticate entity."
             Body Profile 1 application/json                         "The request SHOULD only include profile identifier properties to be added to the profile, not any existing data. The [=resource server=] MAY respond with 400 BAD_REQUEST to reject data that is known immediately to not be acceptable by the platform, e.g. to reject a "telephone" property if the [=resource server=] cannot validate telephone numbers."
             Response 200
                 Body Profile 1 application/json                     "The matching profile. Successful request responses will be the same as GET Profile and may not include the patched values (as the [=resource server=] may be waiting for asynchronous processes to complete before accepting the value). The values may never become part of the published profile."
             Response default Imsx_StatusInfo 1                      "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
+            Scopes [postProfileAcg, postProfileCcg]
 
     Interface Discovery
         
@@ -52,3 +56,19 @@ Package ApiDataModels DataModel
     Class GetOpenBadgeCredentialsResponse Unordered false []
         Property credential AchievementCredential 0..*              "OpenBadgeCredentials that have not been signed with the VC-JWT Proof Format MUST be in the `credential` array."
         Property compactJwsString CompactJws 0..*                   "OpenBadgeCredentials that have been signed with the VC-JWT Proof Format MUST be in the `compactJwsString` array."
+
+Package ACGSecurity SecurityModel OAUTH2ACG
+	Url TokenURL provider.example.com/token 													    	
+	Url AuthURL provider.example.com/auth														    	
+	Url RefreshURL provider.example.com/refresh												            
+	Scope getCredentialsAcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly      "Permission to read ClrCredentials for the authenticated entity."
+    Scope postCredentialAcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create        "Permission to create or update ClrCredentials for the authenticated entity."
+	Scope getProfileAcg     https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly         "Permission to read the profile for the authenticated entity."
+    Scope postProfileAcg    https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update 			"Permission to update the profile for the authenticated entity."
+	
+Package CCGSecurity SecurityModel OAUTH2CCG
+	Url TokenURL provider.example.com/token 														    
+	Scope getCredentialsCcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly      "Permission to read ClrCredentials for the authenticated entity."
+    Scope postCredentialCcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create        "Permission to create or update ClrCredentials for the authenticated entity."
+	Scope getProfileCcg     https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly         "Permission to read the profile for the authenticated entity."
+    Scope postProfileCcg    https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update 			"Permission to update the profile for the authenticated entity."
