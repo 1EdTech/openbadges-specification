@@ -1,6 +1,11 @@
 var _iprs = [
-    { specVersion: "2.1", company: "Concentric Sky", electionDate: "October 24, 2019", necessaryClaims: "No", type: "RF RAND (Required & Optional Elements)" },
-    { specVersion: "2.1", company: "Digital Knowledge", electionDate: "October 11, 2019", necessaryClaims: "No", type: "RF RAND (Required & Optional Elements)" },
-    { specVersion: "2.1", company: "Washington State Board for Community and Technical Colleges (WSBCTC)", electionDate: "October 4, 2019", necessaryClaims: "No", type: "RF RAND (Required & Optional Elements)" },
-    { specVersion: "2.1", company: "Credly", electionDate: "October 3, 2019", necessaryClaims: "No", type: "RF RAND (Required & Optional Elements)" }
+    { specVersion: "3.0", company: "Concentric Sky", electionDate: "October 24, 2019", necessaryClaims: "No", type: "RF RAND (Required & Optional Elements)" },
+    { specVersion: "3.0", company: "Arizona State University", electionDate: "June 21, 2022", necessaryClaims: "No", type: "RF RAND (Required & Optional Elements)" },
+    { specVersion: "3.0", company: "Temple University", electionDate: "June 10, 2022", necessaryClaims: "No", type: "RF RAND (Required & Optional Elements)" },
+    { specVersion: "3.0", company: "Credly", electionDate: "October 3, 2019", necessaryClaims: "No", type: "RF RAND (Required & Optional Elements)" },
+    { specVersion: "3.0", company: "Workday, Inc.", electionDate: "June 10, 2022", necessaryClaims: "No", type: "RF RAND (Required & Optional Elements)" },
+    { specVersion: "3.0", company: "RANDA Solutions", electionDate: "June 9, 2022", necessaryClaims: "No", type: "RF RAND (Required & Optional Elements)" },
+    { specVersion: "3.0", company: "Anthology", electionDate: "June 23, 2022", necessaryClaims: "No", type: "RF RAND (Required & Optional Elements)" },
+    { specVersion: "3.0", company: "Unicon", electionDate: "June 10, 202", necessaryClaims: "No", type: "RF RAND (Required & Optional Elements)" },
+    { specVersion: "3.0", company: "Bowdoin College", electionDate: "June 11, 2022", necessaryClaims: "No", type: "RF RAND (Required & Optional Elements)" }
 ];
