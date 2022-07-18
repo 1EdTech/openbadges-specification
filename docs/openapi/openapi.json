@@ -14,7 +14,7 @@
       "url" : "https://www.imsglobal.org/license.html"
     },
     "version" : "3.0",
-    "x-status" : "Base Document",
+    "x-status" : "Candidate Final",
     "x-model-pid" : "org.1edtech.ob.v3p0.model",
     "x-service-pid" : "org.1edtech.ob.v3p0.rest.servicemodel",
     "x-src-operation-count" : 5,
@@ -115,6 +115,11 @@
             }
           }
         },
+        "security" : [ {
+          "CCGSecurity" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly" ]
+        }, {
+          "ACGSecurity" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly" ]
+        } ],
         "x-operation-pid" : "org.1edtech.ob.v3p0.rest.getcredentials.operation"
       },
       "post" : {
@@ -186,6 +191,11 @@
             }
           }
         },
+        "security" : [ {
+          "CCGSecurity" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create" ]
+        }, {
+          "ACGSecurity" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create" ]
+        } ],
         "x-operation-pid" : "org.1edtech.ob.v3p0.rest.postcredential.operation"
       }
     },
@@ -217,6 +227,11 @@
             }
           }
         },
+        "security" : [ {
+          "CCGSecurity" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly" ]
+        }, {
+          "ACGSecurity" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly" ]
+        } ],
         "x-operation-pid" : "org.1edtech.ob.v3p0.rest.getprofile.operation"
       },
       "post" : {
@@ -257,6 +272,11 @@
             }
           }
         },
+        "security" : [ {
+          "CCGSecurity" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update" ]
+        }, {
+          "ACGSecurity" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update" ]
+        } ],
         "x-operation-pid" : "org.1edtech.ob.v3p0.rest.postprofile.operation"
       }
     },
@@ -1712,6 +1732,38 @@
         "schema" : {
           "type" : "integer",
           "format" : "int32"
+        }
+      }
+    },
+    "securitySchemes" : {
+      "ACGSecurity" : {
+        "type" : "oauth2",
+        "flows" : {
+          "authorizationCode" : {
+            "authorizationUrl" : "provider.example.com/auth",
+            "tokenUrl" : "provider.example.com/token",
+            "refreshUrl" : "provider.example.com/refresh",
+            "scopes" : {
+              "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly" : "Permission to read ClrCredentials for the authenticated entity.",
+              "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create" : "Permission to create or update ClrCredentials for the authenticated entity.",
+              "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly" : "Permission to read the profile for the authenticated entity.",
+              "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update" : "Permission to update the profile for the authenticated entity."
+            }
+          }
+        }
+      },
+      "CCGSecurity" : {
+        "type" : "oauth2",
+        "flows" : {
+          "clientCredentials" : {
+            "tokenUrl" : "provider.example.com/token",
+            "scopes" : {
+              "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly" : "Permission to read ClrCredentials for the authenticated entity.",
+              "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create" : "Permission to create or update ClrCredentials for the authenticated entity.",
+              "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly" : "Permission to read the profile for the authenticated entity.",
+              "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update" : "Permission to update the profile for the authenticated entity."
+            }
+          }
         }
       }
     },
