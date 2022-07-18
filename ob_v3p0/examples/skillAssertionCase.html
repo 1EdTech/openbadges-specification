@@ -1,45 +1,94 @@
 var skillAssertionCase = `
 
 <div class="note">
-  A Skill Assertion credential should only have one <code>Result</code> and one <code>Alignment</code>.
+  A Skill Assertion credential is just like a <a href=""#basic-openbadgecredential">basic OpenBadgeCredential</a> in how an Achievement is included, except that it makes a claim referencing an Achievement that is generic to allow for use by many possible issuers. The Achievement here is aligned to a CASE CFItem.
 </div>
 <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
     data-allowadditionalproperties="false" title="Skill Assertion (CASE)">
 {
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://imsglobal.github.io/openbadges-specification/context.json"
-  ],
-  "type": ["VerifiableCredential", "OpenBadgeCredential"],
-  "id": "https://issuer-website.com/awards/abc123",
-  "issuer": {
-    "id": "did:example:issuer",
-    "type": ["Profile"],
-    "name": "An Example Issuer",
-    "image": {
-      "id": "https://example.org/logo.png",
-      "type": "Image"
-    },
-    "url": "https://example.org",
-    "email": "contact@example.org"
-  },
-  "issuanceDate": "2022-05-01T19:23:24Z",
-  "name": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain",
-  "credentialSubject": {
-    "id": "did:example:learner",
-    "type": ["AchievementSubject"],
-    "result": [{
-      "type": ["Result"],
-      "alignment": [{
-        "type": ["Alignment"],
-        "targetCode": "74f5bb7d-d7cc-11e8-824f-0242ac160002",
-        "targetFramework": "Alabama Course of Study: English Language Arts",
-        "targetName": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain",
-        "targetType": "CFItem",
-        "targetUrl": "https://caseregistry.imsglobal.org/uri/74f5bb7d-d7cc-11e8-824f-0242ac160002"
-      }]
-    }]
-  }
+	"@context": [
+		"https://www.w3.org/2018/credentials/v1",
+		"https://imsglobal.github.io/openbadges-specification/context.json"
+	],
+	"id": "http://1edtech.edu/credentials/3732",
+	"type": [
+		"VerifiableCredential",
+		"OpenBadgeCredential"
+	],
+	"name": "Robot Programming Skill Credential",
+	"description": "A badge recognizing the development of skills in robot implementation, specifically the software",
+	"credentialSubject": {
+		"id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+		"type": [
+			"AchievementSubject"
+		],
+		"achievement": {
+			"id": "https://example.com/achievements/robotics/robot-programming",
+			"type": [
+				"Achievement"
+			],
+			"alignment": [{
+				"type": [
+					"Alignment"
+				],
+				"targetDescription": "Robot software is a set of commands and procedures robots use to respond to input and perform autonomous tasks.",
+				"targetName": "Robot Programming",
+				"targetFramework": "Example Robotics Framework",
+				"targetType": "CFItem",
+				"targetUrl": "https://robotics-competencies.example.com/competencies/robot-programming"
+			}],
+			"achievementType": "Competency",
+			"creator": {
+				"id": "https://example.com/issuers/123767",
+				"type": [
+					"Profile"
+				],
+				"name": "Example Industry Group",
+				"url": "https://example.com",
+				"description": "Example Industry Group is a consortium of luminaries who publish skills data for common usage.",
+				"email": "info@exammple.com"
+			},
+			"criteria": {
+				"narrative": "Learners must present source code showing the ability for a robot to accept manual or sensor input and perform conditional actions in response."
+			},
+			"description": "This achievement represents developing capability to develop software for robotic applications.",
+			"image": {
+				"id": "https://example.com/achievements/robotics/robot-programming/image",
+				"type": "Image",
+				"caption": "A robot filled with ones and zeroes representing its programming"
+			},
+			"name": "Robot Programming"
+		}
+	},
+	"evidence": [{
+		"id": "https://github.com/somebody/project",
+		"type": [
+			"Evidence"
+		],
+		"name": "Final Project Code",
+		"description": "The source code for the 'Beeper 1.0' robot project. It responds by saying 'beep' when the 'beep' button is pressed."
+	}],
+	"issuer": {
+		"id": "https://1edtech.edu/issuers/565049",
+		"type": [
+			"Profile"
+		],
+		"name": "1EdTech University",
+		"url": "https://1edtech.edu",
+		"phone": "1-222-333-4444",
+		"description": "1EdTech University provides online degree programs.",
+		"image": {
+			"id": "https://1edtech.edu/logo.png",
+			"type": "Image",
+			"caption": "1EdTech University logo"
+		},
+		"email": "registrar@1edtech.edu"
+	},
+	"issuanceDate": "2022-07-01T00:00:00Z",
+	"credentialSchema": [{
+		"id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/achievementcredential.json",
+		"type": "1EdTechJsonSchemaValidator2019"
+	}]
 }
 </pre>
 `;
