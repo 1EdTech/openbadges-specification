@@ -104,6 +104,56 @@
               }
             }
           },
+          "400" : {
+            "description" : "As defined in [[rfc9110]], indicating that the server cannot or will not process the request due to something that is perceived to be a client error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "As defined in [[rfc9110]], indicating that the request has not been applied because it lacks valid authentication credentials for the target resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "As defined in [[rfc9110]], indicating that the server understood the request but refuses to fulfill it. The exact reason SHOULD be explained in the response payload.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "As defined in [[rfc9110]], indicating that the server does not allow the method.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "As defined in [[rfc9110]]. Implementations SHOULD avoid using this error code - use only if there is catastrophic error and there is not a more appropriate code.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
           "default" : {
             "description" : "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload.",
             "content" : {
@@ -180,6 +230,76 @@
               }
             }
           },
+          "304" : {
+            "description" : "As defined in [[rfc9110]], indicating that there is no need for the server to transfer a representation of the target resource because the request indicates that the client, which made the request conditional, already has a valid representation.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "As defined in [[rfc9110]], indicating that the server cannot or will not process the request due to something that is perceived to be a client error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "As defined in [[rfc9110]], indicating that the request has not been applied because it lacks valid authentication credentials for the target resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "As defined in [[rfc9110]], indicating that the server understood the request but refuses to fulfill it. The exact reason SHOULD be explained in the response payload.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "As defined in [[rfc9110]], indicating that the origin server did not find a current representation for the target resource or is not willing to disclose that one exists.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "As defined in [[rfc9110]], indicating that the server does not allow the method.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "As defined in [[rfc9110]]. Implementations SHOULD avoid using this error code - use only if there is catastrophic error and there is not a more appropriate code.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
           "default" : {
             "description" : "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload.",
             "content" : {
@@ -212,6 +332,66 @@
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/Profile"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "As defined in [[rfc9110]], indicating that the origin server did not find a current representation for the target resource or is not willing to disclose that one exists.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "As defined in [[rfc9110]], indicating that the server cannot or will not process the request due to something that is perceived to be a client error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "As defined in [[rfc9110]], indicating that the request has not been applied because it lacks valid authentication credentials for the target resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "As defined in [[rfc9110]], indicating that the server understood the request but refuses to fulfill it. The exact reason SHOULD be explained in the response payload.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "As defined in [[rfc9110]], indicating that the server does not allow the method.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "As defined in [[rfc9110]]. Implementations SHOULD avoid using this error code - use only if there is catastrophic error and there is not a more appropriate code.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
                 }
               }
             }
@@ -257,6 +437,76 @@
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/Profile"
+                }
+              }
+            }
+          },
+          "304" : {
+            "description" : "As defined in [[rfc9110]], indicating that there is no need for the server to transfer a representation of the target resource because the request indicates that the client, which made the request conditional, already has a valid representation.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "As defined in [[rfc9110]], indicating that the server cannot or will not process the request due to something that is perceived to be a client error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "As defined in [[rfc9110]], indicating that the request has not been applied because it lacks valid authentication credentials for the target resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "As defined in [[rfc9110]], indicating that the server understood the request but refuses to fulfill it. The exact reason SHOULD be explained in the response payload.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "As defined in [[rfc9110]], indicating that the origin server did not find a current representation for the target resource or is not willing to disclose that one exists.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "As defined in [[rfc9110]], indicating that the server does not allow the method.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "As defined in [[rfc9110]]. Implementations SHOULD avoid using this error code - use only if there is catastrophic error and there is not a more appropriate code.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Imsx_StatusInfo"
                 }
               }
             }
