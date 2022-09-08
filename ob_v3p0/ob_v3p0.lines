@@ -16,7 +16,7 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
             Param since in Query DateTime 0..1                      "Only include OpenBadgeCredentials issued after this timestamp."
             Response 200 paging                                     "The set of OpenBadgeCredentials that meet the request parameters. Paging applies to the total number of OpenBadgeCredentials in the response."
                 Body GetOpenBadgeCredentialsResponse 1
-            Response default Imsx_StatusInfo 1                      "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
+            Responses GetErrorResponses
             Scopes [getCredentialsAcg, getCredentialsCcg]
 
         Operation postCredential POST /credentials                  "Create or replace an AchievementCredential on the [=resource server=]."
@@ -28,20 +28,21 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
             Response 201                                            "The AchievementCredential was successfully created on the [=resource server=]. The response body MUST be the AchievementCredential in the request."
                 Body AchievementCredential 1 application/json       "If the AchievementCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
                 Body CompactJws 1 text/plain                        "If the AchievementCredential is signed with the VC-JWT Proof Format, the response body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
-            Response default Imsx_StatusInfo 1                      "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
+            Responses PostErrorResponses
             Scopes [postCredentialAcg, postCredentialCcg]
 
         Operation getProfile GET /profile                           "Fetch the profile from the [=resource server=] for the supplied access token. Profiles that are received MAY contain attributes that a Host SHOULD authenticate before using in practice."
             Response 200
                 Body Profile 1 application/json                     "The matching profile."
-            Response default Imsx_StatusInfo 1                      "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
+            Responses GetErrorResponses
+            Response 404 Imsx_StatusInfo 1                          "As defined in [[rfc9110]], indicating that the origin server did not find a current representation for the target resource or is not willing to disclose that one exists."
             Scopes [getProfileCcg, getProfileAcg]
 
         Operation postProfile POST /profile                         "Update the profile for the authenticate entity."
             Body Profile 1 application/json                         "The request SHOULD only include profile identifier properties to be added to the profile, not any existing data. The [=resource server=] MAY respond with 400 BAD_REQUEST to reject data that is known immediately to not be acceptable by the platform, e.g. to reject a "telephone" property if the [=resource server=] cannot validate telephone numbers."
             Response 200
                 Body Profile 1 application/json                     "The matching profile. Successful request responses will be the same as GET Profile and may not include the patched values (as the [=resource server=] may be waiting for asynchronous processes to complete before accepting the value). The values may never become part of the published profile."
-            Response default Imsx_StatusInfo 1                      "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
+            Responses PostErrorResponses
             Scopes [postProfileAcg, postProfileCcg]
 
     Interface Discovery
@@ -50,6 +51,25 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
         Response 200
             Body ServiceDescriptionDocument 1 application/json      "The service discovery document."
         Response default Imsx_StatusInfo 1                          "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
+
+    ResponseList GetErrorResponses
+        Response 400 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the server cannot or will not process the request due to something that is perceived to be a client error."
+        Response 401 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the request has not been applied because it lacks valid authentication credentials for the target resource."
+        Response 403 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the server understood the request but refuses to fulfill it. The exact reason SHOULD be explained in the response payload."
+        Response 405 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the server does not allow the method." 
+        Response 500 Imsx_StatusInfo 1								"As defined in [[rfc9110]]. Implementations SHOULD avoid using this error code - use only if there is catastrophic error and there is not a more appropriate code."
+        Response Default Imsx_StatusInfo 1							"The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
+
+    ResponseList PostErrorResponses
+        Response 304 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that there is no need for the server to transfer a representation of the target resource because the request indicates that the client, which made the request conditional, already has a valid representation."
+        Response 400 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the server cannot or will not process the request due to something that is perceived to be a client error."
+        Response 401 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the request has not been applied because it lacks valid authentication credentials for the target resource."
+        Response 403 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the server understood the request but refuses to fulfill it. The exact reason SHOULD be explained in the response payload."
+        Response 404 Imsx_StatusInfo 1                              "As defined in [[rfc9110]], indicating that the origin server did not find a current representation for the target resource or is not willing to disclose that one exists."
+        Response 405 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the server does not allow the method." 
+        Response 500 Imsx_StatusInfo 1								"As defined in [[rfc9110]]. Implementations SHOULD avoid using this error code - use only if there is catastrophic error and there is not a more appropriate code."
+        Response Default Imsx_StatusInfo 1						    "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
+
 
 Package ApiDataModels DataModel
 
