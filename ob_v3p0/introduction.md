@@ -34,7 +34,7 @@ The Open Badges Specification has several related documents and artifacts shown 
 >
 > -- [[[json-ld11]]]
 
-- [https://imsglobal.github.io/openbadges-specification/context.json](https://imsglobal.github.io/openbadges-specification/context.json)
+- [https://purl.imsglobal.org/spec/ob/v3p0/context.json](https://purl.imsglobal.org/spec/ob/v3p0/context.json)
 
 #### JSON Schema
 
