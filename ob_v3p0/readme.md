@@ -48,9 +48,9 @@ That process takes 1-2 minutes.
 
 Every commit and PR merge to the develop branch/ob_v3p0/context.json file will kick off a GitHub action that will:
 
-1. Copy the file to [https://imsglobal.github.io/openbadges-specification/context.json](https://imsglobal.github.io/openbadges-specification/context.json)
+1. Copy the file to [https://purl.imsglobal.org/spec/ob/v3p0/context.json](https://purl.imsglobal.org/spec/ob/v3p0/context.json)
 
-The context file will eventually live on the 1EdTech PURL server. But please use https://imsglobal.github.io/openbadges-specification/context.json for now.
+The context file will eventually live on the 1EdTech PURL server. But please use https://purl.imsglobal.org/spec/ob/v3p0/context.json for now.
 
 ### Editing the .lines files
 
@@ -78,7 +78,7 @@ In addition to rendering a normative data model, the plugin can also validate ex
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
       "https://www.w3.org/2018/credentials/examples/v1",
-      "https://imsglobal.github.io/openbadges-specification/context.json"
+      "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],

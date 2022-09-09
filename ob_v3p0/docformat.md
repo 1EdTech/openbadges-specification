@@ -10,12 +10,12 @@ var docformat = `
 
 <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
       data-allowadditionalproperties="false"
-      title="Sample OpenBadgeCredential file contents"
-      data-vc-vm="https://example.edu/issuers/565049#key-1">
+      title="Sample OpenBadgeCredential file contents">
   {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
-      "https://imsglobal.github.io/openbadges-specification/context.json"
+      "https://purl.imsglobal.org/spec/ob/v3p0/context.json",
+      "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -28,11 +28,20 @@ var docformat = `
     "name": "Example University Degree",
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-      "type": ["AchievementSubject"]
+      "type": ["AchievementSubject"],
+      "achievement": {
+        "id": "https://example.com/achievements/21st-century-skills/teamwork",
+        "type": ["Achievement"],
+        "criteria": {
+          "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+        },
+        "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+        "name": "Teamwork"
+      }
     },
     "credentialSchema": [{
       "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.achievementcredential.class",
-      "type": "JsonSchemaValidator2019"
+      "type": "1EdTechJsonSchemaValidator2019"
     }]
   }
 </pre>
