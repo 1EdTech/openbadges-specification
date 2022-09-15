@@ -40,7 +40,7 @@ var docformat = `
       }
     },
     "credentialSchema": [{
-      "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.achievementcredential.class",
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
       "type": "1EdTechJsonSchemaValidator2019"
     }]
   }
