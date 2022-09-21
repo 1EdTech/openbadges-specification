@@ -78,8 +78,7 @@
       error will appear in the browser console.
     </p>
     <pre class="html">
-      &lt;pre class="example json vc" title="Sample"
-         data-vc-vm="https://example.edu/jkws#key-1">
+      &lt;pre class="example json vc" title="Sample">
         { ... }
       &lt;/pre>
     </pre>
@@ -91,8 +90,7 @@
       &lt;section>
         &lt;h3>My Sample&lt;/h3>
         &lt;pre class="example json vc" title="Sample"
-          data-schema="org.1edtech.ob.v3p0.address.class"
-          data-vc-vm="https://example.edu/jkws#key-1">
+          data-schema="org.1edtech.ob.v3p0.address.class">
           { ... }
         &lt;/pre>
       &lt;/section>
@@ -114,7 +112,8 @@
         {
           "@context": [
             "https://www.w3.org/2018/credentials/v1",
-            "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
+            "https://purl.imsglobal.org/spec/ob/v3p0/context.json",
+            "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
           ],
           "id": "http://example.edu/credentials/3732",
           "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -128,7 +127,7 @@
           },
           "credentialSchema": [{
             "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.achievementcredential.class",
-            "type": "JsonSchemaValidator2019"
+            "type": "1EdTechJsonSchemaValidator2019"
           }]
         }
       </pre>
@@ -136,11 +135,12 @@
 
     <section>
       <h2>Sample with proofs applied</h2>
-      <pre class="example json vc" data-vc-vm="https://example.edu/issuers/565049#key-1">
+      <pre class="example json vc">
         {
           "@context": [
             "https://www.w3.org/2018/credentials/v1",
-            "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
+            "https://purl.imsglobal.org/spec/ob/v3p0/context.json",
+            "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
           ],
           "id": "http://example.edu/credentials/3732",
           "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -155,7 +155,7 @@
           },
           "credentialSchema": [{
             "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.achievementcredential.class",
-            "type": "JsonSchemaValidator2019"
+            "type": "1EdTechJsonSchemaValidator2019"
           }]
         }
       </pre>
@@ -168,7 +168,8 @@
         {
           "@context": [
             "https://www.w3.org/2018/credentials/v1",
-            "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
+            "https://purl.imsglobal.org/spec/ob/v3p0/context.json",
+            "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
           ],
           "id": "http://example.edu/credentials/3732",
           "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -183,7 +184,7 @@
           },
           "credentialSchema": [{
             "id": "https://imsum2.herokuapp.com/jsonschema?classId=org.1edtech.ob.v3p0.achievementcredential.class",
-            "type": "JsonSchemaValidator2019"
+            "type": "1EdTechJsonSchemaValidator2019"
           }]
         }
       </pre>
