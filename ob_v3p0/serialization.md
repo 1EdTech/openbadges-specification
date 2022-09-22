@@ -31,7 +31,7 @@ Multiple contexts MAY be used or combined to express any arbitrary information a
 <pre class="example" title="JSON-LD @context serialization">
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
+     "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
   ]
 </pre>
 `;
