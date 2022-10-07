@@ -105,7 +105,7 @@ var api = `
           </td>
         </tr>
         <tr>
-          <td><a href="#postprofile">postProfile</a></td>
+          <td><a href="#putprofile">putProfile</a></td>
           <td>
             <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update</code> -
             Permission to update the profile for the authenticated entity.
@@ -147,7 +147,7 @@ var api = `
         Content-Type: text/plain
 
         header.payload.signature
-      </pre>  
+      </pre>
       <pre class="http example" title="Sample postCredential Response">
         HTTP/1.1 200 OK
         Content-Type: text/plain
@@ -176,9 +176,9 @@ var api = `
         }
       </pre>
     </section>
-    <section data-operation="org.1edtech.ob.v3p0.rest.postprofile.operation">
-      <pre class="http example" title="Sample postProfile Request">
-        POST /ims/ob/v3p0/profile HTTP/1.1
+    <section data-operation="org.1edtech.ob.v3p0.rest.putprofile.operation">
+      <pre class="http example" title="Sample putProfile Request">
+        PUT /ims/ob/v3p0/profile HTTP/1.1
         Host: example.edu
         Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
         Accept: application/json
@@ -191,7 +191,7 @@ var api = `
           "telephone": "111-222-3333"
         }
       </pre>
-      <pre class="http example" title="Sample postProfile Response">
+      <pre class="http example" title="Sample putProfile Response">
         {
           "@context": [
                "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
@@ -217,7 +217,7 @@ var api = `
       <pre class="http example" title="Sample getServiceDescription response">
         HTTP/1.1 200 OK
         Content-Type: application/json
-        
+
         ...
         "components": {
             "securitySchemes": {
@@ -268,7 +268,7 @@ var api = `
       </pre>
     </section>
   </section>
-  
+
   <section id="paging">
     <h5>Paging</h5>
     <p>
