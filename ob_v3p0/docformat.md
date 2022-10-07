@@ -95,7 +95,7 @@ If an embedded proof method is used instead, the text value of the chunk MUST be
     text: '{
             "@context": [
               "https://www.w3.org/2018/credentials/v1",
-              "https://purl.imsglobal.org/spec/ob/v3p0/context"
+              "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
             ],
             "id": "http://example.edu/credentials/3732",
             "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -150,7 +150,7 @@ If an embedded proof method is used instead, omit the \`verify\` attribute, and 
         {
           "@context": [
             "https://www.w3.org/2018/credentials/v1",
-            "https://purl.imsglobal.org/spec/ob/v3p0/context"
+            "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
           ],
           "id": "http://example.edu/credentials/3732",
           "type": ["VerifiableCredential", "OpenBadgeCredential"],

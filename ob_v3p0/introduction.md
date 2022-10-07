@@ -23,8 +23,8 @@ The Open Badges Specification has several related documents and artifacts shown 
 >
 > -- [[[OPENAPIS]]]
 
-- [JSON OpenAPI File](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_openapi.json)
-- [YAML OpenAPI File](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_openapi.yaml)
+- [JSON OpenAPI File](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.json)
+- [YAML OpenAPI File](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.yaml)
   
 #### JSON-LD Context File
 
@@ -40,11 +40,13 @@ The Open Badges Specification has several related documents and artifacts shown 
 
 All JSON Schema can be found in [[[#json-schema]]]. JSON Schema files for credential and API schema verification are available online:
 
-- AchievementCredential<br/>[https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json)
-- EndorsementCredential<br/>[https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json)
-- GetOpenBadgeCredentialsResponse<br/>[https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_getopenbadgecredentialsresponse_schema.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_getopenbadgecredentialsresponse_schema.json)
-- Imsx_StatusInfo<br/>[https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_imsx_statusinfo_schema.json)](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_imsx_statusinfo_schema.json)
-- Profile<br/>[https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_profile_schema.json)](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_profile_schema.json)
+<ul>
+  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json'>AchievementCredential JSON schema</a></li>
+  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json'>EndorsementCredential JSON schema</a></li>
+  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_getopenbadgecredentialsresponse_schema.json'>GetOpenBadgeCredentialsResponse JSON schema</a></li>
+  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_profile_schema.json'>Profile JSON schema</a></li>
+  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_imsx_statusinfo_schema.json'>Imsx_StatusInfo JSON schema</a></li>
+</ul>
 
 ### Conformance Statements {#conformance}
 
