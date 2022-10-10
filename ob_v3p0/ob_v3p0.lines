@@ -1,4 +1,4 @@
-Model ob 2022-07-14 3.0 "s:IMS Candidate Final" "t:Open Badges" "d:Open Badges Data Model 3.0"
+Model ob 2022-07-14 3.0 "s:IMS Base Document" "t:Open Badges" "d:Open Badges Data Model 3.0"
 
 // Pull in common credential models (this will be converted to Includes when credential models are finalized and made part of the CDM)
 
@@ -46,7 +46,7 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
             Scopes [postProfileAcg, postProfileCcg]
 
     Interface Discovery
-        
+
         Operation getServiceDescription GET /discovery              "Fetch the Service Description Document from the [=resource server=]."
         Response 200
             Body ServiceDescriptionDocument 1 application/json      "The service discovery document."
@@ -56,7 +56,7 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
         Response 400 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the server cannot or will not process the request due to something that is perceived to be a client error."
         Response 401 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the request has not been applied because it lacks valid authentication credentials for the target resource."
         Response 403 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the server understood the request but refuses to fulfill it. The exact reason SHOULD be explained in the response payload."
-        Response 405 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the server does not allow the method." 
+        Response 405 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the server does not allow the method."
         Response 500 Imsx_StatusInfo 1								"As defined in [[rfc9110]]. Implementations SHOULD avoid using this error code - use only if there is catastrophic error and there is not a more appropriate code."
         Response Default Imsx_StatusInfo 1							"The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
 
@@ -66,7 +66,7 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
         Response 401 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the request has not been applied because it lacks valid authentication credentials for the target resource."
         Response 403 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the server understood the request but refuses to fulfill it. The exact reason SHOULD be explained in the response payload."
         Response 404 Imsx_StatusInfo 1                              "As defined in [[rfc9110]], indicating that the origin server did not find a current representation for the target resource or is not willing to disclose that one exists."
-        Response 405 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the server does not allow the method." 
+        Response 405 Imsx_StatusInfo 1								"As defined in [[rfc9110]], indicating that the server does not allow the method."
         Response 500 Imsx_StatusInfo 1								"As defined in [[rfc9110]]. Implementations SHOULD avoid using this error code - use only if there is catastrophic error and there is not a more appropriate code."
         Response Default Imsx_StatusInfo 1						    "The request was invalid or cannot be served. The exact error SHOULD be explained in the response payload."
 
@@ -78,16 +78,16 @@ Package ApiDataModels DataModel
         Property compactJwsString CompactJws 0..*                   "OpenBadgeCredentials that have been signed with the VC-JWT Proof Format MUST be in the `compactJwsString` array."
 
 Package ACGSecurity SecurityModel OAUTH2ACG
-	Url TokenURL provider.example.com/token 													    	
-	Url AuthURL provider.example.com/auth														    	
-	Url RefreshURL provider.example.com/refresh												            
+	Url TokenURL provider.example.com/token
+	Url AuthURL provider.example.com/auth
+	Url RefreshURL provider.example.com/refresh
 	Scope getCredentialsAcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly      "Permission to read ClrCredentials for the authenticated entity."
     Scope postCredentialAcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create        "Permission to create or update ClrCredentials for the authenticated entity."
 	Scope getProfileAcg     https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly         "Permission to read the profile for the authenticated entity."
     Scope postProfileAcg    https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update 			"Permission to update the profile for the authenticated entity."
-	
+
 Package CCGSecurity SecurityModel OAUTH2CCG
-	Url TokenURL provider.example.com/token 														    
+	Url TokenURL provider.example.com/token
 	Scope getCredentialsCcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly      "Permission to read ClrCredentials for the authenticated entity."
     Scope postCredentialCcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create        "Permission to create or update ClrCredentials for the authenticated entity."
 	Scope getProfileCcg     https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly         "Permission to read the profile for the authenticated entity."

@@ -15,8 +15,8 @@
   <script class="remove" src="mps-config.js"></script>
 
   <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
-  <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js" 
-          integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A==" 
+  <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js"
+          integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script class='remove'>
@@ -29,7 +29,7 @@
       specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
       specVersion: "3.0",
       docVersion: "1.0",
-      specStatus: "Candidate Final",
+      specStatus: "Base Document",
       specDate: "July 14, 2022",
       contributors: _contributors,
       localBiblio: _localBiblio,
@@ -50,7 +50,7 @@
 
       // Add the MPS configuration to respecConfig
       mps: _mps,
-      
+
       // Add VC proof examples
       postProcess: [
         window.respecVc.createVcExamples
