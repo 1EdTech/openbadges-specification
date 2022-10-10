@@ -147,7 +147,7 @@ var api = `
         Content-Type: text/plain
 
         header.payload.signature
-      </pre>  
+      </pre>
       <pre class="http example" title="Sample postCredential Response">
         HTTP/1.1 200 OK
         Content-Type: text/plain
@@ -217,28 +217,10 @@ var api = `
       <pre class="http example" title="Sample getServiceDescription response">
         HTTP/1.1 200 OK
         Content-Type: application/json
-        
+
         ...
         "components": {
             "securitySchemes": {
-                "OAuth2CCG": {
-                    "type": "oauth2",
-                    "description": "OAuth 2.0 Client Credentials authorization",
-                    "x-imssf-name": "Example Provider",
-                    "x-imssf-privacyPolicyUrl": "provider.example.com/privacy",
-                    "x-imssf-registrationUrl": "provider.example.com/registration",
-                    "x-imssf-termsOfServiceUrl": "provider.example.com/terms",
-                    "flows": {
-                        "clientCredentials": {
-                            "tokenUrl": "provider.example.com/token",
-                            "scopes": {
-                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/delete" : "...",
-                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/readonly" : "...",
-                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/replace" : "..."
-                            }
-                        }
-                    }
-                },
                 "OAuth2ACG": {
                     "type": "oauth2",
                     "description": "OAuth 2.0 Authorization Code Grant authorization",
@@ -268,7 +250,7 @@ var api = `
       </pre>
     </section>
   </section>
-  
+
   <section id="paging">
     <h5>Paging</h5>
     <p>
