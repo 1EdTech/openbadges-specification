@@ -156,15 +156,15 @@
             "type" : "string"
           }
         },
-        "credentialSubject" : {
-          "description" : "The individual, entity, organization, assertion, or achievement that is endorsed and the endorsement comment.",
-          "$comment" : "Origin: EndorsementSubject (Unordered); A collection of information about the subject of the endorsement.",
-          "$ref" : "#/$defs/EndorsementSubject"
-        },
         "id" : {
           "description" : "Unambiguous reference to the credential.",
           "$comment" : "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
           "type" : "string"
+        },
+        "credentialSubject" : {
+          "description" : "The individual, entity, organization, assertion, or achievement that is endorsed and the endorsement comment.",
+          "$comment" : "Origin: EndorsementSubject (Unordered); A collection of information about the subject of the endorsement.",
+          "$ref" : "#/$defs/EndorsementSubject"
         },
         "issuer" : {
           "description" : "A description of the individual, entity, or organization that issued the credential.",
@@ -210,7 +210,7 @@
           "$ref" : "#/$defs/RefreshService"
         }
       },
-      "required" : [ "@context", "type", "credentialSubject", "issuer", "issuanceDate" ],
+      "required" : [ "@context", "type", "id", "credentialSubject", "issuer", "issuanceDate" ],
       "additionalProperties" : false
     },
     "CredentialStatus" : {
