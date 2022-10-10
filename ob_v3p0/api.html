@@ -91,10 +91,10 @@ var api = `
           </td>
         </tr>
         <tr>
-          <td><a href="#postcredential">postCredential</a></td>
+          <td><a href="#upsertcredential">upsertCredential</a></td>
           <td>
-            <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create</code> -
-            Permission to create OpenBadgeCredentials for the authenticated entity.
+            <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert</code> -
+            Permission to create or update OpenBadgeCredentials for the authenticated entity.
           </td>
         </tr>
         <tr>
@@ -138,8 +138,8 @@ var api = `
         }
       </pre>
     </section>
-    <section data-operation="org.1edtech.ob.v3p0.rest.postcredential.operation">
-      <pre class="http example" title="Sample postCredential Request">
+    <section data-operation="org.1edtech.ob.v3p0.rest.upsertcredential.operation">
+      <pre class="http example" title="Sample upsertCredential Request">
         POST /ims/ob/v3p0/credentials HTTP/1.1
         Host: example.edu
         Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
@@ -148,7 +148,7 @@ var api = `
 
         header.payload.signature
       </pre>
-      <pre class="http example" title="Sample postCredential Response">
+      <pre class="http example" title="Sample upsertCredential Response">
         HTTP/1.1 200 OK
         Content-Type: text/plain
 

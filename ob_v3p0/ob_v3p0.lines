@@ -19,7 +19,7 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
             Responses GetErrorResponses
             Scopes [getCredentialsAcg, getCredentialsCcg]
 
-        Operation postCredential POST /credentials                  "Create or replace an AchievementCredential on the [=resource server=]."
+        Operation upsertCredential POST /credentials                "Create or replace an AchievementCredential on the [=resource server=]."
             Body AchievementCredential 1 application/json           "If the AchievementCredential is not signed with the VC-JWT Proof Format, the request body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
             Body CompactJws 1 text/plain                            "If the AchievementCredential is signed with the VC-JWT Proof Format, the request body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
             Response 200                                            "The AchievementCredential was successfully replaced on the [=resource server=]. The response body MUST be the AchievementCredential in the request."
@@ -29,7 +29,7 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
                 Body AchievementCredential 1 application/json       "If the AchievementCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
                 Body CompactJws 1 text/plain                        "If the AchievementCredential is signed with the VC-JWT Proof Format, the response body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
             Responses PostErrorResponses
-            Scopes [postCredentialAcg, postCredentialCcg]
+            Scopes [upsertCredentialAcg, upsertCredentialCcg]
 
         Operation getProfile GET /profile                           "Fetch the profile from the [=resource server=] for the supplied access token. Profiles that are received MAY contain attributes that a Host SHOULD authenticate before using in practice."
             Response 200
@@ -93,13 +93,13 @@ Package ACGSecurity SecurityModel OAUTH2ACG
 	Url AuthURL provider.example.com/auth
 	Url RefreshURL provider.example.com/refresh
 	Scope getCredentialsAcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly      "Permission to read ClrCredentials for the authenticated entity."
-    Scope postCredentialAcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create        "Permission to create or update ClrCredentials for the authenticated entity."
+    Scope upsertCredentialAcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert        "Permission to create or update ClrCredentials for the authenticated entity."
 	Scope getProfileAcg     https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly         "Permission to read the profile for the authenticated entity."
     Scope putProfileAcg    https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update 			"Permission to update the profile for the authenticated entity."
 
 Package CCGSecurity SecurityModel OAUTH2CCG
 	Url TokenURL provider.example.com/token
 	Scope getCredentialsCcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly      "Permission to read ClrCredentials for the authenticated entity."
-    Scope postCredentialCcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create        "Permission to create or update ClrCredentials for the authenticated entity."
+    Scope upsertCredentialCcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert        "Permission to create or update ClrCredentials for the authenticated entity."
 	Scope getProfileCcg     https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly         "Permission to read the profile for the authenticated entity."
     Scope putProfileCcg    https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update 			"Permission to update the profile for the authenticated entity."
