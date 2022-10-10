@@ -8,6 +8,10 @@ var security = `
     individual users control over access to their resources MUST use the <a href="#oauth2acg">OAuth 2.0 Authorization
       Code Grant method</a>.
   </p>
+  <p class="note" title="Non-individual access">
+    The API defined here is intended for [=Clients=] and [=servers=] that give individual users control over access to their resources.
+    While system-to-system bulk transfers using OAuth 2.0 Client-Credentials Grant are expected to occur, it is out of scope for this version of the specification to define. Future versions of this specification may add explicit support for OAuth 2.0 Client-Credentials Grant.
+  </p>
 
   <!-- Using OAuth 2.0 Authorization Code Grant -->
   <section>
@@ -181,7 +185,7 @@ var security = `
       <pre class="http example" title="Sample response with a Service Discovery Document">
         HTTP/1.1 200 OK
         Content-Type: application/json; charset=utf-8
-        
+
         ...
         "info": {
           "x-imssf-image": "https://1edtech.org/logo",
@@ -412,7 +416,7 @@ var security = `
         Host: auth.1edtech.org
         Accept: application/json
         Content-Type: application/json; charset=utf-8
-        
+
         {
           "client_name": "Example Client Application",
           "client_uri": "https://client.1edtech.org/",
@@ -446,7 +450,7 @@ var security = `
       <pre class="http example" title="Sample registration response">
         HTTP/1.1 201 Created
         Content-Type: application/json; charset=utf-8
-        
+
         {
           "client_id": "4ad36680810420ed",
           "client_secret": "af7aa0d679778e12",
@@ -471,7 +475,7 @@ var security = `
             "code"
           ],
           "scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/delete https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly https://purl.imsglobal.org/spec/ob/v3p0/scope/replace offline_access"
-        }    
+        }
       </pre>
       <p>
         The following table describes the properties present in the client registration response that were
@@ -705,7 +709,7 @@ var security = `
           &redirect_uri=https%3A%2F%client.1edtech.org%2FAuthorize
           &state=26357667-94df-4a14-bcb1-f55449ddd98d
           &code_challenge=XeDw66i9FLjn7XaecT_xaFyUWWfUub02Kw118n-jbEs
-          &code_challenge_method=S256    
+          &code_challenge_method=S256
       </pre>
 
       <h5 id="acg-auth-response">Authorization Response</h5>
@@ -895,7 +899,7 @@ var security = `
         Host: auth.1edtech.org
         Authorization: Basic NDE2ZjI1YjhjMWQ5OThlODoxNWQ5MDA4NTk2NDdkZDlm
         Content-Type: application/x-www-form-urlencoded
-        
+
         grant_type=authorization_code
           &code=7c7a73263ee14b2b48073d0615f286ec74f6636689046cb8dbede0b5e87a1338
           &redirect_uri=https%3A%2F%client.1edtech.org%2FAuthorize
@@ -966,7 +970,7 @@ var security = `
         Cache-Control: no-store, no-cache, max-age=0
         Pragma: no-cache
         Content-Type: application/json; charset=UTF-8
-        
+
         {
           "access_token": "863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92",
           "refresh_token": "tGzv3JOkF0XG5Qx2TlKWIA",
@@ -1030,7 +1034,7 @@ var security = `
         Content-Type: application/json;charset=UTF-8
         Cache-Control: no-store
         Pragma: no-cache
-        
+
         {
           "error": "invalid_request"
         }
@@ -1127,7 +1131,7 @@ var security = `
       Host: auth.1edtech.org
       Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
       Content-Type: application/x-www-form-urlencoded
-      
+
       grant_type=refresh_token
         &refresh_token=tGzv3JOkF0XG5Qx2TlKWIA
         &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%2Fob%2Fv3p0%2Fscope%2assertion.readonly
@@ -1190,7 +1194,7 @@ var security = `
       Host: auth.1edtech.org
       Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
       Content-Type: application/x-www-form-urlencoded
-      
+
       token=45ghiukldjahdnhzdauz&token_type_hint=refresh_token
     </pre>
 
