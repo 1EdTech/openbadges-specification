@@ -39,7 +39,7 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
             Scopes [getProfileCcg, getProfileAcg]
 
         Operation putProfile POST /profile                         "Update the profile for the authenticate entity."
-            Body Profile 1 application/json                         "The request SHOULD only include profile identifier properties to be added to the profile, not any existing data. The [=resource server=] MAY respond with 400 BAD_REQUEST to reject data that is known immediately to not be acceptable by the platform, e.g. to reject a "telephone" property if the [=resource server=] cannot validate telephone numbers."
+            Body Profile 1 application/json                         "The request MUST include the entire Profile object. The [=resource server=] MAY respond with 400 BAD_REQUEST to reject data that is known immediately to not be acceptable by the platform, e.g. to reject a "telephone" property if the [=resource server=] cannot validate telephone numbers."
             Response 200
                 Body Profile 1 application/json                     "The matching profile. Successful request responses will be the same as GET Profile and may not include the patched values (as the [=resource server=] may be waiting for asynchronous processes to complete before accepting the value). The values may never become part of the published profile."
             Responses PutErrorResponses
