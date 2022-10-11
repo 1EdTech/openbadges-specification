@@ -19,7 +19,7 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
             Responses GetErrorResponses
             Scopes [getCredentialsAcg, getCredentialsCcg]
 
-        Operation upsertCredential POST /credentials                "Create or replace an AchievementCredential on the [=resource server=], appending it to the list of credentials for the subject, or replace an existing entry in that list. The [=resource server=] MUST use the [=credential equality & comparison=] algorithm to compare and determine initial equality. Response code makes clear which operation has been made."
+        Operation upsertCredential POST /credentials                "Create or replace an AchievementCredential on the [=resource server=], appending it to the list of credentials for the subject, or replace an existing entry in that list. The [=resource server=] MUST use the [=credential equality and comparison=] algorithm to compare and determine initial equality. Response code makes clear which operation has been made."
             Body AchievementCredential 1 application/json           "If the AchievementCredential is not signed with the VC-JWT Proof Format, the request body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
             Body CompactJws 1 text/plain                            "If the AchievementCredential is signed with the VC-JWT Proof Format, the request body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
             Response 200                                            "The AchievementCredential was successfully replaced on the [=resource server=]. The response body MUST be the AchievementCredential in the request."
