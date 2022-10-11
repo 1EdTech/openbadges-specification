@@ -6,4 +6,10 @@ Credential equality and comparison is the process to determine whether a [=verif
 
 Host SHOULD treat a credential as the same than another when the [issuer](#profile)'s \`id\` and the [AchievementCredential](#achievementcredential)'s \`id\` are the same. The one with the newer \`issuanceDate\` is the more up-to-date representation and could be interpreted as a replacement of the prior issued credential.
 
+### Behavior in upsertCredential
+
+It's up to the Host to decide whether or not replace its existing credential if the submitted credential is older than the existing following this algorithm.
+
+It's up to the Host to decide whether or not replace its existing credential with another one if both are the same following this algorithm.
+
 `;
