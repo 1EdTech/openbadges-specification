@@ -58,6 +58,12 @@ var api = `
       <dd>
         This is the [=server=] that has the protected resources ([=badges=]). Also called Provider in the [[[SEC-11]]].
       </dd>
+      <dt><dfn data-lt="Credential equality and comparison">Credential equality & comparison</dfn></dt>
+      <dd>
+        <div class="note">
+          @@@TBD
+          </div>
+      </dd>
     </dl>
     <p>
       The role of each component during Registration, Obtaining Tokens, and Authenticating with Tokens are described
@@ -95,10 +101,10 @@ var api = `
           </td>
         </tr>
         <tr>
-          <td><a href="#postcredential">postCredential</a></td>
+          <td><a href="#upsertcredential">upsertCredential</a></td>
           <td>
-            <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create</code> -
-            Permission to create OpenBadgeCredentials for the authenticated entity.
+            <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert</code> -
+            Permission to create or update OpenBadgeCredentials for the authenticated entity.
           </td>
         </tr>
         <tr>
@@ -109,7 +115,7 @@ var api = `
           </td>
         </tr>
         <tr>
-          <td><a href="#postprofile">postProfile</a></td>
+          <td><a href="#putprofile">putProfile</a></td>
           <td>
             <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update</code> -
             Permission to update the profile for the authenticated entity.
@@ -142,8 +148,8 @@ var api = `
         }
       </pre>
     </section>
-    <section data-operation="org.1edtech.ob.v3p0.rest.postcredential.operation">
-      <pre class="http example" title="Sample postCredential Request">
+    <section data-operation="org.1edtech.ob.v3p0.rest.upsertcredential.operation">
+      <pre class="http example" title="Sample upsertCredential Request">
         POST /ims/ob/v3p0/credentials HTTP/1.1
         Host: example.edu
         Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
@@ -152,7 +158,7 @@ var api = `
 
         header.payload.signature
       </pre>
-      <pre class="http example" title="Sample postCredential Response">
+      <pre class="http example" title="Sample upsertCredential Response">
         HTTP/1.1 200 OK
         Content-Type: text/plain
 
@@ -180,9 +186,9 @@ var api = `
         }
       </pre>
     </section>
-    <section data-operation="org.1edtech.ob.v3p0.rest.postprofile.operation">
-      <pre class="http example" title="Sample postProfile Request">
-        POST /ims/ob/v3p0/profile HTTP/1.1
+    <section data-operation="org.1edtech.ob.v3p0.rest.putprofile.operation">
+      <pre class="http example" title="Sample putProfile Request">
+        PUT /ims/ob/v3p0/profile HTTP/1.1
         Host: example.edu
         Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
         Accept: application/json
@@ -195,7 +201,7 @@ var api = `
           "telephone": "111-222-3333"
         }
       </pre>
-      <pre class="http example" title="Sample postProfile Response">
+      <pre class="http example" title="Sample putProfile Response">
         {
           "@context": [
                "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
