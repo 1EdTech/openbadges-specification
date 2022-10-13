@@ -192,7 +192,10 @@ var api = `
           "@context": [
              "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
           ],
-          "telephone": "111-222-3333"
+          "type": "Profile",
+          "id": "https://example.edu/issuers/565049",
+          "name": "Example University",
+          "phone": "111-222-3333"
         }
       </pre>
       <pre class="http example" title="Sample putProfile Response">
@@ -202,7 +205,8 @@ var api = `
           ],
           "type": "Profile",
           "id": "https://example.edu/issuers/565049",
-          "name": "Example University"
+          "name": "Example University",
+          "phone": "111-222-3333"
         }
       </pre>
     </section>
