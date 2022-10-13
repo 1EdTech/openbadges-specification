@@ -2,7 +2,8 @@ Model ob 2022-07-14 3.0 "s:IMS Base Document" "t:Open Badges" "d:Open Badges Dat
 
 // Pull in common credential models (this will be converted to Includes when credential models are finalized and made part of the CDM)
 
-Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/develop/ob_v3p0/common_credentials.lines
+// Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/develop/ob_v3p0/common_credentials.lines
+Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/feature/comp-algorithm/ob_v3p0/common_credentials.lines
 
 // API Models
 
@@ -19,7 +20,7 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
             Responses GetErrorResponses
             Scopes [getCredentialsAcg, getCredentialsCcg]
 
-        Operation postCredential POST /credentials                  "Create or replace an AchievementCredential on the [=resource server=]."
+        Operation postCredential POST /credentials                  "Create or replace an AchievementCredential on the [=resource server=]." "n:It's up to the Host to decide whether or not replace its existing credential if the submitted credential is older than the existing following this algorithm. It's up to the Host to decide whether or not replace its existing credential with another one if both are the same following this algorithm."
             Body AchievementCredential 1 application/json           "If the AchievementCredential is not signed with the VC-JWT Proof Format, the request body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
             Body CompactJws 1 text/plain                            "If the AchievementCredential is signed with the VC-JWT Proof Format, the request body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
             Response 200                                            "The AchievementCredential was successfully replaced on the [=resource server=]. The response body MUST be the AchievementCredential in the request."
