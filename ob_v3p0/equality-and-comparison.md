@@ -1,22 +1,22 @@
 var equalitycomparison=`
 
-## Credential's equality and comparison algorithm
+## Credential equality and comparison algorithm
 
-Credential equality and comparison is the process to determine whether a [=verifiable credential=]  is the same to another one.
+Credential equality and comparison is the process to determine whether a [=verifiable credential=] is the same as another one.
 
-Host SHOULD treat a credential as the same than another when the [issuer](#profile)'s \`id\` and the [AchievementCredential](#achievementcredential)'s \`id\` are the same. The one with the newer \`issuanceDate\` is the more up-to-date representation and could be interpreted as a replacement of the prior issued credential.
+A Host SHOULD treat a credential as the same as another when both the [issuer](#profile) \`id\` and the [AchievementCredential](#achievementcredential) \`id\` are equal after unescaping of any percent encoded characters [[RFC3986]] and truncation of leading and trailing whitespace.
 
-### Behavior in upsertCredential
+<div class="issue">
+  @@TBD describe precisely what equality means above.
+</div>
 
-It's up to the Host to decide whether or not replace its existing credential if the submitted credential is older than the existing following this algorithm.
-
-It's up to the Host to decide whether or not replace its existing credential with another one if both are the same following this algorithm.
+If the two credentials are equal according to the above, then the credential with the newer \`issuanceDate\` is the more up-to-date representation and could be interpreted as a replacement of the prior issued credential.
 
 ### Examples
 
 #### Equality
 
-Credentials [A](#example-sample-credential-a) and [B](#example-sample-credential-b) are equals since they have the same [\`id\`](#achievementcredential) and the same [\`issuer.id\`](#org.1edtech.ob.v3p0.profile.class).
+Credentials [A](#example-sample-credential-a) and [B](#example-sample-credential-b) are equal since they have the same [\`id\`](#achievementcredential) and the same [\`issuer.id\`](#org.1edtech.ob.v3p0.profile.class).
 
 <pre class="json example" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
   title="Sample credential A">
@@ -92,7 +92,7 @@ Since they also have the same \`issuanceDate\` both are up-to-date.
 
 #### Comparison
 
-Credentials [C](#example-sample-credential-c) and [D](#example-sample-credential-d) are equals since they have the same [\`id\`](#achievementcredential) and the same [\`issuer.id\`](#org.1edtech.ob.v3p0.profile.class).
+Credentials [C](#example-sample-credential-c) and [D](#example-sample-credential-d) are equal since they have the same [\`id\`](#achievementcredential) and the same [\`issuer.id\`](#org.1edtech.ob.v3p0.profile.class).
 
 <pre class="json example" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
   title="Sample credential C">
@@ -164,5 +164,5 @@ Credentials [C](#example-sample-credential-c) and [D](#example-sample-credential
   }
 </pre>
 
-The credential A is the up-to-date representation because it has a newer \`issuanceDate\`.
+The credential C is the up-to-date representation because it has a more recent \`issuanceDate\` (\`2010-03-01T00:00:00Z\`).
 `;
