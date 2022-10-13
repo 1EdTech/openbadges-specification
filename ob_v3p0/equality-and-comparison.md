@@ -2,7 +2,7 @@ var equalitycomparison=`
 
 ## Credential equality and comparison algorithm
 
-Credential equality and comparison is the process to determine whether a [=verifiable credential=] is the same as another one.
+<dfn data-lt="credential equality and comparison">Credential equality and comparison</dfn> is the process to determine whether a [=verifiable credential=] is the same as another one.
 
 A Host SHOULD treat a credential as the same as another when both the [issuer](#profile) \`id\` and the [AchievementCredential](#achievementcredential) \`id\` are equal after unescaping of any percent encoded characters [[RFC3986]] and truncation of leading and trailing whitespace.
 
