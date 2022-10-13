@@ -11,6 +11,10 @@ var api = `
     [=Client=] and [=Resource Server=]. The API uses OAuth 2.0 for authentication and granular resource-based permission
     scopes. Please see the [[[OB-CERT-30]]] for a list of which endpoints must be implemented for certification.
   </p>
+  <p class="note" title="Non-individual access">
+    The API defined here is intended for [=Clients=] and [=servers=] that give individual users control over access to their resources.
+    While system-to-system bulk transfers using OAuth 2.0 Client-Credentials Grant are expected to occur, it is out of scope for this version of the specification to define. Future versions of this specification may add explicit support for OAuth 2.0 Client-Credentials Grant.
+  </p>
   <p>
     In addition to the documentation in this section, there are <a href="#docs-openapi">OpenAPI</a> files for the
     Open Badges API in both JSON and YAML format:
@@ -227,24 +231,6 @@ var api = `
         ...
         "components": {
             "securitySchemes": {
-                "OAuth2CCG": {
-                    "type": "oauth2",
-                    "description": "OAuth 2.0 Client Credentials authorization",
-                    "x-imssf-name": "Example Provider",
-                    "x-imssf-privacyPolicyUrl": "provider.example.com/privacy",
-                    "x-imssf-registrationUrl": "provider.example.com/registration",
-                    "x-imssf-termsOfServiceUrl": "provider.example.com/terms",
-                    "flows": {
-                        "clientCredentials": {
-                            "tokenUrl": "provider.example.com/token",
-                            "scopes": {
-                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/delete" : "...",
-                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/readonly" : "...",
-                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/replace" : "..."
-                            }
-                        }
-                    }
-                },
                 "OAuth2ACG": {
                     "type": "oauth2",
                     "description": "OAuth 2.0 Authorization Code Grant authorization",

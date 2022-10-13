@@ -2,7 +2,8 @@ Model ob 2022-07-14 3.0 "s:IMS Base Document" "t:Open Badges" "d:Open Badges Dat
 
 // Pull in common credential models (this will be converted to Includes when credential models are finalized and made part of the CDM)
 
-Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/develop/ob_v3p0/common_credentials.lines
+# Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/develop/ob_v3p0/common_credentials.lines
+Transclude https://raw.githubusercontent.com/IMSGlobal/openbadges-specification/october-release/ob_v3p0/common_credentials.lines
 
 // API Models
 
@@ -36,7 +37,7 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
                 Body Profile 1 application/json                     "The matching profile."
             Responses GetErrorResponses
             Response 404 Imsx_StatusInfo 1                          "As defined in [[rfc9110]], indicating that the origin server did not find a current representation for the target resource or is not willing to disclose that one exists."
-            Scopes [getProfileCcg, getProfileAcg]
+            Scopes [getProfileAcg]
 
         Operation putProfile PUT /profile                         "Update the profile for the authenticate entity."
             Body Profile 1 application/json                         "The request MUST include the entire Profile object. The [=resource server=] MAY respond with 400 BAD_REQUEST to reject data that is known immediately to not be acceptable by the platform, e.g. to reject a "telephone" property if the [=resource server=] cannot validate telephone numbers."
@@ -96,10 +97,3 @@ Package ACGSecurity SecurityModel OAUTH2ACG
     Scope upsertCredentialAcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert        "Permission to create or update ClrCredentials for the authenticated entity."
 	Scope getProfileAcg     https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly         "Permission to read the profile for the authenticated entity."
     Scope putProfileAcg    https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update 			"Permission to update the profile for the authenticated entity."
-
-Package CCGSecurity SecurityModel OAUTH2CCG
-	Url TokenURL provider.example.com/token
-	Scope getCredentialsCcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly      "Permission to read ClrCredentials for the authenticated entity."
-    Scope upsertCredentialCcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert        "Permission to create or update ClrCredentials for the authenticated entity."
-	Scope getProfileCcg     https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly         "Permission to read the profile for the authenticated entity."
-    Scope putProfileCcg    https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update 			"Permission to update the profile for the authenticated entity."
