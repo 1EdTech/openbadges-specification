@@ -27,12 +27,12 @@ Please follow these steps to contribute a change to the openbadges-specification
 We use labels to track issues. The following labels are used to track the specification lifecycle:
 
 | Label       | Description |
-| ----------- | ----------- |
-| `2p0` | issue relates to OB version 2.0
-| `2p1` | issue relates to OB version 2.1
-| `3p0` | issue relates to OB version 3.0
-| `clr20` | issue relates to version CLR 2.0
-| `candidate_final` | issues is required for Candidate Final release of a specified version
-| `final` | issue is required for Final release of a specified version
+| :---------- | :---------- |
+| `2p0` | Issue relates to OB version 2.0
+| `2p1` | Issue relates to OB version 2.1
+| `3p0` | Issue relates to OB version 3.0
+| `clr20` | Issue relates to version CLR 2.0
+| `candidate_final` | Issues is required for Candidate Final release of a specified version
+| `final` | Issue is required for Final release of a specified version
 
 IMS Contributing Members may access [Spec Central](https://github.com/IMSGlobal/spec-central/blob/master/github-getting-started.md) for further details about using GitHub for IMS activities.
