@@ -139,7 +139,7 @@ Verifiers that receive a OpenBadgeCredential in Compact JWS format MUST perform 
 This standard supports the Linked Data Proof format using the [[[LDS-ED25519-2020]]] suite.
 
 <div class="note">
-  Whenever possible, you should use a library or service to create and verify a Linked Data Proof. For example, Digital Bazaar, Inc. has a GitHub project that implements the [[[LDS-ED25519-2020]]] suite at [https://github.com/digitalbazaar/ed25519-signature-2020](https://github.com/digitalbazaar/ed25519-signature-2020).
+  Whenever possible, you should use a library or service to create and verify a Linked Data Proof. For example, Digital Bazaar, Inc. has a GitHub project that implements the [[[LDS-ED25519-2020]]] suite at <a href="https://github.com/digitalbazaar/ed25519-signature-2020">https://github.com/digitalbazaar/ed25519-signature-2020</a>).
 </div>
 
 #### Create the Proof
