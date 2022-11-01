@@ -109,7 +109,7 @@ getServiceDescription | \`/ims/ob/v3p0/discovery\` | GET | Initiate | No
 OAuth 2.0 Registration | from Service Discovery Document (SDD) | GET | Initiate | No
 OAuth 2.0 Authorize | from SDD | GET | Initiate | No
 OAuth 2.0 Token | from SDD | POST | Initiate | No
-postCredential | \`/ims/ob/v3p0/credentials\` | POST | Initiate | Yes
+upsertCredential | \`/ims/ob/v3p0/credentials\` | POST | Initiate | Yes
 
 ### Optional Service Consumer (Write) Endpoint Support
 
@@ -172,7 +172,7 @@ getServiceDescription | \`/ims/ob/v3p0/discovery\` | GET | Respond | No
 OAuth 2.0 Registration | from Service Discovery Document (SDD) | GET | Respond | No
 OAuth 2.0 Authorize | from SDD | GET | Respond | No
 OAuth 2.0 Token | from SDD | POST | Respond | No
-postCredential | \`/ims/ob/v3p0/credentials\` | POST | Respond | Yes
+upsertCredential | \`/ims/ob/v3p0/credentials\` | POST | Respond | Yes
 
 ### Optional Service Provider (Write) Endpoint Support
 
