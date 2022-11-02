@@ -11,6 +11,10 @@ var api = `
     [=Client=] and [=Resource Server=]. The API uses OAuth 2.0 for authentication and granular resource-based permission
     scopes. Please see the [[[OB-CERT-30]]] for a list of which endpoints must be implemented for certification.
   </p>
+  <p class="note" title="Non-individual access">
+    The API defined here is intended for [=Clients=] and [=servers=] that give individual users control over access to their resources.
+    While system-to-system bulk transfers using OAuth 2.0 Client-Credentials Grant are expected to occur, it is out of scope for this version of the specification to define. Future versions of this specification may add explicit support for OAuth 2.0 Client-Credentials Grant.
+  </p>
   <p>
     In addition to the documentation in this section, there are <a href="#docs-openapi">OpenAPI</a> files for the
     Open Badges API in both JSON and YAML format:
@@ -91,10 +95,10 @@ var api = `
           </td>
         </tr>
         <tr>
-          <td><a href="#postcredential">postCredential</a></td>
+          <td><a href="#upsertcredential">upsertCredential</a></td>
           <td>
-            <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create</code> -
-            Permission to create OpenBadgeCredentials for the authenticated entity.
+            <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert</code> -
+            Permission to create or update OpenBadgeCredentials for the authenticated entity.
           </td>
         </tr>
         <tr>
@@ -105,7 +109,7 @@ var api = `
           </td>
         </tr>
         <tr>
-          <td><a href="#postprofile">postProfile</a></td>
+          <td><a href="#putprofile">putProfile</a></td>
           <td>
             <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update</code> -
             Permission to update the profile for the authenticated entity.
@@ -138,8 +142,8 @@ var api = `
         }
       </pre>
     </section>
-    <section data-operation="org.1edtech.ob.v3p0.rest.postcredential.operation">
-      <pre class="http example" title="Sample postCredential Request">
+    <section data-operation="org.1edtech.ob.v3p0.rest.upsertcredential.operation">
+      <pre class="http example" title="Sample upsertCredential Request">
         POST /ims/ob/v3p0/credentials HTTP/1.1
         Host: example.edu
         Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
@@ -147,8 +151,8 @@ var api = `
         Content-Type: text/plain
 
         header.payload.signature
-      </pre>  
-      <pre class="http example" title="Sample postCredential Response">
+      </pre>
+      <pre class="http example" title="Sample upsertCredential Response">
         HTTP/1.1 200 OK
         Content-Type: text/plain
 
@@ -176,9 +180,9 @@ var api = `
         }
       </pre>
     </section>
-    <section data-operation="org.1edtech.ob.v3p0.rest.postprofile.operation">
-      <pre class="http example" title="Sample postProfile Request">
-        POST /ims/ob/v3p0/profile HTTP/1.1
+    <section data-operation="org.1edtech.ob.v3p0.rest.putprofile.operation">
+      <pre class="http example" title="Sample putProfile Request">
+        PUT /ims/ob/v3p0/profile HTTP/1.1
         Host: example.edu
         Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
         Accept: application/json
@@ -188,17 +192,21 @@ var api = `
           "@context": [
              "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
           ],
-          "telephone": "111-222-3333"
+          "type": "Profile",
+          "id": "https://example.edu/issuers/565049",
+          "name": "Example University",
+          "phone": "111-222-3333"
         }
       </pre>
-      <pre class="http example" title="Sample postProfile Response">
+      <pre class="http example" title="Sample putProfile Response">
         {
           "@context": [
                "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
           ],
           "type": "Profile",
           "id": "https://example.edu/issuers/565049",
-          "name": "Example University"
+          "name": "Example University",
+          "phone": "111-222-3333"
         }
       </pre>
     </section>
@@ -217,28 +225,10 @@ var api = `
       <pre class="http example" title="Sample getServiceDescription response">
         HTTP/1.1 200 OK
         Content-Type: application/json
-        
+
         ...
         "components": {
             "securitySchemes": {
-                "OAuth2CCG": {
-                    "type": "oauth2",
-                    "description": "OAuth 2.0 Client Credentials authorization",
-                    "x-imssf-name": "Example Provider",
-                    "x-imssf-privacyPolicyUrl": "provider.example.com/privacy",
-                    "x-imssf-registrationUrl": "provider.example.com/registration",
-                    "x-imssf-termsOfServiceUrl": "provider.example.com/terms",
-                    "flows": {
-                        "clientCredentials": {
-                            "tokenUrl": "provider.example.com/token",
-                            "scopes": {
-                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/delete" : "...",
-                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/readonly" : "...",
-                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/replace" : "..."
-                            }
-                        }
-                    }
-                },
                 "OAuth2ACG": {
                     "type": "oauth2",
                     "description": "OAuth 2.0 Authorization Code Grant authorization",
@@ -268,7 +258,7 @@ var api = `
       </pre>
     </section>
   </section>
-  
+
   <section id="paging">
     <h5>Paging</h5>
     <p>

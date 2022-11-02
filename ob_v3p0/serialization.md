@@ -34,4 +34,13 @@ Multiple contexts MAY be used or combined to express any arbitrary information a
      "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
   ]
 </pre>
+
+#### Compacted document form
+
+[[JSON-LD11-API]] defines a compaction process for [[JSON-LD11]] documents, applying a context to shorten several fields of the document. The purpose of compaction is making the document to be represented in a form that is tailored to the use of the JSON-LD document directly as JSON.
+
+One of the transformations made by this compaction process is representing properties with only one value as string or maps, while properties with multiple values are represented as an array of strings or maps.
+
+The JSON-LD context for Open Badges [=verifiable credentials=] permits this singular values compaction in the  \`type\` attributes in the data model, such they can be expressed as a string – when having only one value – or an array of strings – when having multiple values.
+
 `;

@@ -15,8 +15,8 @@
   <script class="remove" src="mps-config.js"></script>
 
   <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
-  <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js" 
-          integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A==" 
+  <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js"
+          integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script class='remove'>
@@ -30,7 +30,7 @@
       specVersion: "3.0",
       docVersion: "1.0",
       specStatus: "Candidate Final",
-      specDate: "July 14, 2022",
+      specDate: "October 27, 2022",
       contributors: _contributors,
       localBiblio: _localBiblio,
       iprs: _iprs,
@@ -50,7 +50,7 @@
 
       // Add the MPS configuration to respecConfig
       mps: _mps,
-      
+
       // Add VC proof examples
       postProcess: [
         window.respecVc.createVcExamples
@@ -95,6 +95,10 @@
 
   <section class="normative" data-format="markdown">
     <script class="transclude" data-id="verification" src="verification.md"></script>
+  </section>
+
+  <section class="normative" data-format="markdown">
+    <script class="transclude" data-id="equalitycomparison" src="equality-and-comparison.md"></script>
   </section>
 
   <script class="transclude" data-id="vc_extensions" src="vc-extensions.html"></script>
@@ -208,13 +212,6 @@
       </tbody>
     </table>
   </section>
-
-  <details class="annoying-warning" open="open">
-    <summary>This is a preview of the 1EdTech Open Badges Specification v3.0</summary>
-    <p>Implementors: be aware that this version of this specification is not yet fully stable. Do not reference this version as authoritative in
-      any way.
-    </p>
-  </details>
 
 </body>
 
