@@ -11,7 +11,7 @@ info:
     name: IMS Global Specification Document License
     url: https://www.imsglobal.org/license.html
   version: "3.0"
-  x-status: Candidate Final
+  x-status: Base Document
   x-model-pid: org.1edtech.ob.v3p0.model
   x-service-pid: org.1edtech.ob.v3p0.rest.servicemodel
   x-src-operation-count: 5
@@ -132,19 +132,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/Imsx_StatusInfo'
       security:
-      - CCGSecurity:
-        - https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly
       - ACGSecurity:
         - https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly
       x-operation-pid: org.1edtech.ob.v3p0.rest.getcredentials.operation
     post:
       tags:
       - OpenBadgeCredentials
-      summary: The REST POST operation for the postCredential() API call.
-      description: "Create or replace an AchievementCredential on the [=resource server=]."
-      operationId: postCredential
+      summary: The REST POST operation for the upsertCredential() API call.
+      description: "Create or replace an AchievementCredential on the [=resource server=],\
+        \ appending it to the list of credentials for the subject, or replacing an\
+        \ existing entry in that list. The [=resource server=] SHOULD use the [=credential\
+        \ equality and comparison=] algorithm to compare and determine initial equality.\
+        \ The response code makes clear whether the operation resulted in a replacement\
+        \ or an insertion."
+      operationId: upsertCredential
       requestBody:
-        description: The request body for the postCredential operation.
+        description: The request body for the upsertCredential operation.
         content:
           application/json:
             schema:
@@ -246,11 +249,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Imsx_StatusInfo'
       security:
-      - CCGSecurity:
-        - https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create
       - ACGSecurity:
-        - https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create
-      x-operation-pid: org.1edtech.ob.v3p0.rest.postcredential.operation
+        - https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert
+      x-operation-pid: org.1edtech.ob.v3p0.rest.upsertcredential.operation
   /profile:
     get:
       tags:
@@ -322,19 +323,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/Imsx_StatusInfo'
       security:
-      - CCGSecurity:
-        - https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly
       - ACGSecurity:
         - https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly
       x-operation-pid: org.1edtech.ob.v3p0.rest.getprofile.operation
-    post:
+    put:
       tags:
       - OpenBadgeCredentials
-      summary: The REST POST operation for the postProfile() API call.
+      summary: The REST PUT operation for the putProfile() API call.
       description: Update the profile for the authenticate entity.
-      operationId: postProfile
+      operationId: putProfile
       requestBody:
-        description: The request body for the postProfile operation.
+        description: The request body for the putProfile operation.
         content:
           application/json:
             schema:
@@ -342,11 +341,18 @@ paths:
         required: true
       responses:
         "200":
-          description: The 200 (OK) response to the postProfile() API call.
+          description: The 200 (OK) response to the putProfile() API call.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Profile'
+        "202":
+          description: "As defined in [[rfc9110]], indicating that the request has\
+            \ been accepted for processing, but the processing has not been completed."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Imsx_StatusInfo'
         "304":
           description: "As defined in [[rfc9110]], indicating that there is no need\
             \ for the server to transfer a representation of the target resource because\
@@ -411,11 +417,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Imsx_StatusInfo'
       security:
-      - CCGSecurity:
-        - https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update
       - ACGSecurity:
         - https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update
-      x-operation-pid: org.1edtech.ob.v3p0.rest.postprofile.operation
+      x-operation-pid: org.1edtech.ob.v3p0.rest.putprofile.operation
   /discovery:
     get:
       tags:
@@ -488,7 +492,7 @@ components:
           description: A post office box number for PO box addresses.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
       additionalProperties: false
-      description: The Address complex type.
+      description: An address for the described entity.
       x-class-pid: org.1edtech.ob.v3p0.address.class
     CredentialSchema:
       required:
@@ -513,8 +517,6 @@ components:
     OpenApiSecuritySchemes:
       type: object
       properties:
-        OAuth2CCG:
-          $ref: '#/components/schemas/OpenApiOAuth2SecurityScheme'
         OAuth2ACG:
           $ref: '#/components/schemas/OpenApiOAuth2SecurityScheme'
       additionalProperties: false
@@ -627,15 +629,20 @@ components:
           format: date
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.date.class
         type:
-          minItems: 1
-          type: array
           description: The value of the type property MUST be an unordered set. One
             of the items MUST be the IRI 'Profile'.
-          items:
-            type: string
+          oneOf:
+          - type: string
             description: "A `NormalizedString` that represents an Internationalized\
               \ Resource Identifier (IRI), which extends the ASCII characters subset\
               \ of the Uniform Resource Identifier (URI)."
+          - minItems: 1
+            type: array
+            items:
+              type: string
+              description: "A `NormalizedString` that represents an Internationalized\
+                \ Resource Identifier (IRI), which extends the ASCII characters subset\
+                \ of the Uniform Resource Identifier (URI)."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
         url:
           type: string
@@ -856,15 +863,20 @@ components:
             type: string
           x-srcprop-pid: org.1edtech.ob.v3p0.alignmenttargettype.class
         type:
-          minItems: 1
-          type: array
           description: The value of the type property MUST be an unordered set. One
             of the items MUST be the IRI 'Alignment'.
-          items:
-            type: string
+          oneOf:
+          - type: string
             description: "A `NormalizedString` that represents an Internationalized\
               \ Resource Identifier (IRI), which extends the ASCII characters subset\
               \ of the Uniform Resource Identifier (URI)."
+          - minItems: 1
+            type: array
+            items:
+              type: string
+              description: "A `NormalizedString` that represents an Internationalized\
+                \ Resource Identifier (IRI), which extends the ASCII characters subset\
+                \ of the Uniform Resource Identifier (URI)."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
         targetUrl:
           type: string
@@ -969,15 +981,20 @@ components:
             the evidence encoded as a Data URI. The schema of the webpage is undefined.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
         type:
-          minItems: 1
-          type: array
           description: The value of the type property MUST be an unordered set. One
             of the items MUST be the IRI 'Evidence'.
-          items:
-            type: string
+          oneOf:
+          - type: string
             description: "A `NormalizedString` that represents an Internationalized\
               \ Resource Identifier (IRI), which extends the ASCII characters subset\
               \ of the Uniform Resource Identifier (URI)."
+          - minItems: 1
+            type: array
+            items:
+              type: string
+              description: "A `NormalizedString` that represents an Internationalized\
+                \ Resource Identifier (IRI), which extends the ASCII characters subset\
+                \ of the Uniform Resource Identifier (URI)."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
       additionalProperties: true
       description: "Descriptive metadata about evidence related to the achievement\
@@ -1062,13 +1079,18 @@ components:
           description: A short description of the achievement.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
         type:
-          minItems: 1
-          type: array
-          items:
-            type: string
+          oneOf:
+          - type: string
             description: "A `NormalizedString` that represents an Internationalized\
               \ Resource Identifier (IRI), which extends the ASCII characters subset\
               \ of the Uniform Resource Identifier (URI)."
+          - minItems: 1
+            type: array
+            items:
+              type: string
+              description: "A `NormalizedString` that represents an Internationalized\
+                \ Resource Identifier (IRI), which extends the ASCII characters subset\
+                \ of the Uniform Resource Identifier (URI)."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
         version:
           type: string
@@ -1335,15 +1357,20 @@ components:
             a result can link to this rubric criterion level.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
         type:
-          minItems: 1
-          type: array
           description: The value of the type property MUST be an unordered set. One
             of the items MUST be the IRI 'RubricCriterionLevel'.
-          items:
-            type: string
+          oneOf:
+          - type: string
             description: "A `NormalizedString` that represents an Internationalized\
               \ Resource Identifier (IRI), which extends the ASCII characters subset\
               \ of the Uniform Resource Identifier (URI)."
+          - minItems: 1
+            type: array
+            items:
+              type: string
+              description: "A `NormalizedString` that represents an Internationalized\
+                \ Resource Identifier (IRI), which extends the ASCII characters subset\
+                \ of the Uniform Resource Identifier (URI)."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
         alignment:
           minItems: 0
@@ -1413,16 +1440,21 @@ components:
             \ or achievement that is endorsed."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
         type:
-          minItems: 1
-          type: array
           description: "The value of the type property MUST be an unordered set. One\
             \ of the items MUST be the URI 'VerifiableCredential', and one of the\
             \ items MUST be the URI 'EndorsementSubject'."
-          items:
-            type: string
+          oneOf:
+          - type: string
             description: "A `NormalizedString` that represents an Internationalized\
               \ Resource Identifier (IRI), which extends the ASCII characters subset\
               \ of the Uniform Resource Identifier (URI)."
+          - minItems: 1
+            type: array
+            items:
+              type: string
+              description: "A `NormalizedString` that represents an Internationalized\
+                \ Resource Identifier (IRI), which extends the ASCII characters subset\
+                \ of the Uniform Resource Identifier (URI)."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
       additionalProperties: false
       description: A collection of information about the subject of the endorsement.
@@ -1475,16 +1507,21 @@ components:
             in wallets.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
         type:
-          minItems: 1
-          type: array
           description: "The value of the type property MUST be an unordered set. One\
             \ of the items MUST be the URI 'VerifiableCredential', and one of the\
             \ items MUST be the URI 'AchievementCredential' or the URI 'OpenBadgeCredential'."
-          items:
-            type: string
+          oneOf:
+          - type: string
             description: "A `NormalizedString` that represents an Internationalized\
               \ Resource Identifier (IRI), which extends the ASCII characters subset\
               \ of the Uniform Resource Identifier (URI)."
+          - minItems: 1
+            type: array
+            items:
+              type: string
+              description: "A `NormalizedString` that represents an Internationalized\
+                \ Resource Identifier (IRI), which extends the ASCII characters subset\
+                \ of the Uniform Resource Identifier (URI)."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
         '@context':
           minItems: 1
@@ -1516,7 +1553,7 @@ components:
           type: string
           description: Timestamp of when the credential was awarded.
           format: date-time
-          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.datetime.class
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
         name:
           type: string
           description: "The name of the credential for display purposes in wallets.\
@@ -1542,11 +1579,15 @@ components:
             \ a timestamp when a credential should no longer be considered valid.\
             \ After this time, the credential should be considered expired."
           format: date-time
-          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.datetime.class
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
       additionalProperties: true
       description: "AchievementCredentials are representations of an awarded achievement,\
         \ used to share information about a achievement belonging to one earner. Maps\
-        \ to a Verifiable Credential as defined in the [[VC-DATA-MODEL]]."
+        \ to a Verifiable Credential as defined in the [[VC-DATA-MODEL]]. As described\
+        \ in [[[#proofs-signatures]]], at least one proof mechanism, and the details\
+        \ necessary to evaluate that proof, MUST be expressed for a credential to\
+        \ be a verifiable credential. In the case of an embedded proof, the credential\
+        \ MUST append the proof in the `proof` property."
       x-class-pid: org.1edtech.ob.v3p0.achievementcredential.class
     GeoCoordinates:
       required:
@@ -1661,15 +1702,20 @@ components:
             description: Character strings.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
         type:
-          minItems: 1
-          type: array
           description: The value of the type property MUST be an unordered set. One
             of the items MUST be the IRI 'ResultDescription'.
-          items:
-            type: string
+          oneOf:
+          - type: string
             description: "A `NormalizedString` that represents an Internationalized\
               \ Resource Identifier (IRI), which extends the ASCII characters subset\
               \ of the Uniform Resource Identifier (URI)."
+          - minItems: 1
+            type: array
+            items:
+              type: string
+              description: "A `NormalizedString` that represents an Internationalized\
+                \ Resource Identifier (IRI), which extends the ASCII characters subset\
+                \ of the Uniform Resource Identifier (URI)."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
         alignment:
           minItems: 0
@@ -1711,10 +1757,6 @@ components:
     Proof:
       required:
       - type
-      - created
-      - proofPurpose
-      - proofValue
-      - verificationMethod
       type: object
       properties:
         proofValue:
@@ -1782,7 +1824,7 @@ components:
           type: string
           description: Timestamp of when the credential was awarded.
           format: date-time
-          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.datetime.class
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
         refreshService:
           $ref: '#/components/schemas/RefreshService'
         id:
@@ -1798,16 +1840,21 @@ components:
             $ref: '#/components/schemas/Proof'
           x-srcprop-pid: org.1edtech.ob.v3p0.proof.class
         type:
-          minItems: 1
-          type: array
           description: "The value of the type property MUST be an unordered set. One\
             \ of the items MUST be the URI 'VerifiableCredential', and one of the\
             \ items MUST be the URI 'EndorsementCredential'."
-          items:
-            type: string
+          oneOf:
+          - type: string
             description: "A `NormalizedString` that represents an Internationalized\
               \ Resource Identifier (IRI), which extends the ASCII characters subset\
               \ of the Uniform Resource Identifier (URI)."
+          - minItems: 1
+            type: array
+            items:
+              type: string
+              description: "A `NormalizedString` that represents an Internationalized\
+                \ Resource Identifier (IRI), which extends the ASCII characters subset\
+                \ of the Uniform Resource Identifier (URI)."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
         '@context':
           minItems: 1
@@ -1828,11 +1875,15 @@ components:
             \ a timestamp when a credential should no longer be considered valid.\
             \ After this time, the credential should be considered expired."
           format: date-time
-          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.datetime.class
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
         credentialStatus:
           $ref: '#/components/schemas/CredentialStatus'
       additionalProperties: false
-      description: A verifiable credential that asserts a claim about an entity.
+      description: "A verifiable credential that asserts a claim about an entity.\
+        \ As described in [[[#proofs-signatures]]], at least one proof mechanism,\
+        \ and the details necessary to evaluate that proof, MUST be expressed for\
+        \ a credential to be a verifiable credential. In the case of an embedded proof,\
+        \ the credential MUST append the proof in the `proof` property."
       x-class-pid: org.1edtech.ob.v3p0.endorsementcredential.class
     AchievementSubject:
       required:
@@ -1871,15 +1922,20 @@ components:
         source:
           $ref: '#/components/schemas/Profile'
         type:
-          minItems: 1
-          type: array
           description: The value of the type property MUST be an unordered set. One
             of the items MUST be the IRI 'AchievementSubject'.
-          items:
-            type: string
+          oneOf:
+          - type: string
             description: "A `NormalizedString` that represents an Internationalized\
               \ Resource Identifier (IRI), which extends the ASCII characters subset\
               \ of the Uniform Resource Identifier (URI)."
+          - minItems: 1
+            type: array
+            items:
+              type: string
+              description: "A `NormalizedString` that represents an Internationalized\
+                \ Resource Identifier (IRI), which extends the ASCII characters subset\
+                \ of the Uniform Resource Identifier (URI)."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
         result:
           minItems: 0
@@ -1957,21 +2013,7 @@ components:
           scopes:
             https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly: Permission
               to read ClrCredentials for the authenticated entity.
-            https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create: Permission
-              to create or update ClrCredentials for the authenticated entity.
-            https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly: Permission
-              to read the profile for the authenticated entity.
-            https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update: Permission
-              to update the profile for the authenticated entity.
-    CCGSecurity:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: provider.example.com/token
-          scopes:
-            https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly: Permission
-              to read ClrCredentials for the authenticated entity.
-            https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.create: Permission
+            https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert: Permission
               to create or update ClrCredentials for the authenticated entity.
             https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly: Permission
               to read the profile for the authenticated entity.
