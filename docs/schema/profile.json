@@ -11,14 +11,16 @@
       "type" : "string"
     },
     "type" : {
-      "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Profile'.",
-      "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
       "oneOf" : [ {
+        "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Profile'.",
+        "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
         "type" : "string"
       }, {
         "type" : "array",
         "minItems" : 1,
         "items" : {
+          "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Profile'.",
+          "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
           "type" : "string"
         }
       } ]
@@ -44,25 +46,21 @@
       "type" : "string"
     },
     "endorsement" : {
-      "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.",
-      "$comment" : "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity. As described in [[[#proofs-signatures]]], at least one proof mechanism, and the details necessary to evaluate that proof, MUST be expressed for a credential to be a verifiable credential. In the case of an embedded proof, the credential MUST append the proof in the `proof` property.",
       "type" : "array",
       "items" : {
         "$ref" : "#/$defs/EndorsementCredential"
       }
     },
     "endorsementJwt" : {
-      "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
-      "$comment" : "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
       "type" : "array",
       "items" : {
+        "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
+        "$comment" : "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
         "type" : "string",
         "pattern" : "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
       }
     },
     "image" : {
-      "description" : "An image representing the issuer. This must be a PNG or SVG image.",
-      "$comment" : "Origin: Image (Unordered); Metadata about images that represent assertions, achieve or profiles. These properties can typically be represented as just the id string of the image, but using a fleshed-out document allows for including captions and other applicable metadata.",
       "$ref" : "#/$defs/Image"
     },
     "email" : {
@@ -71,13 +69,9 @@
       "type" : "string"
     },
     "address" : {
-      "description" : "An address for the individual or organization.",
-      "$comment" : "Origin: Address (Unordered); An address for the described entity.",
       "$ref" : "#/$defs/Address"
     },
     "otherIdentifier" : {
-      "description" : "A list of identifiers for the described entity.",
-      "$comment" : "Origin: IdentifierEntry (Unordered)",
       "type" : "array",
       "items" : {
         "$ref" : "#/$defs/IdentifierEntry"
@@ -89,8 +83,6 @@
       "type" : "string"
     },
     "parentOrg" : {
-      "description" : "The parent organization of the entity.",
-      "$comment" : "Origin: Profile (Unordered); A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address.",
       "$ref" : "#/$defs/Profile"
     },
     "familyName" : {
@@ -143,23 +135,25 @@
       "type" : "object",
       "properties" : {
         "@context" : {
-          "description" : "The value of the `@context` property MUST be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1', and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'.",
-          "$comment" : "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
           "type" : "array",
           "minItems" : 1,
           "items" : {
+            "description" : "The value of the `@context` property MUST be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1', and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'.",
+            "$comment" : "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
             "type" : "string"
           }
         },
         "type" : {
-          "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementCredential'.",
-          "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
           "oneOf" : [ {
+            "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementCredential'.",
+            "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
             "type" : "string"
           }, {
             "type" : "array",
             "minItems" : 1,
             "items" : {
+              "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementCredential'.",
+              "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
               "type" : "string"
             }
           } ]
@@ -170,13 +164,9 @@
           "type" : "string"
         },
         "credentialSubject" : {
-          "description" : "The individual, entity, organization, assertion, or achievement that is endorsed and the endorsement comment.",
-          "$comment" : "Origin: EndorsementSubject (Unordered); A collection of information about the subject of the endorsement.",
           "$ref" : "#/$defs/EndorsementSubject"
         },
         "issuer" : {
-          "description" : "A description of the individual, entity, or organization that issued the credential.",
-          "$comment" : "Origin: Profile (Unordered); A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address.",
           "$ref" : "#/$defs/Profile"
         },
         "issuanceDate" : {
@@ -192,29 +182,25 @@
           "format" : "date-time"
         },
         "proof" : {
-          "description" : "If present, one or more embedded cryptographic proofs that can be used to detect tampering and verify the authorship of the credential.",
-          "$comment" : "Origin: Proof (Unordered); A JSON-LD Linked Data proof.",
-          "type" : "array",
-          "items" : {
+          "oneOf" : [ {
             "$ref" : "#/$defs/Proof"
-          }
+          }, {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/$defs/Proof"
+            }
+          } ]
         },
         "credentialSchema" : {
-          "description" : "The value of the `credentialSchema` property MUST be one or more data schemas that provide verifiers with enough information to determine if the provided data conforms to the provided schema.",
-          "$comment" : "Origin: CredentialSchema (Unordered); Identify the type and location of a data schema.",
           "type" : "array",
           "items" : {
             "$ref" : "#/$defs/CredentialSchema"
           }
         },
         "credentialStatus" : {
-          "description" : "The information in CredentialStatus is used to discover information about the current status of a verifiable credential, such as whether it is suspended or revoked.",
-          "$comment" : "Origin: CredentialStatus (Unordered); The information in CredentialStatus is used to discover information about the current status of a verifiable credential, such as whether it is suspended or revoked.",
           "$ref" : "#/$defs/CredentialStatus"
         },
         "refreshService" : {
-          "description" : "The information in RefreshService is used to refresh the verifiable credential.",
-          "$comment" : "Origin: RefreshService (Unordered); The information in RefreshService is used to refresh the verifiable credential.",
           "$ref" : "#/$defs/RefreshService"
         }
       },
@@ -368,14 +354,16 @@
           "type" : "string"
         },
         "type" : {
-          "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementSubject'.",
-          "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
           "oneOf" : [ {
+            "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementSubject'.",
+            "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
             "type" : "string"
           }, {
             "type" : "array",
             "minItems" : 1,
             "items" : {
+              "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementSubject'.",
+              "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
               "type" : "string"
             }
           } ]
@@ -394,13 +382,19 @@
       "type" : "object",
       "properties" : {
         "type" : {
-          "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Address'.",
-          "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
-          "type" : "array",
-          "minItems" : 1,
-          "items" : {
+          "oneOf" : [ {
+            "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Address'.",
+            "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
             "type" : "string"
-          }
+          }, {
+            "type" : "array",
+            "minItems" : 1,
+            "items" : {
+              "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Address'.",
+              "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+              "type" : "string"
+            }
+          } ]
         },
         "addressCountry" : {
           "description" : "A country.",
@@ -438,8 +432,6 @@
           "type" : "string"
         },
         "geo" : {
-          "description" : "The geographic coordinates of the location.",
-          "$comment" : "Origin: GeoCoordinates (Unordered); The geographic coordinates of a location.",
           "$ref" : "#/$defs/GeoCoordinates"
         }
       },
@@ -479,14 +471,16 @@
           "type" : "string"
         },
         "type" : {
-          "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Profile'.",
-          "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
           "oneOf" : [ {
+            "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Profile'.",
+            "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
             "type" : "string"
           }, {
             "type" : "array",
             "minItems" : 1,
             "items" : {
+              "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Profile'.",
+              "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
               "type" : "string"
             }
           } ]
@@ -512,25 +506,21 @@
           "type" : "string"
         },
         "endorsement" : {
-          "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format.",
-          "$comment" : "Origin: EndorsementCredential (Unordered); A verifiable credential that asserts a claim about an entity. As described in [[[#proofs-signatures]]], at least one proof mechanism, and the details necessary to evaluate that proof, MUST be expressed for a credential to be a verifiable credential. In the case of an embedded proof, the credential MUST append the proof in the `proof` property.",
           "type" : "array",
           "items" : {
             "$ref" : "#/$defs/EndorsementCredential"
           }
         },
         "endorsementJwt" : {
-          "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
-          "$comment" : "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
           "type" : "array",
           "items" : {
+            "description" : "Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format.",
+            "$comment" : "Origin: CompactJws (DerivedType); A `String` in Compact JWS format [[RFC7515]].",
             "type" : "string",
             "pattern" : "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]+$"
           }
         },
         "image" : {
-          "description" : "An image representing the issuer. This must be a PNG or SVG image.",
-          "$comment" : "Origin: Image (Unordered); Metadata about images that represent assertions, achieve or profiles. These properties can typically be represented as just the id string of the image, but using a fleshed-out document allows for including captions and other applicable metadata.",
           "$ref" : "#/$defs/Image"
         },
         "email" : {
@@ -539,13 +529,9 @@
           "type" : "string"
         },
         "address" : {
-          "description" : "An address for the individual or organization.",
-          "$comment" : "Origin: Address (Unordered); An address for the described entity.",
           "$ref" : "#/$defs/Address"
         },
         "otherIdentifier" : {
-          "description" : "A list of identifiers for the described entity.",
-          "$comment" : "Origin: IdentifierEntry (Unordered)",
           "type" : "array",
           "items" : {
             "$ref" : "#/$defs/IdentifierEntry"
@@ -557,8 +543,6 @@
           "type" : "string"
         },
         "parentOrg" : {
-          "description" : "The parent organization of the entity.",
-          "$comment" : "Origin: Profile (Unordered); A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and recipients, endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address.",
           "$ref" : "#/$defs/Profile"
         },
         "familyName" : {
