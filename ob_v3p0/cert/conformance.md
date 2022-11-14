@@ -222,20 +222,9 @@ The functional capabilities of such systems are:
 * They MUST support the required endpoints
 * They MAY support the optional endpoints
 * They MUST require an access token with the appropriate scope for the endpoints that require authorization
-* They MUST preserve sent data. A subsequent call to \`getCredentials\` after a \`upsertCredentials\` with a given credential must return that same credential as result of the Credential equality and comparison algorithm.
+* They MUST preserve sent data. A subsequent call to \`getCredentials\` after a \`upsertCredentials\` with a given credential must return that same credential as result of the Credential equality and comparison algorithm defined in [[OB-30]].
 
 ### Tests {#tests-service-provider-write}
-
-<div class="ednote">
-   @@ TBD @@
-   <p>Something like:</p>
-   <ol>
-      <li>Authorize conformance test system</li>
-      <li>Receive calls form conformance test system for required endpoints.</li>
-      <li>Receive calls form conformance test system for optional endpoints.</li>
-      <li>Conformance test system will verify received data</li>
-   </ol>
-</div>
 
 1. Authorize the conformance test system with the provided login credentials. Ensure that the right scopes are sent back to the conformance test system.
 1. Return valid AchivementCredentials when the API operation \`upsertCredentials\` is called.
