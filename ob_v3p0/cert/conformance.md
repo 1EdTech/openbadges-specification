@@ -177,22 +177,15 @@ The functional capabilities of such systems are:
 
 * They MUST support the required service endpoints
 * They MUST require an access token with the appropriate scope for endpoints that require authorization
-* They MUST supply or 'handle' all of the required data fields in payloads
-* They MUST be capable of supplying or 'handling' all of the optional data fields in payloads
-* They MUST NOT provide extension data fields in the payloads
+* They MUST return a valid entity in each endpoint. In \`getCredentials\`, each of the elements in the returned list MUST be verifiable.
 * They MUST support the endpoint payload pagination query parameters, and the corresponding response HTTP pagination headers MUST be supported
 
 ### Tests {#tests-service-provider-read}
 
-<div class="ednote">
-   @@ TBD @@
-   <p>Something like:</p>
-   <ol>
-      <li>Authorize conformance test system</li>
-      <li>Receive calls form conformance test system for endpoints.</li>
-      <li>Conformance test system will verify received data</li>
-   </ol>
-</div>
+1. Authorize the conformance test system with the provided login credentials. Ensure that the right scopes are sent back to the conformance test system.
+1. Return valid AchivementCredentials when the API operation \`getCredentials\` is called.
+1. Return valid AchivementCredentials when the API operation \`getCredentials\` is called with query and pagination parameters.
+1. Return a Profile for the authorized user (with id \`"https://1edtech.org/issuers/cert"\`) when the API operation \`getProfile\` is called.
 
 ## Service Provider (Write) Conformance {#service-provider-write}
 
@@ -229,9 +222,7 @@ The functional capabilities of such systems are:
 * They MUST support the required endpoints
 * They MAY support the optional endpoints
 * They MUST require an access token with the appropriate scope for the endpoints that require authorization
-* They MUST supply or 'handle' all of the required data fields in payloads
-* They MUST be capable of supplying or 'handling' all of the optional data fields in payloads
-* They MUST NOT provide extension data fields in the payloads
+* They MUST preserve sent data. A subsequent call to \`getCredentials\` after a \`upsertCredentials\` with a given credential must return that same credential as result of the Credential equality and comparison algorithm.
 
 ### Tests {#tests-service-provider-write}
 
@@ -245,5 +236,9 @@ The functional capabilities of such systems are:
       <li>Conformance test system will verify received data</li>
    </ol>
 </div>
+
+1. Authorize the conformance test system with the provided login credentials. Ensure that the right scopes are sent back to the conformance test system.
+1. Return valid AchivementCredentials when the API operation \`upsertCredentials\` is called.
+1. (Optional) Return the Profile for the authorized user when the API operation \`updateProfile\` is called.
 
 `;
