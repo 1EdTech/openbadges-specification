@@ -14,4 +14,6 @@ Certification may be achieved in one or more of the following services:
 
 The service types and associated certification tests are defined in sections 3, 4 and 5 below.
 
+### Conformance Statements {#conformance}
+
 `;
