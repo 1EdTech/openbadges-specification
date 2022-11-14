@@ -18,9 +18,9 @@ Certification may be achieved in one or more of the following services:
 
 The service types and associated certification tests are defined below.
 
-### API classification
+### API categorization
 
-This specification defines a [=RESTful API=] protocol to be implemented by applications serving in the roles of [=Client=] and [=Resource Server=]. The API uses OAuth 2.0 for authentication and granular resource-based permission scopes.
+This specification defines a [=RESTful API=] protocol to be implemented by applications serving in the roles of [=Service Consumer=] and [=Service Provider=]. The API uses OAuth 2.0 for authentication and granular resource-based permission scopes.
 
 All the endpoints defined in the [Open Badges 3.0 API](https://imsglobal.org/spec/ob/v3p0#api) are grouped in four services for certification purposes. This grouping
 is based on the role of the [=candidate platform=] in the API architecture and the purpose of the operation. Thus, the resulting grouping is as follows:
@@ -54,7 +54,7 @@ A Open Badges **Issuer** is an application that allows for the creation of OpenB
 #### Tests {#issuer-tests}
 
 1. Create a valid baked 3.0 badge and issue it to the recipient \`conformance@imsglobal.org\` and submit the issued badge to the conformance test system.
-1. Complete (at least) required tests of [[[#service-consumer-write]]].
+1. Complete tests of, at least, required endpoints of [[[#service-consumer-write]]].
 
 ### Open Badges 3.0 Displayer Service Conformance {#displayer-conformance}
 
@@ -84,8 +84,8 @@ An Open Badges **Host** is an application that can aggregate and publicly host O
 
 1. Export the imported badge in the previous test and submit the exported badge to the conformance test system. The conformance test system will ensure that the exported badge is a valid badge and that no information is lost in the import/export operation.
 1. Complete tests of [[[#service-consumer-read]]].
-1. Complete (at least) required tests of [[[#service-provider-read]]].
-1. Complete (at least) required tests of [[[#service-provider-write]]].
+1. Complete tests of [[[#service-provider-read]]].
+1. Complete tests of, at least, required endpoints of [[[#service-provider-write]]].
 
 
 ## Service Consumer (Read) Conformance {#service-consumer-read}
@@ -146,25 +146,9 @@ postProfile | \`/ims/ob/v3p0/profile\` | POST | Initiate | Yes
 
 ### Tests {#tests-service-consumer-write}
 
-<div class="ednote">
-   @@ TBD @@
-   <p>Something like:</p>
-   <ol>
-      <li>Call conformance test required endpoints with test data.</li>
-      <li>(Optional) Call conformance test optional endpoints with test data.</li>
-   </ol>
-</div>
-
-### Service Consumer (Write) Compliance
-
-The functional capabilities of such systems are:
-
-* They MUST support the required endpoints
-* They MAY support the optional endpoints
-* They MUST supply an access token with the appropriate scope to the service endpoints that require authorization
-* They MUST supply or 'handle' all of the required data fields in payloads
-* They MUST be capable of supplying or 'handling' all of the optional data fields in payloads
-* They MUST NOT provide extension data fields in the payloads
+1. Obtain an access token from the conformance test system using provided \`getServiceDescription\` endpoint and the following OAuth 2.0 authentication flow with the provided login credentials. Ensure that the right scopes are sent.
+1. Create a valid AchivementCredential and issue it to the recipient \`conformance@imsglobal.org\`. Call the conformance test endpoint \`upsertCredentials\`, with the AchivementCredential. Submit the result of the call to the conformance test system.
+1. (Optional) Create a new Profile for the id \`"https://1edtech.org/issuers/cert"\` and call the conformance test endpoint \`putProfile\` with the Profile. Submit the result of the call to the conformance test system.
 
 ## Service Provider (Read) Conformance {#service-provider-read}
 
