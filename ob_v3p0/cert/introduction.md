@@ -18,13 +18,25 @@ var introduction = `
 
 The following terms are used throughout this document.
 
+- <dfn>Achievement</dfn>: This is the content description of a credential that an assertion references. It contains metadata such as the name of the achievement, description, alignment of skills, etc. An [=Assertion=] asserts a single achievement. A [=CLR=] asserts a collection of assertions, each of which asserts a single achievement.
+
+- <dfn>Assertion</dfn>: The core of both Open Badges and CLR is the assertion about achievement(s). Assertion properties are specific to one learner's achievement and specify metadata such as issuer, date of achievement, expiration data, as well as results and evidence that support the assertion. A [=Verifiable Credential=] more broadly asserts a claim about a Credential Subject which can be applied to education and occupational achievements.
+
 - <dfn>Candidate platform</dfn>: A platform implementing the Open Badges specification with the intent to obtain certification from 1EdTech. They may be in the process to obtain certification.
+
+- <dfn data-lt="CLR">Comprehensive Learner Record</dfn> (CLR): Set of assertions that can be packaged as a verifiable credential.
+
+- <dfn>Defined Achievement Claim</dfn>: An [=assertion=] that the learner achieved a specific [=achievement=].
 
 - <dfn data-lt="RESTful API">REST API</dfn>: A style of web API (Application Programming Interface) loosely based on HTTP methods (DELETE, GET, POST, and PUT) to access resources (e.g. CLRs) via a URL.
 
 - <dfn data-lt="Consumer">Service Consumer</dfn>: In a [=REST API=], the Service Consumer is the actor that initiates the DELETE, GET, or POST request. Also called a Consumer in the [[[SEC-11]]].
 
 - <dfn data-lt="Provider">Service Provider</dfn>: In a [=REST API=], the Service Provider is the actor that responds to a DELETE, GET, or POST request. Also called a Platform in the [[[SEC-11]]].
+
+- <dfn>Skill</dfn>: Measurable or observable knowledge, skill, or ability necessary to successful performance of a person.
+
+- <dfn>Skill Claim</dfn>: An [=assertion=] that the learner has the specified [=skill=].
 
 - <dfn data-lt="VC">Verifiable Credential</dfn> (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [[vc-data-model]].
 
