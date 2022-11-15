@@ -6,9 +6,13 @@ var introduction = `
 
 ### Documents
 
-<div class="ednote">
-   @@ TBD @@
-</div>
+The full set of documents is comprised of the following documents:
+
+* [[[OB-30]]]
+* [[[OB-CERT-30]]]
+* [OpenAPI 3.0 JSON File for Open Badges API](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.json)
+* [OpenAPI 3.0 YAML File for Open Badges API](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.yaml)
+* [Open Badges 3.0 JSON-LD Context File](https://purl.imsglobal.org/spec/ob/v3p0/context.json)
 
 ### Terms
 
