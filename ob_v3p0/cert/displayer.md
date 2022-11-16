@@ -6,9 +6,12 @@ An Open Badges Displayer is an application that displays and verifies badges for
 
 ### Tests {#display-tests}
 
-1. Verify the three badges listed below and submit the status in the conformance test system.
-   1. [https://someurl/OB30-conformance-verify-1.json](https://someurl/OB30-conformance-verify-1.json)
-   1. [https://someurl/OB30-conformance-verify-2.json](https://someurl/OB30-conformance-verify-2.json)
-   1. [https://someurl/OB30-conformance-verify-3.json](https://someurl/OB30-conformance-verify-3.json)
+1. The conformance test system will display the URL of three badges. One of them is neither expired nor revoked, other is expired but not revoked and the last one is not expired but revoked. The candidate platform must verify these  badges and submit the status in the conformance test system. Demonstrate through separate videos that the platform allows viewers of badges to see the following data in all provided badges:
 
+   - image (if the badge provided is a baked badge)
+   - name
+   - description
+   - issuer name
+   - issuedOn Date
+   - status (expired and/or revoked)
 `;
