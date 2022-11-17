@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <script src='https://purl.imsglobal.org/respec/respec-1edtech.js' class='remove'></script>
+    <script src='../respec-support/local-biblio.js' class='remove'></script>
+    <script src='../respec-support/contributors.js' class='remove'></script>
+    <script src='../respec-support/iprs.js' class='remove'></script>
+
+    <!-- Load VC proof add-on -->
+    <script class="remove" src="https://purl.imsglobal.org/respec/respec-vc.js"></script>
+
+    <!-- Load the MPS configuration -->
+    <script class="remove" src="../mps-config.js"></script>
+
+    <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
+    <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js"
+            integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script class='remove'>
+        var respecConfig = {
+            mainSpecTitle: "Open Badges Specification",
+            mainSpecBiblioKey: "OB-30",
+            specTitle: "Open Badges Implementation Guide",
+            shortName: "ob",
+            specNature: "informative", // spec nature is "normative" or "informative"
+            specType: "impl", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
+            specVersion: "3.0",
+            docVersion: "1.0",
+            specStatus: "Base Document",
+            specDate: "November 17, 2022",
+            contributors: _contributors,
+            localBiblio: _localBiblio,
+            iprs: _iprs,
+            xref: [
+                "did-core",
+                "vc-data-model"
+            ],
+
+            // Remove for IMS Final
+            otherLinks: [{
+                key: "Issue Tracker",
+                data: [{
+                value: "https://github.com/1EdTech/openbadges-specification/issues",
+                href: "https://github.com/1EdTech/openbadges-specification/issues"
+                }]
+            }],
+
+            // Add the MPS configuration to respecConfig
+            mps: _mps,
+
+            // Add VC proof examples
+            postProcess: [
+                window.respecVc.createVcExamples
+            ],
+        };
+    </script>
+</head>
+
+<body>
+    <section id="abstract">
+        <h2>Abstract</h2>
+        <section id="conformance">
+            <h3>Conformance Statements</h3>
+        </section>
+    </section>
+
+    <section id="introduction" data-format="markdown" data-include="introduction.md">
+    </section>
+
+    <section class="informative" data-format="markdown" data-include="getting-started.md">
+    </section>
+
+    <section class="informative" data-format="markdown" data-include="recommended-practices.md">
+    </section>
+
+    <section class="informative" data-format="markdown" data-include="reference-impls.md">
+    </section>
+
+    <section class="informative" data-format="markdown" data-include="conformance.md">
+    </section>
+
+    <section class="informative" data-format="markdown" data-include="migrating.md">
+    </section>
+
+    <section class="informative" data-format="markdown" data-include="help.md">
+    </section>
+
+
+    <section class="appendix informative" id="revisionhistory">
+        <h1>Revision History</h1>
+        <table title="Revision History">
+            <thead>
+                <tr>
+                    <th>Version No.</th>
+                    <th>Document Version</th>
+                    <th>Release Date</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Version 3.1 IMS Candidate Final</td>
+                    <td>1</td>
+                    <td>November 10, 2022</td>
+                    <td>Covers Issuer, Displayer, and Host conformance and certification.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+
+</html>
