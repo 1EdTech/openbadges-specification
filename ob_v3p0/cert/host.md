@@ -77,6 +77,8 @@ The functional capabilities of such systems are:
 * They MUST require an access token with the appropriate scope for endpoints that require authorization
 * They MUST return a valid entity in each endpoint. In \`getCredentials\`, each of the elements in the returned list MUST be verifiable.
 * They MUST support the endpoint payload pagination query parameters, and the corresponding response HTTP pagination headers MUST be supported
+* They MAY support Token Refresh as defined in [[RFC6749]]. If so, a call to refresh token MUST return a new access token.
+* They MAY support Token Revocation as defined in [[RFC7709]]. If so, a revocation MUST cause all of subsequent calls to return an error
 
 ### Tests {#tests-service-provider-read}
 
@@ -84,6 +86,9 @@ The functional capabilities of such systems are:
 1. Return valid AchivementCredentials when the API operation \`getCredentials\` is called.
 1. Return valid AchivementCredentials when the API operation \`getCredentials\` is called with query and pagination parameters.
 1. Return a Profile for the authorized user (with id \`"https://1edtech.org/issuers/cert"\`) when the API operation \`getProfile\` is called.
+1. (Optional) Revoke the Token. Subsequents calls from the conformance test system must return an error.
+
+If refresh token is supported, the conformance test system will perform a call for refreshing the token and repeat tests 2, 3 & 4 with the refreshed access token.
 
 ## Service Provider (Write) Conformance {#service-provider-write}
 
@@ -117,15 +122,19 @@ postProfile | \`/ims/ob/v3p0/profile\` | POST | Respond | Yes
 
 The functional capabilities of such systems are:
 
-* They MUST support the required endpoints
-* They MAY support the optional endpoints
-* They MUST require an access token with the appropriate scope for the endpoints that require authorization
+* They MUST support the required endpoints.
+* They MAY support the optional endpoints.
+* They MUST require an access token with the appropriate scope for the endpoints that require authorization.
 * They MUST preserve sent data. A subsequent call to \`getCredentials\` after a \`upsertCredentials\` with a given credential must return that same credential as result of the Credential equality and comparison algorithm defined in [[OB-30]].
+* They MAY support Token Refresh as defined in [[RFC6749]]. If so, a call to refresh token MUST return a new access token.
+* They MAY support Token Revocation as defined in [[RFC7709]]. If so, a revocation MUST cause all of subsequent calls to return an error.
 
 ### Tests {#tests-service-provider-write}
 
 1. Authorize the conformance test system with the provided login credentials. Ensure that the right scopes are sent back to the conformance test system.
 1. Return valid AchivementCredentials when the API operation \`upsertCredentials\` is called.
 1. (Optional) Return the Profile for the authorized user when the API operation \`updateProfile\` is called.
+1. (Optional) Revoke the Token. Subsequents calls from the conformance test system must return an error.
 
+If refresh token is supported, the conformance test system will perform a call for refreshing the token and repeat tests 2 & 3 with the refreshed access token.
 `;
