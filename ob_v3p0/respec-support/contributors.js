@@ -20,5 +20,6 @@ var _contributors = [
   {name: "Kate Giovacchini", company: "Arizona State University", companyURL: "", role: ""},
   {name: "Andy Miller", company: "1Edtech", companyURL: "", role: "Editor"},
   {name: "Markus Gylling", company: "1Edtech", companyURL: "", role: "Editor"},
-  {name: "Dan Blickensderfer", company: "1Edtech", companyURL: "", role: "Editor"}
+  {name: "Dan Blickensderfer", company: "1Edtech", companyURL: "", role: "Editor"},
+  {name: "Xavi Aracil", company: "1Edtech", companyURL: "", role: "Editor"}
 ];
