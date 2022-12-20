@@ -10,6 +10,8 @@ The full set of documents is comprised of the following documents:
 
 * [[[OB-30]]]
 * [[[OB-CERT-30]]]
+* CLR 2.0
+* CLR CERT 2.0
 
 ### Supporting Resources (Code Libraries - See below)
 
