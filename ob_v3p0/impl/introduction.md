@@ -18,5 +18,37 @@ An Open Badge (`AchievementCredential`) is a individual achievement recognized a
 A Compehensive Learner Record allows many Open Badge achievement credentials to be bundled together, with some additional associations between them defined. This is like another onion layer wrapping the inner set of credentials that is also signed. Individual component credentials are verifiable, and the wrapping CLR is also verifiable. CLRs can contain achievements from multiple different issuers to show a learner's progression with multiple organizations or subdivisions of a large educational institution.
 
 ### Use Cases
+Use cases are outlined in each the Open Badges and Comprehensive Learner Record specifications. Use cases outline how each specification is intended to provide value to end users through interoperability between products.
+
+[Open Badges use cases](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#use-cases) include:
+
+* Assertion Issuance to Wallet
+* Assertion Issuance Without a Wallet
+* Recipient Presentation of Assertion
+* License Issuance
+* Single Skill Assertion
+* Mapping Skills
+* Verifying Continuing Education
+* Self-assertion
+* Endorsement
+* Re-issue a <= 3.0 Badge to a 3.0 Badge
+* Authorization to Issue Given by Creator to Issuer
+* Revocation of an Issued Credential
+* Badge Class Status
+
+[Comprehensive Learner Record use cases (not yet published)](https://github.com/1EdTech/ComprehensiveLearnerRecord/blob/develop/clr_v2p0/usecases.md) include:
+
+* Recent graduate wants to hold a copy of their own official transcript
+* Job applicant provides proof of degree and transcript to potential employer
+* Job applicant provides proof of degree and specific courses/engagements from the CLR
+* Higher Ed Competency-Based Education
+* Issuer Asserting All Student Achievements Comprehensively as a CLR
+* Issuer Asserting Partial Transcript at Intermediate Points in Learning Journey
+* Issuer Asserting Student Up to Date Partial Transcript of Achievements as CLR on Request
+* Internal Organizational Staff Development and Promotion
+* Upskilling with Higher Ed Professional/Continuing Education
+* Teacher Placement with a District
+* Professional Licensure Test Taker results
+* Students in Tutoring Program
 
 ### OB/CLR in the 1EdTech Ecosystem
