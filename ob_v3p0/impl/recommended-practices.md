@@ -1,41 +1,45 @@
-## Recommended Practices Here are a variety of recommended practices and
-#considerations for the implementation of the Open Badges and CLR
-#specifications. Conformance certification requirements ensure some important
-#things, but a healthy ecosystem will develop out of the collaboration and
-#experience of the implementor community. These practices will continue to be
-#augmented as implementation proceeds. Implementers are encouraged to join the
-#1EdTech community and discuss how we can further improve our implementations
-#and guidance together.
+## Recommended Practices
 
-### Selecting recipient and issuer identifiers, such as DID methods Both issuers
-#and recipients (credential subjects) of Open Badges and CLR credentials may be
-#identified with a range of identifiers.
+Here are a variety of recommended practices and considerations for the
+implementation of the Open Badges and CLR specifications. Conformance
+certification requirements ensure some important things, but a healthy ecosystem
+will develop out of the collaboration and experience of the implementor
+community. These practices will continue to be augmented as implementation
+proceeds. Implementers are encouraged to join the 1EdTech community and discuss
+how we can further improve our implementations and guidance together.
+
+### Selecting recipient and issuer identifiers, such as DID methods
+
+Both issuers and recipients (credential subjects) of Open Badges and CLR
+credentials may be identified with a range of identifiers.
 
 Issuers may be identified with an HTTP URL that resolves to an issuer profile
 that expresses profile and key information in JSON-LD.
 
-DID methods most commonly used in interoperability testing: * The
-[did:key](https://w3c-ccg.github.io/did-method-key) method resolves identifiers
-to a DID document that contains a public key representation without accessing
-any remote resources by embedding a representation of the key itself in the DID
-path.  * The [did:jwk](https://github.com/quartzjer/did-jwk/blob/main/spec.md)
-method is similar to `did:key`, except the value encoded in the DID path is a
-`base64url`-encoded representation of a key in JWK ([JSON Web
-Key](https://datatracker.ietf.org/doc/html/rfc7517)) format. * The `did:web`
-method is a quick way to use HTTP URLs with DIDs, because the value in the path
-of the DID decodes to a URL which is then fetched, resulting in a DID document.
-It relies on the DNS registration of a domain holder, but many DIDs may be
-associated with any one domain or subdomain.
+DID methods most commonly used in interoperability testing:
+
+-   The [did:key](https://w3c-ccg.github.io/did-method-key) method resolves
+    identifiers to a DID document that contains a public key representation
+    without accessing any remote resources by embedding a representation of the
+    key itself in the DID path.
+-   The [did:jwk](https://github.com/quartzjer/did-jwk/blob/main/spec.md) method
+    is similar to `did:key`, except the value encoded in the DID path is a
+    `base64url`-encoded representation of a key in JWK
+    ([JSON Web Key](https://datatracker.ietf.org/doc/html/rfc7517)) format.
+-   The `did:web` method is a quick way to use HTTP URLs with DIDs, because the
+    value in the path of the DID decodes to a URL which is then fetched,
+    resulting in a DID document. It relies on the DNS registration of a domain
+    holder, but many DIDs may be associated with any one domain or subdomain.
 
 Technically, this set of DID methods whose use is commonly observed among early
 implementers is a narrow range of the DID methods proposed, and each of them
 lacks some capabilities promoted as possibilities with certain DID methods, such
 as the ability to rotate keys periodically, recover control after losing
-relevant keys, or avoidance of the use of DNS. The [DID Method
-Rubric](https://www.w3.org/TR/did-rubric/) provides a number of relevant
-comparison factors. Usage of other DID methods may significantly change in the
-coming years as the consumer technology landscape and open source libraries
-develop.
+relevant keys, or avoidance of the use of DNS. The
+[DID Method Rubric](https://www.w3.org/TR/did-rubric/) provides a number of
+relevant comparison factors. Usage of other DID methods may significantly change
+in the coming years as the consumer technology landscape and open source
+libraries develop.
 
 The OB 3.0 and CLR 2.0 specifications make no normative requirements strictly
 limiting which DID methods may be used, but implementers have an incentive to
@@ -70,13 +74,13 @@ as they implement share by URL capabilities.
 
 Recommendations for the use of share URLs include:
 
-* Give data subjects easy to use options to limit or grant access to data or
-inclusion of their data in directories. Do not publish learner achievement
-data in credential format on unauthenticated URLs by default.
-* If Open Badges 2.0 verification endpoints are used, use content negotiation on
-sharing URLs to enable the presentation of Use
-[Open Graph Protocol](https://ogp.me) tags on the sharing URLs to enable easy
-generation of card previews.
+-   Give data subjects easy to use options to limit or grant access to data or
+    inclusion of their data in directories. Do not publish learner achievement
+    data in credential format on unauthenticated URLs by default.
+-   If Open Badges 2.0 verification endpoints are used, use content negotiation
+    on sharing URLs to enable the presentation of Use
+    [Open Graph Protocol](https://ogp.me) tags on the sharing URLs to enable
+    easy generation of card previews.
 
 ### Inclusion of new OB and CLR metadata in OB 2.0 endpoints
 
@@ -100,8 +104,10 @@ Implementers should prioritize high success-rate user experiences in credential
 acceptance. Products should take into account many factors and opportunities for
 user failure including:
 
-* High conceptual complexity or use of jargon Forgotten passwords or no-longer working email addresses
-* Differing choices of DID methods, key formats/signature suites, or credential exchange protocol choices across different certifiable products.
+-   High conceptual complexity or use of jargon Forgotten passwords or no-longer
+    working email addresses
+-   Differing choices of DID methods, key formats/signature suites, or
+    credential exchange protocol choices across different certifiable products.
 
 Products that best aim to teach users a controlled number of concepts and
 provide interfaces offering easy successful options for the most common actions
@@ -116,28 +122,27 @@ Consider the following example two products using the OB 3.0 API to interact:
 **Example: Sending an Open Badge to a credential backpack via API**
 
 > Luis is in college pursuing a technical degree. He completes an assessment in
-> class and receives a grade. He is notified by email that he has earned a
-> badge and clicks through, where he is authenticated to the college's student
-> Open Badges portal using his college single sign on. He sees that he has
-> actually earned two badges, each representing competencies, that were
-> assessed by his instructor. The website says the CLR is ready to save, so
-> Luis selects that option. The application shows him a list of two credential
-> backpack providers he can use to save. There is an advanced toggle that
-> reveals an additional option to enter a service provider URL, but Luis closes
-> that and picks one of the known options that looks good and has a good
-> privacy policy. He selects that option and is directed to the backpack site
-> where he signs up for an account. After he completes registration, he is
-> prompted that he may return to the Open Badges portal to complete receiving
-> his credential. He confirms and appears back in the Open Badges portal, where
-> a confirmation message greets him saying all credentials were successfully
-> transferred. He then confirms to return once more to the backpack site, where
-> sees the two Open Badges representing his competencies.
+> class and receives a grade. He is notified by email that he has earned a badge
+> and clicks through, where he is authenticated to the college's student Open
+> Badges portal using his college single sign on. He sees that he has actually
+> earned two badges, each representing competencies, that were assessed by his
+> instructor. The website says the CLR is ready to save, so Luis selects that
+> option. The application shows him a list of two credential backpack providers
+> he can use to save. There is an advanced toggle that reveals an additional
+> option to enter a service provider URL, but Luis closes that and picks one of
+> the known options that looks good and has a good privacy policy. He selects
+> that option and is directed to the backpack site where he signs up for an
+> account. After he completes registration, he is prompted that he may return to
+> the Open Badges portal to complete receiving his credential. He confirms and
+> appears back in the Open Badges portal, where a confirmation message greets
+> him saying all credentials were successfully transferred. He then confirms to
+> return once more to the backpack site, where sees the two Open Badges
+> representing his competencies.
 >
 > Luis looks at a page detailing the metadata of the first achievement,
-> including the achievement type of Competency and a description of what he
-> had been working to learn. He thinks that being able to look back at these
-> and see the description will help him prepare for job interviews in the
-> future.
+> including the achievement type of Competency and a description of what he had
+> been working to learn. He thinks that being able to look back at these and see
+> the description will help him prepare for job interviews in the future.
 >
 > Luis sees an option to share his competency badge to a social media site. He
 > proceeds and is prompted to customize sharing settings, including whether
@@ -149,26 +154,26 @@ Consider the following example two products using the OB 3.0 API to interact:
 
 This is a long user workflow. What makes this interaction successful?
 
-* These products each have a clear sense of their scope of responsibility. One is
-the "Issuer" of the Open Badges, the other is the "Backpack". They can each
-implement the necessary parts of the experience that fits their role and not
-invest deeply in other parts. For example, the issuer platform doesn't need to
-offer a system of sharing URLs and online access control management, all it does
-is sign the credential and implement the Client side of the Open Badges API. The
-Backpack handles the sharing, including giving Luis significant control over
-URL-based access. This takes product focus.
-* Known-successful integrations are highlighted in the experience. This takes
-cooperation between implementation partners, but the benefit is clear: Luis
-doesn't need to know what an Open Badge is or how to find a compatible backpack
-on the [TrustEd Apps
-Directory](https://site.imsglobal.org/certifications?refinementList%5Bstandards_lvlx%5D%5B0%5D=Open%20Badges)
-in order to take advantage of his credential. Tested compatibility paths and
-instructions on how to take the next step are provided as the primary choice for
-non-advanced users. 
-* The backpack platform implemented the [Open Graph Protocol](https://ogp.me) for
-the sharing URL, better supporting the social network site's generation of a
-preview card that included the badge image and a relevant title and content
-snippet.
+-   These products each have a clear sense of their scope of responsibility. One
+    is the "Issuer" of the Open Badges, the other is the "Backpack". They can
+    each implement the necessary parts of the experience that fits their role
+    and not invest deeply in other parts. For example, the issuer platform
+    doesn't need to offer a system of sharing URLs and online access control
+    management, all it does is sign the credential and implement the Client side
+    of the Open Badges API. The Backpack handles the sharing, including giving
+    Luis significant control over URL-based access. This takes product focus.
+-   Known-successful integrations are highlighted in the experience. This takes
+    cooperation between implementation partners, but the benefit is clear: Luis
+    doesn't need to know what an Open Badge is or how to find a compatible
+    backpack on the
+    [TrustEd Apps Directory](https://site.imsglobal.org/certifications?refinementList%5Bstandards_lvlx%5D%5B0%5D=Open%20Badges)
+    in order to take advantage of his credential. Tested compatibility paths and
+    instructions on how to take the next step are provided as the primary choice
+    for non-advanced users.
+-   The backpack platform implemented the [Open Graph Protocol](https://ogp.me)
+    for the sharing URL, better supporting the social network site's generation
+    of a preview card that included the badge image and a relevant title and
+    content snippet.
 
 ### Implementing the CLR 2.0 API
 
@@ -184,17 +189,17 @@ elements.
 > CLRCredential. This is his first CLR, and he wants to see how to use it to
 > help his job search.
 >
-> The website says the CLR is ready to save, so Luis selects that option.
-> The application shows him a list of two credential backpack providers he
-> can use to save. There is an advanced toggle that reveals an additional option
-> to enter a service provider URL, but Luis closes that and picks one of the
-> known options that looks good and has a good privacy policy. He selects that
-> option and is directed to the backpack site where he signs up for an account.
-> After he completes registration, he is prompted that he may return to the CLR
-> portal to complete receiving his credential. He confirms and appears back in
-> the CLR portal, where a confirmation message greets him saying all credentials
-> were successfully transferred. He then confirms to return once more to the
-> backpack site, where sees the CLR Credential and all the individual Achievement
+> The website says the CLR is ready to save, so Luis selects that option. The
+> application shows him a list of two credential backpack providers he can use
+> to save. There is an advanced toggle that reveals an additional option to
+> enter a service provider URL, but Luis closes that and picks one of the known
+> options that looks good and has a good privacy policy. He selects that option
+> and is directed to the backpack site where he signs up for an account. After
+> he completes registration, he is prompted that he may return to the CLR portal
+> to complete receiving his credential. He confirms and appears back in the CLR
+> portal, where a confirmation message greets him saying all credentials were
+> successfully transferred. He then confirms to return once more to the backpack
+> site, where sees the CLR Credential and all the individual Achievement
 > Credentials within it representing the degree, the courses he took, and the
 > competencies he mastered.
 
@@ -217,10 +222,9 @@ the workflow, and give them fallback solutions whenever possible.
 
 **TODO should references be made and if so are these the right links?**
 
-Protocols
-under development to transport Verifiable Credentials including Open Badges and
-CLR include [Credential Handler API
-(CHAPI)](https://w3c-ccg.github.io/credential-handler-api/),
+Protocols under development to transport Verifiable Credentials including Open
+Badges and CLR include
+[Credential Handler API (CHAPI)](https://w3c-ccg.github.io/credential-handler-api/),
 [DIDComm](https://identity.foundation/didcomm-messaging/spec/v2.0/), and
 [OIDC4VC](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html).
 
@@ -260,29 +264,32 @@ operating with connections to fewer or different wallet applications.
 Some recommendations for pre-standardization implementation of service
 connection protocols include:
 
-* Test integrations and communicate with your implementation partners for the
-benefit of users' experience.
-* Share pain points (without exposing personal
-information) and learn about possible solutions from others.
-* Accurately inform users of the experimental status of features and integrations
-as necessary. Giving users an accurate sense of whether they are traveling a
-smooth and well-trodden path or a new route that may have pitfalls or dead ends
-goes a long way to gaining user trust.
-* Prioritize tested high-success pathways to product integration.
-* Provide some opportunities for users who desire it to learn about the work your
-product is doing under the hood to take care of their important data and empower
-them as participants in non-monopolistic ecosystems using open standards.
-* Give users fallback options that are likely to succeed if the first path they
-try fails. For example, offer the chance to choose any wallet that uses a
-certain supported protocol, but suggest one particular integration as an easy
-choice, so users don't get stuck if the wallet they previously used for a
-different issuer doesn't work with the protocol used on your site. If all else
-fails, maybe a signed credential in a JSON download is an adequate compromise.
-* Present benefits and risks to user to help them understand their choices. This
-example emphasized the user-owned nature of DIDs enabled by wallet connection in
-the face of the potential loss of control of an institutional or organizational
-email identifier. Products should make users aware of risks, such as any loss of
-data or verifiability that might be caused by losing a physical device.
+-   Test integrations and communicate with your implementation partners for the
+    benefit of users' experience.
+-   Share pain points (without exposing personal information) and learn about
+    possible solutions from others.
+-   Accurately inform users of the experimental status of features and
+    integrations as necessary. Giving users an accurate sense of whether they
+    are traveling a smooth and well-trodden path or a new route that may have
+    pitfalls or dead ends goes a long way to gaining user trust.
+-   Prioritize tested high-success pathways to product integration.
+-   Provide some opportunities for users who desire it to learn about the work
+    your product is doing under the hood to take care of their important data
+    and empower them as participants in non-monopolistic ecosystems using open
+    standards.
+-   Give users fallback options that are likely to succeed if the first path
+    they try fails. For example, offer the chance to choose any wallet that uses
+    a certain supported protocol, but suggest one particular integration as an
+    easy choice, so users don't get stuck if the wallet they previously used for
+    a different issuer doesn't work with the protocol used on your site. If all
+    else fails, maybe a signed credential in a JSON download is an adequate
+    compromise.
+-   Present benefits and risks to user to help them understand their choices.
+    This example emphasized the user-owned nature of DIDs enabled by wallet
+    connection in the face of the potential loss of control of an institutional
+    or organizational email identifier. Products should make users aware of
+    risks, such as any loss of data or verifiability that might be caused by
+    losing a physical device.
 
 ### Managing Revocation
 
