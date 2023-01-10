@@ -293,6 +293,33 @@ connection protocols include:
 
 ### Managing Revocation
 
+The ability to mark a credential as revoked is an important capability for many
+organizations that make use of Open Badges and CLR. OB and CLR do not prescribe
+a specific method for a verifier to check credential status with an issuer. The
+[[vc-data-model]] offers an extensible mechanism by which a credential status
+resource may be exposed within a credential. Various requirements and solutions
+have been developed to enable credential status checking. Issuers and verifiers
+need to support a common mechanism in order for status checking to work, and yet
+issuers often need to produce the credential without knowing which other parties
+might someday rely on it or what methods those verifiers may support. This is an
+area where OB and CLR may make normative recommendations in future versions.
+Here are some mechanisms identified by the implementing community for status and
+revocation management.
+
+-   The
+    [Credential Status List 2021](https://w3c.github.io/vc-status-list-2021/)
+    specification was adopted as a standards-track specification by the VCWG on
+    December 14th 2022. This protocol enables an issuer to publish a compactly
+    encoded list of status indicator bits covering many credentials at once in
+    an unnamed order. Within each issued credential, the issuer includes a
+    pointer to a specific bit within the bulk status list. This enables
+    verifiers to efficiently query for status results without revealing which
+    specific credential's status is being checked. It does not feature the
+    ability to retrieve a revocation reason for a revoked credential, nor does
+    it provide a refreshed version of the credential consistent with the
+    issuer's latest status data, features that are sometimes bundled with
+    revocation.
+
 ### Alignment with CASE items
 
 ### Skills
