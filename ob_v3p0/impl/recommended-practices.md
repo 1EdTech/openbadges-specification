@@ -55,6 +55,36 @@ working together through cooperation and communication will create the
 opportunities for others to make compatible implementation choices as well as
 inform future normative specification versions.
 
+### Selecting proof methods and crypto algorithms
+
+The OB and CLR specifications define some requirements around the signing or
+proving of credentials (see [Proofs](../ob_v3p0.html#data-integrity)). Two
+formats of proof method are introduced, JWTs and Linked Data Proofs. Within each
+format, there are still a range of options that issuers may select for
+cryptographically signing the credentials. Notably, signing algorithm selection
+and its closely related concept of key material expression format must be
+considered. The best choices within these options sometimes depend on other
+parts of the issuer's tech stack and which options are supported among wallets
+and verifiers with whom badge recipients want to share their badges.
+
+The OB specification identifies some specific options, which are used by the
+conformance test suite to check product implementations. These identified
+algorithms will likely see the broadest early implementation within Open Badges.
+
+-   Linked Data Proofs using the
+    [EdDSA Cryptosuite v2020](https://w3c-ccg.github.io/di-eddsa-2020/). Issuers
+    produce an `Ed25519Signature2020` proof referencing a key URL of a public
+    key expressed in `Ed25519VerificationKey2020` format as its
+    verificationMethod.
+-   JWTs with `RSA256` algorithm, with key material published as JSON Web Key
+    (JWK).
+
+A step-by-step guide to signing an OB or CLR is provided in the OB
+specification. In order to achieve certification, implementers must be able to
+pass conformance testing with one of the listed methods, but it is expected that
+the ecosystem will grow as issuers, verifiers, and other services explore new
+approaches.
+
 ### Sharing Open Badges and CLR Links as URLs and to Social Media
 
 > Gene receives an Open Badge for the completion of a certificate program and
