@@ -321,28 +321,50 @@ connection protocols include:
     risks, such as any loss of data or verifiability that might be caused by
     losing a physical device.
 
-### Managing Revocation
+### Managing credential status and revocation
 
 The ability to mark a credential as revoked is an important capability for many
-organizations that make use of Open Badges and CLR. OB and CLR do not prescribe
-a specific method for a verifier to check credential status with an issuer. The
-[[vc-data-model]] offers an extensible mechanism by which a credential status
-resource may be exposed within a credential. Various requirements and solutions
-have been developed to enable credential status checking. Issuers and verifiers
-need to support a common mechanism in order for status checking to work, and yet
-issuers often need to produce the credential without knowing which other parties
-might someday rely on it or what methods those verifiers may support. This is an
-area where OB and CLR may make normative recommendations in future versions.
-Here are some mechanisms identified by the implementing community for status and
-revocation management.
+organizations that make use of Open Badges and CLR. The [[vc-data-model]] offers
+an extensible mechanism by which a credential status resource may be exposed
+within a credential. Various use cases and solutions have been developed to
+enable credential status checking with a range of capabilities and implications.
+OB and CLR reference optional 1EdTech extensions supporting verifiers in
+obtaining updated representations of credentials and checking for revocation.
+Issuers and verifiers need to support a common mechanism in order for status
+checking to work, and yet issuers often need to produce the credential without
+knowing which other parties might someday rely on it or what methods those
+verifiers may support. Here are some mechanisms identified by the implementing
+community for status and revocation management.
 
 -   The
+    [1EdTech Revocation List Status Method](https://imsglobal.org/spec/vcrl/v1p0/)
+    accompanies the OB and CLR specifications. This enables verifiers to query
+    for status results without revealing to the issuer which specific
+    credential's status is being checked. It does reveal to the requester a list
+    of credential IDs claimed by the issuer to be associated with it, though it
+    is not assumed to be exhaustive or accurate except to indicate the status of
+    the credential known to the requester, because issuers may use multiple
+    lists concurrently, packaged with different sets of credentials and red
+    herrings may appear in some lists. The 1EdTech certification process and
+    validator software will support this status checking method. A reason for
+    revocation may be available for a revoked credential.
+-   The [1EdTech Refresh Service Method](https://imsglobal.org/spec/vccr/v1p0/)
+    also accompanies the OB and CLR specifications and enables fetching of an
+    updated version of a credential under inspection by a verifier. The 1EdTech
+    verifier tools will request updated version if such an endpoint is indicated
+    in the badge. There is no approach to authentication or variable
+    authorization defined in this specification, so if an issuer uses it, it is
+    presumed that any client could request the latest version of the credential
+    from this endpoint if they knew the correct URL. Future versions of this
+    specification may serve use cases that require more in-depth protection of
+    refresh endpoints.
+-   Another option in the space is the
     [Credential Status List 2021](https://w3c.github.io/vc-status-list-2021/)
-    specification was adopted as a standards-track specification by the VCWG on
-    December 14th 2022. This protocol enables an issuer to publish a compactly
-    encoded list of status indicator bits covering many credentials at once in
-    an unnamed order. Within each issued credential, the issuer includes a
-    pointer to a specific bit within the bulk status list. This enables
+    specification, which was adopted as a standards-track specification by the
+    VCWG on December 14th 2022. This protocol enables an issuer to publish a
+    compactly encoded list of status indicator bits covering many credentials at
+    once in an unnamed order. Within each issued credential, the issuer includes
+    a pointer to a specific bit within the bulk status list. This enables
     verifiers to efficiently query for status results without revealing which
     specific credential's status is being checked. It does not feature the
     ability to retrieve a revocation reason for a revoked credential, nor does
