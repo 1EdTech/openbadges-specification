@@ -20,12 +20,13 @@ in the `urn:uuid` namespace.
 For any system already using hosted endpoints for these objects, use cases
 remain within the 3.0 ecosystem to continue that support in addition to
 delivering these objects compliant with 3.0. In OB 3.0 and CLR 2.0, assertions
-become `AchievementCredentials`, and `BadgeClasses` become `Achievements`, which
-may be more likely to use `urn:uuid` identifiers. As the ecosystem transitions
-to support OB 3.0 serialization of these objects, some products will continue to
-support OB 2.0 representations, so an efficient transition for issuer services
-likely involves a window of continued support for 2.0 with no breaking changes
-for clients who rely on it today.
+become `OpenBadgeCredentials` or `AchievementCredentials` (an alias), and
+`BadgeClasses` become `Achievements`, which may be more likely to use `urn:uuid`
+identifiers. As the ecosystem transitions to support OB 3.0 serialization of
+these objects, some products will continue to support OB 2.0 representations, so
+an efficient transition for issuer services likely involves a window of
+continued support for 2.0 with no breaking changes for clients who rely on it
+today.
 
 The new OB 3.0 and CLR 2.0 specifications each define APIs over which
 credentials can be exchanged, from issuers, to holders and then to displayers,
