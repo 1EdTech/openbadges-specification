@@ -79,11 +79,96 @@ algorithms will likely see the broadest early implementation within Open Badges.
 -   JWTs with `RSA256` algorithm, with key material published as JSON Web Key
     (JWK).
 
-A step-by-step guide to signing an OB or CLR is provided in the OB
-specification. In order to achieve certification, implementers must be able to
-pass conformance testing with one of the listed methods, but it is expected that
-the ecosystem will grow as issuers, verifiers, and other services explore new
-approaches.
+A step-by-step guide to signing an OB or CLR is provided in the OB specification
+section on
+[Proofs](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#data-integrity).
+In order to achieve certification, implementers must be able to pass conformance
+testing with one of the listed methods, but it is expected that the ecosystem
+will grow as issuers, verifiers, and other services explore new approaches.
+
+It is important to not only prevent unauthorized access to keys and application
+processes that can trigger signing. At least as important to keeping the signing
+keys themselves safe is being confident in knowing if keys may have been
+accessed or compromised with a high degree of confidence. Considerations
+include:
+
+-   Issuers may wish to make use of
+    [Hardware Security Modules (HSMs)](https://en.wikipedia.org/wiki/Hardware_security_module)
+    whenever possible that prevent keys from leaving the device where authorized
+    signing occurs.
+-   Cloud platform Key Management Services are largely not yet compatible with
+    Ed25519 keys and may not be able to generate the signatures within linked
+    data proofs.
+    -   HashiCorp Vault (open source or in HashiCorp cloud) offers a
+        Ed25519-compatible
+        [sign API](https://developer.hashicorp.com/vault/api-docs/secret/transit#sign-data)
+        via its "Transit" API.
+    -   Google Cloud Platform
+        [supports](https://cloud.google.com/kms/docs/reference/rest/v1/CryptoKeyVersionAlgorithm)
+        RSA and ECDSA on the non-NIST secp256k1 curve but not Ed25519.
+    -   JWT signing with RSA family keys may have broader support in systems
+        like this across all major cloud vendors offering a KMS.
+
+### Publishing Achievement definitions and selecting Achievement identifiers
+
+Arguably the most important field for an Achievement is the `id`, the creator's
+primary identifier for that achievement. It is expressed as a URI. Two
+approaches for identifier expression are common, with differing capabilities and
+slightly different instructions for interpretation:
+
+-   **Use an HTTPS URL as the identifier**: Issuer systems and other achievement
+    publishing systems can publish achievements at the identifier URLs, from
+    which clients can request the metadata directly from its creator when a
+    client wants an authoritative representation of the issuer's current
+    understanding of the metadata associated with the Achievement. When two
+    OpenBadgeCredentials are issued at different points in time but reference
+    the same `Achievement.id`, they may contain slightly different
+    representations of the Achievement metadata itself. Relying parties are
+    encouraged to understand the embedded signed data as the representation that
+    the issuer had for the credential at the time it was issued, and they may
+    encounter a different representation embedded in a different credential,
+    which they should understand as a different version of the same achievement.
+    The issuer may use the optional `version` property to express a label for
+    each of these versions for presentation where relevant. At any point in
+    time, a relying party may request an updated copy of the Achievement from
+    its `id` URL. If the response returns Achievement data successfully, the
+    client should understand the retrieved metadata to represent the issuer's
+    _current_ understanding of the Achievement. When relying parties encounter
+    the same HTTPS-type achievement ID in AchievmentCredentials across multiple
+    issuers, they can assume that the issuers did intend to recognize the same
+    achievement, as it is defined by its publisher, but they cannot make an
+    assumption that each of the issuers were duly authorized to recognize this
+    achievement by its creator or even that the Achievement honestly represents
+    the identity of its creator, unless the relying party verifies an
+    OpenBadgeCredential referencing this Achievement issued by the creator
+    referenced in the copy of the Achievement retrieved from its ID URL. Future
+    versions of Open Badges may address use cases and normative requirements
+    serving use cases around verifiable authorship of an Achievement or
+    delegation of capabilities related to an Achievement by the Achievement's
+    creator.
+-   **Use a UUID**: Issuers sometimes assign an identifier that is assumed to be
+    locally unique to that issuer but cannot be dereferenced. Nevertheless,
+    relying parties may encounter multiple OpenBadgeCredentials that reference
+    an achievement with this ID over time. For OpenBadgeCredentials from the
+    same issuer that reference an Achievement with the same ID, relying parties
+    should interpret these as different versions of the same Achievement. When
+    the same UUID-type Achievement.id is referenced by different issuers across
+    multiple OpenBadgeCredentials, relying parties cannot authoritatively
+    determine that the intent was to recognize the same semantic achievement.
+
+A common use case among Open Badges implementers is for a verifier to expect a
+particular Achievement claim in an `OpenBadgeCredential` from a specific issuer.
+With Open Badges 2.0, it was presumed that verification that an achievement
+(BadgeClass) was associated with a credential (Assertion) issuer as part of
+verification, by determining that hosted Achievement IDs were on the same domain
+as hosted Assertion IDs and/or hosted Issuer IDs. With OB 3.0, some of this
+capability can no longer be assumed to remain. This is partly because there is
+no longer a requirement for issuer profiles to use HTTP IDs, but also because
+integrity verification is assumed to occur at the Verifiable Credentials Data
+Model level only, because wallets and credentials verifiers will primarily focus
+on verifying the integrity of the proof on each credential without assumed
+capacity to verify other relationships represented deeply within these
+credentials even if OB 3.0 had included such a mechanism in its scope.
 
 ### Sharing Open Badges and CLR Links as URLs and to Social Media
 
