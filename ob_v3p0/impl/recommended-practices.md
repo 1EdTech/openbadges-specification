@@ -14,9 +14,12 @@ Both issuers and recipients (credential subjects) of Open Badges and CLR
 credentials may be identified with a range of identifiers.
 
 Issuers may be identified with an HTTP URL that resolves to an issuer profile
-that expresses profile and key information in JSON-LD.
+that expresses profile and key information in JSON-LD. Or, they might be
+identified by a Decentralized Identifier (DID) that resolves to a document with
+some information about the issuer and/or its signing key(s).
 
-DID methods most commonly used in interoperability testing:
+DID methods most commonly used in interoperability testing by community members,
+both for issuer identifiers and recipient identifiers:
 
 -   The [did:key](https://w3c-ccg.github.io/did-method-key) method resolves
     identifiers to a DID document that contains a public key representation
