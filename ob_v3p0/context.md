@@ -18,4 +18,5 @@ OB 3.0 context file uses a versioning as a result of https://github.com/1EdTech/
 - Removed `@type` from `AchievementSubject`'s `result`. This fixes a compaction error.
 - Fixed `@type` from `AchievementSubject`'s `source`. This fixes a compaction error.
 - Removed `@type` from `ResultDescription`'s `rubricCriterionLevel`. This fixes a compaction error.
+- Removed `@type` from `endorsement`. This fixes a compaction error.
 
