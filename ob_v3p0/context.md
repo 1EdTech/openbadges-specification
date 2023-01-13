@@ -20,3 +20,4 @@ OB 3.0 context file uses a versioning as a result of https://github.com/1EdTech/
 - Removed `@type` from `ResultDescription`'s `rubricCriterionLevel`. This fixes a compaction error.
 - Removed `@type` from `endorsement`. This fixes a compaction error.
 - Added `image` attribute to `Profile`.
+- Fixed `Profile`'s `address` IRI. Now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#address`
