@@ -11,3 +11,4 @@ OB 3.0 context file uses a versioning as a result of https://github.com/1EdTech/
 - Fixed `Profiles`'s `phone` IRI. Now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#phone`
 - Added `image` attribute to `Achievement`.
 - Removed `@type` from `alignment`. This fixes a compaction error.
+- Removed `@type` from `otherIdentifier`. This fixes a compaction error.
