@@ -6,5 +6,6 @@ OB 3.0 context file uses a versioning as a result of https://github.com/1EdTech/
 
 ### 3.0.1
 
-- Fixed `creator` IRI. Now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#creator`
-- Fixed `criteria` IRI. Now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#criteria`
+- Fixed `Achievement`'s `creator` IRI. Now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#creator`
+- Fixed `Achievement`'s `criteria` IRI. Now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#criteria`
+- Fixed `AchievementSubject`'s `achievement` IRI. Now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#achievement-0`
