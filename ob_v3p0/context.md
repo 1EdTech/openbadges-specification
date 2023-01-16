@@ -23,4 +23,6 @@ OB 3.0 context file uses a versioning as a result of https://github.com/1EdTech/
 - Fixed `Profile`'s `address` IRI. Now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#address`
 - Removed `@type` from `Achievement`'s `related`. This fixes a compaction error.
 - Added `type` attribute to `Profile`s `address`. This fixes a compaction error.
+- Fixed `type` attribute of `Profile`s `parentOrg`.
+
 
