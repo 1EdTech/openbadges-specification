@@ -14,23 +14,30 @@ quickstart will potentially be eligible for issuer-only certification.
 
 We can track the workflows that must be built through a set of user stories.
 
+**Issuer Profile**:
+
 > As an institutional administrative agent, I can define an Issuer Profile that
 > represents my organization.
 
 See details on the
 [selection of recipient and issuer identifiers](#selecting-recipient-and-issuer-identifiers-such-as-did-methods),
-but for the purposes of a quickstart, hosting an issuer profile on an HTTPS
-identifier is an easy choice for a web application. For example, if the web
-application under development is running on the domain `example.com`, an issuer
-profile identifier might be
+but for the purposes of a quickstart, hosting an issuer profile on an HTTPS url
+associated with a `did:web` Decentralized Identifier is an easy choice for a web
+application. See
+[DID Web Method Specification](https://w3c-ccg.github.io/did-method-web/) For
+example, if the web application under development is running on the domain
+`example.com`, an issuer profile identifier might be
+`did:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774`, which would
+resolve to a hosted resource available at
 `https://example.com/issuers/540e388e-2735-4c3e-9709-80142801c774`. But what is
 served at this URL when a client requests it? The most effective answer is to
 present a response that best matches what the client is requesting, as it
 indicates with the `Accept` HTTP header.
 
--   When a client requests `Accept: application/json` or `application/ld+json`,
-    a JSON-LD that includes the OB 3.0 context should be returned. It should
-    include its own primary id, all required properties from
+-   When a client requests `Accept: application/json` or `application/ld+json`
+    or does not include an `Accept` header, a JSON-LD that includes the OB 3.0
+    context should be returned. It should include its own primary id, all
+    required properties from
     [Profile](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#profile),
     and a representation of the public key component of the keypair this issuer
     uses to sign credentials in selected `JWK` or `Ed25519VerificationKey2020`
@@ -38,15 +45,16 @@ indicates with the `Accept` HTTP header.
     [Dereferencing the Public Key](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#dereference)
 -   When a client requests `Accept: */*` or `application/html`, an HTML
     representation of the Achievement should be presented. This should express
-    information about the [Open Graph meta tags](https://ogp.me/) including at
-    least name, description, and image tags for easy rendering of preview cards
-    when the Achievement URL is shared to social media platforms, for instance.
+    information about the issuer using [Open Graph meta tags](https://ogp.me/),
+    including at least name, description, and image tags for easy rendering of
+    preview cards when the Achievement URL is shared to social media platforms,
+    for instance.
 
 In order to sign credentials, the issuer needs to have an associated key
 referenced from their profile, whether that profile is resolved via a DID or an
-HTTPS URL. Either a JWT stack using RSA 256 (TODO: or greater?) or an EdDSA
-stack using a JSON-LD linked data signature must be used to achieve conformance
-certification. See
+HTTPS URL. Either a JWT stack using RSA 256 (or RSA with larger key sizes) or an
+EdDSA stack using a JSON-LD linked data signature must be used to achieve
+conformance certification as shown below. See
 [Selecting proof methods and crypto algorithms](#selecting-proof-methods-and-crypto-algorithms)
 for a detailed discussion on the management of keys and creation of signatures.
 
@@ -56,18 +64,19 @@ the EdDSA Cryptosuite 2020 option for signing credentials:
 ```jsonld
 {
 	"@context": [
+		"https://www.w3.org/ns/did/v1",
 		"https://www.w3.org/2018/credentials/v1",
 		"https://purl.imsglobal.org/spec/ob/v3p0/context.json",
 		"https://w3id.org/security/suites/ed25519-2020/v1"
 	],
-	"id": "https://example.com/issuers/540e388e-2735-4c3e-9709-80142801c774",
+	"id": "did:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
 	"type": "Profile",
 	"name": "Example Institution",
 	"url": "https://example.com",
 	"description": "An example of an educational institution, such as a University",
 	"email": "info@example.com",
 	"verificationMethod": [{
-		"id": "https://example.com/issuers/540e388e-2735-4c3e-9709-80142801c774#key-0",
+		"id": "did:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774#key-0",
 		"type": "Ed25519VerificationKey2020",
 		"controller": "https://example.com/issuer/123",
 		"publicKeyMultibase": "z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP"
@@ -75,12 +84,7 @@ the EdDSA Cryptosuite 2020 option for signing credentials:
 }
 ```
 
-TODO: `verificationMethod` isn't in any of the contexts referenced here in a way
-that can be used within `Profile`, and I'm not sure how the key should appear,
-or if a key should be referenced only as a separate URL, in which case we would
-need to update the
-[examples](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#basic-openbadgecredential)
-in the spec.
+**Achievement**:
 
 > As an authorized institutional representative, I can define an `Achievement`
 > on behalf of my organization, so that I can issue badges recognizing this
@@ -100,11 +104,12 @@ representation of the achievement. Images are optional but are visually
 prominent components of badges and are often included. OpenBadgeCredentials are
 issued for many `achievementTypes` (see
 [enumeration](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#org.1edtech.ob.v3p0.achievementtype.class))
-that may not traditionally include an image, but OB 3.0 now enables this to be
-included for any type of achievement.
+that may not traditionally include an image, but OB 3.0 now enables this an
+image to be included for any type of achievement.
 
-An easy path forward is to select an HTTPS URL as the identifier for each
-defined Achievement in its database. For example, if the web application under
+For an issuing system that operates a web application on a stable domain, an
+easy path forward is to select an HTTPS URL as the identifier for each defined
+Achievement in its database. For example, if the web application under
 development is running on the domain `example.com`, an achievement identifier
 might be
 `https://example.com/achievements/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6`. See
@@ -113,8 +118,9 @@ for a discussion of options for Achievement identifier. Again, is is best to
 present a response to requests made to this URL that best matches what the
 client is requesting, as it indicates with the `Accept` HTTP header.
 
--   When a client requests `Accept: application/json` or `application/ld+json`,
-    a JSON-LD that includes the OB 3.0 context should be returned.
+-   When a client requests `Accept: application/json` or `application/ld+json`
+    or does not include an `Accept` header, a JSON-LD that includes the OB 3.0
+    context should be returned.
 -   When a client requests `Accept: */*` or `application/html`, an HTML
     representation of the Achievement should be presented. This should express
     information about the [Open Graph meta tags](https://ogp.me/) including at
@@ -157,6 +163,8 @@ follows:
 Note that an image associated with the achievement is hosted at a related URL.
 This could be alternatively presented as a data URI within the Achievement.
 
+**Recipient Identifier**:
+
 > As a learner, I am assigned a badge recipient identifier or can select one of
 > my choosing.
 
@@ -188,6 +196,18 @@ verify is associated with an individual. That learner might share their badge on
 a resume and the hiring manager they send it to can verify it matches them by
 sending them a six digit code and asking their job applicant to read it back to
 them.
+
+Recommended options include:
+
+-   If the platform supports integration with a wallet or other system where a
+    learner can present and prove control of an identifier that is usable as a
+    VC or VP issuer identifier, and the user has gone through this process, use
+    their preferred identifier as `credentialSubject.id`.
+-   If the badges will be delivered primarily for URL-based sharing or download,
+    and the user has not presented a DID, do not include a
+    `credentialSubject.id` property, and instead include an `identifier`
+    property referencing a known identifier that may be verified by humans or
+    other non-VC, such as an email address.
 
 > As an educator, I can assess a learner and trigger the award of an
 > `OpenBadgeCredential` recognizing that the student has met the criteria of the
@@ -239,7 +259,7 @@ which upon activation yields a signed verifiable credential like the following.
 		"OpenBadgeCredential"
 	],
 	"issuer": {
-		"id": "https://example.com/issuers/540e388e-2735-4c3e-9709-80142801c774",
+		"id": "did:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
 		"type": "Profile",
 		"name": "Example Institution",
 		"url": "https://example.com",
@@ -287,7 +307,7 @@ which upon activation yields a signed verifiable credential like the following.
 	"proof": [{
 		"type": "Ed25519Signature2020",
 		"created": "2022-12-15T16:56:16Z",
-		"verificationMethod": "https://example.com/issuers/540e388e-2735-4c3e-9709-80142801c774#key-0",
+		"verificationMethod": "did:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774#key-0",
 		"proofPurpose": "assertionMethod",
 		"proofValue": "z4o2Pva6ksbXtCCzHv4VM8Ss9WJg2tnxgDbVwfZr1dq3i2jjzNHWPPpHHRw8s1AknGzL4XjBZVyh3BzSo59qz8NBp"
 	}]
@@ -305,7 +325,8 @@ Several things to note about this credential.
     check the hash to ensure the badge belongs to them.
 -   The `verificationMethod.id` identifies the issuer's public signing key using
     a fragment identifier within the issuer's identifier. This is the same ID
-    that appeared in the representation of the key itself.
+    that appeared in the representation of the key in the issuer DID document
+    itself.
 
 Follow the steps in the Conformance Certification Guide for the
 [issuer role](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#conformance-and-certification-guide)
