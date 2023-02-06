@@ -25,5 +25,6 @@ OB 3.0 context file uses a versioning as a result of https://github.com/1EdTech/
 - Added `type` attribute to `Profile`s `address`. This fixes a compaction error.
 - Fixed `type` attribute of `Profile`s `parentOrg`.
 - Fixed `type` attribute of `Image`.
+- Fixed `@id` attribute of `Alignment`. Now points to `https://schema.org/AlignmentObject`.
 
 
