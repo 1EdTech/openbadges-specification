@@ -15,6 +15,7 @@ The target readers for this document are:
 The Open Badges Specification has several related documents and artifacts shown below. Together they make up the specification.
 
 - [[[OB-30]]] - The main Open Badges Specification document.
+- Implementation Guide
 - [[[OB-CERT-30]]] - Specifies the conformance tests and certification requirements for this specification.
 
 #### OpenAPI 3.0 Files {#docs-openapi}
@@ -66,11 +67,15 @@ All JSON Schema can be found in [[[#json-schema]]]. JSON Schema files for creden
 
 - <dfn data-lt="CLR">Comprehensive Learner Record</dfn> (CLR): Set of assertions that can be packaged as a verifiable credential.
 
+- <dfn>Credential</dfn>: A set of one or more [=claims=] made by an [=issuer=]. A [=verifiable credential=] is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build [=verifiable presentations=], which can also be cryptographically verified.
+
 - <dfn>Credential Subject</dfn>: Describes the claims being made by the Verifiable Credential. In the context of Open Badges and CLR is typically  an individual but in the case of Open Badges, may be another entity type such as a course, book, or organization. Learners, Organizations and other entities can be explicit subclasses of Credential Subjects for purposes of business rules. [[vc-data-model]]
 
 - <dfn>Decentralized Identifiers</dfn>: A type of identifier for people, organizations and any other entity, where each identifier is controlled independently of centralized registries. [[did-core]] [[did-use-cases]]
 
 - <dfn>Defined Achievement Claim</dfn>: An [=assertion=] that the learner achieved a specific [=achievement=].
+
+- <dfn>DID URL</dfn>: A DID plus any additional syntactic component that conforms to the definition in Section 3.2 DID URL Syntax of [[DID-CORE]]. This includes an optional DID path (with its leading / character), optional DID query (with its leading ? character), and optional DID fragment (with its leading # character).
 
 - <dfn>Evidence</dfn>: Information supporting a claim such as a URL to an artifact produced by the Learner.
 
@@ -78,11 +83,15 @@ All JSON Schema can be found in [[[#json-schema]]]. JSON Schema files for creden
 
 - <dfn>Learner</dfn>: The person who is the subject of the CLR and assertions contained in a CLR.
 
+- <dfn>Linked Data Proof</dfn>: A type of embedded signature proof.
+
 - <dfn data-lt="open badge">Badge</dfn>: A single assertion of an achievement that is packaged as a verifiable credential.
 
 - <dfn>Organization</dfn>: An organized group of one or more people with a particular purpose. [[CEDS]]
 
 - <dfn>Person</dfn>: A human being, alive or deceased, as recognized by each jurisdiction’s legal definitions. [[CEDS]]
+
+- <dfn>Presentation</dfn>: Data derived from one or more [=verifiable credentials=], issued by one or more [=issuers=], that is shared with a specific [=verifier=]. A [=verifiable presentation=] is a tamper-evident presentation encoded in such a way that authorship of the data can be trusted after a process of cryptographic verification.
 
 - <dfn>Publisher</dfn>: The organization or entity issuing the CLR (typically the educational institution or a 3rd-party agent). The publisher is either the issuer or has a trusted relationship with the issuer of all the assertions in the CLR.
 
@@ -108,6 +117,8 @@ All JSON Schema can be found in [[[#json-schema]]]. JSON Schema files for creden
 
 - <dfn>Skill Claim</dfn>: An [=assertion=] that the learner has the specified [=skill=].
 
+- <dfn>Subject</dfn>: A person about which [=claims=] are made.
+
 - <dfn>Validation</dfn>: The process of assuring the verifiable credential or verifiable presentation meets the needs of the verifier and other dependent stakeholders. Validating verifiable credentials or verifiable presentations is outside the scope of this specification.
 
 - <dfn data-lt="VC">Verifiable Credential</dfn> (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [[vc-data-model]].
@@ -117,6 +128,7 @@ All JSON Schema can be found in [[[#json-schema]]]. JSON Schema files for creden
 - <dfn data-lt="Verifiable">Verification</dfn>: The evaluation of whether a [=verifiable credential=] or [=verifiable presentation=] is an authentic and timely statement of the issuer or presenter, respectively. This includes checking that: the credential (or presentation) conforms to the specification; the proof method is satisfied; and, if present, the status check succeeds.
 
 - <dfn>Verifier</dfn>: The entity that receives a [=verifiable credential=] or [=verifiable presentation=] and verifies the credential or presentation has not been tampered with.
+
 
 ### Conceptual Model
 
