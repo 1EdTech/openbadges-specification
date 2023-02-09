@@ -166,7 +166,7 @@
           }
         },
         "security" : [ {
-          "ACGSecurity" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly" ]
+          "OAuth2ACG" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly" ]
         } ],
         "x-operation-pid" : "org.1edtech.ob.v3p0.rest.getcredentials.operation"
       },
@@ -310,7 +310,7 @@
           }
         },
         "security" : [ {
-          "ACGSecurity" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert" ]
+          "OAuth2ACG" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert" ]
         } ],
         "x-operation-pid" : "org.1edtech.ob.v3p0.rest.upsertcredential.operation"
       }
@@ -404,7 +404,7 @@
           }
         },
         "security" : [ {
-          "ACGSecurity" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly" ]
+          "OAuth2ACG" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly" ]
         } ],
         "x-operation-pid" : "org.1edtech.ob.v3p0.rest.getprofile.operation"
       },
@@ -527,7 +527,7 @@
           }
         },
         "security" : [ {
-          "ACGSecurity" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update" ]
+          "OAuth2ACG" : [ "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update" ]
         } ],
         "x-operation-pid" : "org.1edtech.ob.v3p0.rest.putprofile.operation"
       }
@@ -2076,7 +2076,7 @@
       }
     },
     "securitySchemes" : {
-      "ACGSecurity" : {
+      "OAuth2ACG" : {
         "type" : "oauth2",
         "flows" : {
           "authorizationCode" : {
