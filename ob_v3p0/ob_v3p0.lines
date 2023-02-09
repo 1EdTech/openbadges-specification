@@ -89,7 +89,7 @@ Package ApiDataModels DataModel
         Property credential AchievementCredential 0..*              "OpenBadgeCredentials that have not been signed with the VC-JWT Proof Format MUST be in the `credential` array."
         Property compactJwsString CompactJws 0..*                   "OpenBadgeCredentials that have been signed with the VC-JWT Proof Format MUST be in the `compactJwsString` array."
 
-Package ACGSecurity SecurityModel OAUTH2ACG
+Package OAuth2ACG SecurityModel OAUTH2ACG
 	Url TokenURL provider.example.com/token
 	Url AuthURL provider.example.com/auth
 	Url RefreshURL provider.example.com/refresh
