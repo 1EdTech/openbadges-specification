@@ -27,7 +27,7 @@ application. See
 [DID Web Method Specification](https://w3c-ccg.github.io/did-method-web/) For
 example, if the web application under development is running on the domain
 `example.com`, an issuer profile identifier might be
-`did:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774`, which would
+`did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774`, which would
 resolve to a hosted resource available at
 `https://example.com/issuers/540e388e-2735-4c3e-9709-80142801c774`. But what is
 served at this URL when a client requests it? The most effective answer is to
@@ -69,14 +69,14 @@ the EdDSA Cryptosuite 2020 option for signing credentials:
 		"https://purl.imsglobal.org/spec/ob/v3p0/context.json",
 		"https://w3id.org/security/suites/ed25519-2020/v1"
 	],
-	"id": "did:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
+	"id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
 	"type": "Profile",
 	"name": "Example Institution",
 	"url": "https://example.com",
 	"description": "An example of an educational institution, such as a University",
 	"email": "info@example.com",
 	"verificationMethod": [{
-		"id": "did:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774#key-0",
+		"id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774#key-0",
 		"type": "Ed25519VerificationKey2020",
 		"controller": "https://example.com/issuer/123",
 		"publicKeyMultibase": "z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP"
@@ -259,7 +259,7 @@ which upon activation yields a signed verifiable credential like the following.
 		"OpenBadgeCredential"
 	],
 	"issuer": {
-		"id": "did:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
+		"id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
 		"type": "Profile",
 		"name": "Example Institution",
 		"url": "https://example.com",
@@ -307,7 +307,7 @@ which upon activation yields a signed verifiable credential like the following.
 	"proof": [{
 		"type": "Ed25519Signature2020",
 		"created": "2022-12-15T16:56:16Z",
-		"verificationMethod": "did:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774#key-0",
+		"verificationMethod": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774#key-0",
 		"proofPurpose": "assertionMethod",
 		"proofValue": "z4o2Pva6ksbXtCCzHv4VM8Ss9WJg2tnxgDbVwfZr1dq3i2jjzNHWPPpHHRw8s1AknGzL4XjBZVyh3BzSo59qz8NBp"
 	}]
