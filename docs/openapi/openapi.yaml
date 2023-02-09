@@ -1483,13 +1483,15 @@ components:
         image:
           $ref: '#/components/schemas/Image'
         credentialSchema:
-          minItems: 0
-          type: array
           description: The value of the `credentialSchema` property MUST be one or
             more data schemas that provide verifiers with enough information to determine
             if the provided data conforms to the provided schema.
-          items:
-            $ref: '#/components/schemas/CredentialSchema'
+          oneOf:
+          - $ref: '#/components/schemas/CredentialSchema'
+          - minItems: 0
+            type: array
+            items:
+              $ref: '#/components/schemas/CredentialSchema'
           x-srcprop-pid: org.1edtech.ob.v3p0.credentialschema.class
         endorsement:
           minItems: 0
@@ -1839,13 +1841,15 @@ components:
       type: object
       properties:
         credentialSchema:
-          minItems: 0
-          type: array
           description: The value of the `credentialSchema` property MUST be one or
             more data schemas that provide verifiers with enough information to determine
             if the provided data conforms to the provided schema.
-          items:
-            $ref: '#/components/schemas/CredentialSchema'
+          oneOf:
+          - $ref: '#/components/schemas/CredentialSchema'
+          - minItems: 0
+            type: array
+            items:
+              $ref: '#/components/schemas/CredentialSchema'
           x-srcprop-pid: org.1edtech.ob.v3p0.credentialschema.class
         credentialSubject:
           $ref: '#/components/schemas/EndorsementSubject'
