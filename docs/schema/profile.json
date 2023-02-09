@@ -192,10 +192,14 @@
           } ]
         },
         "credentialSchema" : {
-          "type" : "array",
-          "items" : {
+          "oneOf" : [ {
             "$ref" : "#/$defs/CredentialSchema"
-          }
+          }, {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/$defs/CredentialSchema"
+            }
+          } ]
         },
         "credentialStatus" : {
           "$ref" : "#/$defs/CredentialStatus"
