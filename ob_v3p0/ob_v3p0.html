@@ -28,7 +28,7 @@
       specNature: "normative", // spec nature is "normative" or "informative"
       specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
       specVersion: "3.0",
-      docVersion: "1.0",
+      docVersion: "1.0.1",
       specStatus: "Candidate Final",
       specDate: "February 9, 2023",
       contributors: _contributors,
@@ -203,9 +203,20 @@
         </tr>
         <tr>
           <td>Candidate Final</td>
-          <td>1.0</td>
+          <td>1.0.1</td>
           <td>February 9, 2023</td>
-          <td>Fixed some typos. Some sections now point to its corresponding document in the document set</td>
+          <td>
+            <ul>
+              <li>Some sections now point to its corresponding document in the document set.</li>
+              <li>Model changes:
+                <ul>
+                  <li>Added requited attribute <code>type</code> to Related.</li>
+                  <li><code>credentialStatus</code> can be extended.</li>
+                </ul>
+              </li>
+              <li>Fixed some typos.</li>
+            </ul>
+          </td>
         </tr>
       </tbody>
     </table>
