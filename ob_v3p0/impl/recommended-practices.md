@@ -338,8 +338,6 @@ credentials into next-generation use cases. When new user experience patterns
 are presented that aim to become universal, take care to help the user through
 the workflow, and give them fallback solutions whenever possible.
 
-**TODO should references be made and if so are these the right links?**
-
 Protocols under development to transport Verifiable Credentials including Open
 Badges and CLR include
 [Credential Handler API (CHAPI)](https://w3c-ccg.github.io/credential-handler-api/),
