@@ -100,3 +100,38 @@ include:
 -   Students in Tutoring Program
 
 ### OB/CLR in the 1EdTech Ecosystem
+
+The core of both Open Badges and Comprehensive Learnern Record is the assertion
+about achievement(s). As defined in [[OB-30]] and [[CLR-20]], an assertion is
+specific to one learner and contains metadata such as the issuer and the
+achievement being asserted.
+
+These concepts are also present in some way in other specifications within
+1EdTech, enabling connections between specifications.
+
+<div class="note">
+This section is purely informative. The scenarios described here does not define any additional requirements of the specification to conform to.
+</div>
+
+The obvious part of the spec where there can be connections with other
+specifications is the alignment of achievements. `Alignment` can refer to a
+[[CASE-10]]'s `CFItem` for linking the achievement to a learning object in a
+CASE's Competency Framework Package.
+
+Another possible connection with other 1EdTech's specifications is the issuer of
+the credential. Since it can be an organization or entity it can have some
+relationship with the `Org` entity in OneRoster [[OR-11]] or [[EDUAPI-10]].
+
+Moreover, the learner who the credential is issued to can have a relationship
+with the `User` entity in [[OR-11]] or the `Person` entity in [[EDUAPI-10]], as
+well.
+
+Also, [[OR-11]] covers performance of the learner in a context such an
+assignment vi the `Result` entity. This can be realted with the
+`Result Definition` of the issued `Achievement`, and the `Result` of an
+`AchievementSubject`.
+
+Last but not least, Open Badges and Comprehensive Learner Record can coexist
+with other specificacions. An Open Badges or CLR application could live within
+the domain of a LMS. If so, the LMS can use [[LTI-13]] for launching the OB /
+CLR application.
