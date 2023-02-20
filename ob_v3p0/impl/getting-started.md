@@ -396,4 +396,20 @@ The full set of documents is comprised of the following documents:
 
 ### Relationship between VC and CLR/OB
 
+New to this version of the specification, the data model of both CLR and OB
+adopts the convention of the [[VC-DATA-MODEL]].
+
+Since Verifiable Credentials are extensible by design, CLR/OB defines a set of
+extensions (also called profile) for reflecting the domain both specifications
+cover: learning achievements, alignment with educational/workforce frameworks,
+etc. CLR/OB also defines the verification algorithm for these credentials, as
+well as a set of services for echanging these credentials.
+
+That means that `ClrCredential` and `AchievementCredential` are, in fact,
+Verifiable Credentials, and can be used wherever a Verifiable Credential can be.
+This assertion is not bidirectional, thus a Verificable Credential might not be
+an CLR/OB Credential. Only those credentials with the extension set defined by
+the CLR/OB spec, and verifiable via CLR/Ob verification algorithm, can be
+treated as CLR/OB Credentials.
+
 ### Introduction to proofs
