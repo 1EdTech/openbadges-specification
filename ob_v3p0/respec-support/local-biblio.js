@@ -65,6 +65,21 @@ var _localBiblio = {
     status: "IMS Base Document",
     publisher: "1EdTech",
   },
+  "OR-11": {
+    title: "1EdTech OneRoster® Specification v1.1",
+    href: "https://www.imsglobal.org/oneroster-v11-final-specification",
+    status: "IMS Final Release",
+    publisher: "1EdTech",
+  },
+  "EDUAPI-10": {
+    title: "Edu-API Specification Specification v1.0",
+    href: "https://imsglobal.org/spec/eduapi/v1p0/",
+    status: "IMS Candidate Final",
+    publisher: "1EdTech",
+  },
+  CEDS: {
+    title: "Common Education Data Standards (CEDS) Version 7 Data Model Guide",
+    href: "https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf",
   CEDS: {
     title: "Common Education Data Standards (CEDS) Version 7 Data Model Guide",
     href: "https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf",
