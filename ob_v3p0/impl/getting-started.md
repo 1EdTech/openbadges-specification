@@ -507,13 +507,25 @@ certification as an Open Badges Issuer (with API service-consumer-write support)
 > As a badge holder, I can inform my issuer of my selected Open Badges host
 > service.
 
+Provide the base url of the selected Open Badges host service to he issuer.
+
 > As an issuer service, I can discover information about an Open Badges host
 > service.
 
+Call the `getServiceDescription` endpoint from the base url of the Open Badges
+host service.
+
 > As an issuer service, I can register with a Open Badges host service.
+
+By performing the OAuth 2.0 Client Dynamic Registration [[RFC7591]] to the
+endpoint defined in the `x-imssf-registrationUrl` field of the Open Badges Host
+service description.
 
 > As a badge holder, I can request and approve a connection between my issuer
 > and my host account.
+
+By following the OAuth 2.0 Authorization Code Grant flow between the issuer and
+the host account.
 
 > As a badge holder, I can select one, some or all AchievmentCredentials to
 > transmit to my host account.
@@ -525,6 +537,8 @@ certification as an Open Badges Issuer (with API service-consumer-write support)
 
 > As a badge holder, I can deauthorize my issuer from connection to my Open
 > Badges host.
+
+By revoking the access token granted to the issuer from your Open Badges host.
 
 While authenticated with a host service, one action users may take is to view
 the connected issuer(s) or displayer(s) they have authorized and to revoke some
