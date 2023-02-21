@@ -499,17 +499,6 @@ a set of steps:
         }
     </pre>
 
-#### Providers
-
-Providers of the OB / CLR API must grant an OAuth 2.0 access token for making
-API calls. The granting of the token implies a set of steps:
-
--   Provide the `ServiceDescription` endpoint with the right values for the
-    `OAuth2ACG`'s securitySchema. The urls there must point to your oauth
-    related endpoints.
--   Allow Registration of clients using `Dynamic Registration`.
--   Implement OAuth 2.0 Authorization Code Grant flow for granting tokens.
-
 Learn how to add on support for the OB 3.0 API as an Issuer to a simple product
 that Issuers who completed the issuer quickstart above. Completing this portion
 of the quickstart will potentially qualify a product for conformance
@@ -552,6 +541,17 @@ expected when you receive a 401 or 403 status response from the host when
 attempting to access a protected endpoint and then subsequently receive an error
 response when attempting
 [token refresh](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#token-refresh).
+
+#### Providers
+
+Providers of the OB / CLR API must grant an OAuth 2.0 access token for making
+API calls. The granting of the token implies a set of steps:
+
+-   Provide the `ServiceDescription` endpoint with the right values for the
+    `OAuth2ACG`'s securitySchema. The urls there must point to your oauth
+    related endpoints.
+-   Allow Registration of clients using `Dynamic Registration`.
+-   Implement OAuth 2.0 Authorization Code Grant flow for granting tokens.
 
 ### Key terms definitions
 
