@@ -293,13 +293,33 @@ This is a long user workflow. What makes this interaction successful?
     of a preview card that included the badge image and a relevant title and
     content snippet.
 
+Other recommendations related to implementing the API include:
+
+-   Service provider (host) platforms represent the learner (resource owner) in
+    interactions that allow that learner to share their credentials with relying
+    parties. In order to give the learner adequate control over sharing, hosts
+    should recognize that learners may want to use their system for multiple
+    different partially overlapping uses. For example, a learner might hold
+    formal professional credentials and informal social badges in the same
+    account. Hosts should give the learner the ability to attenuate access
+    grants to read their badges so that certain service consumers (read) can
+    only access badges that the user has designated for that purpose. The
+    mechanism to do this may vary across different systems. For example, a host
+    might enable a learner to gather badges into collections and may make it
+    possible to select one or more collections when making an access grant. The
+    consumer application they grant access to will be able to read any badges
+    added to the collection at the time of the request, even if the badge is
+    added to the collection after the original access grant was approved.
+
 ### Implementing the CLR 2.0 API
 
-`ClrCredential`s bundle a number of individual `OpenBadgeCredentials` together
-and sometimes offer additional information about the relationships between
-elements.
+As `ClrCredential`s bundle a number of individual `OpenBadgeCredentials`
+together, they sometimes offer additional information about the relationships
+between elements. Implementations of the CLR API should be done for use cases
+where the signed bundles (signed by the original issuers) or the inclusion of
+associations provides benefit to users.
 
-**Example: Sending a CLR to a credential backpack via API**
+**Example: Sending a CLR to a credential backpack (host) via API**
 
 > Luis achieved his Associate Degree and is looking for jobs. He is notified by
 > email that his CLR is ready and clicks through, where he is authenticated to
