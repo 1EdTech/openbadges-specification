@@ -31,6 +31,15 @@ or verified by third parties in order to qualify the learner for job placement
 or other opportunities. Implementing systems can participate in a variety of
 roles
 
+#### Spec documents (Normative References)
+
+The full set of documents is comprised of the following documents:
+
+-   [[[OB-30]]]
+-   [[[OB-CERT-30]]]
+-   CLR 2.0
+-   CLR CERT 2.0
+
 #### Audiences
 
 This implementation guide is intended for product developers across various

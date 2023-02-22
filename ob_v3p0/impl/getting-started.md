@@ -332,7 +332,7 @@ Follow the steps in the Conformance Certification Guide for the
 [issuer role](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#conformance-and-certification-guide)
 to submit a downloaded signed credential like the above for conformance checks.
 
-### API topology and quickstart
+### API quickstart
 
 The API of Open Badges 3.0 and Comprehensive Learner Record 2.0 is divided into
 four groups, wether the OB / CLR tool is a consumer or a provider of the API and
@@ -344,160 +344,161 @@ more of these groups of API. For instance, if you're seeking the certification
 as an Issuer (not Issuer only) you'll need to implement the
 service-consumer-write group.
 
-#### Consumers
+#### Consumer Basics
 
 Consumers of the OB / CLR API must acquire an OAuth 2.0 access token from an
 authorization server for making API calls. The acquisition of the token implies
 a set of steps:
 
-1.  Call the `ServiceDescription` endpoint. Once you know the base url of your
-    authorization server, make a GET call to the well-know
-    `getServiceDescription` endpoint. The response will contains all the
-    endpoints needed for register your client application
-    (`x-imssf-registrationUrl`) and acquiring and access token
-    (`authorizationUrl`, `tokenUrl` and `refreshUrl`) with the desired scopes.
+Call the `ServiceDescription` endpoint. Once you know the base url of your
+authorization server, make a GET call to the well-know `getServiceDescription`
+endpoint. The response will contains all the endpoints needed for register your
+client application (`x-imssf-registrationUrl`) and acquiring and access token
+(`authorizationUrl`, `tokenUrl` and `refreshUrl`) with the desired scopes.
 
-      <pre class="html example" title="Sample getServiceDescription request">
-        GET /ims/ob/v3p0/discovery HTTP/1.1
-        Host: example.edu
-        Accept: application/json
-      </pre>
+<pre class="html example" title="Sample getServiceDescription request">
+GET /ims/ob/v3p0/discovery HTTP/1.1
+Host: example.edu
+Accept: application/json
+</pre>
 
-      <pre class="http example" title="Sample getServiceDescription response">
-        HTTP/1.1 200 OK
-        Content-Type: application/json
-    
-        ...
-        "components": {
-            "securitySchemes": {
-                "OAuth2ACG": {
-                    "type": "oauth2",
-                    "description": "OAuth 2.0 Authorization Code Grant authorization",
-                    "x-imssf-name": "Example Provider",
-                    "x-imssf-privacyPolicyUrl": "provider.example.com/privacy",
-                    "x-imssf-registrationUrl": "provider.example.com/registration",
-                    "x-imssf-termsOfServiceUrl": "provider.example.com/terms",
-                    "flows": {
-                        "authorizationCode": {
-                            "tokenUrl": "provider.example.com/token",
-                            "authorizationUrl": "provider.example.com/authorize",
-                            "refreshUrl": "provider.example.com/token",
-                            "scopes": {
-                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/delete" : "...",
-                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/readonly" : "...",
-                                "https://purl.imsglobal.org/spec/clr/v2p0/scope/replace" : "..."
-                            }
-                        }
-                    }
-                }
-            },
-            "schemas": {
-                ...
-            }
-        }
-        ...
-    
-      </pre>
+<pre class="http example" title="Sample getServiceDescription response">
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-2.  Register your client using OAuth 2.0 Dynamic Client Registration Protocol
-    [[RFC7591]]. To do that, make a POST call to the endpoint defined in the
-    `x-imssf-registrationUrl` field from the previous step.
+...
+"components": {
+	"securitySchemes": {
+		"OAuth2ACG": {
+			"type": "oauth2",
+			"description": "OAuth 2.0 Authorization Code Grant authorization",
+			"x-imssf-name": "Example Provider",
+			"x-imssf-privacyPolicyUrl": "provider.example.com/privacy",
+			"x-imssf-registrationUrl": "provider.example.com/registration",
+			"x-imssf-termsOfServiceUrl": "provider.example.com/terms",
+			"flows": {
+				"authorizationCode": {
+					"tokenUrl": "provider.example.com/token",
+					"authorizationUrl": "provider.example.com/authorize",
+					"refreshUrl": "provider.example.com/token",
+					"scopes": {
+						"https://purl.imsglobal.org/spec/clr/v2p0/scope/delete" : "...",
+						"https://purl.imsglobal.org/spec/clr/v2p0/scope/readonly" : "...",
+						"https://purl.imsglobal.org/spec/clr/v2p0/scope/replace" : "..."
+					}
+				}
+			}
+		}
+	},
+	"schemas": {
+		...
+	}
+}
+...
 
-    <pre class="http example" title="Sample registration request">
-    	POST /connect/register HTTP/1.1
-    	Host: auth.1edtech.org
-    	Accept: application/json
-    	Content-Type: application/json; charset=utf-8
-    
-    	{
-    	"client_name": "Example Client Application",
-    	"client_uri": "https://client.1edtech.org/",
-    	"logo_uri": "https://client.1edtech.org/logo.png",
-    	"tos_uri": "https://client.1edtech.org/terms",
-    	"policy_uri": "https://client.1edtech.org/privacy",
-    	"software_id": "c88b6ed8-269e-448e-99be-7e2ff47167d1",
-    	"software_version": "v4.0.30319",
-    	"redirect_uris": [
-    		"https://client.1edtech.org/Authorize"
-    	],
-    	"token_endpoint_auth_method": "client_secret_basic",
-    	"grant_types": [
-    		"authorization_code",
-    		"refresh_token"
-    	],
-    	"response_types": [
-    		"code"
-    	],
-    	"scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/delete https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly https://purl.imsglobal.org/spec/ob/v3p0/scope/replace offline_access"
-    }
-    
-    </pre>
+</pre>
 
-    The response object will contain the details needed to perform the OAuth 2.0
-    Authorization Code Grant flow (`client_id`, `client_secret`, among others).
+Register your client using OAuth 2.0 Dynamic Client Registration Protocol
+[[RFC7591]]. To do that, make a POST call to the endpoint defined in the
+`x-imssf-registrationUrl` field from the previous step.
 
-3.  Acquire an access token following OAuth 2.0 Authorization Code Grant flow as
-    described in then IMS Security Framework [[SEC-11]]. Briefly, it consists in
-    building the `authorizationUrl` from the url defined in the
-    `authorizationUrl` field gotten from step one with some query parameters.
-    The use of Proof Key for Code Exchange (PKCE) [[RFC7636]] is recommended.
+<pre class="http example" title="Sample registration request">
+	POST /connect/register HTTP/1.1
+	Host: auth.1edtech.org
+	Accept: application/json
+	Content-Type: application/json; charset=utf-8
 
-    Once built, redirect the user to this url in order to start the OAuth 2.0
-    Authorization Code Grant flow.
+	{
+	"client_name": "Example Client Application",
+	"client_uri": "https://client.1edtech.org/",
+	"logo_uri": "https://client.1edtech.org/logo.png",
+	"tos_uri": "https://client.1edtech.org/terms",
+	"policy_uri": "https://client.1edtech.org/privacy",
+	"software_id": "c88b6ed8-269e-448e-99be-7e2ff47167d1",
+	"software_version": "v4.0.30319",
+	"redirect_uris": [
+		"https://client.1edtech.org/Authorize"
+	],
+	"token_endpoint_auth_method": "client_secret_basic",
+	"grant_types": [
+		"authorization_code",
+		"refresh_token"
+	],
+	"response_types": [
+		"code"
+	],
+	"scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/delete https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly https://purl.imsglobal.org/spec/ob/v3p0/scope/replace offline_access"
+}
 
-    <pre class="http example" title="Sample ACG authorization request (line breaks for clarity)">
-    	HTTP/1.1 302 Found
-    	Location: https://auth.1edtech.org/authorize?
-    	client_id=4ad36680810420ed
-    	&response_type=code
-    	&scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%ob%2Fv3p0%2Fscope%2Fassertion.readonly%20offline_access
-    	&redirect_uri=https%3A%2F%client.1edtech.org%2FAuthorize
-    	&state=26357667-94df-4a14-bcb1-f55449ddd98d
-    	&code_challenge=XeDw66i9FLjn7XaecT_xaFyUWWfUub02Kw118n-jbEs
-    	&code_challenge_method=S256
-    </pre>
+</pre>
 
-    Once the autorization is made, the authorization server will redirect the
-    browser back to the specified `redirect_uri` with the `code`, `scope`, and
-    `state` query string parameters.
+The response object will contain the details needed to perform the OAuth 2.0
+Authorization Code Grant flow (`client_id`, `client_secret`, among others).
 
-    Then, you have to acquire an access token by making a POST request to the
-    `tokenUrl` gotten from the Servide Description endpoint. The HTTP POST
-    request MUST include a Basic authorization header with the `client_id` and
-    `client_secret` provided in the registration response. The body of the token
-    request MUST include the following form fields: `grant_type`, `code`,
-    `redirect_uri`, `scope` and `code_verifier`.
+Acquire an access token following OAuth 2.0 Authorization Code Grant flow as
+described in then IMS Security Framework [[SEC-11]]. Briefly, it consists in
+building the `authorizationUrl` from the url defined in the `authorizationUrl`
+field gotten from step one with some query parameters. The use of Proof Key for
+Code Exchange (PKCE) [[RFC7636]] is recommended.
 
-    <pre class="http example" title="Sample ACG token request (line breaks for clarity)">
-        POST /token HTTP/1.1
-        Host: auth.1edtech.org
-        Authorization: Basic NDE2ZjI1YjhjMWQ5OThlODoxNWQ5MDA4NTk2NDdkZDlm
-        Content-Type: application/x-www-form-urlencoded
-    
-        grant_type=authorization_code
-          &code=7c7a73263ee14b2b48073d0615f286ec74f6636689046cb8dbede0b5e87a1338
-          &redirect_uri=https%3A%2F%client.1edtech.org%2FAuthorize
-          &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%2Fob%2Fv3p0%2Fscope%2Fassertion.readonly+offline_access
-          &code_verifier=mYUQfKNgI1lSbY8EqtvNHLPzu0x%2FcVKO3fpWnX4VE5I%3D
-    </pre>
+Once built, redirect the user to this url in order to start the OAuth 2.0
+Authorization Code Grant flow.
 
-    The response of this call will contain the access token to use in future
-    calls to the API.
+<pre class="http example" title="Sample ACG authorization request (line breaks for clarity)">
+	HTTP/1.1 302 Found
+	Location: https://auth.1edtech.org/authorize?
+	client_id=4ad36680810420ed
+	&response_type=code
+	&scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%ob%2Fv3p0%2Fscope%2Fassertion.readonly%20offline_access
+	&redirect_uri=https%3A%2F%client.1edtech.org%2FAuthorize
+	&state=26357667-94df-4a14-bcb1-f55449ddd98d
+	&code_challenge=XeDw66i9FLjn7XaecT_xaFyUWWfUub02Kw118n-jbEs
+	&code_challenge_method=S256
+</pre>
 
-    <pre class="http example" title="Sample ACG token response">
-        HTTP/1.1 200 OK
-        Cache-Control: no-store, no-cache, max-age=0
-        Pragma: no-cache
-        Content-Type: application/json; charset=UTF-8
-    
-        {
-          "access_token": "863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92",
-          "refresh_token": "tGzv3JOkF0XG5Qx2TlKWIA",
-          "expires_in": 3600,
-          "token_type": "Bearer",
-          "scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly offline_access"
-        }
-    </pre>
+Once the authorization is made, the authorization server will redirect the
+browser back to the specified `redirect_uri` with the `code`, `scope`, and
+`state` query string parameters.
+
+Then, you have to acquire an access token by making a POST request to the
+`tokenUrl` gotten from the Service Description endpoint. The HTTP POST request
+MUST include a Basic authorization header with the `client_id` and
+`client_secret` provided in the registration response. The body of the token
+request MUST include the following form fields: `grant_type`, `code`,
+`redirect_uri`, `scope` and `code_verifier`.
+
+<pre class="http example" title="Sample ACG token request (line breaks for clarity)">
+	POST /token HTTP/1.1
+	Host: auth.1edtech.org
+	Authorization: Basic NDE2ZjI1YjhjMWQ5OThlODoxNWQ5MDA4NTk2NDdkZDlm
+	Content-Type: application/x-www-form-urlencoded
+
+	grant_type=authorization_code
+		&code=7c7a73263ee14b2b48073d0615f286ec74f6636689046cb8dbede0b5e87a1338
+		&redirect_uri=https%3A%2F%client.1edtech.org%2FAuthorize
+		&scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%2Fob%2Fv3p0%2Fscope%2Fassertion.readonly+offline_access
+		&code_verifier=mYUQfKNgI1lSbY8EqtvNHLPzu0x%2FcVKO3fpWnX4VE5I%3D
+</pre>
+
+The response of this call will contain the access token to use in future calls
+to the API.
+
+<pre class="http example" title="Sample ACG token response">
+	HTTP/1.1 200 OK
+	Cache-Control: no-store, no-cache, max-age=0
+	Pragma: no-cache
+	Content-Type: application/json; charset=UTF-8
+
+	{
+		"access_token": "863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92",
+		"refresh_token": "tGzv3JOkF0XG5Qx2TlKWIA",
+		"expires_in": 3600,
+		"token_type": "Bearer",
+		"scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly offline_access"
+	}
+</pre>
+
+#### User stories for an issuer (API consumer) and host (API provider)
 
 Learn how to add on support for the OB 3.0 API as an Issuer to a simple product
 that Issuers who completed the issuer quickstart above. Completing this portion
@@ -507,15 +508,18 @@ certification as an Open Badges Issuer (with API service-consumer-write support)
 > As a badge holder, I can inform my issuer of my selected Open Badges host
 > service.
 
-Provide the base url of the selected Open Badges host service to he issuer.
+Provide the base url or domain of the selected Open Badges host service to the
+issuer. This could utilize a text input where a user can paste a URL, or a
+consumer service could add known service providers to a list, presenting the
+manual input as an advanced option.
 
 > As an issuer service, I can discover information about an Open Badges host
 > service.
 
-Call the `getServiceDescription` endpoint from the base url of the Open Badges
-host service.
+The service consumer will call the `getServiceDescription` endpoint from the
+base url of the Open Badges service provider (host).
 
-> As an issuer service, I can register with a Open Badges host service.
+> As an issuer service, I can register with a Open Badges host service provider.
 
 By performing the OAuth 2.0 Client Dynamic Registration [[RFC7591]] to the
 endpoint defined in the `x-imssf-registrationUrl` field of the Open Badges Host
@@ -524,11 +528,15 @@ service description.
 > As a badge holder, I can request and approve a connection between my issuer
 > and my host account.
 
-By following the OAuth 2.0 Authorization Code Grant flow between the issuer and
-the host account.
+By following the OAuth 2.0 Authorization Code Grant flow in their browser,
+following redirects between the issuer and the host service.
 
-> As a badge holder, I can select one, some or all AchievmentCredentials to
+> As a badge holder, I can select one, some or all `OpenBadgeCredentials` to
 > transmit to my host account.
+
+A basic service consumer (write) integration would typically push all awarded
+badges to the host, and a more advanced service consumer may enable users to
+select a specific scope of credentials for transmission.
 
 > As a badge holder, I can see that new badges I am awarded are automatically
 > transmitted to my host, even when I am not interacting with either the issuer
@@ -538,7 +546,11 @@ the host account.
 > As a badge holder, I can deauthorize my issuer from connection to my Open
 > Badges host.
 
-By revoking the access token granted to the issuer from your Open Badges host.
+By revoking the access token granted to the issuer from within the Open Badges
+(service provider) interface.
+
+> As a user who has revoked consumer access to my host, I should see the broken
+> connection within the consumer app and be able to initiate reauthorization.
 
 While authenticated with a host service, one action users may take is to view
 the connected issuer(s) or displayer(s) they have authorized and to revoke some
@@ -556,27 +568,24 @@ attempting to access a protected endpoint and then subsequently receive an error
 response when attempting
 [token refresh](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#token-refresh).
 
-#### Providers
+#### Provider basics
 
-Providers of the OB / CLR API must grant an OAuth 2.0 access token for making
-API calls. The granting of the token implies a set of steps:
+The above description of a consumer implementation shows the requests that are
+made of a provider. This guide does not go into depth about how to accomplish
+the provider side of these interactions, but the API roughly follows common
+OAuth patterns for (a) dynamic client registration, authorization code access
+token grants, and protected resource endpoint access.
 
 -   Provide the `ServiceDescription` endpoint with the right values for the
-    `OAuth2ACG`'s securitySchema. The urls there must point to your oauth
+    `OAuth2ACG`'s securitySchema. The urls there must point to your OAuth
     related endpoints.
 -   Allow Registration of clients using `Dynamic Registration`.
 -   Implement OAuth 2.0 Authorization Code Grant flow for granting tokens.
-
-### Key terms definitions
-
-### Spec documents (Normative References)
-
-The full set of documents is comprised of the following documents:
-
--   [[[OB-30]]]
--   [[[OB-CERT-30]]]
--   CLR 2.0
--   CLR CERT 2.0
+-   Enable access to protected resources to requests authenticated with an
+    appropriately scoped access token.
+-   Enable deauthorization of access tokens via user interface. Show a list of
+    authorized applications and their associated access details and enable users
+    to revoke authorizations from the service provider (host).
 
 ### Supporting resources (Code Libraries - See below)
 
@@ -593,13 +602,11 @@ Since Verifiable Credentials are extensible by design, CLR/OB defines a set of
 extensions (also called profile) for reflecting the domain both specifications
 cover: learning achievements, alignment with educational/workforce frameworks,
 etc. CLR/OB also defines the verification algorithm for these credentials, as
-well as a set of services for echanging these credentials.
+well as a set of services for exchanging these credentials.
 
 That means that `ClrCredential` and `AchievementCredential` are, in fact,
 Verifiable Credentials, and can be used wherever a Verifiable Credential can be.
-This assertion is not bidirectional, thus a Verificable Credential might not be
+This assertion is not bidirectional, thus a Verifiable Credential might not be
 an CLR/OB Credential. Only those credentials with the extension set defined by
 the CLR/OB spec, and verifiable via CLR/Ob verification algorithm, can be
 treated as CLR/OB Credentials.
-
-### Introduction to proofs
