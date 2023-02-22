@@ -684,7 +684,7 @@
             "$ref" : "#/components/schemas/OpenApiSecuritySchemes"
           }
         },
-        "additionalProperties" : false,
+        "additionalProperties" : true,
         "description" : "Holds a set of reusable objects for different aspects of the OAS. All objects defined within the components object will have no effect on the API unless they are explicitly referenced from properties outside the components object.",
         "x-class-pid" : "org.1edtech.ob.v3p0.openapicomponents.class"
       },
@@ -1029,7 +1029,7 @@
             "$ref" : "#/components/schemas/OpenApiInfo"
           }
         },
-        "additionalProperties" : false,
+        "additionalProperties" : true,
         "description" : "The Service Description Document (SDD) is a machine readable document that contains the description of the service features supported by the Provider/Platform. The SDD is an OpenAPI 3.0 (JSON) [[OPENAPIS-3.0]] structured document that MUST be a profiled version of the OpenAPI 3.0 (JSON) file provided provided with this specification. This profiled version contains all of the details about the supported set of service end-points, the supported optional data fields, definitions of the proprietary data fields supplied using the permitted extension mechanisms, definitions of the available proprietary endpoints, and information about the security mechanisms.",
         "x-class-pid" : "org.1edtech.ob.v3p0.servicedescriptiondocument.class"
       },
@@ -1368,7 +1368,7 @@
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.primitive.string.class"
           }
         },
-        "additionalProperties" : false,
+        "additionalProperties" : true,
         "description" : "Defines an OAuth2 security scheme that can be used by the operations.",
         "x-class-pid" : "org.1edtech.ob.v3p0.openapioauth2securityscheme.class"
       },
@@ -1460,7 +1460,7 @@
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.primitive.string.class"
           }
         },
-        "additionalProperties" : false,
+        "additionalProperties" : true,
         "description" : "The object provides metadata about the API. The metadata MAY be used by the clients if needed, and MAY be presented in editing or documentation generation tools for convenience.",
         "x-class-pid" : "org.1edtech.ob.v3p0.openapiinfo.class"
       },

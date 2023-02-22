@@ -132,7 +132,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Imsx_StatusInfo'
       security:
-      - ACGSecurity:
+      - OAuth2ACG:
         - https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly
       x-operation-pid: org.1edtech.ob.v3p0.rest.getcredentials.operation
     post:
@@ -249,7 +249,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Imsx_StatusInfo'
       security:
-      - ACGSecurity:
+      - OAuth2ACG:
         - https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert
       x-operation-pid: org.1edtech.ob.v3p0.rest.upsertcredential.operation
   /profile:
@@ -323,7 +323,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Imsx_StatusInfo'
       security:
-      - ACGSecurity:
+      - OAuth2ACG:
         - https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly
       x-operation-pid: org.1edtech.ob.v3p0.rest.getprofile.operation
     put:
@@ -417,7 +417,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Imsx_StatusInfo'
       security:
-      - ACGSecurity:
+      - OAuth2ACG:
         - https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update
       x-operation-pid: org.1edtech.ob.v3p0.rest.putprofile.operation
   /discovery:
@@ -561,7 +561,7 @@ components:
       properties:
         securitySchemes:
           $ref: '#/components/schemas/OpenApiSecuritySchemes'
-      additionalProperties: false
+      additionalProperties: true
       description: Holds a set of reusable objects for different aspects of the OAS.
         All objects defined within the components object will have no effect on the
         API unless they are explicitly referenced from properties outside the components
@@ -947,7 +947,7 @@ components:
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
         info:
           $ref: '#/components/schemas/OpenApiInfo'
-      additionalProperties: false
+      additionalProperties: true
       description: "The Service Description Document (SDD) is a machine readable document\
         \ that contains the description of the service features supported by the Provider/Platform.\
         \ The SDD is an OpenAPI 3.0 (JSON) [[OPENAPIS-3.0]] structured document that\
@@ -1339,7 +1339,7 @@ components:
           type: string
           description: MUST be the string `oauth2`.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
-      additionalProperties: false
+      additionalProperties: true
       description: Defines an OAuth2 security scheme that can be used by the operations.
       x-class-pid: org.1edtech.ob.v3p0.openapioauth2securityscheme.class
     RubricCriterionLevel:
@@ -1428,7 +1428,7 @@ components:
           type: string
           description: The version of the API.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
-      additionalProperties: false
+      additionalProperties: true
       description: "The object provides metadata about the API. The metadata MAY be\
         \ used by the clients if needed, and MAY be presented in editing or documentation\
         \ generation tools for convenience."
@@ -2038,7 +2038,7 @@ components:
         type: integer
         format: int32
   securitySchemes:
-    ACGSecurity:
+    OAuth2ACG:
       type: oauth2
       flows:
         authorizationCode:
