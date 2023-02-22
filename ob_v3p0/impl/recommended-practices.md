@@ -468,7 +468,7 @@ CASE defines an information model consisting in, briefly, a container (`CFDoc`)
 of a set of academic standard/competency document definitions (`CFItem`). These
 `CFItem` can have associations with others `CFItem` of another containers,
 allowing several types of relationships between learning objectives/competences
-from one instituition and another.
+from one institution and another.
 
 In Open Badges and Comprehensive Learner Record, the recording of related
 skills, competencies, standards, and other associations are enabled by the
@@ -521,76 +521,75 @@ framework, i.e `CFItem`.
 A Skill Assertion credential is just like a basic OpenBadgeCredential in how an
 Achievement is included, except that it makes a claim referencing an Achievement
 that is generic to allow for use by many possible issuers. The Achievement may
-be aligned to different nodes, such CASE `CFItem` or the Credential Registry and
-described in CTDL.
+describe alignment to external competency or skill definitions, such as a
+`CFItem`, but the most important aspect of the skill assertion pattern is the
+shared use of a common achievement that represents a skill or competency across
+multiple `OpenBadgeCredential` issuers.
+
+This usage of shared achievements enables consumers to describe specific
+achievements that they would like learners to hold without being particular
+about where the learner obtains a credential certifying that achievement. This
+recognizes the many pathways that lifelong learners find to attain comparable
+skills.
 
 <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
     data-allowadditionalproperties="false" title="Skill Assertion (Credential Registry)">
 {
-	"@context": [
-		"https://www.w3.org/2018/credentials/v1",
-		"https://purl.imsglobal.org/spec/ob/v3p0/context.json",
-		"https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
-	],
-	"id": "http://1edtech.edu/credentials/3732",
-	"type": [
-		"VerifiableCredential",
-		"OpenBadgeCredential"
-	],
-	"name": "Solve and graph linear equations and inequalities",
-	"credentialSubject": {
-		"id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-		"type": "AchievementSubject",
-		"achievement": {
-			"id": "https://example.com/achievements/math/linear-1",
-			"type": "Achievement",
-			"alignment": [{
-        "type": "Alignment",
-        "targetCode": "ce-6369c51f-4d86-4592-a761-8b32ae70a045",
-        "targetFramework": "Ivy Tech Community College of Indiana, MATH 135, FINITE MATH",
-        "targetName": "Solve and graph linear equations and inequalities",
-        "targetType": "ceasn:Competency",
-        "targetUrl": "https://credentialfinder.org/competency/ce-6369c51f-4d86-4592-a761-8b32ae70a045"
-      }],
-			"achievementType": "Competency",
-			"creator": {
-				"id": "https://example.com/issuers/123767",
-				"type": "Profile",
-				"name": "Example Industry Group",
-				"url": "https://example.com",
-				"description": "Example Industry Group is a consortium of luminaries who publish skills data for common usage.",
-				"email": "info@exammple.com"
-			},
-			"criteria": {
-				"narrative": "Learners must demonstrate understanding of linear algebra and graphic representation of linear equations."
-			},
-			"description": "This achievement represents developing capability to solve and graph linear equations and inequalities",
-			"image": {
-				"id": "https://example.com/achievements/math/linear-1/image",
-				"type": "Image",
-				"caption": "A line, sloping upward optimistically"
-			},
-			"name": "Linear equations and inequalities"
-		}
-	},
-	"issuer": {
-		"id": "https://1edtech.edu/issuers/565049",
-		"type": "Profile",
-		"name": "1EdTech University",
-		"url": "https://1edtech.edu",
-		"phone": "1-222-333-4444",
-		"description": "1EdTech University provides online degree programs.",
-		"image": {
-			"id": "https://1edtech.edu/logo.png",
-			"type": "Image",
-			"caption": "1EdTech University logo"
-		},
-		"email": "registrar@1edtech.edu"
-	},
-	"issuanceDate": "2022-07-01T00:00:00Z",
-	"credentialSchema": [{
-		"id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
-		"type": "1EdTechJsonSchemaValidator2019"
-	}]
+    "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://purl.imsglobal.org/spec/ob/v3p0/context.json",
+        "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
+    ],
+    "id": "http://1edtech.edu/credentials/3732",
+    "type": ["VerifiableCredential", "OpenBadgeCredential"],
+    "name": "Solve and graph linear equations and inequalities",
+    "credentialSubject": {
+        "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+        "type": "AchievementSubject",
+        "achievement": {
+            "id": "https://example.com/achievements/math/linear-1",
+            "type": "Achievement",
+            "achievementType": "Competency",
+            "creator": {
+                "id": "https://example.com/issuers/123767",
+                "type": "Profile",
+                "name": "Example Industry Group",
+                "url": "https://example.com",
+                "description": "Example Industry Group is a consortium of luminaries who publish skills data for common usage.",
+                "email": "info@exammple.com"
+            },
+            "criteria": {
+                "narrative": "Learners must demonstrate understanding of linear algebra and graphic representation of linear equations."
+            },
+            "description": "This achievement represents developing capability to solve and graph linear equations and inequalities",
+            "image": {
+                "id": "https://example.com/achievements/math/linear-1/image",
+                "type": "Image",
+                "caption": "A line, sloping upward optimistically"
+            },
+            "name": "Linear equations and inequalities"
+        }
+    },
+    "issuer": {
+        "id": "https://1edtech.edu/issuers/565049",
+        "type": "Profile",
+        "name": "1EdTech University",
+        "url": "https://1edtech.edu",
+        "phone": "1-222-333-4444",
+        "description": "1EdTech University provides online degree programs.",
+        "image": {
+            "id": "https://1edtech.edu/logo.png",
+            "type": "Image",
+            "caption": "1EdTech University logo"
+        },
+        "email": "registrar@1edtech.edu"
+    },
+    "issuanceDate": "2022-07-01T00:00:00Z",
+    "credentialSchema": [
+        {
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }
+    ]
 }
 </pre>
