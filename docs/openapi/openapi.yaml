@@ -132,7 +132,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Imsx_StatusInfo'
       security:
-      - OAuth2ACG:
+      - ACGSecurity:
         - https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly
       x-operation-pid: org.1edtech.ob.v3p0.rest.getcredentials.operation
     post:
@@ -249,7 +249,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Imsx_StatusInfo'
       security:
-      - OAuth2ACG:
+      - ACGSecurity:
         - https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert
       x-operation-pid: org.1edtech.ob.v3p0.rest.upsertcredential.operation
   /profile:
@@ -323,7 +323,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Imsx_StatusInfo'
       security:
-      - OAuth2ACG:
+      - ACGSecurity:
         - https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly
       x-operation-pid: org.1edtech.ob.v3p0.rest.getprofile.operation
     put:
@@ -417,7 +417,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Imsx_StatusInfo'
       security:
-      - OAuth2ACG:
+      - ACGSecurity:
         - https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update
       x-operation-pid: org.1edtech.ob.v3p0.rest.putprofile.operation
   /discovery:
@@ -2038,7 +2038,7 @@ components:
         type: integer
         format: int32
   securitySchemes:
-    OAuth2ACG:
+    ACGSecurity:
       type: oauth2
       flows:
         authorizationCode:
