@@ -1,5 +1,5 @@
 var _contributors = [
-  {name: "Nate Otto", company: "Concentric Sky, self", companyURL: "", role: "Invited Expert"},
+  {name: "Nate Otto", company: "Concentric Sky, Skybridge Skills", companyURL: "", role: "Invited Expert"},
   {name: "Kerri Lemoie", company: "Concentric Sky, RANDA", companyURL: "", role: "Editor"},
   {name: "Phillip Long", company: "Concentric Sky", companyURL: "", role: "Invited Expert"},
   {name: "Marty Reed", company: "RANDA Solutions", companyURL: "", role: "Co-chair, CLR"},
