@@ -194,46 +194,17 @@ Recommendations for the use of share URLs include:
 
 -   Give data subjects easy to use options to limit or grant access to data or
     inclusion of their data in directories. Do not publish learner achievement
-    data in credential format on unauthenticated URLs by default.
--   If Open Badges 2.0 verification endpoints are used, use content negotiation
-    on sharing URLs to enable the presentation of Use
-    [Open Graph Protocol](https://ogp.me) tags on the sharing URLs to enable
-    easy generation of card previews.
+    data in credential format on unauthenticated URLs by default. Pushing badges
+    to a dedicated backpack or wallet can enable that platform to generate and
+    appropriately protect sharing URLs with the data subject's consent in mind.
+-   If any Open Badges objects have HTTPS URLs as their `id`, such as
+    Achievement endpoints or Open Badges 2.0 verification endpoints are used for
+    legacy support by an issuer that also publishes objects using the current
+    version of the standard, use content negotiation on sharing URLs to enable
+    the presentation of Use [Open Graph Protocol](https://ogp.me) tags on the
+    sharing URLs to enable easy generation of card previews.
 
-### Inclusion of new OB and CLR metadata in OB 2.0 endpoints
-
-### Implementing the OB 3.0 API
-
-The OB API enables key use cases for interoperability between web services that
-manage Open Badges on holders' behalf. This is centered on an ecosystem of
-backpacks and clients. "Backpack" and "web wallet" are commonly used terms to
-refer to a web service that holds Open Badges and/or CLR credentials for
-learners, enabling them to manage and share them. Clients each often primarily
-act to **issue credentials** or to **verify credentials** to display or convert
-into local understanding of someone's capabilities and accomplishments.
-Typically learners authorize issuers to send their credentials to backpacks and
-then from those backpacks, authorize verifier clients to access them.
-
-This is an ambitious ecosystem to propose, even though users are familiar with
-the underlying OAuth and OpenID Connect experiences that tie together dozens of
-their online accounts. There is the addition of dynamic client registration and
-the wide variety of optional components these specifications feature.
-Implementers should prioritize high success-rate user experiences in credential
-acceptance. Products should take into account many factors and opportunities for
-user failure including:
-
--   High conceptual complexity or use of jargon Forgotten passwords or no-longer
-    working email addresses
--   Differing choices of DID methods, key formats/signature suites, or
-    credential exchange protocol choices across different certifiable products.
-
-Products that best aim to teach users a controlled number of concepts and
-provide interfaces offering easy successful options for the most common actions
-have a better chance of ensuring learners can take advantage of their digital
-credentials. No learner should be disadvantaged by poor interoperability
-experiences and dead ends.
-
-#### Use Case: Issue a Credential to a Learner
+#### Open Badges API recommendations
 
 Consider the following example two products using the OB 3.0 API to interact:
 
@@ -310,8 +281,37 @@ Other recommendations related to implementing the API include:
     consumer application they grant access to will be able to read any badges
     added to the collection at the time of the request, even if the badge is
     added to the collection after the original access grant was approved.
+-   Products should take into account many factors and opportunities for user
+    failure including high conceptual complexity or use of jargon, forgotten
+    passwords or no-longer working email addresses, and potential
+    incompatibilities due to differing choices of DID methods, key
+    formats/signature suites, or credential exchange protocol choices across
+    different certifiable products.
 
-### Implementing the CLR 2.0 API
+The OB API enables key use cases for interoperability between web services that
+manage Open Badges on holders' behalf. This is centered on an ecosystem of
+backpacks and clients. "Backpack" and "web wallet" are commonly used terms to
+refer to a web service that holds Open Badges and/or CLR credentials for
+learners, enabling them to manage and share them. Clients each often primarily
+act to **issue credentials** or to **verify credentials** to display or convert
+into local understanding of someone's capabilities and accomplishments.
+Typically learners authorize issuers to send their credentials to backpacks and
+then from those backpacks, authorize verifier clients to access them.
+
+This is an ambitious ecosystem to propose, even though users are familiar with
+the underlying OAuth and OpenID Connect experiences that tie together dozens of
+their online accounts. There is the addition of dynamic client registration and
+the wide variety of optional components these specifications feature.
+Implementers should prioritize high success-rate user experiences in credential
+acceptance.
+
+Products that best aim to teach users a controlled number of concepts and
+provide interfaces offering easy successful options for the most common actions
+have a better chance of ensuring learners can take advantage of their digital
+credentials. No learner should be disadvantaged by poor interoperability
+experiences and dead ends.
+
+### CLR 2.0 API recommendations
 
 As `ClrCredential`s bundle a number of individual `OpenBadgeCredentials`
 together, they sometimes offer additional information about the relationships

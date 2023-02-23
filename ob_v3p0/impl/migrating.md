@@ -47,3 +47,75 @@ interoperable implementation of of the Open Badges and Comprehensive Learner
 Record specifications. This serves goals of enabling (a) immediate improvement
 of last-gen credentials due to next-gen thinking, and (b) gradual technology
 change.
+
+### How to support both OB 2.0 and OB 3.0 as an Issuer
+
+The quickstart in this implementation guide provides an example implementation
+using a `did:web` issuer identifier, HTTPS Achievement identifier, and a
+`urn:uuid` in the `OpenBadgeCredential`. Meanwhile, an issuer may wish to avoid
+breaking support for OB 2.0 to ensure learners can still use their badges in
+tools that do not yet support the new version. This is possible, and can work
+elegantly to express the relationships between related objects if a few steps
+are followed. The _same achievement data_ may be exposed in OB 2.0 and OB
+3.0/CLR 2.0 formats.
+
+For example, a `related` association may be made within an `Achievement` and the
+OB 2.0 equivalent `BadgeClass` that represents the same achievement. The issuer
+service does not store the data in two separate formats, but it is capable of
+serializing the data into the relevant formats when requested at different
+endpoints. It is a helpful hint to include the IRI of the legacy BadgeClass type
+(but because the term `BadgeClass` doesn't appear in the OB 3.0 context and the
+two contexts are not compatible with one another to be applied to the same
+document, the full IRI `https://w3id.org/openbadges#BadgeClass` is used here).
+
+<pre class="json">
+{
+    "@context": "https://purl.imsglobal.org/spec/ob/v3p0/context.json",
+    "type": ["Achievement", "https://w3id.org/openbadges#BadgeClass"],
+    "@language": "en",
+    "id": "https://example.com/achievements/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6"
+    ...
+    "related": [
+        {
+            "type": [
+                "Related",
+                "https://w3id.org/openbadges#BadgeClass"
+            ],
+            "id": "https://example.com/badgeclasses/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6",
+            "version": "Open Badges v2p0"
+        },
+        {
+            "type": ["Related"],
+            "id": "https://example.com/achievements/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6/es",
+            "@language": "es"
+        }
+    ]
+}
+</pre>
+
+-   There is an existing OB 2.0 endpoint for a BadgeClass at HTTPS id
+    `https://example.com/badgeclasses/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6`
+-   Implement the OB 3.0 serialization at an endpoint
+    `https://example.com/achievements/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6`
+-   This example also shows another entry in the related array, to describe a
+    Spanish translation of the achievement, serialized in OB 3.0 `Achievement`
+    format.
+
+An OB 2.0 related property could be implemented to make the reverse connection
+from the OB 2.0 BadgeClass:
+
+<pre class="json">
+{
+    "@context": "https://w3id.org/openbadges/v2",
+    "type": "BadgeClass",
+    "id": "https://example.com/badgeclasses/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6",
+    "related": [
+        "type": ["https://purl.imsglobal.org/spec/vc/ob/vocab.html#Achievement"],
+        "id": "https://example.com/achievements/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6",
+        "version": "Open Badges v3p0"
+    ]
+}
+</pre>
+
+-   Again, the type IRI is spelled out in full, because `Achievement` is not
+    defined in the OB 2.0 context.

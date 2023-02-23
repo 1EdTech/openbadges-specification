@@ -1,12 +1,14 @@
 ## Getting started (for developers)
 
-### Issuer quickstart
-
 It may seem like an overwhelming task to implement Open Badges 3.0 or CLR 2.0,
 but there are straightforward options that can take your product to a certified
-launch simply. Here is a quickstart tutorial to build an MVP of an Open Badges
-product that issues Open Badges to learners. It aims to sketch out a simple path
-to a successful conformant implementation of Open Badges 3.0 issuance. From this
+launch simply.
+
+### Issuer quickstart
+
+Here is a quickstart tutorial to build an MVP of an Open Badges product that
+issues Open Badges to learners. It aims to sketch out a simple path to a
+successful conformant implementation of Open Badges 3.0 issuance. From this
 base, optional components of the specifications can be layered on to implement
 relevant APIs, package records in CLR format, implementing revocation or refresh
 services, and more. Products that complete all the user stories in this
@@ -253,7 +255,7 @@ which upon activation yields a signed verifiable credential like the following.
 		"https://purl.imsglobal.org/spec/ob/v3p0/context.json",
 		"https://w3id.org/security/suites/ed25519-2020/v1"
 	],
-	"id": "http://example.com/credentials/3527",
+	"id": "urn:uuid:a9fc82eb-416f-47c3-8786-de890331d4a5",
 	"type": [
 		"VerifiableCredential",
 		"OpenBadgeCredential"
@@ -327,6 +329,14 @@ Several things to note about this credential.
     a fragment identifier within the issuer's identifier. This is the same ID
     that appeared in the representation of the key in the issuer DID document
     itself.
+-   This credential uses the id `urn:uuid:a9fc82eb-416f-47c3-8786-de890331d4a5`.
+    Some implementers might choose an HTTPS URL on the same domain as the issuer
+    DID Document and the Achievement, but is not assumed that the general public
+    would be able to access data about this credential if they retrieved the
+    `id` of the document. Other issuers may allow learners to rely on badge
+    backpacks or mobile wallets to provide sharing capabilities that match the
+    use case. See discussion:
+    [Sharing badge links to social media](#sharing-open-badges-and-clr-links-as-urls-and-to-social-media).
 
 Follow the steps in the Conformance Certification Guide for the
 [issuer role](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#conformance-and-certification-guide)
@@ -500,10 +510,14 @@ to the API.
 
 #### User stories for an issuer (API consumer) and host (API provider)
 
-Learn how to add on support for the OB 3.0 API as an Issuer to a simple product
-that Issuers who completed the issuer quickstart above. Completing this portion
-of the quickstart will potentially qualify a product for conformance
-certification as an Open Badges Issuer (with API service-consumer-write support)
+Here are a selection of user stories covering how to add on support for the OB
+3.0 API as an Issuer to a simple product after completing the issuer quickstart
+above. Completing the consumer-side portion of the will potentially qualify a
+product for conformance certification as an Open Badges Issuer (with API
+service-consumer-write support). This is a presentation of the experience of
+using the API from the user's perspective. Additional under-the-hood technical
+details for each procedure are described in the Specification section 6:
+[Open Badges API](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#api).
 
 > As a badge holder, I can inform my issuer of my selected Open Badges host
 > service.
@@ -587,7 +601,7 @@ token grants, and protected resource endpoint access.
     authorized applications and their associated access details and enable users
     to revoke authorizations from the service provider (host).
 
-### Supporting resources (Code Libraries - See below)
+### Supporting Technical Resources
 
 -   [OpenAPI 3.0 JSON File for Open Badges API](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.json)
 -   [OpenAPI 3.0 YAML File for Open Badges API](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.yaml)
