@@ -1348,6 +1348,25 @@
         "description" : "This is the container for the status code and associated information returned within the HTTP messages received from the Service Provider.",
         "x-class-pid" : "org.1edtech.ob.v3p0.imsx_statusinfo.class"
       },
+      "TermsOfUse" : {
+        "required" : [ "type" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "The value MUST be a URI identifying the term of use.",
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.uri.class"
+          },
+          "type" : {
+            "type" : "string",
+            "description" : "The value MUST identify the type of the terms of use.",
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.iri.class"
+          }
+        },
+        "additionalProperties" : true,
+        "description" : "Terms of use can be utilized by an issuer or a holder to communicate the terms under which a verifiable credential or verifiable presentation was issued",
+        "x-class-pid" : "org.1edtech.ob.v3p0.termsofuse.class"
+      },
       "OpenApiOAuth2SecurityScheme" : {
         "required" : [ "type", "x-imssf-registrationUrl" ],
         "type" : "object",
@@ -1585,6 +1604,19 @@
               "description" : "A `String` in Compact JWS format [[RFC7515]]."
             },
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.compactjws.class"
+          },
+          "termsOfUse" : {
+            "description" : "The value of the `termsOfUse` property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credentia",
+            "oneOf" : [ {
+              "$ref" : "#/components/schemas/TermsOfUse"
+            }, {
+              "minItems" : 0,
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/TermsOfUse"
+              }
+            } ],
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.termsofuse.class"
           },
           "issuanceDate" : {
             "type" : "string",
@@ -1871,6 +1903,19 @@
               }
             } ],
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.credentialschema.class"
+          },
+          "termsOfUse" : {
+            "description" : "The value of the `termsOfUse` property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credentia",
+            "oneOf" : [ {
+              "$ref" : "#/components/schemas/TermsOfUse"
+            }, {
+              "minItems" : 0,
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/TermsOfUse"
+              }
+            } ],
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.termsofuse.class"
           },
           "credentialSubject" : {
             "$ref" : "#/components/schemas/EndorsementSubject"
