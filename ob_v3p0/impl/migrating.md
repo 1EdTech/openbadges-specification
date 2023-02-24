@@ -54,10 +54,13 @@ The quickstart in this implementation guide provides an example implementation
 using a `did:web` issuer identifier, HTTPS Achievement identifier, and a
 `urn:uuid` in the `OpenBadgeCredential`. Meanwhile, an issuer may wish to avoid
 breaking support for OB 2.0 to ensure learners can still use their badges in
-tools that do not yet support the new version. This is possible, and can work
+tools that do not yet support the new version. This is possible and can work
 elegantly to express the relationships between related objects if a few steps
 are followed. The _same achievement data_ may be exposed in OB 2.0 and OB
-3.0/CLR 2.0 formats.
+3.0/CLR 2.0 formats. It is not advisable to attempt to publish a combined
+expression of an entity that is compatible with OB 3.0/CLR 2.0 and the previous
+version formats, but it is possible to express the relationship between related
+objects using different IDs for the new versions of these specifications.
 
 For example, a `related` association may be made within an `Achievement` and the
 OB 2.0 equivalent `BadgeClass` that represents the same achievement. The issuer
@@ -109,13 +112,81 @@ from the OB 2.0 BadgeClass:
     "@context": "https://w3id.org/openbadges/v2",
     "type": "BadgeClass",
     "id": "https://example.com/badgeclasses/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6",
-    "related": [
+    "related": [{
         "type": ["https://purl.imsglobal.org/spec/vc/ob/vocab.html#Achievement"],
         "id": "https://example.com/achievements/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6",
         "version": "Open Badges v3p0"
-    ]
+    }]
 }
 </pre>
 
 -   Again, the type IRI is spelled out in full, because `Achievement` is not
     defined in the OB 2.0 context.
+
+The issuer profile shown in the quickstart uses a `did:web` identifier, and the
+issuer must use an HTTPS identifier for the OB 2.0 hosted profile. Within the
+3.0 `Profile` as embedded in a credential, an `otherIdentifier` property is
+described that may be used to link to the 2.0 representation.
+
+Additionally, within the DID Document context, an `alsoKnownAs` property is
+available, that may express the HTTPS id of the OB 2.0 representation of the
+profile.
+
+<pre class="json">
+{
+	"@context": [
+		"https://www.w3.org/ns/did/v1",
+		"https://www.w3.org/2018/credentials/v1",
+		"https://purl.imsglobal.org/spec/ob/v3p0/context.json",
+		"https://w3id.org/security/suites/ed25519-2020/v1"
+	],
+	"id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
+    "alsoKnownAs": "https://example.com/issuers/v2p0/540e388e-2735-4c3e-9709-80142801c774",
+    "otherIdentifier": [{
+        "type": ["IdentifierEntry"],
+        "identifier": "https://example.com/issuers/v2p0/540e388e-2735-4c3e-9709-80142801c774",
+        "identifierType": "identifier"
+    }]
+    ...
+}
+</pre>
+
+Within the OB 2.0 representation of the issuer, a reverse link may be made with
+`related`, as was done with the BadgeClass
+
+<pre class="json">
+{
+    "@context": "https://w3id.org/openbadges/v2",
+    "id": "hhttps://example.com/issuers/v2p0/540e388e-2735-4c3e-9709-80142801c774",
+    "type": "Profile",
+    "name": "Example Institution",
+    "url": "https://example.com",
+    "email": "info@example.com",
+    "related": [{
+        "type": [
+            "https://purl.imsglobal.org/spec/vc/ob/vocab.html#Profile"
+        ],
+        "id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
+        "version": "Open Badges v3p0"
+    }]
+}
+</pre>
+
+### How to migrate from CLR 1.0 to CLR 2.0
+
+There is less of an ecosystem of consumption for CLR 1.0 than for OB 2.0, and
+the increased complexity of a CLR makes support for multiple versions more
+expensive than for Open Badges, so it is not likely to be worth the investment
+to maintain simultaneous serialization of both formats of packaged records. A
+CLR 2.0 platform that also serves as the issuer for the `OpenBadgeCredentials`
+packaged within the `ClrCredential` may choose to implement the above
+backwards-compatibility steps for increased visibility and shareability of the
+individual achievements. At the level of the CLR, it is likely that new
+consumption products coming on the scene will implement the capability to
+process CLR in the new 2.0 format rather than the legacy version.
+
+Migrating to CLR 2.0 involves a replacement of endpoints where CLR 1.0 documents
+were available with the implementation of the CLR 2.0 API. If there are existing
+clients or relying parties on the CLR 1.0 representations, the best path is to
+work with those clients to upgrade to 2.0 representations and transfer via API
+and then remove the 1.0 endpoints once a 2.0 channel has been established.
