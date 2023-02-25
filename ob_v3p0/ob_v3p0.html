@@ -1,224 +1,303 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <script
+            src="https://purl.imsglobal.org/respec/respec-1edtech.js"
+            class="remove"
+        ></script>
+        <script src="respec-support/local-biblio.js" class="remove"></script>
+        <script src="respec-support/contributors.js" class="remove"></script>
+        <script src="respec-support/iprs.js" class="remove"></script>
 
-<head>
-  <meta charset='utf-8'>
-  <script src='https://purl.imsglobal.org/respec/respec-1edtech.js' class='remove'></script>
-  <script src='respec-support/local-biblio.js' class='remove'></script>
-  <script src='respec-support/contributors.js' class='remove'></script>
-  <script src='respec-support/iprs.js' class='remove'></script>
+        <!-- Load VC proof add-on -->
+        <script
+            class="remove"
+            src="https://purl.imsglobal.org/respec/respec-vc.js"
+        ></script>
 
-  <!-- Load VC proof add-on -->
-  <script class="remove" src="https://purl.imsglobal.org/respec/respec-vc.js"></script>
+        <!-- Load the MPS configuration -->
+        <script class="remove" src="mps-config.js"></script>
 
-  <!-- Load the MPS configuration -->
-  <script class="remove" src="mps-config.js"></script>
+        <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
+        <script
+            class="remove"
+            src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js"
+            integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
 
-  <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
-  <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js"
-          integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script class="remove">
+            var respecConfig = {
+                mainSpecTitle: "Open Badges Specification",
+                mainSpecBiblioKey: "OB-30",
+                specTitle: "Open Badges Specification",
+                shortName: "ob",
+                specNature: "normative", // spec nature is "normative" or "informative"
+                specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
+                specVersion: "3.0",
+                docVersion: "1.0",
+                specStatus: "Candidate Final",
+                specDate: "February 6, 2023",
+                contributors: _contributors,
+                localBiblio: _localBiblio,
+                iprs: _iprs,
+                xref: ["did-core", "vc-data-model"],
 
-  <script class='remove'>
-    var respecConfig = {
-      mainSpecTitle: "Open Badges Specification",
-      mainSpecBiblioKey: "OB-30",
-      specTitle: "Open Badges Specification",
-      shortName: "ob",
-      specNature: "normative", // spec nature is "normative" or "informative"
-      specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
-      specVersion: "3.0",
-      docVersion: "1.0",
-      specStatus: "Candidate Final",
-      specDate: "February 6, 2023",
-      contributors: _contributors,
-      localBiblio: _localBiblio,
-      iprs: _iprs,
-      xref: [
-        "did-core",
-        "vc-data-model"
-      ],
+                // Remove for IMS Final
+                otherLinks: [
+                    {
+                        key: "Issue Tracker",
+                        data: [
+                            {
+                                value: "https://github.com/IMSGlobal/openbadges-specification/issues",
+                                href: "https://github.com/IMSGlobal/openbadges-specification/issues",
+                            },
+                        ],
+                    },
+                ],
 
-      // Remove for IMS Final
-      otherLinks: [{
-        key: "Issue Tracker",
-        data: [{
-          value: "https://github.com/IMSGlobal/openbadges-specification/issues",
-          href: "https://github.com/IMSGlobal/openbadges-specification/issues"
-        }]
-      }],
+                // Add the MPS configuration to respecConfig
+                mps: _mps,
 
-      // Add the MPS configuration to respecConfig
-      mps: _mps,
+                // Add VC proof examples
+                postProcess: [window.respecVc.createVcExamples],
+            };
+        </script>
+    </head>
 
-      // Add VC proof examples
-      postProcess: [
-        window.respecVc.createVcExamples
-      ],
-    };
-  </script>
-</head>
+    <body>
+        <section id="abstract" data-format="markdown">
+            <script class="transclude" data-id="abstract" src="abstract.md"></script>
+        </section>
 
-<body>
+        <section data-format="markdown">
+            <script
+                class="transclude"
+                data-id="introduction"
+                src="introduction.md"
+            ></script>
+        </section>
 
-  <section id="abstract" data-format="markdown">
-    <script class="transclude" data-id="abstract" src="abstract.md"></script>
-  </section>
+        <section data-format="markdown" class="informative">
+            <script class="transclude" data-id="overview" src="overview.md"></script>
+        </section>
 
-  <section data-format="markdown">
-    <script class="transclude" data-id="introduction" src="introduction.md"></script>
-  </section>
+        <section data-format="markdown" class="informative">
+            <script class="transclude" data-id="usecases" src="usecases.md"></script>
+        </section>
 
-  <section data-format="markdown" class="informative">
-    <script class="transclude" data-id="overview" src="overview.md"></script>
-  </section>
+        <section data-format="markdown" class="informative">
+            <script
+                class="transclude"
+                data-id="gettingstarted"
+                src="gettingstarted.md"
+            ></script>
+        </section>
 
-  <section data-format="markdown" class="informative">
-    <script class="transclude" data-id="usecases" src="usecases.md"></script>
-  </section>
+        <section class="normative" data-format="markdown">
+            <script class="transclude" data-id="docformat" src="docformat.md"></script>
+        </section>
 
-  <section data-format="markdown" class="informative">
-    <script class="transclude" data-id="gettingstarted" src="gettingstarted.md"></script>
-  </section>
+        <script class="transclude" data-id="api" src="api.html"></script>
 
-  <section class="normative" data-format="markdown">
-    <script class="transclude" data-id="docformat" src="docformat.md"></script>
-  </section>
+        <script class="transclude" data-id="security" src="security.html"></script>
 
-  <script class="transclude" data-id="api" src="api.html"></script>
+        <section class="normative" id="proofs-signatures" data-format="markdown">
+            <script class="transclude" data-id="integrity" src="integrity.md"></script>
+        </section>
 
-  <script class="transclude" data-id="security" src="security.html"></script>
+        <section class="normative" data-format="markdown">
+            <script
+                class="transclude"
+                data-id="verification"
+                src="verification.md"
+            ></script>
+        </section>
 
-  <section class="normative" id="proofs-signatures" data-format="markdown">
-    <script class="transclude" data-id="integrity" src="integrity.md"></script>
-  </section>
+        <section class="normative" data-format="markdown">
+            <script
+                class="transclude"
+                data-id="equalitycomparison"
+                src="equality-and-comparison.md"
+            ></script>
+        </section>
 
-  <section class="normative" data-format="markdown">
-    <script class="transclude" data-id="verification" src="verification.md"></script>
-  </section>
+        <script
+            class="transclude"
+            data-id="vc_extensions"
+            src="vc-extensions.html"
+        ></script>
 
-  <section class="normative" data-format="markdown">
-    <script class="transclude" data-id="equalitycomparison" src="equality-and-comparison.md"></script>
-  </section>
+        <section class="informative" data-format="markdown">
+            <script
+                class="transclude"
+                data-id="bestpractices"
+                src="bestpractices.md"
+            ></script>
+        </section>
 
-  <script class="transclude" data-id="vc_extensions" src="vc-extensions.html"></script>
+        <section data-format="markdown">
+            <script
+                class="transclude"
+                data-id="certification"
+                src="certification.md"
+            ></script>
+        </section>
 
-  <section class="informative" data-format="markdown">
-    <script class="transclude" data-id="bestpractices" src="bestpractices.md"></script>
-  </section>
+        <section class="appendix" id="serialization" data-format="markdown">
+            <script
+                class="transclude"
+                data-id="serialization"
+                src="serialization.md"
+            ></script>
+        </section>
 
-  <section data-format="markdown">
-    <script class="transclude" data-id="certification" src="certification.md"></script>
-  </section>
+        <section class="appendix" id="datamodels">
+            <h1>Data Models</h1>
+            <script class="transclude" data-id="datamodel" src="datamodel.html"></script>
+        </section>
 
-  <section class="appendix" id="serialization" data-format="markdown">
-    <script class="transclude" data-id="serialization" src="serialization.md"></script>
-  </section>
+        <section class="appendix" data-format="markdown">
+            <script class="transclude" data-id="extending" src="extending.md"></script>
+        </section>
 
-  <section class="appendix" id="datamodels">
-    <h1>Data Models</h1>
-    <script class="transclude" data-id="datamodel" src="datamodel.html"></script>
-  </section>
+        <section class="appendix">
+            <h2>Examples</h2>
+            <section>
+                <h3>Basic OpenBadgeCredential</h3>
+                <script
+                    class="transclude"
+                    data-id="basicCredential"
+                    src="examples/basicOpenBadgeCredential.html"
+                ></script>
+            </section>
+            <section>
+                <h3>Complete OpenBadgeCredential</h3>
+                <p>
+                    In this example, all required and optional properties are populated.
+                </p>
+                <div class="note" title="Endorsements">
+                    The endorsements were signed by different issuers and provided to the
+                    issuer of this OpenBadgeCredential.
+                </div>
+                <script
+                    class="transclude"
+                    data-id="full"
+                    src="examples/fullOpenBadge.html"
+                ></script>
+            </section>
+            <section>
+                <h3>EndorsementCredential</h3>
+                <script
+                    class="transclude"
+                    data-id="endorsement"
+                    src="examples/endorsement.html"
+                ></script>
+            </section>
+            <section>
+                <h3>Achievement Alignment (CASE)</h3>
+                <script
+                    class="transclude"
+                    data-id="achievementAlignmentCase"
+                    src="examples/achievementAlignmentCase.html"
+                ></script>
+            </section>
+            <section>
+                <h3>Achievement Alignment (Credential Engine)</h3>
+                <script
+                    class="transclude"
+                    data-id="achievementAlignmentCase"
+                    src="examples/achievementAlignmentCe.html"
+                ></script>
+            </section>
+            <section>
+                <h3>Skill Assertion (CASE)</h3>
+                <script
+                    class="transclude"
+                    data-id="skillAssertionCase"
+                    src="examples/skillAssertionCase.html"
+                ></script>
+            </section>
+            <section>
+                <h3>Skill Assertion (Credential Engine)</h3>
+                <script
+                    class="transclude"
+                    data-id="skillAssertionCtdl"
+                    src="examples/skillAssertionCtdl.html"
+                ></script>
+            </section>
+        </section>
 
-  <section class="appendix" data-format="markdown">
-    <script class="transclude" data-id="extending" src="extending.md"></script>
-  </section>
-
-  <section class="appendix">
-    <h2>Examples</h2>
-    <section>
-      <h3>Basic OpenBadgeCredential</h3>
-      <script class="transclude" data-id="basicCredential" src="examples/basicOpenBadgeCredential.html"></script>
-    </section>
-    <section>
-      <h3>Complete OpenBadgeCredential</h3>
-      <p>
-        In this example, all required and optional properties are populated.
-      </p>
-      <div class="note" title="Endorsements">
-        The endorsements were signed by different issuers and provided to the issuer of this OpenBadgeCredential.
-      </div>
-      <script class="transclude" data-id="full" src="examples/fullOpenBadge.html"></script>
-    </section>
-    <section>
-      <h3>EndorsementCredential</h3>
-      <script class="transclude" data-id="endorsement" src="examples/endorsement.html"></script>
-    </section>
-    <section>
-      <h3>Achievement Alignment (CASE)</h3>
-      <script class="transclude" data-id="achievementAlignmentCase" src="examples/achievementAlignmentCase.html"></script>
-    </section>
-    <section>
-      <h3>Achievement Alignment (Credential Engine)</h3>
-      <script class="transclude" data-id="achievementAlignmentCase" src="examples/achievementAlignmentCe.html"></script>
-    </section>
-    <section>
-      <h3>Skill Assertion (CASE)</h3>
-      <script class="transclude" data-id="skillAssertionCase" src="examples/skillAssertionCase.html"></script>
-    </section>
-    <section>
-      <h3>Skill Assertion (Credential Engine)</h3>
-      <script class="transclude" data-id="skillAssertionCtdl" src="examples/skillAssertionCtdl.html"></script>
-    </section>
-  </section>
-
-  <section class="appendix">
-    <h2>Schema</h2>
-    <section>
-      <h3>Context</h3>
-      <pre class="json">
-        <section data-include="context.json" data-include-format="text"></section>
+        <section class="appendix">
+            <h2>Schema</h2>
+            <section>
+                <h3>Context</h3>
+                <pre class="json">
+        <section data-include="context-3.0.1.json" data-include-format="text"></section>
       </pre>
-    </section>
-    <section>
-      <h3 id="json-schema">JSON Schema</h3>
-      <section data-model="org.1edtech.ob.v3p0.model" data-schema-format="json"></section>
-    </section>
-    <section>
-      <h3>OpenAPI Schema</h3>
-      <section data-model="org.1edtech.ob.v3p0.model" data-schema-format="openapi" data-binding="json" title="OpenAPI (JSON)"></section>
-      <section data-model="org.1edtech.ob.v3p0.model" data-schema-format="openapi" data-binding="yaml" title="OpenAPI (YAML)"></section>
-    </section>
-  </section>
+            </section>
+            <section>
+                <h3 id="json-schema">JSON Schema</h3>
+                <section
+                    data-model="org.1edtech.ob.v3p0.model"
+                    data-schema-format="json"
+                ></section>
+            </section>
+            <section>
+                <h3>OpenAPI Schema</h3>
+                <section
+                    data-model="org.1edtech.ob.v3p0.model"
+                    data-schema-format="openapi"
+                    data-binding="json"
+                    title="OpenAPI (JSON)"
+                ></section>
+                <section
+                    data-model="org.1edtech.ob.v3p0.model"
+                    data-schema-format="openapi"
+                    data-binding="yaml"
+                    title="OpenAPI (YAML)"
+                ></section>
+            </section>
+        </section>
 
-  <section class="appendix" id="issue-summary">
-    <h1>Issue Summary</h1>
-  </section>
+        <section class="appendix" id="issue-summary">
+            <h1>Issue Summary</h1>
+        </section>
 
-  <section id="history" class="appendix">
-    <h1>Revision History</h1>
-    <table title="Revision History">
-      <thead>
-        <tr>
-          <th>Status</th>
-          <th>Doc Version</th>
-          <th>Release Date</th>
-          <th>Comments</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Base Document</td>
-          <td>1.0</td>
-          <td>May 27, 2022</td>
-          <td>IPR Review</td>
-        </tr>
-        <tr>
-          <td>Candidate Final</td>
-          <td>1.0</td>
-          <td>July 14, 2022</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Candidate Public Final</td>
-          <td>1.0</td>
-          <td>October 27, 2022</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-</body>
-
+        <section id="history" class="appendix">
+            <h1>Revision History</h1>
+            <table title="Revision History">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Doc Version</th>
+                        <th>Release Date</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Base Document</td>
+                        <td>1.0</td>
+                        <td>May 27, 2022</td>
+                        <td>IPR Review</td>
+                    </tr>
+                    <tr>
+                        <td>Candidate Final</td>
+                        <td>1.0</td>
+                        <td>July 14, 2022</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Candidate Public Final</td>
+                        <td>1.0</td>
+                        <td>October 27, 2022</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </body>
 </html>
