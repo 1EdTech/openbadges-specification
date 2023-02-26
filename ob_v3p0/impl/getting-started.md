@@ -25,10 +25,9 @@ See details on the
 [selection of recipient and issuer identifiers](#selecting-recipient-and-issuer-identifiers-such-as-did-methods),
 but for the purposes of a quickstart, hosting an issuer profile on an HTTPS url
 associated with a `did:web` Decentralized Identifier is an easy choice for a web
-application. See
-[DID Web Method Specification](https://w3c-ccg.github.io/did-method-web/) For
-example, if the web application under development is running on the domain
-`example.com`, an issuer profile identifier might be
+application. See [[[VC-DID-WEB-METHOD]]] For example, if the web application
+under development is running on the domain `example.com`, an issuer profile
+identifier might be
 `did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774`, which would
 resolve to a hosted resource available at
 `https://example.com/issuers/540e388e-2735-4c3e-9709-80142801c774`. But what is
@@ -173,12 +172,13 @@ This could be alternatively presented as a data URI within the Achievement.
 See
 [Selecting recipient and issuer identifiers](#selecting-recipient-and-issuer-identifiers-such-as-did-methods)
 for an in-depth discussion on how identifiers may be trusted within software to
-be associated with organizations or natural persons. A "[Self-sovereign
-identity](https://en.wikipedia.org/wiki/Self-sovereign_identity" (SSI) movement
-advocates for end user control over the identifiers that refer to users. OB and
-CLR are compatible with identifiers that support traditional or SSI approaches,
-including email addresses or student ID numbers on the traditional side and
-Decentralized Identifiers (DIDs) with varying SSI capabilities.
+be associated with organizations or natural persons. A
+"[Self-sovereign identity](https://en.wikipedia.org/wiki/Self-sovereign_identity)
+(SSI)" movement advocates for end user control over the identifiers that refer
+to users. OB and CLR are compatible with identifiers that support traditional or
+SSI approaches, including email addresses or student ID numbers on the
+traditional side and Decentralized Identifiers (DIDs) with varying SSI
+capabilities.
 
 A workable approach that straddles the divide and can achieve good credential
 transferability to traditional and new verifiers (credential consumers, such as
@@ -605,7 +605,7 @@ token grants, and protected resource endpoint access.
 
 -   [OpenAPI 3.0 JSON File for Open Badges API](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.json)
 -   [OpenAPI 3.0 YAML File for Open Badges API](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.yaml)
--   [Open Badges 3.0 JSON-LD Context File](https://purl.imsglobal.org/spec/ob/v3p0/context.json)
+-   [Open Badges 3.0 JSON-LD Context File](https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json)
 
 ### Relationship between VC and CLR/OB
 
