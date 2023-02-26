@@ -65,6 +65,13 @@ var _localBiblio = {
     status: "IMS Base Document",
     publisher: "1EdTech",
   },
+  "CLR-CERT-20": {
+    title:
+      "Comprehensive Learner Record Conformance and Certification Guide v2.0",
+    href: "https://www.imsglobal.org/spec/clr/v2p0/cert/",
+    status: "IMS Base Document",
+    publisher: "1EdTech",
+  },
   "OR-11": {
     title: "1EdTech OneRoster® Specification v1.1",
     href: "https://www.imsglobal.org/oneroster-v11-final-specification",
