@@ -132,6 +132,12 @@ var _localBiblio = {
     status: "CG-DRAFT",
     publisher: "Credentials Community Group",
   },
+  "VC-DID-WEB-METHOD": {
+    title: "DID Web Method Specification",
+    href: "https://w3c-ccg.github.io/did-method-web/",
+    status: "CG-DRAFT",
+    publisher: "Credentials Community Group",
+  },
   "JSON-SCHEMA-2019-09": {
     title: "JSON Schema: A Media Type for Describing JSON Documents",
     href: "https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-02",
