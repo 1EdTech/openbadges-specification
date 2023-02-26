@@ -72,10 +72,16 @@ var _localBiblio = {
     status: "IMS Base Document",
     publisher: "1EdTech",
   },
+  "CASE-10": {
+    title: "1EdTech Competencies and Academic Standards Exchange (CASE)",
+    href: "https://www.imsglobal.org/spec/case/v1p0/",
+    status: "1EdTech Final Release",
+    publisher: "1EdTech",
+  },
   "OR-11": {
     title: "1EdTech OneRoster® Specification v1.1",
     href: "https://www.imsglobal.org/oneroster-v11-final-specification",
-    status: "IMS Final Release",
+    status: "1EdTech Final Release",
     publisher: "1EdTech",
   },
   "EDUAPI-10": {
@@ -175,9 +181,15 @@ var _localBiblio = {
     publisher: "1EdTech",
   },
   "LDS-ED25519-2020": {
-    title: "Ed25519 Signature 2020",
-    href: "https://w3c-ccg.github.io/lds-ed25519-2020/",
-    status: "Draft Community Group Report",
+    title: "EdDSA Cryptosuite v2020",
+    href: "https://w3c.github.io/vc-di-eddsa/",
+    status: "W3C Editor's Draft",
+    publisher: "W3C Credentials Community Group",
+  },
+  "VC-STATUS-2021": {
+    title: "Credential Status List 2021",
+    href: "https://w3c.github.io/vc-status-list-2021/",
+    status: "W3C Editor's Draft",
     publisher: "W3C Credentials Community Group",
   },
   MULTIBASE: {
