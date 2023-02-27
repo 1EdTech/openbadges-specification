@@ -56,18 +56,16 @@ indicates with the `Accept` HTTP header.
 -   When a client requests `Accept: application/json` or `application/ld+json`
     or does not include an `Accept` header, a JSON-LD that includes the OB 3.0
     context should be returned. It should include its own primary id, all
-    required properties from
-    [Profile](../ob_v3p0.html#profile),
-    and a representation of the public key component of the keypair this issuer
-    uses to sign credentials in selected `JWK` or `Ed25519VerificationKey2020`
-    format. See
-    [Dereferencing the Public Key](../ob_v3p0.html#dereference)
+    required properties from [Profile](../ob_v3p0.html#profile), and a
+    representation of the public key component of the keypair this issuer uses
+    to sign credentials in selected `JWK` or `Ed25519VerificationKey2020`
+    format. See [Dereferencing the Public Key](../ob_v3p0.html#dereference)
 -   When a client requests `Accept: */*` or `application/html`, an HTML
     representation of the `Achievement` should be presented. This should express
     information about the issuer using [Open Graph meta tags](https://ogp.me/),
     including at least name, description, and image tags for easy rendering of
-    preview cards when the `Achievement` URL is shared to social media platforms,
-    for instance.
+    preview cards when the `Achievement` URL is shared to social media
+    platforms, for instance.
 
 In order to sign credentials, the issuer needs to have an associated key
 referenced from their profile, whether that profile is resolved via a DID or an
@@ -114,17 +112,16 @@ system that can be presented using the required and optional properties of the
 Open Badges `Achievement` data model. For example, if your app uses a relational
 database, Achievements would be stored in a database table that has columns for
 each of the required fields and any supported optional fields. See
-[Achievement Data Model](../ob_v3p0.html#achievement)
-for a listing of fields, noting those with `[1]` or `[1..*]` multiplicity are
-the required ones.
+[Achievement Data Model](../ob_v3p0.html#achievement) for a listing of fields,
+noting those with `[1]` or `[1..*]` multiplicity are the required ones.
 
 Open Badges Achievements are often associated with images that provide a visual
 representation of the achievement. Images are optional but are visually
-prominent components of badges and are often included. `OpenBadgeCredentials` are
-issued for many `achievementTypes` (see
-[enumeration](../ob_v3p0.html#org.1edtech.ob.v3p0.achievementtype.class))
-that may not traditionally include an image, but OB 3.0 now enables this an
-image to be included for any type of achievement.
+prominent components of badges and are often included. `OpenBadgeCredentials`
+are issued for many `achievementTypes` (see
+[enumeration](../ob_v3p0.html#org.1edtech.ob.v3p0.achievementtype.class)) that
+may not traditionally include an image, but OB 3.0 now enables this an image to
+be included for any type of achievement.
 
 For an issuing system that operates a web application on a stable domain, an
 easy path forward is to select an HTTPS URL as the identifier for each defined
@@ -144,7 +141,8 @@ client is requesting, as it indicates with the `Accept` HTTP header.
     representation of the `Achievement` should be presented. This should express
     information about the [Open Graph meta tags](https://ogp.me/) including at
     least name, description, and image tags for easy rendering of preview cards
-    when the `Achievement` URL is shared to social media platforms, for instance.
+    when the `Achievement` URL is shared to social media platforms, for
+    instance.
 
 An example of the JSON-LD document that might be fetched from this endpoint
 follows:
@@ -357,8 +355,8 @@ Several things to note about this credential.
     [Sharing badge links to social media](#sharing-open-badges-and-clr-links-as-urls-and-to-social-media).
 
 Follow the steps in the Conformance Certification Guide for the
-[issuer role](../ob_v3p0.html#conformance-and-certification-guide)
-to submit a downloaded signed credential like the above for conformance checks.
+[issuer role](../ob_v3p0.html#conformance-and-certification-guide) to submit a
+downloaded signed credential like the above for conformance checks.
 
 ### API quickstart
 
@@ -585,7 +583,8 @@ select a specific scope of credentials for transmission.
 > automatically.
 
 > As a badge holder, I can deauthorize my issuer from connection to my Open
-> Badges host.
+> Badges host, so my issuer can't retrieve badges from my Open Badges host no
+> more.
 
 By revoking the access token granted to the issuer from within the Open Badges
 (service provider) interface.
@@ -606,8 +605,7 @@ again.
 Your issuer service may discover that your access credentials no longer work as
 expected when you receive a 401 or 403 status response from the host when
 attempting to access a protected endpoint and then subsequently receive an error
-response when attempting
-[token refresh](../ob_v3p0.html#token-refresh).
+response when attempting [token refresh](../ob_v3p0.html#token-refresh).
 
 #### Provider basics
 
