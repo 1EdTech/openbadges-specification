@@ -113,7 +113,7 @@ If an embedded proof method is used instead, the text value of the chunk MUST be
   })
 </pre>
 
-An iTXt chunk with the keyword \`openbadgecredential\` MUST NOT appear in a PNG more than once. When baking an image that already contains credential data, the implementor may choose whether to pass the user an error or overwrite the existing chunk.
+An iTXt chunk with the keyword \`openbadgecredential\` MUST NOT appear in a PNG more than once. When baking an image that already contains credential data, the implementer may choose whether to pass the user an error or overwrite the existing chunk.
 
 ##### Extracting {#png-extracting}
 
@@ -172,7 +172,7 @@ If an embedded proof method is used instead, omit the \`verify\` attribute, and 
   &lt;/svg>
 </pre>
 
-There MUST be only one <code>&lt;openbadges:credential></code> tag in an SVG. When baking an image that already contains OpenBadgeCredential data, the implementor may choose whether to pass the user an error or overwrite the existing tag.
+There MUST be only one <code>&lt;openbadges:credential></code> tag in an SVG. When baking an image that already contains OpenBadgeCredential data, the implementer may choose whether to pass the user an error or overwrite the existing tag.
 
 ##### Extracting
 

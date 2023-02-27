@@ -72,7 +72,7 @@ Use cases are outlined in each the Open Badges and Comprehensive Learner Record
 specifications. Use cases outline how each specification is intended to provide
 value to end users through interoperability between products.
 
-[Open Badges use cases](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#use-cases)
+[Open Badges use cases](../ob_v3p0.html#use-cases)
 include:
 
 -   Assertion Issuance to Wallet

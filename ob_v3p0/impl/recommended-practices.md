@@ -1,12 +1,13 @@
 ## Recommended Practices
 
-Here are a variety of recommended practices and considerations for the
-implementation of the Open Badges and CLR specifications. Conformance
-certification requirements ensure some important things, but a healthy ecosystem
-will develop out of the collaboration and experience of the implementor
-community. These practices will continue to be augmented as implementation
-proceeds. Implementers are encouraged to join the 1EdTech community and discuss
-how we can further improve our implementations and guidance together.
+Conformance certification ensures consistency across an important but focused
+scope of requirements. A healthy ecosystem will necessarily develop out the
+collective experience and collaboration of implementers. Implementers are
+encouraged to join the 1EdTech community to provide feedback and discuss how we
+can collectively improve our implementations and guidance.
+
+Below are a variety of recommended practices and considertions for the
+implementation of the Open Badges and CLR specification.
 
 ### Selecting recipient and issuer identifiers, such as DID methods
 
@@ -45,7 +46,7 @@ in the coming years as the consumer technology landscape and open source
 libraries develop.
 
 The OB 3.0 and CLR 2.0 specifications make no normative requirements strictly
-limiting which DID methods may be used, but implementers have an incentive to
+limiting which DID methods may be used. Implementers have an incentive to
 create interoperable experiences with one another through implementing common
 DID methods and testing interoperability paths for users. In practice, the DID
 method(s) a credential's Issuer supports being the same as the DID methods Hosts
@@ -82,7 +83,7 @@ algorithms will likely see the broadest early implementation within Open Badges.
 
 A step-by-step guide to signing an OB or CLR is provided in the OB specification
 section on
-[Proofs](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#data-integrity).
+[Proofs](../ob_v3p0.html#data-integrity).
 In order to achieve certification, implementers must be able to pass conformance
 testing with one of the listed methods, but it is expected that the ecosystem
 will grow as issuers, verifiers, and other services explore new approaches.
@@ -110,58 +111,57 @@ include:
     -   JWT signing with RSA family keys may have broader support in systems
         like this across all major cloud vendors offering a KMS.
 
-### Publishing Achievement definitions and selecting Achievement identifiers
+### Publishing `Achievement` definitions and selecting `Achievement` identifiers
 
-Arguably the most important field for an Achievement is the `id`, the creator's
+Arguably the most important field for an `Achievement` is the `id`, the creator's
 primary identifier for that achievement. It is expressed as a URI. Two
 approaches for identifier expression are common, with differing capabilities and
 slightly different instructions for interpretation:
 
 -   **Use an HTTPS URL as the identifier**: Issuer systems and other achievement
-    publishing systems can publish achievements at the identifier URLs, from
-    which clients can request the metadata directly from its creator when a
+    publishing systems can publish achievements at the identifier URLs. Clients can use the URL to request the metadata directly from its creator when a
     client wants an authoritative representation of the issuer's current
-    understanding of the metadata associated with the Achievement. When two
-    OpenBadgeCredentials are issued at different points in time but reference
+    understanding of the metadata associated with the `Achievement`. When two
+    `OpenBadgeCredentials` are issued at different points in time but reference
     the same `Achievement.id`, they may contain slightly different
-    representations of the Achievement metadata itself. Relying parties are
+    representations of the `Achievement` metadata itself. Relying parties are
     encouraged to understand the embedded signed data as the representation that
     the issuer had for the credential at the time it was issued, and they may
     encounter a different representation embedded in a different credential,
     which they should understand as a different version of the same achievement.
     The issuer may use the optional `version` property to express a label for
     each of these versions for presentation where relevant. At any point in
-    time, a relying party may request an updated copy of the Achievement from
-    its `id` URL. If the response returns Achievement data successfully, the
+    time, a relying party may request an updated copy of the `Achievement` from
+    its `id` URL. If the response returns `Achievement` data successfully, the
     client should understand the retrieved metadata to represent the issuer's
-    _current_ understanding of the Achievement. When relying parties encounter
+    _current_ understanding of the `Achievement`. When relying parties encounter
     the same HTTPS-type achievement ID in AchievmentCredentials across multiple
     issuers, they can assume that the issuers did intend to recognize the same
     achievement, as it is defined by its publisher, but they cannot make an
     assumption that each of the issuers were duly authorized to recognize this
-    achievement by its creator or even that the Achievement honestly represents
+    achievement by its creator or even that the `Achievement` honestly represents
     the identity of its creator, unless the relying party verifies an
-    OpenBadgeCredential referencing this Achievement issued by the creator
-    referenced in the copy of the Achievement retrieved from its ID URL. Future
+    `OpenBadgeCredential` referencing this `Achievement` issued by the creator
+    referenced in the copy of the `Achievement` retrieved from its ID URL. Future
     versions of Open Badges may address use cases and normative requirements
-    serving use cases around verifiable authorship of an Achievement or
-    delegation of capabilities related to an Achievement by the Achievement's
+    serving use cases around verifiable authorship of an `Achievement` or
+    delegation of capabilities related to an `Achievement` by the `Achievement`'s
     creator.
 -   **Use a UUID**: Issuers sometimes assign an identifier that is assumed to be
     locally unique to that issuer but cannot be dereferenced. Nevertheless,
-    relying parties may encounter multiple OpenBadgeCredentials that reference
-    an achievement with this ID over time. For OpenBadgeCredentials from the
-    same issuer that reference an Achievement with the same ID, relying parties
-    should interpret these as different versions of the same Achievement. When
-    the same UUID-type Achievement.id is referenced by different issuers across
-    multiple OpenBadgeCredentials, relying parties cannot authoritatively
+    relying parties may encounter multiple `OpenBadgeCredentials` that reference
+    an achievement with this ID over time. For `OpenBadgeCredentials` from the
+    same issuer that reference an `Achievement` with the same ID, relying parties
+    should interpret these as different versions of the same `Achievement`. When
+    the same UUID-type `Achievement.id` is referenced by different issuers across
+    multiple `OpenBadgeCredentials`, relying parties cannot authoritatively
     determine that the intent was to recognize the same semantic achievement.
 
 A common use case among Open Badges implementers is for a verifier to expect a
-particular Achievement claim in an `OpenBadgeCredential` from a specific issuer.
+particular `Achievement` claim in an `OpenBadgeCredential` from a specific issuer.
 With Open Badges 2.0, it was presumed that verification that an achievement
-(BadgeClass) was associated with a credential (Assertion) issuer as part of
-verification, by determining that hosted Achievement IDs were on the same domain
+(`BadgeClass`) was associated with a credential (`Assertion`) issuer as part of
+verification, by determining that hosted `Achievement` IDs were on the same domain
 as hosted Assertion IDs and/or hosted Issuer IDs. With OB 3.0, some of this
 capability can no longer be assumed to remain. This is partly because there is
 no longer a requirement for issuer profiles to use HTTP IDs, but also because
@@ -196,7 +196,7 @@ Recommendations for the use of share URLs include:
     to a dedicated backpack or wallet can enable that platform to generate and
     appropriately protect sharing URLs with the data subject's consent in mind.
 -   If any Open Badges objects have HTTPS URLs as their `id`, such as
-    Achievement endpoints or Open Badges 2.0 verification endpoints are used for
+    `Achievement` endpoints or Open Badges 2.0 verification endpoints are used for
     legacy support by an issuer that also publishes objects using the current
     version of the standard, use content negotiation on sharing URLs to enable
     the presentation of Use [Open Graph Protocol](https://ogp.me) tags on the
@@ -486,8 +486,8 @@ objectives/competences from one institution and another.
 
 In Open Badges and Comprehensive Learner Record, the recording of related
 skills, competencies, standards, and other associations are enabled by the
-`alignment` of an Achievement. This field defines the fields for univocally
-establish a connection between the Achievement and a node in an educational
+`alignment` of an `Achievement`. This field defines the fields for univocally
+establish a connection between the `Achievement` and a node in an educational
 framework, i.e `CFItem`.
 
 <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
@@ -532,9 +532,9 @@ framework, i.e `CFItem`.
 
 ### Skills
 
-A Skill Assertion credential is just like a basic OpenBadgeCredential in how an
-Achievement is included, except that it makes a claim referencing an Achievement
-that is generic to allow for use by many possible issuers. The Achievement may
+A Skill Assertion credential is just like a basic `OpenBadgeCredential` in how an
+`Achievement` is included, except that it makes a claim referencing an `Achievement`
+that is generic to allow for use by many possible issuers. The `Achievement` may
 describe alignment to external competency or skill definitions, such as a
 `CFItem`, but the most important aspect of the skill assertion pattern is the
 shared use of a common achievement that represents a skill or competency across
