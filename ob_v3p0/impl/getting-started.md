@@ -367,6 +367,15 @@ four groups, wether the OB / CLR tool is a consumer or a provider of the API and
 wether the operations it consumes / provides are read operations or write
 operations.
 
+<div class="note">
+The API of Open Badges 3.0 and Comprehensive Learner Record 2.0 defines the
+exchange of credentials and update of the profile between two hosts. The API
+defines methods for revoking a previously allowed access, which prevents future
+exchange of credentials. That said, this revocation doesn't affect the already
+exchanged credentials. Open Badges Credentials and CLR Credentials have its own
+revocation methods.
+</div>
+
 Depending of your certification goals it must be necessary to implement one or
 more of these groups of API. For instance, if you're seeking the certification
 as an Issuer (not Issuer only) you'll need to implement the
