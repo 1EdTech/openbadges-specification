@@ -1,4 +1,4 @@
-## Getting started (for developers)
+## Getting Started (for Developers)
 
 It may seem like an overwhelming task to implement Open Badges 3.0 or CLR 2.0,
 but there are straightforward options that can take your product to a certified
@@ -39,16 +39,16 @@ indicates with the `Accept` HTTP header.
     or does not include an `Accept` header, a JSON-LD that includes the OB 3.0
     context should be returned. It should include its own primary id, all
     required properties from
-    [Profile](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#profile),
+    [Profile](../ob_v3p0.html#profile),
     and a representation of the public key component of the keypair this issuer
     uses to sign credentials in selected `JWK` or `Ed25519VerificationKey2020`
     format. See
-    [Dereferencing the Public Key](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#dereference)
+    [Dereferencing the Public Key](../ob_v3p0.html#dereference)
 -   When a client requests `Accept: */*` or `application/html`, an HTML
-    representation of the Achievement should be presented. This should express
+    representation of the `Achievement` should be presented. This should express
     information about the issuer using [Open Graph meta tags](https://ogp.me/),
     including at least name, description, and image tags for easy rendering of
-    preview cards when the Achievement URL is shared to social media platforms,
+    preview cards when the `Achievement` URL is shared to social media platforms,
     for instance.
 
 In order to sign credentials, the issuer needs to have an associated key
@@ -91,31 +91,31 @@ the EdDSA Cryptosuite 2020 option for signing credentials:
 > on behalf of my organization, so that I can issue badges recognizing this
 > achievement to learners.
 
-Internally, an Achievement is a database record or document within an issuer
+Internally, an `Achievement` is a database record or document within an issuer
 system that can be presented using the required and optional properties of the
 Open Badges `Achievement` data model. For example, if your app uses a relational
 database, Achievements would be stored in a database table that has columns for
 each of the required fields and any supported optional fields. See
-[Achievement Data Model](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#achievement)
+[Achievement Data Model](../ob_v3p0.html#achievement)
 for a listing of fields, noting those with `[1]` or `[1..*]` multiplicity are
 the required ones.
 
 Open Badges Achievements are often associated with images that provide a visual
 representation of the achievement. Images are optional but are visually
-prominent components of badges and are often included. OpenBadgeCredentials are
+prominent components of badges and are often included. `OpenBadgeCredentials` are
 issued for many `achievementTypes` (see
-[enumeration](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#org.1edtech.ob.v3p0.achievementtype.class))
+[enumeration](../ob_v3p0.html#org.1edtech.ob.v3p0.achievementtype.class))
 that may not traditionally include an image, but OB 3.0 now enables this an
 image to be included for any type of achievement.
 
 For an issuing system that operates a web application on a stable domain, an
 easy path forward is to select an HTTPS URL as the identifier for each defined
-Achievement in its database. For example, if the web application under
+`Achievement` in its database. For example, if the web application under
 development is running on the domain `example.com`, an achievement identifier
 might be
 `https://example.com/achievements/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6`. See
 [Publishing achievement definitions](#publishing-achievement-definitions-and-selecting-achievement-identifiers)
-for a discussion of options for Achievement identifier. Again, is is best to
+for a discussion of options for `Achievement` identifier. Again, is is best to
 present a response to requests made to this URL that best matches what the
 client is requesting, as it indicates with the `Accept` HTTP header.
 
@@ -123,10 +123,10 @@ client is requesting, as it indicates with the `Accept` HTTP header.
     or does not include an `Accept` header, a JSON-LD that includes the OB 3.0
     context should be returned.
 -   When a client requests `Accept: */*` or `application/html`, an HTML
-    representation of the Achievement should be presented. This should express
+    representation of the `Achievement` should be presented. This should express
     information about the [Open Graph meta tags](https://ogp.me/) including at
     least name, description, and image tags for easy rendering of preview cards
-    when the Achievement URL is shared to social media platforms, for instance.
+    when the `Achievement` URL is shared to social media platforms, for instance.
 
 An example of the JSON-LD document that might be fetched from this endpoint
 follows:
@@ -339,7 +339,7 @@ Several things to note about this credential.
     [Sharing badge links to social media](#sharing-open-badges-and-clr-links-as-urls-and-to-social-media).
 
 Follow the steps in the Conformance Certification Guide for the
-[issuer role](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#conformance-and-certification-guide)
+[issuer role](../ob_v3p0.html#conformance-and-certification-guide)
 to submit a downloaded signed credential like the above for conformance checks.
 
 ### API quickstart
@@ -517,7 +517,7 @@ product for conformance certification as an Open Badges Issuer (with API
 service-consumer-write support). This is a presentation of the experience of
 using the API from the user's perspective. Additional under-the-hood technical
 details for each procedure are described in the Specification section 6:
-[Open Badges API](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#api).
+[Open Badges API](../ob_v3p0.html#api).
 
 > As a badge holder, I can inform my issuer of my selected Open Badges host
 > service.
@@ -580,7 +580,7 @@ Your issuer service may discover that your access credentials no longer work as
 expected when you receive a 401 or 403 status response from the host when
 attempting to access a protected endpoint and then subsequently receive an error
 response when attempting
-[token refresh](https://1edtech.github.io/openbadges-specification/ob_v3p0.html#token-refresh).
+[token refresh](../ob_v3p0.html#token-refresh).
 
 #### Provider basics
 
