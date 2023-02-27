@@ -4,6 +4,24 @@ It may seem like an overwhelming task to implement Open Badges 3.0 or CLR 2.0,
 but there are straightforward options that can take your product to a certified
 launch simply.
 
+### Relationship between VC and CLR/OB
+
+New to this version of the specification, the data model of both CLR and OB
+adopts the convention of the [[VC-DATA-MODEL]].
+
+Since Verifiable Credentials are extensible by design, CLR/OB defines a set of
+extensions (also called profile) for reflecting the domain both specifications
+cover: learning achievements, alignment with educational/workforce frameworks,
+etc. CLR/OB also defines the verification algorithm for these credentials, as
+well as a set of services for exchanging these credentials.
+
+That means that `ClrCredential` and `AchievementCredential` are, in fact,
+Verifiable Credentials, and can be used wherever a Verifiable Credential can be.
+This assertion is not bidirectional, thus a Verifiable Credential might not be
+an CLR/OB Credential. Only those credentials with the extension set defined by
+the CLR/OB spec, and verifiable via CLR/Ob verification algorithm, can be
+treated as CLR/OB Credentials.
+
 ### Issuer quickstart
 
 Here is a quickstart tutorial to build an MVP of an Open Badges product that
@@ -606,21 +624,3 @@ token grants, and protected resource endpoint access.
 -   [OpenAPI 3.0 JSON File for Open Badges API](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.json)
 -   [OpenAPI 3.0 YAML File for Open Badges API](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.yaml)
 -   [Open Badges 3.0 JSON-LD Context File](https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json)
-
-### Relationship between VC and CLR/OB
-
-New to this version of the specification, the data model of both CLR and OB
-adopts the convention of the [[VC-DATA-MODEL]].
-
-Since Verifiable Credentials are extensible by design, CLR/OB defines a set of
-extensions (also called profile) for reflecting the domain both specifications
-cover: learning achievements, alignment with educational/workforce frameworks,
-etc. CLR/OB also defines the verification algorithm for these credentials, as
-well as a set of services for exchanging these credentials.
-
-That means that `ClrCredential` and `AchievementCredential` are, in fact,
-Verifiable Credentials, and can be used wherever a Verifiable Credential can be.
-This assertion is not bidirectional, thus a Verifiable Credential might not be
-an CLR/OB Credential. Only those credentials with the extension set defined by
-the CLR/OB spec, and verifiable via CLR/Ob verification algorithm, can be
-treated as CLR/OB Credentials.
