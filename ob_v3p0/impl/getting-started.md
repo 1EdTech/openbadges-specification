@@ -382,7 +382,7 @@ more of these groups of API. For instance, if you're seeking the certification
 as an Issuer (not Issuer only) you'll need to implement the
 service-consumer-write group.
 
-#### Consumer Basics
+#### Consumer basics
 
 Consumers of the OB / CLR API must acquire an OAuth 2.0 access token from an
 authorization server for making API calls. The acquisition of the token implies
