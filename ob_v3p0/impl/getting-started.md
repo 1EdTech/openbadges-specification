@@ -441,12 +441,12 @@ Register your client using OAuth 2.0 Dynamic Client Registration Protocol
 `x-imssf-registrationUrl` field from the previous step.
 
 <pre class="http example" title="Sample registration request">
-	POST /connect/register HTTP/1.1
-	Host: auth.1edtech.org
-	Accept: application/json
-	Content-Type: application/json; charset=utf-8
+POST /connect/register HTTP/1.1
+Host: auth.1edtech.org
+Accept: application/json
+Content-Type: application/json; charset=utf-8
 
-	{
+{
 	"client_name": "Example Client Application",
 	"client_uri": "https://client.1edtech.org/",
 	"logo_uri": "https://client.1edtech.org/logo.png",
