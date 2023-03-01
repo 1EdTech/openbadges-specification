@@ -85,7 +85,7 @@ the EdDSA Cryptosuite 2020 option for signing credentials:
 	"@context": [
 		"https://www.w3.org/ns/did/v1",
 		"https://www.w3.org/2018/credentials/v1",
-		"https://purl.imsglobal.org/spec/ob/v3p0/context.json",
+		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
 		"https://w3id.org/security/suites/ed25519-2020/v1"
 	],
 	"id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
@@ -152,7 +152,7 @@ follows:
 
 ```jsonld
  {
- 	"@context": "https://purl.imsglobal.org/spec/ob/v3p0/context.json",
+ 	"@context": "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
  	"id": "https://example.com/achievements/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6",
  	"type": "",
  	"name": "Advanced Shoe Tie",
@@ -271,7 +271,7 @@ which upon activation yields a signed verifiable credential like the following.
 {
 	"@context": [
 		"https://www.w3.org/2018/credentials/v1",
-		"https://purl.imsglobal.org/spec/ob/v3p0/context.json",
+		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
 		"https://w3id.org/security/suites/ed25519-2020/v1"
 	],
 	"id": "urn:uuid:a9fc82eb-416f-47c3-8786-de890331d4a5",

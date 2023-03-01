@@ -73,7 +73,7 @@ document, the full IRI `https://w3id.org/openbadges#BadgeClass` is used here).
 
 <pre class="json example" title="OpenBadges 3.0 with OpenBadges 2.0 via related association">
 {
-    "@context": "https://purl.imsglobal.org/spec/ob/v3p0/context.json",
+    "@context": "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
     "type": ["Achievement", "https://w3id.org/openbadges#BadgeClass"],
     "@language": "en",
     "id": "https://example.com/achievements/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6"
@@ -137,7 +137,7 @@ profile.
 	"@context": [
 		"https://www.w3.org/ns/did/v1",
 		"https://www.w3.org/2018/credentials/v1",
-		"https://purl.imsglobal.org/spec/ob/v3p0/context.json",
+		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
 		"https://w3id.org/security/suites/ed25519-2020/v1"
 	],
 	"id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
