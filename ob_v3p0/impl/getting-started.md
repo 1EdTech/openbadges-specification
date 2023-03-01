@@ -56,10 +56,12 @@ indicates with the `Accept` HTTP header.
 -   When a client requests `Accept: application/json` or `application/ld+json`
     or does not include an `Accept` header, a JSON-LD that includes the OB 3.0
     context should be returned. It should include its own primary id, all
-    required properties from [Profile](../ob_v3p0.html#profile), and a
+    required properties from
+    [Profile](https://www.imsglobal.org/spec/ob/v3p0#profile), and a
     representation of the public key component of the keypair this issuer uses
     to sign credentials in selected `JWK` or `Ed25519VerificationKey2020`
-    format. See [Dereferencing the Public Key](../ob_v3p0.html#dereference)
+    format. See
+    [Dereferencing the Public Key](https://www.imsglobal.org/spec/ob/v3p0#dereference)
 -   When a client requests `Accept: */*` or `application/html`, an HTML
     representation of the `Achievement` should be presented. This should express
     information about the issuer using [Open Graph meta tags](https://ogp.me/),
@@ -112,16 +114,17 @@ system that can be presented using the required and optional properties of the
 Open Badges `Achievement` data model. For example, if your app uses a relational
 database, Achievements would be stored in a database table that has columns for
 each of the required fields and any supported optional fields. See
-[Achievement Data Model](../ob_v3p0.html#achievement) for a listing of fields,
-noting those with `[1]` or `[1..*]` multiplicity are the required ones.
+[Achievement Data Model](https://www.imsglobal.org/spec/ob/v3p0#achievement) for
+a listing of fields, noting those with `[1]` or `[1..*]` multiplicity are the
+required ones.
 
 Open Badges Achievements are often associated with images that provide a visual
 representation of the achievement. Images are optional but are visually
 prominent components of badges and are often included. `OpenBadgeCredentials`
 are issued for many `achievementTypes` (see
-[enumeration](../ob_v3p0.html#org.1edtech.ob.v3p0.achievementtype.class)) that
-may not traditionally include an image, but OB 3.0 now enables this an image to
-be included for any type of achievement.
+[enumeration](https://www.imsglobal.org/spec/ob/v3p0#org.1edtech.ob.v3p0.achievementtype.class))
+that may not traditionally include an image, but OB 3.0 now enables this an
+image to be included for any type of achievement.
 
 For an issuing system that operates a web application on a stable domain, an
 easy path forward is to select an HTTPS URL as the identifier for each defined
@@ -355,8 +358,8 @@ Several things to note about this credential.
     [Sharing badge links to social media](#sharing-open-badges-and-clr-links-as-urls-and-to-social-media).
 
 Follow the steps in the Conformance Certification Guide for the
-[issuer role](../ob_v3p0.html#conformance-and-certification-guide) to submit a
-downloaded signed credential like the above for conformance checks.
+[issuer role](https://www.imsglobal.org/spec/ob/v3p0#conformance-and-certification-guide)
+to submit a downloaded signed credential like the above for conformance checks.
 
 ### API quickstart
 
@@ -542,7 +545,7 @@ product for conformance certification as an Open Badges Issuer (with API
 service-consumer-write support). This is a presentation of the experience of
 using the API from the user's perspective. Additional under-the-hood technical
 details for each procedure are described in the Specification section 6:
-[Open Badges API](../ob_v3p0.html#api).
+[Open Badges API](https://www.imsglobal.org/spec/ob/v3p0#api).
 
 > As a badge holder, I can inform my issuer of my selected Open Badges host
 > service.
@@ -605,7 +608,8 @@ again.
 Your issuer service may discover that your access credentials no longer work as
 expected when you receive a 401 or 403 status response from the host when
 attempting to access a protected endpoint and then subsequently receive an error
-response when attempting [token refresh](../ob_v3p0.html#token-refresh).
+response when attempting
+[token refresh](https://www.imsglobal.org/spec/ob/v3p0#token-refresh).
 
 #### Provider basics
 
