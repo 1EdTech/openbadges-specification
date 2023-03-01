@@ -71,7 +71,7 @@ endpoints. It is a helpful hint to include the IRI of the legacy BadgeClass type
 two contexts are not compatible with one another to be applied to the same
 document, the full IRI `https://w3id.org/openbadges#BadgeClass` is used here).
 
-<pre class="json">
+<pre class="json example" title="OpenBadges 3.0 with OpenBadges 2.0 via related association">
 {
     "@context": "https://purl.imsglobal.org/spec/ob/v3p0/context.json",
     "type": ["Achievement", "https://w3id.org/openbadges#BadgeClass"],
@@ -107,7 +107,7 @@ document, the full IRI `https://w3id.org/openbadges#BadgeClass` is used here).
 An OB 2.0 related property could be implemented to make the reverse connection
 from the OB 2.0 BadgeClass:
 
-<pre class="json">
+<pre class="json example" title="OpenBadges 2.0 with related OpenBadges 3.0">
 {
     "@context": "https://w3id.org/openbadges/v2",
     "type": "BadgeClass",
@@ -132,7 +132,7 @@ Additionally, within the DID Document context, an `alsoKnownAs` property is
 available, that may express the HTTPS id of the OB 2.0 representation of the
 profile.
 
-<pre class="json">
+<pre class="json example" title="Issuer profile relation between Open Badges 3.0 and Open Badges 2.0">
 {
 	"@context": [
 		"https://www.w3.org/ns/did/v1",
@@ -154,7 +154,7 @@ profile.
 Within the OB 2.0 representation of the issuer, a reverse link may be made with
 `related`, as was done with the BadgeClass
 
-<pre class="json">
+<pre class="json example" title="Issuer profile relation between Open Badges 2.0 and Open Badges 3.0">
 {
     "@context": "https://w3id.org/openbadges/v2",
     "id": "hhttps://example.com/issuers/v2p0/540e388e-2735-4c3e-9709-80142801c774",
