@@ -46,9 +46,9 @@ in the coming years as the consumer technology landscape and open source
 libraries develop.
 
 The OB 3.0 and CLR 2.0 specifications make no normative requirements strictly
-limiting which DID methods may be used. Implementers have an incentive to
-create interoperable experiences with one another through implementing common
-DID methods and testing interoperability paths for users. In practice, the DID
+limiting which DID methods may be used. Implementers have an incentive to create
+interoperable experiences with one another through implementing common DID
+methods and testing interoperability paths for users. In practice, the DID
 method(s) a credential's Issuer supports being the same as the DID methods Hosts
 and Displayers (or other wallets and verifiers) support is what governs
 interoperability.
@@ -62,14 +62,15 @@ inform future normative specification versions.
 ### Selecting proof methods and crypto algorithms
 
 The OB and CLR specifications define some requirements around the signing or
-proving of credentials (see [Proofs](../ob_v3p0.html#data-integrity)). Two
-formats of proof method are introduced, JWTs and Linked Data Proofs. Within each
-format, there are still a range of options that issuers may select for
-cryptographically signing the credentials. Notably, signing algorithm selection
-and its closely related concept of key material expression format must be
-considered. The best choices within these options sometimes depend on other
-parts of the issuer's tech stack and which options are supported among wallets
-and verifiers with whom badge recipients want to share their badges.
+proving of credentials (see
+[Proofs](https://www.imsglobal.org/spec/ob/v3p0#data-integrity)). Two formats of
+proof method are introduced, JWTs and Linked Data Proofs. Within each format,
+there are still a range of options that issuers may select for cryptographically
+signing the credentials. Notably, signing algorithm selection and its closely
+related concept of key material expression format must be considered. The best
+choices within these options sometimes depend on other parts of the issuer's
+tech stack and which options are supported among wallets and verifiers with whom
+badge recipients want to share their badges.
 
 The OB specification identifies some specific options, which are used by the
 conformance test suite to check product implementations. These identified
@@ -82,9 +83,8 @@ algorithms will likely see the broadest early implementation within Open Badges.
     (JWK).
 
 A step-by-step guide to signing an OB or CLR is provided in the OB specification
-section on
-[Proofs](../ob_v3p0.html#data-integrity).
-In order to achieve certification, implementers must be able to pass conformance
+section on [Proofs](https://www.imsglobal.org/spec/ob/v3p0#data-integrity). In
+order to achieve certification, implementers must be able to pass conformance
 testing with one of the listed methods, but it is expected that the ecosystem
 will grow as issuers, verifiers, and other services explore new approaches.
 
@@ -113,13 +113,14 @@ include:
 
 ### Publishing `Achievement` definitions and selecting `Achievement` identifiers
 
-Arguably the most important field for an `Achievement` is the `id`, the creator's
-primary identifier for that achievement. It is expressed as a URI. Two
+Arguably the most important field for an `Achievement` is the `id`, the
+creator's primary identifier for that achievement. It is expressed as a URI. Two
 approaches for identifier expression are common, with differing capabilities and
 slightly different instructions for interpretation:
 
 -   **Use an HTTPS URL as the identifier**: Issuer systems and other achievement
-    publishing systems can publish achievements at the identifier URLs. Clients can use the URL to request the metadata directly from its creator when a
+    publishing systems can publish achievements at the identifier URLs. Clients
+    can use the URL to request the metadata directly from its creator when a
     client wants an authoritative representation of the issuer's current
     understanding of the metadata associated with the `Achievement`. When two
     `OpenBadgeCredentials` are issued at different points in time but reference
@@ -139,37 +140,38 @@ slightly different instructions for interpretation:
     issuers, they can assume that the issuers did intend to recognize the same
     achievement, as it is defined by its publisher, but they cannot make an
     assumption that each of the issuers were duly authorized to recognize this
-    achievement by its creator or even that the `Achievement` honestly represents
-    the identity of its creator, unless the relying party verifies an
+    achievement by its creator or even that the `Achievement` honestly
+    represents the identity of its creator, unless the relying party verifies an
     `OpenBadgeCredential` referencing this `Achievement` issued by the creator
-    referenced in the copy of the `Achievement` retrieved from its ID URL. Future
-    versions of Open Badges may address use cases and normative requirements
-    serving use cases around verifiable authorship of an `Achievement` or
-    delegation of capabilities related to an `Achievement` by the `Achievement`'s
-    creator.
+    referenced in the copy of the `Achievement` retrieved from its ID URL.
+    Future versions of Open Badges may address use cases and normative
+    requirements serving use cases around verifiable authorship of an
+    `Achievement` or delegation of capabilities related to an `Achievement` by
+    the `Achievement`'s creator.
 -   **Use a UUID**: Issuers sometimes assign an identifier that is assumed to be
     locally unique to that issuer but cannot be dereferenced. Nevertheless,
     relying parties may encounter multiple `OpenBadgeCredentials` that reference
     an achievement with this ID over time. For `OpenBadgeCredentials` from the
-    same issuer that reference an `Achievement` with the same ID, relying parties
-    should interpret these as different versions of the same `Achievement`. When
-    the same UUID-type `Achievement.id` is referenced by different issuers across
-    multiple `OpenBadgeCredentials`, relying parties cannot authoritatively
-    determine that the intent was to recognize the same semantic achievement.
+    same issuer that reference an `Achievement` with the same ID, relying
+    parties should interpret these as different versions of the same
+    `Achievement`. When the same UUID-type `Achievement.id` is referenced by
+    different issuers across multiple `OpenBadgeCredentials`, relying parties
+    cannot authoritatively determine that the intent was to recognize the same
+    semantic achievement.
 
 A common use case among Open Badges implementers is for a verifier to expect a
-particular `Achievement` claim in an `OpenBadgeCredential` from a specific issuer.
-With Open Badges 2.0, it was presumed that verification that an achievement
-(`BadgeClass`) was associated with a credential (`Assertion`) issuer as part of
-verification, by determining that hosted `Achievement` IDs were on the same domain
-as hosted Assertion IDs and/or hosted Issuer IDs. With OB 3.0, some of this
-capability can no longer be assumed to remain. This is partly because there is
-no longer a requirement for issuer profiles to use HTTP IDs, but also because
-integrity verification is assumed to occur at the Verifiable Credentials Data
-Model level only, because wallets and credentials verifiers will primarily focus
-on verifying the integrity of the proof on each credential without assumed
-capacity to verify other relationships represented deeply within these
-credentials even if OB 3.0 had included such a mechanism in its scope.
+particular `Achievement` claim in an `OpenBadgeCredential` from a specific
+issuer. With Open Badges 2.0, it was presumed that verification that an
+achievement (`BadgeClass`) was associated with a credential (`Assertion`) issuer
+as part of verification, by determining that hosted `Achievement` IDs were on
+the same domain as hosted Assertion IDs and/or hosted Issuer IDs. With OB 3.0,
+some of this capability can no longer be assumed to remain. This is partly
+because there is no longer a requirement for issuer profiles to use HTTP IDs,
+but also because integrity verification is assumed to occur at the Verifiable
+Credentials Data Model level only, because wallets and credentials verifiers
+will primarily focus on verifying the integrity of the proof on each credential
+without assumed capacity to verify other relationships represented deeply within
+these credentials even if OB 3.0 had included such a mechanism in its scope.
 
 ### Sharing Open Badges and CLR Links as URLs and to Social Media
 
@@ -196,11 +198,11 @@ Recommendations for the use of share URLs include:
     to a dedicated backpack or wallet can enable that platform to generate and
     appropriately protect sharing URLs with the data subject's consent in mind.
 -   If any Open Badges objects have HTTPS URLs as their `id`, such as
-    `Achievement` endpoints or Open Badges 2.0 verification endpoints are used for
-    legacy support by an issuer that also publishes objects using the current
-    version of the standard, use content negotiation on sharing URLs to enable
-    the presentation of Use [Open Graph Protocol](https://ogp.me) tags on the
-    sharing URLs to enable easy generation of card previews.
+    `Achievement` endpoints or Open Badges 2.0 verification endpoints are used
+    for legacy support by an issuer that also publishes objects using the
+    current version of the standard, use content negotiation on sharing URLs to
+    enable the presentation of Use [Open Graph Protocol](https://ogp.me) tags on
+    the sharing URLs to enable easy generation of card previews.
 
 #### Open Badges API recommendations
 
@@ -532,13 +534,13 @@ framework, i.e `CFItem`.
 
 ### Skills
 
-A Skill Assertion credential is just like a basic `OpenBadgeCredential` in how an
-`Achievement` is included, except that it makes a claim referencing an `Achievement`
-that is generic to allow for use by many possible issuers. The `Achievement` may
-describe alignment to external competency or skill definitions, such as a
-`CFItem`, but the most important aspect of the skill assertion pattern is the
-shared use of a common achievement that represents a skill or competency across
-multiple `OpenBadgeCredential` issuers.
+A Skill Assertion credential is just like a basic `OpenBadgeCredential` in how
+an `Achievement` is included, except that it makes a claim referencing an
+`Achievement` that is generic to allow for use by many possible issuers. The
+`Achievement` may describe alignment to external competency or skill
+definitions, such as a `CFItem`, but the most important aspect of the skill
+assertion pattern is the shared use of a common achievement that represents a
+skill or competency across multiple `OpenBadgeCredential` issuers.
 
 This usage of shared achievements enables consumers to describe specific
 achievements that they would like learners to hold without being particular
