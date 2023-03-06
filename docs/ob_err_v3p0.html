@@ -1,0 +1,901 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 26.16.1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+.hljs{background:0 0!important}
+:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
+dfn{font-weight:700}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+code{color:#c63501}
+th code{color:inherit}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+.toc a,.tof a{text-decoration:none}
+a .figno,a .secno{color:#000}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
+.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+.simple th a{color:#fff;padding:3px 5px;text-align:left}
+.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+.simple td{padding:3px 10px;border-top:1px solid #ddd}
+.simple tr:nth-child(even){background:#f0f6ff}
+.section dd>p:first-child{margin-top:0}
+.section dd>p:last-child{margin-bottom:0}
+.section dd{margin-bottom:1em}
+.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+h2,h3,h4,h5,h6{position:relative}
+aside.example .marker>a.self-link{color:inherit}
+:is(h2,h3,h4,h5,h6)>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
+:is(h2,h3,h4,h5,h6)>a.self-link::before{content:"§";display:block}
+@media (max-width:767px){
+dd{margin-left:0}
+:is(h2,h3,h4,h5,h6)>a.self-link{left:auto;top:auto}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;margin-top:.25em}
+.dfn-panel ul a[href]{color:#333}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+        
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+    
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
+<style>
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Source+Code+Pro);
+:root{--fgclr1:rgba(0, 0, 0, 1);--fgclr2:rgba(0, 90, 156, 1);--fgclr3:rgba(70, 130, 180, 1);--fgclr4:rgba(40, 100, 150, 1);--gray:rgba(200, 200, 200, 0.9);--lightgray:rgba(240, 240, 240, 0.9);--lightestgray:rgba(250, 250, 250, 0.8);--darkgray:rgba(180, 180, 180, 1)}
+body{font-family:Roboto,Arial,Helvetica,sans-serif}
+code,pre,samp{font-family:'Source Code Pro',monospace}
+header{border-bottom:2px solid var(--gray);padding-bottom:2em}
+.header-top{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+a#ims-logo,a#logo{text-decoration:none;border:0}
+h1.title{font-size:200%}
+div.subtitle{font-size:150%;color:var(--fgclr2)}
+#cpr{margin-bottom:1.5em;margin-top:2.5em}
+#cpr p{margin-top:0;margin-bottom:0}
+.statusPD{position:fixed;display:block;top:0;left:0;width:300px;height:30px;text-align:right;padding-top:2px;padding-right:2em;background-color:red;color:#fff;font-size:20px;transform-origin:left top;transform:rotate(-90deg) translate(-100%,0);-ms-transform-origin:left top;-ms-transform:rotate(90deg);-webkit-transform-origin:left top;-webkit-transform:rotate(-90deg) translate(-100%,0);-moz-transform-origin:left top;-moz-transform:rotate(-90deg) translate(-100%,0);-o-transform-origin:left top;-o-transform:rotate(-90deg) translate(-100%,0);z-index:12000}
+.statusPD.final{background-color:#00f}
+dt,h1,h2,h3,h4,h5,h6{page-break-after:avoid;page-break-inside:avoid;font:100% sans-serif;font-family:inherit;line-height:1.2;-webkit-hyphens:manual;-ms-hyphens:manual;hyphens:manual}
+h2,h3,h4,h5,h6{margin-top:3rem}
+h1,h2,h3,h4{color:var(--fgclr4);background:0 0}
+h1{font-size:170%}
+h2{font-size:140%}
+h3{font-size:120%}
+h4{font-weight:700}
+h5{font-style:italic}
+h6{font-variant:small-caps}
+dt{font-weight:700}
+a[href].internalDFN{color:var(--fgclr1);text-decoration:none;border-bottom:1px var(--fgclr2) dotted}
+a[href]:focus,a[href]:hover{background:var(--lightgray)}
+a[href]:active{color:#c00;border-color:#c00}
+.example{border:1px solid var(--darkgray);counter-increment:example}
+.example figcaption{background-color:var(--fgclr3);color:#fff}
+section#revisionhistory table{margin-bottom:3em}
+div#endWarranty p{margin-top:.3em;margin-bottom:.3em}
+div#endWarranty{margin-top:6em;padding-top:3em;border-top:2px solid var(--gray);text-align:center}
+table{border-collapse:collapse;word-wrap:normal;overflow-wrap:normal;-webkit-hyphens:manual;-ms-hyphens:manual;hyphens:manual;width:100%;margin-top:1.5em;margin-bottom:1.5em;max-width:50em;border:1px solid var(--gray)}
+td,th{padding-left:1em;padding-right:1em;padding-left:1em;padding-right:1em;text-align:left;text-align:start;vertical-align:top;border:1px solid var(--gray)}
+th{font-weight:700;background-color:var(--fgclr3);color:#fff;padding:.6em}
+td{padding:.8em}
+th>*{padding:0;margin:0}
+table#no-cell-borders,table#version-table{border:1px solid var(--gray)}
+table#no-cell-borders td,table#version-table td{border:none}
+table#version-table td{padding:.2em}
+td code,td.pre{white-space:pre;overflow:scroll}
+table.index{font-size:small;border-collapse:collapse;border-spacing:0;text-align:left;margin:1em 0}
+table.index td,table.index th{padding:.4em}
+table.index tr:hover td:not([rowspan]),table.index tr:hover th:not([rowspan]){background:#f7f8f9}
+table.index th:first-child a{font-weight:700}
+.alert{border:2px solid red;padding:.3em}
+dt>dfn{font-weight:700}
+a[href].hidden-reveal::before{content:"›"}
+h2>a[href].self-link::before,h3>a[href].self-link::before,h4>a[href].self-link::before,h5>a[href].self-link::before,h6>a[href].self-link::before{content:"›"}
+a[href].hidden-reveal,a[href].hidden-reveal:visited{text-decoration:none;border-bottom:none}
+.admonition{margin-top:1em;margin-bottom:1em;margin:1em 0;border-left-width:.5em;border-left-style:solid;padding:.5em 1.2em .5em;position:relative;clear:both}
+.admonition .admon-top{padding-right:1em;min-width:7.5em;color:#e05252;text-transform:uppercase}
+.admonition .ednote-title,.admonition .note-title{color:#2b2}
+.admonition .ednote-title,.admonition .warning-title{color:#f22}
+.admonition.issue{border-color:#e05252;background:#fbe9e9;counter-increment:issue;overflow:auto}
+.admonition.ednote,.admonition.note{border-color:#52e052;background:#e9fbe9}
+.admonition>p:first-child{margin-top:0}
+.admonition.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9;padding-top:1em}
+.admonition .warning-title:before{content:"⚠";font-size:3em;float:left;height:100%;padding-right:.3em;vertical-align:top;margin-top:-.5em}
+body{-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;color:var(--fgclr1)}
+.figure,.sidefigure,figure{text-align:left}
+.figure img,.figure pre,.sidefigure img,.sidefigure pre,figure img,figure pre{display:unset}
+.caption,caption,figcaption{display:block;padding:.5em 0 .5em .5em}
+</style>
+<title>Open Badges Errata 3.0 
+    Candidate Final Public</title>
+<link rel="canonical" href="https://www.imsglobal.org/spec/ob/v3p0/errata/">
+<style>
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "mainSpecTitle": "Open Badges Specification",
+  "mainSpecBiblioKey": "OB-ERRATA-30",
+  "specTitle": "Open Badges Errata",
+  "shortName": "ob",
+  "specNature": "informative",
+  "specType": "errata",
+  "specVersion": "3.0",
+  "docVersion": "1.0",
+  "specStatus": "Candidate Final Public",
+  "specDate": "March 6, 2023",
+  "contributors": [
+    {
+      "name": "Nate Otto",
+      "company": "Concentric Sky, self",
+      "companyURL": "",
+      "role": "Invited Expert"
+    },
+    {
+      "name": "Kerri Lemoie",
+      "company": "Concentric Sky, RANDA",
+      "companyURL": "",
+      "role": "Editor"
+    },
+    {
+      "name": "Phillip Long",
+      "company": "Concentric Sky",
+      "companyURL": "",
+      "role": "Invited Expert"
+    },
+    {
+      "name": "Marty Reed",
+      "company": "RANDA Solutions",
+      "companyURL": "",
+      "role": "Co-chair, CLR"
+    },
+    {
+      "name": "Justin Pitcher",
+      "company": "Anthology",
+      "companyURL": "",
+      "role": "Co-chair, OB"
+    },
+    {
+      "name": "Brent Cappriotti",
+      "company": "RANDA Solutions",
+      "companyURL": "",
+      "role": "Co-chair, CLR"
+    },
+    {
+      "name": "Sherri Braxton",
+      "company": "Bowdoin College",
+      "companyURL": "",
+      "role": "Co-chair, OB"
+    },
+    {
+      "name": "Jock Wright",
+      "company": "VerifyEd",
+      "companyURL": "",
+      "role": ""
+    },
+    {
+      "name": "Jen Schreiber",
+      "company": "Workday",
+      "companyURL": "",
+      "role": ""
+    },
+    {
+      "name": "Viktor Haag",
+      "company": "D2L",
+      "companyURL": "",
+      "role": ""
+    },
+    {
+      "name": "Alex Hripak",
+      "company": "Credly",
+      "companyURL": "",
+      "role": ""
+    },
+    {
+      "name": "David Ward",
+      "company": "PCG",
+      "companyURL": "",
+      "role": ""
+    },
+    {
+      "name": "Laura Janusek",
+      "company": "D2L",
+      "companyURL": "",
+      "role": ""
+    },
+    {
+      "name": "John Kuo",
+      "company": "Arizona State University",
+      "companyURL": "",
+      "role": ""
+    },
+    {
+      "name": "Sara Arjona",
+      "company": "Moodle HQ",
+      "companyURL": "",
+      "role": ""
+    },
+    {
+      "name": "Mark McConahay",
+      "company": "AACRAO",
+      "companyURL": "",
+      "role": "Invited Expert"
+    },
+    {
+      "name": "Dmitri Zagidulin",
+      "company": "DCC",
+      "companyURL": "",
+      "role": "Invited Expert"
+    },
+    {
+      "name": "Tracy Korsmo",
+      "company": "North Dakota IT (NDIT)",
+      "companyURL": "",
+      "role": ""
+    },
+    {
+      "name": "Kate Giovacchini",
+      "company": "Arizona State University",
+      "companyURL": "",
+      "role": ""
+    },
+    {
+      "name": "Andy Miller",
+      "company": "1Edtech",
+      "companyURL": "",
+      "role": "Editor"
+    },
+    {
+      "name": "Markus Gylling",
+      "company": "1Edtech",
+      "companyURL": "",
+      "role": "Editor"
+    },
+    {
+      "name": "Dan Blickensderfer",
+      "company": "1Edtech",
+      "companyURL": "",
+      "role": "Editor"
+    },
+    {
+      "name": "Xavi Aracil",
+      "company": "1Edtech",
+      "companyURL": "",
+      "role": "Editor"
+    }
+  ],
+  "localBiblio": {
+    "OB-30": {
+      "title": "Open Badges Specification v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/",
+      "status": "IMS Base Document",
+      "publisher": "1EdTech"
+    },
+    "OB-CERT-30": {
+      "title": "Open Badges Specification Conformance and Certification Guide v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/cert/",
+      "status": "IMS Base Document",
+      "publisher": "1EdTech"
+    },
+    "OB-ERRATA-30": {
+      "title": "Open Badges Specification v3.0: Errata",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/errata/",
+      "status": "IMS Base Document",
+      "publisher": "1EdTech"
+    },
+    "OB-INFO-30": {
+      "title": "Open Badges Specification Information Model v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/InfoModel/ob_InfoModel.html",
+      "status": "IMS Base Document",
+      "publisher": "1EdTech"
+    },
+    "OB-BAKE-30": {
+      "title": "Open Badges Specification Baking a Badge v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/ImageBinding/ob_ImageBinding.html",
+      "status": "IMS Base Document",
+      "publisher": "1EdTech"
+    },
+    "OB-REST-30": {
+      "title": "Open Badges Specification REST/JSON API v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/RESTBinding/ob_RESTBind.html",
+      "status": "IMS Base Document",
+      "publisher": "1EdTech"
+    },
+    "OB-OPEN-30": {
+      "title": "Open Badges Specification OpenAPI Schema v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/schema/openapi/",
+      "status": "IMS Base Document",
+      "publisher": "1EdTech"
+    },
+    "OB-JSON-30": {
+      "title": "Open Badges Specification JSON Schema v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/schema/json",
+      "status": "IMS Base Document",
+      "publisher": "1EdTech"
+    },
+    "OB-JSONLD-30": {
+      "title": "Open Badges Specification JSON-LD Context v3.0",
+      "href": "https://www.imsglobal.org/spec/ob/v3p0/",
+      "status": "IMS Base Document",
+      "publisher": "1EdTech"
+    },
+    "CLR-20": {
+      "title": "Comprehensive Learner Record Standard v2.0",
+      "href": "https://www.imsglobal.org/spec/clr/v2p0/",
+      "status": "IMS Base Document",
+      "publisher": "1EdTech"
+    },
+    "CEDS": {
+      "title": "Common Education Data Standards (CEDS) Version 7 Data Model Guide",
+      "href": "https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf"
+    },
+    "RSD": {
+      "title": "Rich Skill Descriptors",
+      "href": "https://www.openskillsnetwork.org/rsd"
+    },
+    "DATA-INTEGRITY": {
+      "title": "Data Integrity 1.0",
+      "href": "https://w3c-ccg.github.io/data-integrity-spec/",
+      "authors": [
+        "Manu Sporny",
+        "Dave Longley"
+      ],
+      "status": "CG-DRAFT",
+      "publisher": "Credentials Community Group"
+    },
+    "VC-API": {
+      "title": "Verifiable Credentials HTTP API",
+      "href": "https://w3c-ccg.github.io/vc-api/",
+      "status": "W3C Community Group Draft Report",
+      "publisher": "Credentials Community Group"
+    },
+    "PRESENTATION-EXCHANGE-10": {
+      "title": "Presentation Exchange v1.0.0",
+      "href": "https://identity.foundation/presentation-exchange/spec/v1.0.0/",
+      "status": "DIF Ratified Specification",
+      "publisher": "Distributed Identity Foundation"
+    },
+    "OIDC-VCI": {
+      "title": "OpenID Connect for Verifiable Credential Issuance",
+      "href": "https://openid.net/specs/openid-connect-4-verifiable-credential-issuance-1_0.html",
+      "status": "Standards Track",
+      "publisher": "OpenID Foundation"
+    },
+    "OIDC-VP": {
+      "title": "OpenID Connect for Verifiable Presentations",
+      "href": "https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0.html",
+      "status": "Standards Track",
+      "publisher": "OpenID Foundation"
+    },
+    "VC-EXTENSION-REGISTRY": {
+      "title": "Verifiable Credentials Extension Registry",
+      "href": "https://w3c-ccg.github.io/vc-extension-registry/",
+      "status": "CG-DRAFT",
+      "publisher": "Credentials Community Group"
+    },
+    "JSON-SCHEMA-2019-09": {
+      "title": "JSON Schema: A Media Type for Describing JSON Documents",
+      "href": "https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-02",
+      "status": "Internet-Draft",
+      "publisher": "Internet Engineering Task Force"
+    },
+    "JSON-SCHEMA-VALIDATION-2019-09": {
+      "title": "JSON Schema Validation: A Vocabulary for Structural Validation of JSON",
+      "href": "https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-02",
+      "status": "Internet-Draft",
+      "publisher": "Internet Engineering Task Force"
+    },
+    "DATA-INTEGRITY-SPEC": {
+      "title": "Data Integrity",
+      "href": "https://w3c-ccg.github.io/data-integrity-spec/",
+      "status": "CG-DRAFT",
+      "publisher": "Credentials Community Group"
+    },
+    "VCRL-10": {
+      "title": "1EdTech Revocation List Status Method",
+      "href": "https://imsglobal.org/spec/vcrl/v1p0/",
+      "status": "IMS Base Document",
+      "publisher": "1EdTech"
+    },
+    "VCCR-10": {
+      "title": "1EdTech Credential Refresh Service",
+      "href": "https://imsglobal.org/spec/vccr/v1p0/",
+      "status": "IMS Base Document",
+      "publisher": "1EdTech"
+    },
+    "VCCS-10": {
+      "title": "1EdTech JSON Schema Validator 2019",
+      "href": "https://imsglobal.org/spec/vccs/v1p0/",
+      "status": "IMS Base Document",
+      "publisher": "1EdTech"
+    },
+    "LDS-ED25519-2020": {
+      "title": "Ed25519 Signature 2020",
+      "href": "https://w3c-ccg.github.io/lds-ed25519-2020/",
+      "status": "Draft Community Group Report",
+      "publisher": "W3C Credentials Community Group"
+    },
+    "MULTIBASE": {
+      "title": "The Multibase Data Format",
+      "href": "https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-01",
+      "status": "Internet-Draft",
+      "publisher": "IETF"
+    },
+    "MULTICODEC": {
+      "title": "MULTICODEC",
+      "href": "https://github.com/multiformats/multicodec/"
+    },
+    "CTDL-TERMS": {
+      "title": "Credential Transparency Description Language Terms",
+      "href": "https://credreg.net/ctdl/terms",
+      "publisher": "Credential Engine"
+    },
+    "CTDL-ASN-TERMS": {
+      "title": "Credential Transparency Description Language ASN Terms",
+      "href": "https://credreg.net/ctdlasn/terms",
+      "publisher": "Credential Engine"
+    }
+  }
+}</script></head>
+
+    <body class="informative toc-inline"><header>
+    <div class="header-top">
+      <h1 class="title" id="title">Open Badges Errata</h1>
+      <a href="https://www.1edtech.org" id="1edtech-logo" style="margin-left:27px">
+        <img src="https://purl.imsglobal.org/respec/1edtech_logo_color_with_tagline.svg" width="300" height="105" alt="1EdTech logo">
+      </a>
+    </div>
+    <div class="subtitle">
+        Candidate Final Public<br>Spec Version 3.0
+      </div> <span class="statusPD" data-content="Candidate Final Public">Candidate Final Public</span>
+    <table id="version-table" title="Version/Release Details">
+    <tbody>
+      <tr>
+        <td>Document Version:</td>
+        <td>1.0</td>
+      </tr>
+      <tr>
+        <td>Date Issued:</td>
+        <td>March 6, 2023</td>
+      </tr>
+      <tr>
+        <td>Status:</td>
+        <td>This document is for review and adoption by the 1EdTech membership.</td>
+      </tr>
+      <tr>
+        <td>This version:</td>
+        <td><a href="https://www.imsglobal.org/spec/ob/v3p0/errata/">https://www.imsglobal.org/spec/ob/v3p0/errata/</a></td>
+      </tr>
+      
+      
+    </tbody>
+  </table> <div id="ipr">
+      <h2>IPR and Distribution Notice</h2>
+      <p>
+        Recipients of this document are requested to submit, with their
+        comments, notification of any relevant patent claims or other
+        intellectual property rights of which they may be aware that might be
+        infringed by any implementation of the specification set forth in this
+        document, and to provide supporting documentation.
+      </p>
+      <p>
+        1EdTech takes no position regarding the validity or scope of any
+        intellectual property or other rights that might be claimed to pertain
+        implementation or use of the technology described in this document or
+        the extent to which any license under such rights might or might not be
+        available; neither does it represent that it has made any effort to
+        identify any such rights. Information on 1EdTech's procedures with respect
+        to rights in 1EdTech specifications can be found at the 1EdTech Intellectual
+        Property Rights webpage:
+        <a href="http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf">
+          http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf </a>.
+      </p>
+    </div> <div id="disclosure">
+      <p>
+        Use of this specification to develop products or services is governed by
+        the license with 1EdTech found on the 1EdTech website:
+        <a href="http://www.imsglobal.org/speclicense.html">
+          http://www.imsglobal.org/speclicense.html</a>.
+      </p>
+      <p>
+        Permission is granted to all parties to use excerpts from this document
+        as needed in producing requests for proposals.
+      </p>
+      <p>
+        The limited permissions granted above are perpetual and will not be
+        revoked by 1EdTech or its successors or assigns.
+      </p>
+      <p>
+        THIS SPECIFICATION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND
+        IN PARTICULAR, ANY WARRANTY OF NONINFRINGEMENT IS EXPRESSLY DISCLAIMED.
+        ANY USE OF THIS SPECIFICATION <em class="rfc2119">SHALL</em> BE MADE ENTIRELY AT THE
+        IMPLEMENTER'S OWN RISK, AND NEITHER THE CONSORTIUM, NOR ANY OF ITS
+        MEMBERS OR SUBMITTERS, <em class="rfc2119">SHALL</em> HAVE ANY LIABILITY WHATSOEVER TO ANY
+        IMPLEMENTER OR THIRD PARTY FOR ANY DAMAGES OF ANY NATURE WHATSOEVER,
+        DIRECTLY OR INDIRECTLY, ARISING FROM THE USE OF THIS SPECIFICATION.
+      </p>
+      <p>
+        Public contributions, comments and questions can be posted here:
+        <a href="http://www.imsglobal.org/forums/ims-glc-public-forums-and-resources">
+          http://www.imsglobal.org/forums/ims-glc-public-forums-and-resources
+        </a>.
+      </p>
+    </div>
+    <div id="cpr">
+    <p>
+      © 2023 1EdTech™ Consortium, Inc. All Rights Reserved.
+    </p>
+    <p>
+      Trademark information:
+      <a href="http://www.imsglobal.org/copyright.html">http://www.imsglobal.org/copyright.html
+      </a>
+    </p>
+  </div>
+  </header>
+        <section id="abstract" class="introductory"><h2>Abstract</h2></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#errata-for-open-badges-3-0-specification"><bdi class="secno">1. </bdi>Errata for Open Badges 3.0 Specification<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#context-file"><bdi class="secno">1.1 </bdi>Context file<span class="formerLink" aria-label="§"></span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#version-3-0-1"><bdi class="secno">1.1.1 </bdi>version 3.0.1<span class="formerLink" aria-label="§"></span></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#revisionhistory"><bdi class="secno">A. </bdi>Revision History</a></li></ol></nav>
+
+        <section id="main-context" data-format="markdown"><h2 id="errata-for-open-badges-3-0-specification"><bdi class="secno">1. </bdi>Errata for Open Badges 3.0 Specification<a class="self-link" aria-label="§" href="#main-context"></a><a class="self-link" aria-label="§" href="#errata-for-open-badges-3-0-specification"></a></h2><section id="context-file-0"><h3 id="context-file"><bdi class="secno">1.1 </bdi>Context file<a class="self-link" aria-label="§" href="#context-file"></a><a class="self-link" aria-label="§" href="#context-file"></a></h3><p>The context file for Open Badges 3.0 follows a versioning as a result of <a href="https://github.com/1EdTech/openbadges-specification/issues/497">https://github.com/1EdTech/openbadges-specification/issues/497</a>. All changes to this file that may lead to invalid signatures and errors must lead to a new version of the file. This section recaps all the changes made to this file.</p><section id="version-3-0-1-0"><h4 id="version-3-0-1"><bdi class="secno">1.1.1 </bdi>version 3.0.1<a class="self-link" aria-label="§" href="#version-3-0-1"></a><a class="self-link" aria-label="§" href="#version-3-0-1"></a></h4><ul>
+<li>Fixed <code>Achievement</code>'s <code>creator</code> IRI. Now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#creator</code></li>
+<li>Fixed <code>AchievementSubject</code>'s <code>achievement</code> IRI. Now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#achievement-0</code></li>
+<li>Fixed <code>Profiles</code>'s <code>phone</code> IRI. Now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#phone</code></li>
+<li>Added <code>image</code> attribute to <code>Achievement</code>.</li>
+<li>Removed <code>@type</code> from <code>alignment</code>. This fixes a compaction error.</li>
+<li>Removed <code>@type</code> from <code>otherIdentifier</code>. This fixes a compaction error.</li>
+<li>Removed <code>@type</code> from <code>Achievement</code>'s <code>resultDescription</code>. This fixes a compaction error.</li>
+<li>Removed <code>@type</code> from <code>AchievementSubject</code>'s <code>identifier</code>. This fixes a compaction error.</li>
+<li>Added <code>image</code> attribute to <code>AchievementSubject</code>.</li>
+<li>Removed <code>@type</code> from <code>AchievementSubject</code>'s <code>result</code>. This fixes a compaction error.</li>
+<li>Fixed <code>@type</code> from <code>AchievementSubject</code>'s <code>source</code>. This fixes a compaction error.</li>
+<li>Removed <code>@type</code> from <code>ResultDescription</code>'s <code>rubricCriterionLevel</code>. This fixes a compaction error.</li>
+<li>Removed <code>@type</code> from <code>endorsement</code>. This fixes a compaction error.</li>
+<li>Added <code>image</code> attribute to <code>Profile</code>.</li>
+<li>Fixed <code>Profile</code>'s <code>address</code> IRI. Now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#address</code></li>
+<li>Removed <code>@type</code> from <code>Achievement</code>'s <code>related</code>. This fixes a compaction error.</li>
+<li>Added <code>type</code> attribute to <code>Profile</code>s <code>address</code>. This fixes a compaction error.</li>
+<li>Fixed <code>type</code> attribute of <code>Profile</code>s <code>parentOrg</code>.</li>
+<li>Fixed <code>type</code> attribute of <code>Image</code>.</li>
+<li>Fixed <code>@id</code> attribute of <code>Alignment</code>. Now points to <code>https://schema.org/AlignmentObject</code>.</li>
+</ul></section></section></section>
+
+        <section class="appendix informative" id="revisionhistory">
+            <h2 id="a-revision-history"><bdi class="secno">A. </bdi>Revision History<a class="self-link" aria-label="§" href="#revisionhistory"></a></h2><p><em>This section is non-normative.</em></p>
+            <table title="Revision History">
+                <thead>
+                    <tr>
+                        <th>Version No.</th>
+                        <th>Document Version</th>
+                        <th>Release Date</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Version 3.0 IMS Candidate Final</td>
+                        <td>1</td>
+                        <td>March 6, 2023</td>
+                        <td>
+                            Added changes in context.json file
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    
+<p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://purl.imsglobal.org/spec/fixup.js"></script><footer>
+    <div id="endWarranty">
+      <p>
+        1EdTech™ Consortium, Inc. ("1EdTech") is publishing the
+        information contained in this document ("Specification") for purposes of
+        scientific, experimental, and scholarly collaboration only.
+      </p>
+      <p>
+        1EdTech makes no warranty or representation regarding the accuracy or
+        completeness of the Specification.
+      </p>
+      <p>This material is provided on an "As Is" and "As Available" basis.</p>
+      <p>
+        The Specification is at all times subject to change and revision without
+        notice.
+      </p>
+      <p>
+        It is your sole responsibility to evaluate the usefulness, accuracy, and
+        completeness of the Specification as it relates to you.
+      </p>
+      <p>1EdTech would appreciate receiving your comments and suggestions.</p>
+      <p>
+        Please contact 1EdTech through our website at
+        <a href="https://www.1edtech.org">www.1edtech.org</a>.
+      </p>
+      <p>
+        Please refer to Document Name: Open Badges Errata
+        3.0
+      </p>
+      <p>Date: March 6, 2023</p>
+      <div></div>
+    </div>
+  </footer></body></html>
