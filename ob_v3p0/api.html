@@ -1,131 +1,173 @@
 var api = `
 
-<section id="api" data-model="org.1edtech.ob.v3p0.model" data-service-model="org.1edtech.ob.v3p0.rest.servicemodel"
-  title="Open Badges API">
-  <p>
-    [=Open Badges=] can be exchanged using the API (application programming interface) defined here, or as
-    <a href="#docformat">documents</a>.
-  </p>
-  <p>
-    This specification defines a [=RESTful API=] protocol to be implemented by applications serving in the roles of
-    [=Client=] and [=Resource Server=]. The API uses OAuth 2.0 for authentication and granular resource-based permission
-    scopes. Please see the [[[OB-CERT-30]]] for a list of which endpoints must be implemented for certification.
-  </p>
-  <p class="note" title="Non-individual access">
-    The API defined here is intended for [=Clients=] and [=servers=] that give individual users control over access to their resources.
-    While system-to-system bulk transfers using OAuth 2.0 Client-Credentials Grant are expected to occur, it is out of scope for this version of the specification to define. Future versions of this specification may add explicit support for OAuth 2.0 Client-Credentials Grant.
-  </p>
-  <p>
-    In addition to the documentation in this section, there are <a href="#docs-openapi">OpenAPI</a> files for the
-    Open Badges API in both JSON and YAML format:
-  </p>
-  <ul>
-    <li><a href="https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/imsob_v3p0.json">JSON OpenAPI File</a>
-    </li>
-    <li><a href="https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/imsob_v3p0.yaml">YAML OpenAPI File</a>
-    </li>
-  </ul>
+<section
+    id="api"
+    data-model="org.1edtech.ob.v3p0.model"
+    data-service-model="org.1edtech.ob.v3p0.rest.servicemodel"
+    title="Open Badges API"
+>
+    <p>
+        [=Open Badges=] can be exchanged using the API (application programming interface)
+        defined here, or as
+        <a href="#docformat">documents</a>.
+    </p>
+    <p>
+        This specification defines a [=RESTful API=] protocol to be implemented by
+        applications serving in the roles of [=Client=] and [=Resource Server=]. The API
+        uses OAuth 2.0 for authentication and granular resource-based permission scopes.
+        Please see the [[[OB-CERT-30]]] for a list of which endpoints must be implemented
+        for certification.
+    </p>
+    <p class="note" title="Non-individual access">
+        The API defined here is intended for [=Clients=] and [=servers=] that give
+        individual users control over access to their resources. While system-to-system
+        bulk transfers using OAuth 2.0 Client-Credentials Grant are expected to occur, it
+        is out of scope for this version of the specification to define. Future versions
+        of this specification may add explicit support for OAuth 2.0 Client-Credentials
+        Grant.
+    </p>
+    <p>
+        In addition to the documentation in this section, there are
+        <a href="#docs-openapi">OpenAPI</a> files for the Open Badges API in both JSON and
+        YAML format:
+    </p>
+    <ul>
+        <li>
+            <a
+                href="https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/imsob_v3p0.json"
+                >JSON OpenAPI File</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/imsob_v3p0.yaml"
+                >YAML OpenAPI File</a
+            >
+        </li>
+    </ul>
 
-  <section id="api-architecture">
-    <h3>Architecture</h3>
-    <figure id="ad-architecture">
-      <img src="images/OB3_Architecture.svg" alt="Diagram showing the major components of the Open Badges API" />
-      <figcaption>Diagram showing the major components of the Open Badges API</figcaption>
-    </figure>
-    <p>
-      There are five key components to the API architecture.
-    </p>
-    <dl>
-      <dt><dfn data-lt="Resource Owner">User</dfn></dt>
-      <dd>
-        This is the user that owns the resources ([=badges=]) that are on the [=resource server=]. Also called a
-        Resource Owner.
-      </dd>
-      <dt><dfn>Web Browser</dfn></dt>
-      <dd>This is the web browser the [=user=] interacts with.</dd>
-      <dt>[=Client=]</dt>
-      <dd>
-        This is the web application that interacts with the [=resource server=] on behalf of the [=user=]. Also called
-        Consumer in the [[[SEC-11]]].
-      </dd>
-      <dt><dfn>Authorization Server</dfn></dt>
-      <dd>
-        This is a [=server=] that implements the OAuth 2.0 endpoints on behalf of
-        the [=resource server=]. In many systems, the [=authorization server=] and the [=resource server=] are
-        combined.
-      </dd>
-      <dt><dfn data-lt="Provider">Resource Server</dfn></dt>
-      <dd>
-        This is the [=server=] that has the protected resources ([=badges=]). Also called Provider in the [[[SEC-11]]].
-      </dd>
-    </dl>
-    <p>
-      The role of each component during Registration, Obtaining Tokens, and Authenticating with Tokens are described
-      below.
-    </p>
-  </section>
+    <section id="api-architecture">
+        <h3>Architecture</h3>
+        <figure id="ad-architecture">
+            <img
+                src="images/OB3_Architecture.svg"
+                alt="Diagram showing the major components of the Open Badges API"
+            />
+            <figcaption>
+                Diagram showing the major components of the Open Badges API
+            </figcaption>
+        </figure>
+        <p>There are five key components to the API architecture.</p>
+        <dl>
+            <dt><dfn data-lt="Resource Owner">User</dfn></dt>
+            <dd>
+                This is the user that owns the resources ([=badges=]) that are on the
+                [=resource server=]. Also called a Resource Owner.
+            </dd>
+            <dt><dfn>Web Browser</dfn></dt>
+            <dd>This is the web browser the [=user=] interacts with.</dd>
+            <dt>[=Client=]</dt>
+            <dd>
+                This is the web application that interacts with the [=resource server=] on
+                behalf of the [=user=]. Also called Consumer in the [[[SEC-11]]].
+            </dd>
+            <dt><dfn>Authorization Server</dfn></dt>
+            <dd>
+                This is a [=server=] that implements the OAuth 2.0 endpoints on behalf of
+                the [=resource server=]. In many systems, the [=authorization server=] and
+                the [=resource server=] are combined.
+            </dd>
+            <dt><dfn data-lt="Provider">Resource Server</dfn></dt>
+            <dd>
+                This is the [=server=] that has the protected resources ([=badges=]). Also
+                called Provider in the [[[SEC-11]]].
+            </dd>
+        </dl>
+        <p>
+            The role of each component during Registration, Obtaining Tokens, and
+            Authenticating with Tokens are described below.
+        </p>
+    </section>
 
-  <section id="api-endpoints" data-interface="org.1edtech.ob.v3p0.rest.openbadgecredentials.interface"
-    title="Secure REST Endpoints">
-    <p>
-      All secure endpoint requests MUST be made over secure TLS 1.2 or 1.3 protocol.
-    </p>
-    <p>
-      All of the Secure REST Endpoints are protected by OAuth 2.0 access tokens as described in
-      [[[#api-security]]].
-    </p>
+    <section
+        id="api-endpoints"
+        data-interface="org.1edtech.ob.v3p0.rest.openbadgecredentials.interface"
+        title="Secure REST Endpoints"
+    >
+        <p>
+            All secure endpoint requests MUST be made over secure TLS 1.2 or 1.3 protocol.
+        </p>
+        <p>
+            All of the Secure REST Endpoints are protected by OAuth 2.0 access tokens as
+            described in [[[#api-security]]].
+        </p>
 
-    <h4 id="scopes">Scopes</h4>
-    <p>
-      Each endpoint requires an access token with a specific Open Badges scope as shown below.
-    </p>
-    <table class="simple">
-      <thead>
-        <tr>
-          <th>Operation</th>
-          <th>Scope</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="#getcredentials">getCredentials</a></td>
-          <td>
-            <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly</code> -
-            Permission to read OpenBadgeCredentials for the authenticated entity.
-          </td>
-        </tr>
-        <tr>
-          <td><a href="#upsertcredential">upsertCredential</a></td>
-          <td>
-            <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert</code> -
-            Permission to create or update OpenBadgeCredentials for the authenticated entity.
-          </td>
-        </tr>
-        <tr>
-          <td><a href="#getprofile">getProfile</a></td>
-          <td>
-            <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly</code> -
-            Permission to read the profile for the authenticated entity.
-          </td>
-        </tr>
-        <tr>
-          <td><a href="#putprofile">putProfile</a></td>
-          <td>
-            <code>https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update</code> -
-            Permission to update the profile for the authenticated entity.
-          </td>
-        </tr>
-      </tbody>
-    </table>
+        <h4 id="scopes">Scopes</h4>
+        <p>
+            Each endpoint requires an access token with a specific Open Badges scope as
+            shown below.
+        </p>
+        <table class="simple">
+            <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Scope</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#getcredentials">getCredentials</a></td>
+                    <td>
+                        <code
+                            >https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly</code
+                        >
+                        - Permission to read OpenBadgeCredentials for the authenticated
+                        entity.
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#upsertcredential">upsertCredential</a></td>
+                    <td>
+                        <code
+                            >https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert</code
+                        >
+                        - Permission to create or update OpenBadgeCredentials for the
+                        authenticated entity.
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#getprofile">getProfile</a></td>
+                    <td>
+                        <code
+                            >https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly</code
+                        >
+                        - Permission to read the profile for the authenticated entity.
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#putprofile">putProfile</a></td>
+                    <td>
+                        <code
+                            >https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update</code
+                        >
+                        - Permission to update the profile for the authenticated entity.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-    <section data-operation="org.1edtech.ob.v3p0.rest.getcredentials.operation">
-      <pre class="http example" title="Sample getCredentials Request">
+        <section data-operation="org.1edtech.ob.v3p0.rest.getcredentials.operation">
+            <pre class="http example" title="Sample getCredentials Request">
         GET /ims/ob/v3p0/assertions?limit=2&offset=0 HTTP/1.1
         Host: example.edu
         Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
         Accept: application/json
-      </pre>
-      <pre class="http example" title="Sample getCredentials Response (line breaks for clarity)">
+      </pre
+            >
+            <pre
+                class="http example"
+                title="Sample getCredentials Response (line breaks for clarity)"
+            >
         HTTP/1.1 200 OK
         Content-Type: application/ld+json
         X-Total-Count: 1
@@ -140,10 +182,11 @@ var api = `
             "header.payload.signature"
           ]
         }
-      </pre>
-    </section>
-    <section data-operation="org.1edtech.ob.v3p0.rest.upsertcredential.operation">
-      <pre class="http example" title="Sample upsertCredential Request">
+      </pre
+            >
+        </section>
+        <section data-operation="org.1edtech.ob.v3p0.rest.upsertcredential.operation">
+            <pre class="http example" title="Sample upsertCredential Request">
         POST /ims/ob/v3p0/credentials HTTP/1.1
         Host: example.edu
         Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
@@ -151,37 +194,41 @@ var api = `
         Content-Type: text/plain
 
         header.payload.signature
-      </pre>
-      <pre class="http example" title="Sample upsertCredential Response">
+      </pre
+            >
+            <pre class="http example" title="Sample upsertCredential Response">
         HTTP/1.1 200 OK
         Content-Type: text/plain
 
         header.payload.signature
-      </pre>
-    </section>
-    <section data-operation="org.1edtech.ob.v3p0.rest.getprofile.operation">
-      <pre class="http example" title="Sample getProfile Request">
+      </pre
+            >
+        </section>
+        <section data-operation="org.1edtech.ob.v3p0.rest.getprofile.operation">
+            <pre class="http example" title="Sample getProfile Request">
         GET /ims/ob/v3p0/profile HTTP/1.1
         Host: example.edu
         Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
         Accept: application/json
-      </pre>
-      <pre class="http example" title="Sample getProfile Response">
+      </pre
+            >
+            <pre class="http example" title="Sample getProfile Response">
         HTTP/1.1 200 OK
         Content-Type: application/json
 
         {
           "@context": [
-             "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
+             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json"
           ],
           "type": "Profile",
           "id": "https://example.edu/issuers/565049",
           "name": "Example University"
         }
-      </pre>
-    </section>
-    <section data-operation="org.1edtech.ob.v3p0.rest.putprofile.operation">
-      <pre class="http example" title="Sample putProfile Request">
+      </pre
+            >
+        </section>
+        <section data-operation="org.1edtech.ob.v3p0.rest.putprofile.operation">
+            <pre class="http example" title="Sample putProfile Request">
         PUT /ims/ob/v3p0/profile HTTP/1.1
         Host: example.edu
         Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
@@ -190,39 +237,49 @@ var api = `
 
         {
           "@context": [
-             "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
+             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json"
           ],
           "type": "Profile",
           "id": "https://example.edu/issuers/565049",
           "name": "Example University",
           "phone": "111-222-3333"
         }
-      </pre>
-      <pre class="http example" title="Sample putProfile Response">
+      </pre
+            >
+            <pre class="http example" title="Sample putProfile Response">
         {
           "@context": [
-               "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
+               "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json"
           ],
           "type": "Profile",
           "id": "https://example.edu/issuers/565049",
           "name": "Example University",
           "phone": "111-222-3333"
         }
-      </pre>
+      </pre
+            >
+        </section>
     </section>
-  </section>
 
-  <section id="discovery-endpoints" data-interface="org.1edtech.ob.v3p0.rest.discovery.interface" title="Service Discovery Endpoint">
-    <p>
-      Access to the discovery endpoint MUST NOT be protected. The Service Description Document (SDD) MUST be provided over HTTPS with TLS 1.2 or 1.3.
-    </p>
-    <section data-operation="org.1edtech.ob.v3p0.rest.getservicedescription.operation">
-      <pre class="html example" title="Sample getServiceDescription request">
+    <section
+        id="discovery-endpoints"
+        data-interface="org.1edtech.ob.v3p0.rest.discovery.interface"
+        title="Service Discovery Endpoint"
+    >
+        <p>
+            Access to the discovery endpoint MUST NOT be protected. The Service
+            Description Document (SDD) MUST be provided over HTTPS with TLS 1.2 or 1.3.
+        </p>
+        <section
+            data-operation="org.1edtech.ob.v3p0.rest.getservicedescription.operation"
+        >
+            <pre class="html example" title="Sample getServiceDescription request">
         GET /ims/ob/v3p0/discovery HTTP/1.1
         Host: example.edu
         Accept: application/json
-      </pre>
-      <pre class="http example" title="Sample getServiceDescription response">
+      </pre
+            >
+            <pre class="http example" title="Sample getServiceDescription response">
         HTTP/1.1 200 OK
         Content-Type: application/json
 
@@ -255,93 +312,113 @@ var api = `
             }
         }
         ...
-      </pre>
+      </pre
+            >
+        </section>
     </section>
-  </section>
 
-  <section id="paging">
-    <h5>Paging</h5>
-    <p>
-      Pagination of <code>getCredentials</code> results is controlled by two query string parameters appended to the request.
-      The response includes the following pagination headers.
-    </p>
-    <table class="simple">
-      <thead>
-        <tr>
-          <th>Response Header</th>
-          <th>Description</th>
-          <th>Required</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>X-Total-Count: &lt;total_count></code></td>
-          <td>
-            The [=resource server=] MUST include an <code>X-Total-Count</code> response header if the
-            total result count is known. If the total result count is not known, the total count header
-            MUST be ommitted.
-          </td>
-          <td>Conditionally Required for <code>200 OK</code> Response</td>
-        </tr>
-        <tr>
-          <td><code>Link: &lt;pagination_links&gt;</code></td>
-          <td>
-            The [=resource server=] MUST include a
-            <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link">Link</a></code>
-            response header if the list of credentials in the response is incomplete; and MAY include the
-            <code>Link</code> header if the response is complete.
-          </td>
-          <td>Conditionally Required for <code>200 OK</code> Response</td>
-        </tr>
-      </tbody>
-    </table>
-    <p>
-      If present, the <code>Link</code> header MUST support all of the following link relations
-      (<code>rel</code> values):
-    </p>
-    <table class="simple">
-      <thead>
-        <tr>
-          <th>Relation</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>next</td>
-          <td>The link relation for the immediate next page of results. This MUST appear when the current
-            list response is incomplete.</td>
-        </tr>
-        <tr>
-          <td>last</td>
-          <td>The link relation for the last page of results. This MUST always appear.</td>
-        </tr>
-        <tr>
-          <td>first</td>
-          <td>The link relation for the first page of results. This MUST always appear.</td>
-        </tr>
-        <tr>
-          <td>prev</td>
-          <td>The link relation for the immediate previous page of results. This MUST appear when the
-            offset is greater than zero.</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+    <section id="paging">
+        <h5>Paging</h5>
+        <p>
+            Pagination of <code>getCredentials</code> results is controlled by two query
+            string parameters appended to the request. The response includes the following
+            pagination headers.
+        </p>
+        <table class="simple">
+            <thead>
+                <tr>
+                    <th>Response Header</th>
+                    <th>Description</th>
+                    <th>Required</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>X-Total-Count: &lt;total_count></code></td>
+                    <td>
+                        The [=resource server=] MUST include an
+                        <code>X-Total-Count</code> response header if the total result
+                        count is known. If the total result count is not known, the total
+                        count header MUST be ommitted.
+                    </td>
+                    <td>Conditionally Required for <code>200 OK</code> Response</td>
+                </tr>
+                <tr>
+                    <td><code>Link: &lt;pagination_links&gt;</code></td>
+                    <td>
+                        The [=resource server=] MUST include a
+                        <code
+                            ><a
+                                href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link"
+                                >Link</a
+                            ></code
+                        >
+                        response header if the list of credentials in the response is
+                        incomplete; and MAY include the
+                        <code>Link</code> header if the response is complete.
+                    </td>
+                    <td>Conditionally Required for <code>200 OK</code> Response</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            If present, the <code>Link</code> header MUST support all of the following
+            link relations (<code>rel</code> values):
+        </p>
+        <table class="simple">
+            <thead>
+                <tr>
+                    <th>Relation</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>next</td>
+                    <td>
+                        The link relation for the immediate next page of results. This
+                        MUST appear when the current list response is incomplete.
+                    </td>
+                </tr>
+                <tr>
+                    <td>last</td>
+                    <td>
+                        The link relation for the last page of results. This MUST always
+                        appear.
+                    </td>
+                </tr>
+                <tr>
+                    <td>first</td>
+                    <td>
+                        The link relation for the first page of results. This MUST always
+                        appear.
+                    </td>
+                </tr>
+                <tr>
+                    <td>prev</td>
+                    <td>
+                        The link relation for the immediate previous page of results. This
+                        MUST appear when the offset is greater than zero.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-  <section id="retry-behavior">
-    <h2>Retry Behavior</h2>
-    <p>
-      [=Resource Servers=] MAY implement a <code>Retry-After</code> header to indicate a period of time to wait before
-      attempting the request again.
-    </p>
-    <p>
-      If no <code>Retry-After</code> header is present and the response is non-2XX, it is recommended to retry the
-      request in 30 minutes for an additional two attempts. After which, it MAY be desirable to alert the [=user=] that
-      there is an issue with the connection (e.g. perhaps they need to reauthenticate or manually trigger the request
-      when they believe services are back up).
-    </p>
-  </section>
+    <section id="retry-behavior">
+        <h2>Retry Behavior</h2>
+        <p>
+            [=Resource Servers=] MAY implement a <code>Retry-After</code> header to
+            indicate a period of time to wait before attempting the request again.
+        </p>
+        <p>
+            If no <code>Retry-After</code> header is present and the response is non-2XX,
+            it is recommended to retry the request in 30 minutes for an additional two
+            attempts. After which, it MAY be desirable to alert the [=user=] that there is
+            an issue with the connection (e.g. perhaps they need to reauthenticate or
+            manually trigger the request when they believe services are back up).
+        </p>
+    </section>
 </section>
 
 `;

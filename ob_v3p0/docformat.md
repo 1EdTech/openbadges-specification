@@ -4,9 +4,9 @@ var docformat = `
 
 [OpenBadgeCredentials](#org.1edtech.ob.v3p0.achievementcredential.class) can be exchanged as documents as defined in this section, or by using the [Open Badges API](#api). Documents can be exchanged as a text file, a web resource, or embedded in an image. The contents of an Open Badge document MUST meet the following criteria:
 
-- The contents of the file MUST represent exactly one [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class)
-- The [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) MUST be serialized as JSON and JSON-LD (see [[[#serialization]]])
-- JSON exchanged between systems that are not part of a closed ecosystem MUST be encoded using UTF-8 [[RFC3629]].
+-   The contents of the file MUST represent exactly one [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class)
+-   The [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) MUST be serialized as JSON and JSON-LD (see [[[#serialization]]])
+-   JSON exchanged between systems that are not part of a closed ecosystem MUST be encoded using UTF-8 [[RFC3629]].
 
 <pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
       data-allowadditionalproperties="false"
@@ -14,7 +14,7 @@ var docformat = `
   {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context.json",
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
       "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
     ],
     "id": "http://example.edu/credentials/3732",
@@ -95,7 +95,7 @@ If an embedded proof method is used instead, the text value of the chunk MUST be
     text: '{
             "@context": [
               "https://www.w3.org/2018/credentials/v1",
-              "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
+              "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json"
             ],
             "id": "http://example.edu/credentials/3732",
             "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -150,7 +150,7 @@ If an embedded proof method is used instead, omit the \`verify\` attribute, and 
         {
           "@context": [
             "https://www.w3.org/2018/credentials/v1",
-            "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json"
           ],
           "id": "http://example.edu/credentials/3732",
           "type": ["VerifiableCredential", "OpenBadgeCredential"],

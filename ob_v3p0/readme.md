@@ -18,21 +18,22 @@ The credentials that would be produced under this proposal could easily be bundl
 
 Currently, all content is being collected in a single Respec document: [http://imsglobal.github.io/openbadges-specification/ob_v3p0.html](http://imsglobal.github.io/openbadges-specification/ob_v3p0.html). This document is assembled from many sources:
 
-- [Main Respec File](ob_v3p0.html) which pulls in (transcludes) section files such as:
-  - [Abstract](abstract.md)
-  - [Introduction](introduction.md)
-  - [Overview](overview.md)
-  - [Serialization](serialization.md)
-  - [Certification Requirements](certification.md)
-  - etc
+-   [Main Respec File](ob_v3p0.html) which pulls in (transcludes) section files such as:
 
-- The Data Model sections are created by a custom 1EdTech Respec plug-in that reads the data model from the MPS (Model Processing Service) and renders the Respec HTML
-- The API (Service Model) section will be created in the same way in the future. Currently the API section is pulled in from [api.html](api.html)
-- As the spec nears Candidate Final status, we will likely split up the single document into 2 or more documents for more focussed sets of audiences
+    -   [Abstract](abstract.md)
+    -   [Introduction](introduction.md)
+    -   [Overview](overview.md)
+    -   [Serialization](serialization.md)
+    -   [Certification Requirements](certification.md)
+    -   etc
+
+-   The Data Model sections are created by a custom 1EdTech Respec plug-in that reads the data model from the MPS (Model Processing Service) and renders the Respec HTML
+-   The API (Service Model) section will be created in the same way in the future. Currently the API section is pulled in from [api.html](api.html)
+-   As the spec nears Candidate Final status, we will likely split up the single document into 2 or more documents for more focussed sets of audiences
 
 ### Artifacts
 
-JSON Schema, OpenAPI, and maybe even context files will also be generated in the future. But for now the context file is [hand written](context.json) and available at [http://imsglobal.github.io/openbadges-specification/context.json](http://imsglobal.github.io/openbadges-specification/context.json).
+JSON Schema, OpenAPI, and maybe even context files will also be generated in the future. But for now the context file is [hand written](context-3.0.1.json) and available at [http://imsglobal.github.io/openbadges-specification/context-3.0.1.json](http://imsglobal.github.io/openbadges-specification/context-3.0.1.json).
 
 ### Updating the Base Document
 
@@ -46,11 +47,11 @@ That process takes 1-2 minutes.
 
 ## Regenerating the context file
 
-Every commit and PR merge to the develop branch/ob_v3p0/context.json file will kick off a GitHub action that will:
+Every commit and PR merge to the develop branch/ob_v3p0/context-3.0.1.json file will kick off a GitHub action that will:
 
-1. Copy the file to [https://purl.imsglobal.org/spec/ob/v3p0/context.json](https://purl.imsglobal.org/spec/ob/v3p0/context.json)
+1. Copy the file to [https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json](https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json)
 
-The context file will eventually live on the 1EdTech PURL server. But please use https://purl.imsglobal.org/spec/ob/v3p0/context.json for now.
+The context file will eventually live on the 1EdTech PURL server. But please use https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json for now.
 
 ### Editing the .lines files
 
@@ -72,13 +73,16 @@ To load your local changes to [common_credentials.lines](common_credentials.line
 In addition to rendering a normative data model, the plugin can also validate examples against the JSON Schema for the example. Any schema errors will be displayed in the rendered example. You can request schema validation by decorating the example with a `data-schema` attribute where the value is the `id` of the class.
 
 ```html
-<pre class="json example" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
-  title="Sample assertion credential">
+<pre
+    class="json example"
+    data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    title="Sample assertion credential"
+>
   {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
       "https://www.w3.org/2018/credentials/examples/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context.json"
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],

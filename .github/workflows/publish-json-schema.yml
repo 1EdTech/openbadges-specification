@@ -4,16 +4,16 @@ on:
   workflow_dispatch:
 
   push:
-    branches: 
+    branches:
       - develop
-    paths: 
+    paths:
       - 'ob_v3p0/ob_v3p0.lines'
       - 'ob_v3p0/common_credentials.lines'
-  
+
   pull_request:
-    branches: 
+    branches:
       - develop
-    paths: 
+    paths:
       - 'ob_v3p0/ob_v3p0.lines'
       - 'ob_v3p0/common_credentials.lines'
 
@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' -F 'file=@ob_v3p0/ob_v3p0.lines' https://datamodels-staging.imsglobal.org/upload
         continue-on-error: false
-        
+
   publish:
     name: Generate the JSON Schema files
     needs: sideload
@@ -40,7 +40,7 @@ jobs:
       - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' https://datamodels-staging.imsglobal.org/jsonschema/org.1edtech.ob.v3p0.profile.class --output profile.json
       - name: Upload the JSON Schema files
         uses: actions/upload-artifact@v3
-        with: 
+        with:
           name: achievementcredential.json
           path: achievementcredential.json
       - uses: actions/upload-artifact@v3
@@ -65,27 +65,28 @@ jobs:
           ref: gh-pages
       - name: Download the JSON Schema files
         uses: actions/download-artifact@v3
-        with: 
+        with:
           name: achievementcredential.json
           path: docs/schema
       - uses: actions/download-artifact@v3
-        with: 
+        with:
           name: endorsementcredential.json
           path: docs/schema
       - uses: actions/download-artifact@v3
-        with: 
+        with:
           name: getopenbadgecredentialsresponse.json
           path: docs/schema
       - uses: actions/download-artifact@v3
-        with: 
+        with:
           name: imsx_statusinfo.json
           path: docs/schema
       - uses: actions/download-artifact@v3
-        with: 
+        with:
           name: profile.json
           path: docs/schema
       - name: Commit the new/updated docs
         run: |
+          git pull
           git add docs/*
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"

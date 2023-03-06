@@ -1,21 +1,19 @@
 name: Publish the JSON-LD context file
 
 on:
-
   push:
-    branches: 
+    branches:
       - develop
-    paths: 
-      - 'ob_v3p0/context.json'
-  
+    paths:
+      - 'ob_v3p0/context**.json'
+
   pull_request:
-    branches: 
+    branches:
       - develop
-    paths: 
-      - 'ob_v3p0/context.json'
+    paths:
+      - 'ob_v3p0/context**.json'
 
 jobs:
-
   publish:
     name: Publish to GH pages
     runs-on: ubuntu-latest
@@ -28,7 +26,7 @@ jobs:
         uses: actions/upload-artifact@v2.3.1
         with:
           name: context.json
-          path: ob_v3p0/context.json
+          path: ob_v3p0/context**.json
       - name: Checkout gh-pages
         uses: actions/checkout@v2
         with:
@@ -40,6 +38,7 @@ jobs:
           path: docs
       - name: Commit the changes
         run: |
+          git pull
           git add docs/*
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"
