@@ -25,6 +25,13 @@ jobs:
     name: Build a static version of the Respec document
     needs: sideload
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - source: 'ob_v3p0/ob_v3p0.html'
+            destination: 'docs/ob_v3p0.html'
+          - source: 'ob_v3p0/errata/ob_err_v3p0.html'
+            destination: 'docs/ob_err_v3p0.html'
     steps:
       - uses: actions/checkout@v2
       - name: Unlock secrets
@@ -34,8 +41,8 @@ jobs:
       # This will run the respec2html tool
       - uses: w3c/spec-prod@v2
         with:
-          SOURCE: "ob_v3p0/ob_v3p0.html"
-          DESTINATION: "docs/ob_v3p0.html"
+          SOURCE: ${{ matrix.source }}
+          DESTINATION: ${{ matrix.destination }}
           TOOLCHAIN: respec
           VALIDATE_MARKUP: false
           VALIDATE_WEBIDL: false
