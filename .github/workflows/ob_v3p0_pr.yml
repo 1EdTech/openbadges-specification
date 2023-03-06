@@ -65,6 +65,7 @@ jobs:
           path: docs
       - name: Commit the new/updated doc
         run: |
+          git pull
           git add -f docs/*
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"
