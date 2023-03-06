@@ -43,5 +43,26 @@ One of the transformations made by this compaction process is representing prope
 
 The JSON-LD schema for Open Badges [=verifiable credentials=] MAY use singular values compaction in the \`type\` attributes in the data model, such they can be expressed as a string – when having only one value – or an array of strings – when having multiple values.
 
+The properties that may be compacted are listed in the following table:
+
+| Class                                           | Property             |
+| ----------------------------------------------- | -------------------- |
+| [Achievement](#achievement)                     | \`type\`             |
+| [AchievementCredential](#achievementcredential) | \`type\`             |
+| [AchievementSubject](#achievementsubject)       | \`type\`             |
+| [Address](#address)                             | \`type\`             |
+| [Alignment](#alignment)                         | \`type\`             |
+| [EndorsementCredential](#endorsementcredential) | \`type\`             |
+| [EndorsementSubject](#endorsementsubject)       | \`type\`             |
+| [Evidence](#evidence)                           | \`type\`             |
+| [Profile](#profile)                             | \`type\`             |
+| [Related](#related)                             | \`type\`             |
+| [Result](#result)                               | \`type\`             |
+| [ResultDescription](#resultdescription)         | \`type\`             |
+| [RubricCriterionLevel](#rubriccriterionlevel)   | \`type\`             |
+| [VerifiableCredential](#verifiablecredential)   | \`type\`             |
+| [VerifiableCredential](#verifiablecredential)   | \`proof\`            |
+| [VerifiableCredential](#verifiablecredential)   | \`credentialSchema\` |
+| [VerifiableCredential](#verifiablecredential)   | \`termsOfUse\`       |
 
 `;
