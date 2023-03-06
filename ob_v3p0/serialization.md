@@ -41,6 +41,7 @@ Multiple contexts MAY be used or combined to express any arbitrary information a
 
 One of the transformations made by this compaction process is representing properties with only one value as string or maps, while properties with multiple values are represented as an array of strings or maps.
 
-The JSON-LD context for Open Badges [=verifiable credentials=] permits this singular values compaction in the  \`type\` attributes in the data model, such they can be expressed as a string – when having only one value – or an array of strings – when having multiple values.
+The JSON-LD schema for Open Badges [=verifiable credentials=] MAY use singular values compaction in the \`type\` attributes in the data model, such they can be expressed as a string – when having only one value – or an array of strings – when having multiple values.
+
 
 `;
