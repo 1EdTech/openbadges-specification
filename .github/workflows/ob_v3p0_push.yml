@@ -1,65 +1,64 @@
-name: Build OB 3.0 Spec Preview for PUSH 
+name: Build OB 3.0 Spec Preview for PUSH
 
 on:
-  # Triggers the workflow on push or pull request events but only for the develop branch
-  push:
-    branches: 
-      - develop
-    paths: 
-      - 'ob_v3p0/**'
-      - '!ob_v3p0/context.json'
-      - '!ob_v3p0/readme.md'
-      - '!ob_v3p0/examples.html'
-      - '.github/workflows/ob_v3p0_push.yml'
+    # Triggers the workflow on push or pull request events but only for the develop branch
+    push:
+        branches:
+            - develop
+        paths:
+            - "ob_v3p0/**"
+            - "!ob_v3p0/context**.json"
+            - "!ob_v3p0/readme.md"
+            - "!ob_v3p0/examples.html"
+            - ".github/workflows/ob_v3p0_push.yml"
 
 jobs:
-  
-  sideload:
-    name: Sideload the ob_v3p0.lines file
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' -F 'file=@ob_v3p0/ob_v3p0.lines' https://datamodels-staging.imsglobal.org/upload
-        continue-on-error: false
-    
-  build:
-    name: Build a static version of the Respec document
-    needs: sideload
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Unlock secrets
-        uses: sliteteam/github-action-git-crypt-unlock@1.2.0
-        env:
-          GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
-      # This will run the respec2html tool
-      - uses: w3c/spec-prod@v2
-        with:
-          SOURCE: "ob_v3p0/ob_v3p0.html"
-          DESTINATION: "docs/ob_v3p0.html"
-          TOOLCHAIN: respec
-          VALIDATE_MARKUP: false
-          VALIDATE_WEBIDL: false
-          VALIDATE_LINKS: false
-          BUILD_FAIL_ON: nothing
+    sideload:
+        name: Sideload the ob_v3p0.lines file
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' -F 'file=@ob_v3p0/ob_v3p0.lines' https://datamodels-staging.imsglobal.org/upload
+              continue-on-error: false
 
-  publish:
-    name: Publish to GH pages
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: gh-pages
-      - name: Download artifact created by build job
-        uses: actions/download-artifact@v2
-        with: 
-          name: spec-prod-result
-          path: docs
-      - name: Commit the new/updated doc
-        run: |
-          git add docs/*
-          git config --local user.name "GitHub Actions"
-          git config --local user.email "actions@github.com"
-          git commit --allow-empty -m "Automated build"
-          git push origin
+    build:
+        name: Build a static version of the Respec document
+        needs: sideload
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Unlock secrets
+              uses: sliteteam/github-action-git-crypt-unlock@1.2.0
+              env:
+                  GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
+            # This will run the respec2html tool
+            - uses: w3c/spec-prod@v2
+              with:
+                  SOURCE: "ob_v3p0/ob_v3p0.html"
+                  DESTINATION: "docs/ob_v3p0.html"
+                  TOOLCHAIN: respec
+                  VALIDATE_MARKUP: false
+                  VALIDATE_WEBIDL: false
+                  VALIDATE_LINKS: false
+                  BUILD_FAIL_ON: nothing
+
+    publish:
+        name: Publish to GH pages
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  ref: gh-pages
+            - name: Download artifact created by build job
+              uses: actions/download-artifact@v2
+              with:
+                  name: spec-prod-result
+                  path: docs
+            - name: Commit the new/updated doc
+              run: |
+                  git add docs/*
+                  git config --local user.name "GitHub Actions"
+                  git config --local user.email "actions@github.com"
+                  git commit --allow-empty -m "Automated build"
+                  git push origin
