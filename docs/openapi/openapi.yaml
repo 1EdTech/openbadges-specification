@@ -717,12 +717,12 @@ components:
       additionalProperties: true
       description: "A Profile is a collection of information that describes the entity\
         \ or organization using Open Badges. Issuers must be represented as Profiles,\
-        \ and recipients, endorsers, or other entities may also be represented using\
-        \ this vocabulary. Each Profile that represents an Issuer may be referenced\
-        \ in many BadgeClasses that it has defined. Anyone can create and host an\
-        \ Issuer file to start issuing Open Badges. Issuers may also serve as recipients\
-        \ of Open Badges, often identified within an Assertion by specific properties,\
-        \ like their url or contact email address."
+        \ and endorsers, or other entities may also be represented using this vocabulary.\
+        \ Each Profile that represents an Issuer may be referenced in many BadgeClasses\
+        \ that it has defined. Anyone can create and host an Issuer file to start\
+        \ issuing Open Badges. Issuers may also serve as recipients of Open Badges,\
+        \ often identified within an Assertion by specific properties, like their\
+        \ url or contact email address."
       x-class-pid: org.1edtech.ob.v3p0.profile.class
     Result:
       required:
@@ -1558,7 +1558,7 @@ components:
           type: array
           description: "The value of the `@context` property MUST be an ordered set\
             \ where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1',\
-            \ and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'."
+            \ and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json'."
           items:
             type: string
             description: A `NormalizedString` that respresents a Uniform Resource
@@ -1938,7 +1938,7 @@ components:
           type: array
           description: "The value of the `@context` property MUST be an ordered set\
             \ where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1',\
-            \ and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld'."
+            \ and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json'."
           items:
             type: string
             description: A `NormalizedString` that respresents a Uniform Resource
