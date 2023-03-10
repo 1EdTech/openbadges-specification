@@ -14,9 +14,9 @@ The target readers for this document are:
 
 The Open Badges Specification has several related documents and artifacts shown below. Together they make up the specification.
 
-- [[[OB-30]]] - The main Open Badges Specification document.
-- Implementation Guide
-- [[[OB-CERT-30]]] - Specifies the conformance tests and certification requirements for this specification.
+- [[[OB-30]]] ([[OB-30]]) - The main Open Badges Specification document.
+- [[[OB-IMPL-30]]] ([[OB-IMPL-30]])- Provides information to lead you to successful implementation and certification of the Open Badges 3.0 specification.
+- [[[OB-CERT-30]]] ([[OB-CERT-30]])- Specifies the conformance tests and certification requirements for this specification.
 
 #### OpenAPI 3.0 Files {#docs-openapi}
 

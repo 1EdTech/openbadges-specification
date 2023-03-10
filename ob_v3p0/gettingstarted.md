@@ -2,9 +2,9 @@ var gettingstarted=`
 
 ## Getting Started
 
-### Implementation Guide 
+### Implementation Guide
 
-The Implementation Guide contains non-normative information on how to implement OB 3.0 and <a href="https://www.imsglobal.org/spec/clr/v2p0">CLR 2.0.</a> 
+The [[[OB-IMPL-30]]] contains non-normative information on how to implement OB 3.0 and <a href="https://www.imsglobal.org/spec/clr/v2p0">CLR 2.0.</a>
 
 ### Conformance and Certification
 
