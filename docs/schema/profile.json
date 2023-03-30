@@ -138,9 +138,7 @@
           "type" : "array",
           "minItems" : 1,
           "items" : {
-            "description" : "The value of the `@context` property MUST be an ordered set where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1', and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json'.",
-            "$comment" : "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
-            "type" : "string"
+            "$ref" : "#/$defs/Context"
           }
         },
         "type" : {
@@ -170,13 +168,19 @@
           "$ref" : "#/$defs/Profile"
         },
         "issuanceDate" : {
-          "description" : "Timestamp of when the credential was awarded.",
+          "description" : "Timestamp of when the credential was issued.",
           "$comment" : "Origin: DateTimeZ (DerivedType); A `DateTime` with the trailing timezone specifier included, e.g. `2021-09-07T02:09:59+02:00`",
           "type" : "string",
           "format" : "date-time"
         },
         "expirationDate" : {
           "description" : "If the credential has some notion of expiry, this indicates a timestamp when a credential should no longer be considered valid. After this time, the credential should be considered expired.",
+          "$comment" : "Origin: DateTimeZ (DerivedType); A `DateTime` with the trailing timezone specifier included, e.g. `2021-09-07T02:09:59+02:00`",
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "awardedDate" : {
+          "description" : "Timestamp of when the credential was awarded.",
           "$comment" : "Origin: DateTimeZ (DerivedType); A `DateTime` with the trailing timezone specifier included, e.g. `2021-09-07T02:09:59+02:00`",
           "type" : "string",
           "format" : "date-time"
@@ -220,6 +224,18 @@
       },
       "required" : [ "@context", "type", "id", "credentialSubject", "issuer", "issuanceDate" ],
       "additionalProperties" : false
+    },
+    "Context" : {
+      "description" : "JSON-LD Context. Either a URI with the context definition or a Map with a local context definition MUST be supplied.",
+      "anyOf" : [ {
+        "description" : "A map representing an object with unknown, arbitrary properties",
+        "$comment" : "Origin: Map (PrimitiveType); A map representing an object with unknown, arbitrary properties",
+        "type" : "object"
+      }, {
+        "description" : "A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
+        "$comment" : "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
+        "type" : "string"
+      } ]
     },
     "TermsOfUse" : {
       "description" : "Terms of use can be utilized by an issuer or a holder to communicate the terms under which a verifiable credential or verifiable presentation was issued",
