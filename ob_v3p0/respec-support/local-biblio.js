@@ -8,13 +8,13 @@ var _localBiblio = {
   "OB-CERT-30": {
     title: "Open Badges Specification Conformance and Certification Guide v3.0",
     href: "https://www.imsglobal.org/spec/ob/v3p0/cert/",
-    status: "IMS Base Document",
+    status: "Candidate Final Public",
     publisher: "1EdTech",
   },
   "OB-IMPL-30": {
     title: "Open Badges Implementation Guide v3.0",
     href: "https://www.imsglobal.org/spec/ob/v3p0/impl/",
-    status: "IMS Base Document",
+    status: "Candidate Final Public",
     publisher: "1EdTech",
   },
   "OB-ERRATA-30": {
