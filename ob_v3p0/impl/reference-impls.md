@@ -2,7 +2,7 @@
 
 The Reference Implementation is an 1EdTech implementation of Open Badges 3.0 and
 Comprehensive Learner Record 2.0 which contains a Issuer, a Displayer and a
-Host. The reference implementation is written in .NET. We provide source code
+Host. The reference implementation is written in Java. We provide source code
 and a hosted version of the tool. Our reference implementation has passed
 Conformance Certification and is complete with 100% automated tests. Developers
 can run it locally and develop against this tool. We are working to have this
