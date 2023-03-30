@@ -53,3 +53,5 @@ their test results for review by 1EdTech, and if they successfully meet the
 requirements, the product will appear in the TrustEd Apps Directory, where
 consumers may find it under filters for each of the implementation roles they
 are looking for a product to serve.
+
+- [1EdTech Conformance Test Suite for Open Badges 3.0](https://certification.imsglobal.org/certification/verifiable-credentials/)
