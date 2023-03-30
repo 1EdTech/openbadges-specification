@@ -49,10 +49,16 @@ The properties that may be compacted are listed in the following table:
 | ----------------------------------------------- | -------------------- |
 | [Achievement](#achievement)                     | \`type\`             |
 | [AchievementCredential](#achievementcredential) | \`type\`             |
+| [AchievementCredential](#achievementcredential) | \`credentialSchema\` |
+| [AchievementCredential](#achievementcredential) | \`proof\`            |
+| [AchievementCredential](#achievementcredential) | \`termsOfUse\`       |
 | [AchievementSubject](#achievementsubject)       | \`type\`             |
 | [Address](#address)                             | \`type\`             |
 | [Alignment](#alignment)                         | \`type\`             |
 | [EndorsementCredential](#endorsementcredential) | \`type\`             |
+| [EndorsementCredential](#endorsementcredential) | \`credentialSchema\` |
+| [EndorsementCredential](#endorsementcredential) | \`proof\`            |
+| [EndorsementCredential](#endorsementcredential) | \`termsOfUse\`       |
 | [EndorsementSubject](#endorsementsubject)       | \`type\`             |
 | [Evidence](#evidence)                           | \`type\`             |
 | [Profile](#profile)                             | \`type\`             |
