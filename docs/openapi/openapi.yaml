@@ -1163,7 +1163,8 @@ components:
         tag:
           minItems: 0
           type: array
-          description: Tags that describes the type of achievement.
+          description: "Short, human-friendly, searchable, comma-delimited keywords\
+            \ that describe the achievement."
           items:
             type: string
             description: Character strings.
@@ -1268,6 +1269,13 @@ components:
       description: This is the container for the set of code minor status codes reported
         in the responses from the Service Provider.
       x-class-pid: org.1edtech.ob.v3p0.imsx_codeminor.class
+    Context:
+      type: object
+      properties: {}
+      additionalProperties: false
+      description: JSON-LD Context. Either a URI with the context definition or a
+        Map with a local context definition MUST be supplied.
+      x-class-pid: org.1edtech.ob.v3p0.context.class
     CredentialStatus:
       required:
       - id
@@ -1521,6 +1529,11 @@ components:
           items:
             $ref: '#/components/schemas/EndorsementCredential'
           x-srcprop-pid: org.1edtech.ob.v3p0.endorsementcredential.class
+        awardedDate:
+          type: string
+          description: Timestamp of when the credential was awarded.
+          format: date-time
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
         evidence:
           minItems: 0
           type: array
@@ -1561,10 +1574,8 @@ components:
             \ where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1',\
             \ and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json'."
           items:
-            type: string
-            description: A `NormalizedString` that respresents a Uniform Resource
-              Identifier (URI).
-          x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
+            $ref: '#/components/schemas/Context'
+          x-srcprop-pid: org.1edtech.ob.v3p0.context.class
         issuer:
           $ref: '#/components/schemas/Profile'
         credentialStatus:
@@ -1594,7 +1605,7 @@ components:
           x-srcprop-pid: org.1edtech.ob.v3p0.termsofuse.class
         issuanceDate:
           type: string
-          description: Timestamp of when the credential was awarded.
+          description: Timestamp of when the credential was issued.
           format: date-time
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
         name:
@@ -1882,41 +1893,13 @@ components:
             items:
               $ref: '#/components/schemas/CredentialSchema'
           x-srcprop-pid: org.1edtech.ob.v3p0.credentialschema.class
-        termsOfUse:
-          description: "The value of the `termsOfUse` property tells the verifier\
-            \ what actions it is required to perform (an obligation), not allowed\
-            \ to perform (a prohibition), or allowed to perform (a permission) if\
-            \ it is to accept the verifiable credentia"
-          oneOf:
-          - $ref: '#/components/schemas/TermsOfUse'
-          - minItems: 0
-            type: array
-            items:
-              $ref: '#/components/schemas/TermsOfUse'
-          x-srcprop-pid: org.1edtech.ob.v3p0.termsofuse.class
-        credentialSubject:
-          $ref: '#/components/schemas/EndorsementSubject'
-        issuanceDate:
+        awardedDate:
           type: string
           description: Timestamp of when the credential was awarded.
           format: date-time
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
-        refreshService:
-          $ref: '#/components/schemas/RefreshService'
-        id:
-          type: string
-          description: Unambiguous reference to the credential.
-          x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
-        proof:
-          description: "If present, one or more embedded cryptographic proofs that\
-            \ can be used to detect tampering and verify the authorship of the credential."
-          oneOf:
-          - $ref: '#/components/schemas/Proof'
-          - minItems: 0
-            type: array
-            items:
-              $ref: '#/components/schemas/Proof'
-          x-srcprop-pid: org.1edtech.ob.v3p0.proof.class
+        credentialSubject:
+          $ref: '#/components/schemas/EndorsementSubject'
         type:
           description: "The value of the type property MUST be an unordered set. One\
             \ of the items MUST be the URI 'VerifiableCredential', and one of the\
@@ -1941,12 +1924,45 @@ components:
             \ where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1',\
             \ and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json'."
           items:
-            type: string
-            description: A `NormalizedString` that respresents a Uniform Resource
-              Identifier (URI).
-          x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
+            $ref: '#/components/schemas/Context'
+          x-srcprop-pid: org.1edtech.ob.v3p0.context.class
         issuer:
           $ref: '#/components/schemas/Profile'
+        credentialStatus:
+          $ref: '#/components/schemas/CredentialStatus'
+        termsOfUse:
+          description: "The value of the `termsOfUse` property tells the verifier\
+            \ what actions it is required to perform (an obligation), not allowed\
+            \ to perform (a prohibition), or allowed to perform (a permission) if\
+            \ it is to accept the verifiable credentia"
+          oneOf:
+          - $ref: '#/components/schemas/TermsOfUse'
+          - minItems: 0
+            type: array
+            items:
+              $ref: '#/components/schemas/TermsOfUse'
+          x-srcprop-pid: org.1edtech.ob.v3p0.termsofuse.class
+        issuanceDate:
+          type: string
+          description: Timestamp of when the credential was issued.
+          format: date-time
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
+        refreshService:
+          $ref: '#/components/schemas/RefreshService'
+        id:
+          type: string
+          description: Unambiguous reference to the credential.
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
+        proof:
+          description: "If present, one or more embedded cryptographic proofs that\
+            \ can be used to detect tampering and verify the authorship of the credential."
+          oneOf:
+          - $ref: '#/components/schemas/Proof'
+          - minItems: 0
+            type: array
+            items:
+              $ref: '#/components/schemas/Proof'
+          x-srcprop-pid: org.1edtech.ob.v3p0.proof.class
         expirationDate:
           type: string
           description: "If the credential has some notion of expiry, this indicates\
@@ -1954,8 +1970,6 @@ components:
             \ After this time, the credential should be considered expired."
           format: date-time
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
-        credentialStatus:
-          $ref: '#/components/schemas/CredentialStatus'
       additionalProperties: false
       description: "A verifiable credential that asserts a claim about an entity.\
         \ As described in [[[#data-integrity]]], at least one proof mechanism, and\
