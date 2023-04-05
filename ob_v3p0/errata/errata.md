@@ -6,7 +6,7 @@ The context file for Open Badges 3.0 follows a versioning as a result of https:/
 
 #### What constitutes a breaking change
 
-The policy used to determine what constitutes breaking changes to the specification, and therefore to the context file, can be resumed as:
+The policy used to determine what constitutes breaking changes to the specification, and therefore to the context file, can be summarized as:
 
 - Adding new terms to the model/context *is not* a breaking change.
 - Changing term mappings or removing terms *is* a breaking change.
@@ -19,7 +19,7 @@ An example for this could be the change *"add the term identifier to the CLR con
 
 > As a consumer of ClrCredentials, now when I verify a ClrCredential where the issuer had included an identifier for the user at this level, it will now show up, whereas previously it would not have appeared if any JSON-LD operation had been done on the data. No other change to software is necessary.
 
-According to this policy, this section recaps all the changes made to the context file which constituting a breaking changes, and therefore, a new version of the file.
+According to this policy, this section recaps all the changes made to the context file which constitute a breaking change, and therefore, a new version of the file.
 
 <div class="note">
 Previous versions of the context file will remain accessible, in order to keep backwards compatibility with existing credentials. However, it's recommended to refer to the newest version of the file.
