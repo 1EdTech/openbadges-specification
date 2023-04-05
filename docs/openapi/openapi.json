@@ -1901,7 +1901,7 @@
         "x-class-pid" : "org.1edtech.ob.v3p0.proof.class"
       },
       "EndorsementCredential" : {
-        "required" : [ "@context", "type", "id", "credentialSubject", "issuer", "issuanceDate" ],
+        "required" : [ "@context", "type", "id", "name", "credentialSubject", "issuer", "issuanceDate" ],
         "type" : "object",
         "properties" : {
           "credentialSchema" : {
@@ -1925,6 +1925,11 @@
           },
           "credentialSubject" : {
             "$ref" : "#/components/schemas/EndorsementSubject"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "The short description of the credential for display purposes in wallets.",
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.primitive.string.class"
           },
           "type" : {
             "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementCredential'.",
@@ -1974,6 +1979,11 @@
             "description" : "Timestamp of when the credential was issued.",
             "format" : "date-time",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.datetimez.class"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "The name of the credential for display purposes in wallets. For example, in a list of credentials and in detail views.",
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.primitive.string.class"
           },
           "refreshService" : {
             "$ref" : "#/components/schemas/RefreshService"
