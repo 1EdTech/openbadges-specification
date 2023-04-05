@@ -13,7 +13,7 @@ The policy used to determine what constitutes breaking changes to the specificat
 
 This policy implies that a downstream consumer must be willing to be forgiving on the data they receive: they must be willing/capable of ignoring terms they don't currently understand.
 
-An example for this could be the change *"add the term identifier to the CLR context where it may appear in nodes of type ClrSubject"*. Let's look at how an issuer and a verifier of a ClrCredential might need to understand or react to this change:
+An example for this could be the change *"add the term 'identifier' to the CLR context where it may appear in nodes of type 'ClrSubject'"*. Let's look at how an issuer and a verifier of a ClrCredential might need to understand or react to this change:
 
 > As an issuer of ClrCredentials, if you previously included identifier at this level, it had been dropped upon any JSON-LD processing operation. No change is needed to your system, but now the term will not be dropped by consumers (or by your cryptographic signing library) anymore. Bug fixed.
 
