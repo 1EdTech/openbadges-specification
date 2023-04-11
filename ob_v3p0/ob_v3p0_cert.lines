@@ -37,8 +37,9 @@ Package IssuerCertification TestModel Certification "t:Open Badges Issuer" "A Op
             Message authorization OBIssuer OBHost request true "${AuthURL}" GET "OAuth 2.0 Authorization"
 
         Test upsertCredentials true automatic "t:Endpoint for sending a credential" "A product that conforms to Service Consumer (Write) requirements can send an OpenBadgeCredential to a product that conforms to Service Provider (Write) requirements"
+
 			ServiceCall main upsertCredential provider OBIssuer OBHost 200 "Create a valid AchivementCredential and issue it to the recipient conformance@imsglobal.org. Call the conformance test endpoint upsertCredentials, with the AchivementCredential."
-                Validation upsertCredential schema AchievementCredential
+                Validation response schema [AchievementCredential, CompactJws]
 
         Test putProfile true automatic "t:Endpoint for sending a profile" "A product that conforms to Service Consumer (Write) requirements can send a Profile to a product that conforms to Service Provider (Write) requirements"
 			ServiceCall main putProfile provider OBIssuer OBHost 200 "Create a new Profile for the id \"https://1edtech.org/issuers/cert\" and call the conformance test endpoint putProfile with the Profile."
@@ -129,12 +130,8 @@ Package HostCertification TestModel Certification "t:Host Service Conformance" "
                 Validation getProfile schema Profile
 
         Test upsertCredentials true automatic "t:Provider call to upsertCredentials" "A product that conforms to Service Provider (Write) requirements can accept an OpenBadgeCredential from a product that conforms to Service Consumer (Write) requirements."
-            ValidationList response
-                Validation json schema AchievementCredential
-                Validation jws schema CompactJws
-
 			ServiceCall main upsertCredentials consumer OBHost OBHost 200 "Expect a call to your upsertCredentials endpoint. Return a valid AchivementCredential."
-                Validations response
+                Validation response schema [AchievementCredential, CompactJws]
 
         Test putProfile true automatic "t:Provider call to putProfile" "A product that conforms to Service Provider (Write) requirements can accept a Profile from a product that conforms to Service Consumer (Write) requirements."
 			ServiceCall main putProfile provider OBHost OBHost 200 "Expect a call to your getProfile"
