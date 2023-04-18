@@ -298,7 +298,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "contributors": [
     {
       "name": "Nate Otto",
-      "company": "Concentric Sky, self",
+      "company": "Concentric Sky, Skybridge Skills",
       "companyURL": "",
       "role": "Invited Expert"
     },
@@ -460,8 +460,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     "OB-ERRATA-30": {
       "title": "Open Badges Specification v3.0: Errata",
       "href": "https://www.imsglobal.org/spec/ob/v3p0/errata/",
-      "status": "IMS Base Document",
-      "publisher": "1EdTech",
       "id": "ob-errata-30"
     },
     "OB-INFO-30": {
@@ -506,6 +504,31 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "status": "IMS Base Document",
       "publisher": "1EdTech",
       "id": "clr-20"
+    },
+    "CLR-CERT-20": {
+      "title": "Comprehensive Learner Record Conformance and Certification Guide v2.0",
+      "href": "https://www.imsglobal.org/spec/clr/v2p0/cert/",
+      "status": "IMS Base Document",
+      "publisher": "1EdTech"
+    },
+    "CASE-10": {
+      "title": "IMS Competencies and Academic Standards Exchange (CASE) Service Version 1.0",
+      "href": "https://www.imsglobal.org/sites/default/files/CASE/casev1p0/information_model/caseservicev1p0_infomodelv1p0.html",
+      "status": "IMS Final Release",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "July 7, 2017"
+    },
+    "OR-11": {
+      "title": "1EdTech OneRoster® Specification v1.1",
+      "href": "https://www.imsglobal.org/oneroster-v11-final-specification",
+      "status": "1EdTech Final Release",
+      "publisher": "1EdTech"
+    },
+    "EDUAPI-10": {
+      "title": "Edu-API Specification Specification v1.0",
+      "href": "https://imsglobal.org/spec/eduapi/v1p0/",
+      "status": "IMS Candidate Final",
+      "publisher": "1EdTech"
     },
     "CEDS": {
       "title": "Common Education Data Standards (CEDS) Version 7 Data Model Guide",
@@ -558,6 +581,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "publisher": "Credentials Community Group",
       "id": "vc-extension-registry"
     },
+    "VC-DID-WEB-METHOD": {
+      "title": "DID Web Method Specification",
+      "href": "https://w3c-ccg.github.io/did-method-web/",
+      "status": "CG-DRAFT",
+      "publisher": "Credentials Community Group"
+    },
     "JSON-SCHEMA-2019-09": {
       "title": "JSON Schema: A Media Type for Describing JSON Documents",
       "href": "https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-02",
@@ -604,6 +633,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "status": "Draft Community Group Report",
       "publisher": "W3C Credentials Community Group",
       "id": "lds-ed25519-2020"
+    },
+    "VC-STATUS-2021": {
+      "title": "Credential Status List 2021",
+      "href": "https://w3c.github.io/vc-status-list-2021/",
+      "status": "W3C Editor's Draft",
+      "publisher": "W3C Credentials Community Group"
     },
     "MULTIBASE": {
       "title": "The Multibase Data Format",
@@ -1259,13 +1294,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "publisher": "IMS Global Learning Consortium",
       "date": "September 2012",
       "status": "IMS Public Draft"
-    },
-    "CASE-10": {
-      "title": "IMS Competencies and Academic Standards Exchange (CASE) Service Version 1.0",
-      "href": "https://www.imsglobal.org/sites/default/files/CASE/casev1p0/information_model/caseservicev1p0_infomodelv1p0.html",
-      "status": "IMS Final Release",
-      "publisher": "IMS Global Learning Consortium",
-      "date": "July 7, 2017"
     },
     "CASE-REST-10": {
       "title": "IMS Competencies and Academic Standards Exchange (CASE) Service REST/JSON Binding Version 1.0",
@@ -2171,10 +2199,10 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-11T07:41:06Z",
-      "verificationMethod": "https://example.edu/issuers/565049#z6MkfmUjLsUpTPKu5tpdHcfyxTKEEFaxoUHnVaBv3Ef8UyZc",
+      "created": "2023-04-18T17:02:10Z",
+      "verificationMethod": "https://example.edu/issuers/565049#z6Mkr1i94U1zLzfrTnTZ7sMk3pd8CLmKMX5N1vTiV6K6G3VX",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zmkKTvEZCyHjiDEde8r6k71udYi4RXgvVPP7WKm9LjJYESaaq3D9GFRbqYLPY8qXGg68TDmZjE5cJXkoiiBiPxKw"
+      "proofValue": "z45P1XDJ4PSmMfghsgvUqzpZ9fTCSRbeW15NGYUCAeW3U3Wrhr4H3hxPgfapBERrVCfixWkHavEq1acnXpVXM25DU"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -2184,11 +2212,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "kB6WlIws499YdbhVd-zGJ8-RWqOIKWjtGcBTbiseYn0WVmxnjZDi7RkeZ1HC4JisdSBp35
-fV_a0dyuBEgoxrnyeqG8nLpL5JVs1nPNGxf_OHw7zu-l6XBua4cIuqOeF56XwvndPJ0abToCpmmO0Ire
-NH5LyZgb91QmkBSrURGp-n5QVLWHW7-gwqSaR1QEEmvIr05eA1KJbw6fIjeaLrWygbJ2abVcsWl_qVcU
-FLxlEY_SVNe90dKQSTUV5bwq3BHoXnI__90sDmGkS2wYk7PlGIRWo8es-HjYJlrwqcDDRq3rvCHk3m_k
-aGE1dYroUDp0XdiiENZTSHg6PGDVRnBw"
+    "n": "uOT9zT1T93EFF-RNUREHIjqh6aOqdD5DmYwR8VWuLbkY738YkpHtstZeNWF8krRm3uMsSD
+Txi0gRT6nrCvXywW2zUC87D-iYLH5_ylADGryawk1vyElbW-s3jpqnH49HHsu-i7nXQZoF-M8-zRMqf-
+8CehrZZPZ8bfHdm6XakrD3F2HTreBGHdSPRxYgFphoLaqUtKgqJwW8w-XQ4pWcJ1tTW91LBo3Qiovu9Z
+wk26zAcr44PB6gjAYeE_SuZBRIcIzzxOQbe2BeC-5C1PaB_jW6gjlnIz4UHwwk-xvChX33o_oSm7MXFT
+NwenSpGcLgPDXBvJMVwVyKaALviZIjRw"
   }
 }
 --------------- JWT payload ---------------
@@ -2250,12 +2278,12 @@ vementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJrQjZXbEl3czQ5OVlkYmhWZC16R0o4LVJXcU9JS1dqdEdjQlRiaXNlWW4wV1ZteG5qWkRpN1JrZVox
-SEM0SmlzZFNCcDM1ZlZfYTBkeXVCRWdveHJueWVxRzhuTHBMNUpWczFuUE5HeGZfT0h3N3p1LWw2WEJ1
-YTRjSXVxT2VGNTZYd3ZuZFBKMGFiVG9DcG1tTzBJcmVOSDVMeVpnYjkxUW1rQlNyVVJHcC1uNVFWTFdI
-VzctZ3dxU2FSMVFFRW12SXIwNWVBMUtKYnc2ZklqZWFMcld5Z2JKMmFiVmNzV2xfcVZjVUZMeGxFWV9T
-Vk5lOTBkS1FTVFVWNWJ3cTNCSG9YbklfXzkwc0RtR2tTMndZazdQbEdJUldvOGVzLUhqWUpscndxY0RE
-UnEzcnZDSGszbV9rYUdFMWRZcm9VRHAwWGRpaUVOWlRTSGc2UEdEVlJuQncifX0.eyJ2YyI6eyJAY29u
+OiJ1T1Q5elQxVDkzRUZGLVJOVVJFSElqcWg2YU9xZEQ1RG1Zd1I4Vld1TGJrWTczOFlrcEh0c3RaZU5X
+RjhrclJtM3VNc1NEVHhpMGdSVDZuckN2WHl3VzJ6VUM4N0QtaVlMSDVfeWxBREdyeWF3azF2eUVsYlct
+czNqcHFuSDQ5SEhzdS1pN25YUVpvRi1NOC16Uk1xZi04Q2VoclpaUFo4YmZIZG02WGFrckQzRjJIVHJl
+QkdIZFNQUnhZZ0ZwaG9MYXFVdEtncUp3Vzh3LVhRNHBXY0oxdFRXOTFMQm8zUWlvdnU5WndrMjZ6QWNy
+NDRQQjZnakFZZUVfU3VaQlJJY0l6enhPUWJlMkJlQy01QzFQYUJfalc2Z2psbkl6NFVId3drLXh2Q2hY
+MzNvX29TbTdNWEZUTndlblNwR2NMZ1BEWEJ2Sk1Wd1Z5S2FBTHZpWklqUncifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -2276,11 +2304,11 @@ b2JhbC5vcmcvc3BlYy9vYi92M3AwL3NjaGVtYS9qc29uL29iX3YzcDBfYWNoaWV2ZW1lbnRjcmVkZW50
 aWFsX3NjaGVtYS5qc29uIiwidHlwZSI6IjFFZFRlY2hKc29uU2NoZW1hVmFsaWRhdG9yMjAxOSJ9XX0s
 ImlzcyI6Imh0dHBzOi8vZXhhbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAs
 Imp0aSI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3ViIjoiZGlkOmV4YW1w
-bGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.J4vLReK6JUxEXR3tl9knCtwyJSuKzFbGEhxn
-ltuPXUchzUIDy7Mu5EJkP5L2qywuLSRb-RXMX2ZsGhj0b327Yu4UKL1ysT7sVMva88l2i_jtBu3abNfX
-t5NbPGsns3fRzOPdypY70yplCz6BVvTQV-2Y4jwLCXnQfkwuRq6BBgkqpeAfmq1cXjqL8_fqMZO-jzMI
-CfxEIP2EdxAgpa2sq5rUaTMOAzLbhga8gGKclHwwTZARl3V7fUHApgMoNxqllIECOdCZIddZ-9s1LOFw
-3lA6TeeBWS4930XRIQYMlsy3RkRnOkYI4N6Xix3_MkL737cwrNdmt8avwFvhUeo4pg</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
+bGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.dOEsxEiS0ujo4LlDwdrMFCUq1Dok3foAPPcf
+OTqT8rwcXbbJBrrCZnu2EWJowvOSYpdwmcvmcuJT-luhsYhSRe00YQ2l09B9VgqHdm7uHM8mRwJnXLCO
+ahBBzuSKEbuLMlgiLA1WXoQDFe1TRssB6fhnn1tmQxio7IK1ueMufvXGCVxGZBxTdOm2bYE_GzboLFjI
+tGspDKAlGGBxUOdbRCUIf8Ydr1rhyf_4wlHj49TpVt060j2y8RcDfjhUkEtI58NqApsZAkCTVH7I6jY4
+HfoCUG7Y1SdbzGmUy_d9fQYXH3iLLMo2N2PP67xB89wqMpzBkmYYklQss86Xgc3qSA</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">Example<bdi> 2</bdi></a><span class="example-title">: An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)</span>
   </div> <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">var</span> chunk = <span class="hljs-keyword">new</span> iTXt({
@@ -2319,7 +2347,7 @@ CfxEIP2EdxAgpa2sq5rUaTMOAzLbhga8gGKclHwwTZARl3V7fUHApgMoNxqllIECOdCZIddZ-9s1LOFw
           "proof": { }
         }'
 })</code></pre>
-      </div><p>An iTXt chunk with the keyword <code>openbadgecredential</code> <em class="rfc2119">MUST NOT</em> appear in a PNG more than once. When baking an image that already contains credential data, the implementor may choose whether to pass the user an error or overwrite the existing chunk.</p></section><section id="extracting-0"><h5 id="png-extracting"><bdi class="secno">5.3.1.2 </bdi>Extracting<a class="self-link" aria-label="§" href="#png-extracting"></a><a class="self-link" aria-label="§" href="#png-extracting"></a></h5><p>Parse the PNG datastream until the first <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk is found with the keyword <code>openbadgecredential</code>. The rest of the stream can be safely discarded. The text portion of the iTXt will either be the JSON representation of a <a href="#org.1edtech.ob.v3p0.achievementcredential.class" class="sec-ref">§&nbsp;<bdi class="secno">B.1.2 </bdi>AchievementCredential</a> or the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-4" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string that was the result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a>.</p></section></section><section id="svg-0"><h4 id="svg"><bdi class="secno">5.3.2 </bdi>SVG<a class="self-link" aria-label="§" href="#svg"></a><a class="self-link" aria-label="§" href="#svg"></a></h4><section id="baking-0"><h5 id="svg-baking"><bdi class="secno">5.3.2.1 </bdi>Baking<a class="self-link" aria-label="§" href="#svg-baking"></a><a class="self-link" aria-label="§" href="#svg-baking"></a></h5><p>First, add an <code>xmlns:openbadges</code> attribute to the <code>&lt;svg&gt;</code> tag with the value "<a href="https://purl.imsglobal.org/ob/v3p0&quot;">https://purl.imsglobal.org/ob/v3p0"</a>. Directly after the <code>&lt;svg&gt;</code> tag, add an <code>&lt;openbadges:credential&gt;</code> tag.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) add a <code>verify</code> attribute to the <code>&lt;openbadges:credential&gt;</code> tag. The value of <code>verify</code> attribute <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-5" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT.</p><div class="example" id="example-an-example-of-a-well-baked-svg-with-vc-jwt-proof">
+      </div><p>An iTXt chunk with the keyword <code>openbadgecredential</code> <em class="rfc2119">MUST NOT</em> appear in a PNG more than once. When baking an image that already contains credential data, the implementer may choose whether to pass the user an error or overwrite the existing chunk.</p></section><section id="extracting-0"><h5 id="png-extracting"><bdi class="secno">5.3.1.2 </bdi>Extracting<a class="self-link" aria-label="§" href="#png-extracting"></a><a class="self-link" aria-label="§" href="#png-extracting"></a></h5><p>Parse the PNG datastream until the first <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk is found with the keyword <code>openbadgecredential</code>. The rest of the stream can be safely discarded. The text portion of the iTXt will either be the JSON representation of a <a href="#org.1edtech.ob.v3p0.achievementcredential.class" class="sec-ref">§&nbsp;<bdi class="secno">B.1.2 </bdi>AchievementCredential</a> or the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-4" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string that was the result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a>.</p></section></section><section id="svg-0"><h4 id="svg"><bdi class="secno">5.3.2 </bdi>SVG<a class="self-link" aria-label="§" href="#svg"></a><a class="self-link" aria-label="§" href="#svg"></a></h4><section id="baking-0"><h5 id="svg-baking"><bdi class="secno">5.3.2.1 </bdi>Baking<a class="self-link" aria-label="§" href="#svg-baking"></a><a class="self-link" aria-label="§" href="#svg-baking"></a></h5><p>First, add an <code>xmlns:openbadges</code> attribute to the <code>&lt;svg&gt;</code> tag with the value "<a href="https://purl.imsglobal.org/ob/v3p0&quot;">https://purl.imsglobal.org/ob/v3p0"</a>. Directly after the <code>&lt;svg&gt;</code> tag, add an <code>&lt;openbadges:credential&gt;</code> tag.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) add a <code>verify</code> attribute to the <code>&lt;openbadges:credential&gt;</code> tag. The value of <code>verify</code> attribute <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-5" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT.</p><div class="example" id="example-an-example-of-a-well-baked-svg-with-vc-jwt-proof">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-a-well-baked-svg-with-vc-jwt-proof">Example<bdi> 4</bdi></a><span class="example-title">: An example of a well baked SVG with VC-JWT proof</span>
   </div> <pre aria-busy="false"><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
@@ -2362,7 +2390,7 @@ CfxEIP2EdxAgpa2sq5rUaTMOAzLbhga8gGKclHwwTZARl3V7fUHApgMoNxqllIECOdCZIddZ-9s1LOFw
 
   <span class="hljs-comment">&lt;!-- rest-of-image --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span></code></pre>
-      </div><p>There <em class="rfc2119">MUST</em> be only one <code>&lt;openbadges:credential&gt;</code> tag in an SVG. When baking an image that already contains OpenBadgeCredential data, the implementor may choose whether to pass the user an error or overwrite the existing tag.</p></section><section id="extracting-1"><h5 id="extracting"><bdi class="secno">5.3.2.2 </bdi>Extracting<a class="self-link" aria-label="§" href="#extracting"></a><a class="self-link" aria-label="§" href="#extracting"></a></h5><p>Parse the SVG until you reach the first <code>&lt;openbadges:credential&gt;</code> tag. The rest of the SVG data can safely be discarded.</p></section></section></section></section>
+      </div><p>There <em class="rfc2119">MUST</em> be only one <code>&lt;openbadges:credential&gt;</code> tag in an SVG. When baking an image that already contains OpenBadgeCredential data, the implementer may choose whether to pass the user an error or overwrite the existing tag.</p></section><section id="extracting-1"><h5 id="extracting"><bdi class="secno">5.3.2.2 </bdi>Extracting<a class="self-link" aria-label="§" href="#extracting"></a><a class="self-link" aria-label="§" href="#extracting"></a></h5><p>Parse the SVG until you reach the first <code>&lt;openbadges:credential&gt;</code> tag. The rest of the SVG data can safely be discarded.</p></section></section></section></section>
 
   
 
@@ -9042,10 +9070,10 @@ Only perform Refresh once. That is, do not complete Refresh a second time even i
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-11T07:41:06Z",
-      "verificationMethod": "https://example.com/issuers/876543#z6Mknb9gzGLtQodHUbraSsjVXAu31M84eapZXuEvk1qBDvj4",
+      "created": "2023-04-18T17:02:10Z",
+      "verificationMethod": "https://example.com/issuers/876543#z6MkjzWeRfTrELVifNGbChG37WyYjCywBDVNiNLHZnyRT8uV",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z3sGFTJm9LDmkvFPsoincN2AEiXKuh94Nw89Wqwm2ECuDz4rg4eyYaCAodPEGpQpFVMSk4TraVdxNpCD1yATiSW9s"
+      "proofValue": "z4KiyxkDYfV5SwbW6D21wpxAt47HvyMLw54BHTctJni7rrCanhcParfWRV3sAKUujCueWAYmNMS3hKw4Ai2KPe6Ai"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -9055,11 +9083,11 @@ Only perform Refresh once. That is, do not complete Refresh a second time even i
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "7TGMN0PaQehBAcFUkfCbi-nRGjua3aY9MFkkCzsGnVq3TcOkLE-XJiW2Fvglabfz107EYR
-LqbEaQMw73KCkzhY6TsizIocZtnczaT0BKMKNOoFxPnHpAWZrLv1miSOdlzGYnaaq7d5kygm6g2_tKMP
-ZA44Av9LQJ5Qi7VgQ53T9U12gqDaH7BAad7H351_IwOOzO79ALqJZI7XESXRNbcsB7d4QEU9grfMsvdQ
-n1o5Lb5XB3L2s_hk_3KECLdpnDp4xvknXH5g06urrk-h3R8WUn4_hPE1GSwc8_29GbDApCyIIt5K4-4M
-5ZnGXhNPGhwWBPEOQmS_HLsQj8OO-s0w"
+    "n": "5IZZQdC4QT6alwCvMfj-HeidjwPwJOdUI4BtFaZk93k_skePzFv3i6cLpzWwLzwIx4wQXO
+TSiYUs_6qgQIKMsEWkVBz2KiMXxHDLu328ovJ606QEyBkWT1osStPANke8vy-oO0Sy5cSF-GEvivdCzI
+wKVQ6lv52okqX1mPYKJ40qiH4SGR4hqtT476hBY2KExWbC-2aiSBrN03G2suNeJ8Bntvb5-uagxwPwEj
+3s2mxK9G4hJb_lW7gW8Z7RbjC72T7vXFbvddti6-wJ9Ccy1eEcB-NjDC0S6LBeiX2RjwLjpG4jXJUbY_
+TfWDt-DM3LuijTZBvxgulOGEeHoEIwUQ"
   }
 }
 --------------- JWT payload ---------------
@@ -9107,12 +9135,12 @@ n1o5Lb5XB3L2s_hk_3KECLdpnDp4xvknXH5g06urrk-h3R8WUn4_hPE1GSwc8_29GbDApCyIIt5K4-4M
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiI3VEdNTjBQYVFlaEJBY0ZVa2ZDYmktblJHanVhM2FZOU1Ga2tDenNHblZxM1RjT2tMRS1YSmlXMkZ2
-Z2xhYmZ6MTA3RVlSTHFiRWFRTXc3M0tDa3poWTZUc2l6SW9jWnRuY3phVDBCS01LTk9vRnhQbkhwQVda
-ckx2MW1pU09kbHpHWW5hYXE3ZDVreWdtNmcyX3RLTVBaQTQ0QXY5TFFKNVFpN1ZnUTUzVDlVMTJncURh
-SDdCQWFkN0gzNTFfSXdPT3pPNzlBTHFKWkk3WEVTWFJOYmNzQjdkNFFFVTlncmZNc3ZkUW4xbzVMYjVY
-QjNMMnNfaGtfM0tFQ0xkcG5EcDR4dmtuWEg1ZzA2dXJyay1oM1I4V1VuNF9oUEUxR1N3YzhfMjlHYkRB
-cEN5SUl0NUs0LTRNNVpuR1hoTlBHaHdXQlBFT1FtU19ITHNRajhPTy1zMHcifX0.eyJ2YyI6eyJAY29u
+OiI1SVpaUWRDNFFUNmFsd0N2TWZqLUhlaWRqd1B3Sk9kVUk0QnRGYVprOTNrX3NrZVB6RnYzaTZjTHB6
+V3dMendJeDR3UVhPVFNpWVVzXzZxZ1FJS01zRVdrVkJ6MktpTVh4SERMdTMyOG92SjYwNlFFeUJrV1Qx
+b3NTdFBBTmtlOHZ5LW9PMFN5NWNTRi1HRXZpdmRDekl3S1ZRNmx2NTJva3FYMW1QWUtKNDBxaUg0U0dS
+NGhxdFQ0NzZoQlkyS0V4V2JDLTJhaVNCck4wM0cyc3VOZUo4Qm50dmI1LXVhZ3h3UHdFajNzMm14SzlH
+NGhKYl9sVzdnVzhaN1JiakM3MlQ3dlhGYnZkZHRpNi13SjlDY3kxZUVjQi1OakRDMFM2TEJlaVgyUmp3
+TGpwRzRqWEpVYllfVGZXRHQtRE0zTHVpalRaQnZ4Z3VsT0dFZUhvRUl3VVEifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iXSwiaWQiOiJodHRw
 Oi8vZXhhbXBsZS5jb20vY3JlZGVudGlhbHMvMzUyNyIsInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRp
@@ -9129,11 +9157,11 @@ IGJhZGdlIHJlY29nbml6ZXMgdGhlIGRldmVsb3BtZW50IG9mIHRoZSBjYXBhY2l0eSB0byBjb2xsYWJv
 cmF0ZSB3aXRoaW4gYSBncm91cCBlbnZpcm9ubWVudC4iLCJuYW1lIjoiVGVhbXdvcmsifX19LCJpc3Mi
 OiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlcnMvODc2NTQzIiwibmJmIjoxMjYyMzA0MDAwLCJqdGki
 OiJodHRwOi8vZXhhbXBsZS5jb20vY3JlZGVudGlhbHMvMzUyNyIsInN1YiI6ImRpZDpleGFtcGxlOmVi
-ZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.berbroIWbGEa_2hMelSQOiq1CqGxuKxJW4Z8EKcSIl8
-9STyzmiTRLLu_GZRc-PKuQFdhGhucj-VtMbU5hG9GKhAGEYS12izxdhnuVWl7SM8-6miGjzw7_zsh5aG
-Ddv4gFdQdclTkpyyu4QbZIIaD6nfzRU_V4bafQxpK7IHkwZemcwVjj2s1t31knLOFb2hymL5GDOlODoA
-a_g6rJ6ypKX8Ksnai4-QlkbXK1LrEUQ4GooZjSHKNs0uHaurfclqmQqoxSwo_42k1VL32PA69qvoEydf
-GW0UVvzetu_T26uTxQeGgMGIV2NOdXCUHKfQxWElWg3FHMIUGiKQZI-dgXA</pre></div></div></div>
+ZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.HZEjfEWHMGfGLzNMhW5cQYX1xEpj9wSORxa2kPZgPA-
+FFaX8TtHHwtVund3DfQhdp7tE8Q3HgbD-fcgxJEDZRDLU9qsSGGk0mVbeGR7_R785ouUgTMWO3yq-jdC
+MIoZLRn6GcVDgM2tSptG8WSHUa-aHabQZrlJ2bCMCWfZVsvCm1g-4_ywI8QXc_vV0lXmbjqSoWpIKRXq
+ISjBvttLh8WU9Vx1KLCloFpiSecIgNY30TBC1cVgznj_z4_oQcesg9FGhk1kUCmicitcOzqSKYroHrKN
+S9xHCBrkAIjFRnUShxmBXjAnYUglgTe9ZRbs2nggCDM5VPzexuxzgKLZr4Q</pre></div></div></div>
 
 
     </section>
@@ -10513,10 +10541,10 @@ GW0UVvzetu_T26uTxQeGgMGIV2NOdXCUHKfQxWElWg3FHMIUGiKQZI-dgXA</pre></div></div></d
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-11T07:41:07Z",
-      "verificationMethod": "https://1edtech.edu/issuers/565049#z6MkuE5XJ96zJFzZ6avMGszG2eDYLoDn7Y7RcFSjf6qRW5Qw",
+      "created": "2023-04-18T17:02:10Z",
+      "verificationMethod": "https://1edtech.edu/issuers/565049#z6Mkpeqj9gbfo8NavJhhV9Ne4cXVArh4ysYQPpphSVA7cDLW",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z4Aef261v35qdqSk92X9xqUAevGWPUaazQj3yqQY3bxQBqtseZHpj733ihDe4L5KB9vQ7aQZikwsKfKz4g1nkwGPh"
+      "proofValue": "z5thUaSw52QovSdJkaYzCwg58svcQ24EJp2MDeV7Pgb2fpFefN4Ex1Jaq9NZbfx1im3c5aZU2uzHNLfbj6nLcfriV"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -10526,11 +10554,11 @@ GW0UVvzetu_T26uTxQeGgMGIV2NOdXCUHKfQxWElWg3FHMIUGiKQZI-dgXA</pre></div></div></d
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "tKjYwAiFZu2TeGJQPgAgGitFMyE-qxdFWEngoyI6AlVzjbWzD9nJb_jbv3jnjJsqqH8TqR
-PsoFQq-EblOf0ZXeFSKbcx7umy7745ZSKLxar0C_ns43INqigDG3_Z4PBRr97yVh1tJvhLUGBJ4nsw7T
-uhvzS2cNu9is0UTAcCuE3xuc4XGePBNiRF1VNawMlNSJ8vwWDDhBpQXdzRYX16_ui3JN2hhnpzu70SFH
-kcIUOQKlGK5lPWerUu-wPzaVqtwL2LwAhlxaKV1NJ_rNsCqemMw2q1OQHdcvkjoQRpKRFg2SjY9OIWYR
-2X1guJN7LhrrrM2_hpCuBvH_JohTAK3w"
+    "n": "tj9sMyidwOltMHDRizZW1OZj1UVYc_cNdxM1aHhvHmYUGteL1fWMq8fNq9N3Ulw7H8X_Jh
+RG_dxku5uICS-cBT6jxN5tlzCsFHkJycL5rmb_idLUJW5dJubmhiJqpn9jBQt1D3S21vcVmZorViD8JL
+FgiZj-ZV5haVUjzjZcI0DXaAaHeOf09x_bAMyJJIK_pwtzgRps-dIjuVGGvdiZtuMoGNZQMIRkvPTUr_
+VFjN0bcYEvrdGJvEFPAc2avKtSozLPxOhGtgfVNlsrRT2S0s8L1eyyuklaino7DiAcBxPjqksT9beMWO
+r8D1Qe2wif5tKhP6QnPAQ_Ey4jGglkiw"
   }
 }
 --------------- JWT payload ---------------
@@ -11227,12 +11255,12 @@ vementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ0S2pZd0FpRlp1MlRlR0pRUGdBZ0dpdEZNeUUtcXhkRldFbmdveUk2QWxWempiV3pEOW5KYl9qYnYz
-am5qSnNxcUg4VHFSUHNvRlFxLUVibE9mMFpYZUZTS2JjeDd1bXk3NzQ1WlNLTHhhcjBDX25zNDNJTnFp
-Z0RHM19aNFBCUnI5N3lWaDF0SnZoTFVHQko0bnN3N1R1aHZ6UzJjTnU5aXMwVVRBY0N1RTN4dWM0WEdl
-UEJOaVJGMVZOYXdNbE5TSjh2d1dERGhCcFFYZHpSWVgxNl91aTNKTjJoaG5wenU3MFNGSGtjSVVPUUts
-R0s1bFBXZXJVdS13UHphVnF0d0wyTHdBaGx4YUtWMU5KX3JOc0NxZW1NdzJxMU9RSGRjdmtqb1FScEtS
-RmcyU2pZOU9JV1lSMlgxZ3VKTjdMaHJyck0yX2hwQ3VCdkhfSm9oVEFLM3cifX0.eyJ2YyI6eyJAY29u
+OiJ0ajlzTXlpZHdPbHRNSERSaXpaVzFPWmoxVVZZY19jTmR4TTFhSGh2SG1ZVUd0ZUwxZldNcThmTnE5
+TjNVbHc3SDhYX0poUkdfZHhrdTV1SUNTLWNCVDZqeE41dGx6Q3NGSGtKeWNMNXJtYl9pZExVSlc1ZEp1
+Ym1oaUpxcG45akJRdDFEM1MyMXZjVm1ab3JWaUQ4SkxGZ2laai1aVjVoYVZVanpqWmNJMERYYUFhSGVP
+ZjA5eF9iQU15SkpJS19wd3R6Z1Jwcy1kSWp1VkdHdmRpWnR1TW9HTlpRTUlSa3ZQVFVyX1ZGak4wYmNZ
+RXZyZEdKdkVGUEFjMmF2S3RTb3pMUHhPaEd0Z2ZWTmxzclJUMlMwczhMMWV5eXVrbGFpbm83RGlBY0J4
+UGpxa3NUOWJlTVdPcjhEMVFlMndpZjV0S2hQNlFuUEFRX0V5NGpHZ2xraXcifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -11501,11 +11529,11 @@ OnsiaWQiOiJodHRwOi8vMWVkdGVjaC5lZHUvY3JlZGVudGlhbHMvMzczMiIsInR5cGUiOiIxRWRUZWNo
 Q3JlZGVudGlhbFJlZnJlc2gifX0sImV4cCI6MTg5MzQ1NjAwMCwiaXNzIjoiaHR0cHM6Ly8xZWR0ZWNo
 LmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5iZiI6MTI2MjMwNDAwMCwianRpIjoiaHR0cDovLzFlZHRlY2gu
 ZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3
-NmUxMmVjMjEifQ.caTR19qkwqq7ec7xAwf6FLPfQdON13Unb8BeW8fqfPE7VDi1Hz20BXyUp60P84eLV
-JaGShvv_yVt2FCKxIATXhmIbWnJr6OL1Ix9CNSpI5STE--AD03x1ya-6J_xnxBczSqydHFKeXXSA7v5R
-50WHZ982IBUv2uIPWV31Jaum2DlDVmmKiiWunRLu3UUcH7a_LWqq3iKBiSpXAZY5PoAKhAk8T0kecC16
-UY22MHHuxzEnYw8T77XDiVPhO1LTKfSD91m8AF95CLGpmCCm3yM4Qrl9dmQTSo-_UxX30D7hXnu6I6M4
-95SoZgoeJFfm4LogWaExBdbmwurQgujlxBUlA</pre></div></div></div>
+NmUxMmVjMjEifQ.jGJK7Q-uYFrwm1aSewAVPbVaOvngAk2P8eoDq5Wu4KtNgiPrLiF2fy6LbuxUn9rGb
+Wa9tkbZLwhAtgw2dJQ1PCPpdb9vwWOB11fAaafzzqYyFyoyxLiLZmAueUR0vntHXhxpxu_giSXAaLbb8
+dVAHw68MROtAqzJmqRKDi1AkqixUNaYUJAlXUuICyZOyeqenDzYVzIYbZEaZT2cm6ROIhhvqMW8Zajgc
+LW-ybTCdFqkCNFIZjOKirbveh7ZM3TdLyvSweRgCsQ41edoZEhu8akCWIWGOTmDFaJbbPI4yP2sEjKQS
+dTI090pIGWJZ5-fqyUlt8Br0iF1QFvf6_n-vQ</pre></div></div></div>
 
 
     </section>
@@ -11605,10 +11633,10 @@ UY22MHHuxzEnYw8T77XDiVPhO1LTKfSD91m8AF95CLGpmCCm3yM4Qrl9dmQTSo-_UxX30D7hXnu6I6M4
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-11T07:41:07Z",
-      "verificationMethod": "https://state.gov/issuers/565049#z6MktxabCuX3xdZLxPdVLgCfabwmbmfopvMbt8jtTwjK4ugE",
+      "created": "2023-04-18T17:02:10Z",
+      "verificationMethod": "https://state.gov/issuers/565049#z6Mkp3LZgCoZuFmub24n8DSaEqu8vNZKBRhdM1uzHcC3a24k",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z4PwxP59LKsaSGeqXJxDEJ7Jb95inkE5EJ9qsc67eAPEq7qzwUDtBwxQWFjhHt2jKEv2sQCVNsQ14r1RDj7hyTivu"
+      "proofValue": "zQvuAbMmgueBAYZEPyUAGsmXNStR5YQQaH8qSuRSkfrb8dAoa4JyZusKKuaNVzGZVqkRdkZnDKEcePLscCn1EWep"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -11618,11 +11646,11 @@ UY22MHHuxzEnYw8T77XDiVPhO1LTKfSD91m8AF95CLGpmCCm3yM4Qrl9dmQTSo-_UxX30D7hXnu6I6M4
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "skYxbFkq-ezHo6m_ytvt9pwDenuSMJjCJulxQ4mb-EnQyL5F9PSZqUvtuw90a6IXNKG3rp
-Op1pY6A9ge8HblMwHIzUswXa9LB9xYXVj1TQmAi2bB4IUVKOcuKbCL7iDsfurngTv4POLDVMsXNMpDOa
-hr8PRg3J-WJcq8lWHjaZ88LuphVM4rKcgCEYiTfv6O6Ibddqs2hCvJ50cjaipFjrfiFgjam3fnJBzgE8
-bLc5___BGepwJ0gYWTTomb4FNj68xiUTS5xehxlS6sNcCJMsiRi1ce1CtysWeY0BFrbopgQlR7TR2hR8
-wJz0WWdf7nNr3FO3SJgzvyzn_5_DnA-Q"
+    "n": "t3jek8g1ik0u0Aml6534-4eyltev8ALOVXeHtYDeEReZYWLWzugrX0JGzY3cFMT4cd4ces
+H9oGXO-gTfipu-ahlK0VsfWzkuoNs04iN5tnXnUf9LARVoXm1KMly5eoGEVOX9mytOhgaTAm8NigE9Fl
+RLpEmU-2DxLzKIgiyt36AzJqG0a-u9D_PSd0Cs8uwDFqzxqQYFjIsoRGo9gbDQOoT1HziTlvaMbYRWIj
+PyzICD_ZlWxhZ-bnH9kZTQVie24IaK36zz1lEf97Z0WIjGkzbEkXkusZrnwKwabEiap_3lqnCCLe3-QM
+yCTapl0WjZKTKyFU1kMTLf7F6rzEgAZw"
   }
 }
 --------------- JWT payload ---------------
@@ -11682,12 +11710,12 @@ sementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJza1l4YkZrcS1lekhvNm1feXR2dDlwd0RlbnVTTUpqQ0p1bHhRNG1iLUVuUXlMNUY5UFNacVV2dHV3
-OTBhNklYTktHM3JwT3AxcFk2QTlnZThIYmxNd0hJelVzd1hhOUxCOXhZWFZqMVRRbUFpMmJCNElVVktP
-Y3VLYkNMN2lEc2Z1cm5nVHY0UE9MRFZNc1hOTXBET2FocjhQUmczSi1XSmNxOGxXSGphWjg4THVwaFZN
-NHJLY2dDRVlpVGZ2Nk82SWJkZHFzMmhDdko1MGNqYWlwRmpyZmlGZ2phbTNmbkpCemdFOGJMYzVfX19C
-R2Vwd0owZ1lXVFRvbWI0Rk5qNjh4aVVUUzV4ZWh4bFM2c05jQ0pNc2lSaTFjZTFDdHlzV2VZMEJGcmJv
-cGdRbFI3VFIyaFI4d0p6MFdXZGY3bk5yM0ZPM1NKZ3p2eXpuXzVfRG5BLVEifX0.eyJ2YyI6eyJAY29u
+OiJ0M2plazhnMWlrMHUwQW1sNjUzNC00ZXlsdGV2OEFMT1ZYZUh0WURlRVJlWllXTFd6dWdyWDBKR3pZ
+M2NGTVQ0Y2Q0Y2VzSDlvR1hPLWdUZmlwdS1haGxLMFZzZld6a3VvTnMwNGlONXRuWG5VZjlMQVJWb1ht
+MUtNbHk1ZW9HRVZPWDlteXRPaGdhVEFtOE5pZ0U5RmxSTHBFbVUtMkR4THpLSWdpeXQzNkF6SnFHMGEt
+dTlEX1BTZDBDczh1d0RGcXp4cVFZRmpJc29SR285Z2JEUU9vVDFIemlUbHZhTWJZUldJalB5eklDRF9a
+bFd4aFotYm5IOWtaVFFWaWUyNElhSzM2enoxbEVmOTdaMFdJakdremJFa1hrdXNacm53S3dhYkVpYXBf
+M2xxbkNDTGUzLVFNeUNUYXBsMFdqWktUS3lGVTFrTVRMZjdGNnJ6RWdBWncifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -11709,11 +11737,11 @@ U2VydmljZSI6eyJpZCI6Imh0dHA6Ly9zdGF0ZS5nb3YvY3JlZGVudGlhbHMvMzczMiIsInR5cGUiOiIx
 RWRUZWNoQ3JlZGVudGlhbFJlZnJlc2gifX0sImV4cCI6MTg5MzQ1NjAwMCwiaXNzIjoiaHR0cHM6Ly9z
 dGF0ZS5nb3YvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAsImp0aSI6Imh0dHA6Ly8xZWR0
 ZWNoLmVkdS9lbmRvcnNlbWVudGNyZWRlbnRpYWwvMzczMiIsInN1YiI6Imh0dHBzOi8vMWVkdGVjaC5l
-ZHUvaXNzdWVycy81NjUwNDkifQ.ELv6adYVM6Vg44-PRDaWg59mRYQkL-fFkDSBaZAEI-ueX_ub70gRU
-NBH6q0tblTaNbYsBCm1fn9tVkztnrlOJhjG8q2sz0jBKiIarFUIfXKZn50eQPwffvPnf9aG_uTuanS6t
-3djJ3-PiTmQlLDNKFmA89tauovzbMEZFQfkwr9S7KwrQod-Wxv9FGVstTi0IHYI_m6x4GCLasgnW9bh2
-T5hP1xeSFjRvevC88nu6hras8ot6HfPBDB9O_MyawgWPS15tHY-kv3kxYbBf9Rw47x7TNm5Gd4kxMIiI
-FuZh_Up1oC3o2HUHkQUQo2dlH6UDpSQNQSC44nzsxxUfbmwMQ</pre></div></div></div>
+ZHUvaXNzdWVycy81NjUwNDkifQ.QQlSO1c1556aXL4oRopkmuGCoja4Ym9WgiNPleLUdNKt8CEME3Tlj
+nX6UFYDBDE8kAoCmEpiVDbtuegNYJgJowWpB8FELby2O0BXKDa9cXZSFJCe2PDuZcVQTvcvBXHqp3myT
+h8v_uLHPodWzZU63ZEw-Hgdl-HvxxnXImUeYgLn3BNN6p0FcKYkVNi_5LQwrHJpUgnZ96epRzFtNpUqm
+puQjYVMpoGZjLYdwfNFNO336B9e-WNvlG9rD90jLuU8ng-KyfmG-4bBRlTaaSeWLJRw_BAckQ0obnvrC
+E8g6x8wJ0WIYdlGBwPJ6m45Jt6O3UQvcZqFkpB9DUTmrFJH2g</pre></div></div></div>
 
 
     </section>
@@ -11804,10 +11832,10 @@ FuZh_Up1oC3o2HUHkQUQo2dlH6UDpSQNQSC44nzsxxUfbmwMQ</pre></div></div></div>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-11T07:41:07Z",
-      "verificationMethod": "https://example.edu/issuers/565049#z6MkfmUjLsUpTPKu5tpdHcfyxTKEEFaxoUHnVaBv3Ef8UyZc",
+      "created": "2023-04-18T17:02:10Z",
+      "verificationMethod": "https://example.edu/issuers/565049#z6Mkr1i94U1zLzfrTnTZ7sMk3pd8CLmKMX5N1vTiV6K6G3VX",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z5VfT2SaS8c5vjbxm6m4SdSd94UyVgeRZ3HSJoFPcamQ69QVmUvwb143fW69NdyngNYUypsKd5C4DdiQvHdD4xY7A"
+      "proofValue": "z2buMRghNgVuoZGuRjopriCgLFMGyyEwaYLw9t7EuMEhhWP3r4fRLrbxHnm6wqzYNgokmNodx7nsY9PzdBNcMtC6A"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -11817,11 +11845,11 @@ FuZh_Up1oC3o2HUHkQUQo2dlH6UDpSQNQSC44nzsxxUfbmwMQ</pre></div></div></div>
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "kB6WlIws499YdbhVd-zGJ8-RWqOIKWjtGcBTbiseYn0WVmxnjZDi7RkeZ1HC4JisdSBp35
-fV_a0dyuBEgoxrnyeqG8nLpL5JVs1nPNGxf_OHw7zu-l6XBua4cIuqOeF56XwvndPJ0abToCpmmO0Ire
-NH5LyZgb91QmkBSrURGp-n5QVLWHW7-gwqSaR1QEEmvIr05eA1KJbw6fIjeaLrWygbJ2abVcsWl_qVcU
-FLxlEY_SVNe90dKQSTUV5bwq3BHoXnI__90sDmGkS2wYk7PlGIRWo8es-HjYJlrwqcDDRq3rvCHk3m_k
-aGE1dYroUDp0XdiiENZTSHg6PGDVRnBw"
+    "n": "uOT9zT1T93EFF-RNUREHIjqh6aOqdD5DmYwR8VWuLbkY738YkpHtstZeNWF8krRm3uMsSD
+Txi0gRT6nrCvXywW2zUC87D-iYLH5_ylADGryawk1vyElbW-s3jpqnH49HHsu-i7nXQZoF-M8-zRMqf-
+8CehrZZPZ8bfHdm6XakrD3F2HTreBGHdSPRxYgFphoLaqUtKgqJwW8w-XQ4pWcJ1tTW91LBo3Qiovu9Z
+wk26zAcr44PB6gjAYeE_SuZBRIcIzzxOQbe2BeC-5C1PaB_jW6gjlnIz4UHwwk-xvChX33o_oSm7MXFT
+NwenSpGcLgPDXBvJMVwVyKaALviZIjRw"
   }
 }
 --------------- JWT payload ---------------
@@ -11880,12 +11908,12 @@ ents_Analysis"
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJrQjZXbEl3czQ5OVlkYmhWZC16R0o4LVJXcU9JS1dqdEdjQlRiaXNlWW4wV1ZteG5qWkRpN1JrZVox
-SEM0SmlzZFNCcDM1ZlZfYTBkeXVCRWdveHJueWVxRzhuTHBMNUpWczFuUE5HeGZfT0h3N3p1LWw2WEJ1
-YTRjSXVxT2VGNTZYd3ZuZFBKMGFiVG9DcG1tTzBJcmVOSDVMeVpnYjkxUW1rQlNyVVJHcC1uNVFWTFdI
-VzctZ3dxU2FSMVFFRW12SXIwNWVBMUtKYnc2ZklqZWFMcld5Z2JKMmFiVmNzV2xfcVZjVUZMeGxFWV9T
-Vk5lOTBkS1FTVFVWNWJ3cTNCSG9YbklfXzkwc0RtR2tTMndZazdQbEdJUldvOGVzLUhqWUpscndxY0RE
-UnEzcnZDSGszbV9rYUdFMWRZcm9VRHAwWGRpaUVOWlRTSGc2UEdEVlJuQncifX0.eyJ2YyI6eyJAY29u
+OiJ1T1Q5elQxVDkzRUZGLVJOVVJFSElqcWg2YU9xZEQ1RG1Zd1I4Vld1TGJrWTczOFlrcEh0c3RaZU5X
+RjhrclJtM3VNc1NEVHhpMGdSVDZuckN2WHl3VzJ6VUM4N0QtaVlMSDVfeWxBREdyeWF3azF2eUVsYlct
+czNqcHFuSDQ5SEhzdS1pN25YUVpvRi1NOC16Uk1xZi04Q2VoclpaUFo4YmZIZG02WGFrckQzRjJIVHJl
+QkdIZFNQUnhZZ0ZwaG9MYXFVdEtncUp3Vzh3LVhRNHBXY0oxdFRXOTFMQm8zUWlvdnU5WndrMjZ6QWNy
+NDRQQjZnakFZZUVfU3VaQlJJY0l6enhPUWJlMkJlQy01QzFQYUJfalc2Z2psbkl6NFVId3drLXh2Q2hY
+MzNvX29TbTdNWEZUTndlblNwR2NMZ1BEWEJ2Sk1Wd1Z5S2FBTHZpWklqUncifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iXSwiaWQiOiJodHRw
 Oi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbHMvMzczMiIsInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRp
@@ -11907,11 +11935,11 @@ Z2V0VHlwZSI6ImNldGVybXM6Q3JlZGVudGlhbCIsInRhcmdldFVybCI6Imh0dHBzOi8vY3JlZGVudGlh
 bGZpbmRlci5vcmcvY3JlZGVudGlhbC8yMDIyOS9SZXF1aXJlbWVudHNfQW5hbHlzaXMifV19fX0sImlz
 cyI6Imh0dHBzOi8vZXhhbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAsImp0
 aSI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3ViIjoiZGlkOmV4YW1wbGU6
-ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.VEAPzSNlS07RdtrYq9tm_CesIDWLBGEoWiCKnMbd
-SpVYp0zrlaasdibZXocsEBuK6mAV8gaG1NV4C-UJyZWD6bcoryyiPAXQH6qx1D4afaoEU_s-o4G8V5MB
-6RiPg1FWP7mUtwVvf9yaf4s0HmKt1AHuuyFngjBoTwOaJzOohkyupNQ5aBWK0sUCgpQDZJ2jBZjCUmPw
-48Tcu7ewHrQYkG3LMddPMm-h4eHSt_0zgk0SCxFztbJonUhQ-vBU5qh6QcCH6SFGOuZIVsA9AFNNdUmt
-gnoj5xHE_bNOpVtaJwwFOTgtMEQjZVyZGGqH0hdoeqjmMLVfoMeBuTKKvmLQgw</pre></div></div></div>
+ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.lc3-jBAMvudmHPCBo-2f-XEPoW9dWefivXr3DYGW
+N038zzfHJnqfy36gYsroLnaDQwOzKSYAcTRhxgLdZ1n_44s6UgxdD8toZhvrt5kz59GaPCzl-JQNTNjQ
+bjnkjCVjfcJMGX4zLf730zrasnnkqnQrKGmAH1GkbgxueMdXRZVhVbBRQDkMGrN4qtdJL4Yt_xgKcPjV
+QxAjH0BRBkV_eOd3oADUwIoIcua5T4vOFNlWEDfqv3CQos0QuKQBYtKhE5Eo_747-umQhFIER1MJ4Fbo
+yNl0JxhFhdY9fdJb1YumhUeqivQ-r6UMWudI6mwxW9RIU8VHADKaqKuZ_YzFsw</pre></div></div></div>
 
 
     </section>
@@ -12002,10 +12030,10 @@ gnoj5xHE_bNOpVtaJwwFOTgtMEQjZVyZGGqH0hdoeqjmMLVfoMeBuTKKvmLQgw</pre></div></div>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-11T07:41:07Z",
-      "verificationMethod": "https://example.edu/issuers/565049#z6MkfmUjLsUpTPKu5tpdHcfyxTKEEFaxoUHnVaBv3Ef8UyZc",
+      "created": "2023-04-18T17:02:10Z",
+      "verificationMethod": "https://example.edu/issuers/565049#z6Mkr1i94U1zLzfrTnTZ7sMk3pd8CLmKMX5N1vTiV6K6G3VX",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z5VfT2SaS8c5vjbxm6m4SdSd94UyVgeRZ3HSJoFPcamQ69QVmUvwb143fW69NdyngNYUypsKd5C4DdiQvHdD4xY7A"
+      "proofValue": "z2buMRghNgVuoZGuRjopriCgLFMGyyEwaYLw9t7EuMEhhWP3r4fRLrbxHnm6wqzYNgokmNodx7nsY9PzdBNcMtC6A"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -12015,11 +12043,11 @@ gnoj5xHE_bNOpVtaJwwFOTgtMEQjZVyZGGqH0hdoeqjmMLVfoMeBuTKKvmLQgw</pre></div></div>
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "kB6WlIws499YdbhVd-zGJ8-RWqOIKWjtGcBTbiseYn0WVmxnjZDi7RkeZ1HC4JisdSBp35
-fV_a0dyuBEgoxrnyeqG8nLpL5JVs1nPNGxf_OHw7zu-l6XBua4cIuqOeF56XwvndPJ0abToCpmmO0Ire
-NH5LyZgb91QmkBSrURGp-n5QVLWHW7-gwqSaR1QEEmvIr05eA1KJbw6fIjeaLrWygbJ2abVcsWl_qVcU
-FLxlEY_SVNe90dKQSTUV5bwq3BHoXnI__90sDmGkS2wYk7PlGIRWo8es-HjYJlrwqcDDRq3rvCHk3m_k
-aGE1dYroUDp0XdiiENZTSHg6PGDVRnBw"
+    "n": "uOT9zT1T93EFF-RNUREHIjqh6aOqdD5DmYwR8VWuLbkY738YkpHtstZeNWF8krRm3uMsSD
+Txi0gRT6nrCvXywW2zUC87D-iYLH5_ylADGryawk1vyElbW-s3jpqnH49HHsu-i7nXQZoF-M8-zRMqf-
+8CehrZZPZ8bfHdm6XakrD3F2HTreBGHdSPRxYgFphoLaqUtKgqJwW8w-XQ4pWcJ1tTW91LBo3Qiovu9Z
+wk26zAcr44PB6gjAYeE_SuZBRIcIzzxOQbe2BeC-5C1PaB_jW6gjlnIz4UHwwk-xvChX33o_oSm7MXFT
+NwenSpGcLgPDXBvJMVwVyKaALviZIjRw"
   }
 }
 --------------- JWT payload ---------------
@@ -12078,12 +12106,12 @@ ents_Analysis"
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJrQjZXbEl3czQ5OVlkYmhWZC16R0o4LVJXcU9JS1dqdEdjQlRiaXNlWW4wV1ZteG5qWkRpN1JrZVox
-SEM0SmlzZFNCcDM1ZlZfYTBkeXVCRWdveHJueWVxRzhuTHBMNUpWczFuUE5HeGZfT0h3N3p1LWw2WEJ1
-YTRjSXVxT2VGNTZYd3ZuZFBKMGFiVG9DcG1tTzBJcmVOSDVMeVpnYjkxUW1rQlNyVVJHcC1uNVFWTFdI
-VzctZ3dxU2FSMVFFRW12SXIwNWVBMUtKYnc2ZklqZWFMcld5Z2JKMmFiVmNzV2xfcVZjVUZMeGxFWV9T
-Vk5lOTBkS1FTVFVWNWJ3cTNCSG9YbklfXzkwc0RtR2tTMndZazdQbEdJUldvOGVzLUhqWUpscndxY0RE
-UnEzcnZDSGszbV9rYUdFMWRZcm9VRHAwWGRpaUVOWlRTSGc2UEdEVlJuQncifX0.eyJ2YyI6eyJAY29u
+OiJ1T1Q5elQxVDkzRUZGLVJOVVJFSElqcWg2YU9xZEQ1RG1Zd1I4Vld1TGJrWTczOFlrcEh0c3RaZU5X
+RjhrclJtM3VNc1NEVHhpMGdSVDZuckN2WHl3VzJ6VUM4N0QtaVlMSDVfeWxBREdyeWF3azF2eUVsYlct
+czNqcHFuSDQ5SEhzdS1pN25YUVpvRi1NOC16Uk1xZi04Q2VoclpaUFo4YmZIZG02WGFrckQzRjJIVHJl
+QkdIZFNQUnhZZ0ZwaG9MYXFVdEtncUp3Vzh3LVhRNHBXY0oxdFRXOTFMQm8zUWlvdnU5WndrMjZ6QWNy
+NDRQQjZnakFZZUVfU3VaQlJJY0l6enhPUWJlMkJlQy01QzFQYUJfalc2Z2psbkl6NFVId3drLXh2Q2hY
+MzNvX29TbTdNWEZUTndlblNwR2NMZ1BEWEJ2Sk1Wd1Z5S2FBTHZpWklqUncifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iXSwiaWQiOiJodHRw
 Oi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbHMvMzczMiIsInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRp
@@ -12105,11 +12133,11 @@ Z2V0VHlwZSI6ImNldGVybXM6Q3JlZGVudGlhbCIsInRhcmdldFVybCI6Imh0dHBzOi8vY3JlZGVudGlh
 bGZpbmRlci5vcmcvY3JlZGVudGlhbC8yMDIyOS9SZXF1aXJlbWVudHNfQW5hbHlzaXMifV19fX0sImlz
 cyI6Imh0dHBzOi8vZXhhbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAsImp0
 aSI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3ViIjoiZGlkOmV4YW1wbGU6
-ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.VEAPzSNlS07RdtrYq9tm_CesIDWLBGEoWiCKnMbd
-SpVYp0zrlaasdibZXocsEBuK6mAV8gaG1NV4C-UJyZWD6bcoryyiPAXQH6qx1D4afaoEU_s-o4G8V5MB
-6RiPg1FWP7mUtwVvf9yaf4s0HmKt1AHuuyFngjBoTwOaJzOohkyupNQ5aBWK0sUCgpQDZJ2jBZjCUmPw
-48Tcu7ewHrQYkG3LMddPMm-h4eHSt_0zgk0SCxFztbJonUhQ-vBU5qh6QcCH6SFGOuZIVsA9AFNNdUmt
-gnoj5xHE_bNOpVtaJwwFOTgtMEQjZVyZGGqH0hdoeqjmMLVfoMeBuTKKvmLQgw</pre></div></div></div>
+ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.lc3-jBAMvudmHPCBo-2f-XEPoW9dWefivXr3DYGW
+N038zzfHJnqfy36gYsroLnaDQwOzKSYAcTRhxgLdZ1n_44s6UgxdD8toZhvrt5kz59GaPCzl-JQNTNjQ
+bjnkjCVjfcJMGX4zLf730zrasnnkqnQrKGmAH1GkbgxueMdXRZVhVbBRQDkMGrN4qtdJL4Yt_xgKcPjV
+QxAjH0BRBkV_eOd3oADUwIoIcua5T4vOFNlWEDfqv3CQos0QuKQBYtKhE5Eo_747-umQhFIER1MJ4Fbo
+yNl0JxhFhdY9fdJb1YumhUeqivQ-r6UMWudI6mwxW9RIU8VHADKaqKuZ_YzFsw</pre></div></div></div>
 
 
     </section>
@@ -12280,10 +12308,10 @@ gnoj5xHE_bNOpVtaJwwFOTgtMEQjZVyZGGqH0hdoeqjmMLVfoMeBuTKKvmLQgw</pre></div></div>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-11T07:41:07Z",
-      "verificationMethod": "https://1edtech.edu/issuers/565049#z6MkuE5XJ96zJFzZ6avMGszG2eDYLoDn7Y7RcFSjf6qRW5Qw",
+      "created": "2023-04-18T17:02:10Z",
+      "verificationMethod": "https://1edtech.edu/issuers/565049#z6Mkpeqj9gbfo8NavJhhV9Ne4cXVArh4ysYQPpphSVA7cDLW",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z2V8ErY9oaqTmbUtdCvSXQSD191zfUpWn1vyWjEfeCEbUAHMQJNQ3JkFKpukxdttLk77WFesP4ghSUCX9tkvdbPqT"
+      "proofValue": "zfeepgL8soZ5ohkDeKPAe7DYjzmXwaUkzkA7J8MBUbJsqsrbLt1tqatdQ9Aem7UxRNFLRAef7Y14EqFMfyoU4F65"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -12293,11 +12321,11 @@ gnoj5xHE_bNOpVtaJwwFOTgtMEQjZVyZGGqH0hdoeqjmMLVfoMeBuTKKvmLQgw</pre></div></div>
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "tKjYwAiFZu2TeGJQPgAgGitFMyE-qxdFWEngoyI6AlVzjbWzD9nJb_jbv3jnjJsqqH8TqR
-PsoFQq-EblOf0ZXeFSKbcx7umy7745ZSKLxar0C_ns43INqigDG3_Z4PBRr97yVh1tJvhLUGBJ4nsw7T
-uhvzS2cNu9is0UTAcCuE3xuc4XGePBNiRF1VNawMlNSJ8vwWDDhBpQXdzRYX16_ui3JN2hhnpzu70SFH
-kcIUOQKlGK5lPWerUu-wPzaVqtwL2LwAhlxaKV1NJ_rNsCqemMw2q1OQHdcvkjoQRpKRFg2SjY9OIWYR
-2X1guJN7LhrrrM2_hpCuBvH_JohTAK3w"
+    "n": "tj9sMyidwOltMHDRizZW1OZj1UVYc_cNdxM1aHhvHmYUGteL1fWMq8fNq9N3Ulw7H8X_Jh
+RG_dxku5uICS-cBT6jxN5tlzCsFHkJycL5rmb_idLUJW5dJubmhiJqpn9jBQt1D3S21vcVmZorViD8JL
+FgiZj-ZV5haVUjzjZcI0DXaAaHeOf09x_bAMyJJIK_pwtzgRps-dIjuVGGvdiZtuMoGNZQMIRkvPTUr_
+VFjN0bcYEvrdGJvEFPAc2avKtSozLPxOhGtgfVNlsrRT2S0s8L1eyyuklaino7DiAcBxPjqksT9beMWO
+r8D1Qe2wif5tKhP6QnPAQ_Ey4jGglkiw"
   }
 }
 --------------- JWT payload ---------------
@@ -12403,12 +12431,12 @@ vementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ0S2pZd0FpRlp1MlRlR0pRUGdBZ0dpdEZNeUUtcXhkRldFbmdveUk2QWxWempiV3pEOW5KYl9qYnYz
-am5qSnNxcUg4VHFSUHNvRlFxLUVibE9mMFpYZUZTS2JjeDd1bXk3NzQ1WlNLTHhhcjBDX25zNDNJTnFp
-Z0RHM19aNFBCUnI5N3lWaDF0SnZoTFVHQko0bnN3N1R1aHZ6UzJjTnU5aXMwVVRBY0N1RTN4dWM0WEdl
-UEJOaVJGMVZOYXdNbE5TSjh2d1dERGhCcFFYZHpSWVgxNl91aTNKTjJoaG5wenU3MFNGSGtjSVVPUUts
-R0s1bFBXZXJVdS13UHphVnF0d0wyTHdBaGx4YUtWMU5KX3JOc0NxZW1NdzJxMU9RSGRjdmtqb1FScEtS
-RmcyU2pZOU9JV1lSMlgxZ3VKTjdMaHJyck0yX2hwQ3VCdkhfSm9oVEFLM3cifX0.eyJ2YyI6eyJAY29u
+OiJ0ajlzTXlpZHdPbHRNSERSaXpaVzFPWmoxVVZZY19jTmR4TTFhSGh2SG1ZVUd0ZUwxZldNcThmTnE5
+TjNVbHc3SDhYX0poUkdfZHhrdTV1SUNTLWNCVDZqeE41dGx6Q3NGSGtKeWNMNXJtYl9pZExVSlc1ZEp1
+Ym1oaUpxcG45akJRdDFEM1MyMXZjVm1ab3JWaUQ4SkxGZ2laai1aVjVoYVZVanpqWmNJMERYYUFhSGVP
+ZjA5eF9iQU15SkpJS19wd3R6Z1Jwcy1kSWp1VkdHdmRpWnR1TW9HTlpRTUlSa3ZQVFVyX1ZGak4wYmNZ
+RXZyZEdKdkVGUEFjMmF2S3RTb3pMUHhPaEd0Z2ZWTmxzclJUMlMwczhMMWV5eXVrbGFpbm83RGlBY0J4
+UGpxa3NUOWJlTVdPcjhEMVFlMndpZjV0S2hQNlFuUEFRX0V5NGpHZ2xraXcifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -12454,11 +12482,11 @@ bWEvanNvbi9vYl92M3AwX2FjaGlldmVtZW50Y3JlZGVudGlhbF9zY2hlbWEuanNvbiIsInR5cGUiOiIx
 RWRUZWNoSnNvblNjaGVtYVZhbGlkYXRvcjIwMTkifV19LCJpc3MiOiJodHRwczovLzFlZHRlY2guZWR1
 L2lzc3VlcnMvNTY1MDQ5IiwibmJmIjoxNjU2NjMzNjAwLCJqdGkiOiJodHRwOi8vMWVkdGVjaC5lZHUv
 Y3JlZGVudGlhbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEy
-ZWMyMSJ9.kgl8ZL_XMLz-lIdGn3aKn4G_Q_JYBhKaFL4-BybczCyloST2qOtIaGHU3FqwsUbTFSUpr5c
-bf1jta8ithizuWAjdToyoyFOW_CPhVFQvWZTQ94j1zTQ4nFzoNfr0khH9v4_3QTp9BRt1Glt3CbS14xH
-1Hm-0bxgSFsgMyMP3Q93GM3RyfyTDXavT3XjaFEnDWYZ_NlzK-k3BUKb3vkLqHRflHI86rJkkkg3QCNy
-u3PA-ZKywv1lTIze_jEi4XsjmNpQEUlCXyLMkxCguuIZc4KDmiKvAI3ZfUatFWYqIzAlPl6NXhbZMmUB
-ZvhAVkjFZfat59Obf2W931GRkTi-hCQ</pre></div></div></div>
+ZWMyMSJ9.P5FJuvA56VSTYsZ-TIXEhfGWdcJCsGeAejQ2lRKO5BKni5uKSKeRe9uTT4kOugXAXdM40-p
+_wOvX0MZaJYyU62cxw5Nh6Kx55dXOdUs20MA440pImMkyI_ZWPJ4uwtuLQp5B9WR-HRwi-rxAB2BqFl3
+ukJGd0BoWkOLDBjLeJa8ax4Q18Fnhwq_EJJon050nvw0sb9wIfp86b2AUERjWToU9SSMJXe69b-OPga5
+HKLPffaoMsQ_ymH3rQjj4hPbUEz58qFR0SPjhm-0vC9NHqnWgE85TK2KbBXc7NiLNdM0RbC7NlUoRCcF
+v4Xab9o_lKGoXYbmTZeXi9ckzJICYMA</pre></div></div></div>
 
     </section>
     <section id="skill-assertion-credential-engine-0">
@@ -12612,10 +12640,10 @@ ZvhAVkjFZfat59Obf2W931GRkTi-hCQ</pre></div></div></div>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-11T07:41:07Z",
-      "verificationMethod": "https://1edtech.edu/issuers/565049#z6MkuE5XJ96zJFzZ6avMGszG2eDYLoDn7Y7RcFSjf6qRW5Qw",
+      "created": "2023-04-18T17:02:10Z",
+      "verificationMethod": "https://1edtech.edu/issuers/565049#z6Mkpeqj9gbfo8NavJhhV9Ne4cXVArh4ysYQPpphSVA7cDLW",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z3jhUqVWT6WdMMHQ25Q6r9VKgfQUbDwedqQG7i4uEXrK3GMeXzhpM9KpYN7D3A6MXtQAPqvJw7suLdYawgrdyP3jH"
+      "proofValue": "z4WFQC4cqzVio5JnF53NbN4qCXXbkPxmtZxfrJ39bMcQZk8WdvTuHgWSTs7sTGQqkmiLPUhcvL3rBeLpJqiUrgKw3"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -12625,11 +12653,11 @@ ZvhAVkjFZfat59Obf2W931GRkTi-hCQ</pre></div></div></div>
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "tKjYwAiFZu2TeGJQPgAgGitFMyE-qxdFWEngoyI6AlVzjbWzD9nJb_jbv3jnjJsqqH8TqR
-PsoFQq-EblOf0ZXeFSKbcx7umy7745ZSKLxar0C_ns43INqigDG3_Z4PBRr97yVh1tJvhLUGBJ4nsw7T
-uhvzS2cNu9is0UTAcCuE3xuc4XGePBNiRF1VNawMlNSJ8vwWDDhBpQXdzRYX16_ui3JN2hhnpzu70SFH
-kcIUOQKlGK5lPWerUu-wPzaVqtwL2LwAhlxaKV1NJ_rNsCqemMw2q1OQHdcvkjoQRpKRFg2SjY9OIWYR
-2X1guJN7LhrrrM2_hpCuBvH_JohTAK3w"
+    "n": "tj9sMyidwOltMHDRizZW1OZj1UVYc_cNdxM1aHhvHmYUGteL1fWMq8fNq9N3Ulw7H8X_Jh
+RG_dxku5uICS-cBT6jxN5tlzCsFHkJycL5rmb_idLUJW5dJubmhiJqpn9jBQt1D3S21vcVmZorViD8JL
+FgiZj-ZV5haVUjzjZcI0DXaAaHeOf09x_bAMyJJIK_pwtzgRps-dIjuVGGvdiZtuMoGNZQMIRkvPTUr_
+VFjN0bcYEvrdGJvEFPAc2avKtSozLPxOhGtgfVNlsrRT2S0s8L1eyyuklaino7DiAcBxPjqksT9beMWO
+r8D1Qe2wif5tKhP6QnPAQ_Ey4jGglkiw"
   }
 }
 --------------- JWT payload ---------------
@@ -12721,12 +12749,12 @@ vementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ0S2pZd0FpRlp1MlRlR0pRUGdBZ0dpdEZNeUUtcXhkRldFbmdveUk2QWxWempiV3pEOW5KYl9qYnYz
-am5qSnNxcUg4VHFSUHNvRlFxLUVibE9mMFpYZUZTS2JjeDd1bXk3NzQ1WlNLTHhhcjBDX25zNDNJTnFp
-Z0RHM19aNFBCUnI5N3lWaDF0SnZoTFVHQko0bnN3N1R1aHZ6UzJjTnU5aXMwVVRBY0N1RTN4dWM0WEdl
-UEJOaVJGMVZOYXdNbE5TSjh2d1dERGhCcFFYZHpSWVgxNl91aTNKTjJoaG5wenU3MFNGSGtjSVVPUUts
-R0s1bFBXZXJVdS13UHphVnF0d0wyTHdBaGx4YUtWMU5KX3JOc0NxZW1NdzJxMU9RSGRjdmtqb1FScEtS
-RmcyU2pZOU9JV1lSMlgxZ3VKTjdMaHJyck0yX2hwQ3VCdkhfSm9oVEFLM3cifX0.eyJ2YyI6eyJAY29u
+OiJ0ajlzTXlpZHdPbHRNSERSaXpaVzFPWmoxVVZZY19jTmR4TTFhSGh2SG1ZVUd0ZUwxZldNcThmTnE5
+TjNVbHc3SDhYX0poUkdfZHhrdTV1SUNTLWNCVDZqeE41dGx6Q3NGSGtKeWNMNXJtYl9pZExVSlc1ZEp1
+Ym1oaUpxcG45akJRdDFEM1MyMXZjVm1ab3JWaUQ4SkxGZ2laai1aVjVoYVZVanpqWmNJMERYYUFhSGVP
+ZjA5eF9iQU15SkpJS19wd3R6Z1Jwcy1kSWp1VkdHdmRpWnR1TW9HTlpRTUlSa3ZQVFVyX1ZGak4wYmNZ
+RXZyZEdKdkVGUEFjMmF2S3RTb3pMUHhPaEd0Z2ZWTmxzclJUMlMwczhMMWV5eXVrbGFpbm83RGlBY0J4
+UGpxa3NUOWJlTVdPcjhEMVFlMndpZjV0S2hQNlFuUEFRX0V5NGpHZ2xraXcifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -12765,11 +12793,11 @@ Lm9yZy9zcGVjL29iL3YzcDAvc2NoZW1hL2pzb24vb2JfdjNwMF9hY2hpZXZlbWVudGNyZWRlbnRpYWxf
 c2NoZW1hLmpzb24iLCJ0eXBlIjoiMUVkVGVjaEpzb25TY2hlbWFWYWxpZGF0b3IyMDE5In1dfSwiaXNz
 IjoiaHR0cHM6Ly8xZWR0ZWNoLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5iZiI6MTY1NjYzMzYwMCwianRp
 IjoiaHR0cDovLzFlZHRlY2guZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhbXBsZTpl
-YmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.HttP__I0Gxx9-Z_pJoWXkFGWp4NJDXZJDu6kifoKs
-SyuWLBs2hTl0yMR0jIzvdIcYAjtI0sYcEl2-fB-voX-UhKWhOh5wuMEjqEX-R1d_GvzM1UcSTC7nCCmQ
-pFqr_zfogtackXtVvN_9DXVMR5Al-UYaDJh3cm1Vh3whiXSJPr3wPr8xGX7xiFstZ9b07N7dNAY34Y5C
-W4tyagNbCzb3jnng1xOvJJ-j2nCtgbftdgDW-_6L0utdO08JV62WCmuLEsh1rEROxe78_xuU0mD_23mE
-9MCLoxi_gyxaOef4MccAN21RbVImmcgDg72L5Q-uUmhlcIAI8q4FeX9-ewvPg</pre></div></div></div>
+YmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.MuFTKxtayJA7wa8yT16qU2qH97PWF9T9Cmv0Omvui
+6boNoJpT1AIQVDsBlf9aWgGEGC1WBkuzaDfL6KsapRYHiIUao9Ho3VaqfLwNZZ-hfIjR9ybDu94GfoY1
+nAVTWGkAENQYXhojFRrPklwm17UbUMw7ihpijp4awEHm8NzWZIRNgx6PkwlsNf5Tc48n07_azaFgXxt4
+tNcjGluRbH-c_7RAJoPcMddTRxXLLQ4w6SggCUUlIoQEmEwUTwLVEdKWxpWlCfB59EdOlXEpMocBQjxI
+e8XUQYbNz5_MZ0sqpRR6NQbDpOAIL2bLhUTYvr6qGuu9Ce-Rrt0AYdJuExiFw</pre></div></div></div>
 
     </section>
   </section>
@@ -28199,7 +28227,7 @@ components:
     <dl class="bibliography"><dt id="bib-data-integrity-spec">[DATA-INTEGRITY-SPEC]</dt><dd><a href="https://w3c-ccg.github.io/data-integrity-spec/"><cite>Data Integrity</cite></a>.  Credentials Community Group. CG-DRAFT. URL: <a href="https://w3c-ccg.github.io/data-integrity-spec/">https://w3c-ccg.github.io/data-integrity-spec/</a></dd><dt id="bib-lds-ed25519-2020">[LDS-ED25519-2020]</dt><dd><a href="https://w3c-ccg.github.io/lds-ed25519-2020/"><cite>Ed25519 Signature 2020</cite></a>.  W3C Credentials Community Group. Draft Community Group Report. URL: <a href="https://w3c-ccg.github.io/lds-ed25519-2020/">https://w3c-ccg.github.io/lds-ed25519-2020/</a></dd><dt id="bib-oauth2-sbp">[OAUTH2-SBP]</dt><dd><a href="https://datatracker.ietf.org/doc/draft-ietf-oauth-security-topics/"><cite>OAuth 2.0 Security Best Current Practice (draft-ietf-oauth-security-topics-11</cite></a>.  IETF. December 28, 2019. URL: <a href="https://datatracker.ietf.org/doc/draft-ietf-oauth-security-topics/">https://datatracker.ietf.org/doc/draft-ietf-oauth-security-topics/</a></dd><dt id="bib-openapis-3.0">[OPENAPIS-3.0]</dt><dd><a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md"><cite>OpenAPI Specification 3.0</cite></a>.  OpenAPI Initiative (Linux Foundation). July 2017. URL: <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md">https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md</a></dd><dt id="bib-png">[PNG]</dt><dd><a href="https://www.w3.org/TR/PNG/"><cite>Portable Network Graphics (PNG) Specification (Second Edition)</cite></a>. Tom Lane.  W3C. 10 November 2003. W3C Recommendation. URL: <a href="https://www.w3.org/TR/PNG/">https://www.w3.org/TR/PNG/</a></dd><dt id="bib-rfc20">[RFC20]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc20"><cite>ASCII format for network interchange</cite></a>. V.G. Cerf.  IETF. October 1969. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc20">https://www.rfc-editor.org/rfc/rfc20</a></dd><dt id="bib-rfc2119">[RFC2119]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a></dd><dt id="bib-rfc2617">[RFC2617]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2617"><cite>HTTP Authentication: Basic and Digest Access Authentication</cite></a>. J. Franks; P. Hallam-Baker; J. Hostetler; S. Lawrence; P. Leach; A. Luotonen; L. Stewart.  IETF. June 1999. Draft Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc2617">https://www.rfc-editor.org/rfc/rfc2617</a></dd><dt id="bib-rfc3629">[RFC3629]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc3629"><cite>UTF-8, a transformation format of ISO 10646</cite></a>. F. Yergeau.  IETF. November 2003. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3629">https://www.rfc-editor.org/rfc/rfc3629</a></dd><dt id="bib-rfc3986">[RFC3986]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc3986"><cite>Uniform Resource Identifier (URI): Generic Syntax</cite></a>. T. Berners-Lee; R. Fielding; L. Masinter.  IETF. January 2005. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3986">https://www.rfc-editor.org/rfc/rfc3986</a></dd><dt id="bib-rfc6749">[RFC6749]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc6749"><cite>The OAuth 2.0 Authorization Framework</cite></a>. D. Hardt, Ed..  IETF. October 2012. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc6749">https://www.rfc-editor.org/rfc/rfc6749</a></dd><dt id="bib-rfc6750">[RFC6750]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc6750"><cite>The OAuth 2.0 Authorization Framework: Bearer Token Usage</cite></a>. M. Jones; D. Hardt.  IETF. October 2012. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc6750">https://www.rfc-editor.org/rfc/rfc6750</a></dd><dt id="bib-rfc7009">[RFC7009]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc7009"><cite>OAuth 2.0 Token Revocation</cite></a>. T. Lodderstedt, Ed.; S. Dronia; M. Scurtescu.  IETF. August 2013. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7009">https://www.rfc-editor.org/rfc/rfc7009</a></dd><dt id="bib-rfc7515">[RFC7515]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc7515"><cite>JSON Web Signature (JWS)</cite></a>. M. Jones; J. Bradley; N. Sakimura.  IETF. May 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7515">https://www.rfc-editor.org/rfc/rfc7515</a></dd><dt id="bib-rfc7517">[RFC7517]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc7517"><cite>JSON Web Key (JWK)</cite></a>. M. Jones.  IETF. May 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7517">https://www.rfc-editor.org/rfc/rfc7517</a></dd><dt id="bib-rfc7518">[RFC7518]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc7518"><cite>JSON Web Algorithms (JWA)</cite></a>. M. Jones.  IETF. May 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7518">https://www.rfc-editor.org/rfc/rfc7518</a></dd><dt id="bib-rfc7519">[RFC7519]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc7519"><cite>JSON Web Token (JWT)</cite></a>. M. Jones; J. Bradley; N. Sakimura.  IETF. May 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7519">https://www.rfc-editor.org/rfc/rfc7519</a></dd><dt id="bib-rfc7591">[RFC7591]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc7591"><cite>OAuth 2.0 Dynamic Client Registration Protocol</cite></a>. J. Richer, Ed.; M. Jones; J. Bradley; M. Machulak; P. Hunt.  IETF. July 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7591">https://www.rfc-editor.org/rfc/rfc7591</a></dd><dt id="bib-rfc7636">[RFC7636]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc7636"><cite>Proof Key for Code Exchange by OAuth Public Clients</cite></a>. N. Sakimura, Ed.; J. Bradley; N. Agarwal.  IETF. September 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7636">https://www.rfc-editor.org/rfc/rfc7636</a></dd><dt id="bib-sec-11">[SEC-11]</dt><dd><a href="https://www.imsglobal.org/spec/security/v1p1/"><cite>IMS Global Security Framework v1.1</cite></a>. C. Smythe; C. Vervoort; M. McKell.  IMS Global Learning Consortium. July 19th, 2021. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/security/v1p1/">https://www.imsglobal.org/spec/security/v1p1/</a></dd><dt id="bib-svg11">[SVG11]</dt><dd><a href="https://www.w3.org/TR/SVG11/"><cite>Scalable Vector Graphics (SVG) 1.1 (Second Edition)</cite></a>. Erik Dahlström; Patrick Dengler; Anthony Grasso; Chris Lilley; Cameron McCormack; Doug Schepers; Jonathan Watt; Jon Ferraiolo; Jun Fujisawa; Dean Jackson et al.  W3C. 16 August 2011. W3C Recommendation. URL: <a href="https://www.w3.org/TR/SVG11/">https://www.w3.org/TR/SVG11/</a></dd><dt id="bib-unicode">[UNICODE]</dt><dd><a href="https://www.unicode.org/versions/latest/"><cite>The Unicode Standard</cite></a>.  Unicode Consortium. URL: <a href="https://www.unicode.org/versions/latest/">https://www.unicode.org/versions/latest/</a></dd><dt id="bib-vc-data-model">[VC-DATA-MODEL]</dt><dd><a href="https://www.w3.org/TR/vc-data-model/"><cite>Verifiable Credentials Data Model v1.1</cite></a>. Manu Sporny; Grant Noble; Dave Longley; Daniel Burnett; Brent Zundel; Kyle Den Hartog.  W3C. 3 March 2022. W3C Recommendation. URL: <a href="https://www.w3.org/TR/vc-data-model/">https://www.w3.org/TR/vc-data-model/</a></dd><dt id="bib-vc-extension-registry">[VC-EXTENSION-REGISTRY]</dt><dd><a href="https://w3c-ccg.github.io/vc-extension-registry/"><cite>Verifiable Credentials Extension Registry</cite></a>.  Credentials Community Group. CG-DRAFT. URL: <a href="https://w3c-ccg.github.io/vc-extension-registry/">https://w3c-ccg.github.io/vc-extension-registry/</a></dd><dt id="bib-vccr-10">[VCCR-10]</dt><dd><a href="https://imsglobal.org/spec/vccr/v1p0/"><cite>1EdTech Credential Refresh Service</cite></a>.  1EdTech. Candidate Final Public. URL: <a href="https://imsglobal.org/spec/vccr/v1p0/">https://imsglobal.org/spec/vccr/v1p0/</a></dd><dt id="bib-vccs-10">[VCCS-10]</dt><dd><a href="https://imsglobal.org/spec/vccs/v1p0/"><cite>1EdTech JSON Schema Validator 2019</cite></a>.  1EdTech. Candidate Final Public. URL: <a href="https://imsglobal.org/spec/vccs/v1p0/">https://imsglobal.org/spec/vccs/v1p0/</a></dd><dt id="bib-vcrl-10">[VCRL-10]</dt><dd><a href="https://imsglobal.org/spec/vcrl/v1p0/"><cite>1EdTech Revocation List Status Method</cite></a>.  1EdTech. Candidate Final Public. URL: <a href="https://imsglobal.org/spec/vcrl/v1p0/">https://imsglobal.org/spec/vcrl/v1p0/</a></dd></dl>
   </section><section id="informative-references">
     <h3 id="h-2-informative-references"><bdi class="secno">H.2 </bdi>Informative references<a class="self-link" aria-label="§" href="#informative-references"></a></h3>
-    <dl class="bibliography"><dt id="bib-bcp47">[BCP47]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc5646"><cite>Tags for Identifying Languages</cite></a>. A. Phillips, Ed.; M. Davis, Ed..  IETF. September 2009. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc5646">https://www.rfc-editor.org/rfc/rfc5646</a></dd><dt id="bib-ceds">[CEDS]</dt><dd><a href="https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf"><cite>Common Education Data Standards (CEDS) Version 7 Data Model Guide</cite></a>. URL: <a href="https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf">https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf</a></dd><dt id="bib-clr-20">[CLR-20]</dt><dd><a href="https://www.imsglobal.org/spec/clr/v2p0/"><cite>Comprehensive Learner Record Standard v2.0</cite></a>.  1EdTech. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/clr/v2p0/">https://www.imsglobal.org/spec/clr/v2p0/</a></dd><dt id="bib-ctdl-asn-terms">[CTDL-ASN-TERMS]</dt><dd><a href="https://credreg.net/ctdlasn/terms"><cite>Credential Transparency Description Language ASN Terms</cite></a>.  Credential Engine. URL: <a href="https://credreg.net/ctdlasn/terms">https://credreg.net/ctdlasn/terms</a></dd><dt id="bib-ctdl-terms">[CTDL-TERMS]</dt><dd><a href="https://credreg.net/ctdl/terms"><cite>Credential Transparency Description Language Terms</cite></a>.  Credential Engine. URL: <a href="https://credreg.net/ctdl/terms">https://credreg.net/ctdl/terms</a></dd><dt id="bib-did-core">[did-core]</dt><dd><a href="https://www.w3.org/TR/did-core/"><cite>Decentralized Identifiers (DIDs) v1.0</cite></a>. Manu Sporny; Amy Guy; Markus Sabadello; Drummond Reed.  W3C. 19 July 2022. W3C Recommendation. URL: <a href="https://www.w3.org/TR/did-core/">https://www.w3.org/TR/did-core/</a></dd><dt id="bib-did-use-cases">[did-use-cases]</dt><dd><a href="https://www.w3.org/TR/did-use-cases/"><cite>Use Cases and Requirements for Decentralized Identifiers</cite></a>. Joe Andrieu; Phil Archer; Kim Duffy; Ryan Grant; Adrian Gropper.  W3C. 17 March 2021. W3C Note. URL: <a href="https://www.w3.org/TR/did-use-cases/">https://www.w3.org/TR/did-use-cases/</a></dd><dt id="bib-fips-180-4">[FIPS-180-4]</dt><dd><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf"><cite>FIPS PUB 180-4 Secure Hash Standard</cite></a>.  U.S. Department of Commerce/National Institute of Standards and Technology. URL: <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a></dd><dt id="bib-ieee-754">[IEEE-754]</dt><dd><a href="http://ieeexplore.ieee.org/servlet/opac?punumber=4610933"><cite>IEEE Standard for Floating-Point Arithmetic</cite></a>.  Institute of Electrical and Electronics Engineers. 29 August 2008. URL: <a href="http://ieeexplore.ieee.org/servlet/opac?punumber=4610933">http://ieeexplore.ieee.org/servlet/opac?punumber=4610933</a></dd><dt id="bib-iso3166-1">[ISO3166-1]</dt><dd><a href="https://www.iso.org/standard/72482.html"><cite>Codes for the representation of names of countries and their subdivisions — Part 1: Country code</cite></a>.  International Organization for Standardization (ISO). August 2020. Published. URL: <a href="https://www.iso.org/standard/72482.html">https://www.iso.org/standard/72482.html</a></dd><dt id="bib-iso8601">[ISO8601]</dt><dd><a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874"><cite>Representation of dates and times. ISO 8601:2004.</cite></a>.  International Organization for Standardization (ISO). 2004. ISO 8601:2004. URL: <a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874">http://www.iso.org/iso/catalogue_detail?csnumber=40874</a></dd><dt id="bib-json-ld">[JSON-LD]</dt><dd><a href="https://www.w3.org/TR/json-ld/"><cite>JSON-LD 1.0</cite></a>. Manu Sporny; Gregg Kellogg; Markus Lanthaler.  W3C. 3 November 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a></dd><dt id="bib-json-ld11">[JSON-LD11]</dt><dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave Longley.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a></dd><dt id="bib-json-ld11-api">[JSON-LD11-API]</dt><dd><a href="https://www.w3.org/TR/json-ld11-api/"><cite>JSON-LD 1.1 Processing Algorithms and API</cite></a>. Gregg Kellogg; Dave Longley; Pierre-Antoine Champin.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11-api/">https://www.w3.org/TR/json-ld11-api/</a></dd><dt id="bib-multibase">[MULTIBASE]</dt><dd><a href="https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-01"><cite>The Multibase Data Format</cite></a>.  IETF. Internet-Draft. URL: <a href="https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-01">https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-01</a></dd><dt id="bib-multicodec">[MULTICODEC]</dt><dd><a href="https://github.com/multiformats/multicodec/"><cite>MULTICODEC</cite></a>. URL: <a href="https://github.com/multiformats/multicodec/">https://github.com/multiformats/multicodec/</a></dd><dt id="bib-ob-20">[OB-20]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v2p0/"><cite>Open Badges v2.0</cite></a>. Otto, Nate; Bohrer, Jeff; Cook, Timothy; Gylling, Markus; Hripak, Alexander; Pitcher, Justin.  IMS Global Learning Consortium. April 2018. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/ob/v2p0/">https://www.imsglobal.org/spec/ob/v2p0/</a></dd><dt id="bib-ob-30">[OB-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/"><cite>Open Badges Specification v3.0</cite></a>.  1EdTech. Candidate Final Public. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/">https://www.imsglobal.org/spec/ob/v3p0/</a></dd><dt id="bib-ob-cert-30">[OB-CERT-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/cert/"><cite>Open Badges Specification Conformance and Certification Guide v3.0</cite></a>.  1EdTech. Candidate Final Public. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/cert/">https://www.imsglobal.org/spec/ob/v3p0/cert/</a></dd><dt id="bib-ob-errata-30">[OB-ERRATA-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/errata/"><cite>Open Badges Specification v3.0: Errata</cite></a>.  1EdTech. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/errata/">https://www.imsglobal.org/spec/ob/v3p0/errata/</a></dd><dt id="bib-ob-impl-30">[OB-IMPL-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/impl/"><cite>Open Badges Implementation Guide v3.0</cite></a>.  1EdTech. Candidate Final Public. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/impl/">https://www.imsglobal.org/spec/ob/v3p0/impl/</a></dd><dt id="bib-openapis">[OPENAPIS]</dt><dd><a href="https://www.openapis.org/"><cite>OpenAPI Specification</cite></a>. Darrell Miller; Jeremy Whitlock; Marsh Gardiner; Mike Ralphson; Ron Ratovsky; Uri Sarid; Tony Tam; Jason Harmon.  OpenAPI Initiative. URL: <a href="https://www.openapis.org/">https://www.openapis.org/</a></dd><dt id="bib-rfc1321">[RFC1321]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc1321"><cite>The MD5 Message-Digest Algorithm</cite></a>. R. Rivest.  IETF. April 1992. Informational. URL: <a href="https://www.rfc-editor.org/rfc/rfc1321">https://www.rfc-editor.org/rfc/rfc1321</a></dd><dt id="bib-rfc4122">[RFC4122]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc4122"><cite>A Universally Unique IDentifier (UUID) URN Namespace</cite></a>. P. Leach; M. Mealling; R. Salz.  IETF. July 2005. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc4122">https://www.rfc-editor.org/rfc/rfc4122</a></dd><dt id="bib-rfc5280">[RFC5280]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc5280"><cite>Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile</cite></a>. D. Cooper; S. Santesson; S. Farrell; S. Boeyen; R. Housley; W. Polk.  IETF. May 2008. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc5280">https://www.rfc-editor.org/rfc/rfc5280</a></dd><dt id="bib-rfc8259">[RFC8259]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8259"><cite>The JavaScript Object Notation (JSON) Data Interchange Format</cite></a>. T. Bray, Ed..  IETF. December 2017. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a></dd><dt id="bib-rfc9110">[rfc9110]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc9110"><cite>HTTP Semantics</cite></a>. R. Fielding, Ed.; M. Nottingham, Ed.; J. Reschke, Ed..  IETF. June 2022. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc9110">https://www.rfc-editor.org/rfc/rfc9110</a></dd><dt id="bib-rsd">[RSD]</dt><dd><a href="https://www.openskillsnetwork.org/rsd"><cite>Rich Skill Descriptors</cite></a>. URL: <a href="https://www.openskillsnetwork.org/rsd">https://www.openskillsnetwork.org/rsd</a></dd><dt id="bib-wgs84">[WGS84]</dt><dd><cite>National Imagery and Mapping Agency Technical Report 8350.2, Third Edition</cite>.  National Imagery and Mapping Agency. 3 January 2000. </dd><dt id="bib-xmlschema-2">[XMLSCHEMA-2]</dt><dd><a href="https://www.w3.org/TR/xmlschema-2/"><cite>XML Schema Part 2: Datatypes Second Edition</cite></a>. Paul V. Biron; Ashok Malhotra.  W3C. 28 October 2004. W3C Recommendation. URL: <a href="https://www.w3.org/TR/xmlschema-2/">https://www.w3.org/TR/xmlschema-2/</a></dd></dl>
+    <dl class="bibliography"><dt id="bib-bcp47">[BCP47]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc5646"><cite>Tags for Identifying Languages</cite></a>. A. Phillips, Ed.; M. Davis, Ed..  IETF. September 2009. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc5646">https://www.rfc-editor.org/rfc/rfc5646</a></dd><dt id="bib-ceds">[CEDS]</dt><dd><a href="https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf"><cite>Common Education Data Standards (CEDS) Version 7 Data Model Guide</cite></a>. URL: <a href="https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf">https://ceds.ed.gov/pdf/CEDS-7-0-Data-Model-Guide_for_508.pdf</a></dd><dt id="bib-clr-20">[CLR-20]</dt><dd><a href="https://www.imsglobal.org/spec/clr/v2p0/"><cite>Comprehensive Learner Record Standard v2.0</cite></a>.  1EdTech. IMS Base Document. URL: <a href="https://www.imsglobal.org/spec/clr/v2p0/">https://www.imsglobal.org/spec/clr/v2p0/</a></dd><dt id="bib-ctdl-asn-terms">[CTDL-ASN-TERMS]</dt><dd><a href="https://credreg.net/ctdlasn/terms"><cite>Credential Transparency Description Language ASN Terms</cite></a>.  Credential Engine. URL: <a href="https://credreg.net/ctdlasn/terms">https://credreg.net/ctdlasn/terms</a></dd><dt id="bib-ctdl-terms">[CTDL-TERMS]</dt><dd><a href="https://credreg.net/ctdl/terms"><cite>Credential Transparency Description Language Terms</cite></a>.  Credential Engine. URL: <a href="https://credreg.net/ctdl/terms">https://credreg.net/ctdl/terms</a></dd><dt id="bib-did-core">[did-core]</dt><dd><a href="https://www.w3.org/TR/did-core/"><cite>Decentralized Identifiers (DIDs) v1.0</cite></a>. Manu Sporny; Amy Guy; Markus Sabadello; Drummond Reed.  W3C. 19 July 2022. W3C Recommendation. URL: <a href="https://www.w3.org/TR/did-core/">https://www.w3.org/TR/did-core/</a></dd><dt id="bib-did-use-cases">[did-use-cases]</dt><dd><a href="https://www.w3.org/TR/did-use-cases/"><cite>Use Cases and Requirements for Decentralized Identifiers</cite></a>. Joe Andrieu; Phil Archer; Kim Duffy; Ryan Grant; Adrian Gropper.  W3C. 17 March 2021. W3C Note. URL: <a href="https://www.w3.org/TR/did-use-cases/">https://www.w3.org/TR/did-use-cases/</a></dd><dt id="bib-fips-180-4">[FIPS-180-4]</dt><dd><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf"><cite>FIPS PUB 180-4 Secure Hash Standard</cite></a>.  U.S. Department of Commerce/National Institute of Standards and Technology. URL: <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a></dd><dt id="bib-ieee-754">[IEEE-754]</dt><dd><a href="http://ieeexplore.ieee.org/servlet/opac?punumber=4610933"><cite>IEEE Standard for Floating-Point Arithmetic</cite></a>.  Institute of Electrical and Electronics Engineers. 29 August 2008. URL: <a href="http://ieeexplore.ieee.org/servlet/opac?punumber=4610933">http://ieeexplore.ieee.org/servlet/opac?punumber=4610933</a></dd><dt id="bib-iso3166-1">[ISO3166-1]</dt><dd><a href="https://www.iso.org/standard/72482.html"><cite>Codes for the representation of names of countries and their subdivisions — Part 1: Country code</cite></a>.  International Organization for Standardization (ISO). August 2020. Published. URL: <a href="https://www.iso.org/standard/72482.html">https://www.iso.org/standard/72482.html</a></dd><dt id="bib-iso8601">[ISO8601]</dt><dd><a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874"><cite>Representation of dates and times. ISO 8601:2004.</cite></a>.  International Organization for Standardization (ISO). 2004. ISO 8601:2004. URL: <a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874">http://www.iso.org/iso/catalogue_detail?csnumber=40874</a></dd><dt id="bib-json-ld">[JSON-LD]</dt><dd><a href="https://www.w3.org/TR/json-ld/"><cite>JSON-LD 1.0</cite></a>. Manu Sporny; Gregg Kellogg; Markus Lanthaler.  W3C. 3 November 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a></dd><dt id="bib-json-ld11">[JSON-LD11]</dt><dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave Longley.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a></dd><dt id="bib-json-ld11-api">[JSON-LD11-API]</dt><dd><a href="https://www.w3.org/TR/json-ld11-api/"><cite>JSON-LD 1.1 Processing Algorithms and API</cite></a>. Gregg Kellogg; Dave Longley; Pierre-Antoine Champin.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11-api/">https://www.w3.org/TR/json-ld11-api/</a></dd><dt id="bib-multibase">[MULTIBASE]</dt><dd><a href="https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-01"><cite>The Multibase Data Format</cite></a>.  IETF. Internet-Draft. URL: <a href="https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-01">https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-01</a></dd><dt id="bib-multicodec">[MULTICODEC]</dt><dd><a href="https://github.com/multiformats/multicodec/"><cite>MULTICODEC</cite></a>. URL: <a href="https://github.com/multiformats/multicodec/">https://github.com/multiformats/multicodec/</a></dd><dt id="bib-ob-20">[OB-20]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v2p0/"><cite>Open Badges v2.0</cite></a>. Otto, Nate; Bohrer, Jeff; Cook, Timothy; Gylling, Markus; Hripak, Alexander; Pitcher, Justin.  IMS Global Learning Consortium. April 2018. IMS Final Release. URL: <a href="https://www.imsglobal.org/spec/ob/v2p0/">https://www.imsglobal.org/spec/ob/v2p0/</a></dd><dt id="bib-ob-30">[OB-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/"><cite>Open Badges Specification v3.0</cite></a>.  1EdTech. Candidate Final Public. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/">https://www.imsglobal.org/spec/ob/v3p0/</a></dd><dt id="bib-ob-cert-30">[OB-CERT-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/cert/"><cite>Open Badges Specification Conformance and Certification Guide v3.0</cite></a>.  1EdTech. Candidate Final Public. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/cert/">https://www.imsglobal.org/spec/ob/v3p0/cert/</a></dd><dt id="bib-ob-errata-30">[OB-ERRATA-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/errata/"><cite>Open Badges Specification v3.0: Errata</cite></a>. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/errata/">https://www.imsglobal.org/spec/ob/v3p0/errata/</a></dd><dt id="bib-ob-impl-30">[OB-IMPL-30]</dt><dd><a href="https://www.imsglobal.org/spec/ob/v3p0/impl/"><cite>Open Badges Implementation Guide v3.0</cite></a>.  1EdTech. Candidate Final Public. URL: <a href="https://www.imsglobal.org/spec/ob/v3p0/impl/">https://www.imsglobal.org/spec/ob/v3p0/impl/</a></dd><dt id="bib-openapis">[OPENAPIS]</dt><dd><a href="https://www.openapis.org/"><cite>OpenAPI Specification</cite></a>. Darrell Miller; Jeremy Whitlock; Marsh Gardiner; Mike Ralphson; Ron Ratovsky; Uri Sarid; Tony Tam; Jason Harmon.  OpenAPI Initiative. URL: <a href="https://www.openapis.org/">https://www.openapis.org/</a></dd><dt id="bib-rfc1321">[RFC1321]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc1321"><cite>The MD5 Message-Digest Algorithm</cite></a>. R. Rivest.  IETF. April 1992. Informational. URL: <a href="https://www.rfc-editor.org/rfc/rfc1321">https://www.rfc-editor.org/rfc/rfc1321</a></dd><dt id="bib-rfc4122">[RFC4122]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc4122"><cite>A Universally Unique IDentifier (UUID) URN Namespace</cite></a>. P. Leach; M. Mealling; R. Salz.  IETF. July 2005. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc4122">https://www.rfc-editor.org/rfc/rfc4122</a></dd><dt id="bib-rfc5280">[RFC5280]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc5280"><cite>Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile</cite></a>. D. Cooper; S. Santesson; S. Farrell; S. Boeyen; R. Housley; W. Polk.  IETF. May 2008. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc5280">https://www.rfc-editor.org/rfc/rfc5280</a></dd><dt id="bib-rfc8259">[RFC8259]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8259"><cite>The JavaScript Object Notation (JSON) Data Interchange Format</cite></a>. T. Bray, Ed..  IETF. December 2017. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a></dd><dt id="bib-rfc9110">[rfc9110]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc9110"><cite>HTTP Semantics</cite></a>. R. Fielding, Ed.; M. Nottingham, Ed.; J. Reschke, Ed..  IETF. June 2022. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc9110">https://www.rfc-editor.org/rfc/rfc9110</a></dd><dt id="bib-rsd">[RSD]</dt><dd><a href="https://www.openskillsnetwork.org/rsd"><cite>Rich Skill Descriptors</cite></a>. URL: <a href="https://www.openskillsnetwork.org/rsd">https://www.openskillsnetwork.org/rsd</a></dd><dt id="bib-wgs84">[WGS84]</dt><dd><cite>National Imagery and Mapping Agency Technical Report 8350.2, Third Edition</cite>.  National Imagery and Mapping Agency. 3 January 2000. </dd><dt id="bib-xmlschema-2">[XMLSCHEMA-2]</dt><dd><a href="https://www.w3.org/TR/xmlschema-2/"><cite>XML Schema Part 2: Datatypes Second Edition</cite></a>. Paul V. Biron; Ashok Malhotra.  W3C. 28 October 2004. W3C Recommendation. URL: <a href="https://www.w3.org/TR/xmlschema-2/">https://www.w3.org/TR/xmlschema-2/</a></dd></dl>
   </section></section><section id="contributors" class="appendix">
     <h2 id="i-list-of-contributors"><bdi class="secno">I. </bdi>List of Contributors<a class="self-link" aria-label="§" href="#contributors"></a></h2>
     <p>The following individuals contributed to the development of this document:</p>
@@ -28210,7 +28238,7 @@ components:
         <th>Role</th>
       </tr></thead>
       <tbody>
-          <tr><td class="name">Nate Otto</td><td class="co">Concentric Sky, self</td><td class="role">Invited Expert</td></tr><tr><td class="name">Kerri Lemoie</td><td class="co">Concentric Sky, RANDA</td><td class="role">Editor</td></tr><tr><td class="name">Phillip Long</td><td class="co">Concentric Sky</td><td class="role">Invited Expert</td></tr><tr><td class="name">Marty Reed</td><td class="co">RANDA Solutions</td><td class="role">Co-chair, CLR</td></tr><tr><td class="name">Justin Pitcher</td><td class="co">Anthology</td><td class="role">Co-chair, OB</td></tr><tr><td class="name">Brent Cappriotti</td><td class="co">RANDA Solutions</td><td class="role">Co-chair, CLR</td></tr><tr><td class="name">Sherri Braxton</td><td class="co">Bowdoin College</td><td class="role">Co-chair, OB</td></tr><tr><td class="name">Jock Wright</td><td class="co">VerifyEd</td><td class="role"></td></tr><tr><td class="name">Jen Schreiber</td><td class="co">Workday</td><td class="role"></td></tr><tr><td class="name">Viktor Haag</td><td class="co">D2L</td><td class="role"></td></tr><tr><td class="name">Alex Hripak</td><td class="co">Credly</td><td class="role"></td></tr><tr><td class="name">David Ward</td><td class="co">PCG</td><td class="role"></td></tr><tr><td class="name">Laura Janusek</td><td class="co">D2L</td><td class="role"></td></tr><tr><td class="name">John Kuo</td><td class="co">Arizona State University</td><td class="role"></td></tr><tr><td class="name">Sara Arjona</td><td class="co">Moodle HQ</td><td class="role"></td></tr><tr><td class="name">Mark McConahay</td><td class="co">AACRAO</td><td class="role">Invited Expert</td></tr><tr><td class="name">Dmitri Zagidulin</td><td class="co">DCC</td><td class="role">Invited Expert</td></tr><tr><td class="name">Tracy Korsmo</td><td class="co">North Dakota IT (NDIT)</td><td class="role"></td></tr><tr><td class="name">Kate Giovacchini</td><td class="co">Arizona State University</td><td class="role"></td></tr><tr><td class="name">Andy Miller</td><td class="co">1Edtech</td><td class="role">Editor</td></tr><tr><td class="name">Markus Gylling</td><td class="co">1Edtech</td><td class="role">Editor</td></tr><tr><td class="name">Dan Blickensderfer</td><td class="co">1Edtech</td><td class="role">Editor</td></tr><tr><td class="name">Xavi Aracil</td><td class="co">1Edtech</td><td class="role">Editor</td></tr>
+          <tr><td class="name">Nate Otto</td><td class="co">Concentric Sky, Skybridge Skills</td><td class="role">Invited Expert</td></tr><tr><td class="name">Kerri Lemoie</td><td class="co">Concentric Sky, RANDA</td><td class="role">Editor</td></tr><tr><td class="name">Phillip Long</td><td class="co">Concentric Sky</td><td class="role">Invited Expert</td></tr><tr><td class="name">Marty Reed</td><td class="co">RANDA Solutions</td><td class="role">Co-chair, CLR</td></tr><tr><td class="name">Justin Pitcher</td><td class="co">Anthology</td><td class="role">Co-chair, OB</td></tr><tr><td class="name">Brent Cappriotti</td><td class="co">RANDA Solutions</td><td class="role">Co-chair, CLR</td></tr><tr><td class="name">Sherri Braxton</td><td class="co">Bowdoin College</td><td class="role">Co-chair, OB</td></tr><tr><td class="name">Jock Wright</td><td class="co">VerifyEd</td><td class="role"></td></tr><tr><td class="name">Jen Schreiber</td><td class="co">Workday</td><td class="role"></td></tr><tr><td class="name">Viktor Haag</td><td class="co">D2L</td><td class="role"></td></tr><tr><td class="name">Alex Hripak</td><td class="co">Credly</td><td class="role"></td></tr><tr><td class="name">David Ward</td><td class="co">PCG</td><td class="role"></td></tr><tr><td class="name">Laura Janusek</td><td class="co">D2L</td><td class="role"></td></tr><tr><td class="name">John Kuo</td><td class="co">Arizona State University</td><td class="role"></td></tr><tr><td class="name">Sara Arjona</td><td class="co">Moodle HQ</td><td class="role"></td></tr><tr><td class="name">Mark McConahay</td><td class="co">AACRAO</td><td class="role">Invited Expert</td></tr><tr><td class="name">Dmitri Zagidulin</td><td class="co">DCC</td><td class="role">Invited Expert</td></tr><tr><td class="name">Tracy Korsmo</td><td class="co">North Dakota IT (NDIT)</td><td class="role"></td></tr><tr><td class="name">Kate Giovacchini</td><td class="co">Arizona State University</td><td class="role"></td></tr><tr><td class="name">Andy Miller</td><td class="co">1Edtech</td><td class="role">Editor</td></tr><tr><td class="name">Markus Gylling</td><td class="co">1Edtech</td><td class="role">Editor</td></tr><tr><td class="name">Dan Blickensderfer</td><td class="co">1Edtech</td><td class="role">Editor</td></tr><tr><td class="name">Xavi Aracil</td><td class="co">1Edtech</td><td class="role">Editor</td></tr>
       </tbody>
     </table>
     </section><p role="navigation" id="back-to-top">
