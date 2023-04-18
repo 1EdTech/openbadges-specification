@@ -10,7 +10,7 @@ For information about how to propose a new feature or material change to the spe
 * __develop__: unstable development branch. Current work that targets a future release is merged into this branch.
 * __feature/new-feature-name__: unstable feature branch. Work that may be approved for future release will be developed in here and branched from __develop__.
 
-## Contibuting
+## Contributing
 
 Please follow these steps to contribute a change to the openbadges-specification repository:
 

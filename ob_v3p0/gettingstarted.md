@@ -2,24 +2,13 @@ var gettingstarted=`
 
 ## Getting Started
 
-### New to Open Badges
+### Implementation Guide
 
-If you are new to Open Badges, please start here.
+The [[[OB-IMPL-30]]] contains non-normative information on how to implement OB 3.0 and <a href="https://www.imsglobal.org/spec/clr/v2p0">CLR 2.0.</a>
 
-<div class="note">
-@@@TBD
-</div>
+### Conformance and Certification
 
-### Migrating from Open Badges 2.x
+[[[OB-CERT-30]]] - Specifies the conformance tests and certification requirements for this specification.
 
-If you are migrating from Open Badges 2.0 [[OB-20]] or 2.1 [[OB-21]] to OB 3.0, please start here.
-
-<div class="note">
-@@@TBD
-</div>
-
-#### Differences Between Version 2.0 and 3.0
-
-#### Differences Between Version 2.1 and 3.0
 
 `;

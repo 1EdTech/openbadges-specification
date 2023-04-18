@@ -3,11 +3,11 @@ name: Build OB 3.0 Spec Preview for PR
 on:
   # Triggers the workflow on push or pull request events but only for the develop branch
   pull_request:
-    branches: 
+    branches:
       - develop
 
 jobs:
-  
+
   sideload:
     name: Sideload the ob_v3p0.lines file
     runs-on: ubuntu-latest
@@ -15,11 +15,18 @@ jobs:
       - uses: actions/checkout@v2
       - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' -F 'file=@ob_v3p0/ob_v3p0.lines' https://datamodels-staging.imsglobal.org/upload
         continue-on-error: false
-  
+
   build:
     name: Build a static version of the Respec document
     needs: sideload
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - source: 'ob_v3p0/ob_v3p0.html'
+            destination: 'docs/ob_v3p0.html'
+          - source: 'ob_v3p0/errata/ob_err_v3p0.html'
+            destination: 'docs/ob_err_v3p0.html'
     steps:
       - uses: actions/checkout@v2
       - name: Unlock secrets
@@ -28,8 +35,8 @@ jobs:
           GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
       - uses: w3c/spec-prod@v2
         with:
-          SOURCE: "ob_v3p0/ob_v3p0.html"
-          DESTINATION: "docs/ob_v3p0.html"
+          SOURCE: ${{ matrix.source }}
+          DESTINATION: ${{ matrix.destination }}
           TOOLCHAIN: respec
           VALIDATE_MARKUP: false
           VALIDATE_WEBIDL: false
@@ -53,11 +60,12 @@ jobs:
           ref: ${{ steps.pr_data.outputs.branch }}
       - name: Download artifact created by build job
         uses: actions/download-artifact@v2
-        with: 
+        with:
           name: spec-prod-result
           path: docs
       - name: Commit the new/updated doc
         run: |
+          git pull
           git add -f docs/*
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"

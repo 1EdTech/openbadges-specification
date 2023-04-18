@@ -2,14 +2,24 @@ var _localBiblio = {
   "OB-30": {
     title: "Open Badges Specification v3.0",
     href: "https://www.imsglobal.org/spec/ob/v3p0/",
-    status: "IMS Base Document",
+    status: "Candidate Final Public",
     publisher: "1EdTech",
   },
   "OB-CERT-30": {
     title: "Open Badges Specification Conformance and Certification Guide v3.0",
     href: "https://www.imsglobal.org/spec/ob/v3p0/cert/",
-    status: "IMS Base Document",
+    status: "Candidate Final Public",
     publisher: "1EdTech",
+  },
+  "OB-IMPL-30": {
+    title: "Open Badges Implementation Guide v3.0",
+    href: "https://www.imsglobal.org/spec/ob/v3p0/impl/",
+    status: "Candidate Final Public",
+    publisher: "1EdTech",
+  },
+  "OB-ERRATA-30": {
+    title: "Open Badges Specification v3.0: Errata",
+    href: "https://www.imsglobal.org/spec/ob/v3p0/errata/",
   },
   "OB-INFO-30": {
     title: "Open Badges Specification Information Model v3.0",
@@ -136,8 +146,7 @@ var _localBiblio = {
     publisher: "Internet Engineering Task Force",
   },
   "JSON-SCHEMA-VALIDATION-2019-09": {
-    title:
-      "JSON Schema Validation: A Vocabulary for Structural Validation of JSON",
+    title: "JSON Schema Validation: A Vocabulary for Structural Validation of JSON",
     href: "https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-02",
     status: "Internet-Draft",
     publisher: "Internet Engineering Task Force",
@@ -151,25 +160,26 @@ var _localBiblio = {
   "VCRL-10": {
     title: "1EdTech Revocation List Status Method",
     href: "https://imsglobal.org/spec/vcrl/v1p0/",
-    status: "IMS Base Document",
+    status: "Candidate Final Public",
     publisher: "1EdTech",
   },
   "VCCR-10": {
     title: "1EdTech Credential Refresh Service",
     href: "https://imsglobal.org/spec/vccr/v1p0/",
-    status: "IMS Base Document",
+    status: "Candidate Final Public",
     publisher: "1EdTech",
   },
   "VCCS-10": {
     title: "1EdTech JSON Schema Validator 2019",
     href: "https://imsglobal.org/spec/vccs/v1p0/",
-    status: "IMS Base Document",
+
+    status: "Candidate Final Public",
     publisher: "1EdTech",
   },
   "LDS-ED25519-2020": {
-    title: "EdDSA Cryptosuite v2020",
-    href: "https://w3c.github.io/vc-di-eddsa/",
-    status: "W3C Editor's Draft",
+    title: "Ed25519 Signature 2020",
+    href: "https://w3c-ccg.github.io/lds-ed25519-2020/",
+    status: "Draft Community Group Report",
     publisher: "W3C Credentials Community Group",
   },
   "VC-STATUS-2021": {

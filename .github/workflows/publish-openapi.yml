@@ -59,6 +59,7 @@ jobs:
           path: docs/openapi
       - name: Commit the new/updated docs
         run: |
+          git pull
           git add docs/*
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"

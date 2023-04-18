@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <script src='https://purl.imsglobal.org/respec/respec-1edtech.js' class='remove'></script>
+    <script src='../respec-support/local-biblio.js' class='remove'></script>
+    <script src='../respec-support/contributors.js' class='remove'></script>
+    <script src='../respec-support/iprs.js' class='remove'></script>
+
+    <!-- Load VC proof add-on -->
+    <script class="remove" src="https://purl.imsglobal.org/respec/respec-vc.js"></script>
+
+    <!-- Load the MPS configuration -->
+    <script class="remove" src="../mps-config.js"></script>
+
+    <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
+    <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js"
+            integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script class='remove'>
+        var respecConfig = {
+            mainSpecTitle: "Open Badges Specification",
+            mainSpecBiblioKey: "OB-30",
+            specTitle: "Open Badges Specification Conformance and Certification Guide",
+            shortName: "ob",
+            specNature: "normative", // spec nature is "normative" or "informative"
+            specType: "cert", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
+            specVersion: "3.0",
+            docVersion: "1.0",
+            specStatus: "Candidate Final Public",
+            specDate: "November 10, 2022",
+            contributors: _contributors,
+            localBiblio: _localBiblio,
+            iprs: _iprs,
+            xref: [
+                "did-core",
+                "vc-data-model"
+            ],
+
+            // Remove for IMS Final
+            otherLinks: [{
+                key: "Issue Tracker",
+                data: [{
+                value: "https://github.com/IMSGlobal/openbadges-specification/issues",
+                href: "https://github.com/IMSGlobal/openbadges-specification/issues"
+                }]
+            }],
+
+            // Add the MPS configuration to respecConfig
+            mps: _mps,
+
+            // Add VC proof examples
+            postProcess: [
+                window.respecVc.createVcExamples
+            ],
+        };
+    </script>
+</head>
+
+<body>
+
+    <section id="abstract" data-format="markdown">
+        <script class="transclude" data-id="abstract" src="abstract.md"></script>
+    </section>
+
+    <section id="introduction" data-format="markdown">
+        <script class="transclude" data-id="introduction" src="introduction.md"></script>
+    </section>
+
+    <section class="informative" id="conformance-cert" data-format="markdown">
+        <script class="transclude" src="conformance.md" data-id="conformance"></script>
+    </section>
+
+    <section class="informative" id="issuer-cert" data-format="markdown">
+        <script class="transclude" src="issuer.md" data-id="issuer"></script>
+    </section>
+
+    <section class="informative" id="displayer-cert" data-format="markdown">
+        <script class="transclude" src="displayer.md" data-id="displayer"></script>
+    </section>
+
+    <section class="informative" id="host-cert" data-format="markdown">
+        <script class="transclude" src="host.md" data-id="host"></script>
+    </section>
+
+    <section class="appendix informative" id="revisionhistory">
+        <h1>Revision History</h1>
+        <table title="Revision History">
+            <thead>
+                <tr>
+                    <th>Version No.</th>
+                    <th>Document Version</th>
+                    <th>Release Date</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Version 3.0 IMS Candidate Final</td>
+                    <td>1</td>
+                    <td>November 10, 2022</td>
+                    <td>Covers Issuer, Displayer, and Host conformance and certification.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+
+</html>

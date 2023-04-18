@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset='utf-8'>
   <script src='https://purl.imsglobal.org/respec/respec-1edtech.js' class='remove'></script>
@@ -28,9 +27,9 @@
       specNature: "normative", // spec nature is "normative" or "informative"
       specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
       specVersion: "3.0",
-      docVersion: "1.0",
-      specStatus: "Candidate Final",
-      specDate: "October 27, 2022",
+      docVersion: "1.0.3",
+      specStatus: "Candidate Final Public",
+      specDate: "March 30, 2023",
       contributors: _contributors,
       localBiblio: _localBiblio,
       iprs: _iprs,
@@ -77,7 +76,7 @@
     <script class="transclude" data-id="usecases" src="usecases.md"></script>
   </section>
 
-  <section data-format="markdown" class="informative">
+  <section data-format="markdown">
     <script class="transclude" data-id="gettingstarted" src="gettingstarted.md"></script>
   </section>
 
@@ -103,15 +102,7 @@
 
   <script class="transclude" data-id="vc_extensions" src="vc-extensions.html"></script>
 
-  <section class="informative" data-format="markdown">
-    <script class="transclude" data-id="bestpractices" src="bestpractices.md"></script>
-  </section>
-
-  <section data-format="markdown">
-    <script class="transclude" data-id="certification" src="certification.md"></script>
-  </section>
-
-  <section class="appendix" data-format="markdown">
+  <section class="appendix" id="serialization" data-format="markdown">
     <script class="transclude" data-id="serialization" src="serialization.md"></script>
   </section>
 
@@ -208,6 +199,47 @@
           <td>1.0</td>
           <td>July 14, 2022</td>
           <td></td>
+        </tr>
+        <tr>
+          <td>Candidate Final</td>
+          <td>1.0.1</td>
+          <td>February 9, 2023</td>
+          <td>
+            <ul>
+              <li>Some sections now point to its corresponding document in the document set.</li>
+              <li>Model changes:
+                <ul>
+                  <li>Added requited attribute <code>type</code> to Related.</li>
+                  <li><code>credentialStatus</code> can be extended.</li>
+                </ul>
+              </li>
+              <li>Fixed some typos.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Candidate Final</td>
+          <td>1.0.2</td>
+          <td>March 6, 2023</td>
+          <td>
+            <ul>
+              <li>Fixed some bugs in then context.json file. See [[[OB-ERRATA-30]]] for detailed changes</li>
+              <li>Added links to  [[OB-IMPL-30]]</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Candidate Final</td>
+          <td>1.0.3</td>
+          <td>March 30, 2023</td>
+          <td>
+            <ul>
+              <li>Better description of the `tag` property in <a href="#achievement">`Achievement`</a>.</li>
+              <li>Added property `awardedDate` to <a href="#achievementcredential">`AchievementCredential`</a>, <a href="#endorsementcredential">`EndorsementCredential`</a> and <a href="#verifiablecredential">`VerifiableCredential`</a>.</li>
+              <li>Modified property `@context`, allowing Maps as well as URI.</li>
+              <li>Reformat paragraph about JSON-LD <a href="#compacted-document-form">compacted document form</a>.</li>
+            </ul>
+          </td>
         </tr>
       </tbody>
     </table>
