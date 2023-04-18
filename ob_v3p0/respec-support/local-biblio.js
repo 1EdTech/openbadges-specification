@@ -20,8 +20,6 @@ var _localBiblio = {
   "OB-ERRATA-30": {
     title: "Open Badges Specification v3.0: Errata",
     href: "https://www.imsglobal.org/spec/ob/v3p0/errata/",
-    status: "IMS Base Document",
-    publisher: "1EdTech",
   },
   "OB-INFO-30": {
     title: "Open Badges Specification Information Model v3.0",
@@ -63,6 +61,31 @@ var _localBiblio = {
     title: "Comprehensive Learner Record Standard v2.0",
     href: "https://www.imsglobal.org/spec/clr/v2p0/",
     status: "IMS Base Document",
+    publisher: "1EdTech",
+  },
+  "CLR-CERT-20": {
+    title:
+      "Comprehensive Learner Record Conformance and Certification Guide v2.0",
+    href: "https://www.imsglobal.org/spec/clr/v2p0/cert/",
+    status: "IMS Base Document",
+    publisher: "1EdTech",
+  },
+  "CASE-10": {
+    title: "1EdTech Competencies and Academic Standards Exchange (CASE)",
+    href: "https://www.imsglobal.org/spec/case/v1p0/",
+    status: "1EdTech Final Release",
+    publisher: "1EdTech",
+  },
+  "OR-11": {
+    title: "1EdTech OneRoster® Specification v1.1",
+    href: "https://www.imsglobal.org/oneroster-v11-final-specification",
+    status: "1EdTech Final Release",
+    publisher: "1EdTech",
+  },
+  "EDUAPI-10": {
+    title: "Edu-API Specification Specification v1.0",
+    href: "https://imsglobal.org/spec/eduapi/v1p0/",
+    status: "IMS Candidate Final",
     publisher: "1EdTech",
   },
   CEDS: {
@@ -110,6 +133,12 @@ var _localBiblio = {
     status: "CG-DRAFT",
     publisher: "Credentials Community Group",
   },
+  "VC-DID-WEB-METHOD": {
+    title: "DID Web Method Specification",
+    href: "https://w3c-ccg.github.io/did-method-web/",
+    status: "CG-DRAFT",
+    publisher: "Credentials Community Group",
+  },
   "JSON-SCHEMA-2019-09": {
     title: "JSON Schema: A Media Type for Describing JSON Documents",
     href: "https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-02",
@@ -143,6 +172,7 @@ var _localBiblio = {
   "VCCS-10": {
     title: "1EdTech JSON Schema Validator 2019",
     href: "https://imsglobal.org/spec/vccs/v1p0/",
+
     status: "Candidate Final Public",
     publisher: "1EdTech",
   },
@@ -150,6 +180,12 @@ var _localBiblio = {
     title: "Ed25519 Signature 2020",
     href: "https://w3c-ccg.github.io/lds-ed25519-2020/",
     status: "Draft Community Group Report",
+    publisher: "W3C Credentials Community Group",
+  },
+  "VC-STATUS-2021": {
+    title: "Credential Status List 2021",
+    href: "https://w3c.github.io/vc-status-list-2021/",
+    status: "W3C Editor's Draft",
     publisher: "W3C Credentials Community Group",
   },
   MULTIBASE: {
