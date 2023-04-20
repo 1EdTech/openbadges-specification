@@ -142,7 +142,7 @@ Starting with this version of the Open Badges Specification, an Assertion is als
 
 <figure>
   <img src="images/ob30-concept.png" alt="Diagram show the major conceptual components of an Open Badge Verifiable Credential">
-  <figcaption>Diagram show the major conceptual components of an Open Badge Verifiable Credential</figcaption>
+  <figcaption>Diagram shows the major conceptual components of an Open Badge Verifiable Credential</figcaption>
 </figure>
 
 -   I, issuer assert a claim about this Credential Subject that may describe an achievement, experience, membership, etc.,
