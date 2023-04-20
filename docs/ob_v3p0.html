@@ -2013,9 +2013,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </li>
 <li><p><dfn id="dfn-verifier" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Verifier</dfn>: The entity that receives a <a data-link-type="dfn" href="#dfn-vc" class="internalDFN" id="ref-for-dfn-vc-5" title="Verifiable Credential (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [vc-data-model].">verifiable credential</a> or <a data-link-type="dfn" href="#dfn-vp" class="internalDFN" id="ref-for-dfn-vp-5" title="Verifiable Presentation (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [vc-data-model]">verifiable presentation</a> and verifies the credential or presentation has not been tampered with.</p>
 </li>
-</ul></section><section id="conceptual-model-0"><h3 id="conceptual-model"><bdi class="secno">1.5 </bdi>Conceptual Model<a class="self-link" aria-label="§" href="#conceptual-model"></a><a class="self-link" aria-label="§" href="#conceptual-model"></a></h3><p>This conceptual model describes Open Badges concepts and the relationship between those concepts. The data model in appendix <a href="#org-1edtech-ob-v3p0-model-0" class="sec-ref">§&nbsp;<bdi class="secno">B.1 </bdi>Credential Data Models</a> below is the normative reference for the classes and properties that are used to implement the concepts.</p><p>The conceptual model is targeted for all <a href="#audiences" class="sec-ref">§&nbsp;<bdi class="secno">1.1 </bdi>Audiences</a>, while the data model is targeted for Solution Architects and Product Developers.</p><p>In the diagram below, the concepts are shown in gray boxes (e.g. Assertion). Please see <a href="#terminology" class="sec-ref">§&nbsp;<bdi class="secno">1.4 </bdi>Terminology</a> for definitions of the concepts.</p><p>Starting with this version of the Open Badges Specification, an Assertion is also a Verifiable Credential (VC) as defined by the <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite> specification. The diagram includes labels that show the relationships between VC terminology and Open Badges terminology (e.g. Issuer is identified by the VC "issuer").</p><figure id="fig-diagram-show-the-major-conceptual-components-of-an-open-badge-verifiable-credential">
-  <img src="images/ob30-concept.png" alt="Diagram show the major conceptual components of an Open Badge Verifiable Credential" height="448" width="855">
-  <figcaption>Figure <bdi class="figno">1</bdi> <span class="fig-title">Diagram show the major conceptual components of an Open Badge Verifiable Credential</span></figcaption>
+</ul></section><section id="conceptual-model-0"><h3 id="conceptual-model"><bdi class="secno">1.5 </bdi>Conceptual Model<a class="self-link" aria-label="§" href="#conceptual-model"></a><a class="self-link" aria-label="§" href="#conceptual-model"></a></h3><p>This conceptual model describes Open Badges concepts and the relationship between those concepts. The data model in appendix <a href="#org-1edtech-ob-v3p0-model-0" class="sec-ref">§&nbsp;<bdi class="secno">B.1 </bdi>Credential Data Models</a> below is the normative reference for the classes and properties that are used to implement the concepts.</p><p>The conceptual model is targeted for all <a href="#audiences" class="sec-ref">§&nbsp;<bdi class="secno">1.1 </bdi>Audiences</a>, while the data model is targeted for Solution Architects and Product Developers.</p><p>In the diagram below, the concepts are shown in gray boxes (e.g. Assertion). Please see <a href="#terminology" class="sec-ref">§&nbsp;<bdi class="secno">1.4 </bdi>Terminology</a> for definitions of the concepts.</p><p>Starting with this version of the Open Badges Specification, an Assertion is also a Verifiable Credential (VC) as defined by the <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite> specification. The diagram includes labels that show the relationships between VC terminology and Open Badges terminology (e.g. Issuer is identified by the VC "issuer").</p><figure id="fig-diagram-shows-the-major-conceptual-components-of-an-open-badge-verifiable-credential">
+  <img src="images/ob30-concept.png" alt="Diagram show the major conceptual components of an Open Badge Verifiable Credential" height="458" width="796">
+  <figcaption>Figure <bdi class="figno">1</bdi> <span class="fig-title">Diagram shows the major conceptual components of an Open Badge Verifiable Credential</span></figcaption>
 </figure><ul>
 <li>I, issuer assert a claim about this Credential Subject that may describe an achievement, experience, membership, etc.,<ul>
 <li>The assertion provides the identity of the issuer, issuance date, and instructions on how to cryptographically prove the issuer identity and that the assertion and claim contents have not been tampered with since issuance.<ul>
@@ -2032,8 +2032,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 An Assertion identifies a recipient with a "recipient" relationship to an IdentityObject that contains identifying properties. It identifies which badge it represents with a "badge" relationship to a BadgeClass. It identifies its verification information with a "verification" relationship to a VerificationObject. It identifies its issuer with an "issuer" relationship between the BadgeClass and the Issuer.</p><figure id="fig-open-badges-2-0-diagram">
   <img src="images/figure01-openbadges-2.0-diagram.png" width="640" alt="Open Badges 2.0 Diagram">
   <figcaption>Figure <bdi class="figno">2</bdi> <span class="fig-title">Open Badges 2.0 Diagram</span></figcaption>
-</figure><p>The Verifiable Credentials structure in this specification depicted below offers the same information with a slightly different structure: A Verifiable Credential identifies its recipient with a "credentialSubject" relationship to a subject class that is identified by an identifier. It identifies its issuer with an "issuer" relationship directly to an Issuer. The Credential claims the subject has met the criteria of a specific Achievement (also known as the BadgeClass in previous versions) with an "achievement" relationship to that defined achievement. And it identifies its verification information with a proof.</p><figure id="fig-diagram-show-the-major-conceptual-components-of-an-open-badge-verifiable-credential-0">
-  <img src="images/ob30-concept.png" alt="Diagram show the major conceptual components of an Open Badge Verifiable Credential" height="448" width="855">
+</figure><p>The Verifiable Credentials structure in this specification depicted below offers the same information with a slightly different structure: A Verifiable Credential identifies its recipient with a "credentialSubject" relationship to a subject class that is identified by an identifier. It identifies its issuer with an "issuer" relationship directly to an Issuer. The Credential claims the subject has met the criteria of a specific Achievement (also known as the BadgeClass in previous versions) with an "achievement" relationship to that defined achievement. And it identifies its verification information with a proof.</p><figure id="fig-diagram-show-the-major-conceptual-components-of-an-open-badge-verifiable-credential">
+  <img src="images/ob30-concept.png" alt="Diagram show the major conceptual components of an Open Badge Verifiable Credential" height="458" width="796">
   <figcaption>Figure <bdi class="figno">3</bdi> <span class="fig-title">Diagram show the major conceptual components of an Open Badge Verifiable Credential</span></figcaption>
 </figure></section><section id="benefits-and-opportunities-0"><h3 id="benefits-and-opportunities"><bdi class="secno">2.3 </bdi>Benefits and Opportunities<a class="self-link" aria-label="§" href="#benefits-and-opportunities"></a><a class="self-link" aria-label="§" href="#benefits-and-opportunities"></a></h3><p>It can be risky to make breaking changes to a specification used as broadly as Open Badges, but there are a range of benefits to making this move now while the Verifiable Credentials ecosystem is young and growing fast. There are strong use cases for digital credentials for learning and skill achievements across the nexus of education and employment, as we have seen from the broad adoption of Open Badges and the proliferation of industry groups making connections between educational institutions and the employment market around digital credentials. Technical compatibility is in a more favorable position when faced with rapid ecosystem growth than competition between large communities issuing these learning credentials and other communities focused on different market verticals from government identity documents, commercial payments, and international trade, to name a few.</p><p>This specification opens a path forward for a unified concept of digital credentials in the 1EdTech community, collapsing the relevant differences between Open Badges and Comprehensive Learner Record (CLR), and addressing a clear set of single achievement use cases with a robust, flexible, and future-proof solution that can easily be integrated with the set-of-multiple credentials use cases familiar to CLR.</p><p>Below, we present a selection of benefits related to this restructuring of Open Badges, and compare the opportunities opened by becoming compatible with Verifiable Credentials to the limitations that the Open Badges community has encountered with previous versions of Open Badges and CLR.</p><section id="interoperability-with-digital-wallets-verifiable-presentations-and-learner-experiences-0"><h4 id="interoperability-with-digital-wallets-verifiable-presentations-and-learner-experiences"><bdi class="secno">2.3.1 </bdi>Interoperability with Digital Wallets, Verifiable Presentations, and Learner Experiences<a class="self-link" aria-label="§" href="#interoperability-with-digital-wallets-verifiable-presentations-and-learner-experiences"></a><a class="self-link" aria-label="§" href="#interoperability-with-digital-wallets-verifiable-presentations-and-learner-experiences"></a></h4><p>Open Badges as VCs are designed to be issued and offered to learners who may accept them into their digital wallet. Wallets are software that runs on either the web or as a native app on a mobile device or desktop environment. A web wallet is another term to describe the application role known under [<cite><a class="bibref" data-link-type="biblio" href="#bib-ob-20" title="Open Badges v2.0">OB-20</a></cite>] as a "Host". There is an existing and growing ecosystem of deployed technology to support VCs; integration with these becomes possible with this specification. For example, a number of generic Verifiable Credential wallet implementations are available from a variety of vendors as native mobile apps. From a wallet, recipients may package their badges along with their other VCs into verifiable presentations. A presentation contains the credentials that the learner wishes to share with a relying party. The digital wallet application digitally signs the presentation using the key of the learner. The verifying third-parties can cryptographically verify that the presentation came unmodified directly from the credential holder as well as the integrity of each of the VCs included in the presentation as credentials signed by each of their respective issuers.</p><p>It is possible from a wallet to package credentials into a verifiable presentation in response to a request from a relying party who seeks credentials for a certain purpose. For example, a potential employer seeking to fill an internship role, may need to verify that a student is over 18, has completed a course on communication, and is a current student. A student could use their wallet to package three VCs (driver's license, course completion badge, and student ID) into a presentation that is signed by their private key. When the presentation is sent to the employer's website, the employer can verify that the VCs belong to the student and that the VCs are authentic.</p><p>The growing collection of VC wallets is an example of how adopting a Verifiable Credentials-based approach allows Open Badges to grow in impact and take advantage of existing momentum in the digital credentials space around tooling that is entering the market and heading towards maturity.</p></section><section id="verifiable-credentials-support-increases-learner-data-privacy-and-trustworthiness-of-open-badges-0"><h4 id="verifiable-credentials-support-increases-learner-data-privacy-and-trustworthiness-of-open-badges"><bdi class="secno">2.3.2 </bdi>Verifiable Credentials Support Increases Learner Data Privacy and Trustworthiness of Open Badges<a class="self-link" aria-label="§" href="#verifiable-credentials-support-increases-learner-data-privacy-and-trustworthiness-of-open-badges"></a><a class="self-link" aria-label="§" href="#verifiable-credentials-support-increases-learner-data-privacy-and-trustworthiness-of-open-badges"></a></h4><p>The <cite><a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a></cite> specification describes how technologies can be used to present cryptographically verifiable and tamper-evident claims. Verifiable Credentials (VCs) can be verified through up-to-date and broadly interoperable schemas for verification. This can provide security and privacy enhancements to <a href="https://openbadgespec.org">1EdTech Open Badges</a> that are not available in Open Badges 2.0.</p><p>Currently, Open Badges 2.0 data can be verified via either (a) publicly accessible hosted JSON badge data or (b) JWS digitally signed badges with a limited number of algorithms and key types, depending on the verification method chosen by the issuer. In order to keep up with evolving cryptographic standards without taking on the burden of writing cryptographic suites as a community not specializing in that function, adopting Verifiable Credentials proofs will allow experts to update algorithms to keep up with improvements to cryptography-breaking processing power.</p><p>Publicly hosted badge data has been the preferred method of many Open Badges issuers. This method can risk the privacy of badge recipients who are reliant on the issuers to host their data leaving them with no direct control over its accessibility. There is also the potential that data about individuals is publicly accessible without their knowledge. Most Open Badges don't contain significant amounts of personally identifiable information, but they are subject to correlation. This could lead to on-site identification, email spam, and also cause badges to be correlatable with other personally identifying data on the web.</p><p>Hosted badge data is also not tamper-evident since it is hosted on web servers typically as dynamically-generated JSON files populated by queries made to relational databases or static JSON files. This makes the data easy to change without any historic reference or preservation. This can be convenient for issuers but not assuring for relying third-parties seeking to put the data to use. Changes to badge metadata such as criteria, the issue date, and recipient email can reduce the perceived quality of data and reflect incorrect information about the learners' experiences. Digitally signed 2.0 badges provide more assurances and privacy than the hosted badges but are not commonly issued and are not interoperable with VC wallets.</p><p>There's been very little evidence that badge JSON data has been readily consumed by machines, but technologies and the education and workforce markets have evolved since <cite><a href="https://www.imsglobal.org/spec/ob/v2p0/">Open Badges v2.0</a></cite> was released in 2018. Machine learning and AI uses have expanded alongside blockchain and other decentralized technologies creating opportunity for connecting learners to opportunities, more accurate skills-based hiring, and updated curricula more equitably reflecting the needs of students. The market is demanding that the achievement data be trustworthy. This means that it should be accessible, protected, have integrity, and communicate what was intended including that the issuer and subjects of the data can be authenticated and that the data has not been tampered with since it was issued. Shifting Open Badges to align with the VC conventions to verify learner achievements meets these expectations and provides learners with more agency over their achievement data by giving them immediate access to it for as long as they need it, allowing them to choose which data they share, protecting it, and making it work with other credentials in and outside of education and workforce.</p></section><section id="decentralized-identifiers-and-self-sovereign-identity-0"><h4 id="decentralized-identifiers-and-self-sovereign-identity"><bdi class="secno">2.3.3 </bdi>Decentralized Identifiers and Self-Sovereign Identity<a class="self-link" aria-label="§" href="#decentralized-identifiers-and-self-sovereign-identity"></a><a class="self-link" aria-label="§" href="#decentralized-identifiers-and-self-sovereign-identity"></a></h4><p>With Open Badges up to 2.0, email addresses have been used as identifiers far more commonly than the other available options. This has been problematic because email addresses may be used by more than one person, are often revoked when an individual leaves a job or school, are insecure, and aren't intended to be identifiers. Identifiers in VCs commonly are HTTP-based URLs, follow another scheme of IRI, or take the form of a <a href="https://www.w3.org/TR/did-use-cases/#intro">Decentralized Identifier</a>.</p><p>Decentralized identifiers (DIDs) [<cite><a class="bibref" data-link-type="biblio" href="#bib-did-core" title="Decentralized Identifiers (DIDs) v1.0">DID-CORE</a></cite>] are a type of identifier for people, organizations and any other entity, where each identifier is controlled independently of centralized registries. Each DID can be resolved through an operation described by its particular "DID Method" to reveal a DID document that describes the subject. Whereas previous versions of Open Badges required HTTP(s) identifiers for issuers and typically used email (or rarely URL) identifiers for learners, adoption of the Verifiable Credentials Data Model provides simple conventions for badge issuers and recipients to begin to use DIDs when they desire.</p><p>Verification of control of identifiers is an important concept within any type of digital credential, both with respect to the issuer and the subject (recipient) of the credential. For issuers, Open Badges has relied on its own bespoke rules for determining whether a hosted Assertion URL or cryptographic key URL is associated with an issuer profile identified by a particular URL. URLs used for recipient identifiers have no built-in mechanism for authentication. Email and telephone number based recipient identifier authentication are up to the relying party, but there are common methods for performing this task essential to establishing trusted proof of control of credentials presented by a subject.</p><p>DIDs typically offer cryptographic proof of control, based on authorized keys or other verification methods expressed in the associated DID Document. While these protocols are not broadly implemented across domains today, the structure provides a forward-looking flexible and extensible mechanism to build the types of protocols needed to connect credentials back to the identities of their issuers and subjects. The Open Badges community may ultimately recommend use of only a small number of these capabilities in early releases or recommend them only for experimental use, like with cryptographic proof methods. But this is still an important step, because there is no reason for the Open Badges community to be closed to interoperability through the protocols being developed for use by the wallets and services coming into being elsewhere by delaying the option to use DIDs for recipient and issuer identifiers.</p></section><section id="aligning-open-badges-and-clr-with-common-assertion-and-achievement-models-0"><h4 id="aligning-open-badges-and-clr-with-common-assertion-and-achievement-models"><bdi class="secno">2.3.4 </bdi>Aligning Open Badges and CLR with Common Assertion and Achievement Models<a class="self-link" aria-label="§" href="#aligning-open-badges-and-clr-with-common-assertion-and-achievement-models"></a><a class="self-link" aria-label="§" href="#aligning-open-badges-and-clr-with-common-assertion-and-achievement-models"></a></h4><p>As described below, it is possible for Open Badges and CLR to produce coordinated specs particularly if both specs are aligned with Verifiable Credentials. Discussion of the components of individual achievements can occur within the Open Badges workgroup, and discussion of more complex use cases necessitating needs for bundling and association of multiple achievements on behalf of a publisher can occur within the CLR group. The cross-pollination of members of each effort will create opportunities to coordinate and ensure that all important use cases for single assertions and bundles of associated assertions are well-handled. The openness of the Open Badges Specification can be preserved so that the broader community can continue to be aware of and connected to the official developments.</p><p>At the core, Open Badges and CLR have similar objectives with the primary difference being single vs a collection of credentials. A common assertion model ensures that Open Badges can be included in CLR collections and that both CLRs and Open Badges can be held separately by learners in their Verifiable Credential wallets.</p><p>Both Open Badges and CLR make assertions about achievements and conceptually share many similar properties. With some judicious analysis and renaming of some properties, it has been possible to have cross-alignment of achievement properties served by Open Badges and used by CLR. Examples include but are not limited to <a href="#org.1edtech.ob.v3p0.achievementtype.class">achievementType</a> which describes the type of achievement being represented, and <a href="#result">Result</a>/<a href="#resultdescription">ResultDescription</a> which can describe possible levels of mastery associated to specific achievements. This will enrich Open Badges data and increase the perceived significance and usage of Open Badges to deliver verifiable single achievements such as certifications, licenses, courses, etc. Using a common model across [<cite><a class="bibref" data-link-type="biblio" href="#bib-ob-30" title="Open Badges Specification v3.0">OB-30</a></cite>] and [<cite><a class="bibref" data-link-type="biblio" href="#bib-clr-20" title="Comprehensive Learner Record Standard v2.0">CLR-20</a></cite>] specifications for the core ideas of assertion and achievement will enable the CLR specification to focus on the more complex requirements of bundling collected assertions and expressing the associations between the achievements.</p></section></section><section id="achievement-credentials-0"><h3 id="achievement-credentials"><bdi class="secno">2.4 </bdi>Achievement Credentials<a class="self-link" aria-label="§" href="#achievement-credentials"></a><a class="self-link" aria-label="§" href="#achievement-credentials"></a></h3><p>The core claim enabled by Open Badges v3.0 is that of the <a href="#achievementcredential">AchievementCredential</a>, a Verifiable Credential that makes the claim that a subject (usually a learner), has met criteria an issuer has defined for a named Achievement. Standardizing this method of recognizing an achievement allows for issuers across the education and employment ecosystem to create Verifiable Credentials with consistent properties, so that wallets and verifiers can build broadly reusable software to interpret a wide range of use cases that fit into the defined achievement model. Verifiers of AchievementCredentials that are aware of a specific defined achievement <em class="rfc2119">SHOULD</em> ensure that the issued AchievementCredential is issued by an issuer they trust to recognize this achievement, usually the creator of the achievement.</p><section id="differentiating-issuers-and-achievement-creators-0"><h4 id="differentiating-issuers-and-achievement-creators"><bdi class="secno">2.4.1 </bdi>Differentiating Issuers and Achievement Creators<a class="self-link" aria-label="§" href="#differentiating-issuers-and-achievement-creators"></a><a class="self-link" aria-label="§" href="#differentiating-issuers-and-achievement-creators"></a></h4><p>In Open Badges and CLR, the issuer is assumed to be the creator. Over the years, the Open Badges community has requested capabilities to distinguish between the issuer and creator of a badge. This is because there are plenty of examples where the assessor is the issuer but not the creator of the badge. The <a href="https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#OriginalCreator">Original Creator Extensions</a> was a step in this direction but provides no properties to describe the eligibility of issuers trusted by the original creator to duplicate and issue their own assertions of the badge.</p><p>In order to open up a wide swath of use cases for shared issuing responsibility of common credentials, we can take advantage of the Verifiable Credentials Data Model to do more. Conveniently, an issuer property for the entity that is digitally signing the credential is included in the VC assertion. We may now separate the issuer from the creator of the Achievement/BadgeClass itself, and in the near term, we may open up use cases for creators to offer verifiable delegation of responsibility for achievement credential issuance. This will enable the use cases and give relying third-parties more contextual information about the achievement and the parties involved. When an Achievement does not include a reference to its creator, verifiers <em class="rfc2119">SHOULD</em> interpret it as an entity associated with the credential issuer. Verifiers <em class="rfc2119">SHOULD</em> ensure that they trust a particular credential's issuer to recognize the accomplishments described by the Achievement it contains. Verifiers <em class="rfc2119">SHOULD NOT</em> trust that an issuer has accurately represented the creator or data of an achievement definition within a credential when that entity is authored by another party, but <em class="rfc2119">SHOULD</em> understand that the data within the credential is the data the issuer wished to recognize, even if the verifier encounters a different representation of that data elsewhere. </p></section></section><section id="skill-assertions-0"><h3 id="skill-assertions"><bdi class="secno">2.5 </bdi>Skill Assertions<a class="self-link" aria-label="§" href="#skill-assertions"></a><a class="self-link" aria-label="§" href="#skill-assertions"></a></h3><p>Many of the use cases for Open Badges and CLR involve an issuer's own "defined achievements", where an issuer bundles the details of an educational opportunity, assessment, and criteria they offer using the Achievement data class. In previous versions of Open Badges, the creator of an Achievement (known as a "BadgeClass") was the only entity that could issue it, but in v3.0, the door opens to many issuers recognizing the same achievement based on their own assessment. This practice of shared achievements enables skill assertions, where multiple issuers use a shared achievement definition to recognize achievement of a skill with each issuer doing their own assessment. In addition, further recording of related skills, competencies, standards, and other associations are enabled by the <code>alignment</code> of an Achievement.</p><p>A Skill Assertion is an AchievementCredential asserting a subject holds an Achievement that is used by multiple issuers to recognize the same skill. The content of the Achievement, often with <code>achievementType</code> "Competency", is not specific to a learning opportunity or assessment offered by one specific provider only, but is designed to be generic to allow for assessment by any issuer. Verifiers of AchievementCredentials who are looking for a holder to demonstrate a specific Achievement <em class="rfc2119">SHOULD</em> ensure that they trust the issuer of a credential to make this claim, because a credential may be considered valid as issued by any issuer, including self-issuance by the subject.</p></section></section>
 
@@ -2199,10 +2199,10 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-20T11:23:50Z",
-      "verificationMethod": "https://example.edu/issuers/565049#z6MkfSCecanQehcuSbowm1duXtSjmnvGPzxUVaQnigxed3Ar",
+      "created": "2023-04-20T14:40:48Z",
+      "verificationMethod": "https://example.edu/issuers/565049#z6MkmYDiCDGbYJ17Luak9UkJAFVodrQyBN7CTQbEgdZKs2g1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z4pMxqVbWdk7TjB9unY7c6HcueoMkmrWXoUTELi3n7kYPtqqAALNsJ7a1d4nqNYB4bt8a4fUjsXKTBw1knXtvRNKM"
+      "proofValue": "z2frje6BwThbvzxVmPNoVEMRqiU7CYjASgsBUzF2D5gwyweBZ3GfBUsR27q9AzP9MbD7Q7yGKxiXaxDBDb4oHB4eg"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -2212,11 +2212,11 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "pV3w_TatWnK9Duh__HfKuB2GFU8k1t1nCYnXQvpxqO83S5TRl1ynUgnXWI0mtNha27oCEI
-NQKp9zjnct8M6A4yTjbTNXgry9NQypf0Oh-4qiLqHDgdrCJvEdhsNlVg0DNTdiDgTcb7aSDhQV_4XbE7
-mvYika3amYvDYffC1elps7VAGjxAYzVj-RwUikRvmNYlR3rDr6qozAbeXXvZK1xfH_mMKy4RGiVtTW8S
-_OsNVHUMciQ3aAoc1kfaEtw6cHjik5qSSoFuTiFTi6eqBgwPQTdhjKNs9xECuhysl3bROA0hHbwhYV1x
-jptM938hcRre4r5DVJyLSXv-0p9R2VEQ"
+    "n": "xszEcdg6hwScx9nSx_g-6iK5fW9bZNUZhN8afJfGv8clHtbW1ujCEkZ0U03k3Ga8G_7a3x
+BHtN1zjPdx6IfcX82zm6By4gW3OH0LwlZM1rORnET_cegAnyRvgLaW2ZTz5hqHyK6eGv-JsRVpFzncSD
+tlxwY_QsYwAtKb7hzA0Wwg6eiuKWKT2BEolDZtfWEL3vsVTEH9KeBJL5_wcEVWvTplAEgeUOI9uiKVqi
+5iKOBMUORBoiBR6Jwk-fgeVjOaB2MqvUGyoghHNZ3bH8R1ABPNiDaPkC3cPOihBP34wu2wRuQp_qXycc
+cZTynmdqY5Ko1bxOnxwW2XE606_LaR9Q"
   }
 }
 --------------- JWT payload ---------------
@@ -2278,12 +2278,12 @@ vementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJwVjN3X1RhdFduSzlEdWhfX0hmS3VCMkdGVThrMXQxbkNZblhRdnB4cU84M1M1VFJsMXluVWduWFdJ
-MG10TmhhMjdvQ0VJTlFLcDl6am5jdDhNNkE0eVRqYlROWGdyeTlOUXlwZjBPaC00cWlMcUhEZ2RyQ0p2
-RWRoc05sVmcwRE5UZGlEZ1RjYjdhU0RoUVZfNFhiRTdtdllpa2EzYW1ZdkRZZmZDMWVscHM3VkFHanhB
-WXpWai1Sd1Vpa1J2bU5ZbFIzckRyNnFvekFiZVhYdlpLMXhmSF9tTUt5NFJHaVZ0VFc4U19Pc05WSFVN
-Y2lRM2FBb2Mxa2ZhRXR3NmNIamlrNXFTU29GdVRpRlRpNmVxQmd3UFFUZGhqS05zOXhFQ3VoeXNsM2JS
-T0EwaEhid2hZVjF4anB0TTkzOGhjUnJlNHI1RFZKeUxTWHYtMHA5UjJWRVEifX0.eyJ2YyI6eyJAY29u
+OiJ4c3pFY2RnNmh3U2N4OW5TeF9nLTZpSzVmVzliWk5VWmhOOGFmSmZHdjhjbEh0YlcxdWpDRWtaMFUw
+M2szR2E4R183YTN4Qkh0TjF6alBkeDZJZmNYODJ6bTZCeTRnVzNPSDBMd2xaTTFyT1JuRVRfY2VnQW55
+UnZnTGFXMlpUejVocUh5SzZlR3YtSnNSVnBGem5jU0R0bHh3WV9Rc1l3QXRLYjdoekEwV3dnNmVpdUtX
+S1QyQkVvbERadGZXRUwzdnNWVEVIOUtlQkpMNV93Y0VWV3ZUcGxBRWdlVU9JOXVpS1ZxaTVpS09CTVVP
+UkJvaUJSNkp3ay1mZ2VWak9hQjJNcXZVR3lvZ2hITlozYkg4UjFBQlBOaURhUGtDM2NQT2loQlAzNHd1
+MndSdVFwX3FYeWNjY1pUeW5tZHFZNUtvMWJ4T254d1cyWEU2MDZfTGFSOVEifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -2304,11 +2304,11 @@ b2JhbC5vcmcvc3BlYy9vYi92M3AwL3NjaGVtYS9qc29uL29iX3YzcDBfYWNoaWV2ZW1lbnRjcmVkZW50
 aWFsX3NjaGVtYS5qc29uIiwidHlwZSI6IjFFZFRlY2hKc29uU2NoZW1hVmFsaWRhdG9yMjAxOSJ9XX0s
 ImlzcyI6Imh0dHBzOi8vZXhhbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAs
 Imp0aSI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3ViIjoiZGlkOmV4YW1w
-bGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.GtYRLB1tlE4Aj0R5ay0R5eO-Qd8mp1qnvy2i
-_peg0_sFdyBZdWM17-L6y5DSWr8-RARn8h2h_gdD1vpP_bCpuRQHtSzWd6uADio1RxEzq3PG1ETaMZho
-TvjpWNI5g3CeCDzD2KhVcMcw7crTHNc6KBU1_hRLMgsjdx_cOdsrglOrUKUabFO-5usJ9gHP7_7kMZf8
-NzoCLZHDMj_agmC4gQpos0d8KGty5o1MiEHqxbQ0LVEkgrZxvFRMP4wmE06qA1enEZSUqCyr9Sq6VjKx
-zdAMPWqPzJop6FDd95Ez_o2pCg1TQVF6_HJwKKXhT5Kg48D3KmalBUwrEJKQNs1I-w</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
+bGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.lNflHJINE19Na6_0amWlFOOpmP9F8qVNY4Sh
+wIYwaN0OMe2oVAPKQdFriZIU3YCyccpiqBtHvGxYtEwiaODu1YUR_v3znTx7jt1HpVpB_rVOHu_CMieB
+kDhq0vL0Uwc7OIHMg4i2u3H6pbk0B71yfY5pJLjneMM7FnQqy201L39ufTzWbzBHbZ3IbCTSP18gOgSx
+ofhLzTk2BjrvDNCuqjFel1EuqfHkCdu0i9uHj3Ax2cdWEEd6dTvhmDgaE2GTPC4jFhMBi-TdeY9HxHPt
+J3nGSNIQ_YNxAY0ZwKOupi-pl1CbYQoQCqp8eFJU8-jJd5bIkE-r8MS7RBYR8ujYoA</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Second Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">Example<bdi> 2</bdi></a><span class="example-title">: An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)</span>
   </div> <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">var</span> chunk = <span class="hljs-keyword">new</span> iTXt({
@@ -9070,10 +9070,10 @@ Only perform Refresh once. That is, do not complete Refresh a second time even i
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-20T11:23:51Z",
-      "verificationMethod": "https://example.com/issuers/876543#z6Mkvgxh2je3tGL4FqXN8m6x4aKrTszL4ky12bRzMGQtvn1Z",
+      "created": "2023-04-20T14:40:49Z",
+      "verificationMethod": "https://example.com/issuers/876543#z6MksjBeLH4VkdFSQuWn3rx37qrNXDE4krQf5rYSq4HsbPb9",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z5WoBkmVTAzSMrEDmUhm4QX5sEY4UDHiGWGeVQUUGtXf1i2f5V2EmwLe9vqzUUELt2BwrV6q5vG8a22cd8HQwcYz4"
+      "proofValue": "zbGw1Dugrt2EF8RuwrYRSTfSGy4pPoiJMFAz3H8W8FJKsHMxvDXdqHUZw1ogMRLjtuqkqU3CbUcEfXAFqMrgHfr3"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -9083,11 +9083,11 @@ Only perform Refresh once. That is, do not complete Refresh a second time even i
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "uRX7AkWtOCK342t5T4e-S7CAmSeVMEyFiJpDbxj9eMsjkF6bQ0ZugwfMtLkOHDzRwsvWU8
-O5ethk_sdGriy5i0V2SsLId9WV84egNgoT69RVqzPOCRyZqBwZ57ujBcdBR4dE0UKuHJjIOBYgZzYTLT
-CDkDRoPTdn6HkCvVm3ZDSg1m8tBfRsOMGaY39Anll1TUDxxpfUA9S-BC2BoNhXlxE_ikA8mIuZU9-hDJ
-_59eCnUBTHnEw2wH5-y16aK3WYj1-1bXqqwk9KEux5IrWCrymJiXN7VlYgRemLZppvHZ0G7hVaWFpqnc
-i8S5cgcyda6CxG7jrKTDTv_f5NCuyxzQ"
+    "n": "pje75NN0K3xB59q82OWVFpvhi-2EFZ8F88SSoJCcdNu0r86zdH0GoQ3miUvRv3dfaeW8UC
+B4eJZ9GcE6khbrOWFy7FZYfJVop5-0_qM4hT7qjEz6-GBItYWLL_bYOe6_UFdZqEqZrv6nO-Zx5I3JPA
+oZq7avdWi51lY_cF_ub4IIVnww-y-Ljq84PtgJJ5geTpTiFII6g6GLpIe74TDJigKEWX1FusR_SfRF5X
+RyuRgYEKSqeO55B98Iy4lHbT68eFZxZq2SZclr1D_u1Y_1yASJbn4o-2k9bmuHsg3D7n62M5kqJGkw8W
+VVVuqS0CtmpfnHNMadPHNXLu34uYsmKQ"
   }
 }
 --------------- JWT payload ---------------
@@ -9135,12 +9135,12 @@ i8S5cgcyda6CxG7jrKTDTv_f5NCuyxzQ"
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ1Ulg3QWtXdE9DSzM0MnQ1VDRlLVM3Q0FtU2VWTUV5RmlKcERieGo5ZU1zamtGNmJRMFp1Z3dmTXRM
-a09IRHpSd3N2V1U4TzVldGhrX3NkR3JpeTVpMFYyU3NMSWQ5V1Y4NGVnTmdvVDY5UlZxelBPQ1J5WnFC
-d1o1N3VqQmNkQlI0ZEUwVUt1SEpqSU9CWWdaellUTFRDRGtEUm9QVGRuNkhrQ3ZWbTNaRFNnMW04dEJm
-UnNPTUdhWTM5QW5sbDFUVUR4eHBmVUE5Uy1CQzJCb05oWGx4RV9pa0E4bUl1WlU5LWhESl81OWVDblVC
-VEhuRXcyd0g1LXkxNmFLM1dZajEtMWJYcXF3azlLRXV4NUlyV0NyeW1KaVhON1ZsWWdSZW1MWnBwdkha
-MEc3aFZhV0ZwcW5jaThTNWNnY3lkYTZDeEc3anJLVERUdl9mNU5DdXl4elEifX0.eyJ2YyI6eyJAY29u
+OiJwamU3NU5OMEszeEI1OXE4Mk9XVkZwdmhpLTJFRlo4Rjg4U1NvSkNjZE51MHI4NnpkSDBHb1EzbWlV
+dlJ2M2RmYWVXOFVDQjRlSlo5R2NFNmtoYnJPV0Z5N0ZaWWZKVm9wNS0wX3FNNGhUN3FqRXo2LUdCSXRZ
+V0xMX2JZT2U2X1VGZFpxRXFacnY2bk8tWng1STNKUEFvWnE3YXZkV2k1MWxZX2NGX3ViNElJVm53dy15
+LUxqcTg0UHRnSko1Z2VUcFRpRklJNmc2R0xwSWU3NFRESmlnS0VXWDFGdXNSX1NmUkY1WFJ5dVJnWUVL
+U3FlTzU1Qjk4SXk0bEhiVDY4ZUZaeFpxMlNaY2xyMURfdTFZXzF5QVNKYm40by0yazlibXVIc2czRDdu
+NjJNNWtxSkdrdzhXVlZWdXFTMEN0bXBmbkhOTWFkUEhOWEx1MzR1WXNtS1EifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iXSwiaWQiOiJodHRw
 Oi8vZXhhbXBsZS5jb20vY3JlZGVudGlhbHMvMzUyNyIsInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRp
@@ -9157,11 +9157,11 @@ IGJhZGdlIHJlY29nbml6ZXMgdGhlIGRldmVsb3BtZW50IG9mIHRoZSBjYXBhY2l0eSB0byBjb2xsYWJv
 cmF0ZSB3aXRoaW4gYSBncm91cCBlbnZpcm9ubWVudC4iLCJuYW1lIjoiVGVhbXdvcmsifX19LCJpc3Mi
 OiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlcnMvODc2NTQzIiwibmJmIjoxMjYyMzA0MDAwLCJqdGki
 OiJodHRwOi8vZXhhbXBsZS5jb20vY3JlZGVudGlhbHMvMzUyNyIsInN1YiI6ImRpZDpleGFtcGxlOmVi
-ZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.HHH9_k58pOxw94hqig0HrveMDrDEKP230c_SHxD-6dY
-Z-HBdkAH4LhS6s5Vi-cOm9qPc7TnvUo3I_bfsaA4RzZugQeE8eP5I1sASy5WofqIknyr9IIpr-YQecNI
-9yz9CzkJxLBscDBVU7ste2nVVu7ZCLnJLIVqYxKKATfBLRx4lmqVh8NUsa6dBog_qyw4zgQdtICEt0Es
-GxN0Yc7ouWxdiAfkj0jjLWrkUsNxoI006_0zBWrE8LyD9emG8e5_C1TAIODNmNheHUIKfQzf4VGUN82B
-BlDspEyRFAr_OcSCoj4vK_k3AfRSX43MwPQPDr2p2Ytl8q8rbk7DR7bWOaQ</pre></div></div></div>
+ZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.aj3hWMHPR1rZ91XxyO457ooeOg_pWfwMqlIKKEkO5fo
+5LlIV0e93CQHKvk-OIO6DPPbmIgQaIjC0D74AZHXzPkLog48ALgRsn1VqbxycZ3FEHHn06R_T5yozsjm
+ZYlf_gGVMndhwZSiNNPP_APL9hY1AP0P-JwA8lhr64k5Q0woEh4BA9YVJUXskZgqHkjeAbUId-fOF8I-
+7Yds-CctsSJWwRzFdVIg7trB487eaXZBpKFfczIReDLyy9HWiHXWkN5YAPYgr9tjFpqQkODcF5eOJaTG
+J7AMkWuYJkvrxAJ50raYp0FeY2mDpK5rNaoUDN-_MRY3ogqYGqy5eW7TNwQ</pre></div></div></div>
 
 
     </section>
@@ -10541,10 +10541,10 @@ BlDspEyRFAr_OcSCoj4vK_k3AfRSX43MwPQPDr2p2Ytl8q8rbk7DR7bWOaQ</pre></div></div></d
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-20T11:23:51Z",
-      "verificationMethod": "https://1edtech.edu/issuers/565049#z6Mkq9YAoWupWqCwa6ujwb8UT4pmnE1bpNVoHGvp61NZi56K",
+      "created": "2023-04-20T14:40:49Z",
+      "verificationMethod": "https://1edtech.edu/issuers/565049#z6MkqmuRzUDBrVFTdopjrbaKRDsY1NiqwP5RXWt2kVJC8Bu8",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zqUnbXt1e47AhiMUezSsXmcY6jePzwJd1uPRSbeFJj6bGZhYH7SieCZdMFS2SZnYvh9SxCdwFFmKgsbQGeSLYj8U"
+      "proofValue": "ztPPQ4V2Z8MoCgTPXntCKtcjT8hwHZ2xixZT3do2efLhbXWF966UhxMEiPfUFLv8ao3EHx4TF742zrrkJopamEyq"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -10554,11 +10554,11 @@ BlDspEyRFAr_OcSCoj4vK_k3AfRSX43MwPQPDr2p2Ytl8q8rbk7DR7bWOaQ</pre></div></div></d
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "0MXkEHccWFWkPHMT5ZwJx3njylgJiFd8YLfEV_qObIm7dyCrO5Xv0mDptvZlkCfViz1_LZ
-iL7o7WRr9MuBf9oUV0K5EhTxzi4wQntXQXwK8etF0kRolsocTx5-zVHEZY7jQcncMpEEMxQ6f-Btvg1D
-DimVNtcIwpaXfFPaHW58RtxUvaDnD-ymLyNevd3rbQ4q0z-XeNuNEZctV5f-uVFDnNs582DO01BoX454
-HTOOx7FBFQ0OUtDusaVLJ94ts8BVg_kQX8LoBGKYtxkWNAgstDQFNrdBN4GlMJUoNyY3vxbiiicwXGDy
-wsN_0kDlqGHV1wxcWPr2tLlmZpcCGUGw"
+    "n": "s9EaPorMNWFIUrV5L1gF33OVtkgYlvVq1URPQKqQNirpT82Qk4DvL0dsHNgxYo1yhtIp9P
+u_J-kHvUK8gkFI0LDSzsjlB5yXcCFc4pThTD0c4uQbhLMkTsCZUsuMap3bDZh-iDWrKyd5CkjBjAZ56c
+Jpp1U3jTHjQlTm9UV-XcyV_laShbfjUrrT_TVmUKOdZkU2_39Jml130oLNbgWthoMiqz7Iz4ORb7JbC3
+XKem9KUdTSXe2muU3sBx-7pgwzxvutArtTcBszoBIn3VYxxpm_vdXx1c-NgiIsReYslfFfEsIixoqiYB
+i7TaFCbGEIP9d3VjADmPaLe8CpIY4fRw"
   }
 }
 --------------- JWT payload ---------------
@@ -11255,12 +11255,12 @@ vementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiIwTVhrRUhjY1dGV2tQSE1UNVp3Sngzbmp5bGdKaUZkOFlMZkVWX3FPYkltN2R5Q3JPNVh2MG1EcHR2
-WmxrQ2ZWaXoxX0xaaUw3bzdXUnI5TXVCZjlvVVYwSzVFaFR4emk0d1FudFhRWHdLOGV0RjBrUm9sc29j
-VHg1LXpWSEVaWTdqUWNuY01wRUVNeFE2Zi1CdHZnMUREaW1WTnRjSXdwYVhmRlBhSFc1OFJ0eFV2YURu
-RC15bUx5TmV2ZDNyYlE0cTB6LVhlTnVORVpjdFY1Zi11VkZEbk5zNTgyRE8wMUJvWDQ1NEhUT094N0ZC
-RlEwT1V0RHVzYVZMSjk0dHM4QlZnX2tRWDhMb0JHS1l0eGtXTkFnc3REUUZOcmRCTjRHbE1KVW9OeVkz
-dnhiaWlpY3dYR0R5d3NOXzBrRGxxR0hWMXd4Y1dQcjJ0TGxtWnBjQ0dVR3cifX0.eyJ2YyI6eyJAY29u
+OiJzOUVhUG9yTU5XRklVclY1TDFnRjMzT1Z0a2dZbHZWcTFVUlBRS3FRTmlycFQ4MlFrNER2TDBkc0hO
+Z3hZbzF5aHRJcDlQdV9KLWtIdlVLOGdrRkkwTERTenNqbEI1eVhjQ0ZjNHBUaFREMGM0dVFiaExNa1Rz
+Q1pVc3VNYXAzYkRaaC1pRFdyS3lkNUNrakJqQVo1NmNKcHAxVTNqVEhqUWxUbTlVVi1YY3lWX2xhU2hi
+ZmpVcnJUX1RWbVVLT2Raa1UyXzM5Sm1sMTMwb0xOYmdXdGhvTWlxejdJejRPUmI3SmJDM1hLZW05S1Vk
+VFNYZTJtdVUzc0J4LTdwZ3d6eHZ1dEFydFRjQnN6b0JJbjNWWXh4cG1fdmRYeDFjLU5naUlzUmVZc2xm
+RmZFc0lpeG9xaVlCaTdUYUZDYkdFSVA5ZDNWakFEbVBhTGU4Q3BJWTRmUncifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -11529,11 +11529,11 @@ OnsiaWQiOiJodHRwOi8vMWVkdGVjaC5lZHUvY3JlZGVudGlhbHMvMzczMiIsInR5cGUiOiIxRWRUZWNo
 Q3JlZGVudGlhbFJlZnJlc2gifX0sImV4cCI6MTg5MzQ1NjAwMCwiaXNzIjoiaHR0cHM6Ly8xZWR0ZWNo
 LmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5iZiI6MTI2MjMwNDAwMCwianRpIjoiaHR0cDovLzFlZHRlY2gu
 ZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3
-NmUxMmVjMjEifQ.R6UX9XWuKQc11O_dVfoByb8cHhki2TgwMkUExiwGw0j5Te8ZZtV4FCCTqF6lhFUAP
-NmsAtvNtiFKUibtX3y5JK4BIomQ6qkEBqjvhBGSTy7fYoF_J8FRZpk_i3ln_Nadfeph_4nh-ChYu4AcT
-_XLSWwYVrFv7CI4Up6jfgQsyq58uNKkPgTlHU_O_Myj6txjg8e51uM-vpPjCTNv2rMAwcIRZz8kaUhdu
-kJCk4dsCuLMujeAp8UbfixEnDv-AoqDNafAIglI-6lS0XNeaTFP5i3sS1N8nbmnHTNi_hwNQ0y4uyI_0
-D6y3MqEE657iZ_u8DJPi_aGOtv71drfVG1PSw</pre></div></div></div>
+NmUxMmVjMjEifQ.RysSn3yRYq9f4rSmDtynwTTZFtmpGbudVVwyQwwq_lovbPiIl58jaf3CfsUw-joo2
+VmAZkLgcTkajjs7GlVeeDGouJgC6gxOgPBHknOXIJhBfad3oeJsiACVWyPQBlwFCSggDIS8HYkKcjvvu
+BkUi5bybjWvPxUkho4oEqQK2h9MISnxiWRJysb_dK0WaaAuPh81KealiETWVeL2E35Dg1Jx59i6H0nqF
+noXJ0SABbjZkVDMB4IVaEt6CGh8ZdtDRs6TDvy8qEjPS1LlfFkZc5ihw8ROjOd-kR00UB-X1bv60qAcB
+YZw6sm22okfR3aVj7AvN7e8BauBx30orpljNg</pre></div></div></div>
 
 
     </section>
@@ -11633,10 +11633,10 @@ D6y3MqEE657iZ_u8DJPi_aGOtv71drfVG1PSw</pre></div></div></div>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-20T11:23:51Z",
-      "verificationMethod": "https://state.gov/issuers/565049#z6Mkn9pgwBKptZ3rZvRjQxjpuvtUXiUfhK61e4FY76w4u29G",
+      "created": "2023-04-20T14:40:49Z",
+      "verificationMethod": "https://state.gov/issuers/565049#z6MkrNsM7oziS1baFU1rtY1LTfnTHsMSmsp8Nd1Rj8CDvgWW",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z3fjkau3aWu8xAhBqFHLovKQ9joLeyRdyC8cAiULPLe67Cem5eW26Ek7Xu8PmVkQqzZkbx7qh4DqmCZCbPCJ9TL2s"
+      "proofValue": "z3MWWp1YXmrCaNBccowTnh8rmEK4q4G4XjHtPMipfvaT7KyAWJiWqreDUcPoXxu17hBJ8NuZhVNLQks8hgfHx5wV"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -11646,11 +11646,11 @@ D6y3MqEE657iZ_u8DJPi_aGOtv71drfVG1PSw</pre></div></div></div>
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "uKK_V2h6-4-zu6rhEskVxUXiLc8E_iZAIies7REZ1zhKIDzzPTBDPogl7SnwWcwIC25Apb
-_Hvn2he5uSCpag14IK0IXdSqenUmUdyFJ1CxRMle-Pi7IjuZRrROq3ps76D2aWZtNbbZ0mAd4jCA2fG5
-ufwwiTNWjXdzJbf2OTrQmPO605EFftsRJHEJR6koTZcY570AokvhS1hhsgAfG7CQWzIZ__EclWBnB-te
-Lf8NiaUIP2rW9LUHp4xq1pDFZkRqbCy8bsGqXUsQkrXh_NVWh9zNZmtSZi3cpm_BWmETF-ydruqy3zyy
-AEJULlBVNmAFni4oBk3PJAYHuP0RgYjw"
+    "n": "sOP-CG7wtCfCihJjltZeEYU3LvHwX2FZfEPPItdvyV01iBBKv6Ic_2tEDBemqWepmJi-Q3
+kIwBdtvFbamYvDu1duNsfQ3n-Y-l8Wc4FGPnrOKxk7STUlE2YwafatJRJ0hEjmmBPzim10KEKwa2ocFf
+jAk8FqjxOYzJGDG1_Hro_-OKAe9SH9jGTw0ipOGr2WjG_S2G_vXznd4N6rkcmma7zA2gC1IIyKu-ckrV
+iG8C-YhuACgDliyKhxi16ASP5dTMFhDeeTn6s-yTqYvu4sMWVsyXJScRsRDwOZCnAdWqGHhTHTwcCji2
+fK8AZ4yDzAqYf2mDhjh4UmUQD5xdLsxw"
   }
 }
 --------------- JWT payload ---------------
@@ -11710,12 +11710,12 @@ sementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ1S0tfVjJoNi00LXp1NnJoRXNrVnhVWGlMYzhFX2laQUlpZXM3UkVaMXpoS0lEenpQVEJEUG9nbDdT
-bndXY3dJQzI1QXBiX0h2bjJoZTV1U0NwYWcxNElLMElYZFNxZW5VbVVkeUZKMUN4Uk1sZS1QaTdJanVa
-UnJST3EzcHM3NkQyYVdadE5iYlowbUFkNGpDQTJmRzV1Znd3aVROV2pYZHpKYmYyT1RyUW1QTzYwNUVG
-ZnRzUkpIRUpSNmtvVFpjWTU3MEFva3ZoUzFoaHNnQWZHN0NRV3pJWl9fRWNsV0JuQi10ZUxmOE5pYVVJ
-UDJyVzlMVUhwNHhxMXBERlprUnFiQ3k4YnNHcVhVc1FrclhoX05WV2g5ek5abXRTWmkzY3BtX0JXbUVU
-Ri15ZHJ1cXkzenl5QUVKVUxsQlZObUFGbmk0b0JrM1BKQVlIdVAwUmdZancifX0.eyJ2YyI6eyJAY29u
+OiJzT1AtQ0c3d3RDZkNpaEpqbHRaZUVZVTNMdkh3WDJGWmZFUFBJdGR2eVYwMWlCQkt2NkljXzJ0RURC
+ZW1xV2VwbUppLVEza0l3QmR0dkZiYW1ZdkR1MWR1TnNmUTNuLVktbDhXYzRGR1Buck9LeGs3U1RVbEUy
+WXdhZmF0SlJKMGhFam1tQlB6aW0xMEtFS3dhMm9jRmZqQWs4RnFqeE9ZekpHREcxX0hyb18tT0tBZTlT
+SDlqR1R3MGlwT0dyMldqR19TMkdfdlh6bmQ0TjZya2NtbWE3ekEyZ0MxSUl5S3UtY2tyVmlHOEMtWWh1
+QUNnRGxpeUtoeGkxNkFTUDVkVE1GaERlZVRuNnMteVRxWXZ1NHNNV1ZzeVhKU2NSc1JEd09aQ25BZFdx
+R0hoVEhUd2NDamkyZks4QVo0eUR6QXFZZjJtRGhqaDRVbVVRRDV4ZExzeHcifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -11737,11 +11737,11 @@ U2VydmljZSI6eyJpZCI6Imh0dHA6Ly9zdGF0ZS5nb3YvY3JlZGVudGlhbHMvMzczMiIsInR5cGUiOiIx
 RWRUZWNoQ3JlZGVudGlhbFJlZnJlc2gifX0sImV4cCI6MTg5MzQ1NjAwMCwiaXNzIjoiaHR0cHM6Ly9z
 dGF0ZS5nb3YvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAsImp0aSI6Imh0dHA6Ly8xZWR0
 ZWNoLmVkdS9lbmRvcnNlbWVudGNyZWRlbnRpYWwvMzczMiIsInN1YiI6Imh0dHBzOi8vMWVkdGVjaC5l
-ZHUvaXNzdWVycy81NjUwNDkifQ.Yv9FyIXV_2GybFooVzhE7Ny6EKTPHZ_sAgIDoEivgdG89l-a-OsVq
-gPGuA4Ttaos_at4X1kSYbAF1nFpI8b7AgOqcE0Lx6A3jUMmHhBBfvG3czbxY6yaFWf6DZAyoeTJFdvUN
-dCyZcIZIj1mmz2MKJtAn-ryEKxI7kEvTSXCAjDNQkXhr2_JsG8x0SmRcVnn687vNpM5Xw6EvBKC0aATc
-bRpi72TmmJcBgGNpDIY4R1WYcOElxyQxQrm9YboL3Osh4TCWnCpDZkFE4gpTgdaEDSqDu26UgXy3mnZR
-DTiaKqxRGbxeeFS3qGENj9cQ6iGQEHuC4iwzzWnCmMlt0jvog</pre></div></div></div>
+ZHUvaXNzdWVycy81NjUwNDkifQ.cxlFYXtI2fu1wfq10ZOatZ7PulwfoQ_Y_iQ26WXwyFC4uzkSIR0PQ
+shQB3PCcqsmf0AlzSY32Fx0kZM4M7Sd_v2P46mfbwhP7LlmJQiNreCp4bu8nyTeQvDko18Dyt6L3myMw
+gvCP_YkkvkaIvSFnsrfIF4FaXeWQBOLp0MobJi7bJv-DrHh-jPYoGL7nNF6-8MPJk4Mgg0M60rvpngAj
+E0amnJsFZ8IXYHbFFCkg5-chmKyYwKh1zAplV7WyCuE5808CEpRyUphsoum5ry5C0bWs01lcGAcyW_lT
+lgR9h73axParp_NFGJNA8JiEEK8kmSdFIfnqkmZkd3f7NEp9A</pre></div></div></div>
 
 
     </section>
@@ -11832,10 +11832,10 @@ DTiaKqxRGbxeeFS3qGENj9cQ6iGQEHuC4iwzzWnCmMlt0jvog</pre></div></div></div>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-20T11:23:51Z",
-      "verificationMethod": "https://example.edu/issuers/565049#z6MkfSCecanQehcuSbowm1duXtSjmnvGPzxUVaQnigxed3Ar",
+      "created": "2023-04-20T14:40:49Z",
+      "verificationMethod": "https://example.edu/issuers/565049#z6MkmYDiCDGbYJ17Luak9UkJAFVodrQyBN7CTQbEgdZKs2g1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z5UGWCzqGrhzq475yWzYq6HB24UanQr8LK81x9tPceeNVnxHiAxZbAeMpfnDE3kgDGasH74dXZTv7uoobXN7rMY7d"
+      "proofValue": "z42RXVnUcJd8sJAb6KarTcsstVkN2WNQEA8QQDz5yT34Ah4vGhLMRhZBXYYEHjNe16i5LfvwrC752wNkweswSR4t2"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -11845,11 +11845,11 @@ DTiaKqxRGbxeeFS3qGENj9cQ6iGQEHuC4iwzzWnCmMlt0jvog</pre></div></div></div>
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "pV3w_TatWnK9Duh__HfKuB2GFU8k1t1nCYnXQvpxqO83S5TRl1ynUgnXWI0mtNha27oCEI
-NQKp9zjnct8M6A4yTjbTNXgry9NQypf0Oh-4qiLqHDgdrCJvEdhsNlVg0DNTdiDgTcb7aSDhQV_4XbE7
-mvYika3amYvDYffC1elps7VAGjxAYzVj-RwUikRvmNYlR3rDr6qozAbeXXvZK1xfH_mMKy4RGiVtTW8S
-_OsNVHUMciQ3aAoc1kfaEtw6cHjik5qSSoFuTiFTi6eqBgwPQTdhjKNs9xECuhysl3bROA0hHbwhYV1x
-jptM938hcRre4r5DVJyLSXv-0p9R2VEQ"
+    "n": "xszEcdg6hwScx9nSx_g-6iK5fW9bZNUZhN8afJfGv8clHtbW1ujCEkZ0U03k3Ga8G_7a3x
+BHtN1zjPdx6IfcX82zm6By4gW3OH0LwlZM1rORnET_cegAnyRvgLaW2ZTz5hqHyK6eGv-JsRVpFzncSD
+tlxwY_QsYwAtKb7hzA0Wwg6eiuKWKT2BEolDZtfWEL3vsVTEH9KeBJL5_wcEVWvTplAEgeUOI9uiKVqi
+5iKOBMUORBoiBR6Jwk-fgeVjOaB2MqvUGyoghHNZ3bH8R1ABPNiDaPkC3cPOihBP34wu2wRuQp_qXycc
+cZTynmdqY5Ko1bxOnxwW2XE606_LaR9Q"
   }
 }
 --------------- JWT payload ---------------
@@ -11908,12 +11908,12 @@ ents_Analysis"
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJwVjN3X1RhdFduSzlEdWhfX0hmS3VCMkdGVThrMXQxbkNZblhRdnB4cU84M1M1VFJsMXluVWduWFdJ
-MG10TmhhMjdvQ0VJTlFLcDl6am5jdDhNNkE0eVRqYlROWGdyeTlOUXlwZjBPaC00cWlMcUhEZ2RyQ0p2
-RWRoc05sVmcwRE5UZGlEZ1RjYjdhU0RoUVZfNFhiRTdtdllpa2EzYW1ZdkRZZmZDMWVscHM3VkFHanhB
-WXpWai1Sd1Vpa1J2bU5ZbFIzckRyNnFvekFiZVhYdlpLMXhmSF9tTUt5NFJHaVZ0VFc4U19Pc05WSFVN
-Y2lRM2FBb2Mxa2ZhRXR3NmNIamlrNXFTU29GdVRpRlRpNmVxQmd3UFFUZGhqS05zOXhFQ3VoeXNsM2JS
-T0EwaEhid2hZVjF4anB0TTkzOGhjUnJlNHI1RFZKeUxTWHYtMHA5UjJWRVEifX0.eyJ2YyI6eyJAY29u
+OiJ4c3pFY2RnNmh3U2N4OW5TeF9nLTZpSzVmVzliWk5VWmhOOGFmSmZHdjhjbEh0YlcxdWpDRWtaMFUw
+M2szR2E4R183YTN4Qkh0TjF6alBkeDZJZmNYODJ6bTZCeTRnVzNPSDBMd2xaTTFyT1JuRVRfY2VnQW55
+UnZnTGFXMlpUejVocUh5SzZlR3YtSnNSVnBGem5jU0R0bHh3WV9Rc1l3QXRLYjdoekEwV3dnNmVpdUtX
+S1QyQkVvbERadGZXRUwzdnNWVEVIOUtlQkpMNV93Y0VWV3ZUcGxBRWdlVU9JOXVpS1ZxaTVpS09CTVVP
+UkJvaUJSNkp3ay1mZ2VWak9hQjJNcXZVR3lvZ2hITlozYkg4UjFBQlBOaURhUGtDM2NQT2loQlAzNHd1
+MndSdVFwX3FYeWNjY1pUeW5tZHFZNUtvMWJ4T254d1cyWEU2MDZfTGFSOVEifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iXSwiaWQiOiJodHRw
 Oi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbHMvMzczMiIsInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRp
@@ -11935,11 +11935,11 @@ Z2V0VHlwZSI6ImNldGVybXM6Q3JlZGVudGlhbCIsInRhcmdldFVybCI6Imh0dHBzOi8vY3JlZGVudGlh
 bGZpbmRlci5vcmcvY3JlZGVudGlhbC8yMDIyOS9SZXF1aXJlbWVudHNfQW5hbHlzaXMifV19fX0sImlz
 cyI6Imh0dHBzOi8vZXhhbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAsImp0
 aSI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3ViIjoiZGlkOmV4YW1wbGU6
-ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.O6GebsrKzezb-l9pMsmmB76ONgA9upkr94_Ff5W-
-dV8TIE-v-t4LrEddbsniSSLpbHc1SOVJXHrgqb5KGaEf_14w8Kp_jnq07KMfVxgL0_hscpjx1VGQiX5o
-fvDJj_vRrSk7lz2-UPa7aTMPlN8YqgLgsuFVrRDERCl7QS01tbBHNDGyhH8RpRX4hXCYuepQWEvXZUUW
-GzL592MGIkxnw9bmGMHsOoaVjxHpZdXlySeLTbqzDvEMM6kijuHnGQ3OO5aFrxYdQkgQEMJKO-3dR5g_
-nJPapwY9HP2dcs4q8O-pBXAu1R59NWtm6qaU6R0MTruYwqtamaWgABZWQ7q7uA</pre></div></div></div>
+ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.iM17_HCFFhAb3tAuSsSkx39ZTfhKzyUwBjjyGOuR
+bozjExDCna9f2rYDBvBdAbh-OS1yhndS_KDrhaDBvWG-I-pyt8fAe684zm07vxh3zMfZhqosZ8bGEmaQ
+QOEFnhn66uSKbV3lvWtFJYUrzj2jD09v1IGpuuGJrCUQdX3V2sDCsDg6XJVojuyM9TxHJ9A80GqTB85U
+1TMXLTbmmmEUwyuZw1_HX6l_eBU_z1HJqH5KlrXFaeuom2Ev53GPtWcu95oLoTcYz2bTD-kyJEixulm8
+IsNxpx2PtKTQq5MLO7_SGmDUk0sUxq57NB2gvuhiVjC6Ri0JWZ1HdJ2lmpSpMg</pre></div></div></div>
 
 
     </section>
@@ -12030,10 +12030,10 @@ nJPapwY9HP2dcs4q8O-pBXAu1R59NWtm6qaU6R0MTruYwqtamaWgABZWQ7q7uA</pre></div></div>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-20T11:23:51Z",
-      "verificationMethod": "https://example.edu/issuers/565049#z6MkfSCecanQehcuSbowm1duXtSjmnvGPzxUVaQnigxed3Ar",
+      "created": "2023-04-20T14:40:49Z",
+      "verificationMethod": "https://example.edu/issuers/565049#z6MkmYDiCDGbYJ17Luak9UkJAFVodrQyBN7CTQbEgdZKs2g1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z5UGWCzqGrhzq475yWzYq6HB24UanQr8LK81x9tPceeNVnxHiAxZbAeMpfnDE3kgDGasH74dXZTv7uoobXN7rMY7d"
+      "proofValue": "z42RXVnUcJd8sJAb6KarTcsstVkN2WNQEA8QQDz5yT34Ah4vGhLMRhZBXYYEHjNe16i5LfvwrC752wNkweswSR4t2"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -12043,11 +12043,11 @@ nJPapwY9HP2dcs4q8O-pBXAu1R59NWtm6qaU6R0MTruYwqtamaWgABZWQ7q7uA</pre></div></div>
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "pV3w_TatWnK9Duh__HfKuB2GFU8k1t1nCYnXQvpxqO83S5TRl1ynUgnXWI0mtNha27oCEI
-NQKp9zjnct8M6A4yTjbTNXgry9NQypf0Oh-4qiLqHDgdrCJvEdhsNlVg0DNTdiDgTcb7aSDhQV_4XbE7
-mvYika3amYvDYffC1elps7VAGjxAYzVj-RwUikRvmNYlR3rDr6qozAbeXXvZK1xfH_mMKy4RGiVtTW8S
-_OsNVHUMciQ3aAoc1kfaEtw6cHjik5qSSoFuTiFTi6eqBgwPQTdhjKNs9xECuhysl3bROA0hHbwhYV1x
-jptM938hcRre4r5DVJyLSXv-0p9R2VEQ"
+    "n": "xszEcdg6hwScx9nSx_g-6iK5fW9bZNUZhN8afJfGv8clHtbW1ujCEkZ0U03k3Ga8G_7a3x
+BHtN1zjPdx6IfcX82zm6By4gW3OH0LwlZM1rORnET_cegAnyRvgLaW2ZTz5hqHyK6eGv-JsRVpFzncSD
+tlxwY_QsYwAtKb7hzA0Wwg6eiuKWKT2BEolDZtfWEL3vsVTEH9KeBJL5_wcEVWvTplAEgeUOI9uiKVqi
+5iKOBMUORBoiBR6Jwk-fgeVjOaB2MqvUGyoghHNZ3bH8R1ABPNiDaPkC3cPOihBP34wu2wRuQp_qXycc
+cZTynmdqY5Ko1bxOnxwW2XE606_LaR9Q"
   }
 }
 --------------- JWT payload ---------------
@@ -12106,12 +12106,12 @@ ents_Analysis"
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJwVjN3X1RhdFduSzlEdWhfX0hmS3VCMkdGVThrMXQxbkNZblhRdnB4cU84M1M1VFJsMXluVWduWFdJ
-MG10TmhhMjdvQ0VJTlFLcDl6am5jdDhNNkE0eVRqYlROWGdyeTlOUXlwZjBPaC00cWlMcUhEZ2RyQ0p2
-RWRoc05sVmcwRE5UZGlEZ1RjYjdhU0RoUVZfNFhiRTdtdllpa2EzYW1ZdkRZZmZDMWVscHM3VkFHanhB
-WXpWai1Sd1Vpa1J2bU5ZbFIzckRyNnFvekFiZVhYdlpLMXhmSF9tTUt5NFJHaVZ0VFc4U19Pc05WSFVN
-Y2lRM2FBb2Mxa2ZhRXR3NmNIamlrNXFTU29GdVRpRlRpNmVxQmd3UFFUZGhqS05zOXhFQ3VoeXNsM2JS
-T0EwaEhid2hZVjF4anB0TTkzOGhjUnJlNHI1RFZKeUxTWHYtMHA5UjJWRVEifX0.eyJ2YyI6eyJAY29u
+OiJ4c3pFY2RnNmh3U2N4OW5TeF9nLTZpSzVmVzliWk5VWmhOOGFmSmZHdjhjbEh0YlcxdWpDRWtaMFUw
+M2szR2E4R183YTN4Qkh0TjF6alBkeDZJZmNYODJ6bTZCeTRnVzNPSDBMd2xaTTFyT1JuRVRfY2VnQW55
+UnZnTGFXMlpUejVocUh5SzZlR3YtSnNSVnBGem5jU0R0bHh3WV9Rc1l3QXRLYjdoekEwV3dnNmVpdUtX
+S1QyQkVvbERadGZXRUwzdnNWVEVIOUtlQkpMNV93Y0VWV3ZUcGxBRWdlVU9JOXVpS1ZxaTVpS09CTVVP
+UkJvaUJSNkp3ay1mZ2VWak9hQjJNcXZVR3lvZ2hITlozYkg4UjFBQlBOaURhUGtDM2NQT2loQlAzNHd1
+MndSdVFwX3FYeWNjY1pUeW5tZHFZNUtvMWJ4T254d1cyWEU2MDZfTGFSOVEifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iXSwiaWQiOiJodHRw
 Oi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbHMvMzczMiIsInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRp
@@ -12133,11 +12133,11 @@ Z2V0VHlwZSI6ImNldGVybXM6Q3JlZGVudGlhbCIsInRhcmdldFVybCI6Imh0dHBzOi8vY3JlZGVudGlh
 bGZpbmRlci5vcmcvY3JlZGVudGlhbC8yMDIyOS9SZXF1aXJlbWVudHNfQW5hbHlzaXMifV19fX0sImlz
 cyI6Imh0dHBzOi8vZXhhbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAsImp0
 aSI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3ViIjoiZGlkOmV4YW1wbGU6
-ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.O6GebsrKzezb-l9pMsmmB76ONgA9upkr94_Ff5W-
-dV8TIE-v-t4LrEddbsniSSLpbHc1SOVJXHrgqb5KGaEf_14w8Kp_jnq07KMfVxgL0_hscpjx1VGQiX5o
-fvDJj_vRrSk7lz2-UPa7aTMPlN8YqgLgsuFVrRDERCl7QS01tbBHNDGyhH8RpRX4hXCYuepQWEvXZUUW
-GzL592MGIkxnw9bmGMHsOoaVjxHpZdXlySeLTbqzDvEMM6kijuHnGQ3OO5aFrxYdQkgQEMJKO-3dR5g_
-nJPapwY9HP2dcs4q8O-pBXAu1R59NWtm6qaU6R0MTruYwqtamaWgABZWQ7q7uA</pre></div></div></div>
+ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.iM17_HCFFhAb3tAuSsSkx39ZTfhKzyUwBjjyGOuR
+bozjExDCna9f2rYDBvBdAbh-OS1yhndS_KDrhaDBvWG-I-pyt8fAe684zm07vxh3zMfZhqosZ8bGEmaQ
+QOEFnhn66uSKbV3lvWtFJYUrzj2jD09v1IGpuuGJrCUQdX3V2sDCsDg6XJVojuyM9TxHJ9A80GqTB85U
+1TMXLTbmmmEUwyuZw1_HX6l_eBU_z1HJqH5KlrXFaeuom2Ev53GPtWcu95oLoTcYz2bTD-kyJEixulm8
+IsNxpx2PtKTQq5MLO7_SGmDUk0sUxq57NB2gvuhiVjC6Ri0JWZ1HdJ2lmpSpMg</pre></div></div></div>
 
 
     </section>
@@ -12308,10 +12308,10 @@ nJPapwY9HP2dcs4q8O-pBXAu1R59NWtm6qaU6R0MTruYwqtamaWgABZWQ7q7uA</pre></div></div>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-20T11:23:51Z",
-      "verificationMethod": "https://1edtech.edu/issuers/565049#z6Mkq9YAoWupWqCwa6ujwb8UT4pmnE1bpNVoHGvp61NZi56K",
+      "created": "2023-04-20T14:40:49Z",
+      "verificationMethod": "https://1edtech.edu/issuers/565049#z6MkqmuRzUDBrVFTdopjrbaKRDsY1NiqwP5RXWt2kVJC8Bu8",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z2d3vFrENQ7uZG9deiQTRbYqeB84Sgdo87XyY5Bj2EMgkDs77KQE6q3qnKjhZmfzdsMcLp6aw95jutzodSiiYcLjQ"
+      "proofValue": "z4CPXX3tZuYMtUL6t6R6VDqc1DVyZMGCNP7p2UcRvLKgVbgARAV23HSWv4XGQkZBDLZJ99GsM8M2ngsKKnJhq28rE"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -12321,11 +12321,11 @@ nJPapwY9HP2dcs4q8O-pBXAu1R59NWtm6qaU6R0MTruYwqtamaWgABZWQ7q7uA</pre></div></div>
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "0MXkEHccWFWkPHMT5ZwJx3njylgJiFd8YLfEV_qObIm7dyCrO5Xv0mDptvZlkCfViz1_LZ
-iL7o7WRr9MuBf9oUV0K5EhTxzi4wQntXQXwK8etF0kRolsocTx5-zVHEZY7jQcncMpEEMxQ6f-Btvg1D
-DimVNtcIwpaXfFPaHW58RtxUvaDnD-ymLyNevd3rbQ4q0z-XeNuNEZctV5f-uVFDnNs582DO01BoX454
-HTOOx7FBFQ0OUtDusaVLJ94ts8BVg_kQX8LoBGKYtxkWNAgstDQFNrdBN4GlMJUoNyY3vxbiiicwXGDy
-wsN_0kDlqGHV1wxcWPr2tLlmZpcCGUGw"
+    "n": "s9EaPorMNWFIUrV5L1gF33OVtkgYlvVq1URPQKqQNirpT82Qk4DvL0dsHNgxYo1yhtIp9P
+u_J-kHvUK8gkFI0LDSzsjlB5yXcCFc4pThTD0c4uQbhLMkTsCZUsuMap3bDZh-iDWrKyd5CkjBjAZ56c
+Jpp1U3jTHjQlTm9UV-XcyV_laShbfjUrrT_TVmUKOdZkU2_39Jml130oLNbgWthoMiqz7Iz4ORb7JbC3
+XKem9KUdTSXe2muU3sBx-7pgwzxvutArtTcBszoBIn3VYxxpm_vdXx1c-NgiIsReYslfFfEsIixoqiYB
+i7TaFCbGEIP9d3VjADmPaLe8CpIY4fRw"
   }
 }
 --------------- JWT payload ---------------
@@ -12431,12 +12431,12 @@ vementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiIwTVhrRUhjY1dGV2tQSE1UNVp3Sngzbmp5bGdKaUZkOFlMZkVWX3FPYkltN2R5Q3JPNVh2MG1EcHR2
-WmxrQ2ZWaXoxX0xaaUw3bzdXUnI5TXVCZjlvVVYwSzVFaFR4emk0d1FudFhRWHdLOGV0RjBrUm9sc29j
-VHg1LXpWSEVaWTdqUWNuY01wRUVNeFE2Zi1CdHZnMUREaW1WTnRjSXdwYVhmRlBhSFc1OFJ0eFV2YURu
-RC15bUx5TmV2ZDNyYlE0cTB6LVhlTnVORVpjdFY1Zi11VkZEbk5zNTgyRE8wMUJvWDQ1NEhUT094N0ZC
-RlEwT1V0RHVzYVZMSjk0dHM4QlZnX2tRWDhMb0JHS1l0eGtXTkFnc3REUUZOcmRCTjRHbE1KVW9OeVkz
-dnhiaWlpY3dYR0R5d3NOXzBrRGxxR0hWMXd4Y1dQcjJ0TGxtWnBjQ0dVR3cifX0.eyJ2YyI6eyJAY29u
+OiJzOUVhUG9yTU5XRklVclY1TDFnRjMzT1Z0a2dZbHZWcTFVUlBRS3FRTmlycFQ4MlFrNER2TDBkc0hO
+Z3hZbzF5aHRJcDlQdV9KLWtIdlVLOGdrRkkwTERTenNqbEI1eVhjQ0ZjNHBUaFREMGM0dVFiaExNa1Rz
+Q1pVc3VNYXAzYkRaaC1pRFdyS3lkNUNrakJqQVo1NmNKcHAxVTNqVEhqUWxUbTlVVi1YY3lWX2xhU2hi
+ZmpVcnJUX1RWbVVLT2Raa1UyXzM5Sm1sMTMwb0xOYmdXdGhvTWlxejdJejRPUmI3SmJDM1hLZW05S1Vk
+VFNYZTJtdVUzc0J4LTdwZ3d6eHZ1dEFydFRjQnN6b0JJbjNWWXh4cG1fdmRYeDFjLU5naUlzUmVZc2xm
+RmZFc0lpeG9xaVlCaTdUYUZDYkdFSVA5ZDNWakFEbVBhTGU4Q3BJWTRmUncifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -12482,11 +12482,11 @@ bWEvanNvbi9vYl92M3AwX2FjaGlldmVtZW50Y3JlZGVudGlhbF9zY2hlbWEuanNvbiIsInR5cGUiOiIx
 RWRUZWNoSnNvblNjaGVtYVZhbGlkYXRvcjIwMTkifV19LCJpc3MiOiJodHRwczovLzFlZHRlY2guZWR1
 L2lzc3VlcnMvNTY1MDQ5IiwibmJmIjoxNjU2NjMzNjAwLCJqdGkiOiJodHRwOi8vMWVkdGVjaC5lZHUv
 Y3JlZGVudGlhbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEy
-ZWMyMSJ9.IrXIuatazW3Xw6X8Bk9JD3VgpPROPJdoSvmonjgXou-bgtQLXzWMmvrX_Fsy_3Q5R15KpAK
-nIpXhv9ZtSq9QejzAIcroBjjqTHFg_xAKm44DQmsSpzU9iNA1dkg_47DGC6WxuLo_4F1BmC72bWZrdr0
-8F3nAt2PP8qUzkMCXFhihwJNDME3-VA4yhxlaZi1K9ASpv-TjzcAajBSKAqfBP67qBcJV7RPrwOuejLv
-yXgVcF2brNNpR1wgaSON5P-fLnRoFITcOeIyi-pKfQ8BrWPXqJa8eeHDD0oJjHvJvb4rv9pig6S6qT6_
-bhDPUaX-xk3o46FoK27gpD3PKPCew2w</pre></div></div></div>
+ZWMyMSJ9.AKRGk4nk_q262kgbYdVHIzUY3WkPn22SqR3efFeMUsFcDtSIPZFPrDco8OtVlpwTdAJtQUw
+uR5VvMeUp808vJwjqfEf07RtF990opU418scAS8HbfQ0ECcxXII0sDkjqpDZHjpOT4M-XpLskeECTnOc
+60xDMsWWJSQscXpLeWQRuIQOo7MVb7HCJS0h5q-I-0G7HnakkhwTZzU7ocxl57DHedC2_1349_3ptoxD
+2swBOvJwibwvIcMbBX_PrOlyDZAtOkDggFgND5afFLDJfK2p-m6W0h67XzAlwhJMNc511bPYH5ueXCcE
+dcQ2oxlzs1pquctWs6V87P3cJYThQyg</pre></div></div></div>
 
     </section>
     <section id="skill-assertion-credential-engine-0">
@@ -12640,10 +12640,10 @@ bhDPUaX-xk3o46FoK27gpD3PKPCew2w</pre></div></div></div>
   "proof": [
     {
       "type": "Ed25519Signature2020",
-      "created": "2023-04-20T11:23:51Z",
-      "verificationMethod": "https://1edtech.edu/issuers/565049#z6Mkq9YAoWupWqCwa6ujwb8UT4pmnE1bpNVoHGvp61NZi56K",
+      "created": "2023-04-20T14:40:49Z",
+      "verificationMethod": "https://1edtech.edu/issuers/565049#z6MkqmuRzUDBrVFTdopjrbaKRDsY1NiqwP5RXWt2kVJC8Bu8",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z4Vohuy18N5h4Rv6m2uGPcC8jNLRNVquhUPkspb5myroGxNPfy6YFtqA24mDUb4oSk231LKaFM3sdMVXqNirDXBNE"
+      "proofValue": "z3Z28DtuyUBN3SMHx8L5DBve9f9hDW8nh6RLL6ehEwfcurq1fan6GC8BgWKqQRC3dji3x8tM8j23uXURCfipkz2Cv"
     }
   ]
 }</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
@@ -12653,11 +12653,11 @@ bhDPUaX-xk3o46FoK27gpD3PKPCew2w</pre></div></div></div>
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "0MXkEHccWFWkPHMT5ZwJx3njylgJiFd8YLfEV_qObIm7dyCrO5Xv0mDptvZlkCfViz1_LZ
-iL7o7WRr9MuBf9oUV0K5EhTxzi4wQntXQXwK8etF0kRolsocTx5-zVHEZY7jQcncMpEEMxQ6f-Btvg1D
-DimVNtcIwpaXfFPaHW58RtxUvaDnD-ymLyNevd3rbQ4q0z-XeNuNEZctV5f-uVFDnNs582DO01BoX454
-HTOOx7FBFQ0OUtDusaVLJ94ts8BVg_kQX8LoBGKYtxkWNAgstDQFNrdBN4GlMJUoNyY3vxbiiicwXGDy
-wsN_0kDlqGHV1wxcWPr2tLlmZpcCGUGw"
+    "n": "s9EaPorMNWFIUrV5L1gF33OVtkgYlvVq1URPQKqQNirpT82Qk4DvL0dsHNgxYo1yhtIp9P
+u_J-kHvUK8gkFI0LDSzsjlB5yXcCFc4pThTD0c4uQbhLMkTsCZUsuMap3bDZh-iDWrKyd5CkjBjAZ56c
+Jpp1U3jTHjQlTm9UV-XcyV_laShbfjUrrT_TVmUKOdZkU2_39Jml130oLNbgWthoMiqz7Iz4ORb7JbC3
+XKem9KUdTSXe2muU3sBx-7pgwzxvutArtTcBszoBIn3VYxxpm_vdXx1c-NgiIsReYslfFfEsIixoqiYB
+i7TaFCbGEIP9d3VjADmPaLe8CpIY4fRw"
   }
 }
 --------------- JWT payload ---------------
@@ -12749,12 +12749,12 @@ vementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiIwTVhrRUhjY1dGV2tQSE1UNVp3Sngzbmp5bGdKaUZkOFlMZkVWX3FPYkltN2R5Q3JPNVh2MG1EcHR2
-WmxrQ2ZWaXoxX0xaaUw3bzdXUnI5TXVCZjlvVVYwSzVFaFR4emk0d1FudFhRWHdLOGV0RjBrUm9sc29j
-VHg1LXpWSEVaWTdqUWNuY01wRUVNeFE2Zi1CdHZnMUREaW1WTnRjSXdwYVhmRlBhSFc1OFJ0eFV2YURu
-RC15bUx5TmV2ZDNyYlE0cTB6LVhlTnVORVpjdFY1Zi11VkZEbk5zNTgyRE8wMUJvWDQ1NEhUT094N0ZC
-RlEwT1V0RHVzYVZMSjk0dHM4QlZnX2tRWDhMb0JHS1l0eGtXTkFnc3REUUZOcmRCTjRHbE1KVW9OeVkz
-dnhiaWlpY3dYR0R5d3NOXzBrRGxxR0hWMXd4Y1dQcjJ0TGxtWnBjQ0dVR3cifX0.eyJ2YyI6eyJAY29u
+OiJzOUVhUG9yTU5XRklVclY1TDFnRjMzT1Z0a2dZbHZWcTFVUlBRS3FRTmlycFQ4MlFrNER2TDBkc0hO
+Z3hZbzF5aHRJcDlQdV9KLWtIdlVLOGdrRkkwTERTenNqbEI1eVhjQ0ZjNHBUaFREMGM0dVFiaExNa1Rz
+Q1pVc3VNYXAzYkRaaC1pRFdyS3lkNUNrakJqQVo1NmNKcHAxVTNqVEhqUWxUbTlVVi1YY3lWX2xhU2hi
+ZmpVcnJUX1RWbVVLT2Raa1UyXzM5Sm1sMTMwb0xOYmdXdGhvTWlxejdJejRPUmI3SmJDM1hLZW05S1Vk
+VFNYZTJtdVUzc0J4LTdwZ3d6eHZ1dEFydFRjQnN6b0JJbjNWWXh4cG1fdmRYeDFjLU5naUlzUmVZc2xm
+RmZFc0lpeG9xaVlCaTdUYUZDYkdFSVA5ZDNWakFEbVBhTGU4Q3BJWTRmUncifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4xLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -12793,11 +12793,11 @@ Lm9yZy9zcGVjL29iL3YzcDAvc2NoZW1hL2pzb24vb2JfdjNwMF9hY2hpZXZlbWVudGNyZWRlbnRpYWxf
 c2NoZW1hLmpzb24iLCJ0eXBlIjoiMUVkVGVjaEpzb25TY2hlbWFWYWxpZGF0b3IyMDE5In1dfSwiaXNz
 IjoiaHR0cHM6Ly8xZWR0ZWNoLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5iZiI6MTY1NjYzMzYwMCwianRp
 IjoiaHR0cDovLzFlZHRlY2guZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhbXBsZTpl
-YmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.G8IdK7RvTj8F_OvnSAZZzKYtxq1LdCrBlWzE_qOuI
-goKvI2T9CG77VuYos0XGgociIY-KrqNnczYnVkN6-soYdyQKP3vB1C38IMC9iuNN4v_v6QHanlvqwD7h
-xtT1a0DGKwa5CHnUSw6nalbWAngZB4NeNWNDX80eFpf_5SQ2cW3omN-RSxx9M7x-E-ODrg1i-6U8hV3e
-swqs8Wl2REOWCMfc1fDakwyj8Ry80rxRZNxShXn1bn2rHxom4n32CogT3qwWGckZlYhEZyutyJXYR-4V
-didE8KOeennWVPCVpadrtFA7k_wIWgFKOnaZMhjwEXmZWrEgUN2XrJ-KeGqRw</pre></div></div></div>
+YmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.Qg1Fnfj3wOTuezH3UqBvFb3-QvCVfEOIkxNxLYQ1y
+qxJcGJiy2OcpA58ft_mCDwBjEIF0MiBoaTeDa3VUXS-BFl4sKT44AKVz54RxjWZeVGdufDwXMAVUab1J
+tLDnavPxzvbwz2PsACdOu8sTAT1jzxDW8yrYPUWr763ikXUbM4p9ZtmxKorq_slhb61gGJky1gj19sV7
+_N8GOWXEGysNb6WuERIT1BJ4I6NUurbltCafBufcm0GxbbJmNPKgbKZM0XWWjnlBt-ppNmFoeyL3uzcA
+rMdwarVziemLwngu1FfQCAcM1v27WH6voBVtsYktAQbekGKWZCkNlmuNsX3HQ</pre></div></div></div>
 
     </section>
   </section>
