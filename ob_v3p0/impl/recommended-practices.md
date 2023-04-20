@@ -362,7 +362,7 @@ Protocols under development to transport Verifiable Credentials including Open
 Badges and CLR include
 [Credential Handler API (CHAPI)](https://w3c-ccg.github.io/credential-handler-api/),
 [DIDComm](https://identity.foundation/didcomm-messaging/spec/v2.0/), and
-[OIDC4VC](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html).
+[OID4VC](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html).
 
 **Example: The experience of a learner who receives their CLR**
 
