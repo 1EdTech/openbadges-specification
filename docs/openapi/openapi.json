@@ -1556,7 +1556,7 @@
           },
           "awardedDate" : {
             "type" : "string",
-            "description" : "Timestamp of when the credential was awarded.",
+            "description" : "Timestamp of when the credential was awarded. `issuanceDate` is used to determine the most recent version of a Credential in conjunction with `issuer` and `id`. Consequently, the only way to update a Credental is to update the `issuanceDate`, losing the date when the Credential was originally awarded. `awardedDate` is meant to keep this original date.",
             "format" : "date-time",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.datetimez.class"
           },
@@ -1919,7 +1919,7 @@
           },
           "awardedDate" : {
             "type" : "string",
-            "description" : "Timestamp of when the credential was awarded.",
+            "description" : "Timestamp of when the credential was awarded. `issuanceDate` is used to determine the most recent version of a Credential in conjunction with `issuer` and `id`. Consequently, the only way to update a Credental is to update the `issuanceDate`, losing the date when the Credential was originally awarded. `awardedDate` is meant to keep this original date.",
             "format" : "date-time",
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.derived.datetimez.class"
           },
