@@ -16,10 +16,6 @@ The full set of documents is comprised of the following documents:
 
 ### Terms
 
-<div class="ednote">
-   @@ TBD @@
-</div>
-
 The following terms are used throughout this document.
 
 -   <dfn>Achievement</dfn>: This is the content description of a credential that an assertion references. It contains metadata such as the name of the achievement, description, alignment of skills, etc. An [=Assertion=] asserts a single achievement. A [=CLR=] asserts a collection of assertions, each of which asserts a single achievement.
