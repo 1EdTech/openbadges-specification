@@ -6,7 +6,9 @@ show_sidebar: false
 {::options parse_block_html="true" /}
 
 <div id="top">
-<a href="http://www.imsglobal.org"><img src="images/imsglobal-logo.png" alt="IMS Global Logo" id="imslogo" /></a>
+<a href="https://www.1edtech.org" id="1edtech-logo">
+        <img src="https://purl.imsglobal.org/respec/1edtech_logo_color_with_tagline.svg" width="300" height="105" alt="1EdTech logo">
+      </a>
 </div>
 
 <p class="status">IMS Final Release</p>

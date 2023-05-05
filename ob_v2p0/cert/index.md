@@ -6,7 +6,9 @@ layout: page_sub
 {::options parse_block_html="true" /}
 
 <div id="top">
-<a href="http://www.imsglobal.org"><img src="../images/imsglobal-logo.png" alt="IMS Global Logo" id="imslogo" /></a>
+<a href="https://www.1edtech.org" id="1edtech-logo">
+        <img src="https://purl.imsglobal.org/respec/1edtech_logo_color_with_tagline.svg" width="300" height="105" alt="1EdTech logo">
+      </a>
 </div>
 
 <p class="status">IMS Final Release</p>
@@ -33,7 +35,7 @@ layout: page_sub
 <br>
 
 <div class="iprDistribution">
-	
+
 **IPR and Distribution Notices**
 
 Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the specification set forth in this document, and to provide supporting documentation.
@@ -119,12 +121,12 @@ _Revision: 12 April 2018_
 <hr/>
 
 <div id="toc">
-	
+
 ##  Contents
  * [1. Introduction](#intro)
  * [2. The Conformance Process](#conf)
  * [3. Open Badges 2.0 Issuer Service Conformance](#issuer)
- * [4. Open Badges 2.0 Displayer Service Conformance](#displayer)   
+ * [4. Open Badges 2.0 Displayer Service Conformance](#displayer)
  * [5. Open Badges 2.0 Host Service Conformance](#host)
  * [6. List of Contributors](#contrib)
 
@@ -152,8 +154,8 @@ The process for conformance testing service implementations of Open Badges 2.0 i
 
 To pass certification, you must take the following steps:
 
-* You must be an IMS Digital Credentials and Badges Alliance Member, an IMS Affiliate Member, or IMS Contributing Member. 
-* You must pass all the tests associated with the service type you are applying for using the certification suite hosted on the IMS website. For definitions of service types and associated tests, see sections 3, 4 and 5 below. 
+* You must be an IMS Digital Credentials and Badges Alliance Member, an IMS Affiliate Member, or IMS Contributing Member.
+* You must pass all the tests associated with the service type you are applying for using the certification suite hosted on the IMS website. For definitions of service types and associated tests, see sections 3, 4 and 5 below.
 * The tests must be completed by a designated representative of the IMS member organization, and you must agree that there is no misrepresentation or manipulation of results in the submitted information.
 
 After IMS reviews your submitted information and notifies you that your application is approved, you can claim certification to Open Badges and display the IMS certified logo on your website and in your software. The [IMS Global conformance chart](https://www.imsglobal.org/cc/statuschart.cfm) will list your conformance details.
@@ -173,9 +175,9 @@ After IMS reviews your submitted information and notifies you that your applicat
 	<strong>Test</strong>
 </p>
 <ol>
-	<li>Create a valid baked 2.0 badge and issue it to the recipient 
+	<li>Create a valid baked 2.0 badge and issue it to the recipient
 		<code>conformance@imsglobal.org</code>.</li>
-				
+
 	<li>Demonstrate through video the candidate platform's methodology
 		for a recipient to retrieve their badge.</li>
 

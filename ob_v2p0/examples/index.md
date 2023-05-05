@@ -7,7 +7,9 @@ layout: page_sub
 {::options parse_block_html="true" /}
 
 <div id="top">
-<a href="http://www.imsglobal.org"><img src="../images/imsglobal-logo.png" alt="IMS Global Logo" id="imslogo" /></a>
+<a href="https://www.1edtech.org" id="1edtech-logo">
+        <img src="https://purl.imsglobal.org/respec/1edtech_logo_color_with_tagline.svg" width="300" height="105" alt="1EdTech logo">
+      </a>
 </div>
 
 <p class="status">IMS Final Release</p>
@@ -34,7 +36,7 @@ layout: page_sub
 <br>
 
 <div class="iprDistribution">
-	
+
 **IPR and Distribution Notices**
 
 Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the specification set forth in this document, and to provide supporting documentation.
@@ -175,8 +177,8 @@ The BadgeClass is hosted at the URI identified in associated Assertions' `badge`
   "alignment": [
     { "targetName": "CCSS.ELA-Literacy.RST.11-12.3",
       "targetUrl": "http://www.corestandards.org/ELA-Literacy/RST/11-12/3",
-      "targetDescription": "Follow precisely a complex multistep procedure when 
-      carrying out experiments, taking measurements, or performing technical 
+      "targetDescription": "Follow precisely a complex multistep procedure when
+      carrying out experiments, taking measurements, or performing technical
       tasks; analyze the specific results based on explanations in the text.",
       "targetCode": "CCSS.ELA-Literacy.RST.11-12.3"
     },
@@ -214,7 +216,7 @@ Metadata about the issuer is defined in JSON at a URL/IRI defined by the BadgeCl
 Extensions are formal sets of properties issuers and platforms add to the Open Badges Vocabulary. A number of community-developed extensions are published on the [Extensions page](../extensions/#ExampleExtension) with embedded examples of each.
 
 ## <a id="LinkedData"></a> Open Badges in Linked Data
-Because Open Badges are Linked Data objects often hosted at HTTP IRIs, we can use the methods of identifying connections using Badge Objects can identify their connected resources either by their string IRI or by embedding a copy of the related document into the source document. For example, an Assertion may include its BadgeClass definition for portability instead of just linking to the URI of the BadgeClass object. Here, the BadgeClass and its issuer Profile record have been included in the Assertion. Each has its "id" property set to the URI where it is published, the unique identifier for that object. Displayer platforms can use that value to index these records. 
+Because Open Badges are Linked Data objects often hosted at HTTP IRIs, we can use the methods of identifying connections using Badge Objects can identify their connected resources either by their string IRI or by embedding a copy of the related document into the source document. For example, an Assertion may include its BadgeClass definition for portability instead of just linking to the URI of the BadgeClass object. Here, the BadgeClass and its issuer Profile record have been included in the Assertion. Each has its "id" property set to the URI where it is published, the unique identifier for that object. Displayer platforms can use that value to index these records.
 {% highlight json %}
 {
   "@context": "https://w3id.org/openbadges/v2",
@@ -395,7 +397,7 @@ The Criteria class may also appear without using an external URI to increase por
   "criteria": {
     "id": "https://example.org/robotics-badge.html",
     "narrative": "To earn the **Awesome Robotics Badge**, students must construct a
-    basic robot.\n\nThe robot must be able to:\n\n  * Move forward and backwards 
+    basic robot.\n\nThe robot must be able to:\n\n  * Move forward and backwards
     [1](https://example.org/robot-skills/1).\n  * Pick up a bucket by its handle
     [2](https://example.org/robot-skills/2)."
   },

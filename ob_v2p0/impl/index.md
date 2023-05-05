@@ -6,7 +6,9 @@ layout: page_sub
 {::options parse_block_html="true" /}
 
 <div id="top">
-<a href="http://www.imsglobal.org"><img src="../images/imsglobal-logo.png" alt="IMS Global Logo" id="imslogo" /></a>
+<a href="https://www.1edtech.org" id="1edtech-logo">
+        <img src="https://purl.imsglobal.org/respec/1edtech_logo_color_with_tagline.svg" width="300" height="105" alt="1EdTech logo">
+      </a>
 </div>
 
 <p class="status">IMS Final Release</p>
@@ -33,7 +35,7 @@ layout: page_sub
 <br>
 
 <div class="iprDistribution">
-	
+
 **IPR and Distribution Notices**
 Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the specification set forth in this document, and to provide supporting documentation.
 
@@ -127,7 +129,7 @@ _Revision: 12 April 2018_
 <hr/>
 
 <div id="toc">
-	
+
 ##  Contents
  * [Introduction](#intro)
  * [Context](#context)
@@ -136,7 +138,7 @@ _Revision: 12 April 2018_
  * [Definition of Key Terms](#terms)
  * [List of Contributors](#contrib)
  * [Revision History](#history)
-  
+
 </div>
 
 ## <a id="intro"></a> Introduction
@@ -182,30 +184,30 @@ These recommended practices are in addition to the information provided in the s
 ### Badge Issuer
 #### Issuing Badges
 - Creating Badge Classes
-  - Accessibility: Encouraging alt text for images - The Image data object contains a “Caption” property which can be rendered as alt text for images. Badge platforms should consider adding features that prompt users who create badge classes to submit Caption text to be used for this purpose. 
+  - Accessibility: Encouraging alt text for images - The Image data object contains a “Caption” property which can be rendered as alt text for images. Badge platforms should consider adding features that prompt users who create badge classes to submit Caption text to be used for this purpose.
   - Use of urn-based identifiers for embedded BadgeClasses presents a possibility that multiple data versions would be published under the same urn embedded in different Assertions. HTTP identifiers for BadgeClasses allows relying parties the best possible means to resolve possible differences to know which version best represents the current wishes of the issuer.
 - Delivering badges to recipients
-  - Typically, an Open Badge is made available to recipients through an email message or other notification that contains instructions and a mechanism for downloading the badge without signing up for any account. 
+  - Typically, an Open Badge is made available to recipients through an email message or other notification that contains instructions and a mechanism for downloading the badge without signing up for any account.
 - Recipient should be notified
   - Any badge recipient should be notified when a badge is issued to them. Notification should contain details and/or a link to critical information about the badge. Allow for unsubscription of future notifications. Abuse prevention is key here. Allow recipients to opt out of email from your service permanently.
 - Claiming badges by recipient
-  - Badge earners should have agency in whether they accept the badge issued to them. Give earners the opportunity to choose to receive (“claim”) the badge if they desire. You may designate an issued badge as “not yet claimed” within your service. 
+  - Badge earners should have agency in whether they accept the badge issued to them. Give earners the opportunity to choose to receive (“claim”) the badge if they desire. You may designate an issued badge as “not yet claimed” within your service.
   - Give recipients the choice to accept or reject the badge and options to express their acknowledgement or rejection. Rejection may mean deleting the badge and all associated data with it.
   - Consider implementing a reminder process if a recipient has not claimed their badge. This applies to systems that have account management as a function. Important to respect opt-out choices here.
-  - Consider obtaining acceptance from the recipient before publishing a signed assertion which, unlike hosted assertions, cannot be unpublished. 
+  - Consider obtaining acceptance from the recipient before publishing a signed assertion which, unlike hosted assertions, cannot be unpublished.
   - Implement a process that enables the reporting of abusive content.
   - Recipient identifier (email address or phone number) should be confirmed prior to the recipient doing other things with the badge like making it private or public.
 - Revoking badge assertions
-  - The revocation properties of Open Badges provide a mechanism by which a badge issuer may retract or nullify existing badge assertions. Revocation is an intentional act of a badge issuer and differs from the expiration date of a badge assertion, though both expiration and revocation are ways to communicate that the badge assertion is no longer current. 
+  - The revocation properties of Open Badges provide a mechanism by which a badge issuer may retract or nullify existing badge assertions. Revocation is an intentional act of a badge issuer and differs from the expiration date of a badge assertion, though both expiration and revocation are ways to communicate that the badge assertion is no longer current.
 - Maintaining hosted resources for badge verification
-  - A critical feature of Open Badges is the ability for consumers to verify the badge. Maintain necessary hosted verification resources for the entire useful life of issued badges. This requires services to maintain a high level of availability. 
+  - A critical feature of Open Badges is the ability for consumers to verify the badge. Maintain necessary hosted verification resources for the entire useful life of issued badges. This requires services to maintain a high level of availability.
   - Consider processes to prevent authorized BadgeClass owners from deleting existing BadgeClasses from which assertions have been issued. BadgeClasses are required resources for validating and verifying assertions. If the issuer does desire to invalidate all awarded assertions of the BadgeClass to be deleted, it is recommended to treat these assertions as revoked and supply a relevant revocationReason through the RevocationList or hosted Assertion verification URLs.
 
 #### Publishing Badges
 - Expectations of publishing badges
-  - The act of publishing a badge assertion means that the badge becomes a publicly accessible URL. 
+  - The act of publishing a badge assertion means that the badge becomes a publicly accessible URL.
 - Accessibility: Encouraging alt text for images
-  - The Image data object contains a “Caption” property which can be rendered as alt text for images. If a badge contains Caption data, consider using it to populate an image’s alt text field. 
+  - The Image data object contains a “Caption” property which can be rendered as alt text for images. If a badge contains Caption data, consider using it to populate an image’s alt text field.
 
 #### Ending Badge Services
 - When a badge service provider must close down its operations, there are a number of actions that are recommended to ensure continuity of service for the badge recipients. In order for previously-issued badges to remain valid, steps should be taken to ensure that those hosted resources that are necessary for the validation of the badges remain intact. If a badging service must be shut down, here are a number of actions to consider taking:
@@ -230,7 +232,7 @@ These recommended practices are in addition to the information provided in the s
   - Display the date of last verification.
   - Update system's verification record when viewers request reverification.
   - If the badge is not valid display human-readable error messages as best possible.
-  - If the badge data is not available, consider use of “Could not verify” message to account for cases of temporary unavailability (like server outages). 
+  - If the badge data is not available, consider use of “Could not verify” message to account for cases of temporary unavailability (like server outages).
   - Provide options for retrying verification in the event a resource was missing or otherwise unavailable.
   - Nuanced user-friendly messages in UI are recommended for various types of http responses; e.g. 503 vs 404 vs 410 gone with revocation.
 - Updating Assertions - On occasion, an already-issued assertion must be updated (e.g. newly available evidence in a hosted assertion). Consider the following:
@@ -241,7 +243,7 @@ These recommended practices are in addition to the information provided in the s
 #### Hosting Badges
 - Certification - Those interested in receiving IMS certification as Host should also strongly consider becoming certified as Displayer.
 - Collections - Hosts should allow badge recipients to group badges into collections or pages to present the badges together.
-- Extensions - Implement specific display functionality tailored to well-used extensions. 
+- Extensions - Implement specific display functionality tailored to well-used extensions.
 - JSON availability - Make JSON available to consumers who wish to view it.
 
 #### Importing Badges
@@ -263,7 +265,7 @@ These recommended practices are in addition to the information provided in the s
 #### Emerging Concepts and Concerns
 - Versioning
   - Badge Issuer: When a BadgeClass or Assertion is updated, use the version property to number your versions and provide references between them.
-  - Badge Host: Implement "version" detection for imported badges and relate between them. 
+  - Badge Host: Implement "version" detection for imported badges and relate between them.
   - Technical notes: There is much to be discovered about what a successful interaction between Issuer and Host for versioning BadgeClasses or Assertions looks like.
 
 
