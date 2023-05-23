@@ -77,8 +77,8 @@ conformance test suite to check product implementations. These identified
 algorithms will likely see the broadest early implementation within Open Badges.
 
 -   Linked Data Proofs using the [[[VC-DI-EDDSA]]]. Issuers produce an
-    `Ed25519Signature2020` proof referencing a key URL of a public key expressed
-    in `Ed25519VerificationKey2020` format as its verificationMethod.
+    `DataIntegrityProof` proof referencing a key URL of a public key expressed
+    in `eddsa-2022` format as its verificationMethod.
 -   JWTs with `RSA256` algorithm, with key material published as JSON Web Key
     (JWK).
 
