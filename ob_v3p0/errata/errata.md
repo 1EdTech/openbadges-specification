@@ -50,3 +50,4 @@ Previous versions of the context file will remain accessible, in order to keep b
 - Fixed `type` attribute of `Profile`s `parentOrg`.
 - Fixed `type` attribute of `Image`.
 - Fixed `@id` attribute of `Alignment`. Now points to `https://schema.org/AlignmentObject`.
+- Added `awardedDate` attribute to `VerifiableCredential`.
