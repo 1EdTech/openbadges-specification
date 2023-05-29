@@ -214,7 +214,7 @@ These extension are compatible with the new version of Open Badges and CLR. Howe
 
     This extension is not deprecated by the new version of the specs.
 
-- [Original Creator](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/extensions/index.html#-original-creator): This extension provides a way to track the origin of a badge when one organisation creates it for another. As the new version of the specs defines the `creator` property of an `Achievement`, this extension is, thus, deprecated. Section 2.4.1 Differentiating Issuers and Achievement Creators of [[OB-30]] details this behaviour.
+- [Original Creator](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/extensions/index.html#-original-creator): This extension provides a way to track the origin of a badge when one organisation creates it for another. As the new version of the specs defines the `source` property of an `AchievementSubject` for, this extension is, therefore, deprecated. New versions of the specs also defines the `creator` property of an `Achievement`. See Section 2.4.1 Differentiating Issuers and Achievement Creators of [[OB-30]] details this behaviour.
 
 
 #### Open Badge Extensions for Education
