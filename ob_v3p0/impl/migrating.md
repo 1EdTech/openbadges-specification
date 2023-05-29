@@ -190,3 +190,44 @@ were available with the implementation of the CLR 2.0 API. If there are existing
 clients or relying parties on the CLR 1.0 representations, the best path is to
 work with those clients to upgrade to 2.0 representations and transfer via API
 and then remove the 1.0 endpoints once a 2.0 channel has been established.
+
+### Open Badges Extensions
+
+Open Badges 2.0 extensions are community developed contributions to the Open Badges Specification. Althought these extensions are not part of the core specification, 1Edtech keeps a list of community extensions at https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/extensions/index.html#CommunityExtensions.
+
+These extension are compatible with the new version of Open Badges and CLR. However, some of these extensions are deprecated in favor of the spec itself.
+
+- [Apply Link](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/extensions/index.html#-apply-link): The apply link provides a url that allows potential badge earners to apply for an opportunity as specified by the badge issuer.
+
+    This extension is not deprecated by the new version of the specs.
+
+- [Endorsement](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/extensions/index.html#endorsement): Endorsement is part of the main specification since Open Badges 2.0.
+- [Geo Location](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/extensions/index.html#geo-location): This extension allows the addition of geographic coordinates associated with an OB 2.0's badge object. For example, geolocation could represent where a Badge Class is available, where a badge was earned or the location of an issuer. Some of the use cases are part of the main specification in the new versions of the specs. Precisely, the `Profile` entity – which represents an issuer or a creator of the achievement – contains the `address` property of type `Address` with the geographic coordinates.
+
+    However, this extension covers uses cases not covered by the main spec, like where the badge is available, or where a badge was earned. Therefore, implementors may use this extension to fulfill these requirements.
+
+- [Accessibilty](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/extensions/index.html#-accessibility): This extension allows the addition of the content for people with disabilities.
+
+    This extension is not deprecated by the new version of the specs.
+
+- [Creative Commons Content License](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/extensions/index.html#creative-commons-content-license): This extension enables issuers to indicate what permissions are granted to the public to reuse BadgeClass metadata in their own badges in terms of an expressive set of open content licenses that have broad global buy-in.
+
+    This extension is not deprecated by the new version of the specs.
+
+- [Original Creator](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/extensions/index.html#-original-creator): This extension provides a way to track the origin of a badge when one organisation creates it for another. As the new version of the specs defines the `creator` property of an `Achievement`, this extension is, thus, deprecated. Section 2.4.1 Differentiating Issuers and Achievement Creators of [[OB-30]] details this behaviour.
+
+
+#### Open Badge Extensions for Education
+
+Among Open Badges 2.0 extensions there are two of them that have been authored 1EdTech initiatives:
+
+- [Issuer Accreditation](https://www.imsglobal.org/1edtech-badge-extensions-education#accreditation-extension): This extension provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile.
+
+    Some of the attributes defined in the extension are part of the `Profile` entity in the new version of the specs, making them redundant when trying to use this extension in Open Badges 3.0 and CLR 2.0. These are mainly the properties related to location. Others attributes, like `logo`, `contactInstructions`, `educationalSector` and `accreditationDate` are still unique in the extension, as they aren't covered in the main specs.
+
+    This extension is not deprecated by the new version of the specs, though it's recommended to use only those attributes not in the main spec.
+
+
+- [Assessment](https://www.imsglobal.org/1edtech-badge-extensions-education#assessment-extension): This extension provides information about single or multiple assessments that would be completed by the recipient as part of the requirements for earning an OpenBadge. There could be multiple assessments of different types for each badge earned. Separate, independent evaluations of a single assessment could result in multiple assessment/evaluation records, all included in a single instance of the extension.
+
+    This extension is not deprecated by the new version of the specs.
