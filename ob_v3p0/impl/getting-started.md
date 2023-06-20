@@ -78,7 +78,7 @@ conformance certification as shown below. See
 for a detailed discussion on the management of keys and creation of signatures.
 
 An example of a JSON-LD representation of an issuer profile follows, that uses
-the EdDSA Cryptosuite 2020 option for signing credentials:
+the EdDSA Cryptosuite 2022 option for signing credentials:
 
 ```jsonld
 {
