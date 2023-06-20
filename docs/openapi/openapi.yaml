@@ -1874,6 +1874,10 @@ components:
           description: A value chosen by the creator of proof to randomize proof values
             for privacy purposes.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+        cryptosuite:
+          type: string
+          description: The suite used to create the proof.
+          x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
       additionalProperties: true
       description: A JSON-LD Linked Data proof.
       x-class-pid: org.1edtech.ob.v3p0.proof.class
