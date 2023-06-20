@@ -59,7 +59,7 @@ indicates with the `Accept` HTTP header.
     required properties from
     [Profile](https://www.imsglobal.org/spec/ob/v3p0#profile), and a
     representation of the public key component of the keypair this issuer uses
-    to sign credentials in selected `JWK` or `Ed25519VerificationKey2020`
+    to sign credentials in selected `JWK` or `eddsa-2022`
     format. See
     [Dereferencing the Public Key](https://www.imsglobal.org/spec/ob/v3p0#dereference)
 -   When a client requests `Accept: */*` or `application/html`, an HTML
@@ -86,7 +86,7 @@ the EdDSA Cryptosuite 2020 option for signing credentials:
 		"https://www.w3.org/ns/did/v1",
 		"https://www.w3.org/2018/credentials/v1",
 		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-		"https://w3id.org/security/suites/ed25519-2020/v1"
+		"https://w3id.org/security/data-integrity/v1"
 	],
 	"id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
 	"type": "Profile",
@@ -96,7 +96,8 @@ the EdDSA Cryptosuite 2020 option for signing credentials:
 	"email": "info@example.com",
 	"verificationMethod": [{
 		"id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774#key-0",
-		"type": "Ed25519VerificationKey2020",
+		"type": "DataIntegrityProof",
+        "cryptosuite": "eddsa-2022",
 		"controller": "https://example.com/issuer/123",
 		"publicKeyMultibase": "z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP"
 	}]
@@ -272,7 +273,7 @@ which upon activation yields a signed verifiable credential like the following.
 	"@context": [
 		"https://www.w3.org/2018/credentials/v1",
 		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-		"https://w3id.org/security/suites/ed25519-2020/v1"
+		"https://w3id.org/security/data-integrity/v1"
 	],
 	"id": "urn:uuid:a9fc82eb-416f-47c3-8786-de890331d4a5",
 	"type": [
@@ -326,7 +327,8 @@ which upon activation yields a signed verifiable credential like the following.
 		}
 	},
 	"proof": [{
-		"type": "Ed25519Signature2020",
+		"type": "DataIntegrityProof",
+        "cryptosuite": "eddsa-2022",
 		"created": "2022-12-15T16:56:16Z",
 		"verificationMethod": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774#key-0",
 		"proofPurpose": "assertionMethod",

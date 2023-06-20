@@ -136,18 +136,18 @@ Verifiers that receive a OpenBadgeCredential in Compact JWS format MUST perform 
 
 ### Linked Data Proof Format {#lds-proof}
 
-This standard supports the Linked Data Proof format using the [[[LDS-ED25519-2020]]] suite.
+This standard supports the Linked Data Proof format using the [[[VC-DI-EDDSA]]] suite.
 
 <div class="note">
-  Whenever possible, you should use a library or service to create and verify a Linked Data Proof. For example, Digital Bazaar, Inc. has a GitHub project that implements the [[[LDS-ED25519-2020]]] suite at <a href="https://github.com/digitalbazaar/ed25519-signature-2020">https://github.com/digitalbazaar/ed25519-signature-2020</a>).
+  Whenever possible, you should use a library or service to create and verify a Linked Data Proof. For example, Digital Bazaar, Inc. has a GitHub project that implements the [[[VC-DI-EDDSA]]] eddsa-2022 suite at [https://github.com/digitalbazaar/eddsa-2022-cryptosuite](https://github.com/digitalbazaar/eddsa-2022-cryptosuite).
 </div>
 
 #### Create the Proof
 
 Perform these steps to attach a Linked Data Proof to the credential:
 
-1. Create an instance of [Ed25519VerificationKey2020](#ed25519verificationkey2020) as shown in [Section 3.1.1 Ed25519VerificationKey2020](https://w3c-ccg.github.io/lds-ed25519-2020/#ed25519verificationkey2020) of [[LDS-ED25519-2020]].
-1. Using the key material, sign the credential object as shown in [Section 7.1 Proof Algothim](https://w3c-ccg.github.io/data-integrity-spec/#proof-algorithm) of [[DATA-INTEGRITY-SPEC]] to produce a [Proof](#proof) as shown in [Section 3.2.1 Ed25519 Signature 2020](https://w3c-ccg.github.io/lds-ed25519-2020/#ed25519-signature-2020) with a \`proofPurpose\` of "assertionMethod".
+1. Create an instance of [DataIntegrityProof](#dataintegrityproof) as shown in [Section 2.2.1 DataIntegrityProof](https://www.w3.org/TR/vc-di-eddsa/#dataintegrityproof) of [[VC-DI-EDDSA]].
+1. Using the key material, sign the credential object as shown in [Section 7.1 Proof Algothim](https://w3c-ccg.github.io/data-integrity-spec/#proof-algorithm) of [[DATA-INTEGRITY-SPEC]] to produce a [Proof](#proof) as shown in [Section 2.2.1 DataIntegrityProof](https://www.w3.org/TR/vc-di-eddsa/#dataintegrityproof) of [[VC-DI-EDDSA]] with a \`proofPurpose\` of "assertionMethod".
 1. Add the resulting proof object to the credential \`proof\` property.
 
 #### Verify an OpenBadgeCredential Linked Data Signature {#lds-verify}

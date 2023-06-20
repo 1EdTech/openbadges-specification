@@ -64,8 +64,7 @@ var _localBiblio = {
     publisher: "1EdTech",
   },
   "CLR-CERT-20": {
-    title:
-      "Comprehensive Learner Record Conformance and Certification Guide v2.0",
+    title: "Comprehensive Learner Record Conformance and Certification Guide v2.0",
     href: "https://www.imsglobal.org/spec/clr/v2p0/cert/",
     status: "IMS Base Document",
     publisher: "1EdTech",
@@ -175,12 +174,6 @@ var _localBiblio = {
 
     status: "Candidate Final Public",
     publisher: "1EdTech",
-  },
-  "LDS-ED25519-2020": {
-    title: "Ed25519 Signature 2020",
-    href: "https://w3c-ccg.github.io/lds-ed25519-2020/",
-    status: "Draft Community Group Report",
-    publisher: "W3C Credentials Community Group",
   },
   "VC-STATUS-2021": {
     title: "Credential Status List 2021",

@@ -29,5 +29,5 @@ VC proofs are discussed in both the Data Model and Implementation Guide above.
 
 The [Suite Registry](https://w3c-ccg.github.io/ld-cryptosuite-registry/) appears to be out-of-date. Here are some other Linked Data Cryptographic Suites.
 
-- [Ed25519 Signature 2020](https://w3c-ccg.github.io/lds-ed25519-2020/), W3C Community Group Draft Report
+- [[[VC-DI-EDDSA]]], W3C Community Group Draft Report
   > This specification describes an Ed25519 Signature Suite created in 2020 for the Linked Data Proof specification. The Signature Suite utilizes Ed25519 EdDSA signatures and multibase.
