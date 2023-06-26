@@ -197,7 +197,7 @@ Open Badges 2.0 extensions are community developed contributions to the Open Bad
 
 These extension are compatible with the new version of Open Badges and CLR with some minor changes. However, some of these extensions are deprecated in favor of the spec itself.
 
-The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, the addition of this type in the `@type` property of the extension is discouraged.
+The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, the addition of this type in the `@type` property of the extension is discouraged. Also, derived from the alignment with W3c's Verifiable Credentials, it's recommended to define the `@context` of the extension alongside the remaining contexts in the root element.
 
 - [Apply Link](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#-apply-link): The apply link provides a url that allows potential badge earners to apply for an opportunity as specified by the badge issuer.
 
