@@ -193,9 +193,11 @@ and then remove the 1.0 endpoints once a 2.0 channel has been established.
 
 ### Open Badges Extensions
 
+[Open Badges 3.0](http://www.imsglobal.org/spec/ob/v3p0#extending) and [Comprehensive Learner Record 2.0](http://www.imsglobal.org/spec/clr/v2p0#extending) allows extensibility in several ways: data model, extensible enumerated vocabularies and API.
+
 Open Badges 2.0 extensions are community developed contributions to the Open Badges Specification. Althought these extensions are not part of the core specification, 1Edtech keeps a list of community extensions at https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#CommunityExtensions.
 
-These extension are compatible with the new version of Open Badges and CLR with some minor changes. However, some of these extensions are deprecated in favor of the spec itself.
+These extension are compatible with the new version of Open Badges and CLR with some minor changes. Precisely, they are an extension of the data model. However, some of these extensions are deprecated in favor of the spec itself.
 
 The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, the addition of this type in the `@type` property of the extension is discouraged. Also, derived from the alignment with W3c's Verifiable Credentials, it's recommended to define the `@context` of the extension alongside the remaining contexts in the root element.
 
