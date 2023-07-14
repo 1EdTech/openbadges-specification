@@ -26,7 +26,11 @@ Previous versions of the context file will remain accessible, in order to keep b
 </div>
 
 #### version 3.0.2
+- Added `@protected` to all `@context`.
+- `"@type": "xsd:string"`` was removed where it appears. This is the default type, but in rare cases, processing systems handle an explicit declaration of this type differently from allowing the default. For VCs, it is considered more reliable to just allow the default to be applied.
+- `id` and `type`` aliases are redeclared in every context. This avoids a narrow type of attack where somebody might place a context that redeclares these terms in between the top layer and a class-specific layer of a credential, changing the values of these terms within the class implementation.
 - Changed `@container` of `allowedValue` from `@set` to `@list`, as `allowedValue` is an ordered list.
+-`@id` of `image` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#Image`. This prevent a redefinition of the term, since its previous value was incorrectly equals to `Achievement.image`.
 
 #### version 3.0.1
 
