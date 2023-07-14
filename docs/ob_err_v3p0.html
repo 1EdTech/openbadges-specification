@@ -194,9 +194,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "specNature": "informative",
   "specType": "errata",
   "specVersion": "3.0",
-  "docVersion": "1.3",
+  "docVersion": "1.4",
   "specStatus": "Candidate Final Public",
-  "specDate": "May 25, 2023",
+  "specDate": "July 14, 2023",
   "contributors": [
     {
       "name": "Nate Otto",
@@ -559,11 +559,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <tbody>
       <tr>
         <td>Document Version:</td>
-        <td>1.3</td>
+        <td>1.4</td>
       </tr>
       <tr>
         <td>Date Issued:</td>
-        <td>May 25, 2023</td>
+        <td>July 14, 2023</td>
       </tr>
       <tr>
         <td>Status:</td>
@@ -651,8 +651,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </blockquote><p>According to this policy, this section recaps all the changes made to the context file which constitute a breaking change, and therefore, a new version of the file.</p><div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="5"><span>Note</span></div><div class="">
 Previous versions of the context file will remain accessible, in order to keep backwards compatibility with existing credentials. However, it's recommended to refer to the newest version of the file.
 </div></div></section><section id="version-3-0-2-0"><h4 id="version-3-0-2"><bdi class="secno">1.1.2 </bdi>version 3.0.2<a class="self-link" aria-label="§" href="#version-3-0-2"></a><a class="self-link" aria-label="§" href="#version-3-0-2"></a></h4><ul>
+<li>Added <code>@protected</code> to all <code>@context</code>.</li>
+<li>`"@type": "xsd:string"`` was removed where it appears. This is the default type, but in rare cases, processing systems handle an explicit declaration of this type differently from allowing the default. For VCs, it is considered more reliable to just allow the default to be applied.</li>
+<li><code>id</code> and `type`` aliases are redeclared in every context. This avoids a narrow type of attack where somebody might place a context that redeclares these terms in between the top layer and a class-specific layer of a credential, changing the values of these terms within the class implementation.</li>
 <li>Changed <code>@container</code> of <code>allowedValue</code> from <code>@set</code> to <code>@list</code>, as <code>allowedValue</code> is an ordered list.</li>
-</ul></section><section id="version-3-0-1-0"><h4 id="version-3-0-1"><bdi class="secno">1.1.3 </bdi>version 3.0.1<a class="self-link" aria-label="§" href="#version-3-0-1"></a><a class="self-link" aria-label="§" href="#version-3-0-1"></a></h4><ul>
+</ul><p>-<code>@id</code> of <code>image</code> now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#Image</code>. This prevent a redefinition of the term, since its previous value was incorrectly equals to <code>Achievement.image</code>.</p></section><section id="version-3-0-1-0"><h4 id="version-3-0-1"><bdi class="secno">1.1.3 </bdi>version 3.0.1<a class="self-link" aria-label="§" href="#version-3-0-1"></a><a class="self-link" aria-label="§" href="#version-3-0-1"></a></h4><ul>
 <li>Fixed <code>Achievement</code>'s <code>creator</code> IRI. Now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#creator</code></li>
 <li>Fixed <code>AchievementSubject</code>'s <code>achievement</code> IRI. Now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#achievement-0</code></li>
 <li>Fixed <code>Profiles</code>'s <code>phone</code> IRI. Now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#phone</code></li>
@@ -708,6 +711,14 @@ Previous versions of the context file will remain accessible, in order to keep b
                         <td>Version 3.0 IMS Candidate Final</td>
                         <td>1.3</td>
                         <td>May 25, 2023</td>
+                        <td>
+                            Added changes in context.json file
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Version 3.0 IMS Candidate Final</td>
+                        <td>1.4</td>
+                        <td>July 14, 2023</td>
                         <td>
                             Added changes in context.json file
                         </td>
@@ -969,7 +980,7 @@ function hidePanel(panel) {
         Please refer to Document Name: Open Badges Errata
         3.0
       </p>
-      <p>Date: May 25, 2023</p>
+      <p>Date: July 14, 2023</p>
       <div></div>
     </div>
   </footer></body></html>
