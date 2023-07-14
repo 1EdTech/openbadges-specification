@@ -25,6 +25,9 @@ According to this policy, this section recaps all the changes made to the contex
 Previous versions of the context file will remain accessible, in order to keep backwards compatibility with existing credentials. However, it's recommended to refer to the newest version of the file.
 </div>
 
+#### version 3.0.2
+- Changed `@container` of `allowedValue` from `@set` to `@list`, as `allowedValue` is an ordered list.
+
 #### version 3.0.1
 
 - Fixed `Achievement`'s `creator` IRI. Now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#creator`
