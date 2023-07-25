@@ -1577,7 +1577,7 @@ components:
           type: array
           description: "The value of the `@context` property MUST be an ordered set\
             \ where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1',\
-            \ and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json'."
+            \ and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json'."
           items:
             $ref: '#/components/schemas/Context'
           x-srcprop-pid: org.1edtech.ob.v3p0.context.class
@@ -1942,7 +1942,7 @@ components:
           type: array
           description: "The value of the `@context` property MUST be an ordered set\
             \ where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1',\
-            \ and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json'."
+            \ and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json'."
           items:
             $ref: '#/components/schemas/Context'
           x-srcprop-pid: org.1edtech.ob.v3p0.context.class
@@ -2085,7 +2085,7 @@ components:
           description: An identifier for the Credential Subject. Either `id` or at
             least one `identifier` MUST be supplied.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
-      additionalProperties: false
+      additionalProperties: true
       description: "A collection of information about the recipient of an achievement.\
         \ Maps to Credential Subject in [[VC-DATA-MODEL]]."
       x-class-pid: org.1edtech.ob.v3p0.achievementsubject.class
