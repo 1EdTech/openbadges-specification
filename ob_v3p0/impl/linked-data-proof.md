@@ -145,7 +145,7 @@ _:c14n0 <https://w3id.org/security#proofPurpose> <https://w3id.org/security#asse
 _:c14n0 <https://w3id.org/security#verificationMethod> <https://example.com/issuers/876543#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi> .
 ```
 
-### Document normalized
+### Document normalized
 ```xml
 <did:example:ebfeb1f712ebc6f1c276e12ec21> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://purl.imsglobal.org/spec/vc/ob/vocab.html#AchievementSubject> .
 <did:example:ebfeb1f712ebc6f1c276e12ec21> <https://purl.imsglobal.org/spec/vc/ob/vocab.html#Achievement> <https://example.com/achievements/21st-century-skills/teamwork> .
