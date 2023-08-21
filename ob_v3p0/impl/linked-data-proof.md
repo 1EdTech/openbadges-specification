@@ -9,7 +9,7 @@ For this example we are using the following keypair:
 * Private key (hex): `6241a409e6707bb640a0140a8a32bc3d193c33a661747284d6adfa4ed4180be44bdeafde2ea8beefadd8c699b5c7e0704cf51154d52e17b20b71337ca04cc5a5`
 
 The `MultiKey` used in this example is as follows:
-```json
+```js
  {
   id: 'https://example.com/issuers/876543#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi',
   controller: 'https://example.com/issuers/876543',
