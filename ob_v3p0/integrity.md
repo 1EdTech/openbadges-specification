@@ -136,7 +136,7 @@ Verifiers that receive a OpenBadgeCredential in Compact JWS format MUST perform 
 
 ### Linked Data Proof Format {#lds-proof}
 
-This standard supports the Linked Data Proof format using the [[[VC-DI-EDDSA]]] suite.
+This standard supports the Linked Data Proof format. In order to opt for this format you MUST use the [[[VC-DI-EDDSA]]] suite.
 
 <div class="note">
   Whenever possible, you should use a library or service to create and verify a Linked Data Proof. For example, Digital Bazaar, Inc. has a GitHub project that implements the [[[VC-DI-EDDSA]]] eddsa-2022 suite at <a href="https://github.com/digitalbazaar/eddsa-2022-cryptosuite">https://github.com/digitalbazaar/eddsa-2022-cryptosuite</a>.
