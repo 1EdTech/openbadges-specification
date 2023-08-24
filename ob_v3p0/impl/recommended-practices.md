@@ -822,3 +822,80 @@ skills.
     ]
 }
 </pre>
+
+### Including additional recipient profile information
+
+Sometimes issuers want credentials to be shareable to audiences who are not
+capable of authenticating subjects via an identifier such as a DID. Many of
+these use cases may be served by including one or more email identifiers. (Only
+partial data is shown for clarity, for example omitting the `achievement` claim
+within `credentialSubject`.)
+
+<pre class="json example" title="Email identifier in credential subject">
+{
+    "credentialSubject": {
+        "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+        "type": "AchievementSubject",
+        "identifier": [
+            {
+                "type": "IdentityObject",
+                "hashed": false,
+                "identityHash": "a.exampleton@example.edu",
+                "identityType": "emailAddress"
+            }
+        ]
+    }
+}
+</pre>
+
+If the known email address for the user is expected to no longer be a useful
+source of authentication, such as if the user loses access to a work or
+university email after leaving that organization (perhaps 6 months after
+graduation), an issuer may wish to provide additional identifying information,
+such as a name.
+
+<pre class="json example" title="Name identifier in credential subject">
+{
+    "credentialSubject": {
+        "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+        "type": "AchievementSubject",
+        "identifier": [
+            {
+                "type": "IdentityObject",
+                "hashed": false,
+                "identityHash": "Albert Exampleton",
+                "identityType": "ext:name"
+            }
+        ]
+    }
+}
+</pre>
+
+Inclusion of additional personally identifiable information about the subject,
+especially with `"hashed": false`, reduces the potential anonymity of the
+subject. Those with whom the credential is shared may share it to others, who
+would be able to view this identifying information. While sharing typically
+passes through control of the subject/holder, different issuers may weigh the
+potential benefits of including this information against the risks of
+unauthorized disclosure.
+
+If issuers desire to include much more information about the subject in the
+credential, they may add the `Profile` type and include additional properties
+from Profile. The above approach using IdentityObject is expected to be more
+broadly usable, because displayers of `OpenBadgeCredentials` will expect this
+type of data. Additional data from `Profile` is not expected directly within
+`credentialSubject`, so it is less likely that displayers would build custom
+handling for these unexpected properties. An "advanced" view where users may
+review the JSON data directly may be included in some displayer products, in
+which case viewers would be able to review this information more directly.
+
+<pre class="json example" title="Given name and family name credential subject with Profile">
+{
+    "credentialSubject": {
+        "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+        "type": ["AchievementSubject", "Profile"],
+        "givenName": "Albert",
+        "familyName": "Exampleton"
+    }
+}
+</pre>
