@@ -363,6 +363,10 @@ Follow the steps in the Conformance Certification Guide for the
 [issuer role](https://www.imsglobal.org/spec/ob/v3p0#conformance-and-certification-guide)
 to submit a downloaded signed credential like the above for conformance checks.
 
+<div class="note">
+  You can review Issuer's best practices in its <a href="#issuer">own section</a>.
+</div>
+
 ### API quickstart
 
 The API of Open Badges 3.0 and Comprehensive Learner Record 2.0 is divided into
