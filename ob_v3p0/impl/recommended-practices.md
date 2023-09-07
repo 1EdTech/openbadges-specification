@@ -9,7 +9,9 @@ can collectively improve our implementations and guidance.
 Below are a variety of recommended practices and considertions for the
 implementation of the Open Badges and CLR specification.
 
-### Selecting recipient and issuer identifiers, such as DID methods
+### Issuer
+
+#### Selecting recipient and issuer identifiers, such as DID methods
 
 Both issuers and recipients (credential subjects) of Open Badges and CLR
 credentials may be identified with a range of identifiers.
@@ -59,7 +61,7 @@ working together through cooperation and communication will create the
 opportunities for others to make compatible implementation choices as well as
 inform future normative specification versions.
 
-### Selecting proof methods and crypto algorithms
+#### Selecting proof methods and crypto algorithms
 
 The OB and CLR specifications define some requirements around the signing or
 proving of credentials (see
@@ -83,10 +85,12 @@ algorithms will likely see the broadest early implementation within Open Badges.
     (JWK).
 
 A step-by-step guide to signing an OB or CLR is provided in the OB specification
-section on [Proofs](https://www.imsglobal.org/spec/ob/v3p0#data-integrity). In
-order to achieve certification, implementers must be able to pass conformance
-testing with one of the listed methods, but it is expected that the ecosystem
-will grow as issuers, verifiers, and other services explore new approaches.
+section on [Proofs](https://www.imsglobal.org/spec/ob/v3p0#data-integrity).
+Additionaly, this guide provides a test vector for checking your signing
+algorithm at [](#linked-data-proof-test-vector). In order to achieve certification,
+implementers must be able to pass conformance testing with one of the listed
+methods, but it is expected that the ecosystem will grow as issuers, verifiers,
+and other services explore new approaches.
 
 It is important to not only prevent unauthorized access to keys and application
 processes that can trigger signing. At least as important to keeping the signing
@@ -111,7 +115,7 @@ include:
     -   JWT signing with RSA family keys may have broader support in systems
         like this across all major cloud vendors offering a KMS.
 
-### Publishing `Achievement` definitions and selecting `Achievement` identifiers
+#### Publishing `Achievement` definitions and selecting `Achievement` identifiers
 
 Arguably the most important field for an `Achievement` is the `id`, the
 creator's primary identifier for that achievement. It is expressed as a URI. Two
@@ -173,6 +177,215 @@ will primarily focus on verifying the integrity of the proof on each credential
 without assumed capacity to verify other relationships represented deeply within
 these credentials even if OB 3.0 had included such a mechanism in its scope.
 
+
+#### Managing credential status and revocation
+
+The ability to mark a credential as revoked is an important capability for many
+organizations that make use of Open Badges and CLR. The [[[VC-DATA-MODEL]]]
+offers an extensible mechanism by which a credential status resource may be
+exposed within a credential. Various use cases and solutions have been developed
+to enable credential status checking with a range of capabilities and
+implications. OB and CLR reference optional 1EdTech extensions supporting
+verifiers in obtaining updated representations of credentials and checking for
+revocation. Issuers and verifiers need to support a common mechanism in order
+for status checking to work, and yet issuers often need to produce the
+credential without knowing which other parties might someday rely on it or what
+methods those verifiers may support. Here are some mechanisms identified by the
+implementing community for status and revocation management.
+
+-   The [[[VCRL-10]]] accompanies the OB and CLR specifications. This enables
+    verifiers to query for status results without revealing to the issuer which
+    specific credential's status is being checked. It does reveal to the
+    requester a list of credential IDs claimed by the issuer to be associated
+    with it, though it is not assumed to be exhaustive or accurate except to
+    indicate the status of the credential known to the requester, because
+    issuers may use multiple lists concurrently, packaged with different sets of
+    credentials and red herrings may appear in some lists. The 1EdTech
+    certification process and validator software will support this status
+    checking method. A reason for revocation may be available for a revoked
+    credential.
+-   The [[[VCCR-10]]] also accompanies the OB and CLR specifications and enables
+    fetching of an updated version of a credential under inspection by a
+    verifier. The 1EdTech verifier tools will request updated version if such an
+    endpoint is indicated in the badge. There is no approach to authentication
+    or variable authorization defined in this specification, so if an issuer
+    uses it, it is presumed that any client could request the latest version of
+    the credential from this endpoint if they knew the correct URL. Future
+    versions of this specification may serve use cases that require more
+    in-depth protection of refresh endpoints.
+-   Another option in the space is the [[[VC-STATUS-2021]]] specification, which
+    was adopted as a standards-track specification by the VCWG on December
+    14th 2022. This protocol enables an issuer to publish a compactly encoded
+    list of status indicator bits covering many credentials at once in an
+    unnamed order. Within each issued credential, the issuer includes a pointer
+    to a specific bit within the bulk status list. This enables verifiers to
+    efficiently query for status results without revealing which specific
+    credential's status is being checked. It does not feature the ability to
+    retrieve a revocation reason for a revoked credential, nor does it provide a
+    refreshed version of the credential consistent with the issuer's latest
+    status data, features that are sometimes bundled with revocation.
+
+#### Alignment with CASE items
+
+[[[CASE-10]]] [[CASE-10]] specification defines how systems exchange and manage
+information about learning standards and/or competencies in a consistent and
+referenceable way.
+
+[[CASE-10]] defines an information model consisting in, briefly, a container
+(`CFDoc`) of a set of academic standard/competency document definitions
+(`CFItem`). These `CFItem` can have associations with others `CFItem` of another
+containers, allowing several types of relationships between learning
+objectives/competences from one institution and another.
+
+In Open Badges and Comprehensive Learner Record, the recording of related
+skills, competencies, standards, and other associations are enabled by the
+`alignment` of an `Achievement`. This field defines the fields for univocally
+establish a connection between the `Achievement` and a node in an educational
+framework, i.e `CFItem`.
+
+<pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    data-allowadditionalproperties="false" title="Achievement alignment (CASE)">
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": ["VerifiableCredential", "OpenBadgeCredential"],
+  "issuer": {
+    "id": "https://example.edu/issuers/565049",
+    "type": "Profile",
+    "name": "Example University"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "name": "Example University Degree",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": "AchievementSubject",
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/1",
+      "type": "Achievement",
+      "criteria": {
+        "narrative": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain"
+      },
+      "description": "Analyze a sample text",
+      "name": "Text analysis",
+      "alignment": [{
+        "type": "Alignment",
+        "targetCode": "74f5bb7d-d7cc-11e8-824f-0242ac160002",
+        "targetFramework": "Alabama Course of Study: English Language Arts",
+        "targetName": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain",
+        "targetType": "CFItem",
+        "targetUrl": "https://caseregistry.imsglobal.org/uri/74f5bb7d-d7cc-11e8-824f-0242ac160002"
+      }]
+    }
+  }
+}
+</pre>
+
+#### Skills
+
+A Skill Assertion credential is just like a basic `OpenBadgeCredential` in how
+an `Achievement` is included, except that it makes a claim referencing an
+`Achievement` that is generic to allow for use by many possible issuers. The
+`Achievement` may describe alignment to external competency or skill
+definitions, such as a `CFItem`, but the most important aspect of the skill
+assertion pattern is the shared use of a common achievement that represents a
+skill or competency across multiple `OpenBadgeCredential` issuers.
+
+This usage of shared achievements enables consumers to describe specific
+achievements that they would like learners to hold without being particular
+about where the learner obtains a credential certifying that achievement. This
+recognizes the many pathways that lifelong learners find to attain comparable
+skills.
+
+<pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    data-allowadditionalproperties="false" title="Skill Assertion (Credential Registry)">
+{
+    "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
+        "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
+    ],
+    "id": "http://1edtech.edu/credentials/3732",
+    "type": ["VerifiableCredential", "OpenBadgeCredential"],
+    "name": "Solve and graph linear equations and inequalities",
+    "credentialSubject": {
+        "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+        "type": "AchievementSubject",
+        "achievement": {
+            "id": "https://example.com/achievements/math/linear-1",
+            "type": "Achievement",
+            "achievementType": "Competency",
+            "creator": {
+                "id": "https://example.com/issuers/123767",
+                "type": "Profile",
+                "name": "Example Industry Group",
+                "url": "https://example.com",
+                "description": "Example Industry Group is a consortium of luminaries who publish skills data for common usage.",
+                "email": "info@exammple.com"
+            },
+            "criteria": {
+                "narrative": "Learners must demonstrate understanding of linear algebra and graphic representation of linear equations."
+            },
+            "description": "This achievement represents developing capability to solve and graph linear equations and inequalities",
+            "image": {
+                "id": "https://example.com/achievements/math/linear-1/image",
+                "type": "Image",
+                "caption": "A line, sloping upward optimistically"
+            },
+            "name": "Linear equations and inequalities"
+        }
+    },
+    "issuer": {
+        "id": "https://1edtech.edu/issuers/565049",
+        "type": "Profile",
+        "name": "1EdTech University",
+        "url": "https://1edtech.edu",
+        "phone": "1-222-333-4444",
+        "description": "1EdTech University provides online degree programs.",
+        "image": {
+            "id": "https://1edtech.edu/logo.png",
+            "type": "Image",
+            "caption": "1EdTech University logo"
+        },
+        "email": "registrar@1edtech.edu"
+    },
+    "issuanceDate": "2022-07-01T00:00:00Z",
+    "credentialSchema": [
+        {
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }
+    ]
+}
+</pre>
+
+### Displayer
+
+#### Cryptosuites in Linked Data Proofs
+
+Linked data proofs imply the use of a cryptosuite for its generation and
+further verification. The Open Badges 3.0 and Comprehensive
+Learner Record 2.0 specifications define the cryptosuite to use.
+
+However, this designed cryptosuite may change over time, as a response
+to future needs, such cryptographic evolutions, etc.
+
+The change of the cryptosuite has impact in newly issued credentials. But
+there are already issued credentials with a proof generated using a now old
+cryptosuite. Verifiers should support prior cryptosuites, specially when the
+credential doesn't define the refresh service. In that case, is argually that
+the issuer will provide a refreshed version of the credential with a proof
+computed with the current designed cryptosuite.
+
+Prior designed cryptosuites in both OB 3.0 and CLR 2.0 were:
+
+- `eddsa-2022`
+- `Ed25519Signature2020`
+
+### Host
+
 ### Sharing Open Badges and CLR Links as URLs and to Social Media
 
 > Gene receives an Open Badge for the completion of a certificate program and
@@ -204,7 +417,7 @@ Recommendations for the use of share URLs include:
     enable the presentation of Use [Open Graph Protocol](https://ogp.me) tags on
     the sharing URLs to enable easy generation of card previews.
 
-#### Open Badges API recommendations
+### Open Badges 3.0 API recommendations
 
 Consider the following example two products using the OB 3.0 API to interact:
 
@@ -427,185 +640,3 @@ connection protocols include:
     risks, such as any loss of data or verifiability that might be caused by
     losing a physical device.
 
-### Managing credential status and revocation
-
-The ability to mark a credential as revoked is an important capability for many
-organizations that make use of Open Badges and CLR. The [[[VC-DATA-MODEL]]]
-offers an extensible mechanism by which a credential status resource may be
-exposed within a credential. Various use cases and solutions have been developed
-to enable credential status checking with a range of capabilities and
-implications. OB and CLR reference optional 1EdTech extensions supporting
-verifiers in obtaining updated representations of credentials and checking for
-revocation. Issuers and verifiers need to support a common mechanism in order
-for status checking to work, and yet issuers often need to produce the
-credential without knowing which other parties might someday rely on it or what
-methods those verifiers may support. Here are some mechanisms identified by the
-implementing community for status and revocation management.
-
--   The [[[VCRL-10]]] accompanies the OB and CLR specifications. This enables
-    verifiers to query for status results without revealing to the issuer which
-    specific credential's status is being checked. It does reveal to the
-    requester a list of credential IDs claimed by the issuer to be associated
-    with it, though it is not assumed to be exhaustive or accurate except to
-    indicate the status of the credential known to the requester, because
-    issuers may use multiple lists concurrently, packaged with different sets of
-    credentials and red herrings may appear in some lists. The 1EdTech
-    certification process and validator software will support this status
-    checking method. A reason for revocation may be available for a revoked
-    credential.
--   The [[[VCCR-10]]] also accompanies the OB and CLR specifications and enables
-    fetching of an updated version of a credential under inspection by a
-    verifier. The 1EdTech verifier tools will request updated version if such an
-    endpoint is indicated in the badge. There is no approach to authentication
-    or variable authorization defined in this specification, so if an issuer
-    uses it, it is presumed that any client could request the latest version of
-    the credential from this endpoint if they knew the correct URL. Future
-    versions of this specification may serve use cases that require more
-    in-depth protection of refresh endpoints.
--   Another option in the space is the [[[VC-STATUS-2021]]] specification, which
-    was adopted as a standards-track specification by the VCWG on December
-    14th 2022. This protocol enables an issuer to publish a compactly encoded
-    list of status indicator bits covering many credentials at once in an
-    unnamed order. Within each issued credential, the issuer includes a pointer
-    to a specific bit within the bulk status list. This enables verifiers to
-    efficiently query for status results without revealing which specific
-    credential's status is being checked. It does not feature the ability to
-    retrieve a revocation reason for a revoked credential, nor does it provide a
-    refreshed version of the credential consistent with the issuer's latest
-    status data, features that are sometimes bundled with revocation.
-
-### Alignment with CASE items
-
-[[[CASE-10]]] [[CASE-10]] specification defines how systems exchange and manage
-information about learning standards and/or competencies in a consistent and
-referenceable way.
-
-[[CASE-10]] defines an information model consisting in, briefly, a container
-(`CFDoc`) of a set of academic standard/competency document definitions
-(`CFItem`). These `CFItem` can have associations with others `CFItem` of another
-containers, allowing several types of relationships between learning
-objectives/competences from one institution and another.
-
-In Open Badges and Comprehensive Learner Record, the recording of related
-skills, competencies, standards, and other associations are enabled by the
-`alignment` of an `Achievement`. This field defines the fields for univocally
-establish a connection between the `Achievement` and a node in an educational
-framework, i.e `CFItem`.
-
-<pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
-    data-allowadditionalproperties="false" title="Achievement alignment (CASE)">
-{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json"
-  ],
-  "id": "http://example.edu/credentials/3732",
-  "type": ["VerifiableCredential", "OpenBadgeCredential"],
-  "issuer": {
-    "id": "https://example.edu/issuers/565049",
-    "type": "Profile",
-    "name": "Example University"
-  },
-  "issuanceDate": "2010-01-01T00:00:00Z",
-  "name": "Example University Degree",
-  "credentialSubject": {
-    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-    "type": "AchievementSubject",
-    "achievement": {
-      "id": "https://1edtech.edu/achievements/1",
-      "type": "Achievement",
-      "criteria": {
-        "narrative": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain"
-      },
-      "description": "Analyze a sample text",
-      "name": "Text analysis",
-      "alignment": [{
-        "type": "Alignment",
-        "targetCode": "74f5bb7d-d7cc-11e8-824f-0242ac160002",
-        "targetFramework": "Alabama Course of Study: English Language Arts",
-        "targetName": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain",
-        "targetType": "CFItem",
-        "targetUrl": "https://caseregistry.imsglobal.org/uri/74f5bb7d-d7cc-11e8-824f-0242ac160002"
-      }]
-    }
-  }
-}
-</pre>
-
-### Skills
-
-A Skill Assertion credential is just like a basic `OpenBadgeCredential` in how
-an `Achievement` is included, except that it makes a claim referencing an
-`Achievement` that is generic to allow for use by many possible issuers. The
-`Achievement` may describe alignment to external competency or skill
-definitions, such as a `CFItem`, but the most important aspect of the skill
-assertion pattern is the shared use of a common achievement that represents a
-skill or competency across multiple `OpenBadgeCredential` issuers.
-
-This usage of shared achievements enables consumers to describe specific
-achievements that they would like learners to hold without being particular
-about where the learner obtains a credential certifying that achievement. This
-recognizes the many pathways that lifelong learners find to attain comparable
-skills.
-
-<pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
-    data-allowadditionalproperties="false" title="Skill Assertion (Credential Registry)">
-{
-    "@context": [
-        "https://www.w3.org/2018/credentials/v1",
-        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
-        "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
-    ],
-    "id": "http://1edtech.edu/credentials/3732",
-    "type": ["VerifiableCredential", "OpenBadgeCredential"],
-    "name": "Solve and graph linear equations and inequalities",
-    "credentialSubject": {
-        "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-        "type": "AchievementSubject",
-        "achievement": {
-            "id": "https://example.com/achievements/math/linear-1",
-            "type": "Achievement",
-            "achievementType": "Competency",
-            "creator": {
-                "id": "https://example.com/issuers/123767",
-                "type": "Profile",
-                "name": "Example Industry Group",
-                "url": "https://example.com",
-                "description": "Example Industry Group is a consortium of luminaries who publish skills data for common usage.",
-                "email": "info@exammple.com"
-            },
-            "criteria": {
-                "narrative": "Learners must demonstrate understanding of linear algebra and graphic representation of linear equations."
-            },
-            "description": "This achievement represents developing capability to solve and graph linear equations and inequalities",
-            "image": {
-                "id": "https://example.com/achievements/math/linear-1/image",
-                "type": "Image",
-                "caption": "A line, sloping upward optimistically"
-            },
-            "name": "Linear equations and inequalities"
-        }
-    },
-    "issuer": {
-        "id": "https://1edtech.edu/issuers/565049",
-        "type": "Profile",
-        "name": "1EdTech University",
-        "url": "https://1edtech.edu",
-        "phone": "1-222-333-4444",
-        "description": "1EdTech University provides online degree programs.",
-        "image": {
-            "id": "https://1edtech.edu/logo.png",
-            "type": "Image",
-            "caption": "1EdTech University logo"
-        },
-        "email": "registrar@1edtech.edu"
-    },
-    "issuanceDate": "2022-07-01T00:00:00Z",
-    "credentialSchema": [
-        {
-            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
-            "type": "1EdTechJsonSchemaValidator2019"
-        }
-    ]
-}
-</pre>
