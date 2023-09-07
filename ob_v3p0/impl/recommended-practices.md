@@ -686,3 +686,19 @@ which case viewers would be able to review this information more directly.
     }
 }
 </pre>
+
+### Embedding Evidences
+
+Issuers can add a description of the work that the recipient did to earn the achievement via the `evidence` attribute of `AchievementCredential`. This description can be a page that links out to other pages if linking directly to the work is infeasible.
+
+The `id` property also can be the evidence encoded as a Data URI. However, embedding the evidence as Data URI as the id of the evidence has some caveats:
+
+- Due to the JSON-LD canonicalization process for signing, there's a row for each field of the evidence with the id inside. If the id is the evidence itself as Data URI, the size of the payload to process grows significantly, moreover when evidence has 5 fields and is extensible.
+- Some libraries fails when processing this.
+
+Also attempting to embed large data in a credential JSON is not recommended. You should expect uneven interop performance if you do that.
+
+Instead, the recommendation for embedding the evidence is:
+
+1. use a `urn:` URI for the id.
+2. have a separate property (data or whatever works) that contains the text-encoded data.
