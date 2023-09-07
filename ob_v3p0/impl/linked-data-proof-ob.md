@@ -1,6 +1,8 @@
-## Linked Data Proof Test Vector
+## Linked Data Proof Test Vector for Open Badges 3.0
 
-This chapter is an example of the signing process of a given credential with an Linked Data Proof producing a `DataIntegrityProof` of a public key expressed in `eddsa-2022` format.
+This chapter is an example of the signing process of a given credential with
+ an Linked Data Proof producing a `DataIntegrityProof` of a public key
+ expressed in `eddsa-rdf-2022` format.
 
 ### Key pair & Multikey
 
@@ -10,9 +12,9 @@ For this example we are using the following keypair:
 
 The `MultiKey` used in this example is as follows:
 ```js
- {
-  id: 'https://example.com/issuers/876543#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi',
-  controller: 'https://example.com/issuers/876543',
+{
+  id: 'https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi',
+  controller: 'https://example.edu/issuers/565049',
   publicKey: Uint8Array(32) [
      75, 222, 175, 222,  46, 168, 190,
     239, 173, 216, 198, 153, 181, 199,
@@ -53,7 +55,7 @@ The credential used in the example is:
     "OpenBadgeCredential"
   ],
   "issuer": {
-    "id": "https://example.com/issuers/876543",
+    "id": "https://example.edu/issuers/565049",
     "type": [
       "Profile"
     ],
@@ -96,7 +98,7 @@ The credential used in the example is:
     "OpenBadgeCredential"
   ],
   "issuer": {
-    "id": "https://example.com/issuers/876543",
+    "id": "https://example.edu/issuers/565049",
     "type": [
       "Profile"
     ],
@@ -130,8 +132,8 @@ The credential used in the example is:
 {
   "type": "DataIntegrityProof",
   "created": "2010-01-01T19:23:24Z",
-  "verificationMethod": "https://example.com/issuers/876543#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
-  "cryptosuite": "eddsa-2022",
+  "verificationMethod": "https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
+  "cryptosuite": "eddsa-rdfc-2022",
   "proofPurpose": "assertionMethod"
 }
 ```
@@ -140,9 +142,9 @@ The credential used in the example is:
 ```
 _:c14n0 <http://purl.org/dc/terms/created> "2010-01-01T19:23:24Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 _:c14n0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/security#DataIntegrityProof> .
-_:c14n0 <https://w3id.org/security#cryptosuite> "eddsa-2022" .
+_:c14n0 <https://w3id.org/security#cryptosuite> "eddsa-rdfc-2022" .
 _:c14n0 <https://w3id.org/security#proofPurpose> <https://w3id.org/security#assertionMethod> .
-_:c14n0 <https://w3id.org/security#verificationMethod> <https://example.com/issuers/876543#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi> .
+_:c14n0 <https://w3id.org/security#verificationMethod> <https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi> .
 ```
 
 ### Document normalized
@@ -154,31 +156,31 @@ _:c14n0 <https://w3id.org/security#verificationMethod> <https://example.com/issu
 <http://example.com/credentials/3527> <https://schema.org/name> "Teamwork Badge"^^<https://www.w3.org/2001/XMLSchema#string> .
 <http://example.com/credentials/3527> <https://www.w3.org/2018/credentials#credentialSubject> <did:example:ebfeb1f712ebc6f1c276e12ec21> .
 <http://example.com/credentials/3527> <https://www.w3.org/2018/credentials#issuanceDate> "2010-01-01T00:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-<http://example.com/credentials/3527> <https://www.w3.org/2018/credentials#issuer> <https://example.com/issuers/876543> .
+<http://example.com/credentials/3527> <https://www.w3.org/2018/credentials#issuer> <https://example.edu/issuers/565049> .
 <https://example.com/achievements/21st-century-skills/teamwork> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://purl.imsglobal.org/spec/vc/ob/vocab.html#Achievement> .
 <https://example.com/achievements/21st-century-skills/teamwork> <https://purl.imsglobal.org/spec/vc/ob/vocab.html#Criteria> _:c14n0 .
 <https://example.com/achievements/21st-century-skills/teamwork> <https://schema.org/description> "This badge recognizes the development of the capacity to collaborate within a group environment."^^<https://www.w3.org/2001/XMLSchema#string> .
 <https://example.com/achievements/21st-century-skills/teamwork> <https://schema.org/name> "Teamwork"^^<https://www.w3.org/2001/XMLSchema#string> .
-<https://example.com/issuers/876543> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://purl.imsglobal.org/spec/vc/ob/vocab.html#Profile> .
-<https://example.com/issuers/876543> <https://schema.org/name> "Example Corp"^^<https://www.w3.org/2001/XMLSchema#string> .
-<https://example.com/issuers/876543> <https://schema.org/url> "https://www.imsglobal.org"^^<https://www.w3.org/2001/XMLSchema#anyURI> .
+<https://example.edu/issuers/565049> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://purl.imsglobal.org/spec/vc/ob/vocab.html#Profile> .
+<https://example.edu/issuers/565049> <https://schema.org/name> "Example Corp"^^<https://www.w3.org/2001/XMLSchema#string> .
+<https://example.edu/issuers/565049> <https://schema.org/url> "https://www.imsglobal.org"^^<https://www.w3.org/2001/XMLSchema#anyURI> .
 _:c14n0 <https://purl.imsglobal.org/spec/vc/ob/vocab.html#narrative> "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."^^<https://www.w3.org/2001/XMLSchema#string> .
 ```
 
 ### Document hash (hex)
-`e88d300cf52568268f708fb39c206402fba48960719a10d08f8beed6215b3855`
+`d994aebd5e53f4af4495dbe9e1155410bae683811107c26acf83671075c163b3`
 
 ### Proof hash (hex)
-`c72f35a6cac737fe019f08e23177b6a7caaffa9c4a04e0bd72f749223a16c171`
+`3cf3c265b6c8ebb29b4d5ea310b87d2f31c79b633eff8af561d2e8c97a85c8cb`
 
 ### Data to sign (hex)
-`c72f35a6cac737fe019f08e23177b6a7caaffa9c4a04e0bd72f749223a16c171e88d300cf52568268f708fb39c206402fba48960719a10d08f8beed6215b3855`
+`3cf3c265b6c8ebb29b4d5ea310b87d2f31c79b633eff8af561d2e8c97a85c8cbd994aebd5e53f4af4495dbe9e1155410bae683811107c26acf83671075c163b3`
 
 ### Signature (hex)
-`bff230a95560ea8893e37433ed11dbd9f09651440ea68f94a587f700fd5b49ed4d5b66af2f6040ebe8747a2b2521270f27c4bc49ded1597e540f7724af865d05`
+`17a898a91832fa58bd66433e18dc8256522bcf84382994c395c23c26cba71ff8060a2587390e5ed20c4decec45c0c0c9eec1f7d2d1ce91e1ffc992983a74a300`
 
 ### Proof value (hex)
-`z4qak22wvg7qwFSZtUdWbRUd7wCjU2VKKXU7NPuugBNYmeB6hHgdqUxChGxS33DUuUQmfgsjhdPkpfgg6zH9HzHdv`
+`zUSD5bjo6mYV1n9i9E6ZwUiHuj4JyZDjCDfDqoJcPi9XJrc9LYstik9mdBvutdwBdquWXjWrwJDVGJrAarvRs8uD`
 
 ### Proof
 
@@ -186,10 +188,10 @@ _:c14n0 <https://purl.imsglobal.org/spec/vc/ob/vocab.html#narrative> "Team membe
 {
     "type": "DataIntegrityProof",
     "created": "2010-01-01T19:23:24Z",
-    "verificationMethod": "https://example.com/issuers/876543#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
-    "cryptosuite": "eddsa-2022",
+    "verificationMethod": "https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
+    "cryptosuite": "eddsa-rdfc-2022",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z4qak22wvg7qwFSZtUdWbRUd7wCjU2VKKXU7NPuugBNYmeB6hHgdqUxChGxS33DUuUQmfgsjhdPkpfgg6zH9HzHdv"
+    "proofValue": "zUSD5bjo6mYV1n9i9E6ZwUiHuj4JyZDjCDfDqoJcPi9XJrc9LYstik9mdBvutdwBdquWXjWrwJDVGJrAarvRs8uD"
 }
 ```
 
@@ -208,7 +210,7 @@ _:c14n0 <https://purl.imsglobal.org/spec/vc/ob/vocab.html#narrative> "Team membe
     "OpenBadgeCredential"
   ],
   "issuer": {
-    "id": "https://example.com/issuers/876543",
+    "id": "https://example.edu/issuers/565049",
     "type": [
       "Profile"
     ],
@@ -237,11 +239,10 @@ _:c14n0 <https://purl.imsglobal.org/spec/vc/ob/vocab.html#narrative> "Team membe
   "proof": {
     "type": "DataIntegrityProof",
     "created": "2010-01-01T19:23:24Z",
-    "verificationMethod": "https://example.com/issuers/876543#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
-    "cryptosuite": "eddsa-2022",
+    "verificationMethod": "https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
+    "cryptosuite": "eddsa-rdfc-2022",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z4qak22wvg7qwFSZtUdWbRUd7wCjU2VKKXU7NPuugBNYmeB6hHgdqUxChGxS33DUuUQmfgsjhdPkpfgg6zH9HzHdv"
+    "proofValue": "zUSD5bjo6mYV1n9i9E6ZwUiHuj4JyZDjCDfDqoJcPi9XJrc9LYstik9mdBvutdwBdquWXjWrwJDVGJrAarvRs8uD"
   }
 }
-
 ```
