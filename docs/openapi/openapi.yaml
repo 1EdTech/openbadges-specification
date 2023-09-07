@@ -496,7 +496,7 @@ components:
           type: string
           description: A post office box number for PO box addresses.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
-      additionalProperties: false
+      additionalProperties: true
       description: An address for the described entity.
       x-class-pid: org.1edtech.ob.v3p0.address.class
     CredentialSchema:
@@ -1670,7 +1670,7 @@ components:
           type: number
           description: "The longitude of the location [[WGS84]]."
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.float.class
-      additionalProperties: false
+      additionalProperties: true
       description: The geographic coordinates of a location.
       x-class-pid: org.1edtech.ob.v3p0.geocoordinates.class
     RefreshService:
@@ -1726,7 +1726,7 @@ components:
           type: string
           description: The version of the related achievement.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
-      additionalProperties: false
+      additionalProperties: true
       description: Identifies a related achievement.
       x-class-pid: org.1edtech.ob.v3p0.related.class
     ResultDescription:
@@ -2085,7 +2085,7 @@ components:
           description: An identifier for the Credential Subject. Either `id` or at
             least one `identifier` MUST be supplied.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
-      additionalProperties: true
+      additionalProperties: false
       description: "A collection of information about the recipient of an achievement.\
         \ Maps to Credential Subject in [[VC-DATA-MODEL]]."
       x-class-pid: org.1edtech.ob.v3p0.achievementsubject.class
