@@ -78,7 +78,7 @@ algorithms will likely see the broadest early implementation within Open Badges.
 
 -   Linked Data Proofs using the [[[VC-DI-EDDSA]]]. Issuers produce an
     `DataIntegrityProof` proof referencing a key URL of a public key expressed
-    in `eddsa-2022` format as its verificationMethod.
+    in `eddsa-rdf-2022` format as its verificationMethod.
 -   JWTs with `RSA256` algorithm, with key material published as JSON Web Key
     (JWK).
 
