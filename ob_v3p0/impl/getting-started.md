@@ -97,7 +97,7 @@ the EdDSA Cryptosuite 2022 option for signing credentials:
 	"verificationMethod": [{
 		"id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774#key-0",
 		"type": "DataIntegrityProof",
-        "cryptosuite": "eddsa-2022",
+        "cryptosuite": "eddsa-rdf-2022",
 		"controller": "https://example.com/issuer/123",
 		"publicKeyMultibase": "z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP"
 	}]
@@ -328,7 +328,7 @@ which upon activation yields a signed verifiable credential like the following.
 	},
 	"proof": [{
 		"type": "DataIntegrityProof",
-        "cryptosuite": "eddsa-2022",
+        "cryptosuite": "eddsa-rdf-2022",
 		"created": "2022-12-15T16:56:16Z",
 		"verificationMethod": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774#key-0",
 		"proofPurpose": "assertionMethod",
@@ -362,6 +362,10 @@ Several things to note about this credential.
 Follow the steps in the Conformance Certification Guide for the
 [issuer role](https://www.imsglobal.org/spec/ob/v3p0#conformance-and-certification-guide)
 to submit a downloaded signed credential like the above for conformance checks.
+
+<div class="note">
+  You can review Issuer's best practices in its <a href="#issuer">own section</a>.
+</div>
 
 ### API quickstart
 
