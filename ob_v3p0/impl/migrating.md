@@ -190,3 +190,348 @@ were available with the implementation of the CLR 2.0 API. If there are existing
 clients or relying parties on the CLR 1.0 representations, the best path is to
 work with those clients to upgrade to 2.0 representations and transfer via API
 and then remove the 1.0 endpoints once a 2.0 channel has been established.
+
+### Open Badges Extensions
+
+[Open Badges 3.0](http://www.imsglobal.org/spec/ob/v3p0#extending) and [Comprehensive Learner Record 2.0](http://www.imsglobal.org/spec/clr/v2p0#extending) allows extensibility in several ways: data model, extensible enumerated vocabularies and API.
+
+Open Badges 2.0 extensions are community developed contributions to the Open Badges Specification. Althought these extensions are not part of the core specification, 1Edtech keeps a list of community extensions at https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#CommunityExtensions.
+
+These extension are compatible with the new version of Open Badges and CLR with some minor changes. Precisely, they are an extension of the data model. However, some of these extensions are deprecated in favor of the spec itself.
+
+The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, the addition of this type in the `@type` property of the extension is discouraged. Also, derived from the alignment with W3c's Verifiable Credentials, it's recommended to define the `@context` of the extension alongside the remaining contexts in the root element.
+
+- [Apply Link](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#-apply-link): The apply link provides a url that allows potential badge earners to apply for an opportunity as specified by the badge issuer.
+
+    This extension is not deprecated by the new version of the specs.
+
+<pre
+    class="json example vc"
+    data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    data-allowadditionalproperties="true"
+    title="Sample OpenBadgeCredential with Apply Link extension"
+>
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+    "https://openbadgespec.org/extensions/applyLinkExtension/context.json"
+  ],
+  "id": "http://example.com/credentials/3527",
+  "type": ["VerifiableCredential", "OpenBadgeCredential"],
+  "issuer": {
+    "id": "https://example.com/issuers/876543",
+    "type": "Profile",
+    "name": "Example Corp"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "name": "Teamwork Badge",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": "AchievementSubject",
+    "achievement": {
+        "id": "https://example.com/achievements/21st-century-skills/teamwork",
+        "type": "Achievement",
+        "criteria": {
+            "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+        },
+        "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+        "name": "Teamwork"
+  	},
+    "extensions:ApplyLink": {
+        "type": ["extensions:ApplyLink"],
+        "url": "http://website.com/apply"
+    }
+  }
+}
+</pre>
+
+- [Endorsement](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#endorsement): Endorsement is part of the main specification since Open Badges 2.0.
+- [Geo Location](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#geo-location): This extension allows the addition of geographic coordinates associated with an OB 2.0's badge object. For example, geolocation could represent where a Badge Class is available, where a badge was earned or the location of an issuer. Some of the use cases are part of the main specification in the new versions of the specs. Precisely, the `Profile` entity – which represents an issuer or a creator of the achievement – contains the `address` property of type `Address` with the geographic coordinates.
+
+    However, this extension covers uses cases not covered by the main spec, like where the badge is available, or where a badge was earned. Therefore, implementors may use this extension to fulfill these requirements.
+
+<pre
+    class="json example vc"
+    data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    data-allowadditionalproperties="true"
+    title="Sample OpenBadgeCredential with Geo Location extension"
+>
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+    "https://openbadgespec.org/extensions/geoCoordinatesExtension/context.json"
+  ],
+  "id": "http://example.com/credentials/3527",
+  "type": ["VerifiableCredential", "OpenBadgeCredential"],
+  "issuer": {
+    "id": "https://example.com/issuers/876543",
+    "type": "Profile",
+    "name": "Example Corp"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "name": "Teamwork Badge",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": "AchievementSubject",
+    "achievement": {
+        "id": "https://example.com/achievements/21st-century-skills/teamwork",
+        "type": "Achievement",
+        "criteria": {
+            "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+        },
+        "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+        "name": "Teamwork",
+        "schema:location": {
+            "type": ["extensions:GeoCoordinates", "schema:Place"],
+            "name": "Stadium of Light, Sunderland",
+            "description": "A foodball stadium in Sunderland, England that is home to Sunderland A.F.C.",
+            "geo": {
+                "latitude": 54.914440,
+                "longitude": -1.387721
+            }
+        }
+  	}
+  }
+}
+</pre>
+
+- [Accessibility](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#-accessibility): This extension allows the addition of the content for people with disabilities.
+
+    This extension is not deprecated by the new version of the specs.
+
+<pre
+    class="json example vc"
+    data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    data-allowadditionalproperties="true"
+    title="Sample OpenBadgeCredential with Accessibility extension"
+>
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+    "https://w3id.org/openbadges/extensions/accessibilityExtension/context.json"
+  ],
+  "id": "http://example.com/credentials/3527",
+  "type": ["VerifiableCredential", "OpenBadgeCredential"],
+  "issuer": {
+    "id": "https://example.com/issuers/876543",
+    "type": "Profile",
+    "name": "Example Corp"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "name": "Teamwork Badge",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": "AchievementSubject",
+    "achievement": {
+        "id": "https://example.com/achievements/21st-century-skills/teamwork",
+        "type": "Achievement",
+        "criteria": {
+            "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+        },
+        "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+        "name": "Teamwork",
+        "extensions:Accessibility": {
+            "type": ["extensions:Accessibility"],
+            "accessibilityAPI": "ARIA",
+            "accessibilityControl": ["fullKeyboardControl","fullMouseControl","fullTouchControl"],
+            "accessibilityFeature": "audioDescription",
+            "accessibilityHazard": "noFlashingHazard",
+            "url": "http://exampleaccessiblecontent.org/"
+        }
+  	}
+  }
+}
+</pre>
+
+- [Creative Commons Content License](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#creative-commons-content-license): This extension enables issuers to indicate what permissions are granted to the public to reuse BadgeClass metadata in their own badges in terms of an expressive set of open content licenses that have broad global buy-in.
+
+    This extension is not deprecated by the new version of the specs.
+
+<pre
+    class="json example vc"
+    data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    data-allowadditionalproperties="true"
+    title="Sample OpenBadgeCredential with Creative Commons Content License extension"
+>
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+    "https://openbadgespec.org/extensions/licenseExtension/context.json"
+  ],
+  "id": "http://example.com/credentials/3527",
+  "type": ["VerifiableCredential", "OpenBadgeCredential"],
+  "issuer": {
+    "id": "https://example.com/issuers/876543",
+    "type": "Profile",
+    "name": "Example Corp"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "name": "Teamwork Badge",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": "AchievementSubject",
+    "achievement": {
+        "id": "https://example.com/achievements/21st-century-skills/teamwork",
+        "type": "Achievement",
+        "criteria": {
+            "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+        },
+        "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+        "name": "Teamwork"
+  	}
+  },
+  "schema:license": {
+    "type": ["extensions:LicenseExtension", "cc:License"],
+    "id": "CC-BY-ND",
+    "name": "Creative Commons Attribution",
+    "legalCode": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
+}
+</pre>
+
+- [Original Creator](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#-original-creator): This extension provides a way to track the origin of a badge when one organisation creates it for another. As the new version of the specs defines the `source` property of an `AchievementSubject` for, this extension is, therefore, deprecated. New versions of the specs also defines the `creator` property of an `Achievement`. See Section 2.4.1 Differentiating Issuers and Achievement Creators of [[OB-30]] details this behaviour.
+
+
+#### Open Badge Extensions for Education
+
+Among Open Badges 2.0 extensions there are two of them that have been authored 1EdTech initiatives:
+
+- [Issuer Accreditation](https://www.imsglobal.org/1edtech-badge-extensions-education#accreditation-extension): This extension provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile.
+
+    Some of the attributes defined in the extension are part of the `Profile` entity in the new version of the specs, making them redundant when trying to use this extension in Open Badges 3.0 and CLR 2.0. These are mainly the properties related to location. Others attributes, like `logo`, `contactInstructions`, `educationalSector` and `accreditationDate` are still unique in the extension, as they aren't covered in the main specs.
+
+    This extension is not deprecated by the new version of the specs, though it's recommended to use only those attributes not in the main spec.
+
+<pre
+    class="json example vc"
+    data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    data-allowadditionalproperties="true"
+    title="Sample OpenBadgeCredential with Issuer Accreditation extension"
+>
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+    "https://purl.imsglobal.org/spec/ob-accred/v1p0/context/"
+  ],
+  "id": "http://example.com/credentials/3527",
+  "type": ["VerifiableCredential", "OpenBadgeCredential"],
+  "issuer": {
+    "id": "https://example.com/issuers/876543",
+    "type": "Profile",
+    "name": "Example Corp",
+    "extensions:IssuerAccreditation": [{
+        "type": ["extensions:IssuerAccreditation"],
+        "name": "Northwest Commission on Colleges and Universities",
+        "contactInstructions": "Call or email the Commission Office",
+        "url": "http://www.nwccu.org/index.htm",
+        "address": {
+            "streetAddress": "8060 165th Ave. NE, Suite 100",
+            "addressLocality": "Redmond",
+            "addressRegion": "WA",
+            "postalCode": "98052"
+        },
+        "description": "The Northwest Commission on Colleges and Universities (NWCCU) is an independent, non-profit membership organization recognized by the U.S. Department of Education as the regional authority on educational quality and institutional effectiveness of higher education institutions.",
+        "areaServed": "The US seven-state Northwest region of Alaska, Idaho, Montana, Nevada, Oregon, Utah, and Washington. US-AK, US-ID, US-MT, US-NV, US-OR, US-UT, US-WA",
+        "accreditationDate": "2010-09-01",
+        "educationalSector": "Postsecondary"
+    },
+    {
+        "type": ["extensions:issuerAccreditation"],
+        "name": "Commission on Accreditation of Allied Health Education Programs",
+        "contactInstructions": "Contact Kathleen Megivern, Executive Director, megivern@caahep.org",
+        "url": "http://www.ncacasi.org",
+        "address": {
+            "streetAddress": "25400 US Highway 19 N, Suite 158",
+            "addressLocality": "Clearwater",
+            "addressRegion": "FL",
+            "postalCode": "33763"
+        },
+        "description": "CAAHEP is the largest programmatic accreditor in the health sciences field. In collaboration with its Committees on Accreditation, CAAHEP reviews and accredits over 2000 educational programs in twenty-eight (28) health science occupations.",
+        "accreditationDate": "2014-04-01",
+        "educationalSector": "postsecondary"
+    }]
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "name": "Teamwork Badge",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": "AchievementSubject",
+    "achievement": {
+        "id": "https://example.com/achievements/21st-century-skills/teamwork",
+        "type": "Achievement",
+        "criteria": {
+            "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+        },
+        "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+        "name": "Teamwork"
+  	}
+  }
+}
+</pre>
+
+- [Assessment](https://www.imsglobal.org/1edtech-badge-extensions-education#assessment-extension): This extension provides information about single or multiple assessments that would be completed by the recipient as part of the requirements for earning an OpenBadge. There could be multiple assessments of different types for each badge earned. Separate, independent evaluations of a single assessment could result in multiple assessment/evaluation records, all included in a single instance of the extension.
+
+    This extension is not deprecated by the new version of the specs.
+
+<pre
+    class="json example vc"
+    data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    data-allowadditionalproperties="true"
+    title="Sample OpenBadgeCredential with Assessment extension"
+>
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+    "https://purl.imsglobal.org/spec/ob-assessment/v1p0/context/"
+  ],
+  "id": "http://example.com/credentials/3527",
+  "type": ["VerifiableCredential", "OpenBadgeCredential"],
+  "issuer": {
+    "id": "https://example.com/issuers/876543",
+    "type": "Profile",
+    "name": "Example Corp"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "name": "Teamwork Badge",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": "AchievementSubject",
+    "achievement": {
+        "id": "https://example.com/achievements/21st-century-skills/teamwork",
+        "type": "Achievement",
+        "criteria": {
+            "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+        },
+        "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+        "name": "Teamwork",
+        "extensions:assessmentExtension": {
+            "type": ["extensions:AssessmentExtension"],
+            "description": "A written evaluation based on a simulation of a medical procedure.",
+            "assessments": [
+            {
+                "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
+                "type": "Artifact",
+                "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
+                "hasGroupParticipation": false,
+                "hasGroupEvaluation": false,
+                "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
+                "assessmentExample": "http://placeholderurl.com",
+                "scoringMethodExampleDescription": "Placeholder text",
+                "assessmentEvaluation": "http://placeholderurl.com"
+            }
+            ]
+        }
+  	}
+  }
+}
+</pre>
+
+- [Extra Description](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#IMSExtensions): This extension allows issuers to add additional descriptive fields to a BadgeClass or Issuer Profile.
+
+    As the data model of both Open Badges 3.0 and Comprehensive Learnedr Record 2.0 allows extensibility in the affected entities, this extension is thus deprecated.
