@@ -71,7 +71,7 @@ endpoints. It is a helpful hint to include the IRI of the legacy BadgeClass type
 two contexts are not compatible with one another to be applied to the same
 document, the full IRI `https://w3id.org/openbadges#BadgeClass` is used here).
 
-<pre class="json example" title="OpenBadges 3.0 with OpenBadges 2.0 via related association">
+<pre class="json example" title="OpenBadges 3.0 Achievement with linked OpenBadges 2.0 BadgeClass via related association">
 {
     "@context": "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
     "type": ["Achievement", "https://w3id.org/openbadges#BadgeClass"],
@@ -147,7 +147,9 @@ profile.
         "identifier": "https://example.com/issuers/v2p0/540e388e-2735-4c3e-9709-80142801c774",
         "identifierType": "identifier"
     }]
-    ...
+    "name": "Example Institution",
+    "url": "https://example.edu",
+    "email": "info@example.edu",
 }
 </pre>
 
@@ -157,7 +159,7 @@ Within the OB 2.0 representation of the issuer, a reverse link may be made with
 <pre class="json example" title="Issuer profile relation between Open Badges 2.0 and Open Badges 3.0">
 {
     "@context": "https://w3id.org/openbadges/v2",
-    "id": "hhttps://example.com/issuers/v2p0/540e388e-2735-4c3e-9709-80142801c774",
+    "id": "https://example.com/issuers/v2p0/540e388e-2735-4c3e-9709-80142801c774",
     "type": "Profile",
     "name": "Example Institution",
     "url": "https://example.com",
@@ -171,6 +173,83 @@ Within the OB 2.0 representation of the issuer, a reverse link may be made with
     }]
 }
 </pre>
+
+And finally, at the level of the `OpenBadgeCredential`, an association to the
+original OB 2.0 Assertion may be made using "evidence". The use of "evidence"
+instead of a more complicated construction with `related` enables human-readable
+display of a useful link to the original document in as many cases as possible,
+by any displayer that supports the concept of evidence.
+
+<pre class="json example vc" title="Upgraded OB 2.0 assertion included within CLR 2.0">
+{
+    "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json"
+    ],
+    "id": "urn:uuid:91537dba-56cb-11ec-bf63-0242ac130004",
+    "type": ["VerifiableCredential", "OpenBadgeCredential"],
+    "issuer": {
+        "id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
+        "alsoKnownAs": "https://example.com/issuers/v2p0/540e388e-2735-4c3e-9709-80142801c774",
+        "otherIdentifier": [{
+            "type": ["IdentifierEntry"],
+            "identifier": "https://example.com/issuers/v2p0/540e388e-2735-4c3e-9709-80142801c774",
+            "identifierType": "identifier"
+        }],
+        "name": "Example Institution",
+        "url": "https://example.edu",
+        "email": "info@example.edu",
+    },
+    "issuanceDate": "2010-01-01T00:00:00Z",
+    "name": "Example Competency Badge Issued under OB 2.0",
+    "credentialSubject": {
+        "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+        "type": "AchievementSubject",
+        "achievement": {
+            "id": "urn:uuid:a7467ef6-56cb-11ec-bf63-0242ac130002",
+            "type": "Achievement",
+            "creator": {
+                "id": "https://example.edu/issuers/565049",
+                "type": "Profile"
+            },
+            "name": "Example Competency Badge Issued under OB 2.0",
+            "criteria": {
+                "id": "https://example.edu/achievements/a7467ef6-56cb-11ec-bf63-0242ac130002/criteria"
+            },
+            "description": "This example badge was issued originally as an Open Badges 2.0 assertion",
+            "image": {
+                "id": "https://example.edu/achievements/sample.png",
+                "type": "Image"
+            }
+        }
+    },
+    "evidence": [
+        {
+            "type": ["Evidence", "https://w3id.org/openbadges#Assertion"],
+            "id": "https://example.org/ob2/assertions/10481810-e094-4ffe-806f-25de49c87933",
+            "name": "Original Open Badges 2.0 assertion for this credential",
+            "description": "This credential was originally issued as an Open Badges 2.0 assertion. It has been updated to the latest version for delivery to Verifiable Credentials wallets and verifiers or inclusion within a Comprehensive Learner Record (CLR 2.0)."
+        }
+    ]
+}
+</pre>
+
+Notes about this example:
+
+-   A new ID is assigned for the upgraded assertion, in this case an `urn:uuid`
+    identifier
+-   The original badge data, which was expressed as a "hosted" OB 2.0 assertion
+    is linked via the OB 3.0 Evidence.
+-   A strong hint that the evidence item is an OB 2.0 Assertion is the use of
+    the full IRI `https://w3id.org/openbadges#Assertion` as an additional type
+    for the `Evidence` item. Consumers should understand that if they desire,
+    they may verify the original using OB 2.0 protocols.
+-   For additional context and human readability of the evidence link, a `name`
+    and `description` appear in the Evidence record describing the upgrade
+    process.
+-   As the issuer in this example is the same entity offering credentials in
+    either OB 2.0 or OB 3.0 format, there is a proof expected to be included in
+    this credential.
 
 ### How to migrate from CLR 1.0 to CLR 2.0
 
@@ -190,3 +269,42 @@ were available with the implementation of the CLR 2.0 API. If there are existing
 clients or relying parties on the CLR 1.0 representations, the best path is to
 work with those clients to upgrade to 2.0 representations and transfer via API
 and then remove the 1.0 endpoints once a 2.0 channel has been established.
+
+### Including older Open Badges in CLR 2.0
+
+When Comprehensive Learner Record (CLR) issuers want to include Open Badges
+issued over time, these credentials must match the expected schema of an OB 3.0
+`OpenBadgeCredential`. But the CLR issuer might have collected them in an older
+format, such as OB 2.0, which largely expressed the same achievement
+information, except in a different schema. To ensure that consumers are able to
+process data included in a CLR efficiently, the CLR issuer may use the
+[technique above](#how-to-support-both-ob-2-0-and-ob-3-0-as-an-issuer) to
+represent the OB 2.0 data in OB 3.0 format with a reference to the original as
+"evidence".
+
+If the issuer of the CLR is the same as the issuer of the embedded upgraded
+credentials, they may sign each with their own key, presumably the same used to
+sign the outer CLR itself. If the original issuer of an embedded credential is
+another entity, the embedded `OpenBadgeCredential` may be included without
+signature. In either case, the `related` reference back to the original enables
+consumers or viewers to trace the verification back to the original. The
+inclusion of the unsigned third party credential implies the CLR issuer's
+verification or trust of the original. Consumers may perform their own
+verification of the referenced original OB 2.0 assertion using the OB 2.0
+verification protocols.
+
+This approach enables the CLR to meet the schema requirements for CLR 2.0
+without leaving behind the millions of achievement assertions issued using
+previous versions of the Open Badges Specification.
+
+Implementation notes:
+
+-   If the issuer is the same entity between the OB 2.0 and OB 3.0 versions, the
+    CLR issuer should include a proof for the upgraded credential, but if the
+    issuer is different, the CLR issuer should not include a proof and should
+    expect that interested verifiers could perform OB 2.0 verification based on
+    the assertion linked in Evidence.
+-   An approach for OB 2.0 signed assertions is not included, as these represent
+    less than 1% of all OB 2.0 assertions in existence, but this approach could
+    be modified to work with a signed assertion, perhaps using a data URI to
+    embed the original OB 2.0 compact JWS string.
