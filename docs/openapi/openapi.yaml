@@ -1493,7 +1493,7 @@ components:
                 \ Resource Identifier (IRI), which extends the ASCII characters subset\
                 \ of the Uniform Resource Identifier (URI)."
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.iri.class
-      additionalProperties: false
+      additionalProperties: true
       description: A collection of information about the subject of the endorsement.
       x-class-pid: org.1edtech.ob.v3p0.endorsementsubject.class
     AchievementCredential:
@@ -1641,7 +1641,7 @@ components:
             \ After this time, the credential should be considered expired."
           format: date-time
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
-      additionalProperties: false
+      additionalProperties: true
       description: "AchievementCredentials are representations of an awarded achievement,\
         \ used to share information about a achievement belonging to one earner. Maps\
         \ to a Verifiable Credential as defined in the [[VC-DATA-MODEL]]. As described\
@@ -1995,7 +1995,7 @@ components:
             \ After this time, the credential should be considered expired."
           format: date-time
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
-      additionalProperties: false
+      additionalProperties: true
       description: "A verifiable credential that asserts a claim about an entity.\
         \ As described in [[[#data-integrity]]], at least one proof mechanism, and\
         \ the details necessary to evaluate that proof, MUST be expressed for a credential\
@@ -2085,7 +2085,7 @@ components:
           description: An identifier for the Credential Subject. Either `id` or at
             least one `identifier` MUST be supplied.
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
-      additionalProperties: false
+      additionalProperties: true
       description: "A collection of information about the recipient of an achievement.\
         \ Maps to Credential Subject in [[VC-DATA-MODEL]]."
       x-class-pid: org.1edtech.ob.v3p0.achievementsubject.class
