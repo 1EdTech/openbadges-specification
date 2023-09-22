@@ -495,12 +495,13 @@ representation of the public key.
 
 In order to assure key provenance, we recommend the use of a JWK Set
 (JKWS) [[RFC7517]].
-This set must be publicly accessible via the well-known url:
+This set, following this recommmendation, should be publicly accessible
+via the well-known url:
 
 `https://{domain}/.well-known/jwk.json`
 
-The issuer must return a JSON-serialized representation of the JKWS with
-the media type `application/jwk-set+json`.
+The reponse of a request to this url is a JSON-serialized representation
+of the JKWS with the media type `application/jwk-set+json`.
 
 > Section 6 of [[SEC-11]] contains recommendations for key management.
 
