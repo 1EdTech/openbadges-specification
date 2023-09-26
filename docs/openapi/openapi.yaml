@@ -805,6 +805,7 @@ components:
           anyOf:
           - type: string
             enum:
+            - name
             - sourcedId
             - systemId
             - productId
@@ -1221,6 +1222,7 @@ components:
           anyOf:
           - type: string
             enum:
+            - name
             - sourcedId
             - systemId
             - productId
@@ -2129,9 +2131,9 @@ components:
           refreshUrl: provider.example.com/refresh
           scopes:
             https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly: Permission
-              to read ClrCredentials for the authenticated entity.
+              to read AchievementCredentials for the authenticated entity.
             https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert: Permission
-              to create or update ClrCredentials for the authenticated entity.
+              to create or update AchievementCredentials for the authenticated entity.
             https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly: Permission
               to read the profile for the authenticated entity.
             https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update: Permission

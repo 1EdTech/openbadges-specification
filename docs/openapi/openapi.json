@@ -917,7 +917,7 @@
             "description" : "The identifier type.",
             "anyOf" : [ {
               "type" : "string",
-              "enum" : [ "sourcedId", "systemId", "productId", "userName", "accountId", "emailAddress", "nationalIdentityNumber", "isbn", "issn", "lisSourcedId", "oneRosterSourcedId", "sisSourcedId", "ltiContextId", "ltiDeploymentId", "ltiToolId", "ltiPlatformId", "ltiUserId", "identifier" ]
+              "enum" : [ "name", "sourcedId", "systemId", "productId", "userName", "accountId", "emailAddress", "nationalIdentityNumber", "isbn", "issn", "lisSourcedId", "oneRosterSourcedId", "sisSourcedId", "ltiContextId", "ltiDeploymentId", "ltiToolId", "ltiPlatformId", "ltiUserId", "identifier" ]
             }, {
               "pattern" : "(ext:)[a-zA-Z0-9\\.\\-_]+",
               "type" : "string"
@@ -1261,7 +1261,7 @@
             "description" : "The identity type.",
             "anyOf" : [ {
               "type" : "string",
-              "enum" : [ "sourcedId", "systemId", "productId", "userName", "accountId", "emailAddress", "nationalIdentityNumber", "isbn", "issn", "lisSourcedId", "oneRosterSourcedId", "sisSourcedId", "ltiContextId", "ltiDeploymentId", "ltiToolId", "ltiPlatformId", "ltiUserId", "identifier" ]
+              "enum" : [ "name", "sourcedId", "systemId", "productId", "userName", "accountId", "emailAddress", "nationalIdentityNumber", "isbn", "issn", "lisSourcedId", "oneRosterSourcedId", "sisSourcedId", "ltiContextId", "ltiDeploymentId", "ltiToolId", "ltiPlatformId", "ltiUserId", "identifier" ]
             }, {
               "pattern" : "(ext:)[a-zA-Z0-9\\.\\-_]+",
               "type" : "string"
@@ -2162,8 +2162,8 @@
             "tokenUrl" : "provider.example.com/token",
             "refreshUrl" : "provider.example.com/refresh",
             "scopes" : {
-              "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly" : "Permission to read ClrCredentials for the authenticated entity.",
-              "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert" : "Permission to create or update ClrCredentials for the authenticated entity.",
+              "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly" : "Permission to read AchievementCredentials for the authenticated entity.",
+              "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert" : "Permission to create or update AchievementCredentials for the authenticated entity.",
               "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly" : "Permission to read the profile for the authenticated entity.",
               "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update" : "Permission to update the profile for the authenticated entity."
             }
