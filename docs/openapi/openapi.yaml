@@ -1580,8 +1580,7 @@ components:
             - type: string
               description: A `NormalizedString` that respresents a Uniform Resource
                 Identifier (URI).
-            - type: object
-              description: "A map representing an object with unknown, arbitrary properties"
+            - $ref: '#/components/schemas/Map'
           x-srcprop-pid: org.1edtech.ob.v3p0.context.class
         issuer:
           $ref: '#/components/schemas/Profile'
@@ -1952,8 +1951,7 @@ components:
             - type: string
               description: A `NormalizedString` that respresents a Uniform Resource
                 Identifier (URI).
-            - type: object
-              description: "A map representing an object with unknown, arbitrary properties"
+            - $ref: '#/components/schemas/Map'
           x-srcprop-pid: org.1edtech.ob.v3p0.context.class
         issuer:
           $ref: '#/components/schemas/Profile'
@@ -2098,6 +2096,12 @@ components:
       description: "A collection of information about the recipient of an achievement.\
         \ Maps to Credential Subject in [[VC-DATA-MODEL]]."
       x-class-pid: org.1edtech.ob.v3p0.achievementsubject.class
+    Map:
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: "A map representing an object with unknown, arbitrary properties"
+      x-class-pid: org.1edtech.ob.v3p0.map.class
     GetOpenBadgeCredentialsResponse:
       type: object
       properties:
