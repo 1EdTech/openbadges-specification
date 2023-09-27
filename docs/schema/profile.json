@@ -238,13 +238,11 @@
     "Context" : {
       "description" : "JSON-LD Context. Either a URI with the context definition or a Map with a local context definition MUST be supplied.",
       "anyOf" : [ {
-        "description" : "A map representing an object with unknown, arbitrary properties",
-        "$comment" : "Origin: Map (PrimitiveType); A map representing an object with unknown, arbitrary properties",
-        "type" : "object"
-      }, {
         "description" : "A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
         "$comment" : "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
         "type" : "string"
+      }, {
+        "$ref" : "#/$defs/Map"
       } ]
     },
     "TermsOfUse" : {
@@ -669,6 +667,13 @@
         }
       },
       "required" : [ "id", "type" ],
+      "additionalProperties" : true
+    },
+    "Map" : {
+      "description" : "A map representing an object with unknown, arbitrary properties",
+      "type" : "object",
+      "properties" : { },
+      "required" : [ ],
       "additionalProperties" : true
     }
   }
