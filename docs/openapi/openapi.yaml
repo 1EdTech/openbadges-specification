@@ -1271,13 +1271,6 @@ components:
       description: This is the container for the set of code minor status codes reported
         in the responses from the Service Provider.
       x-class-pid: org.1edtech.ob.v3p0.imsx_codeminor.class
-    Context:
-      type: object
-      properties: {}
-      additionalProperties: false
-      description: JSON-LD Context. Either a URI with the context definition or a
-        Map with a local context definition MUST be supplied.
-      x-class-pid: org.1edtech.ob.v3p0.context.class
     CredentialStatus:
       required:
       - id
@@ -1581,7 +1574,14 @@ components:
             \ where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1',\
             \ and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json'."
           items:
-            $ref: '#/components/schemas/Context'
+            description: JSON-LD Context. Either a URI with the context definition
+              or a Map with a local context definition MUST be supplied.
+            oneOf:
+            - type: string
+              description: A `NormalizedString` that respresents a Uniform Resource
+                Identifier (URI).
+            - type: object
+              description: "A map representing an object with unknown, arbitrary properties"
           x-srcprop-pid: org.1edtech.ob.v3p0.context.class
         issuer:
           $ref: '#/components/schemas/Profile'
@@ -1946,7 +1946,14 @@ components:
             \ where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1',\
             \ and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json'."
           items:
-            $ref: '#/components/schemas/Context'
+            description: JSON-LD Context. Either a URI with the context definition
+              or a Map with a local context definition MUST be supplied.
+            oneOf:
+            - type: string
+              description: A `NormalizedString` that respresents a Uniform Resource
+                Identifier (URI).
+            - type: object
+              description: "A map representing an object with unknown, arbitrary properties"
           x-srcprop-pid: org.1edtech.ob.v3p0.context.class
         issuer:
           $ref: '#/components/schemas/Profile'
