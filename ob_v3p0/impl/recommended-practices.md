@@ -498,7 +498,7 @@ In order to assure key provenance, we recommend the use of a JWK Set
 This set, following this recommmendation, should be publicly accessible
 via the well-known url:
 
-`https://{domain}/.well-known/jwk.json`
+`https://{domain}/.well-known/jwks.json`
 
 The reponse of a request to this url is a JSON-serialized representation
 of the JKWS with the media type `application/jwk-set+json`.
@@ -590,7 +590,7 @@ check of the provided key.
 In order to get the issuer's JKWS, a verifier must build a well-known url with
 the `authority` part of the issuer's `id` ([[RFC3986]]):
 
-`https://{authority}/.well-known/jwk.json`
+`https://{authority}/.well-known/jwks.json`
 
 A verifier must make a HTTP request to this endpoint with an accept header of
 `application/jwk-set+json`. The response of this call must a JWKS.
