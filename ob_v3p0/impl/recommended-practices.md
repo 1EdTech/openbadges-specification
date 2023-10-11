@@ -245,7 +245,7 @@ framework, i.e `CFItem`.
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json"
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
   ],
   "id": "http://example.edu/credentials/3732",
   "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -301,7 +301,7 @@ skills.
 {
     "@context": [
         "https://www.w3.org/2018/credentials/v1",
-        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
+        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
         "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
     ],
     "id": "http://1edtech.edu/credentials/3732",
