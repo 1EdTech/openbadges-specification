@@ -25,6 +25,11 @@ According to this policy, this section recaps all the changes made to the contex
 Previous versions of the context file will remain accessible, in order to keep backwards compatibility with existing credentials. However, it's recommended to refer to the newest version of the file.
 </div>
 
+#### version 3.0.3
+-`@id` of `image` in `Achievement` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image`
+-`@id` of `image` in `AchievementSubject` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image-1`
+-`@id` of `image` in `Profile` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image-3`
+
 #### version 3.0.2
 - Added `@protected` to all `@context`.
 - `"@type": "xsd:string"`` was removed where it appears. This is the default type, but in rare cases, processing systems handle an explicit declaration of this type differently from allowing the default. For VCs, it is considered more reliable to just allow the default to be applied.

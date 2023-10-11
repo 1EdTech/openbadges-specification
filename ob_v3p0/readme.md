@@ -33,7 +33,7 @@ Currently, all content is being collected in a single Respec document: [http://i
 
 ### Artifacts
 
-JSON Schema, OpenAPI, and maybe even context files will also be generated in the future. But for now the context file is [hand written](context-3.0.2.json) and available at [http://imsglobal.github.io/openbadges-specification/context-3.0.2.json](http://imsglobal.github.io/openbadges-specification/context-3.0.2.json).
+JSON Schema, OpenAPI, and maybe even context files will also be generated in the future. But for now the context file is [hand written](context-3.0.3.json) and available at [http://imsglobal.github.io/openbadges-specification/context-3.0.3.json](http://imsglobal.github.io/openbadges-specification/context-3.0.3.json).
 
 ### Updating the Base Document
 
@@ -47,11 +47,11 @@ That process takes 1-2 minutes.
 
 ## Regenerating the context file
 
-Every commit and PR merge to the develop branch/ob_v3p0/context-3.0.2.json file will kick off a GitHub action that will:
+Every commit and PR merge to the develop branch/ob_v3p0/context-3.0.3.json file will kick off a GitHub action that will:
 
-1. Copy the file to [https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json](https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json)
+1. Copy the file to [https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json](https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json)
 
-The context file will eventually live on the 1EdTech PURL server. But please use https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json for now.
+The context file will eventually live on the 1EdTech PURL server. But please use https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json for now.
 
 ### Editing the .lines files
 
@@ -82,7 +82,7 @@ In addition to rendering a normative data model, the plugin can also validate ex
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
       "https://www.w3.org/2018/credentials/examples/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json"
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
