@@ -523,6 +523,18 @@ field must be one of the keys in the set.
 
 We propose leverage this to add a new member `iss` in the JWK for the issuer's `id`.
 
+##### JWK Set endpoint
+
+Following this recommendation ultimatelly means that, for an issuer to be
+trusted, the endpoint for the Issuer's Json Web Key Set should be publicly
+available at any time a credential is verified, which can happen long after
+the issuing of the credential. If don't, there's a potential issue of a
+valid credential not accepted because the endpoint is no longer available.
+
+This implies a commitment for the issuer, as it should expose the JWK Set.
+Issuers which didn't want to take this commitment could use different
+services, such [Permanent Identifiers for the Web](https://w3id.org).
+
 ### Displayer
 
 #### Cryptosuites in Linked Data Proofs
@@ -603,6 +615,12 @@ any specified `kid`.
 
 If the found JWT in the set contains the member `iss`, this must be equal
 to issuer's `id`.
+
+
+<div class="note">
+ The credential should  be considered invalid and not trustworthy if the
+ key provenance cannot be verified via the method described above.
+</div>
 
 ### Host
 
