@@ -242,7 +242,9 @@
         "$comment" : "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
         "type" : "string"
       }, {
-        "$ref" : "#/$defs/Map"
+        "description" : "A map representing an object with unknown, arbitrary properties",
+        "$comment" : "Origin: Map (Unordered); A map representing an object with unknown, arbitrary properties",
+        "type" : "object"
       } ]
     },
     "TermsOfUse" : {
@@ -667,13 +669,6 @@
         }
       },
       "required" : [ "id", "type" ],
-      "additionalProperties" : true
-    },
-    "Map" : {
-      "description" : "A map representing an object with unknown, arbitrary properties",
-      "type" : "object",
-      "properties" : { },
-      "required" : [ ],
       "additionalProperties" : true
     }
   }
