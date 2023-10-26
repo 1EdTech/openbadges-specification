@@ -526,14 +526,12 @@ We propose leverage this to add a new member `iss` in the JWK for the issuer's `
 ##### JWK Set endpoint
 
 Following this recommendation ultimatelly means that, for an issuer to be
-trusted, the endpoint for the Issuer's Json Web Key Set should be publicly
+trusted, the endpoint for the issuer's Json Web Key Set should be publicly
 available at any time a credential is verified, which can happen long after
 the issuing of the credential. If don't, there's a potential issue of a
 valid credential not accepted because the endpoint is no longer available.
 
-This implies a commitment for the issuer, as it should expose the JWK Set.
-Issuers which didn't want to take this commitment could use different
-services, such [Permanent Identifiers for the Web](https://w3id.org).
+Following this recommendation, thus, implies a commitment for the issuer to maintain its JWK Set and publicly expose it throught the endpoint.
 
 ### Displayer
 
