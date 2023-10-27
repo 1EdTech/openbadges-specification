@@ -10,6 +10,7 @@ OB 3.0 context file uses a versioning as a result of https://github.com/1EdTech/
 -`@id` of `achievement` in `AchievementSubject` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#achievement`
 -`@id` of `image` in `AchievementSubject` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image`
 -`@id` of `image` in `Profile` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image`
+- Removed `image` attribute
 
 ### 3.0.2
 
