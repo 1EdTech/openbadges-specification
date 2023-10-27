@@ -30,6 +30,7 @@ Previous versions of the context file will remain accessible, in order to keep b
 -`@id` of `achievement` in `AchievementSubject` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#achievement`
 -`@id` of `image` in `AchievementSubject` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image`
 -`@id` of `image` in `Profile` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image`
+-Removed `image` attribute
 
 #### version 3.0.2
 - Added `@protected` to all `@context`.
