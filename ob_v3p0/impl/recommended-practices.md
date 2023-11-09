@@ -437,19 +437,101 @@ which case viewers would be able to review this information more directly.
 
 #### Embedding Evidences
 
-Issuers can add a description of the work that the recipient did to earn the achievement via the `evidence` attribute of `AchievementCredential`. This description can be a page that links out to other pages if linking directly to the work is infeasible.
+Issuers can add a description of the work that the recipient did to earn the
+achievement via the `evidence` attribute of `AchievementCredential`. This
+description can be a page that links out to other pages if linking directly
+to the work is infeasible.
 
-The `id` property also can be the evidence encoded as a Data URI. However, embedding the evidence as Data URI as the id of the evidence has some caveats:
+The `id` property also can be the evidence encoded as a Data URI. However,
+embedding the evidence as Data URI as the id of the evidence has some caveats:
 
-- Due to the JSON-LD canonicalization process for signing, there's a row for each field of the evidence with the id inside. If the id is the evidence itself as Data URI, the size of the payload to process grows significantly, moreover when evidence has 5 fields and is extensible.
+- Due to the JSON-LD canonicalization process for signing, there's a row for
+each field of the evidence with the id inside. If the id is the evidence itself
+as Data URI, the size of the payload to process grows significantly, moreover
+when evidence has 5 fields and is extensible.
 - Some libraries fails when processing this.
 
-Also attempting to embed large data in a credential JSON is not recommended. You should expect uneven interop performance if you do that.
+Also attempting to embed large data in a credential JSON is not recommended.
+You should expect uneven interop performance if you do that.
 
 Instead, the recommendation for embedding the evidence is:
 
 1. use a `urn:` URI for the id.
-2. have a separate property (data or whatever works) that contains the text-encoded data.
+2. have a separate property (data or whatever works) that contains the text-encoded
+data.
+
+#### Key provenance
+
+Keys used in proof generation must belong to the issuer. However, there isn't
+a existing way in current standars to completely assure this provenance.
+
+The following best practices establish a verification mechanism to assure that
+the issuer is the owner of the key used in a credential.
+
+##### Linked Data proof
+
+Linked Data Proofs defines a method to get the public key (via `verificationMethod`)
+which, as defined by [[VC-DATA-INTEGRITY]], implies the dereference of a controller
+document.
+
+Section 2.6 of [[VC-DATA-INTEGRITY]] describes a way to verify the association
+of the verification method with an issuer:
+
+> One way to check for such an association is to ensure that the value of the
+> controller property of a proof's verification method matches the URL value
+> used to identify the issuer or holder, respectively. This particular
+> association indicates that the issuer or holder, respectively, is the
+> controller of the verification method used to verify the proof.
+
+We recommend following this practice. As an issuer, then, you must set the
+value of the controller as the `id` of the issuer.
+
+##### External proof
+
+When using an external proof, an issuer must set either the `kid` or `jwt`
+fields of the JOSE header of the JWS. `kid` is an URI that can be dereferenced
+to an object of type JWK representing the public key, wether `jwt` is the
+representation of the public key.
+
+In order to assure key provenance, we recommend the use of a JWK Set
+(JKWS) [[RFC7517]].
+This set, following this recommmendation, should be publicly accessible
+via the well-known url:
+
+`https://{domain}/.well-known/jwks.json`
+
+The reponse of a request to this url is a JSON-serialized representation
+of the JKWS with the media type `application/jwk-set+json`.
+
+> Section 6 of [[SEC-11]] contains recommendations for key management.
+
+When using the `kid` attribute, an issuer must set it to an existing key in
+its set. On the other hand, when using the `jwt` attribute, the key set in this
+field must be one of the keys in the set.
+
+###### Issuing platforms with multiple issuers
+
+[[RFC7517]] allows adding additional members to the JWK format:
+
+> Additional members can be present in the JWK; if not understood by
+   implementations encountering them, they MUST be ignored.  Member
+   names used for representing key parameters for different keys types
+   need not be distinct.  Any new member name should either be
+   registered in the IANA "JSON Web Key Parameters" registry established
+   by [Section 8.1](https://datatracker.ietf.org/doc/html/rfc7517#section-8.1)
+   or be a value that contains a Collision-Resistant Name.
+
+We propose leverage this to add a new member `iss` in the JWK for the issuer's `id`.
+
+##### JWK Set endpoint
+
+Following this recommendation ultimatelly means that, for an issuer to be
+trusted, the endpoint for the issuer's Json Web Key Set should be publicly
+available at any time a credential is verified, which can happen long after
+the issuing of the credential. If don't, there's a potential issue of a
+valid credential not accepted because the endpoint is no longer available.
+
+Following this recommendation, thus, implies a commitment for the issuer to maintain its JWK Set and publicly expose it throught the endpoint.
 
 ### Displayer
 
@@ -470,6 +552,73 @@ Prior designed cryptosuites in both OB 3.0 and CLR 2.0 were:
 
 - `eddsa-2022`
 - `Ed25519Signature2020`
+
+#### Key provenance
+
+Keys used in proof generation must belong to the issuer. However, there isn't
+a existing way in current standars to completely assure this provenance.
+
+The following best practices establish a verification mechanism to assure that
+the issuer is the owner of the key used in a credential.
+
+##### Linked Data proof
+
+Linked Data Proofs defines a method to get the public key (via `verificationMethod`) which, as defined by [[VC-DATA-INTEGRITY]], implies the
+dereference of a controller document.
+
+Section 2.6 of [[VC-DATA-INTEGRITY]] describes a way to verify the association
+of the verification method with an issuer:
+
+> One way to check for such an association is to ensure that the value of the
+> controller property of a proof's verification method matches the URL value
+> used to identify the issuer or holder, respectively. This particular
+> association indicates that the issuer or holder, respectively, is the
+> controller of the verification method used to verify the proof.
+
+We recommend following this practice. As an verifier, then, you must check that
+the value of the controller is the `id` of the issuer.
+
+##### External proof
+
+When using an external proof, an issuer must set either the `kid` or `jwt`
+fields of the JOSE header of the JWS. `kid` is an URI that can be dereferenced
+to an object of type JWK representing the public key, wether `jwt` is the
+representation of the public key.
+
+Section 6.3.1 of [[VC-DATA-MODEL]] extends the definition of `kid` as
+
+> - `kid` _MAY_ be used if there are multiple keys associated with the 
+> [issuer](https://www.w3.org/TR/vc-data-model/#dfn-issuers) of the JWT.
+> The key discovery is out of the scope of this specification. For example,
+> the `kid` can refer to a key in a [DID document](https://www.w3.org/TR/vc-data-model/#dfn-decentralized-identifier-documents),
+> or can be the identifier of a key inside a JWKS.
+
+With these two premises, the recommendation for verifing key provenance is using
+JWK Set. A verifier must, then, get the public JKWS of the issuer for further
+check of the provided key.
+
+In order to get the issuer's JKWS, a verifier must build a well-known url with
+the `authority` part of the issuer's `id` ([[RFC3986]]):
+
+`https://{authority}/.well-known/jwks.json`
+
+A verifier must make a HTTP request to this endpoint with an accept header of
+`application/jwk-set+json`. The response of this call must a JWKS.
+
+After the request, a verifier must check that the provided key in in the
+returned set. If the key in the JOSE Header in referenced by the `kid`
+field, this `kid` must be in the set. On the other hand, if the key is
+represented by the `jwk` field, this `jwk` must be in the set with
+any specified `kid`.
+
+If the found JWT in the set contains the member `iss`, this must be equal
+to issuer's `id`.
+
+
+<div class="note">
+ The credential should  be considered invalid and not trustworthy if the
+ key provenance cannot be verified via the method described above.
+</div>
 
 ### Host
 
