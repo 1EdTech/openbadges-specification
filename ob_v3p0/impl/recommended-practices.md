@@ -463,7 +463,7 @@ data.
 #### Key provenance
 
 Keys used in proof generation must belong to the issuer. However, there isn't
-a existing way in current standars to completely assure this provenance.
+a existing way in current standards to completely assure this provenance.
 
 The following best practices establish a verification mechanism to assure that
 the issuer is the owner of the key used in a credential.
@@ -556,7 +556,7 @@ Prior designed cryptosuites in both OB 3.0 and CLR 2.0 were:
 #### Key provenance
 
 Keys used in proof generation must belong to the issuer. However, there isn't
-a existing way in current standars to completely assure this provenance.
+a existing way in current standards to completely assure this provenance.
 
 The following best practices establish a verification mechanism to assure that
 the issuer is the owner of the key used in a credential.
