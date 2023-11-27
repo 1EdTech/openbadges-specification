@@ -1,6 +1,6 @@
 ﻿# badge-connect-api
 
-This is the repository for the IMS Global Badge Connect&trade; API specification.
+This is the repository for the IMS Global Badge Connect&reg; API specification.
 
 ## In Progress Specification License
 While the specification is under development all materials and draft specifications
