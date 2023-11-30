@@ -26,7 +26,7 @@ Credentials [A](#example-sample-credential-a) and [B](#example-sample-credential
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
     "issuer": {
       "id": "https://example.edu/issuers/565049",
-      "type": ["IssuerProfile"],
+      "type": ["Profile"],
       "name": "Example University"
     },
     "issuanceDate": "2010-01-01T00:00:00Z",
@@ -61,7 +61,7 @@ Credentials [A](#example-sample-credential-a) and [B](#example-sample-credential
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
     "issuer": {
       "id": "https://example.edu/issuers/565049",
-      "type": ["IssuerProfile"],
+      "type": ["Profile"],
       "name": "Example University"
     },
     "issuanceDate": "2010-01-01T00:00:00Z",
@@ -102,7 +102,7 @@ Credentials [C](#example-sample-credential-c) and [D](#example-sample-credential
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
     "issuer": {
       "id": "https://example.edu/issuers/565049",
-      "type": ["IssuerProfile"],
+      "type": ["Profile"],
       "name": "Example University"
     },
     "issuanceDate": "2010-03-01T00:00:00Z",
@@ -137,7 +137,7 @@ Credentials [C](#example-sample-credential-c) and [D](#example-sample-credential
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
     "issuer": {
       "id": "https://example.edu/issuers/565049",
-      "type": ["IssuerProfile"],
+      "type": ["Profile"],
       "name": "Example University"
     },
     "issuanceDate": "2010-01-01T00:00:00Z",
