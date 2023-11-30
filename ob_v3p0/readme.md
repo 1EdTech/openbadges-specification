@@ -88,7 +88,7 @@ In addition to rendering a normative data model, the plugin can also validate ex
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
     "issuer": {
       "id": "https://example.edu/issuers/565049",
-      "type": "IssuerProfile",
+      "type": "Profile",
       "name": "Example University"
     },
     "issuanceDate": "2010-01-01T00:00:00Z",

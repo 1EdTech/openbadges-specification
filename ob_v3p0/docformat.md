@@ -101,7 +101,7 @@ If an embedded proof method is used instead, the text value of the chunk MUST be
             "type": ["VerifiableCredential", "OpenBadgeCredential"],
             "issuer": {
               "id": "https://example.edu/issuers/565049",
-              "type": "IssuerProfile",
+              "type": "Profile",
               "name": "Example University"
             },
             "issuanceDate": "2010-01-01T00:00:00Z",
@@ -156,7 +156,7 @@ If an embedded proof method is used instead, omit the \`verify\` attribute, and 
           "type": ["VerifiableCredential", "OpenBadgeCredential"],
           "issuer": {
             "id": "https://example.edu/issuers/565049",
-            "type": "IssuerProfile",
+            "type": "Profile",
             "name": "Example University"
           },
           "issuanceDate": "2010-01-01T00:00:00Z",
