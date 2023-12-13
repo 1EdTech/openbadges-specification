@@ -280,6 +280,141 @@ framework, i.e `CFItem`.
 }
 </pre>
 
+#### Alignment with a ceterms:Credential resource
+
+In Open Badges and Comprehensive Learner Record, it is possible to use
+`alignment` to link an `achievement` to a resource that is described using
+non-1EdTech vocabularies. Three `targetTypes` (specifically, `ceterms:Credential`,
+`ceasn:Competency`, and `CTDL`) have been defined to link to a resource described
+using the Credential Transparency Description Language
+([CTDL](https://credreg.net/ctdl/terms)) family of schema. CTDL defines how
+credentials, competencies, and many other attributes (such as assessments,
+courses, programs, transfer value, organizations, and more) can be described
+in detail and linked to other useful information.
+
+`ceterms:Credential` is used to establish that a connection is between an
+`achievement` and a credential offering described using CTDL. In CTDL, a
+"credential" can be described using hundreds of defined terms and connections
+amongst those terms. For example, CTDL can identify a credential as a ‘license’
+requiring a particular ‘assessment’ for the demonstration of particular
+‘competencies’.
+
+Organizations may publish rich descriptive information about the achievements
+they offer to the Credential Registry. Credential offering information published
+to the Registry is available in the Credential Finder application
+(https://credentialfinder.org/), and issuers of badges for these achievements
+can link to the page in the Credential Finder using an `alignment` with
+`targetType` of `ceterms:Credential` using the credential’s CTID.
+
+<pre class="json example"
+    title="Achievement alignment to more information about the Credential (ceterms:Credential)">
+
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/9",
+      "type": "Achievement",
+      "criteria": {
+        "narrative": "Demonstrate a comprehensive understanding of core 3D modeling concepts, successfully create a range of 3D models that meet specified criteria, and pass a practical examination applying foundational techniques in real-time scenarios"
+      },
+      "description": "Credential for proficiency in the basic techniques and concepts of 3D modeling.",
+      "name": "Fundamentals of 3D Modeling Certificate",
+      "alignment": [{
+        "type": "Alignment",
+        "targetCode": "ce-66ae075c-5cc0-4b49-bb15-ea513e1480ac",
+        "targetDescription": "Additional information powered by the Credential Registry.",
+        "targetName": "Fundamentals of 3D Modeling Certificate",
+        "targetFramework": "Credential Transparency Description Language",
+        "targetType": "ceterms:Credential",
+        "targetUrl": "https://sandbox.credentialengine.org/publisher/credential/ce-66ae075c-5cc0-4b49-bb15-ea513e1480ac"
+      }]
+    }
+
+</pre>
+
+#### Alignment with a ceasn:Competency resource
+
+In Open Badges and Comprehensive Learner Record, it is possible to use
+`alignment` to link an `achievement` to a resource that is described using
+non-1EdTech vocabularies. Three `targetTypes` (specifically, `ceterms:Credential`,
+`ceasn:Competency`, and `CTDL`) have been defined to link to a resource described
+using the Credential Transparency Description Language
+([CTDL](https://credreg.net/ctdl/terms)) family of schema. CTDL defines how
+credentials, competencies, and many other attributes (such as assessments,
+courses, programs, transfer value, organizations, and more) can be described
+in detail and linked to other useful information.
+
+Achievements often align to skills or Competencies, which can be published
+to the Credential Registry. When aligning to this type of data, use the
+targetType `ceasn:Competency`.
+
+<pre class="json example"
+    title="Achievement alignment to a competency (ceasn:Competency)">
+
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/10",
+      "type": "Achievement",
+      "criteria": {
+        "narrative": "Technical Proficiency: The student's use of 3D modeling tools and techniques should be evident, with smooth surfaces, clean meshes, and appropriate use of textures and materials. The model should be free from technical errors, such as overlapping vertices, and should be optimized for the intended platform or medium."
+      },
+      "description": "Demonstrated through an academic project requiring an architectural structure, design of a product prototype, simulating a real-world scenario in a virtual environment, and application of 3D modeling principles.",
+      "name": "Transform conceptual ideas into tangible 3D representations.",
+      "alignment": [{
+        "type": "Alignment",
+        "targetCode": "ce-e76ee0c4-c455-4cf9-8382-c9d226c69d99",
+        "targetDescription": "Additional information powered by the Credential Registry.",
+        "targetName": "Transform conceptual ideas into tangible 3D representations.",
+        "targetFramework": "Credential Transparency Description Language",
+        "targetType": "ceasn:Competency",
+        "targetUrl": "https://sandbox.credentialengine.org/finder/competency/ce-e76ee0c4-c455-4cf9-8382-c9d226c69d99"
+      }]
+    }
+
+</pre>
+
+#### Alignment with a CTDL resource
+
+In Open Badges and Comprehensive Learner Record, it is possible to use
+`alignment` to link an `achievement` to a resource that is described using
+non-1EdTech vocabularies. Three `targetTypes` (specifically, `ceterms:Credential`,
+`ceasn:Competency`, and `CTDL`) have been defined to link to a resource described
+using the Credential Transparency Description Language
+([CTDL](https://credreg.net/ctdl/terms)) family of schema. CTDL defines how
+credentials, competencies, and many other attributes (such as assessments,
+courses, programs, transfer value, organizations, and more) can be described
+in detail and linked to other useful information.
+
+There are many other entity classes that can be described using the CTDL
+vocabulary. When making an alignment to an Assessment, Learning Opportunity,
+Job, Occupation, or other entity, use the generic targetType `CTDL`. This informs
+consumers to expect CTDL data of one of these other types. Some consumers may
+simply render a link to the webpage where more information can be retrieved,
+and others may support fetching the specific data to provide an even richer
+display. The following example shows how an issuer might express an alignment
+to a Learning Opportunity Course that has been published to the Credential
+Registry as CTDL-formatted open data.
+
+<pre class="json example"
+    title="Achievement alignment to another type of entity (CTDL)">
+
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/11",
+      "type": "Achievement",
+      "criteria": {
+        "narrative": "Earns a passing grade."
+      },
+      "description": "Dive into the world of three-dimensional design with ART 302. This course offers students an immersive experience in transforming abstract concepts into tangible 3D models. Through hands-on projects, expert-led demonstrations, and cutting-edge software tools, learners will master the art of conceptualizing and creating detailed 3D representations. Ideal for aspiring designers, animators, and digital artists, this course emphasizes both technical proficiency and creative expression. Join us and bring your ideas to life in three dimensions!",
+      "name": "ART 302: 3D Modeling From Concept to Creation",
+      "alignment": [{
+        "type": "Alignment",
+        "targetCode": "ce-23390b82-eff7-4ff1-894c-9dfe174206be",
+        "targetDescription": "Additional information powered by the Credential Registry.",
+        "targetName": "ART302: 3D Modeling From Concept to Creation",
+        "targetFramework": "Credential Transparency Description Language",
+        "targetType": "CTDL",
+        "targetUrl": "https://sandbox.credentialengine.org/finder/learningopportunity/ce-23390b82-eff7-4ff1-894c-9dfe174206be"
+      }]
+    }
+
+</pre>
 #### Skills
 
 A Skill Assertion credential is just like a basic `OpenBadgeCredential` in how
