@@ -20,7 +20,7 @@ Credentials [A](#example-sample-credential-a) and [B](#example-sample-credential
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
       "https://www.w3.org/2018/credentials/examples/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json"
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -55,7 +55,7 @@ Credentials [A](#example-sample-credential-a) and [B](#example-sample-credential
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
       "https://www.w3.org/2018/credentials/examples/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json"
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -96,7 +96,7 @@ Credentials [C](#example-sample-credential-c) and [D](#example-sample-credential
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
       "https://www.w3.org/2018/credentials/examples/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json"
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -131,7 +131,7 @@ Credentials [C](#example-sample-credential-c) and [D](#example-sample-credential
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
       "https://www.w3.org/2018/credentials/examples/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json"
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
