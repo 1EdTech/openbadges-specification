@@ -194,9 +194,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "specNature": "informative",
   "specType": "errata",
   "specVersion": "3.0",
-  "docVersion": "1.4",
+  "docVersion": "1.5",
   "specStatus": "Candidate Final Public",
-  "specDate": "July 14, 2023",
+  "specDate": "December 13, 2023",
   "contributors": [
     {
       "name": "Nate Otto",
@@ -559,11 +559,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <tbody>
       <tr>
         <td>Document Version:</td>
-        <td>1.4</td>
+        <td>1.5</td>
       </tr>
       <tr>
         <td>Date Issued:</td>
-        <td>July 14, 2023</td>
+        <td>December 13, 2023</td>
       </tr>
       <tr>
         <td>Status:</td>
@@ -650,11 +650,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 <p>As a consumer of ClrCredentials, now when I verify a ClrCredential where the issuer had included an identifier for the user at this level, it will now show up, whereas previously it would not have appeared if any JSON-LD operation had been done on the data. No other change to software is necessary.</p>
 </blockquote><p>According to this policy, this section recaps all the changes made to the context file which constitute a breaking change, and therefore, a new version of the file.</p><div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="5"><span>Note</span></div><div class="">
 Previous versions of the context file will remain accessible, in order to keep backwards compatibility with existing credentials. However, it's recommended to refer to the newest version of the file.
-</div></div></section><section id="version-3-0-3-0"><h4 id="version-3-0-3"><bdi class="secno">1.1.2 </bdi>version 3.0.3<a class="self-link" aria-label="§" href="#version-3-0-3"></a><a class="self-link" aria-label="§" href="#version-3-0-3"></a></h4><p>-<code>@id</code> of <code>image</code> in <code>Achievement</code> now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#image</code>
--<code>@id</code> of <code>achievement</code> in <code>AchievementSubject</code> now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#achievement</code>
--<code>@id</code> of <code>image</code> in <code>AchievementSubject</code> now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#image</code>
--<code>@id</code> of <code>image</code> in <code>Profile</code> now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#image</code>
--Removed <code>image</code> attribute</p></section><section id="version-3-0-2-0"><h4 id="version-3-0-2"><bdi class="secno">1.1.3 </bdi>version 3.0.2<a class="self-link" aria-label="§" href="#version-3-0-2"></a><a class="self-link" aria-label="§" href="#version-3-0-2"></a></h4><ul>
+</div></div></section><section id="version-3-0-3-0"><h4 id="version-3-0-3"><bdi class="secno">1.1.2 </bdi>version 3.0.3<a class="self-link" aria-label="§" href="#version-3-0-3"></a><a class="self-link" aria-label="§" href="#version-3-0-3"></a></h4><ul>
+<li><code>@id</code> of <code>image</code> in <code>Achievement</code> now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#image</code></li>
+<li><code>@id</code> of <code>achievement</code> in <code>AchievementSubject</code> now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#achievement</code></li>
+<li><code>@id</code> of <code>image</code> in <code>AchievementSubject</code> now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#image</code></li>
+<li><code>@id</code> of <code>image</code> in <code>Profile</code> now points to <code>https://purl.imsglobal.org/spec/vc/ob/vocab.html#image</code></li>
+</ul></section><section id="version-3-0-2-0"><h4 id="version-3-0-2"><bdi class="secno">1.1.3 </bdi>version 3.0.2<a class="self-link" aria-label="§" href="#version-3-0-2"></a><a class="self-link" aria-label="§" href="#version-3-0-2"></a></h4><ul>
 <li>Added <code>@protected</code> to all <code>@context</code>.</li>
 <li>`"@type": "xsd:string"`` was removed where it appears. This is the default type, but in rare cases, processing systems handle an explicit declaration of this type differently from allowing the default. For VCs, it is considered more reliable to just allow the default to be applied.</li>
 <li><code>id</code> and `type`` aliases are redeclared in every context. This avoids a narrow type of attack where somebody might place a context that redeclares these terms in between the top layer and a class-specific layer of a credential, changing the values of these terms within the class implementation.</li>
@@ -723,6 +724,14 @@ Previous versions of the context file will remain accessible, in order to keep b
                         <td>Version 3.0 IMS Candidate Final</td>
                         <td>1.4</td>
                         <td>July 14, 2023</td>
+                        <td>
+                            Added changes in context.json file
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Version 3.0 IMS Candidate Final</td>
+                        <td>1.5</td>
+                        <td>December 13, 2023</td>
                         <td>
                             Added changes in context.json file
                         </td>
@@ -984,7 +993,7 @@ function hidePanel(panel) {
         Please refer to Document Name: Open Badges Errata
         3.0
       </p>
-      <p>Date: July 14, 2023</p>
+      <p>Date: December 13, 2023</p>
       <div></div>
     </div>
   </footer></body></html>

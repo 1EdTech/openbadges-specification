@@ -292,9 +292,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "specNature": "normative",
   "specType": "main",
   "specVersion": "3.0",
-  "docVersion": "1.0.11",
+  "docVersion": "1.0.12",
   "specStatus": "Candidate Final Public",
-  "specDate": "November 30, 2023",
+  "specDate": "December 13, 2023",
   "contributors": [
     {
       "name": "Nate Otto",
@@ -1723,11 +1723,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <tbody>
       <tr>
         <td>Document Version:</td>
-        <td>1.0.11</td>
+        <td>1.0.12</td>
       </tr>
       <tr>
         <td>Date Issued:</td>
-        <td>November 30, 2023</td>
+        <td>December 13, 2023</td>
       </tr>
       <tr>
         <td>Status:</td>
@@ -2145,18 +2145,72 @@ An Assertion identifies a recipient with a "recipient" relationship to an Identi
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json"</span>,
     <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechJsonSchemaValidator2019"</span>
   }]
-}</code></pre></div><div class="vc-tab-content"><pre>undefined</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
+}</code></pre></div><div class="vc-tab-content"><pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
+    "https://w3id.org/security/data-integrity/v1"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": [
+    "VerifiableCredential",
+    "OpenBadgeCredential"
+  ],
+  "issuer": {
+    "id": "https://example.edu/issuers/565049",
+    "type": [
+      "Profile"
+    ],
+    "name": "Example University"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "name": "Example University Degree",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": [
+      "AchievementSubject"
+    ],
+    "achievement": {
+      "id": "https://example.com/achievements/21st-century-skills/teamwork",
+      "type": [
+        "Achievement"
+      ],
+      "criteria": {
+        "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+      },
+      "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+      "name": "Teamwork"
+    }
+  },
+  "credentialSchema": [
+    {
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    }
+  ],
+  "proof": [
+    {
+      "type": "DataIntegrityProof",
+      "created": "2023-12-13T10:39:59Z",
+      "verificationMethod": "https://example.edu/issuers/565049#z6MksbfDzzrwcRBgEuMggqJ9VKWzc3nZyGQoseKSBvxxQv69",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z32iizSQFYnPDKpxcq31t5BfC6Aszu4crbcYGokAED3RwsepzHUhkc4NjWizp5EmJDTzcMuJ3ozbk2Sn5ynTQjfn1"
+    }
+  ]
+}</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
   "alg": "RS256",
   "typ": "JWT",
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "rU4WJ2FMfkQNHV2Nbp8fOKRdlk9bKYGDfcAqLGzJfGtcxxZeNA9S63LrTN03tOPusKwgzy
-WiQ-Tn8Iq1Xo9ArE8incYGh-JeF0mTCvBHoAlVy0foK8cT7Wj_IEUM4T7sdAmLatNaAvzXITgmzL7w-q
-f10QQBAb_x7rk4MeMmtyc4CBSQ9N26PRmVxftyxsssx61io2oceNkDjpOKgX-MkZho-iGUGQt_8Jz-Cl
-mK3UvbYCGKHMULafMO8Ek-rOOQ0QH3DI613HrtjZwJWLDg33UCYpdqaIm1phmBZvFDcaeU5x6iUBiITL
-h2P3dR5KwA4FIDpqR84pdqCDbe1il7rw"
+    "n": "rkU3IeGixwhe-ThuwZL8fSEeslPYrE-0AsbdrTYPar4rJZo_hqqLPcxoUPxWqJCL8Brd8v
+0NHD8xsmxWaLt_3nHfTlh-h-AgmE68zlScJj4BZcqz6TAUZs7vFC27gRPVW-LxQO4e-nZYJtxtxNOboe
+GEdNYPaGrA9CRxWTQlfZ05hlLXnuZO8ANGQgMEtktMsMH94kwKo6VcceK-LAsSMTkXvdbB5flWzLQ0bf
+iyqqAq6hJ9B7A5cgESFXPiqb-Ryh21tCO4_kAdG-K5cXCTLUtPt1j3sF0Vny32W6JsiYZaVt6AnfuaO1
+uSM0Qg2HMlKFuWOsvzpgUQDWDkOvpzPQ"
   }
 }
 --------------- JWT payload ---------------
@@ -2218,12 +2272,12 @@ vementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJyVTRXSjJGTWZrUU5IVjJOYnA4Zk9LUmRsazliS1lHRGZjQXFMR3pKZkd0Y3h4WmVOQTlTNjNMclRO
-MDN0T1B1c0t3Z3p5V2lRLVRuOElxMVhvOUFyRThpbmNZR2gtSmVGMG1UQ3ZCSG9BbFZ5MGZvSzhjVDdX
-al9JRVVNNFQ3c2RBbUxhdE5hQXZ6WElUZ216TDd3LXFmMTBRUUJBYl94N3JrNE1lTW10eWM0Q0JTUTlO
-MjZQUm1WeGZ0eXhzc3N4NjFpbzJvY2VOa0RqcE9LZ1gtTWtaaG8taUdVR1F0XzhKei1DbG1LM1V2YllD
-R0tITVVMYWZNTzhFay1yT09RMFFIM0RJNjEzSHJ0alp3SldMRGczM1VDWXBkcWFJbTFwaG1CWnZGRGNh
-ZVU1eDZpVUJpSVRMaDJQM2RSNUt3QTRGSURwcVI4NHBkcUNEYmUxaWw3cncifX0.eyJ2YyI6eyJAY29u
+OiJya1UzSWVHaXh3aGUtVGh1d1pMOGZTRWVzbFBZckUtMEFzYmRyVFlQYXI0ckpab19ocXFMUGN4b1VQ
+eFdxSkNMOEJyZDh2ME5IRDh4c214V2FMdF8zbkhmVGxoLWgtQWdtRTY4emxTY0pqNEJaY3F6NlRBVVpz
+N3ZGQzI3Z1JQVlctTHhRTzRlLW5aWUp0eHR4Tk9ib2VHRWROWVBhR3JBOUNSeFdUUWxmWjA1aGxMWG51
+Wk84QU5HUWdNRXRrdE1zTUg5NGt3S282VmNjZUstTEFzU01Ua1h2ZGJCNWZsV3pMUTBiZml5cXFBcTZo
+SjlCN0E1Y2dFU0ZYUGlxYi1SeWgyMXRDTzRfa0FkRy1LNWNYQ1RMVXRQdDFqM3NGMFZueTMyVzZKc2lZ
+WmFWdDZBbmZ1YU8xdVNNMFFnMkhNbEtGdVdPc3Z6cGdVUURXRGtPdnB6UFEifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4zLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -2244,11 +2298,11 @@ b2JhbC5vcmcvc3BlYy9vYi92M3AwL3NjaGVtYS9qc29uL29iX3YzcDBfYWNoaWV2ZW1lbnRjcmVkZW50
 aWFsX3NjaGVtYS5qc29uIiwidHlwZSI6IjFFZFRlY2hKc29uU2NoZW1hVmFsaWRhdG9yMjAxOSJ9XX0s
 ImlzcyI6Imh0dHBzOi8vZXhhbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAs
 Imp0aSI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3ViIjoiZGlkOmV4YW1w
-bGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.eV9ZVNRfHrGd0e2_RKY4k4dLMvH0t3AUT2Lb
-o1KnEj9BuzsUakg3NHhqkAJ05vwNc1a16svbLNNPbzWvAV6MZLeOISIgZY3cJWfgOmGfagdk-A5C8eyG
-wxaoklv1vq8YFc8bTaNqTzwurPcNvR-mOGs6tE_-ouIeA7JOnVlvFJxxjjm2JwZO1O2Vj2hAqG3bSZKT
-jl4r6X5-a-Zce_9ZtE8W0qaCTGYKdu1d3EO40wmohcDks5_yIgIEFcl0SRgKelwtxtaIr-3MaR0BYLdk
-drIPteZO7j_vip4_X2ZxoiGNr2cLnzPA0rQIY1TbjDCr_rPlZPKXHc9PykofzZNA-g</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Third Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
+bGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.ZaHUeZjMCKIXXgyLjUrlkt5zEF6FemHr8vEI
+SZ6r3qr-gkH7nDFPX0q0PbYKn6VrVCHf-FtaD6jDVWJ8pyoektbhM6C0dyly4AFbA04_Gj0TeEBeUE2f
+kMX2-AcYZcNYdPhxl3EM48NI32bDyYPvBK7N4LsJDKy8_qJhHs9WKiJwXJYkTOnzJFcdrbSZird58cX8
+LlYEOwH6s47RUUxfs4MYgsBIR8Uvj_jhueOc2aXZrvEQbOtcZBzF2sewTutIU349YQg-Ukf45KfgZIWj
+eFwzqraOwn4yGbXZHmV6j4uc-g7rbxVE_Ml4gN1S-kcTTgm4-XYVNC1fgZ9EYFhkJg</pre></div></div></div><section id="file-format-0"><h3 id="file-format"><bdi class="secno">5.1 </bdi>File Format<a class="self-link" aria-label="§" href="#file-format"></a><a class="self-link" aria-label="§" href="#file-format"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the file <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-1" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The file extension <em class="rfc2119">SHOULD</em> be ".jws" or ".jwt".</p><p>If an embedded proof method is used instead, the contents of the file <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The file extension <em class="rfc2119">SHOULD</em> be ".json".</p></section><section id="web-resource-0"><h3 id="web-resource"><bdi class="secno">5.2 </bdi>Web Resource<a class="self-link" aria-label="§" href="#web-resource"></a><a class="self-link" aria-label="§" href="#web-resource"></a></h3><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the contents of the response <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-2" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>text/plain</code>.</p><p>If an embedded proof method is used instead, the contents of the response <em class="rfc2119">MUST</em> be the JSON representation of the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a>. The <code>Content-Type</code> <em class="rfc2119">SHOULD</em> be <code>application/json</code> or <code>application/ld+json</code>.</p></section><section id="baked-badge-0"><h3 id="baked-badge"><bdi class="secno">5.3 </bdi>Baked Badge<a class="self-link" aria-label="§" href="#baked-badge"></a><a class="self-link" aria-label="§" href="#baked-badge"></a></h3><p>OpenBadgeCredentials may be exchanged as image files with the credential encoded (baked) within. This allows the credential to be portable wherever image files may be stored or displayed.</p><p>"Baking" is the process of taking an <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> and embedding it into the image, so that when a user displays the image on a page, software that is Open Badges aware can automatically extract that OpenBadgeCredential data and perform the checks necessary to see if a person legitimately earned the achievement within the image. The image <em class="rfc2119">MUST</em> be in either PNG [<cite><a class="bibref" data-link-type="biblio" href="#bib-png" title="Portable Network Graphics (PNG) Specification (Third Edition)">PNG</a></cite>] or SVG [<cite><a class="bibref" data-link-type="biblio" href="#bib-svg11" title="Scalable Vector Graphics (SVG) 1.1 (Second Edition)">SVG11</a></cite>] format in order to support baking.</p><section id="png-0"><h4 id="png"><bdi class="secno">5.3.1 </bdi>PNG<a class="self-link" aria-label="§" href="#png"></a><a class="self-link" aria-label="§" href="#png"></a></h4><section id="baking"><h5 id="png-baking"><bdi class="secno">5.3.1.1 </bdi>Baking<a class="self-link" aria-label="§" href="#png-baking"></a><a class="self-link" aria-label="§" href="#png-baking"></a></h5><p>An <a href="http://www.w3.org/TR/PNG/#11iTXt"><code>iTXt</code></a> chunk should be inserted into the PNG with <strong>keyword</strong> <code>openbadgecredential</code>.</p><p>If the credential is signed using the <a href="#jwt-proof" class="sec-ref">§&nbsp;<bdi class="secno">8.2 </bdi>JSON Web Token Proof Format</a> (VC-JWT) the text value of the chunk <em class="rfc2119">MUST</em> be the <a data-link-type="dfn" href="#dfn-compact-jws" class="internalDFN" id="ref-for-dfn-compact-jws-3" title="Compact JWS - &quot;A compact representation of a JWS.&quot; [RFC7515]">Compact JWS</a> string formed as a result of signing the <a href="#org.1edtech.ob.v3p0.achievementcredential.class">OpenBadgeCredential</a> with VC-JWT. Compression <em class="rfc2119">MUST NOT</em> be used.</p><div class="example" id="example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">
         <div class="marker">
     <a class="self-link" href="#example-an-example-of-creating-a-chunk-with-vc-jwt-proof-assuming-an-itxt-constructor">Example<bdi> 2</bdi></a><span class="example-title">: An example of creating a chunk with VC-JWT proof (assuming an iTXt constructor)</span>
   </div> <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">var</span> chunk = <span class="hljs-keyword">new</span> iTXt({
@@ -9589,18 +9643,59 @@ Only perform Refresh once. That is, do not complete Refresh a second time even i
   			<span class="hljs-attr">"name"</span>: <span class="hljs-string">"Teamwork"</span>
   		}
   }
-}</code></pre></div><div class="vc-tab-content"><pre>undefined</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
+}</code></pre></div><div class="vc-tab-content"><pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://w3id.org/security/data-integrity/v1"
+  ],
+  "id": "http://example.com/credentials/3527",
+  "type": [
+    "VerifiableCredential",
+    "OpenBadgeCredential"
+  ],
+  "issuer": {
+    "id": "https://example.com/issuers/876543",
+    "type": "Profile",
+    "name": "Example Corp"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "name": "Teamwork Badge",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": "AchievementSubject",
+    "achievement": {
+      "id": "https://example.com/achievements/21st-century-skills/teamwork",
+      "type": "Achievement",
+      "criteria": {
+        "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+      },
+      "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+      "name": "Teamwork"
+    }
+  },
+  "proof": [
+    {
+      "type": "DataIntegrityProof",
+      "created": "2023-12-13T10:39:59Z",
+      "verificationMethod": "https://example.com/issuers/876543#z6MkkHpdJoNgBehNk3g9GGammau3h271ZGjpfuh4rKq1wXkK",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z3tGqdcTBzz2Qgoa2o4BFdkX2aeLkFDtdp58fUocjwoN4VrHMoJHBMscTCnWoFRPL7p6BTYeXEhFA7y1soKAvnHQS"
+    }
+  ]
+}</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
   "alg": "RS256",
   "typ": "JWT",
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "t8efh6WenQzyMpNgo_uY9qWpNwMvbn2yEWUXU86c3FSHwi_d84XdSMecl9wWZGr8pS7ymC
-zxYFtbva7XgeCeVUZ477rxBafLiipSd__v1o8x94-i2kSMVpQm3aWS9m4mTLEPIeHm2xCgXlZwwRajHC
-8jcitNeMdxokEBwplgEbObQy5Ft3Rjzw0z0w1QdTBGc89P8t0fTWsDRM5oUu9FqqVzbXNdwc9mvaN3eb
-rM1Du2gQTcDwsNvy8IG1qD55FXCiqOGf-fhtBPbcKOZWmO-sirIDD-UmccSaPHkLcUQ_BoZIsmB5fWas
-uCzQnHp44GAQyiyUc_KuYFqGbao6Y4yw"
+    "n": "wSekk6O9SMrPjKkojymxhfXi4erDBJpFU0Lpyea_DGtJf847KhIOVC6ZwzMD2e8asK5gCC
+55vgpKpCevvPz6dg_uu1cuLwD_Aj4o91MFLznt31K7813qOlpb5CgnbHP41Hgp3oVSSsns1Vw1dTaJ_w
+15e5UuFuO68lSeH69QJGs9VkRA6ERwkSDk6cqKITCi478JjjFGADPB01o8c_1q09PnSNuHOHi8IfcEJE
+u8LVz2_QDw1chRU1Zqm-wQiI-h_KaNlWxXQofvCxjAc9CsVDzzdH4kcCLiaCZarQKL1tmITAMXkUs6xM
+HcNnfEg1eoCq8WuZasEPzKxIXXRoMr2Q"
   }
 }
 --------------- JWT payload ---------------
@@ -9648,12 +9743,12 @@ uCzQnHp44GAQyiyUc_KuYFqGbao6Y4yw"
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ0OGVmaDZXZW5RenlNcE5nb191WTlxV3BOd012Ym4yeUVXVVhVODZjM0ZTSHdpX2Q4NFhkU01lY2w5
-d1daR3I4cFM3eW1DenhZRnRidmE3WGdlQ2VWVVo0NzdyeEJhZkxpaXBTZF9fdjFvOHg5NC1pMmtTTVZw
-UW0zYVdTOW00bVRMRVBJZUhtMnhDZ1hsWnd3UmFqSEM4amNpdE5lTWR4b2tFQndwbGdFYk9iUXk1RnQz
-Ump6dzB6MHcxUWRUQkdjODlQOHQwZlRXc0RSTTVvVXU5RnFxVnpiWE5kd2M5bXZhTjNlYnJNMUR1MmdR
-VGNEd3NOdnk4SUcxcUQ1NUZYQ2lxT0dmLWZodEJQYmNLT1pXbU8tc2lySURELVVtY2NTYVBIa0xjVVFf
-Qm9aSXNtQjVmV2FzdUN6UW5IcDQ0R0FReWl5VWNfS3VZRnFHYmFvNlk0eXcifX0.eyJ2YyI6eyJAY29u
+OiJ3U2VrazZPOVNNclBqS2tvanlteGhmWGk0ZXJEQkpwRlUwTHB5ZWFfREd0SmY4NDdLaElPVkM2Wnd6
+TUQyZThhc0s1Z0NDNTV2Z3BLcENldnZQejZkZ191dTFjdUx3RF9BajRvOTFNRkx6bnQzMUs3ODEzcU9s
+cGI1Q2duYkhQNDFIZ3Azb1ZTU3NuczFWdzFkVGFKX3cxNWU1VXVGdU82OGxTZUg2OVFKR3M5VmtSQTZF
+UndrU0RrNmNxS0lUQ2k0NzhKampGR0FEUEIwMW84Y18xcTA5UG5TTnVIT0hpOElmY0VKRXU4TFZ6Ml9R
+RHcxY2hSVTFacW0td1FpSS1oX0thTmxXeFhRb2Z2Q3hqQWM5Q3NWRHp6ZEg0a2NDTGlhQ1phclFLTDF0
+bUlUQU1Ya1VzNnhNSGNObmZFZzFlb0NxOFd1WmFzRVB6S3hJWFhSb01yMlEifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4zLmpzb24iXSwiaWQiOiJodHRw
 Oi8vZXhhbXBsZS5jb20vY3JlZGVudGlhbHMvMzUyNyIsInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRp
@@ -9670,11 +9765,11 @@ IGJhZGdlIHJlY29nbml6ZXMgdGhlIGRldmVsb3BtZW50IG9mIHRoZSBjYXBhY2l0eSB0byBjb2xsYWJv
 cmF0ZSB3aXRoaW4gYSBncm91cCBlbnZpcm9ubWVudC4iLCJuYW1lIjoiVGVhbXdvcmsifX19LCJpc3Mi
 OiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlcnMvODc2NTQzIiwibmJmIjoxMjYyMzA0MDAwLCJqdGki
 OiJodHRwOi8vZXhhbXBsZS5jb20vY3JlZGVudGlhbHMvMzUyNyIsInN1YiI6ImRpZDpleGFtcGxlOmVi
-ZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.rtpzZaod5kzjVbzXiJwb-6F1MT9de5i8tJS37m_srOJ
-GhG5Lz0wuckfj6712ygwW9TP-HKslAsPrGqI9Rx1DN-m04bG91zCm2U48w8c6NxQk34R1lCIBzR0HISw
-as2-8RXV8rNeiHl-pLu3-Wuf_CxAYXXtJmioojT-hKbdPmx9WbhaTP-todMzas49ldb2j-0JwpINhONa
-tR8OAhHSDYk0fH6_opLpy2_KsDyVSMhciivDkaJulF9HlsH_0bi3-kvKk1jVVgnkkky7GedEMeJq8WiR
-UkHCqzoFFDVyJ4abVFtpmkOYjr_Bb_a4xblQQJXHIP3niTJyXqonrTAkgKA</pre></div></div></div>
+ZmViMWY3MTJlYmM2ZjFjMjc2ZTEyZWMyMSJ9.LTA1RlNlbcNoU9Ef-xRpzwe--PjNWMriSyf92NClfW_
+ijVDHOMXXwkY7l9e6jZUJXAE9DZ_eQDQ46EDgBqBIjHrNweIQsAt_Ml-SXz3wJDTYG2UpnyM4TpcafXj
+lZuTzACOFarB4AbF5GM3jYMfvO4h9FdDNK74wFN5iMfIWUcAWPoBqSZt_nHfNeU9Cda2qhKQfN92utBr
+JTkdBewDa1P8J-DUENFZhdrAyKthWep2b2oFmJYQzr_de2uJcJIevuP_uwv42eRSF06PevaBQTzINLN5
+6mknji9gOYhsPuis7dfriPMGjTPgAAMWnrTJaB9bIaBsijD5HWCuf1-ifmA</pre></div></div></div>
 
 
     </section>
@@ -10407,18 +10502,682 @@ UkHCqzoFFDVyJ4abVFtpmkOYjr_Bb_a4xblQQJXHIP3niTJyXqonrTAkgKA</pre></div></div></d
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://1edtech.edu/credentials/3732"</span>,
     <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechCredentialRefresh"</span>
   }
-}</code></pre></div><div class="vc-tab-content"><pre>undefined</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
+}</code></pre></div><div class="vc-tab-content"><pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
+    "https://w3id.org/security/data-integrity/v1"
+  ],
+  "id": "http://1edtech.edu/credentials/3732",
+  "type": [
+    "VerifiableCredential",
+    "OpenBadgeCredential"
+  ],
+  "name": "1EdTech University Degree for Example Student",
+  "description": "1EdTech University Degree Description",
+  "image": {
+    "id": "https://1edtech.edu/credentials/3732/image",
+    "type": "Image",
+    "caption": "1EdTech University Degree for Example Student"
+  },
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": "AchievementSubject",
+    "activityEndDate": "2010-01-02T00:00:00Z",
+    "activityStartDate": "2010-01-01T00:00:00Z",
+    "creditsEarned": 42,
+    "licenseNumber": "A-9320041",
+    "role": "Major Domo",
+    "source": {
+      "id": "https://school.edu/issuers/201234",
+      "type": "Profile",
+      "name": "1EdTech College of Arts"
+    },
+    "term": "Fall",
+    "identifier": [
+      {
+        "type": "IdentityObject",
+        "identityHash": "student@1edtech.edu",
+        "identityType": "emailAddress",
+        "hashed": false,
+        "salt": "not-used"
+      },
+      {
+        "type": "IdentityObject",
+        "identityHash": "somebody@gmail.com",
+        "identityType": "emailAddress",
+        "hashed": false,
+        "salt": "not-used"
+      }
+    ],
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/degree",
+      "type": "Achievement",
+      "alignment": [
+        {
+          "type": "Alignment",
+          "targetCode": "degree",
+          "targetDescription": "1EdTech University Degree programs.",
+          "targetName": "1EdTech University Degree",
+          "targetFramework": "1EdTech University Program and Course Catalog",
+          "targetType": "CFItem",
+          "targetUrl": "https://1edtech.edu/catalog/degree"
+        },
+        {
+          "type": "Alignment",
+          "targetCode": "degree",
+          "targetDescription": "1EdTech University Degree programs.",
+          "targetName": "1EdTech University Degree",
+          "targetFramework": "1EdTech University Program and Course Catalog",
+          "targetType": "CTDL",
+          "targetUrl": "https://credentialengineregistry.org/resources/ce-98cb027b-95ef-4494-908d-6f7790ec6b6b"
+        }
+      ],
+      "achievementType": "Degree",
+      "creator": {
+        "id": "https://1edtech.edu/issuers/565049",
+        "type": "Profile",
+        "name": "1EdTech University",
+        "url": "https://1edtech.edu",
+        "phone": "1-222-333-4444",
+        "description": "1EdTech University provides online degree programs.",
+        "endorsement": [
+          {
+            "@context": [
+              "https://www.w3.org/2018/credentials/v1",
+              "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+              "https://w3id.org/security/data-integrity/v1"
+            ],
+            "id": "http://1edtech.edu/endorsementcredential/3732",
+            "type": [
+              "VerifiableCredential",
+              "EndorsementCredential"
+            ],
+            "name": "SDE endorsement",
+            "issuer": {
+              "id": "https://accrediter.edu/issuers/565049",
+              "type": "Profile",
+              "name": "Example Accrediting Agency"
+            },
+            "issuanceDate": "2010-01-01T00:00:00Z",
+            "expirationDate": "2020-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://1edtech.edu/issuers/565049",
+              "type": "EndorsementSubject",
+              "endorsementComment": "1EdTech University is in good standing"
+            },
+            "credentialSchema": [
+              {
+                "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json",
+                "type": "1EdTechJsonSchemaValidator2019"
+              },
+              {
+                "id": "https://accrediter.edu/schema/endorsementcredential.json",
+                "type": "1EdTechJsonSchemaValidator2019"
+              }
+            ],
+            "credentialStatus": {
+              "id": "https://1edtech.edu/credentials/3732/revocations",
+              "type": "1EdTechRevocationList"
+            },
+            "refreshService": {
+              "id": "http://1edtech.edu/credentials/3732",
+              "type": "1EdTechCredentialRefresh"
+            },
+            "proof": [
+              {
+                "type": "DataIntegrityProof",
+                "cryptosuite": "eddsa-rdf-2022",
+                "created": "2022-05-26T18:17:08Z",
+                "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
+                "proofPurpose": "assertionMethod",
+                "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+              }
+            ]
+          },
+          {
+            "@context": [
+              "https://www.w3.org/2018/credentials/v1",
+              "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+              "https://w3id.org/security/data-integrity/v1"
+            ],
+            "id": "http://1edtech.edu/endorsementcredential/3733",
+            "type": [
+              "VerifiableCredential",
+              "EndorsementCredential"
+            ],
+            "name": "SDE endorsement",
+            "issuer": {
+              "id": "https://state.gov/issuers/565049",
+              "type": "Profile",
+              "name": "State Department of Education"
+            },
+            "issuanceDate": "2010-01-01T00:00:00Z",
+            "expirationDate": "2020-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://1edtech.edu/issuers/565049",
+              "type": "EndorsementSubject",
+              "endorsementComment": "1EdTech University is in good standing"
+            },
+            "credentialSchema": [
+              {
+                "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json",
+                "type": "1EdTechJsonSchemaValidator2019"
+              },
+              {
+                "id": "https://state.gov/schema/endorsementcredential.json",
+                "type": "1EdTechJsonSchemaValidator2019"
+              }
+            ],
+            "credentialStatus": {
+              "id": "https://state.gov/credentials/3732/revocations",
+              "type": "1EdTechRevocationList"
+            },
+            "refreshService": {
+              "id": "http://state.gov/credentials/3732",
+              "type": "1EdTechCredentialRefresh"
+            },
+            "proof": [
+              {
+                "type": "DataIntegrityProof",
+                "cryptosuite": "eddsa-rdf-2022",
+                "created": "2022-05-26T18:25:59Z",
+                "verificationMethod": "https://accrediter.edu/issuers/565049#z5bDnmSgDczXwZGya6ZjxKaxkdKxzsCMiVSsgEVWxnaWK7ZqbKnzcCd7mUKE9DQaAL2QMXP5AquPeW6W2CWrZ7jNC",
+                "proofPurpose": "assertionMethod",
+                "proofValue": "z5bDnmSgDczXwZGya6ZjxKaxkdKxzsCMiVSsgEVWxnaWK7ZqbKnzcCd7mUKE9DQaAL2QMXP5AquPeW6W2CWrZ7jNC"
+              }
+            ]
+          }
+        ],
+        "image": {
+          "id": "https://1edtech.edu/logo.png",
+          "type": "Image",
+          "caption": "1EdTech University logo"
+        },
+        "email": "registrar@1edtech.edu",
+        "address": {
+          "type": [
+            "Address"
+          ],
+          "addressCountry": "USA",
+          "addressCountryCode": "US",
+          "addressRegion": "TX",
+          "addressLocality": "Austin",
+          "streetAddress": "123 First St",
+          "postOfficeBoxNumber": "1",
+          "postalCode": "12345",
+          "geo": {
+            "type": "GeoCoordinates",
+            "latitude": 1,
+            "longitude": 1
+          }
+        },
+        "otherIdentifier": [
+          {
+            "type": "IdentifierEntry",
+            "identifier": "12345",
+            "identifierType": "sourcedId"
+          },
+          {
+            "type": "IdentifierEntry",
+            "identifier": "67890",
+            "identifierType": "nationalIdentityNumber"
+          }
+        ],
+        "official": "Horace Mann",
+        "parentOrg": {
+          "id": "did:example:123456789",
+          "type": "Profile",
+          "name": "Universal Universities"
+        }
+      },
+      "creditsAvailable": 36,
+      "criteria": {
+        "id": "https://1edtech.edu/achievements/degree",
+        "narrative": "# Degree Requirements\nStudents must complete..."
+      },
+      "description": "1EdTech University Degree Description",
+      "endorsement": [
+        {
+          "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+            "https://w3id.org/security/data-integrity/v1"
+          ],
+          "id": "http://1edtech.edu/endorsementcredential/3734",
+          "type": [
+            "VerifiableCredential",
+            "EndorsementCredential"
+          ],
+          "name": "EAA endorsement",
+          "issuer": {
+            "id": "https://accrediter.edu/issuers/565049",
+            "type": "Profile",
+            "name": "Example Accrediting Agency"
+          },
+          "issuanceDate": "2010-01-01T00:00:00Z",
+          "expirationDate": "2020-01-01T00:00:00Z",
+          "credentialSubject": {
+            "id": "https://1edtech.edu/issuers/565049",
+            "type": "EndorsementSubject",
+            "endorsementComment": "1EdTech University is in good standing"
+          },
+          "credentialSchema": [
+            {
+              "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json",
+              "type": "1EdTechJsonSchemaValidator2019"
+            },
+            {
+              "id": "https://accrediter.edu/schema/endorsementcredential.json",
+              "type": "1EdTechJsonSchemaValidator2019"
+            }
+          ],
+          "credentialStatus": {
+            "id": "https://1edtech.edu/credentials/3732/revocations",
+            "type": "1EdTechRevocationList"
+          },
+          "refreshService": {
+            "id": "http://1edtech.edu/credentials/3732",
+            "type": "1EdTechCredentialRefresh"
+          },
+          "proof": [
+            {
+              "type": "DataIntegrityProof",
+              "cryptosuite": "eddsa-rdf-2022",
+              "created": "2022-05-26T18:17:08Z",
+              "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
+              "proofPurpose": "assertionMethod",
+              "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+            }
+          ]
+        }
+      ],
+      "fieldOfStudy": "Research",
+      "humanCode": "R1",
+      "image": {
+        "id": "https://1edtech.edu/achievements/degree/image",
+        "type": "Image",
+        "caption": "1EdTech University Degree"
+      },
+      "name": "1EdTech University Degree",
+      "otherIdentifier": [
+        {
+          "type": "IdentifierEntry",
+          "identifier": "abde",
+          "identifierType": "identifier"
+        }
+      ],
+      "resultDescription": [
+        {
+          "id": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+          "type": "ResultDescription",
+          "alignment": [
+            {
+              "type": "Alignment",
+              "targetCode": "project",
+              "targetDescription": "Project description",
+              "targetName": "Final Project",
+              "targetFramework": "1EdTech University Program and Course Catalog",
+              "targetType": "CFItem",
+              "targetUrl": "https://1edtech.edu/catalog/degree/project"
+            }
+          ],
+          "allowedValue": [
+            "D",
+            "C",
+            "B",
+            "A"
+          ],
+          "name": "Final Project Grade",
+          "requiredValue": "C",
+          "resultType": "LetterGrade"
+        },
+        {
+          "id": "urn:uuid:a70ddc6a-4c4a-4bd8-8277-cb97c79f40c5",
+          "type": "ResultDescription",
+          "alignment": [
+            {
+              "type": "Alignment",
+              "targetCode": "project",
+              "targetDescription": "Project description",
+              "targetName": "Final Project",
+              "targetFramework": "1EdTech University Program and Course Catalog",
+              "targetType": "CFItem",
+              "targetUrl": "https://1edtech.edu/catalog/degree/project"
+            }
+          ],
+          "allowedValue": [
+            "D",
+            "C",
+            "B",
+            "A"
+          ],
+          "name": "Final Project Grade",
+          "requiredLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+          "resultType": "RubricCriterionLevel",
+          "rubricCriterionLevel": [
+            {
+              "id": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+              "type": "RubricCriterionLevel",
+              "alignment": [
+                {
+                  "type": "Alignment",
+                  "targetCode": "project",
+                  "targetDescription": "Project description",
+                  "targetName": "Final Project",
+                  "targetFramework": "1EdTech University Program and Course Catalog",
+                  "targetType": "CFRubricCriterionLevel",
+                  "targetUrl": "https://1edtech.edu/catalog/degree/project/rubric/levels/mastered"
+                }
+              ],
+              "description": "The author demonstrated...",
+              "level": "Mastered",
+              "name": "Mastery",
+              "points": "4"
+            },
+            {
+              "id": "urn:uuid:6b84b429-31ee-4dac-9d20-e5c55881f80e",
+              "type": "RubricCriterionLevel",
+              "alignment": [
+                {
+                  "type": "Alignment",
+                  "targetCode": "project",
+                  "targetDescription": "Project description",
+                  "targetName": "Final Project",
+                  "targetFramework": "1EdTech University Program and Course Catalog",
+                  "targetType": "CFRubricCriterionLevel",
+                  "targetUrl": "https://1edtech.edu/catalog/degree/project/rubric/levels/basic"
+                }
+              ],
+              "description": "The author demonstrated...",
+              "level": "Basic",
+              "name": "Basic",
+              "points": "4"
+            }
+          ]
+        },
+        {
+          "id": "urn:uuid:b07c0387-f2d6-4b65-a3f4-f4e4302ea8f7",
+          "type": "ResultDescription",
+          "name": "Project Status",
+          "resultType": "Status"
+        }
+      ],
+      "specialization": "Computer Science Research",
+      "tag": [
+        "research",
+        "computer science"
+      ]
+    },
+    "image": {
+      "id": "https://1edtech.edu/credentials/3732/image",
+      "type": "Image",
+      "caption": "1EdTech University Degree for Example Student"
+    },
+    "narrative": "There is a final project report and source code evidence.",
+    "result": [
+      {
+        "type": [
+          "Result"
+        ],
+        "alignment": [
+          {
+            "type": "Alignment",
+            "targetCode": "project",
+            "targetDescription": "Project description",
+            "targetName": "Final Project",
+            "targetFramework": "1EdTech University Program and Course Catalog",
+            "targetType": "CFItem",
+            "targetUrl": "https://1edtech.edu/catalog/degree/project/result/1"
+          }
+        ],
+        "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+        "value": "A"
+      },
+      {
+        "type": [
+          "Result"
+        ],
+        "achievedLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+        "alignment": [
+          {
+            "type": "Alignment",
+            "targetCode": "project",
+            "targetDescription": "Project description",
+            "targetName": "Final Project",
+            "targetFramework": "1EdTech University Program and Course Catalog",
+            "targetType": "CFItem",
+            "targetUrl": "https://1edtech.edu/catalog/degree/project/result/1"
+          }
+        ],
+        "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c"
+      },
+      {
+        "type": [
+          "Result"
+        ],
+        "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+        "status": "Completed"
+      }
+    ]
+  },
+  "endorsement": [
+    {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+        "https://w3id.org/security/data-integrity/v1"
+      ],
+      "id": "http://1edtech.edu/endorsementcredential/3735",
+      "type": [
+        "VerifiableCredential",
+        "EndorsementCredential"
+      ],
+      "name": "EAA endorsement",
+      "issuer": {
+        "id": "https://accrediter.edu/issuers/565049",
+        "type": "Profile",
+        "name": "Example Accrediting Agency"
+      },
+      "issuanceDate": "2010-01-01T00:00:00Z",
+      "expirationDate": "2020-01-01T00:00:00Z",
+      "credentialSubject": {
+        "id": "https://1edtech.edu/issuers/565049",
+        "type": "EndorsementSubject",
+        "endorsementComment": "1EdTech University is in good standing"
+      },
+      "credentialSchema": [
+        {
+          "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json",
+          "type": "1EdTechJsonSchemaValidator2019"
+        },
+        {
+          "id": "https://accrediter.edu/schema/endorsementcredential.json",
+          "type": "1EdTechJsonSchemaValidator2019"
+        }
+      ],
+      "credentialStatus": {
+        "id": "https://1edtech.edu/credentials/3732/revocations",
+        "type": "1EdTechRevocationList"
+      },
+      "refreshService": {
+        "id": "http://1edtech.edu/credentials/3732",
+        "type": "1EdTechCredentialRefresh"
+      },
+      "proof": [
+        {
+          "type": "DataIntegrityProof",
+          "cryptosuite": "eddsa-rdf-2022",
+          "created": "2022-05-26T18:17:08Z",
+          "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
+          "proofPurpose": "assertionMethod",
+          "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "https://1edtech.edu/credentials/3732/evidence/1",
+      "type": "Evidence",
+      "narrative": "# Final Project Report \n This project was ...",
+      "name": "Final Project Report",
+      "description": "This is the final project report.",
+      "genre": "Research",
+      "audience": "Department"
+    },
+    {
+      "id": "https://github.com/somebody/project",
+      "type": "Evidence",
+      "name": "Final Project Code",
+      "description": "This is the source code for the final project app.",
+      "genre": "Research",
+      "audience": "Department"
+    }
+  ],
+  "issuer": {
+    "id": "https://1edtech.edu/issuers/565049",
+    "type": "Profile",
+    "name": "1EdTech University",
+    "url": "https://1edtech.edu",
+    "phone": "1-222-333-4444",
+    "description": "1EdTech University provides online degree programs.",
+    "endorsement": [
+      {
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+          "https://w3id.org/security/data-integrity/v1"
+        ],
+        "id": "http://1edtech.edu/endorsementcredential/3736",
+        "type": [
+          "VerifiableCredential",
+          "EndorsementCredential"
+        ],
+        "name": "EAA endorsement",
+        "issuer": {
+          "id": "https://accrediter.edu/issuers/565049",
+          "type": "Profile",
+          "name": "Example Accrediting Agency"
+        },
+        "issuanceDate": "2010-01-01T00:00:00Z",
+        "expirationDate": "2020-01-01T00:00:00Z",
+        "credentialSubject": {
+          "id": "https://1edtech.edu/issuers/565049",
+          "type": "EndorsementSubject",
+          "endorsementComment": "1EdTech University is in good standing"
+        },
+        "credentialSchema": [
+          {
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+          },
+          {
+            "id": "https://accrediter.edu/schema/endorsementcredential.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+          }
+        ],
+        "credentialStatus": {
+          "id": "https://1edtech.edu/credentials/3732/revocations",
+          "type": "1EdTechRevocationList"
+        },
+        "refreshService": {
+          "id": "http://1edtech.edu/credentials/3732",
+          "type": "1EdTechCredentialRefresh"
+        },
+        "proof": [
+          {
+            "type": "DataIntegrityProof",
+            "cryptosuite": "eddsa-rdf-2022",
+            "created": "2022-05-26T18:17:08Z",
+            "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
+            "proofPurpose": "assertionMethod",
+            "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+          }
+        ]
+      }
+    ],
+    "image": {
+      "id": "https://1edtech.edu/logo.png",
+      "type": "Image",
+      "caption": "1EdTech University logo"
+    },
+    "email": "registrar@1edtech.edu",
+    "address": {
+      "type": [
+        "Address"
+      ],
+      "addressCountry": "USA",
+      "addressCountryCode": "US",
+      "addressRegion": "TX",
+      "addressLocality": "Austin",
+      "streetAddress": "123 First St",
+      "postOfficeBoxNumber": "1",
+      "postalCode": "12345",
+      "geo": {
+        "type": "GeoCoordinates",
+        "latitude": 1,
+        "longitude": 1
+      }
+    },
+    "otherIdentifier": [
+      {
+        "type": "IdentifierEntry",
+        "identifier": "12345",
+        "identifierType": "sourcedId"
+      },
+      {
+        "type": "IdentifierEntry",
+        "identifier": "67890",
+        "identifierType": "nationalIdentityNumber"
+      }
+    ],
+    "official": "Horace Mann",
+    "parentOrg": {
+      "id": "did:example:123456789",
+      "type": "Profile",
+      "name": "Universal Universities"
+    }
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "expirationDate": "2030-01-01T00:00:00Z",
+  "credentialSchema": [
+    {
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    }
+  ],
+  "credentialStatus": {
+    "id": "https://1edtech.edu/credentials/3732/revocations",
+    "type": "1EdTechRevocationList"
+  },
+  "refreshService": {
+    "id": "http://1edtech.edu/credentials/3732",
+    "type": "1EdTechCredentialRefresh"
+  },
+  "proof": [
+    {
+      "type": "DataIntegrityProof",
+      "created": "2023-12-13T10:39:59Z",
+      "verificationMethod": "https://1edtech.edu/issuers/565049#z6MkqC2GutwxVqaeSFWcQvZ75SXucWwaRrQk9a38nh3X9pH1",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z5jkApueSq5touyZmwmkLfACixqVM2Jms6tFnz4z7G8HB6aeE95HtNH45vTiSy5fD8p9Nh1knvJVxWVuqy33ejdQe"
+    }
+  ]
+}</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
   "alg": "RS256",
   "typ": "JWT",
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "5GL6biZevSvWkj0mLj8oBMSek08fLGC6gySJfb63UHSw9W70sNGv6wYJMTrM5bFh0sdWMZ
-bYYSBqG7a1JaocX2TnLj2NUtJKX07BEfgLlBN_FUyjXWwpOk4yYZHXfBzIBuxcF4ny0ViuaKd4wkJcfD
-9yFeTxD6EIZy0SmNEDgUWq6SPrV8HiZZX46KL-G3bp2TgUAzFB0pPe_wswqXr8ky9S-pV5Q1cPEfawuj
-b6HMjFpms8qPLWmJvozE8vORGYVZ8vOWn2Swz99puHGG7-bP8Zc2Qs0helashPkrDWCC0oD8jeOFgiwO
-cxDUkMzEA56Wqi-52Sp8ZCUbJmBHEEww"
+    "n": "uyHPTBI6ylcbh4eRG-keJ3vXUqvGDrwUMV0uQOEyGsIOxYY1G4LTjL5mmYkMYdeldjfWed
+BoBxixBxOKLINkv0izboDcj4zf42ED9ftGbH_3c0xxSV_U6MCID5bJl1DMRK_i3GOqKdIzNjccqfnutW
+GSO8gmG8x8_odMYdKk4BBd5Au39is-Zr4-W9wiLzDQYnDX0TgzoPNH67PyR0wFtayU0PjExZQ2sFVjMT
+mHAdRuudLJh1xfz-SNuabTFQTfo8wtlhoNhRh5JfkLEdktw5v0SWy3mX5CGpPU80dlA1lnRMN97HWL_G
+DUfG1wb7jwgL40WkBRhSP-vH6G15GKYw"
   }
 }
 --------------- JWT payload ---------------
@@ -11120,12 +11879,12 @@ vementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiI1R0w2YmlaZXZTdldrajBtTGo4b0JNU2VrMDhmTEdDNmd5U0pmYjYzVUhTdzlXNzBzTkd2NndZSk1U
-ck01YkZoMHNkV01aYllZU0JxRzdhMUphb2NYMlRuTGoyTlV0SktYMDdCRWZnTGxCTl9GVXlqWFd3cE9r
-NHlZWkhYZkJ6SUJ1eGNGNG55MFZpdWFLZDR3a0pjZkQ5eUZlVHhENkVJWnkwU21ORURnVVdxNlNQclY4
-SGlaWlg0NktMLUczYnAyVGdVQXpGQjBwUGVfd3N3cVhyOGt5OVMtcFY1UTFjUEVmYXd1amI2SE1qRnBt
-czhxUExXbUp2b3pFOHZPUkdZVlo4dk9XbjJTd3o5OXB1SEdHNy1iUDhaYzJRczBoZWxhc2hQa3JEV0ND
-MG9EOGplT0ZnaXdPY3hEVWtNekVBNTZXcWktNTJTcDhaQ1ViSm1CSEVFd3cifX0.eyJ2YyI6eyJAY29u
+OiJ1eUhQVEJJNnlsY2JoNGVSRy1rZUozdlhVcXZHRHJ3VU1WMHVRT0V5R3NJT3hZWTFHNExUakw1bW1Z
+a01ZZGVsZGpmV2VkQm9CeGl4QnhPS0xJTmt2MGl6Ym9EY2o0emY0MkVEOWZ0R2JIXzNjMHh4U1ZfVTZN
+Q0lENWJKbDFETVJLX2kzR09xS2RJek5qY2NxZm51dFdHU084Z21HOHg4X29kTVlkS2s0QkJkNUF1Mzlp
+cy1acjQtVzl3aUx6RFFZbkRYMFRnem9QTkg2N1B5UjB3RnRheVUwUGpFeFpRMnNGVmpNVG1IQWRSdXVk
+TEpoMXhmei1TTnVhYlRGUVRmbzh3dGxob05oUmg1SmZrTEVka3R3NXYwU1d5M21YNUNHcFBVODBkbEEx
+bG5STU45N0hXTF9HRFVmRzF3Yjdqd2dMNDBXa0JSaFNQLXZINkcxNUdLWXcifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4zLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -11396,11 +12155,11 @@ OnsiaWQiOiJodHRwOi8vMWVkdGVjaC5lZHUvY3JlZGVudGlhbHMvMzczMiIsInR5cGUiOiIxRWRUZWNo
 Q3JlZGVudGlhbFJlZnJlc2gifX0sImV4cCI6MTg5MzQ1NjAwMCwiaXNzIjoiaHR0cHM6Ly8xZWR0ZWNo
 LmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5iZiI6MTI2MjMwNDAwMCwianRpIjoiaHR0cDovLzFlZHRlY2gu
 ZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3
-NmUxMmVjMjEifQ.mAsy0KAYGIheLF4QZixfjdZSOrLyoDDA4PboA0FC5iEhBLfM7dEiGd3foB4deYLdL
-F2GxNizabsUPA0w4-Q11O2JmlTshYikhlzO5hXGoo0Q6wF9iwvSAVNVoG-dpsg40HMrK7eCkTZpXDOMo
-Gc3yRa4UV78S-ofTm5GdLAAKv-aLZnhpg4hurGfYdrFtphWm5JeiJHm9_pr9eZHY3ZtZgNN4IAORpsxT
-UlBTLLztAUvWoHffVgK7SMrm1ePFvaKzeifmiN-SPM1ljHmeGfDnznxuLlkPpmol4-EzioRC8QAwQ6HV
-R9wEf5ndHZ6uhzm_jcylxUstnDxbVF605setA</pre></div></div></div>
+NmUxMmVjMjEifQ.ZUSeAQv82YGcXxwGjbt8VMIYIggJDc9wFjEKCeId9dDi1a8FyFV5yB9JMoIcgvFkF
+ehezwKSZ8is1GF6LLssm-seC4V4AbdslVoywiEQv-dNNX6iD0EHvWjReF1TRBqaAzEHDG88CrrHAqg9f
+jXsJJ0XBvsA4OMGxAmxipuG0Z4tZSFjkHLZAAzKZ7Bfhk3UIhG1rApYWDJdKSJkAsLFBHmfXpUvXPnhv
+BqyFHplsSbwLj5yOtCm02SMLMIdddwwIWbOIGoDRtbLO_t7pP9ldTtlIDdpMJQucL_iP1afhg79hDA7j
+olEk5uOEB61nEnVn6RNAFyQ1GTNLwGZ3MWn-w</pre></div></div></div>
 
 
     </section>
@@ -11454,18 +12213,71 @@ R9wEf5ndHZ6uhzm_jcylxUstnDxbVF605setA</pre></div></div></div>
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://state.gov/credentials/3732"</span>,
     <span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechCredentialRefresh"</span>
   }
-}</code></pre></div><div class="vc-tab-content"><pre>undefined</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
+}</code></pre></div><div class="vc-tab-content"><pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
+    "https://w3id.org/security/data-integrity/v1"
+  ],
+  "id": "http://1edtech.edu/endorsementcredential/3732",
+  "type": [
+    "VerifiableCredential",
+    "EndorsementCredential"
+  ],
+  "name": "SDE endorsement",
+  "issuer": {
+    "id": "https://state.gov/issuers/565049",
+    "type": "Profile",
+    "name": "State Department of Education"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "expirationDate": "2030-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "https://1edtech.edu/issuers/565049",
+    "type": "EndorsementSubject",
+    "endorsementComment": "1EdTech University is in good standing"
+  },
+  "credentialSchema": [
+    {
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    },
+    {
+      "id": "https://state.gov/schema/endorsementcredential.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    }
+  ],
+  "credentialStatus": {
+    "id": "https://state.gov/credentials/3732/revocations",
+    "type": "1EdTechRevocationList"
+  },
+  "refreshService": {
+    "id": "http://state.gov/credentials/3732",
+    "type": "1EdTechCredentialRefresh"
+  },
+  "proof": [
+    {
+      "type": "DataIntegrityProof",
+      "created": "2023-12-13T10:40:00Z",
+      "verificationMethod": "https://state.gov/issuers/565049#z6MkjfNx9ppDoamnDmAAA51q641hfDdTUeR3jNmFQWZeNcqN",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z3hfhVvpYxoy86TMo1go8tGd3EdCf5duj2vukvkYTdzUykmcY92T1Y8sK8Am3oRbVhmBGNaGcND48vN68zEoKYunE"
+    }
+  ]
+}</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
   "alg": "RS256",
   "typ": "JWT",
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "xCCbH6gl_gQTANtONmsoeUb5uAv5PF-9K6zqFTMpUmcReV1tCgYu_qeJ3pZh2p9s-EML3H
-xfYPxiobZqLlZ30Tr7o1QH-MRQ0dYIepYqhPGyklpjUZpVMubmdV8RS8zm83mFpfBgQ8tnLIpKET0N_O
-VdODPaxIjVewxLEINEv5_UBMdJJxhw16lUin-zR1FxcCk7Yj9rySert4LGZPrODmLhh8o5AIBxLYJrod
-LIDQ2JsrfZ3guAP09TbWi3WM1iFz7CM8zw0p4WimnNalDzHVMZ3TOMAQBLqbYrxwrOFVGu4oNZfsiKib
-57SdKucQ6i5jkTqVO-gyVvIifj_K7ZiQ"
+    "n": "yaI7kRahktlo8m2M62jCbI5cVxNTKCjYtuyp01haeg13Qq8rCWio0JQ-f2zu2eVs-hSV-g
+yH0NLtS6eTjtQjMNb68H_ckP29nlGbQuexUnrDMX9CHrGq2dPTMPkSQsDikAPdRAKA-sn0pe1Fph5fxM
+OrJwrQ5N3BgCyUVSFa8Ehq_OvzpCyWtGbWxipl_R1dBjZ_6CzdggdaDMov8-OutQ8MRgm13jVnUMVNxi
+ofNv3qQPZ_KCNl1oYdfeRLLkFvP2Jbk_NYLntDwx4XTLuodCICpnt8Ly4OitNwaMVy7G9xp3UUggE6IU
+OOxhw2A_Yi4oZ7dCBKAYSTm3PAcXdoMw"
   }
 }
 --------------- JWT payload ---------------
@@ -11525,12 +12337,12 @@ sementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJ4Q0NiSDZnbF9nUVRBTnRPTm1zb2VVYjV1QXY1UEYtOUs2enFGVE1wVW1jUmVWMXRDZ1l1X3FlSjNw
-WmgycDlzLUVNTDNIeGZZUHhpb2JacUxsWjMwVHI3bzFRSC1NUlEwZFlJZXBZcWhQR3lrbHBqVVpwVk11
-Ym1kVjhSUzh6bTgzbUZwZkJnUTh0bkxJcEtFVDBOX09WZE9EUGF4SWpWZXd4TEVJTkV2NV9VQk1kSkp4
-aHcxNmxVaW4telIxRnhjQ2s3WWo5cnlTZXJ0NExHWlByT0RtTGhoOG81QUlCeExZSnJvZExJRFEySnNy
-ZlozZ3VBUDA5VGJXaTNXTTFpRno3Q004encwcDRXaW1uTmFsRHpIVk1aM1RPTUFRQkxxYllyeHdyT0ZW
-R3U0b05aZnNpS2liNTdTZEt1Y1E2aTVqa1RxVk8tZ3lWdklpZmpfSzdaaVEifX0.eyJ2YyI6eyJAY29u
+OiJ5YUk3a1JhaGt0bG84bTJNNjJqQ2JJNWNWeE5US0NqWXR1eXAwMWhhZWcxM1FxOHJDV2lvMEpRLWYy
+enUyZVZzLWhTVi1neUgwTkx0UzZlVGp0UWpNTmI2OEhfY2tQMjlubEdiUXVleFVuckRNWDlDSHJHcTJk
+UFRNUGtTUXNEaWtBUGRSQUtBLXNuMHBlMUZwaDVmeE1Pckp3clE1TjNCZ0N5VVZTRmE4RWhxX092enBD
+eVd0R2JXeGlwbF9SMWRCalpfNkN6ZGdnZGFETW92OC1PdXRROE1SZ20xM2pWblVNVk54aW9mTnYzcVFQ
+Wl9LQ05sMW9ZZGZlUkxMa0Z2UDJKYmtfTllMbnREd3g0WFRMdW9kQ0lDcG50OEx5NE9pdE53YU1WeTdH
+OXhwM1VVZ2dFNklVT094aHcyQV9ZaTRvWjdkQ0JLQVlTVG0zUEFjWGRvTXcifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4zLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -11552,11 +12364,11 @@ U2VydmljZSI6eyJpZCI6Imh0dHA6Ly9zdGF0ZS5nb3YvY3JlZGVudGlhbHMvMzczMiIsInR5cGUiOiIx
 RWRUZWNoQ3JlZGVudGlhbFJlZnJlc2gifX0sImV4cCI6MTg5MzQ1NjAwMCwiaXNzIjoiaHR0cHM6Ly9z
 dGF0ZS5nb3YvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAsImp0aSI6Imh0dHA6Ly8xZWR0
 ZWNoLmVkdS9lbmRvcnNlbWVudGNyZWRlbnRpYWwvMzczMiIsInN1YiI6Imh0dHBzOi8vMWVkdGVjaC5l
-ZHUvaXNzdWVycy81NjUwNDkifQ.mZrur1ykxvqy-PyRljqK8Q9VpjjlnWH14QJpRHQAkWbVpCSOp-nvT
-uVAvyD_4cii9ENQUqiL6pr9U9gvWrtIb7UtO3IX4Eer1urlZwxOCXx7y00bYp9QX5cjy4sbGLXxPfdMO
-8XrPT-fhoUL0njbpi7e9DFMWk768C-uuGjL6JjEPUcncX4om8OP9vDnJr9XSnLx7mIU2usMZRh3-37CG
-01QuGFIxOdaBVFLzpQloGZPXJQMB2ano5rlHQWFkek5RVuc7VPtxBUR7dXWWTM0avP-CJLatUOSqe-jW
-tAqv37aHPBQqCDR9bBZcnQBLwJicvXn5GfbcsuHtVIISNxEYg</pre></div></div></div>
+ZHUvaXNzdWVycy81NjUwNDkifQ.NI6pvyDX181QuLFsdLbJFN6_kN_VHvtDqywtTlMNzgtjFaFFBUQym
+Tskr35TZOwbTpK8eD41DhdlONycVppE_cnzM9Qky6-yYJ-7Cweky9Mib0tSxJw54anB2XBS3cOUjSHXT
+jcbjixWq5Bykx0mhDWhVSWUkOJxCVr0ovDCYnfi3maSCYwvwxde9YO8C6_qkpA8msMKnVACKsBfdBbLT
+XtR93arh1qbAvls4gsOpiIPV6vZ5EW1Q9XDtgglGwEKrNMV71TEAq3NqQWUgC5EpmPBUbdjuuLK5kahp
+CkA5xLOXdiBQ845nwNy02B0VkV7IccRLAid2zKe6M_Qn3gCzw</pre></div></div></div>
 
 
     </section>
@@ -11603,18 +12415,69 @@ tAqv37aHPBQqCDR9bBZcnQBLwJicvXn5GfbcsuHtVIISNxEYg</pre></div></div></div>
       }]
     }
   }
-}</code></pre></div><div class="vc-tab-content"><pre>undefined</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
+}</code></pre></div><div class="vc-tab-content"><pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://w3id.org/security/data-integrity/v1"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": [
+    "VerifiableCredential",
+    "OpenBadgeCredential"
+  ],
+  "issuer": {
+    "id": "https://example.edu/issuers/565049",
+    "type": "Profile",
+    "name": "Example University"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "name": "Example University Degree",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": "AchievementSubject",
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/1",
+      "type": "Achievement",
+      "criteria": {
+        "narrative": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain"
+      },
+      "description": "Analyze a sample text",
+      "name": "Text analysis",
+      "alignment": [
+        {
+          "type": "Alignment",
+          "targetCode": "ce-cf4dee18-7cea-443a-b920-158a0762c6bf",
+          "targetFramework": "Edmonds College Course Catalog",
+          "targetName": "Requirements Analysis",
+          "targetType": "ceterms:Credential",
+          "targetUrl": "https://credentialfinder.org/credential/20229/Requirements_Analysis"
+        }
+      ]
+    }
+  },
+  "proof": [
+    {
+      "type": "DataIntegrityProof",
+      "created": "2023-12-13T10:40:00Z",
+      "verificationMethod": "https://example.edu/issuers/565049#z6MksbfDzzrwcRBgEuMggqJ9VKWzc3nZyGQoseKSBvxxQv69",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zp84FUcsY7HTC1xJr2dFD2jEveGYoVGDKhjzGjJYEJWty3yH2EB6QvffxDXd8wXGaYewS6idfh6ZrfrneqKvHogp"
+    }
+  ]
+}</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
   "alg": "RS256",
   "typ": "JWT",
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "rU4WJ2FMfkQNHV2Nbp8fOKRdlk9bKYGDfcAqLGzJfGtcxxZeNA9S63LrTN03tOPusKwgzy
-WiQ-Tn8Iq1Xo9ArE8incYGh-JeF0mTCvBHoAlVy0foK8cT7Wj_IEUM4T7sdAmLatNaAvzXITgmzL7w-q
-f10QQBAb_x7rk4MeMmtyc4CBSQ9N26PRmVxftyxsssx61io2oceNkDjpOKgX-MkZho-iGUGQt_8Jz-Cl
-mK3UvbYCGKHMULafMO8Ek-rOOQ0QH3DI613HrtjZwJWLDg33UCYpdqaIm1phmBZvFDcaeU5x6iUBiITL
-h2P3dR5KwA4FIDpqR84pdqCDbe1il7rw"
+    "n": "rkU3IeGixwhe-ThuwZL8fSEeslPYrE-0AsbdrTYPar4rJZo_hqqLPcxoUPxWqJCL8Brd8v
+0NHD8xsmxWaLt_3nHfTlh-h-AgmE68zlScJj4BZcqz6TAUZs7vFC27gRPVW-LxQO4e-nZYJtxtxNOboe
+GEdNYPaGrA9CRxWTQlfZ05hlLXnuZO8ANGQgMEtktMsMH94kwKo6VcceK-LAsSMTkXvdbB5flWzLQ0bf
+iyqqAq6hJ9B7A5cgESFXPiqb-Ryh21tCO4_kAdG-K5cXCTLUtPt1j3sF0Vny32W6JsiYZaVt6AnfuaO1
+uSM0Qg2HMlKFuWOsvzpgUQDWDkOvpzPQ"
   }
 }
 --------------- JWT payload ---------------
@@ -11673,12 +12536,12 @@ ents_Analysis"
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJyVTRXSjJGTWZrUU5IVjJOYnA4Zk9LUmRsazliS1lHRGZjQXFMR3pKZkd0Y3h4WmVOQTlTNjNMclRO
-MDN0T1B1c0t3Z3p5V2lRLVRuOElxMVhvOUFyRThpbmNZR2gtSmVGMG1UQ3ZCSG9BbFZ5MGZvSzhjVDdX
-al9JRVVNNFQ3c2RBbUxhdE5hQXZ6WElUZ216TDd3LXFmMTBRUUJBYl94N3JrNE1lTW10eWM0Q0JTUTlO
-MjZQUm1WeGZ0eXhzc3N4NjFpbzJvY2VOa0RqcE9LZ1gtTWtaaG8taUdVR1F0XzhKei1DbG1LM1V2YllD
-R0tITVVMYWZNTzhFay1yT09RMFFIM0RJNjEzSHJ0alp3SldMRGczM1VDWXBkcWFJbTFwaG1CWnZGRGNh
-ZVU1eDZpVUJpSVRMaDJQM2RSNUt3QTRGSURwcVI4NHBkcUNEYmUxaWw3cncifX0.eyJ2YyI6eyJAY29u
+OiJya1UzSWVHaXh3aGUtVGh1d1pMOGZTRWVzbFBZckUtMEFzYmRyVFlQYXI0ckpab19ocXFMUGN4b1VQ
+eFdxSkNMOEJyZDh2ME5IRDh4c214V2FMdF8zbkhmVGxoLWgtQWdtRTY4emxTY0pqNEJaY3F6NlRBVVpz
+N3ZGQzI3Z1JQVlctTHhRTzRlLW5aWUp0eHR4Tk9ib2VHRWROWVBhR3JBOUNSeFdUUWxmWjA1aGxMWG51
+Wk84QU5HUWdNRXRrdE1zTUg5NGt3S282VmNjZUstTEFzU01Ua1h2ZGJCNWZsV3pMUTBiZml5cXFBcTZo
+SjlCN0E1Y2dFU0ZYUGlxYi1SeWgyMXRDTzRfa0FkRy1LNWNYQ1RMVXRQdDFqM3NGMFZueTMyVzZKc2lZ
+WmFWdDZBbmZ1YU8xdVNNMFFnMkhNbEtGdVdPc3Z6cGdVUURXRGtPdnB6UFEifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4zLmpzb24iXSwiaWQiOiJodHRw
 Oi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbHMvMzczMiIsInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRp
@@ -11700,11 +12563,11 @@ Z2V0VHlwZSI6ImNldGVybXM6Q3JlZGVudGlhbCIsInRhcmdldFVybCI6Imh0dHBzOi8vY3JlZGVudGlh
 bGZpbmRlci5vcmcvY3JlZGVudGlhbC8yMDIyOS9SZXF1aXJlbWVudHNfQW5hbHlzaXMifV19fX0sImlz
 cyI6Imh0dHBzOi8vZXhhbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAsImp0
 aSI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3ViIjoiZGlkOmV4YW1wbGU6
-ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.KZoSdeegtFZ9j7CGqpS2-oJSzTsOOGxQ0S0mHyc3
-RKBZYy2vKLapEYHCqecfoVjEEYu_JXiHeFPTHfjg2zHaGF8KxT-grtxMY9LMxdq24yVgtrOBe790Piuq
-QgCJB3v1vRmAhmy6lQXImPol_5X37GvCrd3usuw2yxPIfQGxweM3uOs1hhxsjr7rqMHdHoGR_8JeZ2S_
-mlBuef2sIkpaZksVyQA3PAbjH2bJ33bUhvgeaoaEKDOFQtbzWqvMYCwSGMK7DAV9rOJUKtYHpT-dusQk
-mLDvPuYnhNQW2NyoPTgSO_vr7InB7Amf-n2LiJYWnkX4wFPAqCP-7918z0BO4g</pre></div></div></div>
+ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.eBMDvTc204wwK1Sxtv41CTPjwsAgqKD6fzV16Q-U
+u9DI099QIQUXYgOnVv2j3VmHyeYHzBSIINQYPw9a0QaDAPyC9wd3hWh_Zmqpyijo2k1ugCNXGFck-apG
+kQ9dQnX3jKfeinDH5wLpQ7ZtceI0TJnA1PgtOgdYvhVw0FFviI3SBAWDLug0dvU4PL8WQyeuYwfQttez
+flKS_NqUo8Tf0LnaIZOzhgC3tZUggHoSSS1vxdK8Z-xTyUsxrICtlOlDuLuVhbNam9m0xfO0CD7jzDri
+86rOB6TwrlwUBz_9p6AHOAWjgytVAqHkfl7knEnvFqAzv5p2mwQWFhPC9XEnlQ</pre></div></div></div>
 
 
     </section>
@@ -11751,18 +12614,69 @@ mLDvPuYnhNQW2NyoPTgSO_vr7InB7Amf-n2LiJYWnkX4wFPAqCP-7918z0BO4g</pre></div></div>
       }]
     }
   }
-}</code></pre></div><div class="vc-tab-content"><pre>undefined</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
+}</code></pre></div><div class="vc-tab-content"><pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://w3id.org/security/data-integrity/v1"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": [
+    "VerifiableCredential",
+    "OpenBadgeCredential"
+  ],
+  "issuer": {
+    "id": "https://example.edu/issuers/565049",
+    "type": "Profile",
+    "name": "Example University"
+  },
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "name": "Example University Degree",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": "AchievementSubject",
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/1",
+      "type": "Achievement",
+      "criteria": {
+        "narrative": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain"
+      },
+      "description": "Analyze a sample text",
+      "name": "Text analysis",
+      "alignment": [
+        {
+          "type": "Alignment",
+          "targetCode": "ce-cf4dee18-7cea-443a-b920-158a0762c6bf",
+          "targetFramework": "Edmonds College Course Catalog",
+          "targetName": "Requirements Analysis",
+          "targetType": "ceterms:Credential",
+          "targetUrl": "https://credentialfinder.org/credential/20229/Requirements_Analysis"
+        }
+      ]
+    }
+  },
+  "proof": [
+    {
+      "type": "DataIntegrityProof",
+      "created": "2023-12-13T10:40:00Z",
+      "verificationMethod": "https://example.edu/issuers/565049#z6MksbfDzzrwcRBgEuMggqJ9VKWzc3nZyGQoseKSBvxxQv69",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zp84FUcsY7HTC1xJr2dFD2jEveGYoVGDKhjzGjJYEJWty3yH2EB6QvffxDXd8wXGaYewS6idfh6ZrfrneqKvHogp"
+    }
+  ]
+}</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
   "alg": "RS256",
   "typ": "JWT",
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "rU4WJ2FMfkQNHV2Nbp8fOKRdlk9bKYGDfcAqLGzJfGtcxxZeNA9S63LrTN03tOPusKwgzy
-WiQ-Tn8Iq1Xo9ArE8incYGh-JeF0mTCvBHoAlVy0foK8cT7Wj_IEUM4T7sdAmLatNaAvzXITgmzL7w-q
-f10QQBAb_x7rk4MeMmtyc4CBSQ9N26PRmVxftyxsssx61io2oceNkDjpOKgX-MkZho-iGUGQt_8Jz-Cl
-mK3UvbYCGKHMULafMO8Ek-rOOQ0QH3DI613HrtjZwJWLDg33UCYpdqaIm1phmBZvFDcaeU5x6iUBiITL
-h2P3dR5KwA4FIDpqR84pdqCDbe1il7rw"
+    "n": "rkU3IeGixwhe-ThuwZL8fSEeslPYrE-0AsbdrTYPar4rJZo_hqqLPcxoUPxWqJCL8Brd8v
+0NHD8xsmxWaLt_3nHfTlh-h-AgmE68zlScJj4BZcqz6TAUZs7vFC27gRPVW-LxQO4e-nZYJtxtxNOboe
+GEdNYPaGrA9CRxWTQlfZ05hlLXnuZO8ANGQgMEtktMsMH94kwKo6VcceK-LAsSMTkXvdbB5flWzLQ0bf
+iyqqAq6hJ9B7A5cgESFXPiqb-Ryh21tCO4_kAdG-K5cXCTLUtPt1j3sF0Vny32W6JsiYZaVt6AnfuaO1
+uSM0Qg2HMlKFuWOsvzpgUQDWDkOvpzPQ"
   }
 }
 --------------- JWT payload ---------------
@@ -11821,12 +12735,12 @@ ents_Analysis"
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiJyVTRXSjJGTWZrUU5IVjJOYnA4Zk9LUmRsazliS1lHRGZjQXFMR3pKZkd0Y3h4WmVOQTlTNjNMclRO
-MDN0T1B1c0t3Z3p5V2lRLVRuOElxMVhvOUFyRThpbmNZR2gtSmVGMG1UQ3ZCSG9BbFZ5MGZvSzhjVDdX
-al9JRVVNNFQ3c2RBbUxhdE5hQXZ6WElUZ216TDd3LXFmMTBRUUJBYl94N3JrNE1lTW10eWM0Q0JTUTlO
-MjZQUm1WeGZ0eXhzc3N4NjFpbzJvY2VOa0RqcE9LZ1gtTWtaaG8taUdVR1F0XzhKei1DbG1LM1V2YllD
-R0tITVVMYWZNTzhFay1yT09RMFFIM0RJNjEzSHJ0alp3SldMRGczM1VDWXBkcWFJbTFwaG1CWnZGRGNh
-ZVU1eDZpVUJpSVRMaDJQM2RSNUt3QTRGSURwcVI4NHBkcUNEYmUxaWw3cncifX0.eyJ2YyI6eyJAY29u
+OiJya1UzSWVHaXh3aGUtVGh1d1pMOGZTRWVzbFBZckUtMEFzYmRyVFlQYXI0ckpab19ocXFMUGN4b1VQ
+eFdxSkNMOEJyZDh2ME5IRDh4c214V2FMdF8zbkhmVGxoLWgtQWdtRTY4emxTY0pqNEJaY3F6NlRBVVpz
+N3ZGQzI3Z1JQVlctTHhRTzRlLW5aWUp0eHR4Tk9ib2VHRWROWVBhR3JBOUNSeFdUUWxmWjA1aGxMWG51
+Wk84QU5HUWdNRXRrdE1zTUg5NGt3S282VmNjZUstTEFzU01Ua1h2ZGJCNWZsV3pMUTBiZml5cXFBcTZo
+SjlCN0E1Y2dFU0ZYUGlxYi1SeWgyMXRDTzRfa0FkRy1LNWNYQ1RMVXRQdDFqM3NGMFZueTMyVzZKc2lZ
+WmFWdDZBbmZ1YU8xdVNNMFFnMkhNbEtGdVdPc3Z6cGdVUURXRGtPdnB6UFEifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4zLmpzb24iXSwiaWQiOiJodHRw
 Oi8vZXhhbXBsZS5lZHUvY3JlZGVudGlhbHMvMzczMiIsInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRp
@@ -11848,11 +12762,11 @@ Z2V0VHlwZSI6ImNldGVybXM6Q3JlZGVudGlhbCIsInRhcmdldFVybCI6Imh0dHBzOi8vY3JlZGVudGlh
 bGZpbmRlci5vcmcvY3JlZGVudGlhbC8yMDIyOS9SZXF1aXJlbWVudHNfQW5hbHlzaXMifV19fX0sImlz
 cyI6Imh0dHBzOi8vZXhhbXBsZS5lZHUvaXNzdWVycy81NjUwNDkiLCJuYmYiOjEyNjIzMDQwMDAsImp0
 aSI6Imh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8zNzMyIiwic3ViIjoiZGlkOmV4YW1wbGU6
-ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.KZoSdeegtFZ9j7CGqpS2-oJSzTsOOGxQ0S0mHyc3
-RKBZYy2vKLapEYHCqecfoVjEEYu_JXiHeFPTHfjg2zHaGF8KxT-grtxMY9LMxdq24yVgtrOBe790Piuq
-QgCJB3v1vRmAhmy6lQXImPol_5X37GvCrd3usuw2yxPIfQGxweM3uOs1hhxsjr7rqMHdHoGR_8JeZ2S_
-mlBuef2sIkpaZksVyQA3PAbjH2bJ33bUhvgeaoaEKDOFQtbzWqvMYCwSGMK7DAV9rOJUKtYHpT-dusQk
-mLDvPuYnhNQW2NyoPTgSO_vr7InB7Amf-n2LiJYWnkX4wFPAqCP-7918z0BO4g</pre></div></div></div>
+ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIn0.eBMDvTc204wwK1Sxtv41CTPjwsAgqKD6fzV16Q-U
+u9DI099QIQUXYgOnVv2j3VmHyeYHzBSIINQYPw9a0QaDAPyC9wd3hWh_Zmqpyijo2k1ugCNXGFck-apG
+kQ9dQnX3jKfeinDH5wLpQ7ZtceI0TJnA1PgtOgdYvhVw0FFviI3SBAWDLug0dvU4PL8WQyeuYwfQttez
+flKS_NqUo8Tf0LnaIZOzhgC3tZUggHoSSS1vxdK8Z-xTyUsxrICtlOlDuLuVhbNam9m0xfO0CD7jzDri
+86rOB6TwrlwUBz_9p6AHOAWjgytVAqHkfl7knEnvFqAzv5p2mwQWFhPC9XEnlQ</pre></div></div></div>
 
 
     </section>
@@ -11940,18 +12854,108 @@ mLDvPuYnhNQW2NyoPTgSO_vr7InB7Amf-n2LiJYWnkX4wFPAqCP-7918z0BO4g</pre></div></div>
 		<span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json"</span>,
 		<span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechJsonSchemaValidator2019"</span>
 	}]
-}</code></pre></div><div class="vc-tab-content"><pre>undefined</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
+}</code></pre></div><div class="vc-tab-content"><pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
+    "https://w3id.org/security/data-integrity/v1"
+  ],
+  "id": "http://1edtech.edu/credentials/3732",
+  "type": [
+    "VerifiableCredential",
+    "OpenBadgeCredential"
+  ],
+  "name": "Robot Programming Skill Credential",
+  "description": "A badge recognizing the development of skills in robot implementation, specifically the software",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": "AchievementSubject",
+    "achievement": {
+      "id": "https://example.com/achievements/robotics/robot-programming",
+      "type": "Achievement",
+      "alignment": [
+        {
+          "type": "Alignment",
+          "targetDescription": "Robot software is a set of commands and procedures robots use to respond to input and perform autonomous tasks.",
+          "targetName": "Robot Programming",
+          "targetFramework": "Example Robotics Framework",
+          "targetType": "CFItem",
+          "targetUrl": "https://robotics-competencies.example.com/competencies/robot-programming"
+        }
+      ],
+      "achievementType": "Competency",
+      "creator": {
+        "id": "https://example.com/issuers/123767",
+        "type": "Profile",
+        "name": "Example Industry Group",
+        "url": "https://example.com",
+        "description": "Example Industry Group is a consortium of luminaries who publish skills data for common usage.",
+        "email": "info@exammple.com"
+      },
+      "criteria": {
+        "narrative": "Learners must present source code showing the ability for a robot to accept manual or sensor input and perform conditional actions in response."
+      },
+      "description": "This achievement represents developing capability to develop software for robotic applications.",
+      "image": {
+        "id": "https://example.com/achievements/robotics/robot-programming/image",
+        "type": "Image",
+        "caption": "A robot filled with ones and zeroes representing its programming"
+      },
+      "name": "Robot Programming"
+    }
+  },
+  "evidence": [
+    {
+      "id": "https://github.com/somebody/project",
+      "type": "Evidence",
+      "name": "Final Project Code",
+      "description": "The source code for the 'Beeper 1.0' robot project. It responds by saying 'beep' when the 'beep' button is pressed."
+    }
+  ],
+  "issuer": {
+    "id": "https://1edtech.edu/issuers/565049",
+    "type": "Profile",
+    "name": "1EdTech University",
+    "url": "https://1edtech.edu",
+    "phone": "1-222-333-4444",
+    "description": "1EdTech University provides online degree programs.",
+    "image": {
+      "id": "https://1edtech.edu/logo.png",
+      "type": "Image",
+      "caption": "1EdTech University logo"
+    },
+    "email": "registrar@1edtech.edu"
+  },
+  "issuanceDate": "2022-07-01T00:00:00Z",
+  "credentialSchema": [
+    {
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    }
+  ],
+  "proof": [
+    {
+      "type": "DataIntegrityProof",
+      "created": "2023-12-13T10:40:00Z",
+      "verificationMethod": "https://1edtech.edu/issuers/565049#z6MkqC2GutwxVqaeSFWcQvZ75SXucWwaRrQk9a38nh3X9pH1",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z3bpHPfBzGD2SjZCqoPYDv1DCcWstf9GyUffxPTk23HMdqCpV4qn7GzBqVSRzhE45ouWMc1f1KCsrrYVoht8wjErG"
+    }
+  ]
+}</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
   "alg": "RS256",
   "typ": "JWT",
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "5GL6biZevSvWkj0mLj8oBMSek08fLGC6gySJfb63UHSw9W70sNGv6wYJMTrM5bFh0sdWMZ
-bYYSBqG7a1JaocX2TnLj2NUtJKX07BEfgLlBN_FUyjXWwpOk4yYZHXfBzIBuxcF4ny0ViuaKd4wkJcfD
-9yFeTxD6EIZy0SmNEDgUWq6SPrV8HiZZX46KL-G3bp2TgUAzFB0pPe_wswqXr8ky9S-pV5Q1cPEfawuj
-b6HMjFpms8qPLWmJvozE8vORGYVZ8vOWn2Swz99puHGG7-bP8Zc2Qs0helashPkrDWCC0oD8jeOFgiwO
-cxDUkMzEA56Wqi-52Sp8ZCUbJmBHEEww"
+    "n": "uyHPTBI6ylcbh4eRG-keJ3vXUqvGDrwUMV0uQOEyGsIOxYY1G4LTjL5mmYkMYdeldjfWed
+BoBxixBxOKLINkv0izboDcj4zf42ED9ftGbH_3c0xxSV_U6MCID5bJl1DMRK_i3GOqKdIzNjccqfnutW
+GSO8gmG8x8_odMYdKk4BBd5Au39is-Zr4-W9wiLzDQYnDX0TgzoPNH67PyR0wFtayU0PjExZQ2sFVjMT
+mHAdRuudLJh1xfz-SNuabTFQTfo8wtlhoNhRh5JfkLEdktw5v0SWy3mX5CGpPU80dlA1lnRMN97HWL_G
+DUfG1wb7jwgL40WkBRhSP-vH6G15GKYw"
   }
 }
 --------------- JWT payload ---------------
@@ -12057,12 +13061,12 @@ vementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiI1R0w2YmlaZXZTdldrajBtTGo4b0JNU2VrMDhmTEdDNmd5U0pmYjYzVUhTdzlXNzBzTkd2NndZSk1U
-ck01YkZoMHNkV01aYllZU0JxRzdhMUphb2NYMlRuTGoyTlV0SktYMDdCRWZnTGxCTl9GVXlqWFd3cE9r
-NHlZWkhYZkJ6SUJ1eGNGNG55MFZpdWFLZDR3a0pjZkQ5eUZlVHhENkVJWnkwU21ORURnVVdxNlNQclY4
-SGlaWlg0NktMLUczYnAyVGdVQXpGQjBwUGVfd3N3cVhyOGt5OVMtcFY1UTFjUEVmYXd1amI2SE1qRnBt
-czhxUExXbUp2b3pFOHZPUkdZVlo4dk9XbjJTd3o5OXB1SEdHNy1iUDhaYzJRczBoZWxhc2hQa3JEV0ND
-MG9EOGplT0ZnaXdPY3hEVWtNekVBNTZXcWktNTJTcDhaQ1ViSm1CSEVFd3cifX0.eyJ2YyI6eyJAY29u
+OiJ1eUhQVEJJNnlsY2JoNGVSRy1rZUozdlhVcXZHRHJ3VU1WMHVRT0V5R3NJT3hZWTFHNExUakw1bW1Z
+a01ZZGVsZGpmV2VkQm9CeGl4QnhPS0xJTmt2MGl6Ym9EY2o0emY0MkVEOWZ0R2JIXzNjMHh4U1ZfVTZN
+Q0lENWJKbDFETVJLX2kzR09xS2RJek5qY2NxZm51dFdHU084Z21HOHg4X29kTVlkS2s0QkJkNUF1Mzlp
+cy1acjQtVzl3aUx6RFFZbkRYMFRnem9QTkg2N1B5UjB3RnRheVUwUGpFeFpRMnNGVmpNVG1IQWRSdXVk
+TEpoMXhmei1TTnVhYlRGUVRmbzh3dGxob05oUmg1SmZrTEVka3R3NXYwU1d5M21YNUNHcFBVODBkbEEx
+bG5STU45N0hXTF9HRFVmRzF3Yjdqd2dMNDBXa0JSaFNQLXZINkcxNUdLWXcifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4zLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -12108,11 +13112,11 @@ bWEvanNvbi9vYl92M3AwX2FjaGlldmVtZW50Y3JlZGVudGlhbF9zY2hlbWEuanNvbiIsInR5cGUiOiIx
 RWRUZWNoSnNvblNjaGVtYVZhbGlkYXRvcjIwMTkifV19LCJpc3MiOiJodHRwczovLzFlZHRlY2guZWR1
 L2lzc3VlcnMvNTY1MDQ5IiwibmJmIjoxNjU2NjMzNjAwLCJqdGkiOiJodHRwOi8vMWVkdGVjaC5lZHUv
 Y3JlZGVudGlhbHMvMzczMiIsInN1YiI6ImRpZDpleGFtcGxlOmViZmViMWY3MTJlYmM2ZjFjMjc2ZTEy
-ZWMyMSJ9.NEQ0uZXCjpfohRZWW7CsJGlOxOn4vFFeI4ay2KbKxcrGFhlWS-PGFZXWmJ9RyouseyxPqpc
-1NQuod3W8wi2UOXFPlQVXtVt2nvEqqdlAKIIyxxx7hK1AsowwGrBthFB7xAjvS6Mf4s58PJO9Toup4cs
-2Iq0lNjMYfiBfDGq-TO3BONLoc4eMgjV_Zf9VuGhvJE3YdHvss3mk7OqVSTpr0wvOJeRxYUGqBMUvi9T
-YCIgmqr7j9W-T3iC8Jfnh_s0TG5jbsb5Hks88FkNnABynlMib6WBLckfqHT12rjw_NvI3iIrivBNfTKc
-3Q3A_HqSyjxMHa-os3LC0uPrxMDxscg</pre></div></div></div>
+ZWMyMSJ9.DfUez1us-AvUzBYGmaCqrw8HPHCelC7o8xQF9RV0K2pLN1ka9gF8nZVV-sZZwfcL-DHOUYZ
+jERVu_Z-6kDRXQRWwsS6mjPOnr3iTCxTFT0CpCJTUJ6UaSedH5urQs5w88pLDdUWnMo8pUeMquwK1rLL
+Toq2laDskfyVrLAmwGBL-wz6lGhWRRe-iMIKXOtqKZn_t_NQ9sH8vVvVAUCUrKR9S-AD2xX0jowujnpR
+y4xqNSbu4ZOA-vCCYmFveyzDOxX7vo3FFqA_VygniGF0eb1Cpja5fZtRa4zd2_W0kg6LXL9C889eWLkK
+OnqHGMATe6xpfmIYqtipO3nEo2Gg2PQ</pre></div></div></div>
 
     </section>
     <section id="skill-assertion-credential-engine-0">
@@ -12192,18 +13196,99 @@ YCIgmqr7j9W-T3iC8Jfnh_s0TG5jbsb5Hks88FkNnABynlMib6WBLckfqHT12rjw_NvI3iIrivBNfTKc
 		<span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json"</span>,
 		<span class="hljs-attr">"type"</span>: <span class="hljs-string">"1EdTechJsonSchemaValidator2019"</span>
 	}]
-}</code></pre></div><div class="vc-tab-content"><pre>undefined</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
+}</code></pre></div><div class="vc-tab-content"><pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
+    "https://w3id.org/security/data-integrity/v1"
+  ],
+  "id": "http://1edtech.edu/credentials/3732",
+  "type": [
+    "VerifiableCredential",
+    "OpenBadgeCredential"
+  ],
+  "name": "Solve and graph linear equations and inequalities",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": "AchievementSubject",
+    "achievement": {
+      "id": "https://example.com/achievements/math/linear-1",
+      "type": "Achievement",
+      "alignment": [
+        {
+          "type": "Alignment",
+          "targetCode": "ce-6369c51f-4d86-4592-a761-8b32ae70a045",
+          "targetFramework": "Ivy Tech Community College of Indiana, MATH 135, FINITE MATH",
+          "targetName": "Solve and graph linear equations and inequalities",
+          "targetType": "ceasn:Competency",
+          "targetUrl": "https://credentialfinder.org/competency/ce-6369c51f-4d86-4592-a761-8b32ae70a045"
+        }
+      ],
+      "achievementType": "Competency",
+      "creator": {
+        "id": "https://example.com/issuers/123767",
+        "type": "Profile",
+        "name": "Example Industry Group",
+        "url": "https://example.com",
+        "description": "Example Industry Group is a consortium of luminaries who publish skills data for common usage.",
+        "email": "info@exammple.com"
+      },
+      "criteria": {
+        "narrative": "Learners must demonstrate understanding of linear algebra and graphic representation of linear equations."
+      },
+      "description": "This achievement represents developing capability to solve and graph linear equations and inequalities",
+      "image": {
+        "id": "https://example.com/achievements/math/linear-1/image",
+        "type": "Image",
+        "caption": "A line, sloping upward optimistically"
+      },
+      "name": "Linear equations and inequalities"
+    }
+  },
+  "issuer": {
+    "id": "https://1edtech.edu/issuers/565049",
+    "type": "Profile",
+    "name": "1EdTech University",
+    "url": "https://1edtech.edu",
+    "phone": "1-222-333-4444",
+    "description": "1EdTech University provides online degree programs.",
+    "image": {
+      "id": "https://1edtech.edu/logo.png",
+      "type": "Image",
+      "caption": "1EdTech University logo"
+    },
+    "email": "registrar@1edtech.edu"
+  },
+  "issuanceDate": "2022-07-01T00:00:00Z",
+  "credentialSchema": [
+    {
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    }
+  ],
+  "proof": [
+    {
+      "type": "DataIntegrityProof",
+      "created": "2023-12-13T10:40:00Z",
+      "verificationMethod": "https://1edtech.edu/issuers/565049#z6MkqC2GutwxVqaeSFWcQvZ75SXucWwaRrQk9a38nh3X9pH1",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zxi7WKJwhmD9jsBsNkuQkqUGybvQN2pftkULL34gNsMhhivaDgSYfTaX1ActZ9GMSn1BVg4Ry9ThLimvmAK7zWmn"
+    }
+  ]
+}</pre></div><div class="vc-tab-content"><pre>---------------- JWT header ---------------
 {
   "alg": "RS256",
   "typ": "JWT",
   "jwk": {
     "e": "AQAB",
     "kty": "RSA",
-    "n": "5GL6biZevSvWkj0mLj8oBMSek08fLGC6gySJfb63UHSw9W70sNGv6wYJMTrM5bFh0sdWMZ
-bYYSBqG7a1JaocX2TnLj2NUtJKX07BEfgLlBN_FUyjXWwpOk4yYZHXfBzIBuxcF4ny0ViuaKd4wkJcfD
-9yFeTxD6EIZy0SmNEDgUWq6SPrV8HiZZX46KL-G3bp2TgUAzFB0pPe_wswqXr8ky9S-pV5Q1cPEfawuj
-b6HMjFpms8qPLWmJvozE8vORGYVZ8vOWn2Swz99puHGG7-bP8Zc2Qs0helashPkrDWCC0oD8jeOFgiwO
-cxDUkMzEA56Wqi-52Sp8ZCUbJmBHEEww"
+    "n": "uyHPTBI6ylcbh4eRG-keJ3vXUqvGDrwUMV0uQOEyGsIOxYY1G4LTjL5mmYkMYdeldjfWed
+BoBxixBxOKLINkv0izboDcj4zf42ED9ftGbH_3c0xxSV_U6MCID5bJl1DMRK_i3GOqKdIzNjccqfnutW
+GSO8gmG8x8_odMYdKk4BBd5Au39is-Zr4-W9wiLzDQYnDX0TgzoPNH67PyR0wFtayU0PjExZQ2sFVjMT
+mHAdRuudLJh1xfz-SNuabTFQTfo8wtlhoNhRh5JfkLEdktw5v0SWy3mX5CGpPU80dlA1lnRMN97HWL_G
+DUfG1wb7jwgL40WkBRhSP-vH6G15GKYw"
   }
 }
 --------------- JWT payload ---------------
@@ -12295,12 +13380,12 @@ vementcredential_schema.json",
 }
 --------------- JWT ---------------
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImp3ayI6eyJlIjoiQVFBQiIsImt0eSI6IlJTQSIsIm4i
-OiI1R0w2YmlaZXZTdldrajBtTGo4b0JNU2VrMDhmTEdDNmd5U0pmYjYzVUhTdzlXNzBzTkd2NndZSk1U
-ck01YkZoMHNkV01aYllZU0JxRzdhMUphb2NYMlRuTGoyTlV0SktYMDdCRWZnTGxCTl9GVXlqWFd3cE9r
-NHlZWkhYZkJ6SUJ1eGNGNG55MFZpdWFLZDR3a0pjZkQ5eUZlVHhENkVJWnkwU21ORURnVVdxNlNQclY4
-SGlaWlg0NktMLUczYnAyVGdVQXpGQjBwUGVfd3N3cVhyOGt5OVMtcFY1UTFjUEVmYXd1amI2SE1qRnBt
-czhxUExXbUp2b3pFOHZPUkdZVlo4dk9XbjJTd3o5OXB1SEdHNy1iUDhaYzJRczBoZWxhc2hQa3JEV0ND
-MG9EOGplT0ZnaXdPY3hEVWtNekVBNTZXcWktNTJTcDhaQ1ViSm1CSEVFd3cifX0.eyJ2YyI6eyJAY29u
+OiJ1eUhQVEJJNnlsY2JoNGVSRy1rZUozdlhVcXZHRHJ3VU1WMHVRT0V5R3NJT3hZWTFHNExUakw1bW1Z
+a01ZZGVsZGpmV2VkQm9CeGl4QnhPS0xJTmt2MGl6Ym9EY2o0emY0MkVEOWZ0R2JIXzNjMHh4U1ZfVTZN
+Q0lENWJKbDFETVJLX2kzR09xS2RJek5qY2NxZm51dFdHU084Z21HOHg4X29kTVlkS2s0QkJkNUF1Mzlp
+cy1acjQtVzl3aUx6RFFZbkRYMFRnem9QTkg2N1B5UjB3RnRheVUwUGpFeFpRMnNGVmpNVG1IQWRSdXVk
+TEpoMXhmei1TTnVhYlRGUVRmbzh3dGxob05oUmg1SmZrTEVka3R3NXYwU1d5M21YNUNHcFBVODBkbEEx
+bG5STU45N0hXTF9HRFVmRzF3Yjdqd2dMNDBXa0JSaFNQLXZINkcxNUdLWXcifX0.eyJ2YyI6eyJAY29u
 dGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vcHVy
 bC5pbXNnbG9iYWwub3JnL3NwZWMvb2IvdjNwMC9jb250ZXh0LTMuMC4zLmpzb24iLCJodHRwczovL3B1
 cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL29iL3YzcDAvZXh0ZW5zaW9ucy5qc29uIl0sImlkIjoiaHR0cDov
@@ -12339,11 +13424,11 @@ Lm9yZy9zcGVjL29iL3YzcDAvc2NoZW1hL2pzb24vb2JfdjNwMF9hY2hpZXZlbWVudGNyZWRlbnRpYWxf
 c2NoZW1hLmpzb24iLCJ0eXBlIjoiMUVkVGVjaEpzb25TY2hlbWFWYWxpZGF0b3IyMDE5In1dfSwiaXNz
 IjoiaHR0cHM6Ly8xZWR0ZWNoLmVkdS9pc3N1ZXJzLzU2NTA0OSIsIm5iZiI6MTY1NjYzMzYwMCwianRp
 IjoiaHR0cDovLzFlZHRlY2guZWR1L2NyZWRlbnRpYWxzLzM3MzIiLCJzdWIiOiJkaWQ6ZXhhbXBsZTpl
-YmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.kYXN9S5I6xOs6UPXEkyPuX7i_yW6yxa-ewp15M1sn
-qE8mBsNRc9QTzsvZk2dlYck-rRtpm-kFtd96CSa3yxLF2e3pSzKRtUZdX_HrSdoEgPpLacxyH1gquheO
-L8rgW7ujda5wZNaiRKB7MEWdqJJkUirbvAAIB82tyo86Iz82UJigXb2rXmDQ52aS3VpWTlvbTirCphLe
-Or0QS3dCbbcMu6QuUqjCDYmWWGj6Tb5hh4BYwHYT9ywkYgkKQfpzqPKHwk4iMohlB3BICK5VFw0doMgt
-_yodHtZF3T4sL_s6bTVx44sWRgVEWLoaU9ZTkoPqEiOi0jfY2eekAQPNyG1mQ</pre></div></div></div>
+YmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEifQ.KTctFJXa4xfkScV38FjTFGQgRYnkX72aBtWF9yY04
+N_YzP2FUZpopa2p13Z-1qvDcAfHVo1Sj9f4GunwGZvWIDsbiNofE0o4iK3bSfYtwNDq89UBAwvcz_r-d
+ZsgsXQ-fPLlo_-SLtnBzFboZ9qZ8KdAMhUH00JYIYsaJdfXUGZhyiSr2CZHWAZ_tcQP0Zu14JvxjCty1
+pDb5cXhd9_xnDFnBQ6_8JBBH12WRI36fm73u-ptCYh5JNlzx9uN_zxDlIMkTadlwQkNQb3h_RXUcaxmA
+Iw_MK7Bf3oBWc1d9MaHMmEAfoIyhIlhexXQcje_h1WzcJW5d4qvtsxJHEfqfQ</pre></div></div></div>
 
     </section>
   </section>
@@ -12767,6 +13852,10 @@ _yodHtZF3T4sL_s6bTVx44sWRgVEWLoaU9ZTkoPqEiOi0jfY2eekAQPNyG1mQ</pre></div></div><
     <span class="hljs-attr">"endorsement"</span>: {
       <span class="hljs-attr">"@id"</span>: <span class="hljs-string">"https://purl.imsglobal.org/spec/vc/ob/vocab.html#endorsement"</span>,
       <span class="hljs-attr">"@container"</span>: <span class="hljs-string">"@set"</span>
+    },
+    <span class="hljs-attr">"image"</span>: {
+      <span class="hljs-attr">"@id"</span>: <span class="hljs-string">"https://purl.imsglobal.org/spec/vc/ob/vocab.html#image"</span>,
+      <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"@id"</span>
     },
     <span class="hljs-attr">"name"</span>: {
       <span class="hljs-attr">"@id"</span>: <span class="hljs-string">"https://schema.org/name"</span>
@@ -27736,7 +28825,7 @@ components:
           <td>July 14, 2023</td>
           <td>
             <ul>
-              <li>New version of the context.json (<code>context-3.0.3.json</code>) file. See <cite><a href="https://www.imsglobal.org/spec/ob/v3p0/errata/">Open Badges Specification v3.0: Errata</a></cite> for detailed changes</li>
+              <li>New version of the context.json (<code>context-3.0.2.json</code>) file. See <cite><a href="https://www.imsglobal.org/spec/ob/v3p0/errata/">Open Badges Specification v3.0: Errata</a></cite> for detailed changes</li>
               <li>Better description of the revocation check step in the verification process.</li>
             </ul>
           </td>
@@ -27781,6 +28870,16 @@ components:
                     <li>Fixed the Profile type in some examples.</li>
                 </ul>
             </td>
+        </tr>
+        <tr>
+          <td>Candidate Final</td>
+          <td>1.0.12</td>
+          <td>December 13, 2023</td>
+          <td>
+            <ul>
+              <li>New version of the context.json (<code>context-3.0.3.json</code>) file. See <cite><a href="https://www.imsglobal.org/spec/ob/v3p0/errata/">Open Badges Specification v3.0: Errata</a></cite> for detailed changes</li>
+            </ul>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -28757,7 +29856,7 @@ function hidePanel(panel) {
         Please refer to Document Name: Open Badges Specification
         3.0
       </p>
-      <p>Date: November 30, 2023</p>
+      <p>Date: December 13, 2023</p>
       <div></div>
     </div>
   </footer></body></html>
