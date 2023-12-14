@@ -86,11 +86,6 @@ document, the full IRI `https://w3id.org/openbadges#BadgeClass` is used here).
             ],
             "id": "https://example.com/badgeclasses/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6",
             "version": "Open Badges v2p0"
-        },
-        {
-            "type": ["Related"],
-            "id": "https://example.com/achievements/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6/es",
-            "@language": "es"
         }
     ]
 }
