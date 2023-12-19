@@ -177,8 +177,8 @@ var _localBiblio = {
   },
   "VC-STATUS-2021": {
     title: "Credential Status List 2021",
-    href: "https://w3c.github.io/vc-status-list-2021/",
-    status: "W3C Editor's Draft",
+    href: "https://www.w3.org/TR/vc-bitstring-status-list/",
+    status: "W3C Working Draft",
     publisher: "W3C Credentials Community Group",
   },
   MULTIBASE: {
