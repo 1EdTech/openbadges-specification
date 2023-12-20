@@ -39,14 +39,18 @@
   <body
     resource="https://purl.imsglobal.org/spec/vc/ob/vocab.html#"
     typeof="owl:Ontology"
-    prefix="xsd: http://www.w3.org/2001/XMLSchema#"
+    prefix="xsd: http://www.w3.org/2001/XMLSchema# dc: http://purl.org/dc/terms/ owl: http://www.w3.org/2002/07/owl# rdfs: http://www.w3.org/2000/01/rdf-schema# rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# ob: https://purl.imsglobal.org/spec/vc/ob/vocab.html#"
   >
     <section id="abstract">
       <h2>Abstract</h2>
       <p>
         This document contains information about the JSON-LD terms used in
-        1EdTech Open Badges
+        1EdTech <span property="dc:title" id="title">Open Badges</span>.
       </p>
+      <p>This document is also available in these non-normative formats:</p>
+      <ul>
+        <li><a rel="alternate" href="vocabulary.ttl">vocabulary.ttl</a></li>
+      </ul>
     </section>
     <section>
       <h2>Class definitions</h2>
@@ -54,13 +58,15 @@
         This section contains information about all the JSON-LD classes used in
         1EdTech Open Badges
       </p>
-      <section id="Achievement" resource="Achievement" typeof="rdfs:Class">
-        <h3 property="rdfs:label">Achievement</h3>
+      <section id="Achievement" resource="ob:Achievement" typeof="rdfs:Class">
+        <h3>Achievement</h3>
+        <p property="rdfs:label"><em>Achievement</em></p>
         <p property="rdfs:comment">
           A collection of information about the accomplishment recognized by the
           Assertion. Many assertions may be created corresponding to one
           Achievement.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -123,10 +129,11 @@
       </section>
       <section
         id="AchievementCredential"
-        resource="AchievementCredential"
+        resource="ob:AchievementCredential"
         typeof="rdfs:Class"
       >
-        <h3 property="rdfs:label">AchievementCredential</h3>
+        <h3>AchievementCredential</h3>
+        <p property="rdfs:label"><em>AchievementCredential</em></p>
         <p property="rdfs:comment">
           AchievementCredentials are representations of an awarded achievement,
           used to share information about a achievement belonging to one earner.
@@ -141,10 +148,11 @@
           credential. In the case of an embedded proof, the credential MUST
           append the proof in the `proof` property.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Subclass Of:</dt>
           <dd>
-            <span property="rdfs:subClassOf" resource="VerifiableCredential"
+            <span property="rdfs:subClassOf" resource="ob:VerifiableCredential"
               ><a
                 href="https://www.w3.org/2018/credentials#VerifiableCredential"
                 ><code>VerifiableCredential</code></a
@@ -181,18 +189,20 @@
       </section>
       <section
         id="AchievementSubject"
-        resource="AchievementSubject"
+        resource="ob:AchievementSubject"
         typeof="rdfs:Class"
       >
-        <h3 property="rdfs:label">AchievementSubject</h3>
+        <h3>AchievementSubject</h3>
+        <p property="rdfs:label"><em>AchievementSubject</em></p>
         <p property="rdfs:comment">
           A collection of information about the recipient of an achievement.
           Maps to Credential Subject in [[VC-DATA-MODEL]].
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Subclass Of:</dt>
           <dd>
-            <span property="rdfs:subClassOf" resource="CredentialSubject"
+            <span property="rdfs:subClassOf" resource="ob:CredentialSubject"
               ><a href="https://www.w3.org/2018/credentials#CredentialSubject"
                 ><code>CredentialSubject</code></a
               ></span
@@ -241,9 +251,11 @@
           </ul>
         </section>
       </section>
-      <section id="Address" resource="Address" typeof="rdfs:Class">
-        <h3 property="rdfs:label">Address</h3>
+      <section id="Address" resource="ob:Address" typeof="rdfs:Class">
+        <h3>Address</h3>
+        <p property="rdfs:label"><em>Address</em></p>
         <p property="rdfs:comment">An address for the described entity.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -276,12 +288,14 @@
           </ul>
         </section>
       </section>
-      <section id="Alignment" resource="Alignment" typeof="rdfs:Class">
-        <h3 property="rdfs:label">Alignment</h3>
+      <section id="Alignment" resource="ob:Alignment" typeof="rdfs:Class">
+        <h3>Alignment</h3>
+        <p property="rdfs:label"><em>Alignment</em></p>
         <p property="rdfs:comment">
           Describes an alignment between an achievement and a node in an
           educational framework.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -306,9 +320,15 @@
           </ul>
         </section>
       </section>
-      <section id="AnyIdentifier" resource="AnyIdentifier" typeof="rdfs:Class">
-        <h3 property="rdfs:label">AnyIdentifier</h3>
+      <section
+        id="AnyIdentifier"
+        resource="ob:AnyIdentifier"
+        typeof="rdfs:Class"
+      >
+        <h3>AnyIdentifier</h3>
+        <p property="rdfs:label"><em>AnyIdentifier</em></p>
         <p property="rdfs:comment"><em>Can't find any description.</em></p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -318,26 +338,29 @@
           </ul>
         </section>
       </section>
-      <section id="Context" resource="Context" typeof="rdfs:Class">
-        <h3 property="rdfs:label">Context</h3>
+      <section id="Context" resource="ob:Context" typeof="rdfs:Class">
+        <h3>Context</h3>
+        <p property="rdfs:label"><em>Context</em></p>
         <p property="rdfs:comment">
           JSON-LD Context. Either a URI with the context definition or a Map
           with a local context definition MUST be supplied.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Subclass Of:</dt>
           <dd>
-            <span property="rdfs:subClassOf" resource="URI"
+            <span property="rdfs:subClassOf" resource="ob:URI"
               ><code>xsd:anyURI</code></span
             >,
-            <span property="rdfs:subClassOf" resource="Map"
+            <span property="rdfs:subClassOf" resource="ob:Map"
               ><a href="#Map"><code>Map</code></a></span
             >.
           </dd>
         </dl>
       </section>
-      <section id="Criteria" resource="Criteria" typeof="rdfs:Class">
-        <h3 property="rdfs:label">Criteria</h3>
+      <section id="Criteria" resource="ob:Criteria" typeof="rdfs:Class">
+        <h3>Criteria</h3>
+        <p property="rdfs:label"><em>Criteria</em></p>
         <p property="rdfs:comment">
           Descriptive metadata about the achievements necessary to be recognized
           with an assertion of a particular achievement. This data is added to
@@ -353,6 +376,7 @@
           achievements know the general requirements that the recipients met in
           order to earn it.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -364,10 +388,11 @@
       </section>
       <section
         id="EndorsementCredential"
-        resource="EndorsementCredential"
+        resource="ob:EndorsementCredential"
         typeof="rdfs:Class"
       >
-        <h3 property="rdfs:label">EndorsementCredential</h3>
+        <h3>EndorsementCredential</h3>
+        <p property="rdfs:label"><em>EndorsementCredential</em></p>
         <p property="rdfs:comment">
           A verifiable credential that asserts a claim about an entity. As
           described in
@@ -380,10 +405,11 @@
           credential. In the case of an embedded proof, the credential MUST
           append the proof in the `proof` property.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Subclass Of:</dt>
           <dd>
-            <span property="rdfs:subClassOf" resource="VerifiableCredential"
+            <span property="rdfs:subClassOf" resource="ob:VerifiableCredential"
               ><a
                 href="https://www.w3.org/2018/credentials#VerifiableCredential"
                 ><code>VerifiableCredential</code></a
@@ -408,17 +434,19 @@
       </section>
       <section
         id="EndorsementSubject"
-        resource="EndorsementSubject"
+        resource="ob:EndorsementSubject"
         typeof="rdfs:Class"
       >
-        <h3 property="rdfs:label">EndorsementSubject</h3>
+        <h3>EndorsementSubject</h3>
+        <p property="rdfs:label"><em>EndorsementSubject</em></p>
         <p property="rdfs:comment">
           A collection of information about the subject of the endorsement.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Subclass Of:</dt>
           <dd>
-            <span property="rdfs:subClassOf" resource="CredentialSubject"
+            <span property="rdfs:subClassOf" resource="ob:CredentialSubject"
               ><a href="https://www.w3.org/2018/credentials#CredentialSubject"
                 ><code>CredentialSubject</code></a
               ></span
@@ -434,8 +462,9 @@
           </ul>
         </section>
       </section>
-      <section id="Evidence" resource="Evidence" typeof="rdfs:Class">
-        <h3 property="rdfs:label">Evidence</h3>
+      <section id="Evidence" resource="ob:Evidence" typeof="rdfs:Class">
+        <h3>Evidence</h3>
+        <p property="rdfs:label"><em>Evidence</em></p>
         <p property="rdfs:comment">
           Descriptive metadata about evidence related to the achievement
           assertion. Each instance of the evidence class present in an assertion
@@ -449,6 +478,7 @@
           assume the narrative value goes into more detail and is not simply a
           recapitulation of description.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -472,11 +502,13 @@
       </section>
       <section
         id="GeoCoordinates"
-        resource="GeoCoordinates"
+        resource="ob:GeoCoordinates"
         typeof="rdfs:Class"
       >
-        <h3 property="rdfs:label">GeoCoordinates</h3>
+        <h3>GeoCoordinates</h3>
+        <p property="rdfs:label"><em>GeoCoordinates</em></p>
         <p property="rdfs:comment">The geographic coordinates of a location.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -491,11 +523,13 @@
       </section>
       <section
         id="GetOpenBadgeCredentialsResponse"
-        resource="GetOpenBadgeCredentialsResponse"
+        resource="ob:GetOpenBadgeCredentialsResponse"
         typeof="rdfs:Class"
       >
-        <h3 property="rdfs:label">GetOpenBadgeCredentialsResponse</h3>
+        <h3>GetOpenBadgeCredentialsResponse</h3>
+        <p property="rdfs:label"><em>GetOpenBadgeCredentialsResponse</em></p>
         <p property="rdfs:comment"><em>Can't find any description.</em></p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -510,11 +544,13 @@
       </section>
       <section
         id="IdentifierEntry"
-        resource="IdentifierEntry"
+        resource="ob:IdentifierEntry"
         typeof="rdfs:Class"
       >
-        <h3 property="rdfs:label">IdentifierEntry</h3>
+        <h3>IdentifierEntry</h3>
+        <p property="rdfs:label"><em>IdentifierEntry</em></p>
         <p property="rdfs:comment"><em>Can't find any description.</em></p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -529,11 +565,13 @@
       </section>
       <section
         id="IdentifierType"
-        resource="IdentifierType"
+        resource="ob:IdentifierType"
         typeof="rdfs:Class"
       >
-        <h3 property="rdfs:label">IdentifierType</h3>
+        <h3>IdentifierType</h3>
+        <p property="rdfs:label"><em>IdentifierType</em></p>
         <p property="rdfs:comment"><em>Can't find any description.</em></p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -545,13 +583,15 @@
       </section>
       <section
         id="IdentityObject"
-        resource="IdentityObject"
+        resource="ob:IdentityObject"
         typeof="rdfs:Class"
       >
-        <h3 property="rdfs:label">IdentityObject</h3>
+        <h3>IdentityObject</h3>
+        <p property="rdfs:label"><em>IdentityObject</em></p>
         <p property="rdfs:comment">
           A collection of information about the recipient of an achievement.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -570,14 +610,16 @@
           </ul>
         </section>
       </section>
-      <section id="Image" resource="Image" typeof="rdfs:Class">
-        <h3 property="rdfs:label">Image</h3>
+      <section id="Image" resource="ob:Image" typeof="rdfs:Class">
+        <h3>Image</h3>
+        <p property="rdfs:label"><em>Image</em></p>
         <p property="rdfs:comment">
           Metadata about images that represent assertions, achieve or profiles.
           These properties can typically be represented as just the id string of
           the image, but using a fleshed-out document allows for including
           captions and other applicable metadata.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -587,11 +629,13 @@
           </ul>
         </section>
       </section>
-      <section id="JWK" resource="JWK" typeof="rdfs:Class">
-        <h3 property="rdfs:label">JWK</h3>
+      <section id="JWK" resource="ob:JWK" typeof="rdfs:Class">
+        <h3>JWK</h3>
+        <p property="rdfs:label"><em>JWK</em></p>
         <p property="rdfs:comment">
           A JSON Web Key (JWK) formatted according to [[RFC7517]].
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -625,11 +669,13 @@
           </ul>
         </section>
       </section>
-      <section id="JWKS" resource="JWKS" typeof="rdfs:Class">
-        <h3 property="rdfs:label">JWKS</h3>
+      <section id="JWKS" resource="ob:JWKS" typeof="rdfs:Class">
+        <h3>JWKS</h3>
+        <p property="rdfs:label"><em>JWKS</em></p>
         <p property="rdfs:comment">
           A JWK Set (JWKS) formatted according to [[RFC7517]].
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -639,15 +685,19 @@
           </ul>
         </section>
       </section>
-      <section id="Map" resource="Map" typeof="rdfs:Class">
-        <h3 property="rdfs:label">Map</h3>
+      <section id="Map" resource="ob:Map" typeof="rdfs:Class">
+        <h3>Map</h3>
+        <p property="rdfs:label"><em>Map</em></p>
         <p property="rdfs:comment">
           A map representing an object with unknown, arbitrary properties
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
       </section>
-      <section id="Multikey" resource="Multikey" typeof="rdfs:Class">
-        <h3 property="rdfs:label">Multikey</h3>
+      <section id="Multikey" resource="ob:Multikey" typeof="rdfs:Class">
+        <h3>Multikey</h3>
+        <p property="rdfs:label"><em>Multikey</em></p>
         <p property="rdfs:comment"><em>Can't find any description.</em></p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -663,8 +713,9 @@
           </ul>
         </section>
       </section>
-      <section id="Profile" resource="Profile" typeof="rdfs:Class">
-        <h3 property="rdfs:label">Profile</h3>
+      <section id="Profile" resource="ob:Profile" typeof="rdfs:Class">
+        <h3>Profile</h3>
+        <p property="rdfs:label"><em>Profile</em></p>
         <p property="rdfs:comment">
           A Profile is a collection of information that describes the entity or
           organization using Open Badges. Issuers must be represented as
@@ -676,6 +727,7 @@
           Assertion by specific properties, like their url or contact email
           address.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -742,9 +794,11 @@
           </ul>
         </section>
       </section>
-      <section id="Related" resource="Related" typeof="rdfs:Class">
-        <h3 property="rdfs:label">Related</h3>
+      <section id="Related" resource="ob:Related" typeof="rdfs:Class">
+        <h3>Related</h3>
+        <p property="rdfs:label"><em>Related</em></p>
         <p property="rdfs:comment">Identifies a related achievement.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -754,9 +808,11 @@
           </ul>
         </section>
       </section>
-      <section id="Result" resource="Result" typeof="rdfs:Class">
-        <h3 property="rdfs:label">Result</h3>
+      <section id="Result" resource="ob:Result" typeof="rdfs:Class">
+        <h3>Result</h3>
+        <p property="rdfs:label"><em>Result</em></p>
         <p property="rdfs:comment">Describes a result that was achieved.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -780,11 +836,13 @@
       </section>
       <section
         id="ResultDescription"
-        resource="ResultDescription"
+        resource="ob:ResultDescription"
         typeof="rdfs:Class"
       >
-        <h3 property="rdfs:label">ResultDescription</h3>
+        <h3>ResultDescription</h3>
+        <p property="rdfs:label"><em>ResultDescription</em></p>
         <p property="rdfs:comment">Describes a possible achievement result.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -822,11 +880,13 @@
       </section>
       <section
         id="RubricCriterionLevel"
-        resource="RubricCriterionLevel"
+        resource="ob:RubricCriterionLevel"
         typeof="rdfs:Class"
       >
-        <h3 property="rdfs:label">RubricCriterionLevel</h3>
+        <h3>RubricCriterionLevel</h3>
+        <p property="rdfs:label"><em>RubricCriterionLevel</em></p>
         <p property="rdfs:comment">Describes a rubric criterion level.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <section>
           <h4>Properties</h4>
           <ul>
@@ -857,110 +917,122 @@
       </p>
       <section
         id="achievedLevel"
-        resource="achievedLevel"
+        resource="ob:achievedLevel"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">achievedLevel</h4>
+        <h4>achievedLevel</h4>
+        <p property="rdfs:label"><em>achievedLevel</em></p>
         <p property="rdfs:comment">
           If the result represents an achieved rubric criterion level (e.g.
           Mastered), the value is the `id` of the RubricCriterionLevel in linked
           ResultDescription.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:anyURI">
             <code>xsd:anyURI</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Result">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Result">
             <a href="#Result"><code>Result</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="achievement"
-        resource="achievement"
+        resource="ob:achievement"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">achievement</h4>
+        <h4>achievement</h4>
+        <p property="rdfs:label"><em>achievement</em></p>
         <p property="rdfs:comment">The achievement being awarded.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="Achievement">
+          <dd property="rdfs:range" resource="ob:Achievement">
             <a href="#Achievement"><code>Achievement</code></a>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="AchievementSubject">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:AchievementSubject">
             <a href="#AchievementSubject"><code>AchievementSubject</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="achievementType"
-        resource="achievementType"
+        resource="ob:achievementType"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">achievementType</h4>
+        <h4>achievementType</h4>
+        <p property="rdfs:label"><em>achievementType</em></p>
         <p property="rdfs:comment">
           The type of achievement. This is an extensible vocabulary.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Achievement">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Achievement">
             <a href="#Achievement"><code>Achievement</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="activityEndDate"
-        resource="activityEndDate"
+        resource="ob:activityEndDate"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">activityEndDate</h4>
+        <h4>activityEndDate</h4>
+        <p property="rdfs:label"><em>activityEndDate</em></p>
         <p property="rdfs:comment">The datetime the activity ended.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:dateTime">
             <code>xsd:dateTime</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="AchievementSubject">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:AchievementSubject">
             <a href="#AchievementSubject"><code>AchievementSubject</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="activityStartDate"
-        resource="activityStartDate"
+        resource="ob:activityStartDate"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">activityStartDate</h4>
+        <h4>activityStartDate</h4>
+        <p property="rdfs:label"><em>activityStartDate</em></p>
         <p property="rdfs:comment">The datetime the activity started.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:dateTime">
             <code>xsd:dateTime</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="AchievementSubject">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:AchievementSubject">
             <a href="#AchievementSubject"><code>AchievementSubject</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="additionalName"
-        resource="additionalName"
+        resource="ob:additionalName"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">additionalName</h4>
+        <h4>additionalName</h4>
+        <p property="rdfs:label"><em>additionalName</em></p>
         <p property="rdfs:comment">
           Additional name. Includes what is often referred to as 'middle name'
           in the western world.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd
@@ -971,39 +1043,43 @@
               ><code>https://schema.org/additionalName</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Profile">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="address"
-        resource="address"
+        resource="ob:address"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">address</h4>
+        <h4>address</h4>
+        <p property="rdfs:label"><em>address</em></p>
         <p property="rdfs:comment">
           An address for the individual or organization.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="Address">
+          <dd property="rdfs:range" resource="ob:Address">
             <a href="#Address"><code>Address</code></a>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Profile">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="addressCountry"
-        resource="addressCountry"
+        resource="ob:addressCountry"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">addressCountry</h4>
+        <h4>addressCountry</h4>
+        <p property="rdfs:label"><em>addressCountry</em></p>
         <p property="rdfs:comment">A country.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd
@@ -1014,40 +1090,44 @@
               ><code>https://schema.org/addressCountry</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Address">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Address">
             <a href="#Address"><code>Address</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="addressCountryCode"
-        resource="addressCountryCode"
+        resource="ob:addressCountryCode"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">addressCountryCode</h4>
+        <h4>addressCountryCode</h4>
+        <p property="rdfs:label"><em>addressCountryCode</em></p>
         <p property="rdfs:comment">
           A country code. The value must be a ISO 3166-1 alpha-2 country code
           [[ISO3166-1]].
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Address">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Address">
             <a href="#Address"><code>Address</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="addressLocality"
-        resource="addressLocality"
+        resource="ob:addressLocality"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">addressLocality</h4>
+        <h4>addressLocality</h4>
+        <p property="rdfs:label"><em>addressLocality</em></p>
         <p property="rdfs:comment">A locality within the region.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd
@@ -1058,19 +1138,21 @@
               ><code>https://schema.org/addressLocality</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Address">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Address">
             <a href="#Address"><code>Address</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="addressRegion"
-        resource="addressRegion"
+        resource="ob:addressRegion"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">addressRegion</h4>
+        <h4>addressRegion</h4>
+        <p property="rdfs:label"><em>addressRegion</em></p>
         <p property="rdfs:comment">A region within the country.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/addressRegion">
@@ -1078,39 +1160,42 @@
               ><code>https://schema.org/addressRegion</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Address">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Address">
             <a href="#Address"><code>Address</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="alg"
-        resource="alg"
+        resource="ob:alg"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">alg</h4>
+        <h4>alg</h4>
+        <p property="rdfs:label"><em>alg</em></p>
         <p property="rdfs:comment">
           The `alg` (algorithm) parameter identifies the algorithm intended for
           use with the key, such as `RS256` or `PS256`.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="JWK">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:JWK">
             <a href="#JWK"><code>JWK</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="alignment"
-        resource="alignment"
+        resource="ob:alignment"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">alignment</h4>
+        <h4>alignment</h4>
+        <p property="rdfs:label"><em>alignment</em></p>
         <p property="rdfs:comment">
           In Achievement:An object describing which objectives or educational
           standards this achievement aligns to, if any.
@@ -1128,38 +1213,39 @@
           In RubricCriterionLevel:Alignments between this rubric criterion level
           and a rubric criterion levels defined in external frameworks.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="Alignment">
+          <dd property="rdfs:range" resource="ob:Alignment">
             <a href="#Alignment"><code>Alignment</code></a>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="_:a1">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="_:a0">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a0"
+              inlist=""
               property="owl:unionOf"
-              resource="Achievement"
+              resource="ob:Achievement"
               ><a href="#Achievement"><code>Achievement</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a0"
+              inlist=""
               property="owl:unionOf"
-              resource="Result"
+              resource="ob:Result"
               ><a href="#Result"><code>Result</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a0"
+              inlist=""
               property="owl:unionOf"
-              resource="ResultDescription"
+              resource="ob:ResultDescription"
               ><a href="#ResultDescription"
                 ><code>ResultDescription</code></a
               ></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a0"
+              inlist=""
               property="owl:unionOf"
-              resource="RubricCriterionLevel"
+              resource="ob:RubricCriterionLevel"
               ><a href="#RubricCriterionLevel"
                 ><code>RubricCriterionLevel</code></a
               ></span
@@ -1169,34 +1255,38 @@
       </section>
       <section
         id="allowedValue"
-        resource="allowedValue"
+        resource="ob:allowedValue"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">allowedValue</h4>
+        <h4>allowedValue</h4>
+        <p property="rdfs:label"><em>allowedValue</em></p>
         <p property="rdfs:comment">
           An ordered list of allowed values. The values should be ordered from
           low to high as determined by the achievement creator.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="ResultDescription">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:ResultDescription">
             <a href="#ResultDescription"><code>ResultDescription</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="audience"
-        resource="audience"
+        resource="ob:audience"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">audience</h4>
+        <h4>audience</h4>
+        <p property="rdfs:label"><em>audience</em></p>
         <p property="rdfs:comment">
           A description of the intended audience for a piece of evidence.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/audience">
@@ -1204,19 +1294,21 @@
               ><code>https://schema.org/audience</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Evidence">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Evidence">
             <a href="#Evidence"><code>Evidence</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="caption"
-        resource="caption"
+        resource="ob:caption"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">caption</h4>
+        <h4>caption</h4>
+        <p property="rdfs:label"><em>caption</em></p>
         <p property="rdfs:comment">The caption for the image.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/caption">
@@ -1224,29 +1316,34 @@
               ><code>https://schema.org/caption</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Image">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Image">
             <a href="#Image"><code>Image</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="compactJwsString"
-        resource="compactJwsString"
+        resource="ob:compactJwsString"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">compactJwsString</h4>
+        <h4>compactJwsString</h4>
+        <p property="rdfs:label"><em>compactJwsString</em></p>
         <p property="rdfs:comment">
           OpenBadgeCredentials that have been signed with the VC-JWT Proof
           Format MUST be in the `compactJwsString` array.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="GetOpenBadgeCredentialsResponse">
+          <dt>Domain:</dt>
+          <dd
+            property="rdfs:domain"
+            resource="ob:GetOpenBadgeCredentialsResponse"
+          >
             <a href="#GetOpenBadgeCredentialsResponse"
               ><code>GetOpenBadgeCredentialsResponse</code></a
             >
@@ -1255,63 +1352,72 @@
       </section>
       <section
         id="controller"
-        resource="controller"
+        resource="ob:controller"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">controller</h4>
+        <h4>controller</h4>
+        <p property="rdfs:label"><em>controller</em></p>
         <p property="rdfs:comment">
           The identify of the entity that controls this public key.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:anyURI">
             <code>xsd:anyURI</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Multikey">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Multikey">
             <a href="#Multikey"><code>Multikey</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="creator"
-        resource="creator"
+        resource="ob:creator"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">creator</h4>
+        <h4>creator</h4>
+        <p property="rdfs:label"><em>creator</em></p>
         <p property="rdfs:comment">
           The person or organization that created the achievement definition.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="Profile">
+          <dd property="rdfs:range" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Achievement">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Achievement">
             <a href="#Achievement"><code>Achievement</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="credential"
-        resource="credential"
+        resource="ob:credential"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">credential</h4>
+        <h4>credential</h4>
+        <p property="rdfs:label"><em>credential</em></p>
         <p property="rdfs:comment">
           OpenBadgeCredentials that have not been signed with the VC-JWT Proof
           Format MUST be in the `credential` array.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="AchievementCredential">
+          <dd property="rdfs:range" resource="ob:AchievementCredential">
             <a href="#AchievementCredential"
               ><code>AchievementCredential</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="GetOpenBadgeCredentialsResponse">
+          <dt>Domain:</dt>
+          <dd
+            property="rdfs:domain"
+            resource="ob:GetOpenBadgeCredentialsResponse"
+          >
             <a href="#GetOpenBadgeCredentialsResponse"
               ><code>GetOpenBadgeCredentialsResponse</code></a
             >
@@ -1320,10 +1426,11 @@
       </section>
       <section
         id="credentialSubject"
-        resource="credentialSubject"
+        resource="ob:credentialSubject"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">credentialSubject</h4>
+        <h4>credentialSubject</h4>
+        <p property="rdfs:label"><em>credentialSubject</em></p>
         <p property="rdfs:comment">
           In AchievementCredential:The recipient of the achievement.
         </p>
@@ -1332,42 +1439,43 @@
           assertion, or achievement that is endorsed and the endorsement
           comment.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="_:a1">
             Union of: <br /><span
               about="_:a1"
-              inlist="true"
+              inlist=""
               property="owl:unionOf"
-              resource="AchievementSubject"
+              resource="ob:AchievementSubject"
               ><a href="#AchievementSubject"
                 ><code>AchievementSubject</code></a
               ></span
             ><br /><span
               about="_:a1"
-              inlist="true"
+              inlist=""
               property="owl:unionOf"
-              resource="EndorsementSubject"
+              resource="ob:EndorsementSubject"
               ><a href="#EndorsementSubject"
                 ><code>EndorsementSubject</code></a
               ></span
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="_:a1">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="_:a2">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a2"
+              inlist=""
               property="owl:unionOf"
-              resource="AchievementCredential"
+              resource="ob:AchievementCredential"
               ><a href="#AchievementCredential"
                 ><code>AchievementCredential</code></a
               ></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a2"
+              inlist=""
               property="owl:unionOf"
-              resource="EndorsementCredential"
+              resource="ob:EndorsementCredential"
               ><a href="#EndorsementCredential"
                 ><code>EndorsementCredential</code></a
               ></span
@@ -1377,112 +1485,123 @@
       </section>
       <section
         id="creditsAvailable"
-        resource="creditsAvailable"
+        resource="ob:creditsAvailable"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">creditsAvailable</h4>
+        <h4>creditsAvailable</h4>
+        <p property="rdfs:label"><em>creditsAvailable</em></p>
         <p property="rdfs:comment">
           Credit hours associated with this entity, or credit hours possible.
           For example 3.0.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:float">
             <code>xsd:float</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Achievement">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Achievement">
             <a href="#Achievement"><code>Achievement</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="creditsEarned"
-        resource="creditsEarned"
+        resource="ob:creditsEarned"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">creditsEarned</h4>
+        <h4>creditsEarned</h4>
+        <p property="rdfs:label"><em>creditsEarned</em></p>
         <p property="rdfs:comment">
           The number of credits earned, generally in semester or quarter credit
           hours. This field correlates with the Achievement `creditsAvailable`
           field.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:float">
             <code>xsd:float</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="AchievementSubject">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:AchievementSubject">
             <a href="#AchievementSubject"><code>AchievementSubject</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="criteria"
-        resource="criteria"
+        resource="ob:criteria"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">criteria</h4>
+        <h4>criteria</h4>
+        <p property="rdfs:label"><em>criteria</em></p>
         <p property="rdfs:comment">
           Criteria describing how to earn the achievement.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="Criteria">
+          <dd property="rdfs:range" resource="ob:Criteria">
             <a href="#Criteria"><code>Criteria</code></a>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Achievement">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Achievement">
             <a href="#Achievement"><code>Achievement</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="cryptosuite"
-        resource="cryptosuite"
+        resource="ob:cryptosuite"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">cryptosuite</h4>
+        <h4>cryptosuite</h4>
+        <p property="rdfs:label"><em>cryptosuite</em></p>
         <p property="rdfs:comment">
           The `cryptosuite` of the verification method MUST be the string
           `eddsa-rdf-2022`.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Multikey">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Multikey">
             <a href="#Multikey"><code>Multikey</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="dateOfBirth"
-        resource="dateOfBirth"
+        resource="ob:dateOfBirth"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">dateOfBirth</h4>
+        <h4>dateOfBirth</h4>
+        <p property="rdfs:label"><em>dateOfBirth</em></p>
         <p property="rdfs:comment">Birthdate of the person.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:date">
             <code>xsd:date</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Profile">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="description"
-        resource="description"
+        resource="ob:description"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">description</h4>
+        <h4>description</h4>
+        <p property="rdfs:label"><em>description</em></p>
         <p property="rdfs:comment">
           In Achievement:A short description of the achievement.
         </p>
@@ -1503,6 +1622,7 @@
         <p property="rdfs:comment">
           In RubricCriterionLevel:Description of the rubric criterion level.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/description">
@@ -1510,47 +1630,47 @@
               ><code>https://schema.org/description</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="_:a1">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="_:a3">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a3"
+              inlist=""
               property="owl:unionOf"
-              resource="Achievement"
+              resource="ob:Achievement"
               ><a href="#Achievement"><code>Achievement</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a3"
+              inlist=""
               property="owl:unionOf"
-              resource="AchievementCredential"
+              resource="ob:AchievementCredential"
               ><a href="#AchievementCredential"
                 ><code>AchievementCredential</code></a
               ></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a3"
+              inlist=""
               property="owl:unionOf"
-              resource="EndorsementCredential"
+              resource="ob:EndorsementCredential"
               ><a href="#EndorsementCredential"
                 ><code>EndorsementCredential</code></a
               ></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a3"
+              inlist=""
               property="owl:unionOf"
-              resource="Evidence"
+              resource="ob:Evidence"
               ><a href="#Evidence"><code>Evidence</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a3"
+              inlist=""
               property="owl:unionOf"
-              resource="Profile"
+              resource="ob:Profile"
               ><a href="#Profile"><code>Profile</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a3"
+              inlist=""
               property="owl:unionOf"
-              resource="RubricCriterionLevel"
+              resource="ob:RubricCriterionLevel"
               ><a href="#RubricCriterionLevel"
                 ><code>RubricCriterionLevel</code></a
               ></span
@@ -1560,11 +1680,13 @@
       </section>
       <section
         id="email"
-        resource="email"
+        resource="ob:email"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">email</h4>
+        <h4>email</h4>
+        <p property="rdfs:label"><em>email</em></p>
         <p property="rdfs:comment">An email address.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/email">
@@ -1572,18 +1694,19 @@
               ><code>https://schema.org/email</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Profile">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="endorsement"
-        resource="endorsement"
+        resource="ob:endorsement"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">endorsement</h4>
+        <h4>endorsement</h4>
+        <p property="rdfs:label"><em>endorsement</em></p>
         <p property="rdfs:comment">
           In Achievement:Allows endorsers to make specific claims about the
           Achievement. These endorsements are signed with a Data Integrity proof
@@ -1600,34 +1723,35 @@
           individual or organization represented by this profile. These
           endorsements are signed with a Data Integrity proof format.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="EndorsementCredential">
+          <dd property="rdfs:range" resource="ob:EndorsementCredential">
             <a href="#EndorsementCredential"
               ><code>EndorsementCredential</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="_:a1">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="_:a4">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a4"
+              inlist=""
               property="owl:unionOf"
-              resource="Achievement"
+              resource="ob:Achievement"
               ><a href="#Achievement"><code>Achievement</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a4"
+              inlist=""
               property="owl:unionOf"
-              resource="AchievementCredential"
+              resource="ob:AchievementCredential"
               ><a href="#AchievementCredential"
                 ><code>AchievementCredential</code></a
               ></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a4"
+              inlist=""
               property="owl:unionOf"
-              resource="Profile"
+              resource="ob:Profile"
               ><a href="#Profile"><code>Profile</code></a></span
             >
           </dd>
@@ -1635,30 +1759,33 @@
       </section>
       <section
         id="endorsementComment"
-        resource="endorsementComment"
+        resource="ob:endorsementComment"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">endorsementComment</h4>
+        <h4>endorsementComment</h4>
+        <p property="rdfs:label"><em>endorsementComment</em></p>
         <p property="rdfs:comment">
           Allows endorsers to make a simple claim in writing about the entity.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="EndorsementSubject">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:EndorsementSubject">
             <a href="#EndorsementSubject"><code>EndorsementSubject</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="endorsementJwt"
-        resource="endorsementJwt"
+        resource="ob:endorsementJwt"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">endorsementJwt</h4>
+        <h4>endorsementJwt</h4>
+        <p property="rdfs:label"><em>endorsementJwt</em></p>
         <p property="rdfs:comment">
           In Achievement:Allows endorsers to make specific claims about the
           Achievement. These endorsements are signed with the VC-JWT proof
@@ -1675,32 +1802,33 @@
           individual or organization represented by this profile. These
           endorsements are signed with the VC-JWT proof format.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="_:a1">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="_:a5">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a5"
+              inlist=""
               property="owl:unionOf"
-              resource="Achievement"
+              resource="ob:Achievement"
               ><a href="#Achievement"><code>Achievement</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a5"
+              inlist=""
               property="owl:unionOf"
-              resource="AchievementCredential"
+              resource="ob:AchievementCredential"
               ><a href="#AchievementCredential"
                 ><code>AchievementCredential</code></a
               ></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a5"
+              inlist=""
               property="owl:unionOf"
-              resource="Profile"
+              resource="ob:Profile"
               ><a href="#Profile"><code>Profile</code></a></span
             >
           </dd>
@@ -1708,22 +1836,24 @@
       </section>
       <section
         id="evidence"
-        resource="evidence"
+        resource="ob:evidence"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">evidence</h4>
+        <h4>evidence</h4>
+        <p property="rdfs:label"><em>evidence</em></p>
         <p property="rdfs:comment">
           A description of the work that the recipient did to earn the
           achievement. This can be a page that links out to other pages if
           linking directly to the work is infeasible.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="Evidence">
+          <dd property="rdfs:range" resource="ob:Evidence">
             <a href="#Evidence"><code>Evidence</code></a>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="AchievementCredential">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:AchievementCredential">
             <a href="#AchievementCredential"
               ><code>AchievementCredential</code></a
             >
@@ -1732,14 +1862,16 @@
       </section>
       <section
         id="familyName"
-        resource="familyName"
+        resource="ob:familyName"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">familyName</h4>
+        <h4>familyName</h4>
+        <p property="rdfs:label"><em>familyName</em></p>
         <p property="rdfs:comment">
           Family name. In the western world, often referred to as the 'last
           name' of a person.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/familyName">
@@ -1747,65 +1879,71 @@
               ><code>https://schema.org/familyName</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Profile">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="familyNamePrefix"
-        resource="familyNamePrefix"
+        resource="ob:familyNamePrefix"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">familyNamePrefix</h4>
+        <h4>familyNamePrefix</h4>
+        <p property="rdfs:label"><em>familyNamePrefix</em></p>
         <p property="rdfs:comment">
           Family name prefix. As used in some locales, this is the leading part
           of a family name (e.g. 'de' in the name 'de Boer').
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Profile">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="fieldOfStudy"
-        resource="fieldOfStudy"
+        resource="ob:fieldOfStudy"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">fieldOfStudy</h4>
+        <h4>fieldOfStudy</h4>
+        <p property="rdfs:label"><em>fieldOfStudy</em></p>
         <p property="rdfs:comment">
           Category, subject, area of study, discipline, or general branch of
           knowledge. Examples include Business, Education, Psychology, and
           Technology.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Achievement">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Achievement">
             <a href="#Achievement"><code>Achievement</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="genre"
-        resource="genre"
+        resource="ob:genre"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">genre</h4>
+        <h4>genre</h4>
+        <p property="rdfs:label"><em>genre</em></p>
         <p property="rdfs:comment">
           A string that describes the type of evidence. For example, Poetry,
           Prose, Film.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/genre">
@@ -1813,42 +1951,46 @@
               ><code>https://schema.org/genre</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Evidence">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Evidence">
             <a href="#Evidence"><code>Evidence</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="geo"
-        resource="geo"
+        resource="ob:geo"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">geo</h4>
+        <h4>geo</h4>
+        <p property="rdfs:label"><em>geo</em></p>
         <p property="rdfs:comment">
           The geographic coordinates of the location.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="GeoCoordinates">
+          <dd property="rdfs:range" resource="ob:GeoCoordinates">
             <a href="#GeoCoordinates"><code>GeoCoordinates</code></a>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Address">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Address">
             <a href="#Address"><code>Address</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="givenName"
-        resource="givenName"
+        resource="ob:givenName"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">givenName</h4>
+        <h4>givenName</h4>
+        <p property="rdfs:label"><em>givenName</em></p>
         <p property="rdfs:comment">
           Given name. In the western world, often referred to as the 'first
           name' of a person.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/givenName">
@@ -1856,42 +1998,46 @@
               ><code>https://schema.org/givenName</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Profile">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="hashed"
-        resource="hashed"
+        resource="ob:hashed"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">hashed</h4>
+        <h4>hashed</h4>
+        <p property="rdfs:label"><em>hashed</em></p>
         <p property="rdfs:comment">
           Whether or not the `identityHash` value is hashed.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:boolean">
             <code>xsd:boolean</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="IdentityObject">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:IdentityObject">
             <a href="#IdentityObject"><code>IdentityObject</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="honorificPrefix"
-        resource="honorificPrefix"
+        resource="ob:honorificPrefix"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">honorificPrefix</h4>
+        <h4>honorificPrefix</h4>
+        <p property="rdfs:label"><em>honorificPrefix</em></p>
         <p property="rdfs:comment">
           Honorific prefix(es) preceding a person's name (e.g. 'Dr', 'Mrs' or
           'Mr').
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd
@@ -1902,21 +2048,23 @@
               ><code>https://schema.org/honorificPrefix</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Profile">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="honorificSuffix"
-        resource="honorificSuffix"
+        resource="ob:honorificSuffix"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">honorificSuffix</h4>
+        <h4>honorificSuffix</h4>
+        <p property="rdfs:label"><em>honorificSuffix</em></p>
         <p property="rdfs:comment">
           Honorific suffix(es) following a person's name (e.g. 'M.D, PhD').
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd
@@ -1927,38 +2075,41 @@
               ><code>https://schema.org/honorificSuffix</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Profile">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="humanCode"
-        resource="humanCode"
+        resource="ob:humanCode"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">humanCode</h4>
+        <h4>humanCode</h4>
+        <p property="rdfs:label"><em>humanCode</em></p>
         <p property="rdfs:comment">
           The code, generally human readable, associated with an achievement.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Achievement">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Achievement">
             <a href="#Achievement"><code>Achievement</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="identifier"
-        resource="identifier"
+        resource="ob:identifier"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">identifier</h4>
+        <h4>identifier</h4>
+        <p property="rdfs:label"><em>identifier</em></p>
         <p property="rdfs:comment">
           In AchievementSubject:Other identifiers for the recipient of the
           achievement. Either `id` or at least one `identifier` MUST be
@@ -1966,38 +2117,39 @@
         </p>
         <p property="rdfs:comment">In AnyIdentifier:An identifier.</p>
         <p property="rdfs:comment">In IdentifierEntry:An identifier.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="_:a1">
+          <dd property="rdfs:range" resource="_:a6">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a6"
+              inlist=""
               property="owl:unionOf"
-              resource="IdentityObject"
+              resource="ob:IdentityObject"
               ><a href="#IdentityObject"><code>IdentityObject</code></a></span
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="_:a1">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="_:a7">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a7"
+              inlist=""
               property="owl:unionOf"
-              resource="AchievementSubject"
+              resource="ob:AchievementSubject"
               ><a href="#AchievementSubject"
                 ><code>AchievementSubject</code></a
               ></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a7"
+              inlist=""
               property="owl:unionOf"
-              resource="AnyIdentifier"
+              resource="ob:AnyIdentifier"
               ><a href="#AnyIdentifier"><code>AnyIdentifier</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a7"
+              inlist=""
               property="owl:unionOf"
-              resource="IdentifierEntry"
+              resource="ob:IdentifierEntry"
               ><a href="#IdentifierEntry"><code>IdentifierEntry</code></a></span
             >
           </dd>
@@ -2005,30 +2157,32 @@
       </section>
       <section
         id="identifierType"
-        resource="identifierType"
+        resource="ob:identifierType"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">identifierType</h4>
+        <h4>identifierType</h4>
+        <p property="rdfs:label"><em>identifierType</em></p>
         <p property="rdfs:comment">In IdentifierEntry:The identifier type.</p>
         <p property="rdfs:comment">In IdentifierType:The identifier type.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="_:a1">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="_:a8">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a8"
+              inlist=""
               property="owl:unionOf"
-              resource="IdentifierEntry"
+              resource="ob:IdentifierEntry"
               ><a href="#IdentifierEntry"><code>IdentifierEntry</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a8"
+              inlist=""
               property="owl:unionOf"
-              resource="IdentifierType"
+              resource="ob:IdentifierType"
               ><a href="#IdentifierType"><code>IdentifierType</code></a></span
             >
           </dd>
@@ -2036,10 +2190,11 @@
       </section>
       <section
         id="identityHash"
-        resource="identityHash"
+        resource="ob:identityHash"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">identityHash</h4>
+        <h4>identityHash</h4>
+        <p property="rdfs:label"><em>identityHash</em></p>
         <p property="rdfs:comment">
           Either the IdentityHash of the identity or the plaintext value. If
           it's possible that the plaintext transmission and storage of the
@@ -2047,41 +2202,45 @@
           there is an expectation of privacy, it is strongly recommended that an
           IdentityHash be used.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="IdentityObject">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:IdentityObject">
             <a href="#IdentityObject"><code>IdentityObject</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="identityType"
-        resource="identityType"
+        resource="ob:identityType"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">identityType</h4>
+        <h4>identityType</h4>
+        <p property="rdfs:label"><em>identityType</em></p>
         <p property="rdfs:comment">The identity type.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="IdentityObject">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:IdentityObject">
             <a href="#IdentityObject"><code>IdentityObject</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="image"
-        resource="image"
+        resource="ob:image"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">image</h4>
+        <h4>image</h4>
+        <p property="rdfs:label"><em>image</em></p>
         <p property="rdfs:comment">
           In Achievement:An image representing the achievement.
         </p>
@@ -2099,40 +2258,41 @@
           In Profile:An image representing the issuer. This must be a PNG or SVG
           image.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="Image">
+          <dd property="rdfs:range" resource="ob:Image">
             <a href="#Image"><code>Image</code></a>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="_:a1">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="_:a9">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a9"
+              inlist=""
               property="owl:unionOf"
-              resource="Achievement"
+              resource="ob:Achievement"
               ><a href="#Achievement"><code>Achievement</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a9"
+              inlist=""
               property="owl:unionOf"
-              resource="AchievementCredential"
+              resource="ob:AchievementCredential"
               ><a href="#AchievementCredential"
                 ><code>AchievementCredential</code></a
               ></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a9"
+              inlist=""
               property="owl:unionOf"
-              resource="AchievementSubject"
+              resource="ob:AchievementSubject"
               ><a href="#AchievementSubject"
                 ><code>AchievementSubject</code></a
               ></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a9"
+              inlist=""
               property="owl:unionOf"
-              resource="Profile"
+              resource="ob:Profile"
               ><a href="#Profile"><code>Profile</code></a></span
             >
           </dd>
@@ -2140,95 +2300,105 @@
       </section>
       <section
         id="key_ops"
-        resource="key_ops"
+        resource="ob:key_ops"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">key_ops</h4>
+        <h4>key_ops</h4>
+        <p property="rdfs:label"><em>key_ops</em></p>
         <p property="rdfs:comment">
           The `key_ops` (key operations) parameter identifies the operation(s)
           for which the key is intended to be used, such as `sign` (compute
           digital signature or MAC) or `verify` (verify digital signature or
           MAC).
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="JWK">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:JWK">
             <a href="#JWK"><code>JWK</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="keys"
-        resource="keys"
+        resource="ob:keys"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">keys</h4>
+        <h4>keys</h4>
+        <p property="rdfs:label"><em>keys</em></p>
         <p property="rdfs:comment">
           A JWK Set is a JSON object that represents a set of JWKs.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="JWK">
+          <dd property="rdfs:range" resource="ob:JWK">
             <a href="#JWK"><code>JWK</code></a>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="JWKS">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:JWKS">
             <a href="#JWKS"><code>JWKS</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="kid"
-        resource="kid"
+        resource="ob:kid"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">kid</h4>
+        <h4>kid</h4>
+        <p property="rdfs:label"><em>kid</em></p>
         <p property="rdfs:comment">
           The `kid` (key ID) parameter is used to match a specific key.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="JWK">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:JWK">
             <a href="#JWK"><code>JWK</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="kty"
-        resource="kty"
+        resource="ob:kty"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">kty</h4>
+        <h4>kty</h4>
+        <p property="rdfs:label"><em>kty</em></p>
         <p property="rdfs:comment">
           The `kty` (key type) parameter identifies the cryptographic algorithm
           family used with the key, such as `RSA` or `EC`.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="JWK">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:JWK">
             <a href="#JWK"><code>JWK</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="latitude"
-        resource="latitude"
+        resource="ob:latitude"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">latitude</h4>
+        <h4>latitude</h4>
+        <p property="rdfs:label"><em>latitude</em></p>
         <p property="rdfs:comment">The latitude of the location [[WGS84]].</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/latitude">
@@ -2236,28 +2406,30 @@
               ><code>https://schema.org/latitude</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="GeoCoordinates">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:GeoCoordinates">
             <a href="#GeoCoordinates"><code>GeoCoordinates</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="level"
-        resource="level"
+        resource="ob:level"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">level</h4>
+        <h4>level</h4>
+        <p property="rdfs:label"><em>level</em></p>
         <p property="rdfs:comment">
           The rubric performance level in terms of success.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="RubricCriterionLevel">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:RubricCriterionLevel">
             <a href="#RubricCriterionLevel"
               ><code>RubricCriterionLevel</code></a
             >
@@ -2266,31 +2438,35 @@
       </section>
       <section
         id="licenseNumber"
-        resource="licenseNumber"
+        resource="ob:licenseNumber"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">licenseNumber</h4>
+        <h4>licenseNumber</h4>
+        <p property="rdfs:label"><em>licenseNumber</em></p>
         <p property="rdfs:comment">
           The license number that was issued with this credential.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="AchievementSubject">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:AchievementSubject">
             <a href="#AchievementSubject"><code>AchievementSubject</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="longitude"
-        resource="longitude"
+        resource="ob:longitude"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">longitude</h4>
+        <h4>longitude</h4>
+        <p property="rdfs:label"><em>longitude</em></p>
         <p property="rdfs:comment">The longitude of the location [[WGS84]].</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/longitude">
@@ -2298,18 +2474,19 @@
               ><code>https://schema.org/longitude</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="GeoCoordinates">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:GeoCoordinates">
             <a href="#GeoCoordinates"><code>GeoCoordinates</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="name"
-        resource="name"
+        resource="ob:name"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">name</h4>
+        <h4>name</h4>
+        <p property="rdfs:label"><em>name</em></p>
         <p property="rdfs:comment">
           In Achievement:The name of the achievement.
         </p>
@@ -2335,6 +2512,7 @@
         <p property="rdfs:comment">
           In RubricCriterionLevel:The name of the rubric criterion level.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/name">
@@ -2342,55 +2520,55 @@
               ><code>https://schema.org/name</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="_:a1">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="_:a10">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a10"
+              inlist=""
               property="owl:unionOf"
-              resource="Achievement"
+              resource="ob:Achievement"
               ><a href="#Achievement"><code>Achievement</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a10"
+              inlist=""
               property="owl:unionOf"
-              resource="AchievementCredential"
+              resource="ob:AchievementCredential"
               ><a href="#AchievementCredential"
                 ><code>AchievementCredential</code></a
               ></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a10"
+              inlist=""
               property="owl:unionOf"
-              resource="EndorsementCredential"
+              resource="ob:EndorsementCredential"
               ><a href="#EndorsementCredential"
                 ><code>EndorsementCredential</code></a
               ></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a10"
+              inlist=""
               property="owl:unionOf"
-              resource="Evidence"
+              resource="ob:Evidence"
               ><a href="#Evidence"><code>Evidence</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a10"
+              inlist=""
               property="owl:unionOf"
-              resource="Profile"
+              resource="ob:Profile"
               ><a href="#Profile"><code>Profile</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a10"
+              inlist=""
               property="owl:unionOf"
-              resource="ResultDescription"
+              resource="ob:ResultDescription"
               ><a href="#ResultDescription"
                 ><code>ResultDescription</code></a
               ></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a10"
+              inlist=""
               property="owl:unionOf"
-              resource="RubricCriterionLevel"
+              resource="ob:RubricCriterionLevel"
               ><a href="#RubricCriterionLevel"
                 ><code>RubricCriterionLevel</code></a
               ></span
@@ -2400,10 +2578,11 @@
       </section>
       <section
         id="narrative"
-        resource="narrative"
+        resource="ob:narrative"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">narrative</h4>
+        <h4>narrative</h4>
+        <p property="rdfs:label"><em>narrative</em></p>
         <p property="rdfs:comment">
           In AchievementSubject:A narrative that connects multiple pieces of
           evidence. Likely only present at this location if evidence is a
@@ -2417,32 +2596,33 @@
           In Evidence:A narrative that describes the evidence and process of
           achievement that led to an assertion.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="_:a1">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="_:a11">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a11"
+              inlist=""
               property="owl:unionOf"
-              resource="AchievementSubject"
+              resource="ob:AchievementSubject"
               ><a href="#AchievementSubject"
                 ><code>AchievementSubject</code></a
               ></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a11"
+              inlist=""
               property="owl:unionOf"
-              resource="Criteria"
+              resource="ob:Criteria"
               ><a href="#Criteria"><code>Criteria</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a11"
+              inlist=""
               property="owl:unionOf"
-              resource="Evidence"
+              resource="ob:Evidence"
               ><a href="#Evidence"><code>Evidence</code></a></span
             >
           </dd>
@@ -2450,55 +2630,59 @@
       </section>
       <section
         id="official"
-        resource="official"
+        resource="ob:official"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">official</h4>
+        <h4>official</h4>
+        <p property="rdfs:label"><em>official</em></p>
         <p property="rdfs:comment">
           If the entity is an organization, `official` is the name of an
           authorized official of the organization.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Profile">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="otherIdentifier"
-        resource="otherIdentifier"
+        resource="ob:otherIdentifier"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">otherIdentifier</h4>
+        <h4>otherIdentifier</h4>
+        <p property="rdfs:label"><em>otherIdentifier</em></p>
         <p property="rdfs:comment">
           In Achievement:A list of identifiers for the described entity.
         </p>
         <p property="rdfs:comment">
           In Profile:A list of identifiers for the described entity.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="IdentifierEntry">
+          <dd property="rdfs:range" resource="ob:IdentifierEntry">
             <a href="#IdentifierEntry"><code>IdentifierEntry</code></a>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="_:a1">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="_:a12">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a12"
+              inlist=""
               property="owl:unionOf"
-              resource="Achievement"
+              resource="ob:Achievement"
               ><a href="#Achievement"><code>Achievement</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a12"
+              inlist=""
               property="owl:unionOf"
-              resource="Profile"
+              resource="ob:Profile"
               ><a href="#Profile"><code>Profile</code></a></span
             >
           </dd>
@@ -2506,74 +2690,82 @@
       </section>
       <section
         id="parentOrg"
-        resource="parentOrg"
+        resource="ob:parentOrg"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">parentOrg</h4>
+        <h4>parentOrg</h4>
+        <p property="rdfs:label"><em>parentOrg</em></p>
         <p property="rdfs:comment">The parent organization of the entity.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="Profile">
+          <dd property="rdfs:range" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Profile">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="patronymicName"
-        resource="patronymicName"
+        resource="ob:patronymicName"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">patronymicName</h4>
+        <h4>patronymicName</h4>
+        <p property="rdfs:label"><em>patronymicName</em></p>
         <p property="rdfs:comment">Patronymic name.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Profile">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="phone"
-        resource="phone"
+        resource="ob:phone"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">phone</h4>
+        <h4>phone</h4>
+        <p property="rdfs:label"><em>phone</em></p>
         <p property="rdfs:comment">A phone number.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Profile">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="points"
-        resource="points"
+        resource="ob:points"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">points</h4>
+        <h4>points</h4>
+        <p property="rdfs:label"><em>points</em></p>
         <p property="rdfs:comment">
           The points associated with this rubric criterion level.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="RubricCriterionLevel">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:RubricCriterionLevel">
             <a href="#RubricCriterionLevel"
               ><code>RubricCriterionLevel</code></a
             >
@@ -2582,13 +2774,15 @@
       </section>
       <section
         id="postOfficeBoxNumber"
-        resource="postOfficeBoxNumber"
+        resource="ob:postOfficeBoxNumber"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">postOfficeBoxNumber</h4>
+        <h4>postOfficeBoxNumber</h4>
+        <p property="rdfs:label"><em>postOfficeBoxNumber</em></p>
         <p property="rdfs:comment">
           A post office box number for PO box addresses.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd
@@ -2599,19 +2793,21 @@
               ><code>https://schema.org/postOfficeBoxNumber</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Address">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Address">
             <a href="#Address"><code>Address</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="postalCode"
-        resource="postalCode"
+        resource="ob:postalCode"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">postalCode</h4>
+        <h4>postalCode</h4>
+        <p property="rdfs:label"><em>postalCode</em></p>
         <p property="rdfs:comment">A postal code.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/postalCode">
@@ -2619,18 +2815,19 @@
               ><code>https://schema.org/postalCode</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Address">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Address">
             <a href="#Address"><code>Address</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="publicKeyMultibase"
-        resource="publicKeyMultibase"
+        resource="ob:publicKeyMultibase"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">publicKeyMultibase</h4>
+        <h4>publicKeyMultibase</h4>
+        <p property="rdfs:label"><em>publicKeyMultibase</em></p>
         <p property="rdfs:comment">
           The `publicKeyMultibase` property of the verification method MUST be a
           public key encoded according to [[?MULTICODEC]] and formatted
@@ -2638,106 +2835,116 @@
           public key is the two-byte prefix `0xed01` followed by the 32-byte
           public key data.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Multikey">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Multikey">
             <a href="#Multikey"><code>Multikey</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="related"
-        resource="related"
+        resource="ob:related"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">related</h4>
+        <h4>related</h4>
+        <p property="rdfs:label"><em>related</em></p>
         <p property="rdfs:comment">
           The related property identifies another Achievement that should be
           considered the same for most purposes. It is primarily intended to
           identify alternate language editions or previous versions of
           Achievements.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="Related">
+          <dd property="rdfs:range" resource="ob:Related">
             <a href="#Related"><code>Related</code></a>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Achievement">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Achievement">
             <a href="#Achievement"><code>Achievement</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="requiredLevel"
-        resource="requiredLevel"
+        resource="ob:requiredLevel"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">requiredLevel</h4>
+        <h4>requiredLevel</h4>
+        <p property="rdfs:label"><em>requiredLevel</em></p>
         <p property="rdfs:comment">
           The `id` of the rubric criterion level required to pass as determined
           by the achievement creator.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:anyURI">
             <code>xsd:anyURI</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="ResultDescription">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:ResultDescription">
             <a href="#ResultDescription"><code>ResultDescription</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="requiredValue"
-        resource="requiredValue"
+        resource="ob:requiredValue"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">requiredValue</h4>
+        <h4>requiredValue</h4>
+        <p property="rdfs:label"><em>requiredValue</em></p>
         <p property="rdfs:comment">
           A value from `allowedValue` or within the range of `valueMin` to
           `valueMax` required to pass as determined by the achievement creator.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="ResultDescription">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:ResultDescription">
             <a href="#ResultDescription"><code>ResultDescription</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="result"
-        resource="result"
+        resource="ob:result"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">result</h4>
+        <h4>result</h4>
+        <p property="rdfs:label"><em>result</em></p>
         <p property="rdfs:comment">The set of results being asserted.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="Result">
+          <dd property="rdfs:range" resource="ob:Result">
             <a href="#Result"><code>Result</code></a>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="AchievementSubject">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:AchievementSubject">
             <a href="#AchievementSubject"><code>AchievementSubject</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="resultDescription"
-        resource="resultDescription"
+        resource="ob:resultDescription"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">resultDescription</h4>
+        <h4>resultDescription</h4>
+        <p property="rdfs:label"><em>resultDescription</em></p>
         <p property="rdfs:comment">
           In Achievement:The set of result descriptions that may be asserted as
           results with this achievement.
@@ -2748,32 +2955,33 @@
           result description linked to this result. The linked result
           description must be in the achievement that is being asserted.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="_:a1">
+          <dd property="rdfs:range" resource="_:a13">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a13"
+              inlist=""
               property="owl:unionOf"
-              resource="ResultDescription"
+              resource="ob:ResultDescription"
               ><a href="#ResultDescription"
                 ><code>ResultDescription</code></a
               ></span
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="_:a1">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="_:a14">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a14"
+              inlist=""
               property="owl:unionOf"
-              resource="Achievement"
+              resource="ob:Achievement"
               ><a href="#Achievement"><code>Achievement</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a14"
+              inlist=""
               property="owl:unionOf"
-              resource="Result"
+              resource="ob:Result"
               ><a href="#Result"><code>Result</code></a></span
             >
           </dd>
@@ -2781,165 +2989,181 @@
       </section>
       <section
         id="resultType"
-        resource="resultType"
+        resource="ob:resultType"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">resultType</h4>
+        <h4>resultType</h4>
+        <p property="rdfs:label"><em>resultType</em></p>
         <p property="rdfs:comment">
           The type of result this description represents. This is an extensible
           enumerated vocabulary.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="ResultDescription">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:ResultDescription">
             <a href="#ResultDescription"><code>ResultDescription</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="role"
-        resource="role"
+        resource="ob:role"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">role</h4>
+        <h4>role</h4>
+        <p property="rdfs:label"><em>role</em></p>
         <p property="rdfs:comment">
           Role, position, or title of the learner when demonstrating or
           performing the achievement or evidence of learning being asserted.
           Examples include 'Student President', 'Intern', 'Captain', etc.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="AchievementSubject">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:AchievementSubject">
             <a href="#AchievementSubject"><code>AchievementSubject</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="rubricCriterionLevel"
-        resource="rubricCriterionLevel"
+        resource="ob:rubricCriterionLevel"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">rubricCriterionLevel</h4>
+        <h4>rubricCriterionLevel</h4>
+        <p property="rdfs:label"><em>rubricCriterionLevel</em></p>
         <p property="rdfs:comment">
           An ordered array of rubric criterion levels that may be asserted in
           the linked result. The levels should be ordered from low to high as
           determined by the achievement creator.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="RubricCriterionLevel">
+          <dd property="rdfs:range" resource="ob:RubricCriterionLevel">
             <a href="#RubricCriterionLevel"
               ><code>RubricCriterionLevel</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="ResultDescription">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:ResultDescription">
             <a href="#ResultDescription"><code>ResultDescription</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="salt"
-        resource="salt"
+        resource="ob:salt"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">salt</h4>
+        <h4>salt</h4>
+        <p property="rdfs:label"><em>salt</em></p>
         <p property="rdfs:comment">
           If the `identityHash` is hashed, this should contain the string used
           to salt the hash. If this value is not provided, it should be assumed
           that the hash was not salted.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="IdentityObject">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:IdentityObject">
             <a href="#IdentityObject"><code>IdentityObject</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="source"
-        resource="source"
+        resource="ob:source"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">source</h4>
+        <h4>source</h4>
+        <p property="rdfs:label"><em>source</em></p>
         <p property="rdfs:comment">
           The person, organization, or system that assessed the achievement on
           behalf of the issuer. For example, a school may assess the
           achievement, while the school district issues the credential.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
-          <dd property="rdfs:range" resource="Profile">
+          <dd property="rdfs:range" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="AchievementSubject">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:AchievementSubject">
             <a href="#AchievementSubject"><code>AchievementSubject</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="specialization"
-        resource="specialization"
+        resource="ob:specialization"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">specialization</h4>
+        <h4>specialization</h4>
+        <p property="rdfs:label"><em>specialization</em></p>
         <p property="rdfs:comment">
           Name given to the focus, concentration, or specific area of study
           defined in the achievement. Examples include 'Entrepreneurship',
           'Technical Communication', and 'Finance'.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Achievement">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Achievement">
             <a href="#Achievement"><code>Achievement</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="status"
-        resource="status"
+        resource="ob:status"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">status</h4>
+        <h4>status</h4>
+        <p property="rdfs:label"><em>status</em></p>
         <p property="rdfs:comment">
           The status of the achievement. Required if `resultType` of the linked
           ResultDescription is Status.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Result">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Result">
             <a href="#Result"><code>Result</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="streetAddress"
-        resource="streetAddress"
+        resource="ob:streetAddress"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">streetAddress</h4>
+        <h4>streetAddress</h4>
+        <p property="rdfs:label"><em>streetAddress</em></p>
         <p property="rdfs:comment">A street address within the locality.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/streetAddress">
@@ -2947,22 +3171,24 @@
               ><code>https://schema.org/streetAddress</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Address">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Address">
             <a href="#Address"><code>Address</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="tag"
-        resource="tag"
+        resource="ob:tag"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">tag</h4>
+        <h4>tag</h4>
+        <p property="rdfs:label"><em>tag</em></p>
         <p property="rdfs:comment">
           One or more short, human-friendly, searchable, keywords that describe
           the type of achievement.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/keywords">
@@ -2970,42 +3196,46 @@
               ><code>https://schema.org/keywords</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Achievement">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Achievement">
             <a href="#Achievement"><code>Achievement</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="targetCode"
-        resource="targetCode"
+        resource="ob:targetCode"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">targetCode</h4>
+        <h4>targetCode</h4>
+        <p property="rdfs:label"><em>targetCode</em></p>
         <p property="rdfs:comment">
           If applicable, a locally unique string identifier that identifies the
           alignment target within its framework and/or targetUrl.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Alignment">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Alignment">
             <a href="#Alignment"><code>Alignment</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="targetDescription"
-        resource="targetDescription"
+        resource="ob:targetDescription"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">targetDescription</h4>
+        <h4>targetDescription</h4>
+        <p property="rdfs:label"><em>targetDescription</em></p>
         <p property="rdfs:comment">
           Short description of the alignment target.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd
@@ -3016,39 +3246,43 @@
               ><code>https://schema.org/targetDescription</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Alignment">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Alignment">
             <a href="#Alignment"><code>Alignment</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="targetFramework"
-        resource="targetFramework"
+        resource="ob:targetFramework"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">targetFramework</h4>
+        <h4>targetFramework</h4>
+        <p property="rdfs:label"><em>targetFramework</em></p>
         <p property="rdfs:comment">
           Name of the framework the alignment target.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Alignment">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Alignment">
             <a href="#Alignment"><code>Alignment</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="targetName"
-        resource="targetName"
+        resource="ob:targetName"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">targetName</h4>
+        <h4>targetName</h4>
+        <p property="rdfs:label"><em>targetName</em></p>
         <p property="rdfs:comment">Name of the alignment.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/targetName">
@@ -3056,124 +3290,136 @@
               ><code>https://schema.org/targetName</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Alignment">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Alignment">
             <a href="#Alignment"><code>Alignment</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="targetType"
-        resource="targetType"
+        resource="ob:targetType"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">targetType</h4>
+        <h4>targetType</h4>
+        <p property="rdfs:label"><em>targetType</em></p>
         <p property="rdfs:comment">The type of the alignment target node.</p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Alignment">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Alignment">
             <a href="#Alignment"><code>Alignment</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="targetUrl"
-        resource="targetUrl"
+        resource="ob:targetUrl"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">targetUrl</h4>
+        <h4>targetUrl</h4>
+        <p property="rdfs:label"><em>targetUrl</em></p>
         <p property="rdfs:comment">
           URL linking to the official description of the alignment target, for
           example an individual standard within an educational framework.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:anyURI">
             <code>xsd:anyURI</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Alignment">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Alignment">
             <a href="#Alignment"><code>Alignment</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="term"
-        resource="term"
+        resource="ob:term"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">term</h4>
+        <h4>term</h4>
+        <p property="rdfs:label"><em>term</em></p>
         <p property="rdfs:comment">
           The academic term in which this assertion was achieved.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="AchievementSubject">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:AchievementSubject">
             <a href="#AchievementSubject"><code>AchievementSubject</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="url"
-        resource="url"
+        resource="ob:url"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">url</h4>
+        <h4>url</h4>
+        <p property="rdfs:label"><em>url</em></p>
         <p property="rdfs:comment">
           The homepage or social media profile of the entity, whether individual
           or institutional. Should be a URL/URI Accessible via HTTP.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:anyURI">
             <code>xsd:anyURI</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Profile">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Profile">
             <a href="#Profile"><code>Profile</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="use"
-        resource="use"
+        resource="ob:use"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">use</h4>
+        <h4>use</h4>
+        <p property="rdfs:label"><em>use</em></p>
         <p property="rdfs:comment">
           The `use` (public key use) parameter identifies the intended use of
           the public key, such as `sig` (signature) or `end` (encryption).
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="JWK">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:JWK">
             <a href="#JWK"><code>JWK</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="value"
-        resource="value"
+        resource="ob:value"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">value</h4>
+        <h4>value</h4>
+        <p property="rdfs:label"><em>value</em></p>
         <p property="rdfs:comment">
           A string representing the result of the performance, or demonstration,
           of the achievement. For example, 'A' if the recipient received an A
           grade in class.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="https://schema.org/value">
@@ -3181,58 +3427,63 @@
               ><code>https://schema.org/value</code></a
             >
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="Result">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:Result">
             <a href="#Result"><code>Result</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="valueMax"
-        resource="valueMax"
+        resource="ob:valueMax"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">valueMax</h4>
+        <h4>valueMax</h4>
+        <p property="rdfs:label"><em>valueMax</em></p>
         <p property="rdfs:comment">
           The maximum possible `value` that may be asserted in a linked result.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="ResultDescription">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:ResultDescription">
             <a href="#ResultDescription"><code>ResultDescription</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="valueMin"
-        resource="valueMin"
+        resource="ob:valueMin"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">valueMin</h4>
+        <h4>valueMin</h4>
+        <p property="rdfs:label"><em>valueMin</em></p>
         <p property="rdfs:comment">
           The minimum possible `value` that may be asserted in a linked result.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="ResultDescription">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:ResultDescription">
             <a href="#ResultDescription"><code>ResultDescription</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="version"
-        resource="version"
+        resource="ob:version"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">version</h4>
+        <h4>version</h4>
+        <p property="rdfs:label"><em>version</em></p>
         <p property="rdfs:comment">
           In Achievement:The version property allows issuers to set a version
           string for an Achievement. This is particularly useful when replacing
@@ -3241,24 +3492,25 @@
         <p property="rdfs:comment">
           In Related:The version of the related achievement.
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="_:a1">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="_:a15">
             Union of: <br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a15"
+              inlist=""
               property="owl:unionOf"
-              resource="Achievement"
+              resource="ob:Achievement"
               ><a href="#Achievement"><code>Achievement</code></a></span
             ><br /><span
-              about="_:a1"
-              inlist="true"
+              about="_:a15"
+              inlist=""
               property="owl:unionOf"
-              resource="Related"
+              resource="ob:Related"
               ><a href="#Related"><code>Related</code></a></span
             >
           </dd>
@@ -3266,86 +3518,94 @@
       </section>
       <section
         id="x5c"
-        resource="x5c"
+        resource="ob:x5c"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">x5c</h4>
+        <h4>x5c</h4>
+        <p property="rdfs:label"><em>x5c</em></p>
         <p property="rdfs:comment">
           The `x5c` (X.509 certificate chain) parameter contains a chain of one
           or more PKIX certificates [[RFC5280]].
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="JWK">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:JWK">
             <a href="#JWK"><code>JWK</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="x5t"
-        resource="x5t"
+        resource="ob:x5t"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">x5t</h4>
+        <h4>x5t</h4>
+        <p property="rdfs:label"><em>x5t</em></p>
         <p property="rdfs:comment">
           The `x5t` (X.509 certificate SHA-1 thumbprint) parameter is a
           base64url-encoded SHA-1 thumbprint (a.k.a. digest) of the DER encoding
           of an X.509 certificate [[RFC5280]].
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="JWK">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:JWK">
             <a href="#JWK"><code>JWK</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="x5t_S256"
-        resource="x5t_S256"
+        resource="ob:x5t_S256"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">x5t_S256</h4>
+        <h4>x5t_S256</h4>
+        <p property="rdfs:label"><em>x5t_S256</em></p>
         <p property="rdfs:comment">
           The `x5t#S256` (X.509 certificate SHA-256 thumbprint) parameter is a
           base64url-encoded SHA-256 thumbprint (a.k.a. digest) of the DER
           encoding of an X.509 certificate [[RFC5280]].
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:string">
             <code>xsd:string</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="JWK">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:JWK">
             <a href="#JWK"><code>JWK</code></a>
           </dd>
         </dl>
       </section>
       <section
         id="x5u"
-        resource="x5u"
+        resource="ob:x5u"
         typeof="rdfs:Property owl:ObjectProperty"
       >
-        <h4 property="rdfs:label">x5u</h4>
+        <h4>x5u</h4>
+        <p property="rdfs:label"><em>x5u</em></p>
         <p property="rdfs:comment">
           The `x5u` (X.509 URL) parameter is a URI that refers to a resource for
           an X.509 public key certificate or certificate chain [[RFC5280]].
         </p>
+        <span property="rdfs:isDefinedBy" resource="ob:"></span>
         <dl class="terms">
           <dt>Range:</dt>
           <dd property="rdfs:range" resource="xsd:anyURI">
             <code>xsd:anyURI</code>
           </dd>
-          <dt>Domains:</dt>
-          <dd property="rdfs:domain" resource="JWK">
+          <dt>Domain:</dt>
+          <dd property="rdfs:domain" resource="ob:JWK">
             <a href="#JWK"><code>JWK</code></a>
           </dd>
         </dl>
