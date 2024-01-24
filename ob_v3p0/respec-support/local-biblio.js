@@ -201,4 +201,22 @@ var _localBiblio = {
     href: "https://credreg.net/ctdlasn/terms",
     publisher: "Credential Engine",
   },
+  JSONPATH: {
+    title: "JSONPath: Query expressions for JSON",
+    date: "17 October 2022",
+    publisher: "IETF",
+    href: "https://datatracker.ietf.org/doc/draft-ietf-jsonpath-base/",
+  },
+  "LOCALIZATION-FRAMEWORK": {
+    title: "1EdTech Localization Framework",
+    date: "6 November 2022",
+    publisher: "1EdTech",
+    href: "https://github.com/1EdTech/localization-framework",
+  },
+  CDM: {
+    title: "1EdTech Common Data Model (CDM)",
+    date: "17 October 2022",
+    publisher: "1EdTech",
+    href: "https://datamodels-staging.imsglobal.org",
+  },
 };
