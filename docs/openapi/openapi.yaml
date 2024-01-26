@@ -1065,6 +1065,11 @@ components:
           type: string
           description: A short description of the achievement.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+        inLanguage:
+          pattern: "^[a-z]{2,4}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$"
+          type: string
+          description: The language of the achievement.
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.languagecode.class
         type:
           minItems: 1
           type: array
@@ -1104,11 +1109,6 @@ components:
           items:
             $ref: '#/components/schemas/Related'
           x-srcprop-pid: org.1edtech.ob.v3p0.related.class
-        '@language':
-          pattern: "^[a-z]{2,4}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$"
-          type: string
-          description: The language of the achievement.
-          x-srcprop-pid: org.1edtech.ob.v3p0.derived.languagecode.class
         name:
           type: string
           description: The name of the achievement.
@@ -1530,10 +1530,10 @@ components:
             description: JSON-LD Context. Either a URI with the context definition
               or a Map with a local context definition MUST be supplied.
             oneOf:
-            - $ref: '#/components/schemas/Map'
             - type: string
               description: A `NormalizedString` that respresents a Uniform Resource
                 Identifier (URI).
+            - $ref: '#/components/schemas/Map'
           x-srcprop-pid: org.1edtech.ob.v3p0.context.class
         issuer:
           $ref: '#/components/schemas/Profile'
@@ -1647,7 +1647,7 @@ components:
       - type
       type: object
       properties:
-        '@language':
+        inLanguage:
           pattern: "^[a-z]{2,4}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$"
           type: string
           description: The language of the related achievement.
@@ -1880,10 +1880,10 @@ components:
             description: JSON-LD Context. Either a URI with the context definition
               or a Map with a local context definition MUST be supplied.
             oneOf:
-            - $ref: '#/components/schemas/Map'
             - type: string
               description: A `NormalizedString` that respresents a Uniform Resource
                 Identifier (URI).
+            - $ref: '#/components/schemas/Map'
           x-srcprop-pid: org.1edtech.ob.v3p0.context.class
         issuer:
           $ref: '#/components/schemas/Profile'
