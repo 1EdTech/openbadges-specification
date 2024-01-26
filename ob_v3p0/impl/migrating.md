@@ -75,7 +75,7 @@ document, the full IRI `https://w3id.org/openbadges#BadgeClass` is used here).
 {
     "@context": "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
     "type": ["Achievement", "https://w3id.org/openbadges#BadgeClass"],
-    "@language": "en",
+    "inLanguage": "en",
     "id": "https://example.com/achievements/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6"
     ...
     "related": [
@@ -90,7 +90,7 @@ document, the full IRI `https://w3id.org/openbadges#BadgeClass` is used here).
         {
             "type": ["Related"],
             "id": "https://example.com/achievements/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6/es",
-            "@language": "es"
+            "inLanguage": "es"
         }
     ]
 }
