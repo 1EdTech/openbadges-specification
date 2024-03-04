@@ -1474,15 +1474,6 @@ components:
           items:
             $ref: '#/components/schemas/CredentialSchema'
           x-srcprop-pid: org.1edtech.ob.v3p0.credentialschema.class
-        endorsement:
-          minItems: 0
-          type: array
-          description: "Allows endorsers to make specific claims about the credential,\
-            \ and the achievement and profiles in the credential. These endorsements\
-            \ are signed with a Data Integrity proof format."
-          items:
-            $ref: '#/components/schemas/EndorsementCredential'
-          x-srcprop-pid: org.1edtech.ob.v3p0.endorsementcredential.class
         awardedDate:
           type: string
           description: "Timestamp of when the credential was awarded. `issuanceDate`\
@@ -1493,6 +1484,15 @@ components:
             \ date."
           format: date-time
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
+        endorsement:
+          minItems: 0
+          type: array
+          description: "Allows endorsers to make specific claims about the credential,\
+            \ and the achievement and profiles in the credential. These endorsements\
+            \ are signed with a Data Integrity proof format."
+          items:
+            $ref: '#/components/schemas/EndorsementCredential'
+          x-srcprop-pid: org.1edtech.ob.v3p0.endorsementcredential.class
         evidence:
           minItems: 0
           type: array
@@ -1531,10 +1531,10 @@ components:
             description: JSON-LD Context. Either a URI with the context definition
               or a Map with a local context definition MUST be supplied.
             oneOf:
+            - $ref: '#/components/schemas/Map'
             - type: string
               description: A `NormalizedString` that respresents a Uniform Resource
                 Identifier (URI).
-            - $ref: '#/components/schemas/Map'
           x-srcprop-pid: org.1edtech.ob.v3p0.context.class
         issuer:
           $ref: '#/components/schemas/Profile'
@@ -1881,10 +1881,10 @@ components:
             description: JSON-LD Context. Either a URI with the context definition
               or a Map with a local context definition MUST be supplied.
             oneOf:
+            - $ref: '#/components/schemas/Map'
             - type: string
               description: A `NormalizedString` that respresents a Uniform Resource
                 Identifier (URI).
-            - $ref: '#/components/schemas/Map'
           x-srcprop-pid: org.1edtech.ob.v3p0.context.class
         issuer:
           $ref: '#/components/schemas/Profile'
