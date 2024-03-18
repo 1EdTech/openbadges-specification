@@ -7,7 +7,7 @@ launch simply.
 ### Relationship between VC and CLR/OB
 
 New to this version of the specification, the data model of both CLR and OB
-adopts the convention of the [[VC-DATA-MODEL]].
+adopts the convention of the [[VC-DATA-MODEL-2.0]].
 
 Since Verifiable Credentials are extensible by design, CLR/OB defines a set of
 extensions (also called profile) for reflecting the domain both specifications

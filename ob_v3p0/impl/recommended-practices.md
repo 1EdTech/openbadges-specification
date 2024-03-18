@@ -178,7 +178,7 @@ these credentials even if OB 3.0 had included such a mechanism in its scope.
 #### Managing credential status and revocation
 
 The ability to mark a credential as revoked is an important capability for many
-organizations that make use of Open Badges and CLR. The [[[VC-DATA-MODEL]]]
+organizations that make use of Open Badges and CLR. The [[[VC-DATA-MODEL-2.0]]]
 offers an extensible mechanism by which a credential status resource may be
 exposed within a credential. Various use cases and solutions have been developed
 to enable credential status checking with a range of capabilities and
@@ -720,12 +720,12 @@ fields of the JOSE header of the JWS. `kid` is an URI that can be dereferenced
 to an object of type JWK representing the public key, wether `jwt` is the
 representation of the public key.
 
-Section 6.3.1 of [[VC-DATA-MODEL]] extends the definition of `kid` as
+Section 6.3.1 of [[VC-DATA-MODEL-2.0]] extends the definition of `kid` as
 
 > - `kid` _MAY_ be used if there are multiple keys associated with the 
-> [issuer](https://www.w3.org/TR/vc-data-model/#dfn-issuers) of the JWT.
+> [issuer](https://www.w3.org/TR/vc-data-model-2.0/#dfn-issuers) of the JWT.
 > The key discovery is out of the scope of this specification. For example,
-> the `kid` can refer to a key in a [DID document](https://www.w3.org/TR/vc-data-model/#dfn-decentralized-identifier-documents),
+> the `kid` can refer to a key in a [DID document](#dfn-decentralized-identifiers),
 > or can be the identifier of a key inside a JWKS.
 
 With these two premises, the recommendation for verifing key provenance is using

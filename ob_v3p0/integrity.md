@@ -19,7 +19,7 @@ A third category of proof format called Non-Signature Proof is not covered by th
 
 ### JSON Web Token Proof Format {#jwt-proof}
 
-This proof format relies on the well established JWT (JSON Web Token) [[RFC7519]] and JWS (JSON Web Signature) [[RFC7515]] specifications. A JSON Web Token Proof is a JWT signed and encoded as a [=Compact JWS=] string. The proof format is described in detail in Section 6.3.1 "JSON Web Token" of [[[VC-DATA-MODEL]]]. That description allows several options which may inhibit interoperability. This specification limits the options while maintaining compatibility with [[VC-DATA-MODEL]] to help ensure interoperability.
+This proof format relies on the well established JWT (JSON Web Token) [[RFC7519]] and JWS (JSON Web Signature) [[RFC7515]] specifications. A JSON Web Token Proof is a JWT signed and encoded as a [=Compact JWS=] string. The proof format is described in detail in Section 6.3.1 "JSON Web Token" of [[[VC-DATA-MODEL-2.0]]]. That description allows several options which may inhibit interoperability. This specification limits the options while maintaining compatibility with [[VC-DATA-MODEL-2.0]] to help ensure interoperability.
 
 #### Terminology {#jwt-terminology}
 
