@@ -130,7 +130,7 @@ profile.
 {
 	"@context": [
 		"https://www.w3.org/ns/did/v1",
-		"https://www.w3.org/2018/credentials/v1",
+		"https://www.w3.org/ns/credentials/v2",
 		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
 		"https://w3id.org/security/data-integrity/v1"
 	],
@@ -177,7 +177,7 @@ by any displayer that supports the concept of evidence.
 <pre class="json example vc" title="Upgraded OB 2.0 assertion included within CLR 2.0">
 {
     "@context": [
-        "https://www.w3.org/2018/credentials/v1",
+        "https://www.w3.org/ns/credentials/v2",
         "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
     ],
     "id": "urn:uuid:91537dba-56cb-11ec-bf63-0242ac130004",
@@ -194,7 +194,7 @@ by any displayer that supports the concept of evidence.
         "url": "https://example.edu",
         "email": "info@example.edu",
     },
-    "issuanceDate": "2010-01-01T00:00:00Z",
+    "validFrom": "2010-01-01T00:00:00Z",
     "name": "Example Competency Badge Issued under OB 2.0",
     "credentialSubject": {
         "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",

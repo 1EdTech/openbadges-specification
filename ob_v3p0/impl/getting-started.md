@@ -84,7 +84,7 @@ the EdDSA Cryptosuite 2022 option for signing credentials:
 {
 	"@context": [
 		"https://www.w3.org/ns/did/v1",
-		"https://www.w3.org/2018/credentials/v1",
+		"https://www.w3.org/ns/credentials/v2",
 		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
 		"https://w3id.org/security/data-integrity/v1"
 	],
@@ -271,7 +271,7 @@ which upon activation yields a signed verifiable credential like the following.
 ```jsonld
 {
 	"@context": [
-		"https://www.w3.org/2018/credentials/v1",
+		"https://www.w3.org/ns/credentials/v2",
 		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
 		"https://w3id.org/security/data-integrity/v1"
 	],
@@ -288,7 +288,7 @@ which upon activation yields a signed verifiable credential like the following.
 		"description": "An example of an educational institution, such as a University",
 		"email": "info@example.com"
 	},
-	"issuanceDate": "2010-01-01T00:00:00Z",
+	"validFrom": "2010-01-01T00:00:00Z",
 	"name": "Advanced Shoe Tie",
 	"credentialSubject": {
 		"type": "AchievementSubject",

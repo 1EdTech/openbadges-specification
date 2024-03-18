@@ -34,8 +34,8 @@ This section applies to Verifiable Credentials with a \`type\` of "OpenBadgeCred
    </div>
 1. Check the status:
    - A Credential is revoked if the \`credentialStatus\` property is present, and the \`type\` of the [CredentialStatus](#credentialstatus) object is "1EdTechRevocationList", and if the ClrCredential has been revoked as shown in [[[VCRL-10]]].
-   - If the current date and time is before the \`issuanceDate\`, the OpenBadgeCredential is not yet valid.
-   - If the current date and time is after the \`expirationDate\`, the OpenBadgeCredential is expired.
+   - If the current date and time is before the \`validFrom\`, the OpenBadgeCredential is not yet valid.
+   - If the current date and time is after the \`validUntil\`, the OpenBadgeCredential is expired.
 1. Optionally verify the subject (recipient):
    <div class="note">
       This step is optional, but RECOMMENDED when the OpenBadgeCredential has been exchanged with the verifier as one of the [[[#docformat]]].
@@ -71,8 +71,8 @@ This section applies to Verifiable Credentials with a \`type\` of "EndorsementCr
    </div>
 1. Check the status:
    1. If the \`credentialStatus\` property is present, and the \`type\` of the [CredentialStatus](#credentialstatus) object is "1EdTechRevocationList", determine if the EndorsementCredential has been revoked as shown in [[[VCRL-10]]].
-   1. If the current date and time is before the \`issuanceDate\`, the EndorsementCredential is not yet valid.
-   1. If the current date and time is after the \`expirationDate\`, the EndorsementCredential is expired.
+   1. If the current date and time is before the \`validFrom\`, the EndorsementCredential is not yet valid.
+   1. If the current date and time is after the \`validUntil\`, the EndorsementCredential is expired.
 
 If all the above steps pass, the EndorsementCredential may be treated as verified.
 

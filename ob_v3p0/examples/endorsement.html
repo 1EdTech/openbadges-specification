@@ -8,7 +8,7 @@ var endorsement = `
 >
     {
       "@context": [
-        "https://www.w3.org/2018/credentials/v1",
+        "https://www.w3.org/ns/credentials/v2",
         "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
         "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
       ],
@@ -23,8 +23,8 @@ var endorsement = `
         "type": "Profile",
         "name": "State Department of Education"
       },
-      "issuanceDate": "2010-01-01T00:00:00Z",
-      "expirationDate": "2030-01-01T00:00:00Z",
+      "validFrom": "2010-01-01T00:00:00Z",
+      "validUntil": "2030-01-01T00:00:00Z",
       "credentialSubject": {
         "id": "https://1edtech.edu/issuers/565049",
         "type": "EndorsementSubject",

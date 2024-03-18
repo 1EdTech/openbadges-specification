@@ -80,7 +80,7 @@ In addition to rendering a normative data model, the plugin can also validate ex
 >
   {
     "@context": [
-      "https://www.w3.org/2018/credentials/v1",
+      "https://www.w3.org/ns/credentials/v2",
       "https://www.w3.org/2018/credentials/examples/v1",
       "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
     ],
@@ -91,7 +91,7 @@ In addition to rendering a normative data model, the plugin can also validate ex
       "type": "Profile",
       "name": "Example University"
     },
-    "issuanceDate": "2010-01-01T00:00:00Z",
+    "validFrom": "2010-01-01T00:00:00Z",
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
     }

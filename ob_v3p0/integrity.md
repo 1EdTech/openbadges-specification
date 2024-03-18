@@ -78,10 +78,10 @@ The JWT Payload is a JSON object with the following properties (JWT Claims). Add
 
 | Property / Claim Name | Type | Description | Required? |
 | ---------------------- | ---- | ----------- | --------- |
-| \`exp\` | [NumericDate](#numericdate) | The \`expirationDate\` property of the OpenBadgeCredential. Required if the OpenBadgeCredential has an \`expirationDate\`. | Optional |
+| \`exp\` | [NumericDate](#numericdate) | The \`validUntil\` property of the OpenBadgeCredential. Required if the OpenBadgeCredential has an \`validUntil\`. | Optional |
 | \`iss\` | [URI](#uri) | The \`issuer.id\` property of the OpenBadgeCredential. | Required |
 | \`jti\` | [URI](#uri) | The \`id\` property of the OpenBadgeCredential. | Required |
-| \`nbf\` | [NumericDate](#numericdate) | The \`issuanceDate\` property of the OpenBadgeCredential. | Required |
+| \`nbf\` | [NumericDate](#numericdate) | The \`validFrom\` property of the OpenBadgeCredential. | Required |
 | \`sub\` | [URI](#uri) | The \`credentialSubject.id\` property of the OpenBadgeCredential. | Required |
 | \`vc\` | [OpenBadgeCredential](#achievementcredential) | The OpenBadgeCredential being signed.| Required |
 
@@ -130,9 +130,9 @@ Verifiers that receive a OpenBadgeCredential in Compact JWS format MUST perform 
 
 - The JSON object MUST have the \`iss\` claim, and the value MUST match the \`issuer.id\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
 - The JSON object MUST have the \`sub\` claim, and the value MUST match the \`credentialSubject.id\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
-- The JSON object MUST have the \`nbf\` claim, and the [NumericDate](#numericdate) value MUST be converted to a [DateTime](#datetime), and MUST equal the \`issuanceDate\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match or if the \`issuanceDate\` has not yet occurred, the credential is not valid.
+- The JSON object MUST have the \`nbf\` claim, and the [NumericDate](#numericdate) value MUST be converted to a [DateTime](#datetime), and MUST equal the \`validFrom\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match or if the \`validFrom\` has not yet occurred, the credential is not valid.
 - The JSON object MUST have the \`jti\` claim, and the value MUST match the \`id\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
-- If the JSON object has the \`exp\` claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime), and MUST be used to set the value of the \`expirationDate\` of the [OpenBadgeCredential](#achievementcredential) object. If the credential has expired, the credential is not valid.
+- If the JSON object has the \`exp\` claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime), and MUST be used to set the value of the \`validUntil\` of the [OpenBadgeCredential](#achievementcredential) object. If the credential has expired, the credential is not valid.
 
 ### Linked Data Proof Format {#lds-proof}
 

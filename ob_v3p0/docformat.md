@@ -13,7 +13,7 @@ var docformat = `
       title="Sample OpenBadgeCredential file contents">
   {
     "@context": [
-      "https://www.w3.org/2018/credentials/v1",
+      "https://www.w3.org/ns/credentials/v2",
       "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
       "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
     ],
@@ -24,7 +24,7 @@ var docformat = `
       "type": ["Profile"],
       "name": "Example University"
     },
-    "issuanceDate": "2010-01-01T00:00:00Z",
+    "validFrom": "2010-01-01T00:00:00Z",
     "name": "Example University Degree",
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -94,7 +94,7 @@ If an embedded proof method is used instead, the text value of the chunk MUST be
     translatedKeyword: '',
     text: '{
             "@context": [
-              "https://www.w3.org/2018/credentials/v1",
+              "https://www.w3.org/ns/credentials/v2",
               "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
             ],
             "id": "http://example.edu/credentials/3732",
@@ -104,7 +104,7 @@ If an embedded proof method is used instead, the text value of the chunk MUST be
               "type": "Profile",
               "name": "Example University"
             },
-            "issuanceDate": "2010-01-01T00:00:00Z",
+            "validFrom": "2010-01-01T00:00:00Z",
             "credentialSubject": {
               "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
             },
@@ -149,7 +149,7 @@ If an embedded proof method is used instead, omit the \`verify\` attribute, and 
       &lt;![CDATA[
         {
           "@context": [
-            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/ns/credentials/v2",
             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
           ],
           "id": "http://example.edu/credentials/3732",
@@ -159,7 +159,7 @@ If an embedded proof method is used instead, omit the \`verify\` attribute, and 
             "type": "Profile",
             "name": "Example University"
           },
-          "issuanceDate": "2010-01-01T00:00:00Z",
+          "validFrom": "2010-01-01T00:00:00Z",
           "credentialSubject": {
             "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
           },

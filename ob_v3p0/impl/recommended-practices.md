@@ -244,7 +244,7 @@ framework, i.e `CFItem`.
     data-allowadditionalproperties="false" title="Achievement alignment (CASE)">
 {
   "@context": [
-    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/ns/credentials/v2",
     "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
   ],
   "id": "http://example.edu/credentials/3732",
@@ -254,7 +254,7 @@ framework, i.e `CFItem`.
     "type": "Profile",
     "name": "Example University"
   },
-  "issuanceDate": "2010-01-01T00:00:00Z",
+  "validFrom": "2010-01-01T00:00:00Z",
   "name": "Example University Degree",
   "credentialSubject": {
     "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -435,7 +435,7 @@ skills.
     data-allowadditionalproperties="false" title="Skill Assertion (Credential Registry)">
 {
     "@context": [
-        "https://www.w3.org/2018/credentials/v1",
+        "https://www.w3.org/ns/credentials/v2",
         "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
         "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
     ],
@@ -483,7 +483,7 @@ skills.
         },
         "email": "registrar@1edtech.edu"
     },
-    "issuanceDate": "2022-07-01T00:00:00Z",
+    "validFrom": "2022-07-01T00:00:00Z",
     "credentialSchema": [
         {
             "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",

@@ -68,7 +68,7 @@ var ldpob = `
         <pre class="example json" title="Credential">
         {
             "@context": [
-                "https://www.w3.org/2018/credentials/v1",
+                "https://www.w3.org/ns/credentials/v2",
                 "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld"
             ],
             "id": "http://example.com/credentials/3527",
@@ -84,7 +84,7 @@ var ldpob = `
                 "url": "https://www.imsglobal.org",
                 "name": "Example Corp"
             },
-            "issuanceDate": "2010-01-01T00:00:00Z",
+            "validFrom": "2010-01-01T00:00:00Z",
             "name": "Teamwork Badge",
             "credentialSubject": {
                 "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -114,7 +114,7 @@ var ldpob = `
         <pre class="example json" title="Document with cryptosuite context">
         {
             "@context": [
-            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/ns/credentials/v2",
             "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld",
             "https://w3id.org/security/data-integrity/v1"
             ],
@@ -131,7 +131,7 @@ var ldpob = `
                 "url": "https://www.imsglobal.org",
                 "name": "Example Corp"
             },
-            "issuanceDate": "2010-01-01T00:00:00Z",
+            "validFrom": "2010-01-01T00:00:00Z",
             "name": "Teamwork Badge",
             "credentialSubject": {
                 "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -246,7 +246,7 @@ var ldpob = `
         <pre class="example json" title="Signed credential">
     {
     "@context": [
-        "https://www.w3.org/2018/credentials/v1",
+        "https://www.w3.org/ns/credentials/v2",
         "https://purl.imsglobal.org/spec/ob/v3p0/context/ob_v3p0.jsonld",
         "https://w3id.org/security/data-integrity/v1"
     ],
@@ -263,7 +263,7 @@ var ldpob = `
         "url": "https://www.imsglobal.org",
         "name": "Example Corp"
     },
-    "issuanceDate": "2010-01-01T00:00:00Z",
+    "validFrom": "2010-01-01T00:00:00Z",
     "name": "Teamwork Badge",
     "credentialSubject": {
         "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",

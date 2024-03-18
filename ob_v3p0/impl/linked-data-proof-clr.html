@@ -61,7 +61,7 @@ The credential used in the example is:
 <pre class="example json" title="Credential">
 {
   "@context": [
-    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/ns/credentials/v2",
     "https://purl.imsglobal.org/spec/clr/v2p0/context.json",
     "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
     "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
@@ -77,7 +77,7 @@ The credential used in the example is:
     "type": "Profile",
     "name": "Example University"
   },
-  "issuanceDate": "2010-01-01T00:00:00Z",
+  "validFrom": "2010-01-01T00:00:00Z",
   "name": "Sample Transcript",
   "credentialSubject": {
     "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -85,7 +85,7 @@ The credential used in the example is:
     "verifiableCredential": [
       {
         "@context": [
-          "https://www.w3.org/2018/credentials/v1",
+          "https://www.w3.org/ns/credentials/v2",
           "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
           "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
           "https://w3id.org/security/data-integrity/v1"
@@ -100,7 +100,7 @@ The credential used in the example is:
           "type": "Profile",
           "name": "Example University"
         },
-        "issuanceDate": "2010-01-01T00:00:00Z",
+        "validFrom": "2010-01-01T00:00:00Z",
         "name": "Example University Degree",
         "credentialSubject": {
           "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -200,7 +200,7 @@ The credential used in the example is:
     <pre class="example json" title="Document with cryptosuite context">
     {
         "@context": [
-            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/ns/credentials/v2",
             "https://purl.imsglobal.org/spec/clr/v2p0/context.json",
             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
             "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
@@ -216,7 +216,7 @@ The credential used in the example is:
             "type": "Profile",
             "name": "Example University"
         },
-        "issuanceDate": "2010-01-01T00:00:00Z",
+        "validFrom": "2010-01-01T00:00:00Z",
         "name": "Sample Transcript",
         "credentialSubject": {
             "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -224,7 +224,7 @@ The credential used in the example is:
             "verifiableCredential": [
             {
                 "@context": [
-                "https://www.w3.org/2018/credentials/v1",
+                "https://www.w3.org/ns/credentials/v2",
                 "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
                 "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
                 "https://w3id.org/security/data-integrity/v1"
@@ -239,7 +239,7 @@ The credential used in the example is:
                 "type": "Profile",
                 "name": "Example University"
                 },
-                "issuanceDate": "2010-01-01T00:00:00Z",
+                "validFrom": "2010-01-01T00:00:00Z",
                 "name": "Example University Degree",
                 "credentialSubject": {
                 "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -404,7 +404,7 @@ The credential used in the example is:
     <pre class="example json" title="Signed credential">
     {
         "@context": [
-            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/ns/credentials/v2",
             "https://purl.imsglobal.org/spec/clr/v2p0/context.json",
             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
             "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
@@ -420,7 +420,7 @@ The credential used in the example is:
             "type": "Profile",
             "name": "Example University"
         },
-        "issuanceDate": "2010-01-01T00:00:00Z",
+        "validFrom": "2010-01-01T00:00:00Z",
         "name": "Sample Transcript",
         "credentialSubject": {
             "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -428,7 +428,7 @@ The credential used in the example is:
             "verifiableCredential": [
             {
                 "@context": [
-                "https://www.w3.org/2018/credentials/v1",
+                "https://www.w3.org/ns/credentials/v2",
                 "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
                 "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
                 "https://w3id.org/security/data-integrity/v1"
@@ -443,7 +443,7 @@ The credential used in the example is:
                 "type": "Profile",
                 "name": "Example University"
                 },
-                "issuanceDate": "2010-01-01T00:00:00Z",
+                "validFrom": "2010-01-01T00:00:00Z",
                 "name": "Example University Degree",
                 "credentialSubject": {
                 "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",

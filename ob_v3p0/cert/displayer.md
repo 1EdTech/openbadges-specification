@@ -9,7 +9,7 @@ An Open Badges Displayer is an application that displays and verifies badges for
 The tests within this section refer to possible values of the status of a badge. The meaning of these values and how to determine them from a credential is defined in sections 9.1 and 9.2 of [[OB-30]]. As a quick summary:
 
    - A Credential is revoked if the \`credentialStatus\` property is present, and the \`type\` of the CredentialStatus object is "1EdTechRevocationList".
-   - A Credential is expired if the current date and time is after the \`expirationDate\`.
+   - A Credential is expired if the current date and time is after the \`validUntil\`.
 
 ### Tests {#display-tests}
 
