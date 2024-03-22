@@ -28,18 +28,12 @@ an efficient transition for issuer services likely involves a window of
 continued support for 2.0 with no breaking changes for clients who rely on it
 today.
 
-The new OB 3.0 and CLR 2.0 specifications each define APIs over which
-credentials can be exchanged, from issuers, to holders and then to displayers,
-but as these standards implement Verifiable Credentials
-
-As portable signed credentials, Open Badges and CLR will take advantage of newly
-expanded options for both the potential of these credentials to contribute to
-understanding of skills, qualifications and experience, but also expanded
-privacy options for learners to control how their data is used and shared. The
-OB 3.0 and CLR 2.0 releases represent a beginning, but these capabilities will
-take time and require the launch of new features and new products to deliver on
-their potential impact. A transition to this generation of specification should
-be non-destructive but should also move quickly to take advantage of new
+As portable signed credentials, there are now expanded privacy options for
+learners to control how their data is used and shared. The OB 3.0 and CLR 2.0
+releases represent a beginning, but these capabilities will take time and
+require the launch of new features and new products to deliver on their
+potential impact. A transition to this generation of specification should be
+non-destructive but should also move quickly to take advantage of new
 capabilities.
 
 The recommendations in this guide are intended to identify opportunities for
