@@ -85,8 +85,7 @@ the EdDSA Cryptosuite 2022 option for signing credentials:
 	"@context": [
 		"https://www.w3.org/ns/did/v1",
 		"https://www.w3.org/ns/credentials/v2",
-		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
-		"https://w3id.org/security/data-integrity/v1"
+		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
 	],
 	"id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
 	"type": "Profile",
@@ -272,8 +271,7 @@ which upon activation yields a signed verifiable credential like the following.
 {
 	"@context": [
 		"https://www.w3.org/ns/credentials/v2",
-		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
-		"https://w3id.org/security/data-integrity/v1"
+		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
 	],
 	"id": "urn:uuid:a9fc82eb-416f-47c3-8786-de890331d4a5",
 	"type": [

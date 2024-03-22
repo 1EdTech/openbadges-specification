@@ -131,8 +131,7 @@ profile.
 	"@context": [
 		"https://www.w3.org/ns/did/v1",
 		"https://www.w3.org/ns/credentials/v2",
-		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
-		"https://w3id.org/security/data-integrity/v1"
+		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
 	],
 	"id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
     "alsoKnownAs": "https://example.com/issuers/v2p0/540e388e-2735-4c3e-9709-80142801c774",
