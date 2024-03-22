@@ -21,7 +21,7 @@ This section applies to Verifiable Credentials with a \`type\` of "OpenBadgeCred
    - If the OpenBadgeCredential is signed using the [[[#jwt-proof]]] (VC-JWT), verify the signature as shown in [[[#jwt-verify]]]. If the OpenBadgeCredential is signed using an embedded proof, verify the signature as shown in [[[#lds-verify]]]. If the signature cannot be verified, the proof method is not satisfied.
 
    <div class="note">
-      The OpenBadgeCredential may have a VC-JWT proof and one or more Linked Data proofs. In this case, the Linked Data proofs will be attached to the OpenBadgeCredential in the \`vc\` claim of the signed JWT Payload. You may accept any one proof for verification. You do not need to verify all the signatures.
+      The OpenBadgeCredential may have a VC-JWT proof and one or more Linked Data proofs. In this case, the Linked Data proofs will be attached to the OpenBadgeCredential in the signed JWT Payload. You may accept any one proof for verification. You do not need to verify all the signatures.
    </div>
 1. Refresh the OpenBadgeCredential:
    <div class="note">
@@ -36,6 +36,11 @@ This section applies to Verifiable Credentials with a \`type\` of "OpenBadgeCred
    - A Credential is revoked if the \`credentialStatus\` property is present, and the \`type\` of the [CredentialStatus](#credentialstatus) object is "1EdTechRevocationList", and if the ClrCredential has been revoked as shown in [[[VCRL-10]]].
    - If the current date and time is before the \`validFrom\`, the OpenBadgeCredential is not yet valid.
    - If the current date and time is after the \`validUntil\`, the OpenBadgeCredential is expired.
+
+   <div class="note">
+      OpenBadgeCredentials created following [[VC-DATA-MODEL]] have different names for attributes used in this process. Concretely, they have \`issuanceDate\` and \`expirationDate\` instead of \`validFrom\` and \`validUntil\`, respectively
+   </div>
+
 1. Optionally verify the subject (recipient):
    <div class="note">
       This step is optional, but RECOMMENDED when the OpenBadgeCredential has been exchanged with the verifier as one of the [[[#docformat]]].
@@ -73,6 +78,10 @@ This section applies to Verifiable Credentials with a \`type\` of "EndorsementCr
    1. If the \`credentialStatus\` property is present, and the \`type\` of the [CredentialStatus](#credentialstatus) object is "1EdTechRevocationList", determine if the EndorsementCredential has been revoked as shown in [[[VCRL-10]]].
    1. If the current date and time is before the \`validFrom\`, the EndorsementCredential is not yet valid.
    1. If the current date and time is after the \`validUntil\`, the EndorsementCredential is expired.
+
+   <div class="note">
+      EndorsementCredentials created following [[VC-DATA-MODEL]] have different names for attributes used in this process. Concretely, they have \`issuanceDate\` and \`expirationDate\` instead of \`validFrom\` and \`validUntil\`, respectively
+   </div>
 
 If all the above steps pass, the EndorsementCredential may be treated as verified.
 
