@@ -2,10 +2,6 @@ var conformance = `
 
 ## Conformance and Certification
 
-<div class="ednote">
-   @@ TBD @@
-</div>
-
 The goal of 1EdTech certification for Open Badges [[OB-30]] is to ensure interoperable implementations of badging systems that generate and issue digital badges as well as those that host and display badges.
 
 1EdTech certification for Open Badges demands features and capabilities beyond those that are strictly required by the specification. These additional features are defined in this document. The specification is intentionally left very flexible to allow it to be used for many purposes. Gaining this certification is expected to be more difficult than simply meeting the minimum requirements for producing a valid Open Badge.
