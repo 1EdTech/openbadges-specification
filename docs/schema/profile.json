@@ -1,6 +1,6 @@
 {
   "$schema" : "https://json-schema.org/draft/2019-09/schema#",
-  "$id" : "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_profile_schema.json",
+  "$id" : "https://purl.imsglobal.org/spec/ob/v3p0/schema/json-ld/ob_v3p0_profile_schema.json",
   "title" : "JSON Schema for the Profile class.",
   "description" : "A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address.",
   "type" : "object",
@@ -11,19 +11,13 @@
       "type" : "string"
     },
     "type" : {
-      "oneOf" : [ {
+      "type" : "array",
+      "minItems" : 1,
+      "items" : {
         "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Profile'.",
         "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
         "type" : "string"
-      }, {
-        "type" : "array",
-        "minItems" : 1,
-        "items" : {
-          "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Profile'.",
-          "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
-          "type" : "string"
-        }
-      } ]
+      }
     },
     "name" : {
       "description" : "The name of the entity or organization.",
@@ -142,19 +136,13 @@
           }
         },
         "type" : {
-          "oneOf" : [ {
+          "type" : "array",
+          "minItems" : 1,
+          "items" : {
             "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementCredential'.",
             "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
             "type" : "string"
-          }, {
-            "type" : "array",
-            "minItems" : 1,
-            "items" : {
-              "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementCredential'.",
-              "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
-              "type" : "string"
-            }
-          } ]
+          }
         },
         "id" : {
           "description" : "Unambiguous reference to the credential.",
@@ -196,24 +184,16 @@
           "format" : "date-time"
         },
         "proof" : {
-          "oneOf" : [ {
+          "type" : "array",
+          "items" : {
             "$ref" : "#/$defs/Proof"
-          }, {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/$defs/Proof"
-            }
-          } ]
+          }
         },
         "credentialSchema" : {
-          "oneOf" : [ {
+          "type" : "array",
+          "items" : {
             "$ref" : "#/$defs/CredentialSchema"
-          }, {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/$defs/CredentialSchema"
-            }
-          } ]
+          }
         },
         "credentialStatus" : {
           "$ref" : "#/$defs/CredentialStatus"
@@ -222,14 +202,10 @@
           "$ref" : "#/$defs/RefreshService"
         },
         "termsOfUse" : {
-          "oneOf" : [ {
+          "type" : "array",
+          "items" : {
             "$ref" : "#/$defs/TermsOfUse"
-          }, {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/$defs/TermsOfUse"
-            }
-          } ]
+          }
         }
       },
       "required" : [ "@context", "type", "id", "name", "credentialSubject", "issuer", "issuanceDate" ],
@@ -237,7 +213,7 @@
     },
     "Context" : {
       "description" : "JSON-LD Context. Either a URI with the context definition or a Map with a local context definition MUST be supplied.",
-      "anyOf" : [ {
+      "oneOf" : [ {
         "description" : "A map representing an object with unknown, arbitrary properties",
         "$comment" : "Origin: Map (Unordered); A map representing an object with unknown, arbitrary properties",
         "type" : "object"
@@ -300,7 +276,7 @@
         "identifierType" : {
           "description" : "The identifier type.",
           "$comment" : "Origin: IdentifierTypeEnum (EnumExt)",
-          "anyOf" : [ {
+          "oneOf" : [ {
             "type" : "string",
             "enum" : [ "name", "sourcedId", "systemId", "productId", "userName", "accountId", "emailAddress", "nationalIdentityNumber", "isbn", "issn", "lisSourcedId", "oneRosterSourcedId", "sisSourcedId", "ltiContextId", "ltiDeploymentId", "ltiToolId", "ltiPlatformId", "ltiUserId", "identifier" ]
           }, {
@@ -417,19 +393,13 @@
           "type" : "string"
         },
         "type" : {
-          "oneOf" : [ {
+          "type" : "array",
+          "minItems" : 1,
+          "items" : {
             "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementSubject'.",
             "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
             "type" : "string"
-          }, {
-            "type" : "array",
-            "minItems" : 1,
-            "items" : {
-              "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementSubject'.",
-              "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
-              "type" : "string"
-            }
-          } ]
+          }
         },
         "endorsementComment" : {
           "description" : "Allows endorsers to make a simple claim in writing about the entity.",
@@ -445,19 +415,13 @@
       "type" : "object",
       "properties" : {
         "type" : {
-          "oneOf" : [ {
+          "type" : "array",
+          "minItems" : 1,
+          "items" : {
             "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Address'.",
             "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
             "type" : "string"
-          }, {
-            "type" : "array",
-            "minItems" : 1,
-            "items" : {
-              "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Address'.",
-              "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
-              "type" : "string"
-            }
-          } ]
+          }
         },
         "addressCountry" : {
           "description" : "A country.",
@@ -534,19 +498,13 @@
           "type" : "string"
         },
         "type" : {
-          "oneOf" : [ {
+          "type" : "array",
+          "minItems" : 1,
+          "items" : {
             "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Profile'.",
             "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
             "type" : "string"
-          }, {
-            "type" : "array",
-            "minItems" : 1,
-            "items" : {
-              "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Profile'.",
-              "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
-              "type" : "string"
-            }
-          } ]
+          }
         },
         "name" : {
           "description" : "The name of the entity or organization.",
