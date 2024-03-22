@@ -56,7 +56,7 @@ If an embedded proof method is used instead, the contents of the file MUST be th
 
 If the credential is signed using the [[[#jwt-proof]]] (VC-JWT) the contents of the response MUST be the [=Compact JWS=] string formed as a result of signing the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) with VC-JWT. The \`Content-Type\` SHOULD be \`text/plain\`.
 
-If an embedded proof method is used instead, the contents of the response MUST be the JSON representation of the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class). The \`Content-Type\` SHOULD be \`application/json\` or \`application/ld+json\`.
+If an embedded proof method is used instead, the contents of the response MUST be the JSON representation of the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class). The \`Content-Type\` SHOULD be \`application/vc+ld+json\`, although generic representations such \`application/ld+json\` or \`application/json\` are also allowed.
 
 ### Baked Badge
 
