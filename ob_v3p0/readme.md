@@ -81,8 +81,8 @@ In addition to rendering a normative data model, the plugin can also validate ex
   {
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
-      "https://www.w3.org/2018/credentials/examples/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+      "https://www.w3.org/2018/credentials/examples/v2"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
