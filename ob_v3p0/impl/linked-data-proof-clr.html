@@ -62,10 +62,9 @@ The credential used in the example is:
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://purl.imsglobal.org/spec/clr/v2p0/context.json",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
-    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
-    "https://w3id.org/security/data-integrity/v1"
+    "https://purl.imsglobal.org/spec/clr/v2p0/context-2.0.1.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
   ],
   "id": "http://example.edu/credentials/3732",
   "type": [
@@ -86,9 +85,8 @@ The credential used in the example is:
       {
         "@context": [
           "https://www.w3.org/ns/credentials/v2",
-          "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
-          "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
-          "https://w3id.org/security/data-integrity/v1"
+          "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+          "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
         ],
         "id": "urn:uuid:91537dba-56cb-11ec-bf63-0242ac130002",
         "type": [
@@ -129,14 +127,16 @@ The credential used in the example is:
             "type": "1EdTechJsonSchemaValidator2019"
           }
         ],
-        "proof": {
-          "type": "DataIntegrityProof",
-          "created": "2010-01-01T19:23:24Z",
-          "verificationMethod": "https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
-          "cryptosuite": "eddsa-rdfc-2022",
-          "proofPurpose": "assertionMethod",
-          "proofValue": "z2CGNmCgEmN68CWch6Kgg4vnjRDE896jnUqfQtJoG11qxC8ntxUPCQaGckoHG7BXW7KWZyUiSs5EkKX3gEiGYKrz"
-        }
+        "proof": [
+          {
+            "type": "DataIntegrityProof",
+            "created": "2010-01-01T19:23:24Z",
+            "verificationMethod": "https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
+            "cryptosuite": "eddsa-rdfc-2022",
+            "proofPurpose": "assertionMethod",
+            "proofValue": "z45QnLySMt2mWuW787G6cf3SLkP97ZkMZxLeXH5yaaTQPCtTup4GCV95tU8HEnQJSyGCokSj3AvUhmJtvveTmN4Vu"
+          }
+        ]
       }
     ],
     "achievement": [
@@ -196,15 +196,14 @@ The credential used in the example is:
 
 <section>
 
-    <h3 id="clr-document-before">Document with cryptosuite context</h3>
-    <pre class="example json" title="Document with cryptosuite context">
+    <h3 id="clr-document-before">Document before signing</h3>
+    <pre class="example json" title="Document before signing">
     {
         "@context": [
             "https://www.w3.org/ns/credentials/v2",
-            "https://purl.imsglobal.org/spec/clr/v2p0/context.json",
-            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
-            "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
-            "https://w3id.org/security/data-integrity/v1"
+            "https://purl.imsglobal.org/spec/clr/v2p0/context-2.0.1.json",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+            "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
         ],
         "id": "http://example.edu/credentials/3732",
         "type": [
@@ -225,9 +224,8 @@ The credential used in the example is:
             {
                 "@context": [
                 "https://www.w3.org/ns/credentials/v2",
-                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
-                "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
-                "https://w3id.org/security/data-integrity/v1"
+                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+                "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
                 ],
                 "id": "urn:uuid:91537dba-56cb-11ec-bf63-0242ac130002",
                 "type": [
@@ -268,14 +266,16 @@ The credential used in the example is:
                     "type": "1EdTechJsonSchemaValidator2019"
                 }
                 ],
-                "proof": {
-                "type": "DataIntegrityProof",
-                "created": "2010-01-01T19:23:24Z",
-                "verificationMethod": "https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
-                "cryptosuite": "eddsa-rdfc-2022",
-                "proofPurpose": "assertionMethod",
-                "proofValue": "z2CGNmCgEmN68CWch6Kgg4vnjRDE896jnUqfQtJoG11qxC8ntxUPCQaGckoHG7BXW7KWZyUiSs5EkKX3gEiGYKrz"
+                "proof": [
+                {
+                    "type": "DataIntegrityProof",
+                    "created": "2010-01-01T19:23:24Z",
+                    "verificationMethod": "https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
+                    "cryptosuite": "eddsa-rdfc-2022",
+                    "proofPurpose": "assertionMethod",
+                    "proofValue": "z45QnLySMt2mWuW787G6cf3SLkP97ZkMZxLeXH5yaaTQPCtTup4GCV95tU8HEnQJSyGCokSj3AvUhmJtvveTmN4Vu"
                 }
+                ]
             }
             ],
             "achievement": [
@@ -337,11 +337,11 @@ The credential used in the example is:
     <h3 id="clr-proof-before">Proof before signing</h3>
     <pre class="example json" title="Proof before signing">
     {
-        "type": "DataIntegrityProof",
-        "created": "2010-01-01T19:23:24Z",
-        "verificationMethod": "https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
-        "cryptosuite": "eddsa-rdfc-2022",
-        "proofPurpose": "assertionMethod"
+        type: 'DataIntegrityProof',
+        created: '2010-01-01T19:23:24Z',
+        verificationMethod: 'https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi',
+        cryptosuite: 'eddsa-rdfc-2022',
+        proofPurpose: 'assertionMethod'
     }
     </pre>
 </section>
@@ -359,27 +359,27 @@ The credential used in the example is:
 
 <section>
     <h3 id="clr-document-hash">Document hash (hex)</h3>
-<code>fd987e45f5ee69ee7bc36a4111d9012c727fb80d79f867b344bf3fa67e8c4e83</code>
+<code>768d7015ae69e0210e1c2a45194d9c1d15d7a6022e52b946574a2a27f6fa85fe</code>
 </section>
 
 <section>
     <h3 id="clr-proof-hash">Proof hash (hex)</h3>
-<code>3cf3c265b6c8ebb29b4d5ea310b87d2f31c79b633eff8af561d2e8c97a85c8cb</code>
+<code>d34009cea0dbc1ca941e09dc01c8c9d3e3ce3c5b853f67ee44698dcea10f5d19</code>
 </section>
 
 <section>
     <h3 id="clr-data">Data to sign (hex)</h3>
-<code>3cf3c265b6c8ebb29b4d5ea310b87d2f31c79b633eff8af561d2e8c97a85c8cbfd987e45f5ee69ee7bc36a4111d9012c727fb80d79f867b344bf3fa67e8c4e83</code>
+<code>d34009cea0dbc1ca941e09dc01c8c9d3e3ce3c5b853f67ee44698dcea10f5d19768d7015ae69e0210e1c2a45194d9c1d15d7a6022e52b946574a2a27f6fa85fe</code>
 
 </section>
 
 <section>
     <h3 id="clr-signature">Signature (hex)</h3>
-<code>50857f041f543633b12e02ff1173f8271f0edfd7d92fcfe07b0b25d11b3d240e37070c15667a5c9346625afbf671abf065b5a37b1cfa3ba5ad22b77c9a9eec05</code>
+<code>0c220dadbcfcaa64ab8a8c5002dbe258e6c7746ca71c25e2ea3b7fbffd66568413f53b1d34f5655f3057864bd372bbf0d1e74ea2f8c72e2f4b5790f21a22b70a</code>
 
 <section>
     <h3 id="clr-proof-value">Proof value (hex)</h3>
-<code>z2cNeK7UjuvWoNUHa8D7bbZuhryrgG3LjXmJSnY3R69mVJTAdX5yP1RCo9SH1aZwmyA76snohTwACQRFyrwGihsfr</code>
+<code>zF52sU1nfPAjcwCqtgxPNSor6SJnAzRBwZW5VNQXPt8xXCHkd39sgqj32DnMjhFCzbyHsLkhQ8HpBqQTkMgXy329</code>
 
 </section>
 
@@ -393,7 +393,7 @@ The credential used in the example is:
         "verificationMethod": "https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
         "cryptosuite": "eddsa-rdfc-2022",
         "proofPurpose": "assertionMethod",
-        "proofValue": "z2cNeK7UjuvWoNUHa8D7bbZuhryrgG3LjXmJSnY3R69mVJTAdX5yP1RCo9SH1aZwmyA76snohTwACQRFyrwGihsfr"
+        "proofValue": "zF52sU1nfPAjcwCqtgxPNSor6SJnAzRBwZW5VNQXPt8xXCHkd39sgqj32DnMjhFCzbyHsLkhQ8HpBqQTkMgXy329"
     }
     </pre>
 </section>
@@ -405,10 +405,9 @@ The credential used in the example is:
     {
         "@context": [
             "https://www.w3.org/ns/credentials/v2",
-            "https://purl.imsglobal.org/spec/clr/v2p0/context.json",
-            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
-            "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
-            "https://w3id.org/security/data-integrity/v1"
+            "https://purl.imsglobal.org/spec/clr/v2p0/context-2.0.1.json",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+            "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
         ],
         "id": "http://example.edu/credentials/3732",
         "type": [
@@ -429,9 +428,8 @@ The credential used in the example is:
             {
                 "@context": [
                 "https://www.w3.org/ns/credentials/v2",
-                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
-                "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
-                "https://w3id.org/security/data-integrity/v1"
+                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+                "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
                 ],
                 "id": "urn:uuid:91537dba-56cb-11ec-bf63-0242ac130002",
                 "type": [
@@ -472,14 +470,16 @@ The credential used in the example is:
                     "type": "1EdTechJsonSchemaValidator2019"
                 }
                 ],
-                "proof": {
-                "type": "DataIntegrityProof",
-                "created": "2010-01-01T19:23:24Z",
-                "verificationMethod": "https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
-                "cryptosuite": "eddsa-rdfc-2022",
-                "proofPurpose": "assertionMethod",
-                "proofValue": "z2CGNmCgEmN68CWch6Kgg4vnjRDE896jnUqfQtJoG11qxC8ntxUPCQaGckoHG7BXW7KWZyUiSs5EkKX3gEiGYKrz"
+                "proof": [
+                {
+                    "type": "DataIntegrityProof",
+                    "created": "2010-01-01T19:23:24Z",
+                    "verificationMethod": "https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
+                    "cryptosuite": "eddsa-rdfc-2022",
+                    "proofPurpose": "assertionMethod",
+                    "proofValue": "z45QnLySMt2mWuW787G6cf3SLkP97ZkMZxLeXH5yaaTQPCtTup4GCV95tU8HEnQJSyGCokSj3AvUhmJtvveTmN4Vu"
                 }
+                ]
             }
             ],
             "achievement": [
@@ -533,14 +533,14 @@ The credential used in the example is:
             "type": "1EdTechJsonSchemaValidator2019"
             }
         ],
-        "proof": {
+        "proof": [{
             "type": "DataIntegrityProof",
             "created": "2010-01-01T19:23:24Z",
             "verificationMethod": "https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
             "cryptosuite": "eddsa-rdfc-2022",
             "proofPurpose": "assertionMethod",
-            "proofValue": "z2cNeK7UjuvWoNUHa8D7bbZuhryrgG3LjXmJSnY3R69mVJTAdX5yP1RCo9SH1aZwmyA76snohTwACQRFyrwGihsfr"
-        }
+            "proofValue": "zF52sU1nfPAjcwCqtgxPNSor6SJnAzRBwZW5VNQXPt8xXCHkd39sgqj32DnMjhFCzbyHsLkhQ8HpBqQTkMgXy329"
+        }]
     }
     </pre>
 </section>
