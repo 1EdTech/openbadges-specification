@@ -17,6 +17,13 @@ This section applies to Verifiable Credentials with a \`type\` of "OpenBadgeCred
 1. Check that the OpenBadgeCredential conforms to the specification:
    - If the OpenBadgeCredential has a \`credentialSchema\` property, and the \`type\` of the [CredentialSchema](#credentialschema) object is "1EdTechJsonSchemaValidator2019", check that the credential conforms to JSON Schema as shown in [[[VCCS-10]]]. If it does not, the credential does not conform to the specification.
    - Check that the \`credentialSubject\` is identified by an \`id\` and/or an \`identifier\`. If neither is present, the credential does not conform to the specification.
+
+   <div class="note">
+      OpenBadgeCredentials created following [[VC-DATA-MODEL]] have different names for attributes used in this process. Concretely, they have \`issuanceDate\` and \`expirationDate\` instead of \`validFrom\` and \`validUntil\`, respectively.
+      The data model of these credentials is described at [[[#org-1edtech-ob-v3p0-model-6]]]. This specification also defines the JSON
+      schemas of these entities, available at [[[#org-1edtech-ob-v3p0-model-9]]].
+   </div>
+
 1. Check that the proof method is satisfied:
    - If the OpenBadgeCredential is signed using the [[[#jwt-proof]]] (VC-JWT), verify the signature as shown in [[[#jwt-verify]]]. If the OpenBadgeCredential is signed using an embedded proof, verify the signature as shown in [[[#lds-verify]]]. If the signature cannot be verified, the proof method is not satisfied.
 
@@ -62,6 +69,13 @@ This section applies to Verifiable Credentials with a \`type\` of "EndorsementCr
 
 1. Check that the EndorsementCredential conforms to the specification:
    1. If the credential has a \`credentialSchema\` property, and the \`type\` of the [CredentialSchema](#credentialschema) object is "1EdTechJsonSchemaValidator2019", check that the credential conforms to JSON Schema as shown in [[[VCCS-10]]]. If it does not, the credential does not conform to the specification.
+
+   <div class="note">
+      EndorsementCredentials created following [[VC-DATA-MODEL]] have different names for attributes used in this process. Concretely, they have \`issuanceDate\` and \`expirationDate\` instead of \`validFrom\` and \`validUntil\`, respectively.
+      The data model of these credentials is described at [[[#org-1edtech-ob-v3p0-model-6]]]. This specification also defines the JSON
+      schemas of these entities, available at [[[#org-1edtech-ob-v3p0-model-9]]].
+   </div>
+
 1. Check that the proof method is satisfied:
    1. If the EndorsementCredential is signed using the [[[#jwt-proof]]] (VC-JWT), verify the signature as shown in [[[#jwt-verify]]]. If the EndorsementCredential is signed using an embedded proof, verify the signature as shown in [[[#lds-verify]]]. If the signature cannot be verified, the proof method is not satisfied.
    <div class="note">
