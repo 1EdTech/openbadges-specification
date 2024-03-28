@@ -207,8 +207,8 @@ var security = `
                   "authorizationUrl": "1edtech.org/authorize",
                   "refreshUrl": "1edtech.org/token",
                   "scopes": {
-                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.update" : "...",
-                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly" : "...",
+                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert" : "...",
+                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly" : "...",
                     "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly" : "...",
                     "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update" : "..."
                   }
@@ -436,7 +436,7 @@ var security = `
           "response_types": [
             "code"
           ],
-          "scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/delete https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly https://purl.imsglobal.org/spec/ob/v3p0/scope/replace offline_access"
+          "scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert offline_access"
       }
       </pre>
       <p>
@@ -474,7 +474,7 @@ var security = `
           "response_types": [
             "code"
           ],
-          "scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/delete https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly https://purl.imsglobal.org/spec/ob/v3p0/scope/replace offline_access"
+          "scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert offline_access"
         }
       </pre>
       <p>
@@ -705,7 +705,7 @@ var security = `
         Location: https://auth.1edtech.org/authorize?
           client_id=4ad36680810420ed
           &response_type=code
-          &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%ob%2Fv3p0%2Fscope%2Fassertion.readonly%20offline_access
+          &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%ob%2Fv3p0%2Fscope%2Fcredential.readonly%20offline_access
           &redirect_uri=https%3A%2F%client.1edtech.org%2FAuthorize
           &state=26357667-94df-4a14-bcb1-f55449ddd98d
           &code_challenge=XeDw66i9FLjn7XaecT_xaFyUWWfUub02Kw118n-jbEs
@@ -772,7 +772,7 @@ var security = `
         HTTP/1.1 302 Found
         Location https://client.1edtech.org/Authorize?
           code=dcf95d196ae04d60aad7e19d18b9af755a7b593b680055158b8ad9c2975f0d86
-          &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%ob%2Fv3p0%2Fscope%2Fassertion.readonly%20offline_access
+          &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%ob%2Fv3p0%2Fscope%2Fcredential.readonly%20offline_access
           &state=26357667-94df-4a14-bcb1-f55449ddd98d
       </pre>
 
@@ -903,7 +903,7 @@ var security = `
         grant_type=authorization_code
           &code=7c7a73263ee14b2b48073d0615f286ec74f6636689046cb8dbede0b5e87a1338
           &redirect_uri=https%3A%2F%client.1edtech.org%2FAuthorize
-          &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%2Fob%2Fv3p0%2Fscope%2Fassertion.readonly+offline_access
+          &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%2Fob%2Fv3p0%2Fscope%2Fcredential.readonly+offline_access
           &code_verifier=mYUQfKNgI1lSbY8EqtvNHLPzu0x%2FcVKO3fpWnX4VE5I%3D
       </pre>
 
@@ -976,7 +976,7 @@ var security = `
           "refresh_token": "tGzv3JOkF0XG5Qx2TlKWIA",
           "expires_in": 3600,
           "token_type": "Bearer",
-          "scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/assertion.readonly offline_access"
+          "scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly offline_access"
         }
       </pre>
 
@@ -1134,7 +1134,7 @@ var security = `
 
       grant_type=refresh_token
         &refresh_token=tGzv3JOkF0XG5Qx2TlKWIA
-        &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%2Fob%2Fv3p0%2Fscope%2assertion.readonly
+        &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%2Fob%2Fv3p0%2Fscope%2credential.readonly
     </pre>
 
     <h4 id="token-refresh-response">Token Refresh Response</h4>

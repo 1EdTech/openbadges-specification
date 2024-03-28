@@ -10,7 +10,9 @@ Open Badges Issuers that only create OpenBadgeCredentials and not meet Service C
 
 ### Tests {#issuer-tests}
 
-1. Create a valid baked 3.0 badge and issue it to the recipient \`conformance@imsglobal.org\` and submit the issued badge to the conformance test system.
+1. Create a valid 3.0 badge and issue it to the recipient \`conformance@imsglobal.org\` and submit the issued badge to the conformance test system.
+1. Demonstrate through video the candidate platform's methodology for a recipient to retrieve their badge.
+
 1. (Optional) Complete tests of, at least, required endpoints of [[[#service-consumer-write]]].
 
 ### Service Consumer (Write) Conformance {#service-consumer-write}

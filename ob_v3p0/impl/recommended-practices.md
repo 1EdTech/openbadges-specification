@@ -178,7 +178,7 @@ these credentials even if OB 3.0 had included such a mechanism in its scope.
 #### Managing credential status and revocation
 
 The ability to mark a credential as revoked is an important capability for many
-organizations that make use of Open Badges and CLR. The [[[VC-DATA-MODEL]]]
+organizations that make use of Open Badges and CLR. The [[[VC-DATA-MODEL-2.0]]]
 offers an extensible mechanism by which a credential status resource may be
 exposed within a credential. Various use cases and solutions have been developed
 to enable credential status checking with a range of capabilities and
@@ -244,7 +244,7 @@ framework, i.e `CFItem`.
     data-allowadditionalproperties="false" title="Achievement alignment (CASE)">
 {
   "@context": [
-    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/ns/credentials/v2",
     "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
   ],
   "id": "http://example.edu/credentials/3732",
@@ -254,7 +254,7 @@ framework, i.e `CFItem`.
     "type": "Profile",
     "name": "Example University"
   },
-  "issuanceDate": "2010-01-01T00:00:00Z",
+  "validFrom": "2010-01-01T00:00:00Z",
   "name": "Example University Degree",
   "credentialSubject": {
     "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -435,7 +435,7 @@ skills.
     data-allowadditionalproperties="false" title="Skill Assertion (Credential Registry)">
 {
     "@context": [
-        "https://www.w3.org/2018/credentials/v1",
+        "https://www.w3.org/ns/credentials/v2",
         "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
         "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
     ],
@@ -483,7 +483,7 @@ skills.
         },
         "email": "registrar@1edtech.edu"
     },
-    "issuanceDate": "2022-07-01T00:00:00Z",
+    "validFrom": "2022-07-01T00:00:00Z",
     "credentialSchema": [
         {
             "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
@@ -720,13 +720,15 @@ fields of the JOSE header of the JWS. `kid` is an URI that can be dereferenced
 to an object of type JWK representing the public key, wether `jwt` is the
 representation of the public key.
 
-Section 6.3.1 of [[VC-DATA-MODEL]] extends the definition of `kid` as
+Section 6.3.1 of [[VC-JOSE-COSE]] extends the definition of `kid` as
 
-> - `kid` _MAY_ be used if there are multiple keys associated with the 
-> [issuer](https://www.w3.org/TR/vc-data-model/#dfn-issuers) of the JWT.
-> The key discovery is out of the scope of this specification. For example,
-> the `kid` can refer to a key in a [DID document](https://www.w3.org/TR/vc-data-model/#dfn-decentralized-identifier-documents),
-> or can be the identifier of a key inside a JWKS.
+> If `kid` is present in the JOSE Header or the COSE Header, a verifier can
+> use this parameter as a hint indicating which key was used to secure the
+> verifiable credential, when performing a verification process as defined
+> in [[RFC7515]].
+
+> `kid` MUST be present when the key of the issuer or subject is expressed as
+> a DID URL
 
 With these two premises, the recommendation for verifing key provenance is using
 JWK Set. A verifier must, then, get the public JKWS of the issuer for further

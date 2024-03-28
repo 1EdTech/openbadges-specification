@@ -6,7 +6,7 @@ var equalitycomparison=`
 
 A Host SHOULD treat a credential as the same as another when both the [issuer](#profile) \`id\` and the [AchievementCredential](#achievementcredential) \`id\` are equal after unescaping of any percent encoded characters [[RFC3986]] followed by truncation of leading and trailing whitespace.
 
-If the two credentials are equal according to the above, then the credential with the newer \`issuanceDate\` is the more up-to-date representation and could be interpreted as a replacement of the prior issued credential.
+If the two credentials are equal according to the above, then the credential with the newer \`validFrom\` is the more up-to-date representation and could be interpreted as a replacement of the prior issued credential.
 
 ### Examples
 
@@ -18,9 +18,9 @@ Credentials [A](#example-sample-credential-a) and [B](#example-sample-credential
   title="Sample credential A">
   {
     "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://www.w3.org/2018/credentials/examples/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+      "https://www.w3.org/ns/credentials/v2",
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+      "https://www.w3.org/2018/credentials/examples/v2"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -29,7 +29,7 @@ Credentials [A](#example-sample-credential-a) and [B](#example-sample-credential
       "type": ["Profile"],
       "name": "Example University"
     },
-    "issuanceDate": "2010-01-01T00:00:00Z",
+    "validFrom": "2010-01-01T00:00:00Z",
     "name": "Teamwork Badge",
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -53,9 +53,9 @@ Credentials [A](#example-sample-credential-a) and [B](#example-sample-credential
   title="Sample credential B">
   {
     "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://www.w3.org/2018/credentials/examples/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+      "https://www.w3.org/ns/credentials/v2",
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+      "https://www.w3.org/2018/credentials/examples/v2"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -64,7 +64,7 @@ Credentials [A](#example-sample-credential-a) and [B](#example-sample-credential
       "type": ["Profile"],
       "name": "Example University"
     },
-    "issuanceDate": "2010-01-01T00:00:00Z",
+    "validFrom": "2010-01-01T00:00:00Z",
     "name": "Teamwork Badge",
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -84,7 +84,7 @@ Credentials [A](#example-sample-credential-a) and [B](#example-sample-credential
   }
 </pre>
 
-Since they also have the same \`issuanceDate\` both are up-to-date.
+Since they also have the same \`validFrom\` both are up-to-date.
 
 #### Comparison
 
@@ -94,9 +94,9 @@ Credentials [C](#example-sample-credential-c) and [D](#example-sample-credential
   title="Sample credential C">
   {
     "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://www.w3.org/2018/credentials/examples/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+      "https://www.w3.org/ns/credentials/v2",
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+      "https://www.w3.org/2018/credentials/examples/v2"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -105,7 +105,7 @@ Credentials [C](#example-sample-credential-c) and [D](#example-sample-credential
       "type": ["Profile"],
       "name": "Example University"
     },
-    "issuanceDate": "2010-03-01T00:00:00Z",
+    "validFrom": "2010-03-01T00:00:00Z",
     "name": "Teamwork Badge",
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -129,9 +129,9 @@ Credentials [C](#example-sample-credential-c) and [D](#example-sample-credential
   title="Sample credential D">
   {
     "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://www.w3.org/2018/credentials/examples/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+      "https://www.w3.org/ns/credentials/v2",
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+      "https://www.w3.org/2018/credentials/examples/v2"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -140,7 +140,7 @@ Credentials [C](#example-sample-credential-c) and [D](#example-sample-credential
       "type": ["Profile"],
       "name": "Example University"
     },
-    "issuanceDate": "2010-01-01T00:00:00Z",
+    "validFrom": "2010-01-01T00:00:00Z",
     "name": "Teamwork Badge",
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -160,5 +160,5 @@ Credentials [C](#example-sample-credential-c) and [D](#example-sample-credential
   }
 </pre>
 
-The credential C is the up-to-date representation because it has a more recent \`issuanceDate\` (\`2010-03-01T00:00:00Z\`).
+The credential C is the up-to-date representation because it has a more recent \`validFrom\` (\`2010-03-01T00:00:00Z\`).
 `;
