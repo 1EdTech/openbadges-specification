@@ -720,13 +720,15 @@ fields of the JOSE header of the JWS. `kid` is an URI that can be dereferenced
 to an object of type JWK representing the public key, wether `jwt` is the
 representation of the public key.
 
-Section 6.3.1 of [[VC-DATA-MODEL-2.0]] extends the definition of `kid` as
+Section 6.3.1 of [[VC-JOSE-COSE]] extends the definition of `kid` as
 
-> - `kid` _MAY_ be used if there are multiple keys associated with the 
-> [issuer](https://www.w3.org/TR/vc-data-model-2.0/#dfn-issuers) of the JWT.
-> The key discovery is out of the scope of this specification. For example,
-> the `kid` can refer to a key in a [DID document](#dfn-decentralized-identifiers),
-> or can be the identifier of a key inside a JWKS.
+> If `kid` is present in the JOSE Header or the COSE Header, a verifier can
+> use this parameter as a hint indicating which key was used to secure the
+> verifiable credential, when performing a verification process as defined
+> in [[RFC7515]].
+
+> `kid` MUST be present when the key of the issuer or subject is expressed as
+> a DID URL
 
 With these two premises, the recommendation for verifing key provenance is using
 JWK Set. A verifier must, then, get the public JKWS of the issuer for further
