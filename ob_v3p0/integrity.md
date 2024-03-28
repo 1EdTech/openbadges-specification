@@ -131,8 +131,8 @@ Verifiers that receive a OpenBadgeCredential in Compact JWS format MUST perform 
 1. Convert the value of the JWT Payload to an [OpenBadgeCredential](#achievementcredential) and continue with [[[#jwt-verify-credential]]].
 
     <div class="note">
-        Credentials created following [[[VC-DATA-MODEL]]] ([[VC-DATA-MODEL]]) store the [OpenBadgeCredential](#achievementcredential) in the \`vc\` claim of the JWT Payload. In this case, the
-        contents of the \`vc\` claim must be converted to an [OpenBadgeCredential](#achievementcredential)
+        Credentials created following [[[VC-DATA-MODEL]]] ([[VC-DATA-MODEL]]) store the <a href="#achievementcredential">OpenBadgeCredential</a> in the \`vc\` claim of the JWT Payload. In this case, the
+        contents of the \`vc\` claim must be converted to an <a href="#achievementcredential">OpenBadgeCredential</a>
         and continue with [[[#jwt-verify-credential]]].
     </div>
 
