@@ -25,7 +25,7 @@ The tests within this section refer to possible values of the status of a badge.
 1. Demonstrate through video that the platform allows viewers of badges to do the following:
    - Trigger verification of the badge and retrieve results verifying that the badge credential is not expired, and not revoked
 
-1. The conformance test system will display the URL of three badges created using [[VC-DATA-MODEL]] with
+1. The conformance test system will display the URL of three badges created using [[[VC-DATA-MODEL]]] ([[VC-DATA-MODEL]]) with
 the same characteristics as in Test 1. The candidate platform must verify these badges and submit the status in the conformance test system. Demonstrate through separate videos that the platform allows viewers of badges to see the following data in all provided badges:
 
    - image (if the badge provided is a baked badge)

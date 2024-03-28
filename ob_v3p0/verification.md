@@ -19,7 +19,7 @@ This section applies to Verifiable Credentials with a \`type\` of "OpenBadgeCred
    - Check that the \`credentialSubject\` is identified by an \`id\` and/or an \`identifier\`. If neither is present, the credential does not conform to the specification.
 
    <div class="note">
-      OpenBadgeCredentials created following [[VC-DATA-MODEL]] have different names for attributes used in this process. Concretely, they have \`issuanceDate\` and \`expirationDate\` instead of \`validFrom\` and \`validUntil\`, respectively.
+      OpenBadgeCredentials created following [[[VC-DATA-MODEL]]] ([[VC-DATA-MODEL]]) have different names for attributes used in this process. Concretely, they have \`issuanceDate\` and \`expirationDate\` instead of \`validFrom\` and \`validUntil\`, respectively.
       The data model of these credentials and their corresponding JSON schemas,
       are described at [[[#org-1edtech-ob-v3p0-model-6]]] and
       [[[#org-1edtech-ob-v3p0-model-9]]], respectively.
@@ -46,7 +46,7 @@ This section applies to Verifiable Credentials with a \`type\` of "OpenBadgeCred
    - If the current date and time is after the \`validUntil\`, the OpenBadgeCredential is expired.
 
    <div class="note">
-      OpenBadgeCredentials created following [[VC-DATA-MODEL]] have different names for attributes used in this process. Concretely, they have \`issuanceDate\` and \`expirationDate\` instead of \`validFrom\` and \`validUntil\`, respectively.
+      OpenBadgeCredentials created following [[[VC-DATA-MODEL]]] ([[VC-DATA-MODEL]]) have different names for attributes used in this process. Concretely, they have \`issuanceDate\` and \`expirationDate\` instead of \`validFrom\` and \`validUntil\`, respectively.
       The data model of these credentials and their corresponding JSON schemas,
       are described at [[[#org-1edtech-ob-v3p0-model-6]]] and
       [[[#org-1edtech-ob-v3p0-model-9]]], respectively.

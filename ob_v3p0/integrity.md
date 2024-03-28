@@ -131,7 +131,7 @@ Verifiers that receive a OpenBadgeCredential in Compact JWS format MUST perform 
 1. Convert the value of the JWT Payload to an [OpenBadgeCredential](#achievementcredential) and continue with [[[#jwt-verify-credential]]].
 
     <div class="note">
-        Credentials created following [[VC-DATA-MODEL]] store the [OpenBadgeCredential](#achievementcredential) in the \`vc\` claim of the JWT Payload. In this case, the
+        Credentials created following [[[VC-DATA-MODEL]]] ([[VC-DATA-MODEL]]) store the [OpenBadgeCredential](#achievementcredential) in the \`vc\` claim of the JWT Payload. In this case, the
         contents of the \`vc\` claim must be converted to an [OpenBadgeCredential](#achievementcredential)
         and continue with [[[#jwt-verify-credential]]].
     </div>
@@ -145,7 +145,7 @@ Verifiers that receive a OpenBadgeCredential in Compact JWS format MUST perform 
 - If the JSON object has the \`exp\` claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime), and MUST be used to set the value of the \`validUntil\` of the [OpenBadgeCredential](#achievementcredential) object. If the credential has expired, the credential is not valid.
 
 <div class="note">
-    Credentials created following [[VC-DATA-MODEL]] have different names for attributes used in this process. Concretely, they have \`issuanceDate\` and \`expirationDate\` instead of \`validFrom\` and \`validUntil\`, respectively
+    Credentials created following [[[VC-DATA-MODEL]]] ([[VC-DATA-MODEL]]) have different names for attributes used in this process. Concretely, they have \`issuanceDate\` and \`expirationDate\` instead of \`validFrom\` and \`validUntil\`, respectively
 </div>
 
 ### Linked Data Proof Format {#lds-proof}
