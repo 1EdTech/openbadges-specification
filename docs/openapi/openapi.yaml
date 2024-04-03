@@ -1440,9 +1440,8 @@ components:
         type:
           minItems: 1
           type: array
-          description: "The value of the type property MUST be an unordered set. One\
-            \ of the items MUST be the URI 'VerifiableCredential', and one of the\
-            \ items MUST be the URI 'EndorsementSubject'."
+          description: The value of the type property MUST be an unordered set. One
+            of the items MUST be the URI 'EndorsementSubject'.
           items:
             type: string
             description: "A `NormalizedString` that represents an Internationalized\
@@ -1460,7 +1459,7 @@ components:
       - name
       - credentialSubject
       - issuer
-      - issuanceDate
+      - validFrom
       type: object
       properties:
         image:
@@ -1476,12 +1475,11 @@ components:
           x-srcprop-pid: org.1edtech.ob.v3p0.credentialschema.class
         awardedDate:
           type: string
-          description: "Timestamp of when the credential was awarded. `issuanceDate`\
+          description: "Timestamp of when the credential was awarded. `validFrom`\
             \ is used to determine the most recent version of a Credential in conjunction\
             \ with `issuer` and `id`. Consequently, the only way to update a Credental\
-            \ is to update the `issuanceDate`, losing the date when the Credential\
-            \ was originally awarded. `awardedDate` is meant to keep this original\
-            \ date."
+            \ is to update the `validFrom`, losing the date when the Credential was\
+            \ originally awarded. `awardedDate` is meant to keep this original date."
           format: date-time
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
         endorsement:
@@ -1509,6 +1507,11 @@ components:
           description: The short description of the credential for display purposes
             in wallets.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+        validFrom:
+          type: string
+          description: Timestamp of when the credential becomes valid.
+          format: date-time
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
         type:
           minItems: 1
           type: array
@@ -1525,7 +1528,7 @@ components:
           minItems: 1
           type: array
           description: "The value of the `@context` property MUST be an ordered set\
-            \ where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1',\
+            \ where the first item is a URI with the value 'https://www.w3.org/ns/credentials/v2',\
             \ and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json'."
           items:
             description: JSON-LD Context. Either a URI with the context definition
@@ -1561,11 +1564,6 @@ components:
           items:
             $ref: '#/components/schemas/TermsOfUse'
           x-srcprop-pid: org.1edtech.ob.v3p0.termsofuse.class
-        issuanceDate:
-          type: string
-          description: Timestamp of when the credential was issued.
-          format: date-time
-          x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
         name:
           type: string
           description: "The name of the credential for display purposes in wallets.\
@@ -1573,6 +1571,13 @@ components:
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
         refreshService:
           $ref: '#/components/schemas/RefreshService'
+        validUntil:
+          type: string
+          description: "If the credential has some notion of validity period, this\
+            \ indicates a timestamp when a credential should no longer be considered\
+            \ valid. After this time, the credential should be considered invalid."
+          format: date-time
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
         id:
           type: string
           description: Unambiguous reference to the credential.
@@ -1585,17 +1590,10 @@ components:
           items:
             $ref: '#/components/schemas/Proof'
           x-srcprop-pid: org.1edtech.ob.v3p0.proof.class
-        expirationDate:
-          type: string
-          description: "If the credential has some notion of expiry, this indicates\
-            \ a timestamp when a credential should no longer be considered valid.\
-            \ After this time, the credential should be considered expired."
-          format: date-time
-          x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
       additionalProperties: true
       description: "AchievementCredentials are representations of an awarded achievement,\
         \ used to share information about a achievement belonging to one earner. Maps\
-        \ to a Verifiable Credential as defined in the [[VC-DATA-MODEL]]. As described\
+        \ to a Verifiable Credential as defined in the [[VC-DATA-MODEL-2.0]]. As described\
         \ in [[[#data-integrity]]], at least one proof mechanism, and the details\
         \ necessary to evaluate that proof, MUST be expressed for a credential to\
         \ be a verifiable credential. In the case of an embedded proof, the credential\
@@ -1830,7 +1828,7 @@ components:
       - name
       - credentialSubject
       - issuer
-      - issuanceDate
+      - validFrom
       type: object
       properties:
         credentialSchema:
@@ -1844,12 +1842,11 @@ components:
           x-srcprop-pid: org.1edtech.ob.v3p0.credentialschema.class
         awardedDate:
           type: string
-          description: "Timestamp of when the credential was awarded. `issuanceDate`\
+          description: "Timestamp of when the credential was awarded. `validFrom`\
             \ is used to determine the most recent version of a Credential in conjunction\
             \ with `issuer` and `id`. Consequently, the only way to update a Credental\
-            \ is to update the `issuanceDate`, losing the date when the Credential\
-            \ was originally awarded. `awardedDate` is meant to keep this original\
-            \ date."
+            \ is to update the `validFrom`, losing the date when the Credential was\
+            \ originally awarded. `awardedDate` is meant to keep this original date."
           format: date-time
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
         credentialSubject:
@@ -1859,6 +1856,11 @@ components:
           description: The short description of the credential for display purposes
             in wallets.
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
+        validFrom:
+          type: string
+          description: Timestamp of when the credential becomes valid.
+          format: date-time
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
         type:
           minItems: 1
           type: array
@@ -1875,7 +1877,7 @@ components:
           minItems: 1
           type: array
           description: "The value of the `@context` property MUST be an ordered set\
-            \ where the first item is a URI with the value 'https://www.w3.org/2018/credentials/v1',\
+            \ where the first item is a URI with the value 'https://www.w3.org/ns/credentials/v2',\
             \ and the second item is a URI with the value 'https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json'."
           items:
             description: JSON-LD Context. Either a URI with the context definition
@@ -1900,11 +1902,6 @@ components:
           items:
             $ref: '#/components/schemas/TermsOfUse'
           x-srcprop-pid: org.1edtech.ob.v3p0.termsofuse.class
-        issuanceDate:
-          type: string
-          description: Timestamp of when the credential was issued.
-          format: date-time
-          x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
         name:
           type: string
           description: "The name of the credential for display purposes in wallets.\
@@ -1912,6 +1909,13 @@ components:
           x-srcprop-pid: org.1edtech.ob.v3p0.primitive.string.class
         refreshService:
           $ref: '#/components/schemas/RefreshService'
+        validUntil:
+          type: string
+          description: "If the credential has some notion of validity period, this\
+            \ indicates a timestamp when a credential should no longer be considered\
+            \ valid. After this time, the credential should be considered invalid."
+          format: date-time
+          x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
         id:
           type: string
           description: Unambiguous reference to the credential.
@@ -1924,13 +1928,6 @@ components:
           items:
             $ref: '#/components/schemas/Proof'
           x-srcprop-pid: org.1edtech.ob.v3p0.proof.class
-        expirationDate:
-          type: string
-          description: "If the credential has some notion of expiry, this indicates\
-            \ a timestamp when a credential should no longer be considered valid.\
-            \ After this time, the credential should be considered expired."
-          format: date-time
-          x-srcprop-pid: org.1edtech.ob.v3p0.derived.datetimez.class
       additionalProperties: true
       description: "A verifiable credential that asserts a claim about an entity.\
         \ As described in [[[#data-integrity]]], at least one proof mechanism, and\
@@ -2018,7 +2015,7 @@ components:
           x-srcprop-pid: org.1edtech.ob.v3p0.derived.uri.class
       additionalProperties: true
       description: "A collection of information about the recipient of an achievement.\
-        \ Maps to Credential Subject in [[VC-DATA-MODEL]]."
+        \ Maps to Credential Subject in [[VC-DATA-MODEL-2.0]]."
       x-class-pid: org.1edtech.ob.v3p0.achievementsubject.class
     Map:
       type: object
