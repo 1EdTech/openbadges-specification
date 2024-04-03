@@ -15,7 +15,7 @@ product within the ecosystem compatible with these specifications.
 ### Overview
 
 Each Open Badges `OpenBadgeCredential` is digitally signed by its issuing
-organization as Verifiable Credentials compatible with the [[[VC-DATA-MODEL]]].
+organization as Verifiable Credentials compatible with the [[[VC-DATA-MODEL-2.0]]].
 Issuers may bundle together multiple related achievement credentials into
 transcripts and other longitudinal records for an individual learner in a CLR as
 a `ClrCredential`, which is also signed using the same technique as the

@@ -1,0 +1,1079 @@
+@prefix ob: <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Ontology definition
+ob: a owl:Ontology ;
+dc:title """Open Badges 3.0"""@en ;
+dc:description """RDFS [[RDF-SCHEMA]] vocabulary used by the Open Badges Data Model 3.0"""@en ;
+dc:date "2023-06-20"^^xsd:date ;
+. 
+
+# Class definitions
+ob:Achievement a rdfs:Class ;
+rdfs:label "Achievement" ;
+rdfs:comment """A collection of information about the accomplishment recognized by the Assertion. Many assertions may be created corresponding to one Achievement."""@en ;
+. 
+
+ob:AchievementCredential a rdfs:Class ;
+rdfs:label "AchievementCredential" ;
+rdfs:comment """AchievementCredentials are representations of an awarded achievement, used to share information about a achievement belonging to one earner. Maps to a Verifiable Credential as defined in the [[VC-DATA-MODEL-2.0]]. As described in [[[#data-integrity]]], at least one proof mechanism, and the details necessary to evaluate that proof, MUST be expressed for a credential to be a verifiable credential. In the case of an embedded proof, the credential MUST append the proof in the `proof` property."""@en ;
+rdfs:subClassOf ob:VerifiableCredential ;
+. 
+
+ob:AchievementCredentialv1p1 a rdfs:Class ;
+rdfs:label "AchievementCredentialv1p1" ;
+rdfs:comment """AchievementCredentials are representations of an awarded achievement, used to share information about a achievement belonging to one earner. Maps to a Verifiable Credential as defined in the [[VC-DATA-MODEL]]. As described in [[[#data-integrity]]], at least one proof mechanism, and the details necessary to evaluate that proof, MUST be expressed for a credential to be a verifiable credential. In the case of an embedded proof, the credential MUST append the proof in the `proof` property."""@en ;
+rdfs:subClassOf ob:VerifiableCredentialv1p1 ;
+. 
+
+ob:AchievementSubject a rdfs:Class ;
+rdfs:label "AchievementSubject" ;
+rdfs:comment """A collection of information about the recipient of an achievement. Maps to Credential Subject in [[VC-DATA-MODEL-2.0]]."""@en ;
+rdfs:subClassOf ob:CredentialSubject ;
+. 
+
+ob:AchievementSubjectv1p1 a rdfs:Class ;
+rdfs:label "AchievementSubjectv1p1" ;
+rdfs:comment """A collection of information about the recipient of an achievement. Maps to Credential Subject in [[VC-DATA-MODEL-2.0]]."""@en ;
+rdfs:subClassOf ob:CredentialSubject ;
+. 
+
+ob:Achievementv1p1 a rdfs:Class ;
+rdfs:label "Achievementv1p1" ;
+rdfs:comment """A collection of information about the accomplishment recognized by the Assertion. Many assertions may be created corresponding to one Achievement."""@en ;
+. 
+
+ob:Address a rdfs:Class ;
+rdfs:label "Address" ;
+rdfs:comment """An address for the described entity."""@en ;
+. 
+
+ob:Alignment a rdfs:Class ;
+rdfs:label "Alignment" ;
+rdfs:comment """Describes an alignment between an achievement and a node in an educational framework."""@en ;
+. 
+
+ob:AnyAchievementCredential a rdfs:Class ;
+rdfs:label "AnyAchievementCredential" ;
+rdfs:comment """AnyAchievementCredential represents an AchievementCredential that might be built using [[VC-DATA-MODEL]] or [[VC-DATA-MODEL-2.0]]. The scope of this class is only for verification purposes. It is not intended to be used in the creation of new credentials, where the [[[#achievementcredential]]] class MUST be used."""@en ;
+rdfs:subClassOf ob:AchievementCredentialv1p1 , ob:AchievementCredential ;
+. 
+
+ob:AnyEndorsementCredential a rdfs:Class ;
+rdfs:label "AnyEndorsementCredential" ;
+rdfs:comment """AnyEndorsementCredential represents an EndorsementCredential that might be built using [[VC-DATA-MODEL]] or [[VC-DATA-MODEL-2.0]]. The scope of this class is only for verification purposes. It is not intended to be used in the creation of new credentials, where the [[[#endorsementcredential]] class MUST be used."""@en ;
+rdfs:subClassOf ob:EndorsementCredential , ob:EndorsementCredentialv1p1 ;
+. 
+
+ob:AnyIdentifier a rdfs:Class ;
+rdfs:label "AnyIdentifier" ;
+rdfs:comment """AnyIdentifier"""@en ;
+. 
+
+ob:Context a rdfs:Class ;
+rdfs:label "Context" ;
+rdfs:comment """JSON-LD Context. Either a URI with the context definition or a Map with a local context definition MUST be supplied."""@en ;
+rdfs:subClassOf ob:Map , ob:URI ;
+. 
+
+ob:Criteria a rdfs:Class ;
+rdfs:label "Criteria" ;
+rdfs:comment """Descriptive metadata about the achievements necessary to be recognized with an assertion of a particular achievement. This data is added to the Achievement class so that it may be rendered when the achievement assertion is displayed, instead of simply a link to human-readable criteria external to the achievement. Embedding criteria allows either enhancement of an external criteria page or increased portability and ease of use by allowing issuers to skip hosting the formerly-required external criteria page altogether. Criteria is used to allow would-be recipients to learn what is required of them to be recognized with an assertion of a particular achievement. It is also used after the assertion is awarded to a recipient to let those inspecting earned achievements know the general requirements that the recipients met in order to earn it."""@en ;
+. 
+
+ob:EndorsementCredential a rdfs:Class ;
+rdfs:label "EndorsementCredential" ;
+rdfs:comment """A verifiable credential that asserts a claim about an entity. As described in [[[#data-integrity]]], at least one proof mechanism, and the details necessary to evaluate that proof, MUST be expressed for a credential to be a verifiable credential. In the case of an embedded proof, the credential MUST append the proof in the `proof` property."""@en ;
+rdfs:subClassOf ob:VerifiableCredential ;
+. 
+
+ob:EndorsementCredentialv1p1 a rdfs:Class ;
+rdfs:label "EndorsementCredentialv1p1" ;
+rdfs:comment """A verifiable credential that asserts a claim about an entity. As described in [[[#data-integrity]]], at least one proof mechanism, and the details necessary to evaluate that proof, MUST be expressed for a credential to be a verifiable credential. In the case of an embedded proof, the credential MUST append the proof in the `proof` property."""@en ;
+rdfs:subClassOf ob:VerifiableCredentialv1p1 ;
+. 
+
+ob:EndorsementSubject a rdfs:Class ;
+rdfs:label "EndorsementSubject" ;
+rdfs:comment """A collection of information about the subject of the endorsement."""@en ;
+rdfs:subClassOf ob:CredentialSubject ;
+. 
+
+ob:Evidence a rdfs:Class ;
+rdfs:label "Evidence" ;
+rdfs:comment """Descriptive metadata about evidence related to the achievement assertion. Each instance of the evidence class present in an assertion corresponds to one entity, though a single entry can describe a set of items collectively. There may be multiple evidence entries referenced from an assertion. The narrative property is also in scope of the assertion class to provide an overall description of the achievement related to the assertion in rich text. It is used here to provide a narrative of achievement of the specific entity described. If both the description and narrative properties are present, displayers can assume the narrative value goes into more detail and is not simply a recapitulation of description."""@en ;
+. 
+
+ob:GeoCoordinates a rdfs:Class ;
+rdfs:label "GeoCoordinates" ;
+rdfs:comment """The geographic coordinates of a location."""@en ;
+. 
+
+ob:GetOpenBadgeCredentialsResponse a rdfs:Class ;
+rdfs:label "GetOpenBadgeCredentialsResponse" ;
+rdfs:comment """GetOpenBadgeCredentialsResponse"""@en ;
+. 
+
+ob:IdentifierEntry a rdfs:Class ;
+rdfs:label "IdentifierEntry" ;
+rdfs:comment """IdentifierEntry"""@en ;
+. 
+
+ob:IdentifierType a rdfs:Class ;
+rdfs:label "IdentifierType" ;
+rdfs:comment """IdentifierType"""@en ;
+. 
+
+ob:IdentityObject a rdfs:Class ;
+rdfs:label "IdentityObject" ;
+rdfs:comment """A collection of information about the recipient of an achievement."""@en ;
+. 
+
+ob:Image a rdfs:Class ;
+rdfs:label "Image" ;
+rdfs:comment """Metadata about images that represent assertions, achieve or profiles. These properties can typically be represented as just the id string of the image, but using a fleshed-out document allows for including captions and other applicable metadata."""@en ;
+. 
+
+ob:JWK a rdfs:Class ;
+rdfs:label "JWK" ;
+rdfs:comment """A JSON Web Key (JWK) formatted according to [[RFC7517]]."""@en ;
+. 
+
+ob:JWKS a rdfs:Class ;
+rdfs:label "JWKS" ;
+rdfs:comment """A JWK Set (JWKS) formatted according to [[RFC7517]]."""@en ;
+. 
+
+ob:Map a rdfs:Class ;
+rdfs:label "Map" ;
+rdfs:comment """A map representing an object with unknown, arbitrary properties"""@en ;
+. 
+
+ob:Multikey a rdfs:Class ;
+rdfs:label "Multikey" ;
+rdfs:comment """Multikey"""@en ;
+. 
+
+ob:Profile a rdfs:Class ;
+rdfs:label "Profile" ;
+rdfs:comment """A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address."""@en ;
+. 
+
+ob:Profilev1p1 a rdfs:Class ;
+rdfs:label "Profilev1p1" ;
+rdfs:comment """A Profile is a collection of information that describes the entity or organization using Open Badges. Issuers must be represented as Profiles, and endorsers, or other entities may also be represented using this vocabulary. Each Profile that represents an Issuer may be referenced in many BadgeClasses that it has defined. Anyone can create and host an Issuer file to start issuing Open Badges. Issuers may also serve as recipients of Open Badges, often identified within an Assertion by specific properties, like their url or contact email address."""@en ;
+. 
+
+ob:Related a rdfs:Class ;
+rdfs:label "Related" ;
+rdfs:comment """Identifies a related achievement."""@en ;
+. 
+
+ob:Result a rdfs:Class ;
+rdfs:label "Result" ;
+rdfs:comment """Describes a result that was achieved."""@en ;
+. 
+
+ob:ResultDescription a rdfs:Class ;
+rdfs:label "ResultDescription" ;
+rdfs:comment """Describes a possible achievement result."""@en ;
+. 
+
+ob:RubricCriterionLevel a rdfs:Class ;
+rdfs:label "RubricCriterionLevel" ;
+rdfs:comment """Describes a rubric criterion level."""@en ;
+. 
+
+
+# Property definitions
+ob:achievedLevel a rdf:Property ;
+rdfs:label "achievedLevel" ;
+rdfs:comment """If the result represents an achieved rubric criterion level (e.g. Mastered), the value is the `id` of the RubricCriterionLevel in linked ResultDescription."""@en ;
+rdfs:range xsd:anyURI ;
+rdfs:domain ob:Result ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:achievement a rdf:Property ;
+rdfs:label "achievement" ;
+rdfs:comment """In AchievementSubject:The achievement being awarded."""@en ;
+rdfs:comment """In AchievementSubjectv1p1:The achievement being awarded."""@en ;
+rdfs:range [ owl:unionOf ( ob:Achievementv1p1 ob:Achievement ) ] ;
+rdfs:domain [ owl:unionOf ( ob:AchievementSubject ob:AchievementSubjectv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:achievementType a rdf:Property ;
+rdfs:label "achievementType" ;
+rdfs:comment """In Achievement:The type of achievement. This is an extensible vocabulary."""@en ;
+rdfs:comment """In Achievementv1p1:The type of achievement. This is an extensible vocabulary."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:Achievementv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:activityEndDate a rdf:Property ;
+rdfs:label "activityEndDate" ;
+rdfs:comment """In AchievementSubject:The datetime the activity ended."""@en ;
+rdfs:comment """In AchievementSubjectv1p1:The datetime the activity ended."""@en ;
+rdfs:range xsd:dateTime ;
+rdfs:domain [ owl:unionOf ( ob:AchievementSubject ob:AchievementSubjectv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:activityStartDate a rdf:Property ;
+rdfs:label "activityStartDate" ;
+rdfs:comment """In AchievementSubject:The datetime the activity started."""@en ;
+rdfs:comment """In AchievementSubjectv1p1:The datetime the activity started."""@en ;
+rdfs:range xsd:dateTime ;
+rdfs:domain [ owl:unionOf ( ob:AchievementSubject ob:AchievementSubjectv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:additionalName a rdf:Property ;
+rdfs:label "additionalName" ;
+rdfs:comment """In Profile:Additional name. Includes what is often referred to as 'middle name' in the western world."""@en ;
+rdfs:comment """In Profilev1p1:Additional name. Includes what is often referred to as 'middle name' in the western world."""@en ;
+rdfs:range <https://schema.org/additionalName> ;
+rdfs:domain [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:address a rdf:Property ;
+rdfs:label "address" ;
+rdfs:comment """In Profile:An address for the individual or organization."""@en ;
+rdfs:comment """In Profilev1p1:An address for the individual or organization."""@en ;
+rdfs:range ob:Address ;
+rdfs:domain [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:addressCountry a rdf:Property ;
+rdfs:label "addressCountry" ;
+rdfs:comment """A country."""@en ;
+rdfs:range <https://schema.org/addressCountry> ;
+rdfs:domain ob:Address ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:addressCountryCode a rdf:Property ;
+rdfs:label "addressCountryCode" ;
+rdfs:comment """A country code. The value must be a ISO 3166-1 alpha-2 country code [[ISO3166-1]]."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:Address ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:addressLocality a rdf:Property ;
+rdfs:label "addressLocality" ;
+rdfs:comment """A locality within the region."""@en ;
+rdfs:range <https://schema.org/addressLocality> ;
+rdfs:domain ob:Address ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:addressRegion a rdf:Property ;
+rdfs:label "addressRegion" ;
+rdfs:comment """A region within the country."""@en ;
+rdfs:range <https://schema.org/addressRegion> ;
+rdfs:domain ob:Address ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:alg a rdf:Property ;
+rdfs:label "alg" ;
+rdfs:comment """The `alg` (algorithm) parameter identifies the algorithm intended for use with the key, such as `RS256` or `PS256`."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:JWK ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:alignment a rdf:Property ;
+rdfs:label "alignment" ;
+rdfs:comment """In Achievement:An object describing which objectives or educational standards this achievement aligns to, if any."""@en ;
+rdfs:comment """In Achievementv1p1:An object describing which objectives or educational standards this achievement aligns to, if any."""@en ;
+rdfs:comment """In Result:The alignments between this result and nodes in external frameworks. This set of alignments are in addition to the set of alignments defined in the corresponding ResultDescription object."""@en ;
+rdfs:comment """In ResultDescription:Alignments between this result description and nodes in external frameworks."""@en ;
+rdfs:comment """In RubricCriterionLevel:Alignments between this rubric criterion level and a rubric criterion levels defined in external frameworks."""@en ;
+rdfs:range ob:Alignment ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:Achievementv1p1 ob:Result ob:ResultDescription ob:RubricCriterionLevel ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:allowedValue a rdf:Property ;
+rdfs:label "allowedValue" ;
+rdfs:comment """An ordered list of allowed values. The values should be ordered from low to high as determined by the achievement creator."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:ResultDescription ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:audience a rdf:Property ;
+rdfs:label "audience" ;
+rdfs:comment """A description of the intended audience for a piece of evidence."""@en ;
+rdfs:range <https://schema.org/audience> ;
+rdfs:domain ob:Evidence ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:awardedDate a rdf:Property ;
+rdfs:label "awardedDate" ;
+rdfs:comment """In AchievementCredential:Timestamp of when the credential was awarded. `validFrom` is used to determine the most recent version of a Credential in conjunction with `issuer` and `id`. Consequently, the only way to update a Credental is to update the `validFrom`, losing the date when the Credential was originally awarded. `awardedDate` is meant to keep this original date."""@en ;
+rdfs:comment """In AchievementCredentialv1p1:Timestamp of when the credential was awarded. `validFrom` is used to determine the most recent version of a Credential in conjunction with `issuer` and `id`. Consequently, the only way to update a Credental is to update the `validFrom`, losing the date when the Credential was originally awarded. `awardedDate` is meant to keep this original date."""@en ;
+rdfs:comment """In EndorsementCredential:Timestamp of when the credential was awarded. `validFrom` is used to determine the most recent version of a Credential in conjunction with `issuer` and `id`. Consequently, the only way to update a Credental is to update the `validFrom`, losing the date when the Credential was originally awarded. `awardedDate` is meant to keep this original date."""@en ;
+rdfs:comment """In EndorsementCredentialv1p1:Timestamp of when the credential was awarded. `validFrom` is used to determine the most recent version of a Credential in conjunction with `issuer` and `id`. Consequently, the only way to update a Credental is to update the `validFrom`, losing the date when the Credential was originally awarded. `awardedDate` is meant to keep this original date."""@en ;
+rdfs:range xsd:dateTime ;
+rdfs:domain [ owl:unionOf ( ob:AchievementCredential ob:AchievementCredentialv1p1 ob:EndorsementCredential ob:EndorsementCredentialv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:caption a rdf:Property ;
+rdfs:label "caption" ;
+rdfs:comment """The caption for the image."""@en ;
+rdfs:range <https://schema.org/caption> ;
+rdfs:domain ob:Image ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:compactJwsString a rdf:Property ;
+rdfs:label "compactJwsString" ;
+rdfs:comment """OpenBadgeCredentials that have been signed with the VC-JWT Proof Format MUST be in the `compactJwsString` array."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:GetOpenBadgeCredentialsResponse ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:controller a rdf:Property ;
+rdfs:label "controller" ;
+rdfs:comment """The identify of the entity that controls this public key."""@en ;
+rdfs:range xsd:anyURI ;
+rdfs:domain ob:Multikey ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:creator a rdf:Property ;
+rdfs:label "creator" ;
+rdfs:comment """In Achievement:The person or organization that created the achievement definition."""@en ;
+rdfs:comment """In Achievementv1p1:The person or organization that created the achievement definition."""@en ;
+rdfs:range [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:Achievementv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:credential a rdf:Property ;
+rdfs:label "credential" ;
+rdfs:comment """OpenBadgeCredentials that have not been signed with the VC-JWT Proof Format MUST be in the `credential` array."""@en ;
+rdfs:range ob:AchievementCredential ;
+rdfs:domain ob:GetOpenBadgeCredentialsResponse ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:credentialSubject a rdf:Property ;
+rdfs:label "credentialSubject" ;
+rdfs:comment """In AchievementCredential:The recipient of the achievement."""@en ;
+rdfs:comment """In AchievementCredentialv1p1:The recipient of the achievement."""@en ;
+rdfs:comment """In EndorsementCredential:The individual, entity, organization, assertion, or achievement that is endorsed and the endorsement comment."""@en ;
+rdfs:comment """In EndorsementCredentialv1p1:The individual, entity, organization, assertion, or achievement that is endorsed and the endorsement comment."""@en ;
+rdfs:range [ owl:unionOf ( ob:AchievementSubject ob:EndorsementSubject ob:AchievementSubjectv1p1 ) ] ;
+rdfs:domain [ owl:unionOf ( ob:AchievementCredential ob:AchievementCredentialv1p1 ob:EndorsementCredential ob:EndorsementCredentialv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:creditsAvailable a rdf:Property ;
+rdfs:label "creditsAvailable" ;
+rdfs:comment """In Achievement:Credit hours associated with this entity, or credit hours possible. For example 3.0."""@en ;
+rdfs:comment """In Achievementv1p1:Credit hours associated with this entity, or credit hours possible. For example 3.0."""@en ;
+rdfs:range xsd:float ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:Achievementv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:creditsEarned a rdf:Property ;
+rdfs:label "creditsEarned" ;
+rdfs:comment """In AchievementSubject:The number of credits earned, generally in semester or quarter credit hours. This field correlates with the Achievement `creditsAvailable` field."""@en ;
+rdfs:comment """In AchievementSubjectv1p1:The number of credits earned, generally in semester or quarter credit hours. This field correlates with the Achievement `creditsAvailable` field."""@en ;
+rdfs:range xsd:float ;
+rdfs:domain [ owl:unionOf ( ob:AchievementSubject ob:AchievementSubjectv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:criteria a rdf:Property ;
+rdfs:label "criteria" ;
+rdfs:comment """In Achievement:Criteria describing how to earn the achievement."""@en ;
+rdfs:comment """In Achievementv1p1:Criteria describing how to earn the achievement."""@en ;
+rdfs:range ob:Criteria ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:Achievementv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:cryptosuite a rdf:Property ;
+rdfs:label "cryptosuite" ;
+rdfs:comment """The `cryptosuite` of the verification method MUST be the string `eddsa-rdf-2022`."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:Multikey ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:dateOfBirth a rdf:Property ;
+rdfs:label "dateOfBirth" ;
+rdfs:comment """In Profile:Birthdate of the person."""@en ;
+rdfs:comment """In Profilev1p1:Birthdate of the person."""@en ;
+rdfs:range xsd:date ;
+rdfs:domain [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:description a rdf:Property ;
+rdfs:label "description" ;
+rdfs:comment """In Achievement:A short description of the achievement."""@en ;
+rdfs:comment """In AchievementCredential:The short description of the credential for display purposes in wallets."""@en ;
+rdfs:comment """In AchievementCredentialv1p1:The short description of the credential for display purposes in wallets."""@en ;
+rdfs:comment """In Achievementv1p1:A short description of the achievement."""@en ;
+rdfs:comment """In EndorsementCredential:The short description of the credential for display purposes in wallets."""@en ;
+rdfs:comment """In EndorsementCredentialv1p1:The short description of the credential for display purposes in wallets."""@en ;
+rdfs:comment """In Evidence:A longer description of the evidence."""@en ;
+rdfs:comment """In Profile:A short description of the issuer entity or organization."""@en ;
+rdfs:comment """In Profilev1p1:A short description of the issuer entity or organization."""@en ;
+rdfs:comment """In RubricCriterionLevel:Description of the rubric criterion level."""@en ;
+rdfs:range <https://schema.org/description> ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:AchievementCredential ob:AchievementCredentialv1p1 ob:Achievementv1p1 ob:EndorsementCredential ob:EndorsementCredentialv1p1 ob:Evidence ob:Profile ob:Profilev1p1 ob:RubricCriterionLevel ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:email a rdf:Property ;
+rdfs:label "email" ;
+rdfs:comment """In Profile:An email address."""@en ;
+rdfs:comment """In Profilev1p1:An email address."""@en ;
+rdfs:range <https://schema.org/email> ;
+rdfs:domain [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:endorsement a rdf:Property ;
+rdfs:label "endorsement" ;
+rdfs:comment """In Achievement:Allows endorsers to make specific claims about the Achievement. These endorsements are signed with a Data Integrity proof format."""@en ;
+rdfs:comment """In AchievementCredential:Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential. These endorsements are signed with a Data Integrity proof format."""@en ;
+rdfs:comment """In AchievementCredentialv1p1:Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential. These endorsements are signed with a Data Integrity proof format."""@en ;
+rdfs:comment """In Achievementv1p1:Allows endorsers to make specific claims about the Achievement. These endorsements are signed with a Data Integrity proof format."""@en ;
+rdfs:comment """In Profile:Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format."""@en ;
+rdfs:comment """In Profilev1p1:Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with a Data Integrity proof format."""@en ;
+rdfs:range [ owl:unionOf ( ob:EndorsementCredentialv1p1 ob:EndorsementCredential ) ] ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:AchievementCredential ob:AchievementCredentialv1p1 ob:Achievementv1p1 ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:endorsementComment a rdf:Property ;
+rdfs:label "endorsementComment" ;
+rdfs:comment """Allows endorsers to make a simple claim in writing about the entity."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:EndorsementSubject ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:endorsementJwt a rdf:Property ;
+rdfs:label "endorsementJwt" ;
+rdfs:comment """In Achievement:Allows endorsers to make specific claims about the Achievement. These endorsements are signed with the VC-JWT proof format."""@en ;
+rdfs:comment """In AchievementCredential:Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential. These endorsements are signed with the VC-JWT proof format."""@en ;
+rdfs:comment """In AchievementCredentialv1p1:Allows endorsers to make specific claims about the credential, and the achievement and profiles in the credential. These endorsements are signed with the VC-JWT proof format."""@en ;
+rdfs:comment """In Achievementv1p1:Allows endorsers to make specific claims about the Achievement. These endorsements are signed with the VC-JWT proof format."""@en ;
+rdfs:comment """In Profile:Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format."""@en ;
+rdfs:comment """In Profilev1p1:Allows endorsers to make specific claims about the individual or organization represented by this profile. These endorsements are signed with the VC-JWT proof format."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:AchievementCredential ob:AchievementCredentialv1p1 ob:Achievementv1p1 ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:evidence a rdf:Property ;
+rdfs:label "evidence" ;
+rdfs:comment """In AchievementCredential:A description of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible."""@en ;
+rdfs:comment """In AchievementCredentialv1p1:Can't find any description."""@en ;
+rdfs:range ob:Evidence ;
+rdfs:domain [ owl:unionOf ( ob:AchievementCredential ob:AchievementCredentialv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:familyName a rdf:Property ;
+rdfs:label "familyName" ;
+rdfs:comment """In Profile:Family name. In the western world, often referred to as the 'last name' of a person."""@en ;
+rdfs:comment """In Profilev1p1:Family name. In the western world, often referred to as the 'last name' of a person."""@en ;
+rdfs:range <https://schema.org/familyName> ;
+rdfs:domain [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:familyNamePrefix a rdf:Property ;
+rdfs:label "familyNamePrefix" ;
+rdfs:comment """In Profile:Family name prefix. As used in some locales, this is the leading part of a family name (e.g. 'de' in the name 'de Boer')."""@en ;
+rdfs:comment """In Profilev1p1:Family name prefix. As used in some locales, this is the leading part of a family name (e.g. 'de' in the name 'de Boer')."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:fieldOfStudy a rdf:Property ;
+rdfs:label "fieldOfStudy" ;
+rdfs:comment """In Achievement:Category, subject, area of study, discipline, or general branch of knowledge. Examples include Business, Education, Psychology, and Technology."""@en ;
+rdfs:comment """In Achievementv1p1:Category, subject, area of study, discipline, or general branch of knowledge. Examples include Business, Education, Psychology, and Technology."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:Achievementv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:genre a rdf:Property ;
+rdfs:label "genre" ;
+rdfs:comment """A string that describes the type of evidence. For example, Poetry, Prose, Film."""@en ;
+rdfs:range <https://schema.org/genre> ;
+rdfs:domain ob:Evidence ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:geo a rdf:Property ;
+rdfs:label "geo" ;
+rdfs:comment """The geographic coordinates of the location."""@en ;
+rdfs:range ob:GeoCoordinates ;
+rdfs:domain ob:Address ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:givenName a rdf:Property ;
+rdfs:label "givenName" ;
+rdfs:comment """In Profile:Given name. In the western world, often referred to as the 'first name' of a person."""@en ;
+rdfs:comment """In Profilev1p1:Given name. In the western world, often referred to as the 'first name' of a person."""@en ;
+rdfs:range <https://schema.org/givenName> ;
+rdfs:domain [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:hashed a rdf:Property ;
+rdfs:label "hashed" ;
+rdfs:comment """Whether or not the `identityHash` value is hashed."""@en ;
+rdfs:range xsd:boolean ;
+rdfs:domain ob:IdentityObject ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:honorificPrefix a rdf:Property ;
+rdfs:label "honorificPrefix" ;
+rdfs:comment """In Profile:Honorific prefix(es) preceding a person's name (e.g. 'Dr', 'Mrs' or 'Mr')."""@en ;
+rdfs:comment """In Profilev1p1:Honorific prefix(es) preceding a person's name (e.g. 'Dr', 'Mrs' or 'Mr')."""@en ;
+rdfs:range <https://schema.org/honorificPrefix> ;
+rdfs:domain [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:honorificSuffix a rdf:Property ;
+rdfs:label "honorificSuffix" ;
+rdfs:comment """In Profile:Honorific suffix(es) following a person's name (e.g. 'M.D, PhD')."""@en ;
+rdfs:comment """In Profilev1p1:Honorific suffix(es) following a person's name (e.g. 'M.D, PhD')."""@en ;
+rdfs:range <https://schema.org/honorificSuffix> ;
+rdfs:domain [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:humanCode a rdf:Property ;
+rdfs:label "humanCode" ;
+rdfs:comment """In Achievement:The code, generally human readable, associated with an achievement."""@en ;
+rdfs:comment """In Achievementv1p1:The code, generally human readable, associated with an achievement."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:Achievementv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:identifier a rdf:Property ;
+rdfs:label "identifier" ;
+rdfs:comment """In AchievementSubject:Other identifiers for the recipient of the achievement. Either `id` or at least one `identifier` MUST be supplied."""@en ;
+rdfs:comment """In AchievementSubjectv1p1:Other identifiers for the recipient of the achievement. Either `id` or at least one `identifier` MUST be supplied."""@en ;
+rdfs:comment """In AnyIdentifier:An identifier."""@en ;
+rdfs:comment """In IdentifierEntry:An identifier."""@en ;
+rdfs:range [ owl:unionOf ( ob:IdentityObject xsd:string ) ] ;
+rdfs:domain [ owl:unionOf ( ob:AchievementSubject ob:AchievementSubjectv1p1 ob:AnyIdentifier ob:IdentifierEntry ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:identifierType a rdf:Property ;
+rdfs:label "identifierType" ;
+rdfs:comment """In IdentifierEntry:The identifier type."""@en ;
+rdfs:comment """In IdentifierType:The identifier type."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:IdentifierEntry ob:IdentifierType ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:identityHash a rdf:Property ;
+rdfs:label "identityHash" ;
+rdfs:comment """Either the IdentityHash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information where there is an expectation of privacy, it is strongly recommended that an IdentityHash be used."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:IdentityObject ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:identityType a rdf:Property ;
+rdfs:label "identityType" ;
+rdfs:comment """The identity type."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:IdentityObject ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:image a rdf:Property ;
+rdfs:label "image" ;
+rdfs:comment """In Achievement:An image representing the achievement."""@en ;
+rdfs:comment """In AchievementCredential:The image representing the credential for display purposes in wallets."""@en ;
+rdfs:comment """In AchievementCredentialv1p1:The image representing the credential for display purposes in wallets."""@en ;
+rdfs:comment """In AchievementSubject:An image representing this user's achievement. If present, this must be a PNG or SVG image, and should be prepared via the 'baking' instructions. An 'unbaked' image for the achievement is defined in the Achievement class and should not be duplicated here."""@en ;
+rdfs:comment """In AchievementSubjectv1p1:An image representing this user's achievement. If present, this must be a PNG or SVG image, and should be prepared via the 'baking' instructions. An 'unbaked' image for the achievement is defined in the Achievement class and should not be duplicated here."""@en ;
+rdfs:comment """In Achievementv1p1:An image representing the achievement."""@en ;
+rdfs:comment """In Profile:An image representing the issuer. This must be a PNG or SVG image."""@en ;
+rdfs:comment """In Profilev1p1:An image representing the issuer. This must be a PNG or SVG image."""@en ;
+rdfs:range ob:Image ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:AchievementCredential ob:AchievementCredentialv1p1 ob:AchievementSubject ob:AchievementSubjectv1p1 ob:Achievementv1p1 ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:inLanguage a rdf:Property ;
+rdfs:label "inLanguage" ;
+rdfs:comment """In Achievement:The language of the achievement."""@en ;
+rdfs:comment """In Achievementv1p1:The language of the achievement."""@en ;
+rdfs:comment """In Related:The language of the related achievement."""@en ;
+rdfs:range <https://schema.org/inLanguage> ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:Achievementv1p1 ob:Related ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:key_ops a rdf:Property ;
+rdfs:label "key_ops" ;
+rdfs:comment """The `key_ops` (key operations) parameter identifies the operation(s) for which the key is intended to be used, such as `sign` (compute digital signature or MAC) or `verify` (verify digital signature or MAC)."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:JWK ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:keys a rdf:Property ;
+rdfs:label "keys" ;
+rdfs:comment """A JWK Set is a JSON object that represents a set of JWKs."""@en ;
+rdfs:range ob:JWK ;
+rdfs:domain ob:JWKS ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:kid a rdf:Property ;
+rdfs:label "kid" ;
+rdfs:comment """The `kid` (key ID) parameter is used to match a specific key."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:JWK ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:kty a rdf:Property ;
+rdfs:label "kty" ;
+rdfs:comment """The `kty` (key type) parameter identifies the cryptographic algorithm family used with the key, such as `RSA` or `EC`."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:JWK ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:latitude a rdf:Property ;
+rdfs:label "latitude" ;
+rdfs:comment """The latitude of the location [[WGS84]]."""@en ;
+rdfs:range <https://schema.org/latitude> ;
+rdfs:domain ob:GeoCoordinates ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:level a rdf:Property ;
+rdfs:label "level" ;
+rdfs:comment """The rubric performance level in terms of success."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:RubricCriterionLevel ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:licenseNumber a rdf:Property ;
+rdfs:label "licenseNumber" ;
+rdfs:comment """In AchievementSubject:The license number that was issued with this credential."""@en ;
+rdfs:comment """In AchievementSubjectv1p1:The license number that was issued with this credential."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:AchievementSubject ob:AchievementSubjectv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:longitude a rdf:Property ;
+rdfs:label "longitude" ;
+rdfs:comment """The longitude of the location [[WGS84]]."""@en ;
+rdfs:range <https://schema.org/longitude> ;
+rdfs:domain ob:GeoCoordinates ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:name a rdf:Property ;
+rdfs:label "name" ;
+rdfs:comment """In Achievement:The name of the achievement."""@en ;
+rdfs:comment """In AchievementCredential:The name of the credential for display purposes in wallets. For example, in a list of credentials and in detail views."""@en ;
+rdfs:comment """In AchievementCredentialv1p1:The name of the credential for display purposes in wallets. For example, in a list of credentials and in detail views."""@en ;
+rdfs:comment """In Achievementv1p1:The name of the achievement."""@en ;
+rdfs:comment """In EndorsementCredential:The name of the credential for display purposes in wallets. For example, in a list of credentials and in detail views."""@en ;
+rdfs:comment """In EndorsementCredentialv1p1:The name of the credential for display purposes in wallets. For example, in a list of credentials and in detail views."""@en ;
+rdfs:comment """In Evidence:A descriptive title of the evidence."""@en ;
+rdfs:comment """In Profile:The name of the entity or organization."""@en ;
+rdfs:comment """In Profilev1p1:The name of the entity or organization."""@en ;
+rdfs:comment """In ResultDescription:The name of the result."""@en ;
+rdfs:comment """In RubricCriterionLevel:The name of the rubric criterion level."""@en ;
+rdfs:range <https://schema.org/name> ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:AchievementCredential ob:AchievementCredentialv1p1 ob:Achievementv1p1 ob:EndorsementCredential ob:EndorsementCredentialv1p1 ob:Evidence ob:Profile ob:Profilev1p1 ob:ResultDescription ob:RubricCriterionLevel ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:narrative a rdf:Property ;
+rdfs:label "narrative" ;
+rdfs:comment """In AchievementSubject:A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array."""@en ;
+rdfs:comment """In AchievementSubjectv1p1:A narrative that connects multiple pieces of evidence. Likely only present at this location if evidence is a multi-value array."""@en ;
+rdfs:comment """In Criteria:A narrative of what is needed to earn the achievement. Markdown is allowed."""@en ;
+rdfs:comment """In Evidence:A narrative that describes the evidence and process of achievement that led to an assertion."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:AchievementSubject ob:AchievementSubjectv1p1 ob:Criteria ob:Evidence ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:official a rdf:Property ;
+rdfs:label "official" ;
+rdfs:comment """In Profile:If the entity is an organization, `official` is the name of an authorized official of the organization."""@en ;
+rdfs:comment """In Profilev1p1:If the entity is an organization, `official` is the name of an authorized official of the organization."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:otherIdentifier a rdf:Property ;
+rdfs:label "otherIdentifier" ;
+rdfs:comment """In Achievement:A list of identifiers for the described entity."""@en ;
+rdfs:comment """In Achievementv1p1:A list of identifiers for the described entity."""@en ;
+rdfs:comment """In Profile:A list of identifiers for the described entity."""@en ;
+rdfs:comment """In Profilev1p1:A list of identifiers for the described entity."""@en ;
+rdfs:range ob:IdentifierEntry ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:Achievementv1p1 ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:parentOrg a rdf:Property ;
+rdfs:label "parentOrg" ;
+rdfs:comment """In Profile:The parent organization of the entity."""@en ;
+rdfs:comment """In Profilev1p1:The parent organization of the entity."""@en ;
+rdfs:range ob:Profile ;
+rdfs:domain [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:patronymicName a rdf:Property ;
+rdfs:label "patronymicName" ;
+rdfs:comment """In Profile:Patronymic name."""@en ;
+rdfs:comment """In Profilev1p1:Patronymic name."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:phone a rdf:Property ;
+rdfs:label "phone" ;
+rdfs:comment """In Profile:A phone number."""@en ;
+rdfs:comment """In Profilev1p1:A phone number."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:points a rdf:Property ;
+rdfs:label "points" ;
+rdfs:comment """The points associated with this rubric criterion level."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:RubricCriterionLevel ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:postOfficeBoxNumber a rdf:Property ;
+rdfs:label "postOfficeBoxNumber" ;
+rdfs:comment """A post office box number for PO box addresses."""@en ;
+rdfs:range <https://schema.org/postOfficeBoxNumber> ;
+rdfs:domain ob:Address ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:postalCode a rdf:Property ;
+rdfs:label "postalCode" ;
+rdfs:comment """A postal code."""@en ;
+rdfs:range <https://schema.org/postalCode> ;
+rdfs:domain ob:Address ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:publicKeyMultibase a rdf:Property ;
+rdfs:label "publicKeyMultibase" ;
+rdfs:comment """The `publicKeyMultibase` property of the verification method MUST be a public key encoded according to [[?MULTICODEC]] and formatted according to [[?MULTIBASE]]. The multicodec encoding of a Ed25519 public key is the two-byte prefix `0xed01` followed by the 32-byte public key data."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:Multikey ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:related a rdf:Property ;
+rdfs:label "related" ;
+rdfs:comment """In Achievement:The related property identifies another Achievement that should be considered the same for most purposes. It is primarily intended to identify alternate language editions or previous versions of Achievements."""@en ;
+rdfs:comment """In Achievementv1p1:The related property identifies another Achievement that should be considered the same for most purposes. It is primarily intended to identify alternate language editions or previous versions of Achievements."""@en ;
+rdfs:range ob:Related ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:Achievementv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:requiredLevel a rdf:Property ;
+rdfs:label "requiredLevel" ;
+rdfs:comment """The `id` of the rubric criterion level required to pass as determined by the achievement creator."""@en ;
+rdfs:range xsd:anyURI ;
+rdfs:domain ob:ResultDescription ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:requiredValue a rdf:Property ;
+rdfs:label "requiredValue" ;
+rdfs:comment """A value from `allowedValue` or within the range of `valueMin` to `valueMax` required to pass as determined by the achievement creator."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:ResultDescription ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:result a rdf:Property ;
+rdfs:label "result" ;
+rdfs:comment """In AchievementSubject:The set of results being asserted."""@en ;
+rdfs:comment """In AchievementSubjectv1p1:The set of results being asserted."""@en ;
+rdfs:range ob:Result ;
+rdfs:domain [ owl:unionOf ( ob:AchievementSubject ob:AchievementSubjectv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:resultDescription a rdf:Property ;
+rdfs:label "resultDescription" ;
+rdfs:comment """In Achievement:The set of result descriptions that may be asserted as results with this achievement."""@en ;
+rdfs:comment """In Achievementv1p1:The set of result descriptions that may be asserted as results with this achievement."""@en ;
+rdfs:comment """In Result:An achievement can have many result descriptions describing possible results. The value of `resultDescription` is the `id` of the result description linked to this result. The linked result description must be in the achievement that is being asserted."""@en ;
+rdfs:range [ owl:unionOf ( ob:ResultDescription xsd:anyURI ) ] ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:Achievementv1p1 ob:Result ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:resultType a rdf:Property ;
+rdfs:label "resultType" ;
+rdfs:comment """The type of result this description represents. This is an extensible enumerated vocabulary."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:ResultDescription ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:role a rdf:Property ;
+rdfs:label "role" ;
+rdfs:comment """In AchievementSubject:Role, position, or title of the learner when demonstrating or performing the achievement or evidence of learning being asserted. Examples include 'Student President', 'Intern', 'Captain', etc."""@en ;
+rdfs:comment """In AchievementSubjectv1p1:Role, position, or title of the learner when demonstrating or performing the achievement or evidence of learning being asserted. Examples include 'Student President', 'Intern', 'Captain', etc."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:AchievementSubject ob:AchievementSubjectv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:rubricCriterionLevel a rdf:Property ;
+rdfs:label "rubricCriterionLevel" ;
+rdfs:comment """An ordered array of rubric criterion levels that may be asserted in the linked result. The levels should be ordered from low to high as determined by the achievement creator."""@en ;
+rdfs:range ob:RubricCriterionLevel ;
+rdfs:domain ob:ResultDescription ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:salt a rdf:Property ;
+rdfs:label "salt" ;
+rdfs:comment """If the `identityHash` is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:IdentityObject ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:source a rdf:Property ;
+rdfs:label "source" ;
+rdfs:comment """In AchievementSubject:The person, organization, or system that assessed the achievement on behalf of the issuer. For example, a school may assess the achievement, while the school district issues the credential."""@en ;
+rdfs:comment """In AchievementSubjectv1p1:The person, organization, or system that assessed the achievement on behalf of the issuer. For example, a school may assess the achievement, while the school district issues the credential."""@en ;
+rdfs:range [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:domain [ owl:unionOf ( ob:AchievementSubject ob:AchievementSubjectv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:specialization a rdf:Property ;
+rdfs:label "specialization" ;
+rdfs:comment """In Achievement:Name given to the focus, concentration, or specific area of study defined in the achievement. Examples include 'Entrepreneurship', 'Technical Communication', and 'Finance'."""@en ;
+rdfs:comment """In Achievementv1p1:Name given to the focus, concentration, or specific area of study defined in the achievement. Examples include 'Entrepreneurship', 'Technical Communication', and 'Finance'."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:Achievementv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:status a rdf:Property ;
+rdfs:label "status" ;
+rdfs:comment """The status of the achievement. Required if `resultType` of the linked ResultDescription is Status."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:Result ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:streetAddress a rdf:Property ;
+rdfs:label "streetAddress" ;
+rdfs:comment """A street address within the locality."""@en ;
+rdfs:range <https://schema.org/streetAddress> ;
+rdfs:domain ob:Address ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:tag a rdf:Property ;
+rdfs:label "tag" ;
+rdfs:comment """In Achievement:One or more short, human-friendly, searchable, keywords that describe the type of achievement."""@en ;
+rdfs:comment """In Achievementv1p1:One or more short, human-friendly, searchable, keywords that describe the type of achievement."""@en ;
+rdfs:range <https://schema.org/keywords> ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:Achievementv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:targetCode a rdf:Property ;
+rdfs:label "targetCode" ;
+rdfs:comment """If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:Alignment ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:targetDescription a rdf:Property ;
+rdfs:label "targetDescription" ;
+rdfs:comment """Short description of the alignment target."""@en ;
+rdfs:range <https://schema.org/targetDescription> ;
+rdfs:domain ob:Alignment ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:targetFramework a rdf:Property ;
+rdfs:label "targetFramework" ;
+rdfs:comment """Name of the framework the alignment target."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:Alignment ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:targetName a rdf:Property ;
+rdfs:label "targetName" ;
+rdfs:comment """Name of the alignment."""@en ;
+rdfs:range <https://schema.org/targetName> ;
+rdfs:domain ob:Alignment ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:targetType a rdf:Property ;
+rdfs:label "targetType" ;
+rdfs:comment """The type of the alignment target node."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:Alignment ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:targetUrl a rdf:Property ;
+rdfs:label "targetUrl" ;
+rdfs:comment """URL linking to the official description of the alignment target, for example an individual standard within an educational framework."""@en ;
+rdfs:range xsd:anyURI ;
+rdfs:domain ob:Alignment ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:term a rdf:Property ;
+rdfs:label "term" ;
+rdfs:comment """In AchievementSubject:The academic term in which this assertion was achieved."""@en ;
+rdfs:comment """In AchievementSubjectv1p1:The academic term in which this assertion was achieved."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:AchievementSubject ob:AchievementSubjectv1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:url a rdf:Property ;
+rdfs:label "url" ;
+rdfs:comment """In Profile:The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP."""@en ;
+rdfs:comment """In Profilev1p1:The homepage or social media profile of the entity, whether individual or institutional. Should be a URL/URI Accessible via HTTP."""@en ;
+rdfs:range xsd:anyURI ;
+rdfs:domain [ owl:unionOf ( ob:Profile ob:Profilev1p1 ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:use a rdf:Property ;
+rdfs:label "use" ;
+rdfs:comment """The `use` (public key use) parameter identifies the intended use of the public key, such as `sig` (signature) or `end` (encryption)."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:JWK ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:value a rdf:Property ;
+rdfs:label "value" ;
+rdfs:comment """A string representing the result of the performance, or demonstration, of the achievement. For example, 'A' if the recipient received an A grade in class."""@en ;
+rdfs:range <https://schema.org/value> ;
+rdfs:domain ob:Result ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:valueMax a rdf:Property ;
+rdfs:label "valueMax" ;
+rdfs:comment """The maximum possible `value` that may be asserted in a linked result."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:ResultDescription ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:valueMin a rdf:Property ;
+rdfs:label "valueMin" ;
+rdfs:comment """The minimum possible `value` that may be asserted in a linked result."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:ResultDescription ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:version a rdf:Property ;
+rdfs:label "version" ;
+rdfs:comment """In Achievement:The version property allows issuers to set a version string for an Achievement. This is particularly useful when replacing a previous version with an update."""@en ;
+rdfs:comment """In Achievementv1p1:The version property allows issuers to set a version string for an Achievement. This is particularly useful when replacing a previous version with an update."""@en ;
+rdfs:comment """In Related:The version of the related achievement."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob:Achievement ob:Achievementv1p1 ob:Related ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:x5c a rdf:Property ;
+rdfs:label "x5c" ;
+rdfs:comment """The `x5c` (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates [[RFC5280]]."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:JWK ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:x5t a rdf:Property ;
+rdfs:label "x5t" ;
+rdfs:comment """The `x5t` (X.509 certificate SHA-1 thumbprint) parameter is a base64url-encoded SHA-1 thumbprint (a.k.a. digest) of the DER encoding of an X.509 certificate [[RFC5280]]."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:JWK ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:x5t_S256 a rdf:Property ;
+rdfs:label "x5t_S256" ;
+rdfs:comment """The `x5t#S256` (X.509 certificate SHA-256 thumbprint) parameter is a base64url-encoded SHA-256 thumbprint (a.k.a. digest) of the DER encoding of an X.509 certificate [[RFC5280]]."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob:JWK ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+
+ob:x5u a rdf:Property ;
+rdfs:label "x5u" ;
+rdfs:comment """The `x5u` (X.509 URL) parameter is a URI that refers to a resource for an X.509 public key certificate or certificate chain [[RFC5280]]."""@en ;
+rdfs:range xsd:anyURI ;
+rdfs:domain ob:JWK ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+. 
+

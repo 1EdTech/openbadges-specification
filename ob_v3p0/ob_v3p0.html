@@ -27,15 +27,15 @@
       specNature: "normative", // spec nature is "normative" or "informative"
       specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
       specVersion: "3.0",
-      docVersion: "1.0.13",
+      docVersion: "1.0.14",
       specStatus: "Candidate Final Public",
-      specDate: "January 26, 2024",
+      specDate: "April 2, 2024",
       contributors: _contributors,
       localBiblio: _localBiblio,
       iprs: _iprs,
       xref: [
         "did-core",
-        "vc-data-model"
+        "vc-data-model-2.0",
       ],
 
       // Remove for IMS Final
@@ -141,7 +141,7 @@
     </section>
     <section>
       <h3>Achievement Alignment (Credential Engine)</h3>
-      <script class="transclude" data-id="achievementAlignmentCase" src="examples/achievementAlignmentCe.html"></script>
+      <script class="transclude" data-id="achievementAlignmentCtdl" src="examples/achievementAlignmentCe.html"></script>
     </section>
     <section>
       <h3>Skill Assertion (CASE)</h3>
@@ -341,6 +341,16 @@
             <ul>
               <li>Added `Provisional` to <a href="#org.1edtech.ob.v3p0.resultstatustype.class">`ResultStatusType`</a></li>
               <li>Added `inLanguage` to <a href="#org.1edtech.ob.v3p0.achievement.class">`Achievement`</a> and <a href="#org.1edtech.ob.v3p0.related.class">`Related`</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Candidate Final</td>
+          <td>1.0.14</td>
+          <td>April 2, 2024</td>
+          <td>
+            <ul>
+              <li>Upgraded to [[VC-DATA-MODEL-2.0]]</li>
             </ul>
           </td>
         </tr>

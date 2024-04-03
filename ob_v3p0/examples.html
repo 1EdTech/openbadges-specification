@@ -126,7 +126,7 @@
                 <pre class="example json">
         {
           "@context": [
-            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/ns/credentials/v2",
             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
             "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
           ],
@@ -136,7 +136,7 @@
             "id": "https://example.edu/issuers/565049",
             "name": "Example University"
           },
-          "issuanceDate": "2010-01-01T00:00:00Z",
+          "validFrom": "2010-01-01T00:00:00Z",
           "credentialSubject": {
             "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
           },
@@ -154,7 +154,7 @@
                 <pre class="example json vc">
         {
           "@context": [
-            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/ns/credentials/v2",
             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
             "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
           ],
@@ -185,7 +185,7 @@
                 >
         {
           "@context": [
-            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/ns/credentials/v2",
             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
             "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
           ],
@@ -195,8 +195,7 @@
             "id": "https://example.edu/issuers/565049",
             "name": "Example University"
           },
-          <span class="comment">// Typo. Should be "issuanceDate".</span>
-          "issuanceData": "2010-01-01T00:00:00Z",
+          "validFrom": "2010-01-01T00:00:00Z",
           "credentialSubject": {
             "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
           },

@@ -69,7 +69,7 @@ All JSON Schema can be found in [[[#json-schema]]]. JSON Schema files for creden
 
 -   <dfn>Credential</dfn>: A set of one or more [=claims=] made by an [=issuer=]. A [=verifiable credential=] is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build [=verifiable presentations=], which can also be cryptographically verified.
 
--   <dfn>Credential Subject</dfn>: Describes the claims being made by the Verifiable Credential. In the context of Open Badges and CLR is typically  an individual but in the case of Open Badges, may be another entity type such as a course, book, or organization. Learners, Organizations and other entities can be explicit subclasses of Credential Subjects for purposes of business rules. [[vc-data-model]]
+-   <dfn>Credential Subject</dfn>: Describes the claims being made by the Verifiable Credential. In the context of Open Badges and CLR is typically  an individual but in the case of Open Badges, may be another entity type such as a course, book, or organization. Learners, Organizations and other entities can be explicit subclasses of Credential Subjects for purposes of business rules. [[vc-data-model-2.0]]
 
 -   <dfn>Decentralized Identifiers</dfn>: A type of identifier for people, organizations and any other entity, where each identifier is controlled independently of centralized registries. [[did-core]] [[did-use-cases]]
 
@@ -121,9 +121,9 @@ All JSON Schema can be found in [[[#json-schema]]]. JSON Schema files for creden
 
 -   <dfn>Validation</dfn>: The process of assuring the verifiable credential or verifiable presentation meets the needs of the verifier and other dependent stakeholders. Validating verifiable credentials or verifiable presentations is outside the scope of this specification.
 
--   <dfn data-lt="VC">Verifiable Credential</dfn> (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [[vc-data-model]].
+-   <dfn data-lt="VC">Verifiable Credential</dfn> (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [[vc-data-model-2.0]].
 
--   <dfn data-lt="VP">Verifiable Presentation</dfn> (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [[vc-data-model]]
+-   <dfn data-lt="VP">Verifiable Presentation</dfn> (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [[vc-data-model-2.0]]
 
 -   <dfn data-lt="Verifiable">Verification</dfn>: The evaluation of whether a [=verifiable credential=] or [=verifiable presentation=] is an authentic and timely statement of the issuer or presenter, respectively. This includes checking that: the credential (or presentation) conforms to the specification; the proof method is satisfied; and, if present, the status check succeeds.
 
@@ -138,7 +138,7 @@ The conceptual model is targeted for all [[[#audiences]]], while the data model 
 
 In the diagram below, the concepts are shown in gray boxes (e.g. Assertion). Please see [[[#terminology]]] for definitions of the concepts.
 
-Starting with this version of the Open Badges Specification, an Assertion is also a Verifiable Credential (VC) as defined by the [[[vc-data-model]]] specification. The diagram includes labels that show the relationships between VC terminology and Open Badges terminology (e.g. Issuer is identified by the VC "issuer").
+Starting with this version of the Open Badges Specification, an Assertion is also a Verifiable Credential (VC) as defined by the [[[vc-data-model-2.0]]] specification. The diagram includes labels that show the relationships between VC terminology and Open Badges terminology (e.g. Issuer is identified by the VC "issuer").
 
 <figure>
   <img src="images/ob30-concept.png" alt="Diagram show the major conceptual components of an Open Badge Verifiable Credential">

@@ -19,7 +19,12 @@ A third category of proof format called Non-Signature Proof is not covered by th
 
 ### JSON Web Token Proof Format {#jwt-proof}
 
-This proof format relies on the well established JWT (JSON Web Token) [[RFC7519]] and JWS (JSON Web Signature) [[RFC7515]] specifications. A JSON Web Token Proof is a JWT signed and encoded as a [=Compact JWS=] string. The proof format is described in detail in Section 6.3.1 "JSON Web Token" of [[[VC-DATA-MODEL]]]. That description allows several options which may inhibit interoperability. This specification limits the options while maintaining compatibility with [[VC-DATA-MODEL]] to help ensure interoperability.
+This proof format relies on the well established JWT (JSON Web Token) [[RFC7519]] and JWS (JSON Web Signature) [[RFC7515]] specifications. A JSON Web Token Proof is a JWT signed and encoded as a [=Compact JWS=] string. The proof format is described in detail in [[VC-JOSE-COSE]], refered from Section 5.13 "Securing Mechanism Specifications" of [[[VC-DATA-MODEL-2.0]]]. That description allows several options which may inhibit interoperability. This specification limits the options while maintaining compatibility with [[VC-DATA-MODEL-2.0]] to help ensure interoperability.
+
+<div class="note">
+    At the time of the completion of this specification, the JSON Web Token Proof Format of [[VC-DATA-MODEL-2.0]] was undergoing a revision process. [[VC-JOSE-COSE]] will collect and display
+    the result of this revision. The modifications resulting from the incompatibility of the revision with what is contained in this document will be added in future revisions.
+</div>
 
 #### Terminology {#jwt-terminology}
 
@@ -74,16 +79,15 @@ If you are going to use both external and embedded proof formats, add the embedd
 
 ##### JWT Payload Format
 
-The JWT Payload is a JSON object with the following properties (JWT Claims). Additional standard JWT Claims Names are allowed, but their relationship to the credential is not defined.
+The JWT Payload is the JSON object of the [OpenBadgeCredential](#achievementcredential) with the following properties (JWT Claims). Additional standard JWT Claims Names are allowed, but their relationship to the credential is not defined.
 
 | Property / Claim Name | Type | Description | Required? |
 | ---------------------- | ---- | ----------- | --------- |
-| \`exp\` | [NumericDate](#numericdate) | The \`expirationDate\` property of the OpenBadgeCredential. Required if the OpenBadgeCredential has an \`expirationDate\`. | Optional |
+| \`exp\` | [NumericDate](#numericdate) | The \`validUntil\` property of the OpenBadgeCredential. Required if the OpenBadgeCredential has an \`validUntil\`. | Optional |
 | \`iss\` | [URI](#uri) | The \`issuer.id\` property of the OpenBadgeCredential. | Required |
 | \`jti\` | [URI](#uri) | The \`id\` property of the OpenBadgeCredential. | Required |
-| \`nbf\` | [NumericDate](#numericdate) | The \`issuanceDate\` property of the OpenBadgeCredential. | Required |
+| \`nbf\` | [NumericDate](#numericdate) | The \`validFrom\` property of the OpenBadgeCredential. | Required |
 | \`sub\` | [URI](#uri) | The \`credentialSubject.id\` property of the OpenBadgeCredential. | Required |
-| \`vc\` | [OpenBadgeCredential](#achievementcredential) | The OpenBadgeCredential being signed.| Required |
 
 #### Create the Proof {#jwt-signing}
 
@@ -124,22 +128,32 @@ Verifiers that receive a OpenBadgeCredential in Compact JWS format MUST perform 
      <p>1EdTech strongly recommends using an existing, stable library for this step.</p>
    </div>
 1. Base64url-decode the JWT Payload segment of the Compact JWS and parse it into a JSON object.
-1. Convert the value of \`vc\` claim to an [OpenBadgeCredential](#achievementcredential) and continue with [[[#jwt-verify-credential]]].
+1. Convert the value of the JWT Payload to an [OpenBadgeCredential](#achievementcredential) and continue with [[[#jwt-verify-credential]]].
+
+    <div class="note">
+        Credentials created following [[[VC-DATA-MODEL]]] ([[VC-DATA-MODEL]]) store the <a href="#achievementcredential">OpenBadgeCredential</a> in the \`vc\` claim of the JWT Payload. In this case, the
+        contents of the \`vc\` claim must be converted to an <a href="#achievementcredential">OpenBadgeCredential</a>
+        and continue with [[[#jwt-verify-credential]]].
+    </div>
 
 ##### Verify a Credential VC-JWT Signature {#jwt-verify-credential}
 
 - The JSON object MUST have the \`iss\` claim, and the value MUST match the \`issuer.id\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
 - The JSON object MUST have the \`sub\` claim, and the value MUST match the \`credentialSubject.id\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
-- The JSON object MUST have the \`nbf\` claim, and the [NumericDate](#numericdate) value MUST be converted to a [DateTime](#datetime), and MUST equal the \`issuanceDate\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match or if the \`issuanceDate\` has not yet occurred, the credential is not valid.
+- The JSON object MUST have the \`nbf\` claim, and the [NumericDate](#numericdate) value MUST be converted to a [DateTime](#datetime), and MUST equal the \`validFrom\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match or if the \`validFrom\` has not yet occurred, the credential is not valid.
 - The JSON object MUST have the \`jti\` claim, and the value MUST match the \`id\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
-- If the JSON object has the \`exp\` claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime), and MUST be used to set the value of the \`expirationDate\` of the [OpenBadgeCredential](#achievementcredential) object. If the credential has expired, the credential is not valid.
+- If the JSON object has the \`exp\` claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime), and MUST be used to set the value of the \`validUntil\` of the [OpenBadgeCredential](#achievementcredential) object. If the credential has expired, the credential is not valid.
+
+<div class="note">
+    Credentials created following [[[VC-DATA-MODEL]]] ([[VC-DATA-MODEL]]) have different names for attributes used in this process. Concretely, they have \`issuanceDate\` and \`expirationDate\` instead of \`validFrom\` and \`validUntil\`, respectively
+</div>
 
 ### Linked Data Proof Format {#lds-proof}
 
 This standard supports the Linked Data Proof format. In order to opt for this format you MUST use the [[[VC-DI-EDDSA]]] suite.
 
 <div class="note">
-  Whenever possible, you should use a library or service to create and verify a Linked Data Proof. For example, Digital Bazaar, Inc. has a GitHub project that implements the [[[VC-DI-EDDSA]]] eddsa-2022 suite at <a href="https://github.com/digitalbazaar/eddsa-2022-cryptosuite">https://github.com/digitalbazaar/eddsa-2022-cryptosuite</a>.
+  Whenever possible, you should use a library or service to create and verify a Linked Data Proof.
 </div>
 
 #### Create the Proof

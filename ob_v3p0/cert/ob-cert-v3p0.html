@@ -14,11 +14,6 @@
     <!-- Load the MPS configuration -->
     <script class="remove" src="../mps-config.js"></script>
 
-    <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
-    <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js"
-            integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <script class='remove'>
         var respecConfig = {
             mainSpecTitle: "Open Badges Specification",
@@ -28,15 +23,15 @@
             specNature: "normative", // spec nature is "normative" or "informative"
             specType: "cert", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
             specVersion: "3.0",
-            docVersion: "1.1",
+            docVersion: "1.2",
             specStatus: "Candidate Final Public",
-            specDate: "July 14, 2023",
+            specDate: "April 2, 2024",
             contributors: _contributors,
             localBiblio: _localBiblio,
             iprs: _iprs,
             xref: [
                 "did-core",
-                "vc-data-model"
+                "vc-data-model-2.0"
             ],
 
             // Remove for IMS Final
@@ -109,6 +104,16 @@
                     <td>July 14, 2023</td>
                     <td>
                         New version of the context.json (`context-3.0.3.json`) file. See [[[OB-ERRATA-30]]] for detailed changes
+                    </td>
+                </tr>
+                <tr>
+                    <td>Version 3.0 IMS Candidate Final</td>
+                    <td>1.2</td>
+                    <td>April 2, 2024</td>
+                    <td>
+                        <ul>
+                        <li>Upgraded to [[VC-DATA-MODEL-2.0]]</li>
+                        </ul>
                     </td>
                 </tr>
             </tbody>
