@@ -13,6 +13,9 @@
     "type" : {
       "type" : "array",
       "minItems" : 1,
+      "contains" : {
+        "enum" : [ "Profile" ]
+      },
       "items" : {
         "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Profile'.",
         "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
@@ -130,19 +133,41 @@
       "properties" : {
         "@context" : {
           "type" : "array",
-          "minItems" : 1,
-          "items" : {
+          "minItems" : 2,
+          "items" : [ {
+            "enum" : [ "https://www.w3.org/ns/credentials/v2" ]
+          }, {
+            "type" : "string",
+            "pattern" : "^https:\\/\\/purl\\.imsglobal\\.org\\/spec\\/ob\\/v3p0\\/context(-3\\.\\d\\.\\d)*\\.json$"
+          } ],
+          "additionalItems" : {
             "$ref" : "#/$defs/Context"
           }
         },
         "type" : {
-          "type" : "array",
-          "minItems" : 1,
-          "items" : {
-            "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementCredential'.",
-            "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
-            "type" : "string"
-          }
+          "allOf" : [ {
+            "type" : "array",
+            "minItems" : 1,
+            "contains" : {
+              "enum" : [ "VerifiableCredential" ]
+            },
+            "items" : {
+              "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementCredential'.",
+              "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+              "type" : "string"
+            }
+          }, {
+            "type" : "array",
+            "minItems" : 1,
+            "contains" : {
+              "enum" : [ "EndorsementCredential" ]
+            },
+            "items" : {
+              "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementCredential'.",
+              "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+              "type" : "string"
+            }
+          } ]
         },
         "id" : {
           "description" : "Unambiguous reference to the credential.",
@@ -163,7 +188,7 @@
           "$ref" : "#/$defs/EndorsementSubject"
         },
         "awardedDate" : {
-          "description" : "Timestamp of when the credential was awarded. `issuanceDate` is used to determine the most recent version of a Credential in conjunction with `issuer` and `id`. Consequently, the only way to update a Credental is to update the `issuanceDate`, losing the date when the Credential was originally awarded. `awardedDate` is meant to keep this original date.",
+          "description" : "Timestamp of when the credential was awarded. `validFrom` is used to determine the most recent version of a Credential in conjunction with `issuer` and `id`. Consequently, the only way to update a Credental is to update the `validFrom`, losing the date when the Credential was originally awarded. `awardedDate` is meant to keep this original date.",
           "$comment" : "Origin: DateTimeZ (DerivedType); A `DateTime` with the trailing timezone specifier included, e.g. `2021-09-07T02:09:59+02:00`",
           "type" : "string",
           "format" : "date-time"
@@ -171,14 +196,14 @@
         "issuer" : {
           "$ref" : "#/$defs/Profile"
         },
-        "issuanceDate" : {
-          "description" : "Timestamp of when the credential was issued.",
+        "validFrom" : {
+          "description" : "Timestamp of when the credential becomes valid.",
           "$comment" : "Origin: DateTimeZ (DerivedType); A `DateTime` with the trailing timezone specifier included, e.g. `2021-09-07T02:09:59+02:00`",
           "type" : "string",
           "format" : "date-time"
         },
-        "expirationDate" : {
-          "description" : "If the credential has some notion of expiry, this indicates a timestamp when a credential should no longer be considered valid. After this time, the credential should be considered expired.",
+        "validUntil" : {
+          "description" : "If the credential has some notion of validity period, this indicates a timestamp when a credential should no longer be considered valid. After this time, the credential should be considered invalid.",
           "$comment" : "Origin: DateTimeZ (DerivedType); A `DateTime` with the trailing timezone specifier included, e.g. `2021-09-07T02:09:59+02:00`",
           "type" : "string",
           "format" : "date-time"
@@ -208,7 +233,7 @@
           }
         }
       },
-      "required" : [ "@context", "type", "id", "name", "credentialSubject", "issuer", "issuanceDate" ],
+      "required" : [ "@context", "type", "id", "name", "credentialSubject", "issuer", "validFrom" ],
       "additionalProperties" : true
     },
     "Context" : {
@@ -266,7 +291,8 @@
         "type" : {
           "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'IdentifierEntry'.",
           "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
-          "type" : "string"
+          "type" : "string",
+          "enum" : [ "IdentifierEntry" ]
         },
         "identifier" : {
           "description" : "An identifier.",
@@ -372,7 +398,8 @@
         "type" : {
           "description" : "MUST be the IRI 'Image'.",
           "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
-          "type" : "string"
+          "type" : "string",
+          "enum" : [ "Image" ]
         },
         "caption" : {
           "description" : "The caption for the image.",
@@ -395,8 +422,11 @@
         "type" : {
           "type" : "array",
           "minItems" : 1,
+          "contains" : {
+            "enum" : [ "EndorsementSubject" ]
+          },
           "items" : {
-            "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'VerifiableCredential', and one of the items MUST be the URI 'EndorsementSubject'.",
+            "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'EndorsementSubject'.",
             "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
             "type" : "string"
           }
@@ -417,6 +447,9 @@
         "type" : {
           "type" : "array",
           "minItems" : 1,
+          "contains" : {
+            "enum" : [ "Address" ]
+          },
           "items" : {
             "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Address'.",
             "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
@@ -472,7 +505,8 @@
         "type" : {
           "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'GeoCoordinates'.",
           "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
-          "type" : "string"
+          "type" : "string",
+          "enum" : [ "GeoCoordinates" ]
         },
         "latitude" : {
           "description" : "The latitude of the location [[WGS84]].",
@@ -500,6 +534,9 @@
         "type" : {
           "type" : "array",
           "minItems" : 1,
+          "contains" : {
+            "enum" : [ "Profile" ]
+          },
           "items" : {
             "description" : "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Profile'.",
             "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
