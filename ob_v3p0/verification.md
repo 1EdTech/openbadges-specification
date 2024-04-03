@@ -83,7 +83,7 @@ This section applies to Verifiable Credentials with a \`type\` of "EndorsementCr
 1. Check that the proof method is satisfied:
    1. If the EndorsementCredential is signed using the [[[#jwt-proof]]] (VC-JWT), verify the signature as shown in [[[#jwt-verify]]]. If the EndorsementCredential is signed using an embedded proof, verify the signature as shown in [[[#lds-verify]]]. If the signature cannot be verified, the proof method is not satisfied.
    <div class="note">
-      The EndorsementCredential may have a VC-JWT proof and one or more Linked Data proofs. In this case, the Linked Data proofs will be attached to the EndorsementCredential in the \`vc\` claim of the signed JWT Payload. You may accept any one proof for verification. You do not need to verify all the signatures.
+      The EndorsementCredential may have a VC-JWT proof and one or more Linked Data proofs. In this case, the Linked Data proofs will be attached to the EndorsementCredential in the appropriate claim of the signed JWT Payload. You may accept any one proof for verification. You do not need to verify all the signatures.
    </div>
 1. Refresh the EndorsementCredential:
    1. If the \`refreshService\` property is present, and the \`type\` of the [RefreshService](#refreshservice) object is "1EdTechCredentialRefresh", refresh the EndorsementCredential as shown in [[[VCCR-10]]] and then repeat steps 1 and 2. If the refresh is not successful, continue the verification process using the original EndorsementCredential.
