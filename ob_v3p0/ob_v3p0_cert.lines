@@ -95,9 +95,9 @@ Package HostCertification TestModel Certification "t:Host Service Conformance" "
 
         Test getCredentials-query-parameters [setup] true automatic "t:Consumer call to getCredentials with filter and query" "d:A product that conforms to Service Consumer (Read) requirements can request credentials from a product that conforms to Service Provider (Read) requirements."
 			ServiceCall main getCredentials provider OBIssuer OBHost 200 "d:Call the conformance test endpoint getCredentials."
-                Query limit ${limit} "d:The maximum number of OpenBadgeCredentials to return per page."
-                Query offset ${offset} "d:The index of the first AchievementCredential to return. (zero indexed)"
-                Query since ${since} "d:Only include OpenBadgeCredentials issued after this timestamp."
+                TestParam limit ${limit} "d:The maximum number of OpenBadgeCredentials to return per page."
+                TestParam offset ${offset} "d:The index of the first AchievementCredential to return. (zero indexed)"
+                TestParam since ${since} "d:Only include OpenBadgeCredentials issued after this timestamp."
 
         Test getProfile [setup] true automatic "t:Consumer call to getProfile" "d:A product that conforms to Service Consumer (Read) requirements can request profile from a product that conforms to Service Provider (Read) requirements."
 			ServiceCall main getProfile provider OBHost OBHost 200 "d:Call the conformance test endpoint getProfile"
@@ -130,9 +130,9 @@ Package HostCertification TestModel Certification "t:Host Service Conformance" "
 
         Test getCredentials-query-parameters [setup] true automatic "t:Provider call to getCredentials with filter and query" "d:A product that conforms to Service Provider (Read) requirements can provide badges to a product that conforms to Service Consumer (Read) requirements."
 			ServiceCall main getCredentials consumer OBHost OBHost 200 "d:Expect a call to your getCredentials endpoint. Return valid AchivementCredentials. Each element in the list MUST be verifiable."
-                Query limit ${limit} "d:The maximum number of OpenBadgeCredentials to return per page."
-                Query offset ${offset} "d:The index of the first AchievementCredential to return. (zero indexed)"
-                Query since ${since} "d:Only include OpenBadgeCredentials issued after this timestamp."
+                TestParam limit ${limit} "d:The maximum number of OpenBadgeCredentials to return per page."
+                TestParam offset ${offset} "d:The index of the first AchievementCredential to return. (zero indexed)"
+                TestParam since ${since} "d:Only include OpenBadgeCredentials issued after this timestamp."
                 Validation getCredentials schema [GetOpenBadgeCredentialsResponse]
 
         Test getProfile [setup] true automatic "t:Provider call to getProfile" "d:A product that conforms to Service Provider (Read) requirements can provide profile to a product that conforms to Service Consumer (Read) requirements."
