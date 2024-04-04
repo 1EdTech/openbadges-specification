@@ -24,24 +24,24 @@ Package IssuerCertification TestModel Certification "t:Open Badges Issuer" "d:A 
     Suite consumer-write true [consumer-write] "t:Open Badges Service Consumer Write" "d:A product that conforms to Service Consumer (Write) requirements can send an OpenBadgeCredential or a Profile to a product that conforms to Service Provider (Write) requirements."
         Variable registrationUrl URI false "d:OAuth Dynamic Client Registration url"
 
-        Test registration true automatic "t:Register your client to use the API" "d:Exchange of endpoint information and client registration"
+        Test registration [] true automatic "t:Register your client to use the API" "d:Exchange of endpoint information and client registration"
 			ServiceCall discovery getServiceDescription provider OBIssuer OBHost 200 "d:"
 
             Message registration OBIssuer OBHost request false ${registrationUrl} POST "d:OAuth Dynamic Client Registration"
                 Validation registration custom "d:"
 
-        Test setup true automatic "t:Endpoint and OAuth registration for consumer calls" "d:Obtain an access token from the conformance test system following OAuth 2.0 authentication flow with the provided login credentials. Ensure that the right scopes are sent."
+        Test setup [registration] true automatic "t:Endpoint and OAuth registration for consumer calls" "d:Obtain an access token from the conformance test system following OAuth 2.0 authentication flow with the provided login credentials. Ensure that the right scopes are sent."
 			AuthToken consumerToken ${TokenURL} provider "d:The tool has acquired an access token from the conformance test system using certification platform's access_token_url. Ensure that the right scopes are sent."
 				Scopes [upsertCredentialAcg, putProfileAcg]
 
             Message authorization OBIssuer OBHost request true ${AuthURL} GET "d:OAuth 2.0 Authorization"
 
-        Test upsertCredentials true automatic "t:Endpoint for sending a credential" "d:A product that conforms to Service Consumer (Write) requirements can send an OpenBadgeCredential to a product that conforms to Service Provider (Write) requirements"
+        Test upsertCredentials [setup] true automatic "t:Endpoint for sending a credential" "d:A product that conforms to Service Consumer (Write) requirements can send an OpenBadgeCredential to a product that conforms to Service Provider (Write) requirements"
 
 			ServiceCall main upsertCredential provider OBIssuer OBHost 200 "d:Create a valid AchivementCredential and issue it to the recipient conformance@imsglobal.org. Call the conformance test endpoint upsertCredentials, with the AchivementCredential."
                 Validation response schema [AchievementCredential, CompactJws]
 
-        Test putProfile true automatic "t:Endpoint for sending a profile" "d:A product that conforms to Service Consumer (Write) requirements can send a Profile to a product that conforms to Service Provider (Write) requirements"
+        Test putProfile [setup] true automatic "t:Endpoint for sending a profile" "d:A product that conforms to Service Consumer (Write) requirements can send a Profile to a product that conforms to Service Provider (Write) requirements"
 			ServiceCall main putProfile provider OBIssuer OBHost 200 "d:Create a new Profile for the id \"https://1edtech.org/issuers/cert\" and call the conformance test endpoint putProfile with the Profile."
                 Validation putProfile schema [Profile]
 
