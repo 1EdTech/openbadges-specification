@@ -13,7 +13,7 @@ Package IssuerCertification TestModel Certification "t:Open Badges Issuer" "d:A 
 	Capabilities [consumer-write] false
 
     Suite issuer true [issuer] "t:Open Badges Issuer" "d:A Open Badges Issuer is an application that allows for the creation of OpenBadgeCredentials and the subsequent delivery of OpenBadgeCredentials to recipients that conform to the Open Badges Specification. The candidate platform must issue a valid baked badge and demonstrate how the badge is retrieved by the recipient"
-        Test issue true manual [certifier] "t:Issue a valid Open Badge" "d:Create a valid baked 3.0 badge and issue it to the recipient conformance@imsglobal.org and submit the issued badge to the conformance test system."
+        Test issue [] true manual [certifier] "t:Issue a valid Open Badge" "d:Create a valid baked 3.0 badge and issue it to the recipient conformance@imsglobal.org and submit the issued badge to the conformance test system."
             Artifact badge [url] "t:Badge" "d:The uploaded badge must be valid an verifiable"
                 Validation ob30 inspector [OB30inspector] error  "d:The uploaded badge must be valid against OB30inspector"
 
@@ -49,7 +49,7 @@ Package DisplayerCertification TestModel Certification "t:Open Badges Displayer"
 	Capabilities [displayer] true
 
     Suite displayer true [displayer] "t:Open Badges Displayer" "d:An Open Badges Displayer is an application that displays and verifies badges for viewers. The candidate platform must support viewer-initiated verification of a badge."
-        Test displayer true manual [certifier] "t:Display of a badge" "Td:he candidate platform must verify these badges and submit the status in the conformance test system. Among these badges there should be a valid one, an expired one and a revoked one."
+        Test displayer [] true manual [certifier] "t:Display of a badge" "Td:he candidate platform must verify these badges and submit the status in the conformance test system. Among these badges there should be a valid one, an expired one and a revoked one."
             Artifact first-video [url] "t:Video of first badge" "d:Demonstrate through separate video that the platform allows viewers of badges to see the following data in provided badge."
                 Validation url custom "d:It must be a valid URI"
 
@@ -59,7 +59,7 @@ Package DisplayerCertification TestModel Certification "t:Open Badges Displayer"
             Artifact third-video [url] "t:Video of third badge" "d:Demonstrate through separate video that the platform allows viewers of badges to see the following data in provided badge."
                 Validation url custom "d:It must be a valid URI"
 
-        Test displayerv1 true manual [certifier] "t:Display of a badge issued with Verifiable Credentials Data Model 1.1" "Td:he candidate platform must verify these badges and submit the status in the conformance test system. Among these badges there should be a valid one, an expired one and a revoked one."
+        Test displayerv1 [] true manual [certifier] "t:Display of a badge issued with Verifiable Credentials Data Model 1.1" "Td:he candidate platform must verify these badges and submit the status in the conformance test system. Among these badges there should be a valid one, an expired one and a revoked one."
             Artifact first-video [url] "t:Video of first badge" "d:Demonstrate through separate video that the platform allows viewers of badges to see the following data in provided badge."
                 Validation url custom "d:It must be a valid URI"
 
@@ -78,28 +78,28 @@ Package HostCertification TestModel Certification "t:Host Service Conformance" "
         Variable offset NonNegativeInteger false "d:The index of the first AchievementCredential to return. (zero indexed)"
         Variable since DateTime false "d:Only include OpenBadgeCredentials issued after this timestamp."
 
-        Test registration true automatic "t:Register your client to use the API" "d:Exchange of endpoint information and client registration"
+        Test registration [] true automatic "t:Register your client to use the API" "d:Exchange of endpoint information and client registration"
 			ServiceCall discovery getServiceDescription provider OBIssuer OBHost 200 "d:"
 
             Message registration OBHost OBHost request false ${registrationUrl} POST "d:OAuth Dynamic Client Registration"
                 Validation registration custom "d:"
 
-        Test setup true automatic "t:Endpoint and OAuth registration for consumer calls" "d:Obtain an access token from the conformance test system following OAuth 2.0 authentication flow with the provided login credentials. Ensure that the right scopes are sent."
+        Test setup [registration] true automatic "t:Endpoint and OAuth registration for consumer calls" "d:Obtain an access token from the conformance test system following OAuth 2.0 authentication flow with the provided login credentials. Ensure that the right scopes are sent."
 			AuthToken providerToken ${TokenURL} provider "d:The tool has acquired an access token from the conformance test system using certification platform's access_token_url. Ensure that the right scopes are sent."
 				Scopes [getCredentialsAcg, getProfileAcg]
 
             Message authorization OBHost OBHost request true ${AuthURL} GET "d:OAuth 2.0 Authorization"
 
-        Test getCredentials true automatic "t:Consumer call to getCredentials" "d:A product that conforms to Service Consumer (Read) requirements can request credentials from a product that conforms to Service Provider (Read) requirements."
+        Test getCredentials [setup] true automatic "t:Consumer call to getCredentials" "d:A product that conforms to Service Consumer (Read) requirements can request credentials from a product that conforms to Service Provider (Read) requirements."
 			ServiceCall main getCredentials provider OBHost OBHost 200 "d:Call the conformance test endpoint getCredentials."
 
-        Test getCredentials-query-parameters true automatic "t:Consumer call to getCredentials with filter and query" "d:A product that conforms to Service Consumer (Read) requirements can request credentials from a product that conforms to Service Provider (Read) requirements."
+        Test getCredentials-query-parameters [setup] true automatic "t:Consumer call to getCredentials with filter and query" "d:A product that conforms to Service Consumer (Read) requirements can request credentials from a product that conforms to Service Provider (Read) requirements."
 			ServiceCall main getCredentials provider OBIssuer OBHost 200 "d:Call the conformance test endpoint getCredentials."
                 Query limit ${limit} "d:The maximum number of OpenBadgeCredentials to return per page."
                 Query offset ${offset} "d:The index of the first AchievementCredential to return. (zero indexed)"
                 Query since ${since} "d:Only include OpenBadgeCredentials issued after this timestamp."
 
-        Test getProfile true automatic "t:Consumer call to getProfile" "d:A product that conforms to Service Consumer (Read) requirements can request profile from a product that conforms to Service Provider (Read) requirements."
+        Test getProfile [setup] true automatic "t:Consumer call to getProfile" "d:A product that conforms to Service Consumer (Read) requirements can request profile from a product that conforms to Service Provider (Read) requirements."
 			ServiceCall main getProfile provider OBHost OBHost 200 "d:Call the conformance test endpoint getProfile"
 
     Suite provider true [provider-read, provided-write] "t:Service Provider" "A product that conforms to Service Prover (Read) or Service Provider (Write) requirements can request credentials and profiles from a product that conforms to Service Provider (Read) or Service Provider (Write) requirements, respectively."
@@ -112,37 +112,37 @@ Package HostCertification TestModel Certification "t:Host Service Conformance" "
         Variable offset NonNegativeInteger false "d:The index of the first AchievementCredential to return. (zero indexed)"
         Variable since DateTime false "d:Only include OpenBadgeCredentials issued after this timestamp."
 
-        Test registration true automatic "t:OAuth client registration" "d:Registration of a client for making API calls"
+        Test registration [] true automatic "t:OAuth client registration" "d:Registration of a client for making API calls"
 			ServiceCall discovery getServiceDescription consumer OBHost OBHost 200 "d:"
 
             Message registration OBHost OBHost request false ${registrationUrl} POST "d:OAuth Dynamic Client Registration"
                 Validation registration custom "d:"
 
-        Test setup true automatic "t:OAuth authorization flow for provider calls" "d:Exchange of endpoint information and OAuth tokens"
+        Test setup [registration] true automatic "t:OAuth authorization flow for provider calls" "d:Exchange of endpoint information and OAuth tokens"
 			AuthToken consumerToken ${TokenURL} consumer "d:Authorize the conformance test system with the provided login credentials. Ensure that the right scopes are sent back to the conformance test system."
 				Scopes [${scopes}]
 
             Message authorization OBHost OBHost request true ${AuthURL} GET "d:OAuth 2.0 Authorization"
 
-        Test getCredentials true automatic "t:Provider call to getCredentials" "d:A product that conforms to Service Provider (Read) requirements can provide badges to a product that conforms to Service Consumer (Read) requirements."
+        Test getCredentials [setup] true automatic "t:Provider call to getCredentials" "d:A product that conforms to Service Provider (Read) requirements can provide badges to a product that conforms to Service Consumer (Read) requirements."
 			ServiceCall main getCredentials consumer OBHost OBHost 200 "d:Expect a call to your getCredentials endpoint. Return valid AchivementCredentials. Each element in the list MUST be verifiable."
                 Validation getCredentials schema [GetOpenBadgeCredentialsResponse]
 
-        Test getCredentials-query-parameters true automatic "t:Provider call to getCredentials with filter and query" "d:A product that conforms to Service Provider (Read) requirements can provide badges to a product that conforms to Service Consumer (Read) requirements."
+        Test getCredentials-query-parameters [setup] true automatic "t:Provider call to getCredentials with filter and query" "d:A product that conforms to Service Provider (Read) requirements can provide badges to a product that conforms to Service Consumer (Read) requirements."
 			ServiceCall main getCredentials consumer OBHost OBHost 200 "d:Expect a call to your getCredentials endpoint. Return valid AchivementCredentials. Each element in the list MUST be verifiable."
                 Query limit ${limit} "d:The maximum number of OpenBadgeCredentials to return per page."
                 Query offset ${offset} "d:The index of the first AchievementCredential to return. (zero indexed)"
                 Query since ${since} "d:Only include OpenBadgeCredentials issued after this timestamp."
                 Validation getCredentials schema [GetOpenBadgeCredentialsResponse]
 
-        Test getProfile true automatic "t:Provider call to getProfile" "d:A product that conforms to Service Provider (Read) requirements can provide profile to a product that conforms to Service Consumer (Read) requirements."
+        Test getProfile [setup] true automatic "t:Provider call to getProfile" "d:A product that conforms to Service Provider (Read) requirements can provide profile to a product that conforms to Service Consumer (Read) requirements."
 			ServiceCall main getProfile provider OBHost OBHost 200 "d:Expect a call to your getProfile"
                 Validation getProfile schema [Profile]
 
-        Test upsertCredentials true automatic "t:Provider call to upsertCredentials" "d:A product that conforms to Service Provider (Write) requirements can accept an OpenBadgeCredential from a product that conforms to Service Consumer (Write) requirements."
+        Test upsertCredentials [setup] true automatic "t:Provider call to upsertCredentials" "d:A product that conforms to Service Provider (Write) requirements can accept an OpenBadgeCredential from a product that conforms to Service Consumer (Write) requirements."
 			ServiceCall main upsertCredentials consumer OBHost OBHost 200 "d:Expect a call to your upsertCredentials endpoint. Return a valid AchivementCredential."
                 Validation response schema [AchievementCredential, CompactJws]
 
-        Test putProfile true automatic "t:Provider call to putProfile" "d:A product that conforms to Service Provider (Write) requirements can accept a Profile from a product that conforms to Service Consumer (Write) requirements."
+        Test putProfile [setup] true automatic "t:Provider call to putProfile" "d:A product that conforms to Service Provider (Write) requirements can accept a Profile from a product that conforms to Service Consumer (Write) requirements."
 			ServiceCall main putProfile provider OBHost OBHost 200 "d:Expect a call to your getProfile"
                 Validation putProfile schema [Profile]
