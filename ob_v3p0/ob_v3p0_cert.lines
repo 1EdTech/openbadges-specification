@@ -59,6 +59,16 @@ Package DisplayerCertification TestModel Certification "t:Open Badges Displayer"
             Artifact third-video [url] "t:Video of third badge" "d:Demonstrate through separate video that the platform allows viewers of badges to see the following data in provided badge."
                 Validation url custom "d:It must be a valid URI"
 
+        Test displayerv1 true manual [certifier] "t:Display of a badge issued with Verifiable Credentials Data Model 1.1" "Td:he candidate platform must verify these badges and submit the status in the conformance test system. Among these badges there should be a valid one, an expired one and a revoked one."
+            Artifact first-video [url] "t:Video of first badge" "d:Demonstrate through separate video that the platform allows viewers of badges to see the following data in provided badge."
+                Validation url custom "d:It must be a valid URI"
+
+            Artifact second-video [url] "t:Video of second badge" "d:Demonstrate through separate video that the platform allows viewers of badges to see the following data in provided badge."
+                Validation url custom "d:It must be a valid URI"
+
+            Artifact third-video [url] "t:Video of third badge" "d:Demonstrate through separate video that the platform allows viewers of badges to see the following data in provided badge."
+                Validation url custom "d:It must be a valid URI"
+
 Package HostCertification TestModel Certification "t:Host Service Conformance" "d:An Open Badges Host is an application that can aggregate and publicly host OpenBadgeCredential for recipients. It also supports export of badges at user request."
 	Capabilities [consumer-read, provider-read, provider-write] true
 
