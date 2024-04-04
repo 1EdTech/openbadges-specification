@@ -31,7 +31,7 @@ Package IssuerCertification TestModel Certification "t:Open Badges Issuer" "d:A 
                 Validation registration custom "d:"
 
         Test setup [registration] true automatic "t:Endpoint and OAuth registration for consumer calls" "d:Obtain an access token from the conformance test system following OAuth 2.0 authentication flow with the provided login credentials. Ensure that the right scopes are sent."
-			AuthToken consumerToken ${TokenURL} provider "d:The tool has acquired an access token from the conformance test system using certification platform's access_token_url. Ensure that the right scopes are sent."
+			AuthToken consumerToken ACGSecurity provider "d:The tool has acquired an access token from the conformance test system using certification platform's access_token_url. Ensure that the right scopes are sent."
 				Scopes [upsertCredentialAcg, putProfileAcg]
 
             Message authorization OBIssuer OBHost request true ${AuthURL} GET "d:OAuth 2.0 Authorization"
@@ -85,7 +85,7 @@ Package HostCertification TestModel Certification "t:Host Service Conformance" "
                 Validation registration custom "d:"
 
         Test setup [registration] true automatic "t:Endpoint and OAuth registration for consumer calls" "d:Obtain an access token from the conformance test system following OAuth 2.0 authentication flow with the provided login credentials. Ensure that the right scopes are sent."
-			AuthToken providerToken ${TokenURL} provider "d:The tool has acquired an access token from the conformance test system using certification platform's access_token_url. Ensure that the right scopes are sent."
+			AuthToken providerToken ACGSecurity provider "d:The tool has acquired an access token from the conformance test system using certification platform's access_token_url. Ensure that the right scopes are sent."
 				Scopes [getCredentialsAcg, getProfileAcg]
 
             Message authorization OBHost OBHost request true ${AuthURL} GET "d:OAuth 2.0 Authorization"
@@ -119,7 +119,7 @@ Package HostCertification TestModel Certification "t:Host Service Conformance" "
                 Validation registration custom "d:"
 
         Test setup [registration] true automatic "t:OAuth authorization flow for provider calls" "d:Exchange of endpoint information and OAuth tokens"
-			AuthToken consumerToken ${TokenURL} consumer "d:Authorize the conformance test system with the provided login credentials. Ensure that the right scopes are sent back to the conformance test system."
+			AuthToken consumerToken ACGSecurity consumer "d:Authorize the conformance test system with the provided login credentials. Ensure that the right scopes are sent back to the conformance test system."
 				Scopes [${scopes}]
 
             Message authorization OBHost OBHost request true ${AuthURL} GET "d:OAuth 2.0 Authorization"
