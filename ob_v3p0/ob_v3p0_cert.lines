@@ -102,7 +102,7 @@ Package HostCertification TestModel Certification "t:Host Service Conformance" "
         Test getProfile [setup] true automatic "t:Consumer call to getProfile" "d:A product that conforms to Service Consumer (Read) requirements can request profile from a product that conforms to Service Provider (Read) requirements."
 			ServiceCall main getProfile provider OBHost OBHost 200 "d:Call the conformance test endpoint getProfile"
 
-    Suite provider true [provider-read, provided-write] "t:Service Provider" "A product that conforms to Service Prover (Read) or Service Provider (Write) requirements can request credentials and profiles from a product that conforms to Service Provider (Read) or Service Provider (Write) requirements, respectively."
+    Suite provider true [provider-read, provider-write] "t:Service Provider" "A product that conforms to Service Prover (Read) or Service Provider (Write) requirements can request credentials and profiles from a product that conforms to Service Provider (Read) or Service Provider (Write) requirements, respectively."
         Variable apiBaseUrl URI true "d:Base Path of your API endpoints. It MUST end in /ims/ob/v3p0"
             Validation url custom "d:It must be a valid URI"
 
