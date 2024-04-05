@@ -36,9 +36,9 @@ Package IssuerCertification TestModel Certification "t:Open Badges Issuer" "d:A 
 
             Message authorization OBIssuer OBHost request true ${AuthURL} GET "d:OAuth 2.0 Authorization"
 
-        Test upsertCredentials [setup] true automatic "t:Endpoint for sending a credential" "d:A product that conforms to Service Consumer (Write) requirements can send an OpenBadgeCredential to a product that conforms to Service Provider (Write) requirements"
+        Test upsertCredential [setup] true automatic "t:Endpoint for sending a credential" "d:A product that conforms to Service Consumer (Write) requirements can send an OpenBadgeCredential to a product that conforms to Service Provider (Write) requirements"
 
-			ServiceCall main upsertCredential provider OBIssuer OBHost 200 "d:Create a valid AchivementCredential and issue it to the recipient conformance@imsglobal.org. Call the conformance test endpoint upsertCredentials, with the AchivementCredential."
+			ServiceCall main upsertCredential provider OBIssuer OBHost 200 "d:Create a valid AchivementCredential and issue it to the recipient conformance@imsglobal.org. Call the conformance test endpoint upsertCredential, with the AchivementCredential."
                 Validation response schema [AchievementCredential, CompactJws]
 
         Test putProfile [setup] true automatic "t:Endpoint for sending a profile" "d:A product that conforms to Service Consumer (Write) requirements can send a Profile to a product that conforms to Service Provider (Write) requirements"
@@ -139,8 +139,8 @@ Package HostCertification TestModel Certification "t:Host Service Conformance" "
 			ServiceCall main getProfile provider OBHost OBHost 200 "d:Expect a call to your getProfile"
                 Validation getProfile schema [Profile]
 
-        Test upsertCredentials [setup] true automatic "t:Provider call to upsertCredentials" "d:A product that conforms to Service Provider (Write) requirements can accept an OpenBadgeCredential from a product that conforms to Service Consumer (Write) requirements."
-			ServiceCall main upsertCredentials consumer OBHost OBHost 200 "d:Expect a call to your upsertCredentials endpoint. Return a valid AchivementCredential."
+        Test upsertCredential [setup] true automatic "t:Provider call to upsertCredential" "d:A product that conforms to Service Provider (Write) requirements can accept an OpenBadgeCredential from a product that conforms to Service Consumer (Write) requirements."
+			ServiceCall main upsertCredential consumer OBHost OBHost 200 "d:Expect a call to your upsertCredential endpoint. Return a valid AchivementCredential."
                 Validation response schema [AchievementCredential, CompactJws]
 
         Test putProfile [setup] true automatic "t:Provider call to putProfile" "d:A product that conforms to Service Provider (Write) requirements can accept a Profile from a product that conforms to Service Consumer (Write) requirements."
