@@ -1,3 +1,4 @@
+// TODO - it's slightly different from the current test model, so check it when deploying
 Package SharedCertification TestModel
 	Capability issuer "t:Open Badges Issuer" "d:A Open Badges Issuer is an application that allows for the creation of OpenBadgeCredentials and the subsequent delivery of OpenBadgeCredentials to recipients that conform to the Open Badges Specification" []
 	Capability displayer "t:Open Badges Displayer" "d:An Open Badges Displayer is an application that displays and verifies badges for viewers" []
@@ -13,7 +14,7 @@ Package IssuerCertification TestModel Certification "t:Open Badges Issuer" "d:A 
 	Capabilities [consumer-write] false
 
     Suite issuer true [issuer] "t:Open Badges Issuer" "d:A Open Badges Issuer is an application that allows for the creation of OpenBadgeCredentials and the subsequent delivery of OpenBadgeCredentials to recipients that conform to the Open Badges Specification. The candidate platform must issue a valid baked badge and demonstrate how the badge is retrieved by the recipient"
-        Test issue [] true manual [certifier] "t:Issue a valid Open Badge" "d:Create a valid baked 3.0 badge and issue it to the recipient conformance@imsglobal.org and submit the issued badge to the conformance test system."
+        Test issue [] true manual [certifier] "t:Issue a valid Open Badge" "d:Create a valid baked 3.0 badge and issue it to the recipient conformance@imsglobal.org and submit the issued badge to the conformance test system." "https://imsglobal.org/spec/ob/v3p0/cert#issuer-tests"
             Artifact badge [url] "t:Badge" "d:The uploaded badge must be valid an verifiable"
                 Validation ob30 inspector [OB30inspector] error  "d:The uploaded badge must be valid against OB30inspector"
 
