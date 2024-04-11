@@ -757,6 +757,56 @@ to issuer's `id`.
  key provenance cannot be verified via the method described above.
 </div>
 
+#### Verifiable Credentials v1.1
+
+One of the main reasons for upgrading Open Badges and Comprehensive
+Learner Record to a new major release was the alignment of the specifications
+with W3C's Verifiable Credentials.
+
+The alignment to an external specificacion require some sort of change
+management. During the development of both [[OB-30]] and [[CLR-20]],
+the current version of W3C's Verifiable Credentials was [[[VC-DATA-MODEL]]],
+version with the specificacions went to Candidate Public Final.
+
+During the time [[OB-30]] and [[CLR-20]] were in Canditate Public Final,
+W3C's Verifiable Credentials was upgraded to [[[VC-DATA-MODEL-2.0]]]. After
+an analysis of the changes the working group decided to upgrade [[OB-30]] and
+[[CLR-20]] to align with the newest version of W3C's VC.
+
+However, there were already existing issued credentials based in the older
+version of W3C's VC. These credentials, until upgraded to the newest version,
+must be valid. Therefore, the displayer certification requires validation
+of credentials issued with this old version.
+
+##### Changes
+
+In terms of data model, the main changes between versions of W3C's VC are:
+
+- New context URI. While in version 1.1 was `https://www.w3.org/2018/credentials/v1`,
+in version 2.0 is `https://www.w3.org/ns/credentials/v2`. Also, when signing
+with Linked Data Proofs, version 1.1 required the addition of the context
+`https://w3id.org/security/data-integrity/v1`. In version 2.0, those terms are
+included in the main context file.
+
+- Validity period. `validFrom` and `validUntil`, in  version 2.0, replace
+`issuanceDate` and `expirationDate`, in version 1.1
+
+In terms of file format, version 2.0 adds the `application/vc+ld+json` content type,
+that wasn't defined in version 1.1.
+
+In terms of integrity, especially in the JSON Web Token Proof Format, version
+2.0 removes the requirement of storing the payload of the credential in the
+`vc` claim of the JWT. Instead, the whole JWT body is the payload credential.
+
+<div class="note">
+This chapter resumes the changes between versions of the W3C's VC specification
+that have impact in [[OB-30]] and [[CLR-20]]. Please refer to official
+documents for an exhausting list of changes between these versions.
+</div>
+
+##### Verification
+
+
 ### Host
 
 #### Open Badges 3.0 API recommendations
