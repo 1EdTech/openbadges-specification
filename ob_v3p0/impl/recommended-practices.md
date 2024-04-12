@@ -761,17 +761,19 @@ to issuer's `id`.
 
 One of the main reasons for upgrading Open Badges and Comprehensive
 Learner Record to a new major release was the alignment of the specifications
-with W3C's Verifiable Credentials.
+with W3C's Verifiable Credentials Data Model.
 
 The alignment to an external specificacion require some sort of change
 management. During the development of both [[OB-30]] and [[CLR-20]],
-the current version of W3C's Verifiable Credentials was [[[VC-DATA-MODEL]]],
-version with the specificacions went to Candidate Public Final.
+the current version of W3C's Verifiable Credentials Data Model was
+[[[VC-DATA-MODEL]]], version with the specificacions went to Candidate
+Public Final.
 
 During the time [[OB-30]] and [[CLR-20]] were in Canditate Public Final,
-W3C's Verifiable Credentials was upgraded to [[[VC-DATA-MODEL-2.0]]]. After
-an analysis of the changes the working group decided to upgrade [[OB-30]] and
-[[CLR-20]] to align with the newest version of W3C's VC.
+W3C's Verifiable Credentials Data Model was upgraded to
+[[[VC-DATA-MODEL-2.0]]]. After an analysis of the changes the working group
+decided to upgrade [[OB-30]] and [[CLR-20]] to align with the newest version
+of W3C's VC.
 
 However, there were already existing issued credentials based in the older
 version of W3C's VC. These credentials, until upgraded to the newest version,
@@ -791,8 +793,8 @@ included in the main context file.
 - Validity period. `validFrom` and `validUntil`, in  version 2.0, replace
 `issuanceDate` and `expirationDate`, in version 1.1
 
-In terms of file format, version 2.0 adds the `application/vc+ld+json` content type,
-that wasn't defined in version 1.1.
+In terms of file format, version 2.0 adds the `application/vc+ld+json` content
+type, that wasn't defined in version 1.1.
 
 In terms of integrity, especially in the JSON Web Token Proof Format, version
 2.0 removes the requirement of storing the payload of the credential in the
@@ -806,6 +808,30 @@ documents for an exhausting list of changes between these versions.
 
 ##### Verification
 
+Displayers must be able to verify `OpenBadgeCredential`s and `ClrCredential`s
+built under versions 1.1 and 2.0 of W3C's VC specification.
+
+In order to successfully verify a received credential, the first step is to
+identify which version of Verifiable Credential Data Model is based on. This
+identification depends mainly of the integrity of the credential, especifically
+on the proof used.
+
+For instance, in credentials issued with the Linked Data Proof, where the
+payload received by the displayer is the JSON of the credential, the first
+item in the  `@context` array will determine which version of W3C's VC the
+credential is based on:
+
+- `https://www.w3.org/2018/credentials/v1`, for [[[VC-DATA-MODEL]]]
+- `https://www.w3.org/ns/credentials/v2`, for [[[VC-DATA-MODEL-2.0]]]
+
+On the other hand, when the credential received by the displayer was issued
+with the JSON Web Token Proof Format, the displayer should check wheter
+there is a `vc` claim in the JWT body, as its existance may indicate that
+the credential is based on [[[VC-DATA-MODEL]]]. However, the displayer
+must also check the  value of the first item in the `@context` array to
+match the value of each W3C's VC version, and mark the credential as
+invalid when the value in the `@context` array doesn't correspond to the
+claim within the JWT where the payload of the credential was stored.
 
 ### Host
 
