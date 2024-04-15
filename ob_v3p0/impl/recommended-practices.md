@@ -1103,3 +1103,10 @@ Recommendations for the use of share URLs include:
     current version of the standard, use content negotiation on sharing URLs to
     enable the presentation of Use [Open Graph Protocol](https://ogp.me) tags on
     the sharing URLs to enable easy generation of card previews.
+
+#### Baked badges and iOS devices
+
+Starting iOS 16, this operating system strips EXIF data from photos when
+saved in the Photos or the Files app. This means the credential is stripped,
+so no badges can be exchanged as baked images on an iPhone that has been using
+an operating system for the last few years.
