@@ -833,6 +833,21 @@ match the value of each W3C's VC version, and mark the credential as
 invalid when the value in the `@context` array doesn't correspond to the
 claim within the JWT where the payload of the credential was stored.
 
+The specifications provide some JSON schemas supporting this duality in a way
+that succeed for valid – in terms of data schema - credentials based either
+on [[VC-DATA-MODEL]] or [[VC-DATA-MODEL-2.0]].
+
+These schemas are:
+
+- OB 3.0: https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_anyachievementcredential_schema.json
+- CLR 2.0: https://purl.imsglobal.org/spec/clr/v2p0/schema/json/clr_v2p0_anyclrcredential_schema.json
+
+The specifications also provide JSON schemas supporting this duality
+for `EndorsementCredential`'s:
+
+- OB 3.0: https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_anyendorsementcredential_schema.json
+- CLR 2.0: https://purl.imsglobal.org/spec/clr/v2p0/schema/json/clr_v2p0_anyendorsementcredential_schema.json
+
 ### Host
 
 #### Open Badges 3.0 API recommendations
