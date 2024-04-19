@@ -1,10 +1,10 @@
 var _contributors = [
   {name: "Nate Otto", company: "Concentric Sky, Skybridge Skills", companyURL: "", role: "Invited Expert"},
-  {name: "Kerri Lemoie", company: "Concentric Sky, RANDA", companyURL: "", role: "Editor"},
-  {name: "Phillip Long", company: "Concentric Sky", companyURL: "", role: "Invited Expert"},
+  {name: "Kerri Lemoie", company: "Digital Credentials Consortium (MIT)", companyURL: "", role: "Editor"},
+  {name: "Phillip Long", company: "T3 Innovation Network", companyURL: "", role: "Invited Expert"},
   {name: "Marty Reed", company: "RANDA Solutions", companyURL: "", role: "Co-chair, CLR"},
   {name: "Justin Pitcher", company: "Anthology", companyURL: "", role: "Co-chair, OB"},
-  {name: "Brent Cappriotti", company: "RANDA Solutions", companyURL: "", role: "Co-chair, CLR"},
+  {name: "Brent Capriotti", company: "Western Governors University (WGU)", companyURL: "", role: "Co-chair, CLR"},
   {name: "Sherri Braxton", company: "Bowdoin College", companyURL: "", role: "Co-chair, OB"},
   {name: "Jock Wright", company: "VerifyEd", companyURL: "", role: ""},
   {name: "Jen Schreiber", company: "Workday", companyURL: "", role: ""},
