@@ -14,7 +14,7 @@ var _contributors = [
   {name: "Laura Janusek", company: "D2L", companyURL: "", role: ""},
   {name: "John Kuo", company: "Arizona State University", companyURL: "", role: ""},
   {name: "Sara Arjona", company: "Moodle HQ", companyURL: "", role: ""},
-  {name: "Mark McConahay", company: "AACRAO", companyURL: "", role: "Invited Expert"},
+  {name: "Mark McConahay", company: "AACRAO", companyURL: "", role: ""},
   {name: "Dmitri Zagidulin", company: "DCC", companyURL: "", role: "Invited Expert"},
   {name: "Tracy Korsmo", company: "North Dakota IT (NDIT)", companyURL: "", role: ""},
   {name: "Kate Giovacchini", company: "Arizona State University", companyURL: "", role: ""},
