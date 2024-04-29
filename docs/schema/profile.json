@@ -194,7 +194,7 @@
           "format" : "date-time"
         },
         "issuer" : {
-          "$ref" : "#/$defs/Profile"
+          "$ref" : "#/$defs/ProfileRef"
         },
         "validFrom" : {
           "description" : "Timestamp of when the credential becomes valid.",
@@ -234,36 +234,6 @@
         }
       },
       "required" : [ "@context", "type", "id", "name", "credentialSubject", "issuer", "validFrom" ],
-      "additionalProperties" : true
-    },
-    "Context" : {
-      "description" : "JSON-LD Context. Either a URI with the context definition or a Map with a local context definition MUST be supplied.",
-      "oneOf" : [ {
-        "description" : "A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
-        "$comment" : "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
-        "type" : "string"
-      }, {
-        "description" : "A map representing an object with unknown, arbitrary properties",
-        "$comment" : "Origin: Map (Unordered); A map representing an object with unknown, arbitrary properties",
-        "type" : "object"
-      } ]
-    },
-    "TermsOfUse" : {
-      "description" : "Terms of use can be utilized by an issuer or a holder to communicate the terms under which a verifiable credential or verifiable presentation was issued",
-      "type" : "object",
-      "properties" : {
-        "id" : {
-          "description" : "The value MUST be a URI identifying the term of use.",
-          "$comment" : "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
-          "type" : "string"
-        },
-        "type" : {
-          "description" : "The value MUST identify the type of the terms of use.",
-          "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
-          "type" : "string"
-        }
-      },
-      "required" : [ "type" ],
       "additionalProperties" : true
     },
     "CredentialStatus" : {
@@ -439,6 +409,46 @@
       },
       "required" : [ "id", "type" ],
       "additionalProperties" : true
+    },
+    "Context" : {
+      "description" : "JSON-LD Context. Either a URI with the context definition or a Map with a local context definition MUST be supplied.",
+      "oneOf" : [ {
+        "description" : "A map representing an object with unknown, arbitrary properties",
+        "$comment" : "Origin: Map (Unordered); A map representing an object with unknown, arbitrary properties",
+        "type" : "object"
+      }, {
+        "description" : "A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
+        "$comment" : "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
+        "type" : "string"
+      } ]
+    },
+    "TermsOfUse" : {
+      "description" : "Terms of use can be utilized by an issuer or a holder to communicate the terms under which a verifiable credential or verifiable presentation was issued",
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "description" : "The value MUST be a URI identifying the term of use.",
+          "$comment" : "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
+          "type" : "string"
+        },
+        "type" : {
+          "description" : "The value MUST identify the type of the terms of use.",
+          "$comment" : "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+          "type" : "string"
+        }
+      },
+      "required" : [ "type" ],
+      "additionalProperties" : true
+    },
+    "ProfileRef" : {
+      "description" : "A description of the individual, entity, or organization that issued the credential. Either a URI with the Unique URI for the Issuer/Profile file, or a Profile object MUST be supplied.",
+      "oneOf" : [ {
+        "$ref" : "#/$defs/Profile"
+      }, {
+        "description" : "A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
+        "$comment" : "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
+        "type" : "string"
+      } ]
     },
     "Address" : {
       "description" : "An address for the described entity.",
