@@ -986,7 +986,7 @@
           "imsx_codeMinorFieldValue" : {
             "type" : "string",
             "description" : "The code minor status code (this is a value from the corresponding enumerated vocabulary).",
-            "enum" : [ "forbidden", "fullsuccess", "internal_server_error", "invalid_data", "invalid_query_parameter", "misdirected_request", "not_acceptable", "not_allowed", "not_modified", "server_busy", "unauthorizedrequest", "unknown" ],
+            "enum" : [ "forbidden", "fullsuccess", "internal_server_error", "invalid_data", "invalid_query_parameter", "misdirected_request", "not_acceptable", "not_allowed", "not_found", "not_modified", "server_busy", "unauthorizedrequest", "unknown" ],
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.imsx_codeminorfieldvalue.class"
           }
         },
@@ -1479,7 +1479,7 @@
         "x-class-pid" : "org.1edtech.ob.v3p0.endorsementsubject.class"
       },
       "AchievementCredential" : {
-        "required" : [ "@context", "id", "type", "name", "credentialSubject", "issuer", "validFrom" ],
+        "required" : [ "@context", "id", "type", "credentialSubject", "issuer", "validFrom" ],
         "type" : "object",
         "properties" : {
           "image" : {
@@ -1549,16 +1549,23 @@
             "items" : {
               "description" : "JSON-LD Context. Either a URI with the context definition or a Map with a local context definition MUST be supplied.",
               "oneOf" : [ {
+                "$ref" : "#/components/schemas/Map"
+              }, {
                 "type" : "string",
                 "description" : "A `NormalizedString` that respresents a Uniform Resource Identifier (URI)."
-              }, {
-                "$ref" : "#/components/schemas/Map"
               } ]
             },
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.context.class"
           },
           "issuer" : {
-            "$ref" : "#/components/schemas/Profile"
+            "description" : "A description of the individual, entity, or organization that issued the credential.",
+            "oneOf" : [ {
+              "$ref" : "#/components/schemas/Profile"
+            }, {
+              "type" : "string",
+              "description" : "A `NormalizedString` that respresents a Uniform Resource Identifier (URI)."
+            } ],
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.profileref.class"
           },
           "credentialStatus" : {
             "$ref" : "#/components/schemas/CredentialStatus"
@@ -1887,16 +1894,23 @@
             "items" : {
               "description" : "JSON-LD Context. Either a URI with the context definition or a Map with a local context definition MUST be supplied.",
               "oneOf" : [ {
+                "$ref" : "#/components/schemas/Map"
+              }, {
                 "type" : "string",
                 "description" : "A `NormalizedString` that respresents a Uniform Resource Identifier (URI)."
-              }, {
-                "$ref" : "#/components/schemas/Map"
               } ]
             },
             "x-srcprop-pid" : "org.1edtech.ob.v3p0.context.class"
           },
           "issuer" : {
-            "$ref" : "#/components/schemas/Profile"
+            "description" : "A description of the individual, entity, or organization that issued the credential.",
+            "oneOf" : [ {
+              "$ref" : "#/components/schemas/Profile"
+            }, {
+              "type" : "string",
+              "description" : "A `NormalizedString` that respresents a Uniform Resource Identifier (URI)."
+            } ],
+            "x-srcprop-pid" : "org.1edtech.ob.v3p0.profileref.class"
           },
           "credentialStatus" : {
             "$ref" : "#/components/schemas/CredentialStatus"
