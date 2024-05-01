@@ -84,7 +84,7 @@ The JWT Payload is the JSON object of the [OpenBadgeCredential](#achievementcred
 
 | Property / Claim Name | Type | Description | Required? |
 | ---------------------- | ---- | ----------- | --------- |
-| \`exp\` | [NumericDate](#numericdate) | The \`validUntil\` property of the OpenBadgeCredential. Required if the OpenBadgeCredential has an \`validUntil\`. | Optional |
+| \`exp\` | [NumericDate](#numericdate) | The expiration time of the  signature. | Optional |
 | \`iss\` | [URI](#uri) | The \`issuer.id\` property of the OpenBadgeCredential. | Required |
 | \`jti\` | [URI](#uri) | The \`id\` property of the OpenBadgeCredential. | Required |
 | \`nbf\` | [NumericDate](#numericdate) | The \`validFrom\` property of the OpenBadgeCredential. | Required |
@@ -143,10 +143,11 @@ Verifiers that receive a OpenBadgeCredential in Compact JWS format MUST perform 
 - The JSON object MUST have the \`sub\` claim, and the value MUST match the \`credentialSubject.id\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
 - The JSON object MUST have the \`nbf\` claim, and the [NumericDate](#numericdate) value MUST be converted to a [DateTime](#datetime), and MUST equal the \`validFrom\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match or if the \`validFrom\` has not yet occurred, the credential is not valid.
 - The JSON object MUST have the \`jti\` claim, and the value MUST match the \`id\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
-- If the JSON object has the \`exp\` claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime), and MUST be used to set the value of the \`validUntil\` of the [OpenBadgeCredential](#achievementcredential) object. If the credential has expired, the credential is not valid.
+- If the JSON object has the \`exp\` claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime). If the resulting DateTime is before the current time, the signature has expired and the verification MUST be made using linked data proofs of the credential. If the credential doesn't have linked data proofs, the credential is not valid.
 
 <div class="note">
-    Credentials created following [[[VC-DATA-MODEL]]] ([[VC-DATA-MODEL]]) have different names for attributes used in this process. Concretely, they have \`issuanceDate\` and \`expirationDate\` instead of \`validFrom\` and \`validUntil\`, respectively
+    Credentials created following [[[VC-DATA-MODEL]]] ([[VC-DATA-MODEL]]) have different names for attributes used in this process. Concretely, they have \`issuanceDate\` instead of \`validFrom\`.
+    Also, the resulted DateTime from the conversion of the \`exp\` claim MUST be set to the value of the \`expirationDate\` of the [OpenBadgeCredential](#achievementcredential) object. If the credential has expired, the credential is not valid.
 </div>
 
 ### Linked Data Proof Format {#lds-proof}
