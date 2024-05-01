@@ -63,7 +63,8 @@ The [=JOSE Header=] is a JSON object with the following properties (also called 
 | \`alg\` | [String](#string) | The signing algorithm MUST be "RS256" as a minimum as defined in [[RFC7518]]. Support for other algorithms is permitted but their use limits interoperability. Later versions of this specification MAY add OPTIONAL support for other algorithms. See Section 6.1 RSA Key of the [[[SEC-11]]]. | Required |
 | \`kid\` | [URI](#uri) | A URI that can be [dereferenced](#dereference) to an object of type [JWK](#jwk) representing the public key used to verify the signature. If you do not include a \`kid\` property in the header, you MUST include the public key in the \`jwk\` property. <div class="advisement">Be careful not to accidentally expose the JWK representation of a private key. See [RFC7517](https://tools.ietf.org/html/rfc7517#appendix-A.2) for examples of private key representations. The \`JWK\` MUST never contain \`"d"\`.</div> | Optional |
 | \`jwk\` | [JWK](#jwk) | A JWK representing the public key used to verify the signature. If you do not include a \`jwk\` property in the header, you MUST include the \`kid\` property. <div class="advisement">Be careful not to accidentally expose the JWK representation of a private key. See [RFC7517](https://tools.ietf.org/html/rfc7517#appendix-A.2) for examples of private key representations. The \`JWK\` MUST never contain \`"d"\`.</div> | Optional |
-| \`typ\` | [String](#string) | If present, MUST be set to "JWT". | Optional |
+| \`typ\` | [String](#string) | If present, MUST be set to \`vc+ld+json+jwt\`. | Optional |
+| \`cty\` | [String](#string) | If present, MUST be set to \`vc+ld+json\`. | Optional |
 
 <pre class="example json" title="Sample JOSE Header with reference to a public key in a JWKS">
   {
