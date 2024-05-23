@@ -203,7 +203,70 @@ The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, t
 
 - [Apply Link](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#-apply-link): The apply link provides a url that allows potential badge earners to apply for an opportunity as specified by the badge issuer.
 
-    This extension is not deprecated by the new version of the specs.
+    The OB 3.0 JSON-LD context has already defined the same terms that this extension to all entities
+    of the specification. However, you should follow the guidelines to extend the data model.
+
+    So, you should create a new context link with the new type, as the example below
+
+<pre class="json example"
+     title="Apply Link OB 3.0 JSON-LD Context"
+>
+{
+  "@context": {
+    "@protected": true,
+    "id": "@id",
+    "type": "@type",
+    "ApplyLinkAchievement": {
+      "@id" : "https://w3id.org/openbadges/extensions#ApplyLinkAchievement",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type"
+      }
+    }
+  }
+}
+</pre>
+
+    Also you need a JSON schema. The existing extension JSON schema doesn't
+    work, as it defines the attributes at the root level, while we need to
+    define them for the `Achievement` entity.
+
+<pre class="json example"
+     title="Apply Link OB 3.0 JSON Schema"
+>
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema#",
+  "$id": "https://openbadgespec.org/extensions/applyLinkExtension/schema_obv3p0.json",
+  "type": "object",
+  "properties": {
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "achievement": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": ["url"],
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
+</pre>
+
+A credential with this extension is shown below. It adds the url of the above
+JSON-LD context (assuming is
+`https://openbadgespec.org/extensions/applyLinkExtension/context_3.0.0.json`)
+in its `@context` declaration and the url of the JSON schema in its
+`credentialSchema` attribute.
 
 <pre
     class="json example vc"
@@ -215,7 +278,7 @@ The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, t
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
     "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-    "https://openbadgespec.org/extensions/applyLinkExtension/context.json"
+    "https://openbadgespec.org/extensions/applyLinkExtension/context_3.0.0.json"
   ],
   "id": "http://example.com/credentials/3527",
   "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -231,18 +294,22 @@ The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, t
     "type": "AchievementSubject",
     "achievement": {
         "id": "https://example.com/achievements/21st-century-skills/teamwork",
-        "type": "Achievement",
+        "type": ["Achievement", "ApplyLinkAchievement"],
         "criteria": {
             "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
         },
         "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
-        "name": "Teamwork"
-  	},
-    "extensions:ApplyLink": {
-        "type": ["extensions:ApplyLink"],
+        "name": "Teamwork",
         "url": "http://website.com/apply"
     }
-  }
+  },
+  "credentialSchema": [{
+    "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+    "type": "1EdTechJsonSchemaValidator2019"
+  }, {
+    "id": "https://openbadgespec.org/extensions/applyLinkExtension/schema_obv3p0.json",
+    "type": "1EdTechJsonSchemaValidator2019"
+  }]
 }
 </pre>
 
