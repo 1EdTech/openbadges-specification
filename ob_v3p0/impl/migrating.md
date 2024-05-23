@@ -1147,61 +1147,397 @@ Among Open Badges 2.0 extensions there are two of them that have been authored 1
 
 - [Assessment](https://www.imsglobal.org/1edtech-badge-extensions-education#assessment-extension): This extension provides information about single or multiple assessments that would be completed by the recipient as part of the requirements for earning an OpenBadge. There could be multiple assessments of different types for each badge earned. Separate, independent evaluations of a single assessment could result in multiple assessment/evaluation records, all included in a single instance of the extension.
 
-    This extension is not deprecated by the new version of the specs.
+    Some of the attributes defined in the extension are part of the `Achievement` entity in the new version of the specs, making them redundant when trying to use this extension in Open Badges 3.0 and CLR 2.0. These are mainly the properties related to rubrics and alignment. Others attributes, like those
+    related to the general properties of the assessment, as well as its content, are still unique in the extension, as they aren't covered in the main specs.
 
-<pre
-    class="json example vc"
-    data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
-    data-allowadditionalproperties="true"
-    title="Sample OpenBadgeCredential with Assessment extension"
->
-{
-  "@context": [
-    "https://www.w3.org/ns/credentials/v2",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-    "https://purl.imsglobal.org/spec/ob-assessment/v1p0/context/"
-  ],
-  "id": "http://example.com/credentials/3527",
-  "type": ["VerifiableCredential", "OpenBadgeCredential"],
-  "issuer": {
-    "id": "https://example.com/issuers/876543",
-    "type": "Profile",
-    "name": "Example Corp"
-  },
-  "validFrom": "2010-01-01T00:00:00Z",
-  "name": "Teamwork Badge",
-  "credentialSubject": {
-    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-    "type": "AchievementSubject",
-    "achievement": {
-        "id": "https://example.com/achievements/21st-century-skills/teamwork",
-        "type": "Achievement",
-        "criteria": {
-            "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
-        },
-        "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
-        "name": "Teamwork",
-        "extensions:assessmentExtension": {
-            "type": ["extensions:AssessmentExtension"],
-            "description": "A written evaluation based on a simulation of a medical procedure.",
-            "assessments": [
-            {
-                "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
-                "type": "Artifact",
-                "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
-                "hasGroupParticipation": false,
-                "hasGroupEvaluation": false,
-                "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
-                "assessmentExample": "http://placeholderurl.com",
-                "scoringMethodExampleDescription": "Placeholder text",
-                "assessmentEvaluation": "http://placeholderurl.com"
+
+    The adaptation of this extension ultimately consist on extending the
+    datamodel. Concretely, extending the entity `ResultDescription`, as it
+    is `The set of result descriptions that may be asserted as results with this achievement.`
+
+    Following the guidelines, we could define a new type `AssessmentResultDescription`, with properties related to AssessmentObject (see below).
+
+    <div class="issue" title="Too many categories, or incomplete tagging">
+        Current `AssessmentObject` allows multiple rubrics for an assessment, and multiple rubric criterion for each rubric, while `ResultDescription` is itself a rubric criterion, so it could only allow one rubric and rubric criterion per assessment.
+    </div>
+
+    So, you'll need a JSON-LD context with this new type.
+
+    <pre class="json example"
+        title="Assessment OB 3.0 JSON-LD Context"
+    >
+    {
+        "@context": {
+            "@protected": true,
+            "id":"@id",
+            "type":"@type",
+            "extensions": "https://w3id.org/openbadges/extensions#",
+            "schema": "http://schema.org/",
+            "Assessment": {
+                "@id": "url/vocab.html#Assessment",
+                "@context": {
+                    "schema":"http://schema.org/",
+                    "Artifact":"extensions:AssessmentExtensionArtifact",
+                    "Exam":"extensions:AssessmentExtensionExam",
+                    "ExternalQuestion":"extensions:AssessmentExtensionExternalQuestion",
+                    "FileQuestion":"extensions:AssessmentExtensionFileQuestion",
+                    "Performance":"extensions:AssessmentExtensionPerformance",
+                    "TextQuestion":"extensions:AssessmentExtensionTextQuestion",
+                    "assessmentEvaluation":"extensions:assessmentEvaluation",
+                    "assessmentExample":"extensions:assessmentExample",
+                    "assessmentOutput":"extensions:assessmentOutput",
+                    "characterLimit":"extensions:assessmentCharacterLimit",
+                    "evaluationMethod":"extensions:assessmentEvaluationMethod",
+                    "hasGroupEvaluation":"extensions:assessmentHasGroupEvaluation",
+                    "hasGroupParticipation":"extensions:assessmentHasGroupParticipation",
+                    "questions":"extensions:assessmentQuestions","required":"extensions:assessmentRequired",
+                    "sections":"extensions:assessmentSections",
+                    "scoringMethodExampleDescription":"extensions:assessmentScoringMethodExampleDescription",
+                    "text":"schema:text",
+                    "wordLimit":"extensions:assessmentWordLimit"
+                }
+            },
+            "AssessmentResultDescription": {
+                "@id": "url/vocab.html#IssuerAccreditation",
+                "@context": {
+                    "assessments": {
+                        "@id":"https://purl.imsglobal.org/spec/vc/ob/vocab.html#assessments",
+                        "@type": "@id",
+                        "@container": "@set"
+                    }
+                }
             }
-            ]
         }
-  	}
-  }
-}
-</pre>
+    }
+    </pre>
+
+    Also you need a JSON schema. The existing extension JSON schema doesn't
+    work, as it defines the attributes at the root level, while we need to
+    define them for the `ResultDescription` entity.
+
+    As `AssessmentObject` defines a `type` attribute, which collides with the
+    attribute with the same name in the specification, we rename it to
+    `assessmentType`.
+
+    <pre class="json example"
+        title="Issuer Accreditation OB 3.0 JSON Schema"
+    >
+    {
+        "$schema": "https://json-schema.org/draft/2019-09/schema#",
+        "$id": "http://purl.imsglobal.org/spec/ob-assessment/v3p0/schema/",
+        "type": "object",
+        "properties": {
+            "credentialSubject": {
+            "type": "object",
+            "properties": {
+                "achievement": {
+                "type": "object",
+                "properties": {
+                    "resultDescription": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/$defs/AssessmentResultDescription"
+                        }
+                    }
+                },
+                "additionalProperties": true
+                }
+            },
+            "additionalProperties": true
+            }
+        },
+        "additionalProperties": true,
+        "$defs": {
+            "AssessmentResultDescription": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "description": " A description of the assessment.",
+                    "type": "string"
+                },
+                "assessmentType": {
+                    "description": "The method used to conduct the assessment being referenced. Allowed values are Exam, Performance or Artifact.",
+                    "type": "string",
+                    "enum": ["Exam", "Performance", "Artifact"]
+                },
+                "assessmentOutput": {
+                    "description": "This field provides additional details about the assessment type. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge.",
+                    "type": "string"
+                },
+                "hasGroupParticipation": {
+                    "description": "Completing the assessment activity being referenced requires two or more participants.",
+                    "type": "boolean"
+                },
+                "hasGroupEvaluation": {
+                    "description": "Participants in the assessment activity being referenced are scored as a group. ",
+                    "type": "boolean"
+                },
+                "evaluationMethod": {
+                    "description": "Information about how the assessment is scored. What do the scores represent in a range of scores? If a rubric was used, what are the score ranges for each criteria?",
+                    "type": "string"
+                },
+                "assessmentExample": {
+                    "description": "An example based on the assessment type.",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "scoringMethodExampleDescription": {
+                    "description": "The text of an example of the method or tool used to score the assessment.",
+                    "type": "string"
+                },
+                "assessmentEvaluation": {
+                    "description": "Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods.",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "sections": {
+                    "oneOf": [{
+                        "$ref": "#/definitions/Section"
+                    }, {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/Section"
+                        }
+                    }]
+                }
+            },
+            "required": [
+                "description",
+                "assessmentType",
+                "assessmentOutput",
+                "hasGroupParticipation",
+                "hasGroupEvaluation",
+                "evaluationMethod"
+            ]
+            },
+            "Section": {
+            "description": "A set of questions that make up part of an assessment",
+            "type": "object",
+            "properties": {
+                "questions": {
+                    "oneOf": [{
+                        "$ref": "#/definitions/Question"
+                    }, {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/Question"
+                        }
+                    }]
+                },
+                "title": {
+                    "description": "The name of the section.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A short description of the section.",
+                    "type": "string"
+                },
+                "rubricId": {
+                    "description": "A pointer to a Rubric or RubricCriterion defined elsewhere in the extension related to this section, by its UUID-formatted identifier",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "An external URL that represents this section",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "required": {
+                    "description": "Indicates whether this section is required to be completed. If false, no questions in this section should be considered required.",
+                    "type": "boolean",
+                    "default": true
+                }
+            }
+            },
+            "Question": {
+            "description": "A question that may be asked as part of an assessment",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "Identifies the type of question that this is, a hint for how it should be displayed. More question types may be added later.",
+                    "type": "string",
+                    "enum": ["ExternalQuestion", "FileQuestion", "TextQuestion"]
+                },
+                "text": {
+                    "description": "The actual text of the question that should be presented to the assessment subject",
+                    "type": "string"
+                },
+                "rubricId": {
+                    "description": "A pointer to a Rubric or RubricCriterion defined elsewhere in the extension related to this question, by its UUID-formatted identifier",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "An external URL that represents this question.",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "required": {
+                    "description": "Indicates whether this question is required to be completed.",
+                    "type": "boolean",
+                    "default": true
+                },
+                "wordLimit": {
+                    "description": "For TextQuestions, specifies a maximum length in words that may be enforced as a suggestion or requirement, depending on the application.",
+                    "type": "number"
+                },
+                "characterLimit": {
+                    "description": "For TextQuestions, specifies a maximium length in characters that may be enforced as a suggestion or requirement, depending on the application.",
+                    "type": "number"
+                }
+            },
+            "required": ["type", "text"]
+            }
+        }
+    }
+    </pre>
+
+    A credential with this extension is shown below. It adds the url of the above
+    JSON-LD context (assuming is
+    `http://purl.imsglobal.org/spec/ob-assessment/v3p0/context`)
+    in its `@context` declaration and the url of the JSON schema in its
+    `credentialSchema` attribute.
+
+    <pre
+        class="json example vc"
+        data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+        data-allowadditionalproperties="true"
+        title="Sample OpenBadgeCredential with Assessment extension"
+    >
+    {
+        "@context": [
+            "https://www.w3.org/ns/credentials/v2",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+            "https://purl.imsglobal.org/spec/ob-assessment/v3p0/context/"
+        ],
+        "id": "http://example.com/credentials/3527",
+        "type": ["VerifiableCredential", "OpenBadgeCredential"],
+        "issuer": {
+            "id": "https://example.com/issuers/876543",
+            "type": "Profile",
+            "name": "Example Corp"
+        },
+        "validFrom": "2010-01-01T00:00:00Z",
+        "name": "Teamwork Badge",
+        "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+            "type": "AchievementSubject",
+            "achievement": {
+            "id": "https://example.com/achievements/21st-century-skills/teamwork",
+            "type": "Achievement",
+            "criteria": {
+                "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+            },
+            "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+            "name": "Teamwork",
+            "resultDescription": [
+                {
+                "id": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+                "type": ["ResultDescription", "AssessmentResultDescription"],
+                "alignment": [
+                    {
+                    "type": ["Alignment"],
+                    "targetCode": "project",
+                    "targetDescription": "Project description",
+                    "targetName": "Final Project",
+                    "targetFramework": "1EdTech University Program and Course Catalog",
+                    "targetType": "CFItem",
+                    "targetUrl": "https://1edtech.edu/catalog/degree/project"
+                    }
+                ],
+                "allowedValue": ["D", "C", "B", "A"],
+                "name": "Final Project Grade",
+                "requiredValue": "C",
+                "resultType": "LetterGrade"
+                },
+                {
+                "id": "urn:uuid:a70ddc6a-4c4a-4bd8-8277-cb97c79f40c5",
+                "type": ["ResultDescription", "AssessmentResultDescription"],
+                "alignment": [
+                    {
+                    "type": ["Alignment"],
+                    "targetCode": "project",
+                    "targetDescription": "Project description",
+                    "targetName": "Final Project",
+                    "targetFramework": "1EdTech University Program and Course Catalog",
+                    "targetType": "CFItem",
+                    "targetUrl": "https://1edtech.edu/catalog/degree/project"
+                    }
+                ],
+                "allowedValue": ["D", "C", "B", "A"],
+                "name": "Final Project Grade",
+                "requiredLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+                "resultType": "RubricCriterionLevel",
+                "rubricCriterionLevel": [
+                    {
+                    "id": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+                    "type": ["RubricCriterionLevel"],
+                    "alignment": [
+                        {
+                        "type": ["Alignment"],
+                        "targetCode": "project",
+                        "targetDescription": "Project description",
+                        "targetName": "Final Project",
+                        "targetFramework": "1EdTech University Program and Course Catalog",
+                        "targetType": "CFRubricCriterionLevel",
+                        "targetUrl": "https://1edtech.edu/catalog/degree/project/rubric/levels/mastered"
+                        }
+                    ],
+                    "level": "Mastered",
+                    "name": "Mastery",
+                    "points": "4",
+                    "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
+                    "assessmentType": "Artifact",
+                    "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
+                    "hasGroupParticipation": false,
+                    "hasGroupEvaluation": false,
+                    "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
+                    "assessmentExample": "http://placeholderurl.com",
+                    "scoringMethodExampleDescription": "Placeholder text",
+                    "assessmentEvaluation": "http://placeholderurl.com"
+                    },
+                    {
+                    "id": "urn:uuid:6b84b429-31ee-4dac-9d20-e5c55881f80e",
+                    "type": ["RubricCriterionLevel"],
+                    "alignment": [
+                        {
+                        "type": ["Alignment"],
+                        "targetCode": "project",
+                        "targetDescription": "Project description",
+                        "targetName": "Final Project",
+                        "targetFramework": "1EdTech University Program and Course Catalog",
+                        "targetType": "CFRubricCriterionLevel",
+                        "targetUrl": "https://1edtech.edu/catalog/degree/project/rubric/levels/basic"
+                        }
+                    ],
+                    "level": "Basic",
+                    "name": "Basic",
+                    "points": "4",
+                    "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
+                    "assessmentType": "Artifact",
+                    "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
+                    "hasGroupParticipation": false,
+                    "hasGroupEvaluation": false,
+                    "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
+                    "assessmentExample": "http://placeholderurl.com",
+                    "scoringMethodExampleDescription": "Placeholder text",
+                    "assessmentEvaluation": "http://placeholderurl.com"
+                    }
+                ]
+                }
+            ]
+            }
+        },
+        "credentialSchema": [
+            {
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+            },
+            {
+            "id": "http://purl.imsglobal.org/spec/ob-assessment/v3p0/schema/",
+            "type": "1EdTechJsonSchemaValidator2019"
+            }
+        ]
+    }
+    </pre>
 
 - [Extra Description](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#IMSExtensions): This extension allows issuers to add additional descriptive fields to a BadgeClass or Issuer Profile.
 
