@@ -901,47 +901,54 @@ geographic coordinates.
     in its `@context` declaration and the url of the JSON schema in its
     `credentialSchema` attribute.
 
-<pre
-    class="json example vc"
-    data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
-    data-allowadditionalproperties="true"
-    title="Sample OpenBadgeCredential with Creative Commons Content License extension"
->
-{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-    "https://openbadgespec.org/extensions/licenseExtension/context-3.0.0.json"
-  ],
-  "id": "http://example.com/credentials/3527",
-  "type": ["VerifiableCredential", "OpenBadgeCredential"],
-  "issuer": {
-    "id": "https://example.com/issuers/876543",
-    "type": "Profile",
-    "name": "Example Corp"
-  },
-  "issuanceDate": "2010-01-01T00:00:00Z",
-  "name": "Teamwork Badge",
-  "credentialSubject": {
-    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-    "type": "AchievementSubject",
-    "achievement": {
-        "id": "https://example.com/achievements/21st-century-skills/teamwork",
-        "type": ["Achievement", "CCAchievement"],
-        "criteria": {
-            "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+    <pre
+        class="json example vc"
+        data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+        data-allowadditionalproperties="true"
+        title="Sample OpenBadgeCredential with Creative Commons Content License extension"
+    >
+    {
+        "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+            "https://openbadgespec.org/extensions/licenseExtension/context-3.0.0.json"
+        ],
+        "id": "http://example.com/credentials/3527",
+        "type": ["VerifiableCredential", "OpenBadgeCredential"],
+        "issuer": {
+            "id": "https://example.com/issuers/876543",
+            "type": "Profile",
+            "name": "Example Corp"
         },
-        "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
-        "name": "Teamwork",
-        "license": {
-            "id": "CC-BY-ND",
-            "name": "Creative Commons Attribution",
-            "legalCode": "http://creativecommons.org/licenses/by/4.0/legalcode"
-        }
-  	}
-  }
-}
-</pre>
+        "issuanceDate": "2010-01-01T00:00:00Z",
+        "name": "Teamwork Badge",
+        "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+            "type": "AchievementSubject",
+            "achievement": {
+                "id": "https://example.com/achievements/21st-century-skills/teamwork",
+                "type": ["Achievement", "CCAchievement"],
+                "criteria": {
+                    "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+                },
+                "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+                "name": "Teamwork",
+                "license": {
+                    "id": "CC-BY-ND",
+                    "name": "Creative Commons Attribution",
+                    "legalCode": "http://creativecommons.org/licenses/by/4.0/legalcode"
+                }
+            }
+        },
+        "credentialSchema": [{
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }, {
+            "id": "https://openbadgespec.org/extensions/licenseExtension/schema_obv3p0.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }]
+    }
+    </pre>
 
 - [Original Creator](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#-original-creator): This extension provides a way to track the origin of a badge when one organisation creates it for another. As the new version of the specs defines the `source` property of an `AchievementSubject` for, this extension is, therefore, deprecated. New versions of the specs also defines the `creator` property of an `Achievement`. See Section 2.4.1 Differentiating Issuers and Achievement Creators of [[OB-30]] details this behaviour.
 
@@ -956,73 +963,187 @@ Among Open Badges 2.0 extensions there are two of them that have been authored 1
 
     This extension is not deprecated by the new version of the specs, though it's recommended to use only those attributes not in the main spec.
 
-<pre
-    class="json example vc"
-    data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
-    data-allowadditionalproperties="true"
-    title="Sample OpenBadgeCredential with Issuer Accreditation extension"
->
-{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-    "https://purl.imsglobal.org/spec/ob-accred/v1p0/context/"
-  ],
-  "id": "http://example.com/credentials/3527",
-  "type": ["VerifiableCredential", "OpenBadgeCredential"],
-  "issuer": {
-    "id": "https://example.com/issuers/876543",
-    "type": "Profile",
-    "name": "Example Corp",
-    "extensions:IssuerAccreditation": [{
-        "type": ["extensions:IssuerAccreditation"],
-        "name": "Northwest Commission on Colleges and Universities",
-        "contactInstructions": "Call or email the Commission Office",
-        "url": "http://www.nwccu.org/index.htm",
-        "address": {
-            "streetAddress": "8060 165th Ave. NE, Suite 100",
-            "addressLocality": "Redmond",
-            "addressRegion": "WA",
-            "postalCode": "98052"
-        },
-        "description": "The Northwest Commission on Colleges and Universities (NWCCU) is an independent, non-profit membership organization recognized by the U.S. Department of Education as the regional authority on educational quality and institutional effectiveness of higher education institutions.",
-        "areaServed": "The US seven-state Northwest region of Alaska, Idaho, Montana, Nevada, Oregon, Utah, and Washington. US-AK, US-ID, US-MT, US-NV, US-OR, US-UT, US-WA",
-        "accreditationDate": "2010-09-01",
-        "educationalSector": "Postsecondary"
-    },
+    The adaptation of this extension ultimately consist on extending the
+    datamodel, adding a new attribute `accreditations` of type `Accreditation`
+    to the entity `Profile`. This new type could be used either in
+    `AchievementCredential`s or in `EndorsemenentCredential`s.
+
+    Following the guidelines, we could define a new type `IssuerAccreditation`.
+    So, you'll need a JSON-LD context with this new type.
+
+    <pre class="json example"
+        title="Issuer Accreditation OB 3.0 JSON-LD Context"
+    >
     {
-        "type": ["extensions:issuerAccreditation"],
-        "name": "Commission on Accreditation of Allied Health Education Programs",
-        "contactInstructions": "Contact Kathleen Megivern, Executive Director, megivern@caahep.org",
-        "url": "http://www.ncacasi.org",
-        "address": {
-            "streetAddress": "25400 US Highway 19 N, Suite 158",
-            "addressLocality": "Clearwater",
-            "addressRegion": "FL",
-            "postalCode": "33763"
+        "@context": {
+            "@protected": true,
+            "id":"@id",
+            "type":"@type",
+            "extensions": "https://w3id.org/openbadges/extensions#",
+            "schema": "http://schema.org/",
+            "Accreditation": {
+                "@id": "url/vocab.html#IssuerAccreditation",
+                "@context": {
+                    "contactInstructions": "extensions:accreditationContactInstructions",
+                    "logo": "schema:logo",
+                    "areaServed": "schema:areaServed",
+                    "accreditationDate": "extensions:accreditationDate",
+                    "educationalSector": "extensions:accreditationEducationalSector"
+                }
+            },
+            "IssuerAccreditation": {
+                "@id": "url/vocab.html#IssuerAccreditation",
+                "@context": {
+                    "accreditations": {
+                        "@id":"https://purl.imsglobal.org/spec/vc/ob/vocab.html#accreditations",
+                        "@type": "@id",
+                        "@container": "@set"
+                    }
+                }
+            }
+        }
+    }
+    </pre>
+
+    Also you need a JSON schema. The existing extension JSON schema doesn't
+    work, as it defines the attributes at the root level, while we need to
+    define them for the `Profile` entity.
+
+    <pre class="json example"
+        title="Issuer Accreditation OB 3.0 JSON Schema"
+    >
+    {
+        "$schema": "https://json-schema.org/draft/2019-09/schema#",
+        "$id": "http://purl.imsglobal.org/spec/ob-accred/v3p0/schema",
+        "type": "object",
+        "properties": {
+            "issuer": {
+                "type": "object",
+                "properties": {
+                    "accreditations": {
+                        "type":"array",
+                        "items":{
+                            "$ref":"#/$defs/Accreditation"
+                        }
+                    }
+                },
+                "required": ["accreditations"],
+                "additionalProperties": true
+            }
         },
-        "description": "CAAHEP is the largest programmatic accreditor in the health sciences field. In collaboration with its Committees on Accreditation, CAAHEP reviews and accredits over 2000 educational programs in twenty-eight (28) health science occupations.",
-        "accreditationDate": "2014-04-01",
-        "educationalSector": "postsecondary"
-    }]
-  },
-  "issuanceDate": "2010-01-01T00:00:00Z",
-  "name": "Teamwork Badge",
-  "credentialSubject": {
-    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-    "type": "AchievementSubject",
-    "achievement": {
-        "id": "https://example.com/achievements/21st-century-skills/teamwork",
-        "type": "Achievement",
-        "criteria": {
-            "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+        "additionalProperties": true,
+        "$defs": {
+            "ISODate":{
+                "description":"ISO 8601 date format string YYYY-MM-DD or YYYYMMDD",
+                "type":"string",
+                "pattern":"^([0-9]{4})(-?)(1[0-2]|0[1-9])\2(3[01]|0[1-9]|[12][0-9])$",
+            },
+            "Accreditation": {
+                "type": "object",
+                "properties": {
+                    "contactInstructions":{
+                        "type":"string",
+                    },
+                    "logo":{
+                        "type":"string",
+                        "format":"uri",
+                    },
+                    "areaServed":{
+                        "type":"string",
+                    },
+                    "accreditationDate":{
+                        "$ref":"#/$defs/ISODate",
+                    },
+                    "educationalSector":{
+                        "type":"string",
+                    }
+                },
+                "required": ["contactInstructions"]
+           }
+        }
+    }
+    </pre>
+
+    A credential with this extension is shown below. It adds the url of the above
+    JSON-LD context (assuming is
+    `http://purl.imsglobal.org/spec/ob-accred/v3p0/context`)
+    in its `@context` declaration and the url of the JSON schema in its
+    `credentialSchema` attribute.
+
+    <pre
+        class="json example vc"
+        data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+        data-allowadditionalproperties="true"
+        title="Sample OpenBadgeCredential with Issuer Accreditation extension"
+    >
+    {
+        "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+            "http://purl.imsglobal.org/spec/ob-accred/v3p0/context"
+        ],
+        "id": "http://example.com/credentials/3527",
+        "type": ["VerifiableCredential", "OpenBadgeCredential"],
+        "issuer": {
+            "id": "https://example.com/issuers/876543",
+            "type": ["Profile", "IssuerAccreditation"]
+            "name": "Example Corp",
+            "accreditations": [{
+                "type": ["Profile", "Accreditation"],
+                "name": "Northwest Commission on Colleges and Universities",
+                "contactInstructions": "Call or email the Commission Office",
+                "url": "http://www.nwccu.org/index.htm",
+                "address": {
+                    "streetAddress": "8060 165th Ave. NE, Suite 100",
+                    "addressLocality": "Redmond",
+                    "addressRegion": "WA",
+                    "postalCode": "98052"
+                },
+                "description": "The Northwest Commission on Colleges and Universities (NWCCU) is an independent, non-profit membership organization recognized by the U.S. Department of Education as the regional authority on educational quality and institutional effectiveness of higher education institutions.",
+                "areaServed": "The US seven-state Northwest region of Alaska, Idaho, Montana, Nevada, Oregon, Utah, and Washington. US-AK, US-ID, US-MT, US-NV, US-OR, US-UT, US-WA",
+                "accreditationDate": "2010-09-01",
+                "educationalSector": "Postsecondary"
+            },
+            {
+                "type": ["Profile", "Accreditation"],
+                "name": "Commission on Accreditation of Allied Health Education Programs",
+                "contactInstructions": "Contact Kathleen Megivern, Executive Director, megivern@caahep.org",
+                "url": "http://www.ncacasi.org",
+                "address": {
+                    "streetAddress": "25400 US Highway 19 N, Suite 158",
+                    "addressLocality": "Clearwater",
+                    "addressRegion": "FL",
+                    "postalCode": "33763"
+                },
+                "description": "CAAHEP is the largest programmatic accreditor in the health sciences field. In collaboration with its Committees on Accreditation, CAAHEP reviews and accredits over 2000 educational programs in twenty-eight (28) health science occupations.",
+                "accreditationDate": "2014-04-01",
+                "educationalSector": "postsecondary"
+            }]
         },
-        "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
-        "name": "Teamwork"
-  	}
-  }
-}
-</pre>
+        "issuanceDate": "2010-01-01T00:00:00Z",
+        "name": "Teamwork Badge",
+        "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+            "type": "AchievementSubject",
+            "achievement": {
+                "id": "https://example.com/achievements/21st-century-skills/teamwork",
+                "type": "Achievement",
+                "criteria": {
+                    "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+                },
+                "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+                "name": "Teamwork"
+            }
+        },
+        "credentialSchema": [{
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }, {
+            "id": "http://purl.imsglobal.org/spec/ob-accred/v3p0/schema",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }]
+    }
+    </pre>
 
 - [Assessment](https://www.imsglobal.org/1edtech-badge-extensions-education#assessment-extension): This extension provides information about single or multiple assessments that would be completed by the recipient as part of the requirements for earning an OpenBadge. There could be multiple assessments of different types for each badge earned. Separate, independent evaluations of a single assessment could result in multiple assessment/evaluation records, all included in a single instance of the extension.
 
