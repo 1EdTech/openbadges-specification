@@ -217,12 +217,12 @@ The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, t
             "id": "@id",
             "type": "@type",
             "ApplyLinkAchievement": {
-            "@id" : "https://w3id.org/openbadges/extensions#ApplyLinkAchievement",
-            "@context": {
-                "@protected": true,
-                "id": "@id",
-                "type": "@type"
-            }
+                "@id" : "https://w3id.org/openbadges/extensions#ApplyLinkAchievement",
+                "@context": {
+                    "@protected": true,
+                    "id": "@id",
+                    "type": "@type"
+                }
             }
         }
     }
@@ -241,21 +241,21 @@ The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, t
         "type": "object",
         "properties": {
             "credentialSubject": {
-            "type": "object",
-            "properties": {
-                "achievement": {
                 "type": "object",
                 "properties": {
-                    "url": {
-                    "type": "string",
-                    "format": "uri"
+                    "achievement": {
+                        "type": "object",
+                        "properties": {
+                            "url": {
+                                "type": "string",
+                                "format": "uri"
+                            }
+                        },
+                        "required": ["url"],
+                        "additionalProperties": true
                     }
                 },
-                "required": ["url"],
                 "additionalProperties": true
-                }
-            },
-            "additionalProperties": true
             }
         },
         "additionalProperties": true
@@ -264,12 +264,11 @@ The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, t
 
     A credential with this extension is shown below. It adds the url of the above
     JSON-LD context (assuming is
-    `https://openbadgespec.org/extensions/applyLinkExtension/context_3.0.0.json`)
+    `https://openbadgespec.org/extensions/applyLinkExtension/context-3.0.0.json`)
     in its `@context` declaration and the url of the JSON schema in its
     `credentialSchema` attribute.
 
-    <pre
-        class="json example vc"
+    <pre class="json example vc"
         data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
         data-allowadditionalproperties="true"
         title="Sample OpenBadgeCredential with Apply Link extension"
@@ -278,7 +277,7 @@ The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, t
         "@context": [
             "https://www.w3.org/2018/credentials/v1",
             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-            "https://openbadgespec.org/extensions/applyLinkExtension/context_3.0.0.json"
+            "https://openbadgespec.org/extensions/applyLinkExtension/context-3.0.0.json"
         ],
         "id": "http://example.com/credentials/3527",
         "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -314,44 +313,230 @@ The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, t
     </pre>
 
 - [Endorsement](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#endorsement): Endorsement is part of the main specification since Open Badges 2.0.
-- [Geo Location](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#geo-location): This extension allows the addition of geographic coordinates associated with an OB 2.0's badge object. For example, geolocation could represent where a Badge Class is available, where a badge was earned or the location of an issuer. Some of the use cases are part of the main specification in the new versions of the specs. Precisely, the `Profile` entity – which represents an issuer or a creator of the achievement – contains the `address` property of type `Address` with the geographic coordinates.
+- [Geo Location](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#geo-location):
+This extension allows the addition of geographic coordinates associated with an
+OB 2.0's badge object. For example, geolocation could represent where a Badge
+Class is available, where a badge was earned or the location of an issuer. Some
+of the use cases are part of the main specification in the new versions of the
+specs. Precisely, the `Profile` entity – which represents an issuer or a creator
+of the achievement – contains the `address` property of type `Address` with the
+geographic coordinates.
 
-    However, this extension covers uses cases not covered by the main spec, like where the badge is available, or where a badge was earned. Therefore, implementors may use this extension to fulfill these requirements.
+    However, this extension covers uses cases not covered by the main spec,
+    like where the badge is available, or where a badge was earned. Therefore,
+    implementors may use this extension to fulfill these requirements.
 
-<pre
-    class="json example vc"
-    data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
-    data-allowadditionalproperties="true"
-    title="Sample OpenBadgeCredential with Geo Location extension"
->
-{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-    "https://openbadgespec.org/extensions/geoCoordinatesExtension/context.json"
-  ],
-  "id": "http://example.com/credentials/3527",
-  "type": ["VerifiableCredential", "OpenBadgeCredential"],
-  "issuer": {
-    "id": "https://example.com/issuers/876543",
-    "type": "Profile",
-    "name": "Example Corp"
-  },
-  "issuanceDate": "2010-01-01T00:00:00Z",
-  "name": "Teamwork Badge",
-  "credentialSubject": {
-    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-    "type": "AchievementSubject",
-    "achievement": {
-        "id": "https://example.com/achievements/21st-century-skills/teamwork",
-        "type": "Achievement",
-        "criteria": {
-            "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+    We can leverage the http://schema.org/Place term for extending the datamodel.
+    So, the adaptation of this extension ultimately consist on extending the
+    datamodel, adding a `place` attribute of type `Place` to the entities
+    `Achievement` and `AchievementCredential`.
+
+    Given the fact that this extension applies to two different entities, we
+    would need two different JSON schemas. The JSON-LD context, on the other
+    hand, could be the same for both extensions.
+
+    <pre class="json example"
+        title="GeoLocation OB 3.0 JSON-LD Context"
+    >
+    {
+        "@context": {
+            "@protected": true,
+            "schema": "http://schema.org/",
+            "Place": "schema:Place",
+        }
+    }
+    </pre>
+
+    Also you need two JSON schemas, as detailed befor. The existing extension
+    JSON schema doesn't work, as it defines the attributes at the root level,
+    while we need to define them for the `Achievement` and `AchievementCredential``
+    entity.
+
+    <pre class="json example"
+        title="GeoLocation OB 3.0 JSON Schema for AchievementCredential"
+    >
+    {
+        "$schema": "https://json-schema.org/draft/2019-09/schema#",
+        "$id": "https://openbadgespec.org/extensions/geoCoordinatesExtension/schema_achievement_credential_obv3p0.json",
+        "type": "object",
+        "properties": {
+            "place": {
+                $ref":"#/$defs/Place"
+            }
         },
-        "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
-        "name": "Teamwork",
-        "schema:location": {
-            "type": ["extensions:GeoCoordinates", "schema:Place"],
+        "required": ["place"],
+        "additionalProperties": true,
+        "$defs": {
+            "Place": {
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "geo": {
+                        "$ref":"#/$defs/GeoCoordinates"
+                    }
+                }
+            },
+            "GeoCoordinates": {
+                "description":"The geographic coordinates of a location.",
+                "type":"object",
+                "properties":{
+                    "type":{
+                        "description":"The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'GeoCoordinates'.",
+                        "$comment":"Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+                        "type":"string",
+                        "enum":[
+                            "GeoCoordinates",
+                        ]
+                    },
+                    "latitude":{
+                        "description":"The latitude of the location [[WGS84]].",
+                        "$comment":"Origin: Float (PrimitiveType)",
+                        "type":"number",
+                        },
+                    "longitude":{
+                        "description":"The longitude of the location [[WGS84]].",
+                        "$comment":"Origin: Float (PrimitiveType)",
+                        "type":"number",
+                    }
+                },
+                "required":[
+                    "type",
+                    "latitude",
+                    "longitude",
+                ],
+                "additionalProperties":true,
+            }
+        }
+    }
+    </pre>
+
+    <pre class="json example"
+        title="GeoLocation OB 3.0 JSON Schema for Achievement"
+    >
+    {
+        "$schema": "https://json-schema.org/draft/2019-09/schema#",
+        "$id": "https://openbadgespec.org/extensions/geoCoordinatesExtension/schema_achievement_obv3p0.json",
+        "type": "object",
+        "properties": {
+            "credentialSubject": {
+                "type": "object",
+                "properties": {
+                    "achievement": {
+                        "type": "object",
+                        "properties": {
+                            "place": {
+                                $ref":"#/$defs/Place"
+                            }
+                        },
+                        "required": ["place"],
+
+                        "additionalProperties": true
+                    }
+                },
+                "additionalProperties": true
+            }
+        },
+        "additionalProperties": true,
+        "$defs": {
+            "Place": {
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "geo": {
+                        "$ref":"#/$defs/GeoCoordinates"
+                    }
+                }
+            },
+            "GeoCoordinates": {
+                "description":"The geographic coordinates of a location.",
+                "type":"object",
+                "properties":{
+                    "type":{
+                        "description":"The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'GeoCoordinates'.",
+                        "$comment":"Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+                        "type":"string",
+                        "enum":[
+                            "GeoCoordinates",
+                        ]
+                    },
+                    "latitude":{
+                        "description":"The latitude of the location [[WGS84]].",
+                        "$comment":"Origin: Float (PrimitiveType)",
+                        "type":"number",
+                        },
+                    "longitude":{
+                        "description":"The longitude of the location [[WGS84]].",
+                        "$comment":"Origin: Float (PrimitiveType)",
+                        "type":"number",
+                    }
+                },
+                "required":[
+                    "type",
+                    "latitude",
+                    "longitude",
+                ],
+                "additionalProperties":true,
+            }
+        }
+    }
+    </pre>
+
+    A credential with this extension applied to both entities is shown below.
+    It adds the url of the above JSON-LD context (assuming is
+    `https://openbadgespec.org/extensions/geoCoordinatesExtension/context-3.0.0.json`)
+    in its `@context` declaration and the url of the JSON schema in its
+    `credentialSchema` attribute.
+    <pre
+        class="json example vc"
+        data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+        data-allowadditionalproperties="true"
+        title="Sample OpenBadgeCredential with Geo Location extension"
+    >
+    {
+        "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+            "https://openbadgespec.org/extensions/geoCoordinatesExtension/context-3.0.0.json"
+        ],
+        "id": "http://example.com/credentials/3527",
+        "type": ["VerifiableCredential", "OpenBadgeCredential", "Place"],
+        "issuer": {
+            "id": "https://example.com/issuers/876543",
+            "type": "Profile",
+            "name": "Example Corp"
+        },
+        "issuanceDate": "2010-01-01T00:00:00Z",
+        "name": "Teamwork Badge",
+        "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+            "type": "AchievementSubject",
+            "achievement": {
+                "id": "https://example.com/achievements/21st-century-skills/teamwork",
+                "type": ["Achievement", "Place"],
+                "criteria": {
+                    "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+                },
+                "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+                "name": "Teamwork",
+                "place": {
+                    "name": "Stadium of Light, Sunderland",
+                    "description": "A foodball stadium in Sunderland, England that is home to Sunderland A.F.C.",
+                    "geo": {
+                        "latitude": 54.914440,
+                        "longitude": -1.387721
+                    }
+                }
+            }
+        },
+        "place": {
             "name": "Stadium of Light, Sunderland",
             "description": "A foodball stadium in Sunderland, England that is home to Sunderland A.F.C.",
             "geo": {
@@ -359,10 +544,8 @@ The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, t
                 "longitude": -1.387721
             }
         }
-  	}
-  }
-}
-</pre>
+    }
+    </pre>
 
 - [Accessibility](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#-accessibility): This extension allows the addition of the content for people with disabilities.
 
