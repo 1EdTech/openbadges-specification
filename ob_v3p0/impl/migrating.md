@@ -136,7 +136,7 @@ profile.
 {
 	"@context": [
 		"https://www.w3.org/ns/did/v1",
-		"https://www.w3.org/2018/credentials/v1",
+		"https://www.w3.org/ns/credentials/v2",
 		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
 		"https://w3id.org/security/suites/ed25519-2020/v1"
 	],
@@ -275,7 +275,7 @@ The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, t
     >
     {
         "@context": [
-            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/ns/credentials/v2",
             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
             "https://openbadgespec.org/extensions/applyLinkExtension/context-3.0.0.json"
         ],
@@ -286,7 +286,7 @@ The OB 3.0 and CLR 2.0 context file doesn't define the type `Extension`. Thus, t
             "type": "Profile",
             "name": "Example Corp"
         },
-        "issuanceDate": "2010-01-01T00:00:00Z",
+        "validFrom": "2010-01-01T00:00:00Z",
         "name": "Teamwork Badge",
         "credentialSubject": {
             "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -509,7 +509,7 @@ geographic coordinates.
     >
     {
         "@context": [
-            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/ns/credentials/v2",
             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
             "https://openbadgespec.org/extensions/geoCoordinatesExtension/context-3.0.0.json"
         ],
@@ -520,7 +520,7 @@ geographic coordinates.
             "type": "Profile",
             "name": "Example Corp"
         },
-        "issuanceDate": "2010-01-01T00:00:00Z",
+        "validFrom": "2010-01-01T00:00:00Z",
         "name": "Teamwork Badge",
         "credentialSubject": {
             "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -736,7 +736,7 @@ geographic coordinates.
     >
     {
         "@context": [
-            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/ns/credentials/v2",
             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
             "https://openbadgespec.org/extensions/accessibilityExtension/context-3.0.0.json"
         ],
@@ -753,7 +753,7 @@ geographic coordinates.
             "url": "http://exampleaccessiblecontent.org/"
 
         },
-        "issuanceDate": "2010-01-01T00:00:00Z",
+        "validFrom": "2010-01-01T00:00:00Z",
         "name": "Teamwork Badge",
         "credentialSubject": {
             "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -909,7 +909,7 @@ geographic coordinates.
     >
     {
         "@context": [
-            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/ns/credentials/v2",
             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
             "https://openbadgespec.org/extensions/licenseExtension/context-3.0.0.json"
         ],
@@ -920,7 +920,7 @@ geographic coordinates.
             "type": "Profile",
             "name": "Example Corp"
         },
-        "issuanceDate": "2010-01-01T00:00:00Z",
+        "validFrom": "2010-01-01T00:00:00Z",
         "name": "Teamwork Badge",
         "credentialSubject": {
             "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -1078,7 +1078,7 @@ Among Open Badges 2.0 extensions there are two of them that have been authored 1
     >
     {
         "@context": [
-            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/ns/credentials/v2",
             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
             "http://purl.imsglobal.org/spec/ob-accred/v3p0/context"
         ],
@@ -1120,7 +1120,7 @@ Among Open Badges 2.0 extensions there are two of them that have been authored 1
                 "educationalSector": "postsecondary"
             }]
         },
-        "issuanceDate": "2010-01-01T00:00:00Z",
+        "validFrom": "2010-01-01T00:00:00Z",
         "name": "Teamwork Badge",
         "credentialSubject": {
             "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -1157,7 +1157,7 @@ Among Open Badges 2.0 extensions there are two of them that have been authored 1
 >
 {
   "@context": [
-    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/ns/credentials/v2",
     "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
     "https://purl.imsglobal.org/spec/ob-assessment/v1p0/context/"
   ],
@@ -1168,7 +1168,7 @@ Among Open Badges 2.0 extensions there are two of them that have been authored 1
     "type": "Profile",
     "name": "Example Corp"
   },
-  "issuanceDate": "2010-01-01T00:00:00Z",
+  "validFrom": "2010-01-01T00:00:00Z",
   "name": "Teamwork Badge",
   "credentialSubject": {
     "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
