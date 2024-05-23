@@ -1446,7 +1446,16 @@ Among Open Badges 2.0 extensions there are two of them that have been authored 1
                 "allowedValue": ["D", "C", "B", "A"],
                 "name": "Final Project Grade",
                 "requiredValue": "C",
-                "resultType": "LetterGrade"
+                "resultType": "LetterGrade",
+                "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
+                "assessmentType": "Artifact",
+                "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
+                "hasGroupParticipation": false,
+                "hasGroupEvaluation": false,
+                "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
+                "assessmentExample": "http://placeholderurl.com",
+                "scoringMethodExampleDescription": "Placeholder text",
+                "assessmentEvaluation": "http://placeholderurl.com"
                 },
                 {
                 "id": "urn:uuid:a70ddc6a-4c4a-4bd8-8277-cb97c79f40c5",
@@ -1485,14 +1494,6 @@ Among Open Badges 2.0 extensions there are two of them that have been authored 1
                     "name": "Mastery",
                     "points": "4",
                     "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
-                    "assessmentType": "Artifact",
-                    "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
-                    "hasGroupParticipation": false,
-                    "hasGroupEvaluation": false,
-                    "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
-                    "assessmentExample": "http://placeholderurl.com",
-                    "scoringMethodExampleDescription": "Placeholder text",
-                    "assessmentEvaluation": "http://placeholderurl.com"
                     },
                     {
                     "id": "urn:uuid:6b84b429-31ee-4dac-9d20-e5c55881f80e",
@@ -1510,18 +1511,18 @@ Among Open Badges 2.0 extensions there are two of them that have been authored 1
                     ],
                     "level": "Basic",
                     "name": "Basic",
-                    "points": "4",
-                    "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
-                    "assessmentType": "Artifact",
-                    "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
-                    "hasGroupParticipation": false,
-                    "hasGroupEvaluation": false,
-                    "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
-                    "assessmentExample": "http://placeholderurl.com",
-                    "scoringMethodExampleDescription": "Placeholder text",
-                    "assessmentEvaluation": "http://placeholderurl.com"
+                    "points": "4"
                     }
-                ]
+                ],
+                "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
+                "assessmentType": "Artifact",
+                "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
+                "hasGroupParticipation": false,
+                "hasGroupEvaluation": false,
+                "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
+                "assessmentExample": "http://placeholderurl.com",
+                "scoringMethodExampleDescription": "Placeholder text",
+                "assessmentEvaluation": "http://placeholderurl.com"
                 }
             ]
             }
@@ -1536,7 +1537,8 @@ Among Open Badges 2.0 extensions there are two of them that have been authored 1
             "type": "1EdTechJsonSchemaValidator2019"
             }
         ]
-    }
+        }
+
     </pre>
 
 - [Extra Description](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#IMSExtensions): This extension allows issuers to add additional descriptive fields to a BadgeClass or Issuer Profile.
