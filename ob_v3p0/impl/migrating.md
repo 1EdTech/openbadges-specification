@@ -347,10 +347,10 @@ geographic coordinates.
     }
     </pre>
 
-    Also you need two JSON schemas, as detailed befor. The existing extension
+    Also you need two JSON schemas, as detailed before. The existing extension
     JSON schema doesn't work, as it defines the attributes at the root level,
-    while we need to define them for the `Achievement` and `AchievementCredential``
-    entity.
+    while we need to define them for the `Achievement` and `AchievementCredential`
+    entities.
 
     <pre class="json example"
         title="GeoLocation OB 3.0 JSON Schema for AchievementCredential"
@@ -368,6 +368,7 @@ geographic coordinates.
         "additionalProperties": true,
         "$defs": {
             "Place": {
+                "type":"object",
                 "properties": {
                     "name": {
                         "type": "string"
@@ -443,6 +444,7 @@ geographic coordinates.
         "additionalProperties": true,
         "$defs": {
             "Place": {
+                "type":"object",
                 "properties": {
                     "name": {
                         "type": "string"
@@ -492,8 +494,13 @@ geographic coordinates.
     A credential with this extension applied to both entities is shown below.
     It adds the url of the above JSON-LD context (assuming is
     `https://openbadgespec.org/extensions/geoCoordinatesExtension/context-3.0.0.json`)
-    in its `@context` declaration and the url of the JSON schema in its
+    in its `@context` declaration and the url of the JSON schemas in its
     `credentialSchema` attribute.
+
+    <div class="note">
+        You only need to include the JSON schema of the extended entity to use.
+    </div>
+
     <pre
         class="json example vc"
         data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
@@ -536,6 +543,16 @@ geographic coordinates.
                 }
             }
         },
+        "credentialSchema": [{
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }, {
+            "id": "https://openbadgespec.org/extensions/geoCoordinatesExtension/schema_achievement_credential_obv3p0.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }, {
+            "id": "https://openbadgespec.org/extensions/geoCoordinatesExtension/schema_achievement_obv3p0.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }],
         "place": {
             "name": "Stadium of Light, Sunderland",
             "description": "A foodball stadium in Sunderland, England that is home to Sunderland A.F.C.",
@@ -550,51 +567,232 @@ geographic coordinates.
 - [Accessibility](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#-accessibility): This extension allows the addition of the content for people with disabilities.
 
     This extension is not deprecated by the new version of the specs.
+    The adaptation of this extension ultimately consist on extending the
+    datamodel, adding existing accessibility attributes to the entities
+    `Achievement`, `AchievementCredential` and `Profile`.
 
-<pre
-    class="json example vc"
-    data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
-    data-allowadditionalproperties="true"
-    title="Sample OpenBadgeCredential with Accessibility extension"
->
-{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-    "https://w3id.org/openbadges/extensions/accessibilityExtension/context.json"
-  ],
-  "id": "http://example.com/credentials/3527",
-  "type": ["VerifiableCredential", "OpenBadgeCredential"],
-  "issuer": {
-    "id": "https://example.com/issuers/876543",
-    "type": "Profile",
-    "name": "Example Corp"
-  },
-  "issuanceDate": "2010-01-01T00:00:00Z",
-  "name": "Teamwork Badge",
-  "credentialSubject": {
-    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-    "type": "AchievementSubject",
-    "achievement": {
-        "id": "https://example.com/achievements/21st-century-skills/teamwork",
-        "type": "Achievement",
-        "criteria": {
-            "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+    The OB 3.0 JSON-LD context has already defined some terms that this
+    extension to all entities of the specification. So, you'll need a JSON-LD
+    context with the remaining terms.
+
+    <pre class="json example"
+        title="Accessibility OB 3.0 JSON-LD Context"
+    >
+    {
+        "@context": {
+            "@protected": true,
+            "accessibilityAPI": "https://schema.org/accessibilityAPI",
+            "accessibilityControl": "https://schema.org/accessibilityControl",
+            "accessibilityFeature": "https://schema.org/accessibilityFeature",
+            "accessibilityHazard": "https://schema.org/accessibilityHazard"
+        }
+    }
+    </pre>
+
+    Given the fact that this extension applies to three different entities, we
+    would need three different JSON schemas. The existing extension JSON schema
+    doesn't work, as it defines the attributes at the root level,
+    while we need to define them for the `Achievement`, `AchievementCredential`
+    and `Profile` entities.
+
+    <pre class="json example"
+        title="Accessibility OB 3.0 JSON Schema for AchievementCredential"
+    >
+    {
+        "$schema": "https://json-schema.org/draft/2019-09/schema#",
+        "$id": "https://openbadgespec.org/extensions/accessibilityExtension/schema_achievement_credential_obv3p0.json",
+        "type": "object",
+        "properties": {
+            "accessibilityAPI": {
+                "type": "string"
+            },
+            "accessibilityControl": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+                },
+            "accessibilityFeature": {
+                "type": "string"
+            },
+            "accessibilityHazard": {
+                "type": "string"
+            },
+            "url":{
+                "type": "string",
+                "format": "uri"
+            },
+        }
+        "required": ["url","accessibilityFeature"],
+        "additionalProperties": true,
+    }
+    </pre>
+
+    <pre class="json example"
+        title="Accessibility OB 3.0 JSON Schema for Achievement"
+    >
+    {
+        "$schema": "https://json-schema.org/draft/2019-09/schema#",
+        "$id": "https://openbadgespec.org/extensions/accessibilityExtension/schema_achievement_obv3p0.json",
+        "type": "object",
+        "properties": {
+            "credentialSubject": {
+                "type": "object",
+                "properties": {
+                    "achievement": {
+                        "type": "object",
+                        "properties": {
+                            "accessibilityAPI": {
+                                "type": "string"
+                            },
+                            "accessibilityControl": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                                },
+                            "accessibilityFeature": {
+                                "type": "string"
+                            },
+                            "accessibilityHazard": {
+                                "type": "string"
+                            },
+                            "url":{
+                                "type": "string",
+                                "format": "uri"
+                            },
+                        }
+                        "required": ["url","accessibilityFeature"],
+                        "additionalProperties": true
+                    }
+                },
+                "additionalProperties": true
+            }
         },
-        "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
-        "name": "Teamwork",
-        "extensions:Accessibility": {
-            "type": ["extensions:Accessibility"],
+        "additionalProperties": true
+    }
+    </pre>
+
+    <pre class="json example"
+        title="Accessibility OB 3.0 JSON Schema for Issuer Profile"
+    >
+    {
+        "$schema": "https://json-schema.org/draft/2019-09/schema#",
+        "$id": "https://openbadgespec.org/extensions/accessibilityExtension/schema_profile_obv3p0.json",
+        "type": "object",
+        "properties": {
+            "credentialSubject": {
+                "type": "object",
+                "properties": {
+                    "issuer": {
+                        "type": "object",
+                        "properties": {
+                            "accessibilityAPI": {
+                                "type": "string"
+                            },
+                            "accessibilityControl": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                                },
+                            "accessibilityFeature": {
+                                "type": "string"
+                            },
+                            "accessibilityHazard": {
+                                "type": "string"
+                            },
+                            "url":{
+                                "type": "string",
+                                "format": "uri"
+                            },
+                        }
+                        "required": ["url","accessibilityFeature"],
+                        "additionalProperties": true
+                    }
+                },
+                "additionalProperties": true
+            }
+        },
+        "additionalProperties": true,
+    }
+    </pre>
+
+    A credential with this extension applied to both entities is shown below.
+    It adds the url of the above JSON-LD context (assuming is
+    `https://openbadgespec.org/extensions/accessibilityExtension/context-3.0.0.json`)
+    in its `@context` declaration and the url of the JSON schemas in its
+    `credentialSchema` attribute.
+
+    <div class="note">
+        You only need to include the JSON schema of the extended entity to use.
+    </div>
+
+    <pre
+        class="json example vc"
+        data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+        data-allowadditionalproperties="true"
+        title="Sample OpenBadgeCredential with Accessibility extension"
+    >
+    {
+        "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+            "https://openbadgespec.org/extensions/accessibilityExtension/context-3.0.0.json"
+        ],
+        "id": "http://example.com/credentials/3527",
+        "type": ["VerifiableCredential", "OpenBadgeCredential", "Accessibility"],
+        "issuer": {
+            "id": "https://example.com/issuers/876543",
+            "type": ["Profile","Accessibility"],
+            "name": "Example Corp",
             "accessibilityAPI": "ARIA",
             "accessibilityControl": ["fullKeyboardControl","fullMouseControl","fullTouchControl"],
             "accessibilityFeature": "audioDescription",
             "accessibilityHazard": "noFlashingHazard",
             "url": "http://exampleaccessiblecontent.org/"
-        }
-  	}
-  }
-}
-</pre>
+
+        },
+        "issuanceDate": "2010-01-01T00:00:00Z",
+        "name": "Teamwork Badge",
+        "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+            "type": "AchievementSubject",
+            "achievement": {
+                "id": "https://example.com/achievements/21st-century-skills/teamwork",
+                "type": ["Achievement", "Accessibility"],
+                "criteria": {
+                    "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+                },
+                "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+                "name": "Teamwork",
+                "accessibilityAPI": "ARIA",
+                "accessibilityControl": ["fullKeyboardControl","fullMouseControl","fullTouchControl"],
+                "accessibilityFeature": "audioDescription",
+                "accessibilityHazard": "noFlashingHazard",
+                "url": "http://exampleaccessiblecontent.org/"
+            }
+        },
+        "accessibilityAPI": "ARIA",
+        "accessibilityControl": ["fullKeyboardControl","fullMouseControl","fullTouchControl"],
+        "accessibilityFeature": "audioDescription",
+        "accessibilityHazard": "noFlashingHazard",
+        "url": "http://exampleaccessiblecontent.org/",
+        "credentialSchema": [{
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }, {
+            "id": "https://openbadgespec.org/extensions/accessibilityExtension/schema_achievement_credential_obv3p0.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }, {
+            "id": "https://openbadgespec.org/extensions/accessibilityExtension/schema_achievement_obv3p0.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }, {
+            "id": "https://openbadgespec.org/extensions/accessibilityExtension/schema_profile_obv3p0.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }]
+    }
+    </pre>
 
 - [Creative Commons Content License](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/extensions/index.html#creative-commons-content-license): This extension enables issuers to indicate what permissions are granted to the public to reuse BadgeClass metadata in their own badges in terms of an expressive set of open content licenses that have broad global buy-in.
 
