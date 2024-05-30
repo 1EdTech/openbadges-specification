@@ -32,7 +32,7 @@ These services contain a set of required endpoints a [=candidate platform=] must
 
 The process for conformance testing role implementations of Open Badges includes the following:
 
-* First, launch the [1EdTech Conformance Test Suite](https://certification.imsglobal.org/certification/badgeconnect/launch.html) for Open Badges 3.0 and follow the onscreen instructions to run the tests.
+* First, launch the [1EdTech Conformance Test Suite](https://certification.imsglobal.org/certification/verifiable-credentials) for Open Badges 3.0 and follow the onscreen instructions to run the tests.
 * Once the tests have been successfully run, submit your test results. A copy of your test results will be sent to your email address.
 
 To pass certification, you must take the following steps:
