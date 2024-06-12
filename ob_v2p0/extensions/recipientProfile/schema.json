@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "RecipientProfile schema",
+  "description": "A Blockcerts extension allowing inclusion of additional recipient details, including recipient publicKey and name. Inclusion of the recipient publicKey allows the recipient to make a strong claim of ownership over the key, and hence the badge being awarded. In the future, publicKey will be deprecated in favor of a decentralized id (DID) in the `id` field.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "reserved for future use as DID"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of recipient, http://schema.org/name"
+    },
+    "publicKey": {
+      "type": "string",
+      "format": "uri",
+      "description": "In Blockcerts `publicKey` IRIs are typically represented with a `<scheme>:` prefix. For Bitcoin transactions, this would be the recipient public Bitcoin address prefixed with `ecdsa-koblitz-pubkey:`; e.g. `ecdsa-koblitz-pubkey:14RZvYazz9H2DC2skBfpPVxax54g4yabxe`"
+    }
+  }
+}
