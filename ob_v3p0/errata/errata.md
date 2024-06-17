@@ -1,5 +1,38 @@
 ## Errata for Open Badges 3.0 Specification
 
+### Data Model
+
+- Multiplicity column for the property `@context` in [AchievementCredential](https://www.imsglobal.org/spec/ob/v3p0#achievementcredential) should be `[2..*]`.
+
+- Multiplicity column for the property `@context` in [AchievementCredentialv1p1](https://www.imsglobal.org/spec/ob/v3p0#achievementcredentialv1p1) should be `[2..*]`.
+
+### Typography
+
+- Description column for the property `termsOfUse` in [AchievementCredential](https://www.imsglobal.org/spec/ob/v3p0#achievementcredential) should be:
+
+> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
+
+- Description column for the property `termsOfUse` in [EndorsementCredential](https://www.imsglobal.org/spec/ob/v3p0#endorsementcredential) should be:
+
+> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
+
+- Description column for the property `termsOfUse` in [VerifiableCredential](https://www.imsglobal.org/spec/ob/v3p0#verifiablecredential) should be:
+
+> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
+
+- Description column for the property `termsOfUse` in [AchievementCredentialv1p1](https://www.imsglobal.org/spec/ob/v3p0#achievementcredentialv1p1) should be:
+
+> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
+
+- Description column for the property `termsOfUse` in [EndrosementCredentialv1p1](https://www.imsglobal.org/spec/ob/v3p0#endorsementcredentialv1p1) should be:
+
+> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
+
+- Description column for the property `termsOfUse` in [VerifiableCredentialv1p1](https://www.imsglobal.org/spec/ob/v3p0#verifiablecredentialv1p1) should be:
+
+> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
+
+
 ### Context file
 
 The context file for Open Badges 3.0 follows a versioning as a result of https://github.com/1EdTech/openbadges-specification/issues/497. All changes to this file that may lead to invalid signatures and errors (breaking changes) must lead to a new version of the file.
