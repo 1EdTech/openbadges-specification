@@ -1534,19 +1534,19 @@ components:
             description: JSON-LD Context. Either a URI with the context definition
               or a Map with a local context definition MUST be supplied.
             oneOf:
-            - $ref: '#/components/schemas/Map'
             - type: string
               description: A `NormalizedString` that respresents a Uniform Resource
                 Identifier (URI).
+            - $ref: '#/components/schemas/Map'
           x-srcprop-pid: org.1edtech.ob.v3p0.context.class
         issuer:
           description: "A description of the individual, entity, or organization that\
             \ issued the credential."
           oneOf:
-          - $ref: '#/components/schemas/Profile'
           - type: string
             description: A `NormalizedString` that respresents a Uniform Resource
               Identifier (URI).
+          - $ref: '#/components/schemas/Profile'
           x-srcprop-pid: org.1edtech.ob.v3p0.profileref.class
         credentialStatus:
           $ref: '#/components/schemas/CredentialStatus'
@@ -1890,19 +1890,19 @@ components:
             description: JSON-LD Context. Either a URI with the context definition
               or a Map with a local context definition MUST be supplied.
             oneOf:
-            - $ref: '#/components/schemas/Map'
             - type: string
               description: A `NormalizedString` that respresents a Uniform Resource
                 Identifier (URI).
+            - $ref: '#/components/schemas/Map'
           x-srcprop-pid: org.1edtech.ob.v3p0.context.class
         issuer:
           description: "A description of the individual, entity, or organization that\
             \ issued the credential."
           oneOf:
-          - $ref: '#/components/schemas/Profile'
           - type: string
             description: A `NormalizedString` that respresents a Uniform Resource
               Identifier (URI).
+          - $ref: '#/components/schemas/Profile'
           x-srcprop-pid: org.1edtech.ob.v3p0.profileref.class
         credentialStatus:
           $ref: '#/components/schemas/CredentialStatus'
