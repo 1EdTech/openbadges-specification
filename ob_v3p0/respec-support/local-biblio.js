@@ -158,19 +158,19 @@ var _localBiblio = {
   },
   "VCRL-10": {
     title: "1EdTech Revocation List Status Method",
-    href: "https://imsglobal.org/spec/vcrl/v1p0/",
+    href: "https://www.imsglobal.org/spec/vcrl/v1p0/",
     status: "Candidate Final Public",
     publisher: "1EdTech",
   },
   "VCCR-10": {
     title: "1EdTech Credential Refresh Service",
-    href: "https://imsglobal.org/spec/vccr/v1p0/",
+    href: "https://www.imsglobal.org/spec/vccr/v1p0/",
     status: "Candidate Final Public",
     publisher: "1EdTech",
   },
   "VCCS-10": {
     title: "1EdTech JSON Schema Validator 2019",
-    href: "https://imsglobal.org/spec/vccs/v1p0/",
+    href: "https://www.imsglobal.org/spec/vccs/v1p0/",
 
     status: "Candidate Final Public",
     publisher: "1EdTech",
