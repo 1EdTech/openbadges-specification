@@ -64,8 +64,7 @@ var _localBiblio = {
     publisher: "1EdTech",
   },
   "CLR-CERT-20": {
-    title:
-      "Comprehensive Learner Record Conformance and Certification Guide v2.0",
+    title: "Comprehensive Learner Record Conformance and Certification Guide v2.0",
     href: "https://www.imsglobal.org/spec/clr/v2p0/cert/",
     status: "IMS Base Document",
     publisher: "1EdTech",
@@ -159,33 +158,27 @@ var _localBiblio = {
   },
   "VCRL-10": {
     title: "1EdTech Revocation List Status Method",
-    href: "https://imsglobal.org/spec/vcrl/v1p0/",
+    href: "https://www.imsglobal.org/spec/vcrl/v1p0/",
     status: "Candidate Final Public",
     publisher: "1EdTech",
   },
   "VCCR-10": {
     title: "1EdTech Credential Refresh Service",
-    href: "https://imsglobal.org/spec/vccr/v1p0/",
+    href: "https://www.imsglobal.org/spec/vccr/v1p0/",
     status: "Candidate Final Public",
     publisher: "1EdTech",
   },
   "VCCS-10": {
     title: "1EdTech JSON Schema Validator 2019",
-    href: "https://imsglobal.org/spec/vccs/v1p0/",
+    href: "https://www.imsglobal.org/spec/vccs/v1p0/",
 
     status: "Candidate Final Public",
     publisher: "1EdTech",
   },
-  "LDS-ED25519-2020": {
-    title: "Ed25519 Signature 2020",
-    href: "https://w3c-ccg.github.io/lds-ed25519-2020/",
-    status: "Draft Community Group Report",
-    publisher: "W3C Credentials Community Group",
-  },
   "VC-STATUS-2021": {
     title: "Credential Status List 2021",
-    href: "https://w3c.github.io/vc-status-list-2021/",
-    status: "W3C Editor's Draft",
+    href: "https://www.w3.org/TR/vc-bitstring-status-list/",
+    status: "W3C Working Draft",
     publisher: "W3C Credentials Community Group",
   },
   MULTIBASE: {

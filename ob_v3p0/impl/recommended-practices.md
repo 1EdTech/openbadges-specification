@@ -9,7 +9,9 @@ can collectively improve our implementations and guidance.
 Below are a variety of recommended practices and considertions for the
 implementation of the Open Badges and CLR specification.
 
-### Selecting recipient and issuer identifiers, such as DID methods
+### Issuer
+
+#### Selecting recipient and issuer identifiers, such as DID methods
 
 Both issuers and recipients (credential subjects) of Open Badges and CLR
 credentials may be identified with a range of identifiers.
@@ -59,7 +61,7 @@ working together through cooperation and communication will create the
 opportunities for others to make compatible implementation choices as well as
 inform future normative specification versions.
 
-### Selecting proof methods and crypto algorithms
+#### Selecting proof methods and crypto algorithms
 
 The OB and CLR specifications define some requirements around the signing or
 proving of credentials (see
@@ -76,9 +78,9 @@ The OB specification identifies some specific options, which are used by the
 conformance test suite to check product implementations. These identified
 algorithms will likely see the broadest early implementation within Open Badges.
 
--   Linked Data Proofs using the [[[LDS-ED25519-2020]]]. Issuers produce an
-    `Ed25519Signature2020` proof referencing a key URL of a public key expressed
-    in `Ed25519VerificationKey2020` format as its verificationMethod.
+-   Linked Data Proofs using the [[[VC-DI-EDDSA]]]. Issuers produce an
+    `DataIntegrityProof` proof referencing a key URL of a public key expressed
+    in `eddsa-rdf-2022` format as its verificationMethod.
 -   JWTs with `RSA256` algorithm, with key material published as JSON Web Key
     (JWK).
 
@@ -111,7 +113,7 @@ include:
     -   JWT signing with RSA family keys may have broader support in systems
         like this across all major cloud vendors offering a KMS.
 
-### Publishing `Achievement` definitions and selecting `Achievement` identifiers
+#### Publishing `Achievement` definitions and selecting `Achievement` identifiers
 
 Arguably the most important field for an `Achievement` is the `id`, the
 creator's primary identifier for that achievement. It is expressed as a URI. Two
@@ -173,38 +175,591 @@ will primarily focus on verifying the integrity of the proof on each credential
 without assumed capacity to verify other relationships represented deeply within
 these credentials even if OB 3.0 had included such a mechanism in its scope.
 
-### Sharing Open Badges and CLR Links as URLs and to Social Media
+#### Managing credential status and revocation
 
-> Gene receives an Open Badge for the completion of a certificate program and
-> wants to include it verifiably on a professional social network. He can post a
-> reference to the badge as a URL on the his profile. The social network site
-> displays a summary card showing the credential information.
+The ability to mark a credential as revoked is an important capability for many
+organizations that make use of Open Badges and CLR. The [[[VC-DATA-MODEL-2.0]]]
+offers an extensible mechanism by which a credential status resource may be
+exposed within a credential. Various use cases and solutions have been developed
+to enable credential status checking with a range of capabilities and
+implications. OB and CLR reference optional 1EdTech extensions supporting
+verifiers in obtaining updated representations of credentials and checking for
+revocation. Issuers and verifiers need to support a common mechanism in order
+for status checking to work, and yet issuers often need to produce the
+credential without knowing which other parties might someday rely on it or what
+methods those verifiers may support. Here are some mechanisms identified by the
+implementing community for status and revocation management.
 
-The URL is the universal mechanism for sharing content on the web. URLs provide
-the easiest mechanism for badge recipients to share their achievements on social
-media, in resumes, and job applications. The vast majority of last-generation
-Open Badges 2.0 and CLR 1.0 credentials in production support URLs for both
-verification and sharing. Learners' need to be able to place their achievements
-verifiably into platforms via URL sharing will continue, but platforms that hold
-their data are encouraged to take advantage of new OB 3.0 and CLR 2.0
-capabilities to grant greater control over sharing to data subjects themselves
-as they implement share by URL capabilities.
+-   The [[[VCRL-10]]] accompanies the OB and CLR specifications. This enables
+    verifiers to query for status results without revealing to the issuer which
+    specific credential's status is being checked. It does reveal to the
+    requester a list of credential IDs claimed by the issuer to be associated
+    with it, though it is not assumed to be exhaustive or accurate except to
+    indicate the status of the credential known to the requester, because
+    issuers may use multiple lists concurrently, packaged with different sets of
+    credentials and red herrings may appear in some lists. The 1EdTech
+    certification process and validator software will support this status
+    checking method. A reason for revocation may be available for a revoked
+    credential.
+-   The [[[VCCR-10]]] also accompanies the OB and CLR specifications and enables
+    fetching of an updated version of a credential under inspection by a
+    verifier. The 1EdTech verifier tools will request updated version if such an
+    endpoint is indicated in the badge. There is no approach to authentication
+    or variable authorization defined in this specification, so if an issuer
+    uses it, it is presumed that any client could request the latest version of
+    the credential from this endpoint if they knew the correct URL. Future
+    versions of this specification may serve use cases that require more
+    in-depth protection of refresh endpoints.
+-   Another option in the space is the [[[VC-STATUS-2021]]] specification, which
+    was adopted as a standards-track specification by the VCWG on December
+    14th 2022. This protocol enables an issuer to publish a compactly encoded
+    list of status indicator bits covering many credentials at once in an
+    unnamed order. Within each issued credential, the issuer includes a pointer
+    to a specific bit within the bulk status list. This enables verifiers to
+    efficiently query for status results without revealing which specific
+    credential's status is being checked. It does not feature the ability to
+    retrieve a revocation reason for a revoked credential, nor does it provide a
+    refreshed version of the credential consistent with the issuer's latest
+    status data, features that are sometimes bundled with revocation.
 
-Recommendations for the use of share URLs include:
+#### Alignment with CASE items
 
--   Give data subjects easy to use options to limit or grant access to data or
-    inclusion of their data in directories. Do not publish learner achievement
-    data in credential format on unauthenticated URLs by default. Pushing badges
-    to a dedicated backpack or wallet can enable that platform to generate and
-    appropriately protect sharing URLs with the data subject's consent in mind.
--   If any Open Badges objects have HTTPS URLs as their `id`, such as
-    `Achievement` endpoints or Open Badges 2.0 verification endpoints are used
-    for legacy support by an issuer that also publishes objects using the
-    current version of the standard, use content negotiation on sharing URLs to
-    enable the presentation of Use [Open Graph Protocol](https://ogp.me) tags on
-    the sharing URLs to enable easy generation of card previews.
+[[[CASE-10]]] [[CASE-10]] specification defines how systems exchange and manage
+information about learning standards and/or competencies in a consistent and
+referenceable way.
 
-#### Open Badges API recommendations
+[[CASE-10]] defines an information model consisting in, briefly, a container
+(`CFDoc`) of a set of academic standard/competency document definitions
+(`CFItem`). These `CFItem` can have associations with others `CFItem` of another
+containers, allowing several types of relationships between learning
+objectives/competences from one institution and another.
+
+In Open Badges and Comprehensive Learner Record, the recording of related
+skills, competencies, standards, and other associations are enabled by the
+`alignment` of an `Achievement`. This field defines the fields for univocally
+establish a connection between the `Achievement` and a node in an educational
+framework, i.e `CFItem`.
+
+<pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    data-allowadditionalproperties="false" title="Achievement alignment (CASE)">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": ["VerifiableCredential", "OpenBadgeCredential"],
+  "issuer": {
+    "id": "https://example.edu/issuers/565049",
+    "type": "Profile",
+    "name": "Example University"
+  },
+  "validFrom": "2010-01-01T00:00:00Z",
+  "name": "Example University Degree",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": "AchievementSubject",
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/1",
+      "type": "Achievement",
+      "criteria": {
+        "narrative": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain"
+      },
+      "description": "Analyze a sample text",
+      "name": "Text analysis",
+      "alignment": [{
+        "type": "Alignment",
+        "targetCode": "74f5bb7d-d7cc-11e8-824f-0242ac160002",
+        "targetFramework": "Alabama Course of Study: English Language Arts",
+        "targetName": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain",
+        "targetType": "CFItem",
+        "targetUrl": "https://caseregistry.imsglobal.org/uri/74f5bb7d-d7cc-11e8-824f-0242ac160002"
+      }]
+    }
+  }
+}
+</pre>
+
+#### Alignment with a ceterms:Credential resource
+
+In Open Badges and Comprehensive Learner Record, it is possible to use
+`alignment` to link an `achievement` to a resource that is described using
+non-1EdTech vocabularies. Three `targetTypes` (specifically, `ceterms:Credential`,
+`ceasn:Competency`, and `CTDL`) have been defined to link to a resource described
+using the Credential Transparency Description Language
+([CTDL](https://credreg.net/ctdl/terms)) family of schema. CTDL defines how
+credentials, competencies, and many other attributes (such as assessments,
+courses, programs, transfer value, organizations, and more) can be described
+in detail and linked to other useful information.
+
+`ceterms:Credential` is used to establish that a connection is between an
+`achievement` and a credential offering described using CTDL. In CTDL, a
+"credential" can be described using hundreds of defined terms and connections
+amongst those terms. For example, CTDL can identify a credential as a ‘license’
+requiring a particular ‘assessment’ for the demonstration of particular
+‘competencies’.
+
+Organizations may publish rich descriptive information about the achievements
+they offer to the Credential Registry. Credential offering information published
+to the Registry is available in the Credential Finder application
+(https://credentialfinder.org/), and issuers of badges for these achievements
+can link to the page in the Credential Finder using an `alignment` with
+`targetType` of `ceterms:Credential` using the credential’s CTID.
+
+<pre class="json example"
+    title="Achievement alignment to more information about the Credential (ceterms:Credential)">
+
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/9",
+      "type": "Achievement",
+      "criteria": {
+        "narrative": "Demonstrate a comprehensive understanding of core 3D modeling concepts, successfully create a range of 3D models that meet specified criteria, and pass a practical examination applying foundational techniques in real-time scenarios"
+      },
+      "description": "Credential for proficiency in the basic techniques and concepts of 3D modeling.",
+      "name": "Fundamentals of 3D Modeling Certificate",
+      "alignment": [{
+        "type": "Alignment",
+        "targetCode": "ce-66ae075c-5cc0-4b49-bb15-ea513e1480ac",
+        "targetDescription": "Additional information powered by the Credential Registry.",
+        "targetName": "Fundamentals of 3D Modeling Certificate",
+        "targetFramework": "Credential Transparency Description Language",
+        "targetType": "ceterms:Credential",
+        "targetUrl": "https://sandbox.credentialengine.org/publisher/credential/ce-66ae075c-5cc0-4b49-bb15-ea513e1480ac"
+      }]
+    }
+
+</pre>
+
+#### Alignment with a ceasn:Competency resource
+
+In Open Badges and Comprehensive Learner Record, it is possible to use
+`alignment` to link an `achievement` to a resource that is described using
+non-1EdTech vocabularies. Three `targetTypes` (specifically, `ceterms:Credential`,
+`ceasn:Competency`, and `CTDL`) have been defined to link to a resource described
+using the Credential Transparency Description Language
+([CTDL](https://credreg.net/ctdl/terms)) family of schema. CTDL defines how
+credentials, competencies, and many other attributes (such as assessments,
+courses, programs, transfer value, organizations, and more) can be described
+in detail and linked to other useful information.
+
+Achievements often align to skills or Competencies, which can be published
+to the Credential Registry. When aligning to this type of data, use the
+targetType `ceasn:Competency`.
+
+<pre class="json example"
+    title="Achievement alignment to a competency (ceasn:Competency)">
+
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/10",
+      "type": "Achievement",
+      "criteria": {
+        "narrative": "Technical Proficiency: The student's use of 3D modeling tools and techniques should be evident, with smooth surfaces, clean meshes, and appropriate use of textures and materials. The model should be free from technical errors, such as overlapping vertices, and should be optimized for the intended platform or medium."
+      },
+      "description": "Demonstrated through an academic project requiring an architectural structure, design of a product prototype, simulating a real-world scenario in a virtual environment, and application of 3D modeling principles.",
+      "name": "Transform conceptual ideas into tangible 3D representations.",
+      "alignment": [{
+        "type": "Alignment",
+        "targetCode": "ce-e76ee0c4-c455-4cf9-8382-c9d226c69d99",
+        "targetDescription": "Additional information powered by the Credential Registry.",
+        "targetName": "Transform conceptual ideas into tangible 3D representations.",
+        "targetFramework": "Credential Transparency Description Language",
+        "targetType": "ceasn:Competency",
+        "targetUrl": "https://sandbox.credentialengine.org/finder/competency/ce-e76ee0c4-c455-4cf9-8382-c9d226c69d99"
+      }]
+    }
+
+</pre>
+
+#### Alignment with a CTDL resource
+
+In Open Badges and Comprehensive Learner Record, it is possible to use
+`alignment` to link an `achievement` to a resource that is described using
+non-1EdTech vocabularies. Three `targetTypes` (specifically, `ceterms:Credential`,
+`ceasn:Competency`, and `CTDL`) have been defined to link to a resource described
+using the Credential Transparency Description Language
+([CTDL](https://credreg.net/ctdl/terms)) family of schema. CTDL defines how
+credentials, competencies, and many other attributes (such as assessments,
+courses, programs, transfer value, organizations, and more) can be described
+in detail and linked to other useful information.
+
+There are many other entity classes that can be described using the CTDL
+vocabulary. When making an alignment to an Assessment, Learning Opportunity,
+Job, Occupation, or other entity, use the generic targetType `CTDL`. This informs
+consumers to expect CTDL data of one of these other types. Some consumers may
+simply render a link to the webpage where more information can be retrieved,
+and others may support fetching the specific data to provide an even richer
+display. The following example shows how an issuer might express an alignment
+to a Learning Opportunity Course that has been published to the Credential
+Registry as CTDL-formatted open data.
+
+<pre class="json example"
+    title="Achievement alignment to another type of entity (CTDL)">
+
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/11",
+      "type": "Achievement",
+      "criteria": {
+        "narrative": "Earns a passing grade."
+      },
+      "description": "Dive into the world of three-dimensional design with ART 302. This course offers students an immersive experience in transforming abstract concepts into tangible 3D models. Through hands-on projects, expert-led demonstrations, and cutting-edge software tools, learners will master the art of conceptualizing and creating detailed 3D representations. Ideal for aspiring designers, animators, and digital artists, this course emphasizes both technical proficiency and creative expression. Join us and bring your ideas to life in three dimensions!",
+      "name": "ART 302: 3D Modeling From Concept to Creation",
+      "alignment": [{
+        "type": "Alignment",
+        "targetCode": "ce-23390b82-eff7-4ff1-894c-9dfe174206be",
+        "targetDescription": "Additional information powered by the Credential Registry.",
+        "targetName": "ART302: 3D Modeling From Concept to Creation",
+        "targetFramework": "Credential Transparency Description Language",
+        "targetType": "CTDL",
+        "targetUrl": "https://sandbox.credentialengine.org/finder/learningopportunity/ce-23390b82-eff7-4ff1-894c-9dfe174206be"
+      }]
+    }
+
+</pre>
+#### Skills
+
+A Skill Assertion credential is just like a basic `OpenBadgeCredential` in how
+an `Achievement` is included, except that it makes a claim referencing an
+`Achievement` that is generic to allow for use by many possible issuers. The
+`Achievement` may describe alignment to external competency or skill
+definitions, such as a `CFItem`, but the most important aspect of the skill
+assertion pattern is the shared use of a common achievement that represents a
+skill or competency across multiple `OpenBadgeCredential` issuers.
+
+This usage of shared achievements enables consumers to describe specific
+achievements that they would like learners to hold without being particular
+about where the learner obtains a credential certifying that achievement. This
+recognizes the many pathways that lifelong learners find to attain comparable
+skills.
+
+<pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    data-allowadditionalproperties="false" title="Skill Assertion (Credential Registry)">
+{
+    "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+        "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
+    ],
+    "id": "http://1edtech.edu/credentials/3732",
+    "type": ["VerifiableCredential", "OpenBadgeCredential"],
+    "name": "Solve and graph linear equations and inequalities",
+    "credentialSubject": {
+        "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+        "type": "AchievementSubject",
+        "achievement": {
+            "id": "https://example.com/achievements/math/linear-1",
+            "type": "Achievement",
+            "achievementType": "Competency",
+            "creator": {
+                "id": "https://example.com/issuers/123767",
+                "type": "Profile",
+                "name": "Example Industry Group",
+                "url": "https://example.com",
+                "description": "Example Industry Group is a consortium of luminaries who publish skills data for common usage.",
+                "email": "info@exammple.com"
+            },
+            "criteria": {
+                "narrative": "Learners must demonstrate understanding of linear algebra and graphic representation of linear equations."
+            },
+            "description": "This achievement represents developing capability to solve and graph linear equations and inequalities",
+            "image": {
+                "id": "https://example.com/achievements/math/linear-1/image",
+                "type": "Image",
+                "caption": "A line, sloping upward optimistically"
+            },
+            "name": "Linear equations and inequalities"
+        }
+    },
+    "issuer": {
+        "id": "https://1edtech.edu/issuers/565049",
+        "type": "Profile",
+        "name": "1EdTech University",
+        "url": "https://1edtech.edu",
+        "phone": "1-222-333-4444",
+        "description": "1EdTech University provides online degree programs.",
+        "image": {
+            "id": "https://1edtech.edu/logo.png",
+            "type": "Image",
+            "caption": "1EdTech University logo"
+        },
+        "email": "registrar@1edtech.edu"
+    },
+    "validFrom": "2022-07-01T00:00:00Z",
+    "credentialSchema": [
+        {
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }
+    ]
+}
+</pre>
+
+#### Including additional recipient profile information
+
+Sometimes issuers want credentials to be shareable to audiences who are not
+capable of authenticating subjects via an identifier such as a DID. Many of
+these use cases may be served by including one or more email identifiers. (Only
+partial data is shown for clarity, for example omitting the `achievement` claim
+within `credentialSubject`.)
+
+<pre class="json example" title="Email identifier in credential subject">
+{
+    "credentialSubject": {
+        "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+        "type": "AchievementSubject",
+        "identifier": [
+            {
+                "type": "IdentityObject",
+                "hashed": false,
+                "identityHash": "a.exampleton@example.edu",
+                "identityType": "emailAddress"
+            }
+        ]
+    }
+}
+</pre>
+
+If the known email address for the user is expected to no longer be a useful
+source of authentication, such as if the user loses access to a work or
+university email after leaving that organization (perhaps 6 months after
+graduation), an issuer may wish to provide additional identifying information,
+such as a name.
+
+<pre class="json example" title="Name identifier in credential subject">
+{
+    "credentialSubject": {
+        "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+        "type": "AchievementSubject",
+        "identifier": [
+            {
+                "type": "IdentityObject",
+                "hashed": false,
+                "identityHash": "Albert Exampleton",
+                "identityType": "ext:name"
+            }
+        ]
+    }
+}
+</pre>
+
+Inclusion of additional personally identifiable information about the subject,
+especially with `"hashed": false`, reduces the potential anonymity of the
+subject. Those with whom the credential is shared may share it to others, who
+would be able to view this identifying information. While sharing typically
+passes through control of the subject/holder, different issuers may weigh the
+potential benefits of including this information against the risks of
+unauthorized disclosure.
+
+If issuers desire to include much more information about the subject in the
+credential, they may add the `Profile` type and include additional properties
+from Profile. The above approach using IdentityObject is expected to be more
+broadly usable, because displayers of `OpenBadgeCredentials` will expect this
+type of data. Additional data from `Profile` is not expected directly within
+`credentialSubject`, so it is less likely that displayers would build custom
+handling for these unexpected properties. An "advanced" view where users may
+review the JSON data directly may be included in some displayer products, in
+which case viewers would be able to review this information more directly.
+
+<pre class="json example" title="Given name and family name credential subject with Profile">
+{
+    "credentialSubject": {
+        "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+        "type": ["AchievementSubject", "Profile"],
+        "givenName": "Albert",
+        "familyName": "Exampleton"
+    }
+}
+</pre>
+
+#### Embedding Evidences
+
+Issuers can add a description of the work that the recipient did to earn the
+achievement via the `evidence` attribute of `AchievementCredential`. This
+description can be a page that links out to other pages if linking directly
+to the work is infeasible.
+
+The `id` property also can be the evidence encoded as a Data URI. However,
+embedding the evidence as Data URI as the id of the evidence has some caveats:
+
+- Due to the JSON-LD canonicalization process for signing, there's a row for
+each field of the evidence with the id inside. If the id is the evidence itself
+as Data URI, the size of the payload to process grows significantly, moreover
+when evidence has 5 fields and is extensible.
+- Some libraries fails when processing this.
+
+Also attempting to embed large data in a credential JSON is not recommended.
+You should expect uneven interop performance if you do that.
+
+Instead, the recommendation for embedding the evidence is:
+
+1. use a `urn:` URI for the id.
+2. have a separate property (data or whatever works) that contains the text-encoded
+data.
+
+#### Key provenance
+
+Keys used in proof generation must belong to the issuer. However, there isn't
+a existing way in current standards to completely assure this provenance.
+
+The following best practices establish a verification mechanism to assure that
+the issuer is the owner of the key used in a credential.
+
+##### Linked Data proof
+
+Linked Data Proofs defines a method to get the public key (via `verificationMethod`)
+which, as defined by [[VC-DATA-INTEGRITY]], implies the dereference of a controller
+document.
+
+Section 2.6 of [[VC-DATA-INTEGRITY]] describes a way to verify the association
+of the verification method with an issuer:
+
+> One way to check for such an association is to ensure that the value of the
+> controller property of a proof's verification method matches the URL value
+> used to identify the issuer or holder, respectively. This particular
+> association indicates that the issuer or holder, respectively, is the
+> controller of the verification method used to verify the proof.
+
+We recommend following this practice. As an issuer, then, you must set the
+value of the controller as the `id` of the issuer.
+
+##### External proof
+
+When using an external proof, an issuer must set either the `kid` or `jwt`
+fields of the JOSE header of the JWS. `kid` is an URI that can be dereferenced
+to an object of type JWK representing the public key, wether `jwt` is the
+representation of the public key.
+
+In order to assure key provenance, we recommend the use of a JWK Set
+(JKWS) [[RFC7517]].
+This set, following this recommmendation, should be publicly accessible
+via the well-known url:
+
+`https://{domain}/.well-known/jwks.json`
+
+The reponse of a request to this url is a JSON-serialized representation
+of the JKWS with the media type `application/jwk-set+json`.
+
+> Section 6 of [[SEC-11]] contains recommendations for key management.
+
+When using the `kid` attribute, an issuer must set it to an existing key in
+its set. On the other hand, when using the `jwt` attribute, the key set in this
+field must be one of the keys in the set.
+
+###### Issuing platforms with multiple issuers
+
+[[RFC7517]] allows adding additional members to the JWK format:
+
+> Additional members can be present in the JWK; if not understood by
+   implementations encountering them, they MUST be ignored.  Member
+   names used for representing key parameters for different keys types
+   need not be distinct.  Any new member name should either be
+   registered in the IANA "JSON Web Key Parameters" registry established
+   by [Section 8.1](https://datatracker.ietf.org/doc/html/rfc7517#section-8.1)
+   or be a value that contains a Collision-Resistant Name.
+
+We propose leverage this to add a new member `iss` in the JWK for the issuer's `id`.
+
+##### JWK Set endpoint
+
+Following this recommendation ultimatelly means that, for an issuer to be
+trusted, the endpoint for the issuer's Json Web Key Set should be publicly
+available at any time a credential is verified, which can happen long after
+the issuing of the credential. If don't, there's a potential issue of a
+valid credential not accepted because the endpoint is no longer available.
+
+Following this recommendation, thus, implies a commitment for the issuer to maintain its JWK Set and publicly expose it throught the endpoint.
+
+### Displayer
+
+#### Cryptosuites in Linked Data Proofs
+
+Linked data proofs imply the use of a cryptosuite for its generation and
+further verification. The Open Badges 3.0 and Comprehensive
+Learner Record 2.0 specifications define the cryptosuite to use.
+
+The change of the cryptosuite has impact in newly issued credentials. But
+there are already issued credentials with a proof generated using a now old
+cryptosuite. Verifiers should support prior cryptosuites, specially when the
+credential doesn't define the refresh service. In that case, is argually that
+the issuer will provide a refreshed version of the credential with a proof
+computed with the current designed cryptosuite.
+
+Prior designed cryptosuites in both OB 3.0 and CLR 2.0 were:
+
+- `eddsa-2022`
+- `Ed25519Signature2020`
+
+#### Key provenance
+
+Keys used in proof generation must belong to the issuer. However, there isn't
+a existing way in current standards to completely assure this provenance.
+
+The following best practices establish a verification mechanism to assure that
+the issuer is the owner of the key used in a credential.
+
+##### Linked Data proof
+
+Linked Data Proofs defines a method to get the public key (via `verificationMethod`) which, as defined by [[VC-DATA-INTEGRITY]], implies the
+dereference of a controller document.
+
+Section 2.6 of [[VC-DATA-INTEGRITY]] describes a way to verify the association
+of the verification method with an issuer:
+
+> One way to check for such an association is to ensure that the value of the
+> controller property of a proof's verification method matches the URL value
+> used to identify the issuer or holder, respectively. This particular
+> association indicates that the issuer or holder, respectively, is the
+> controller of the verification method used to verify the proof.
+
+We recommend following this practice. As an verifier, then, you must check that
+the value of the controller is the `id` of the issuer.
+
+##### External proof
+
+When using an external proof, an issuer must set either the `kid` or `jwt`
+fields of the JOSE header of the JWS. `kid` is an URI that can be dereferenced
+to an object of type JWK representing the public key, wether `jwt` is the
+representation of the public key.
+
+Section 6.3.1 of [[VC-JOSE-COSE]] extends the definition of `kid` as
+
+> If `kid` is present in the JOSE Header or the COSE Header, a verifier can
+> use this parameter as a hint indicating which key was used to secure the
+> verifiable credential, when performing a verification process as defined
+> in [[RFC7515]].
+
+> `kid` MUST be present when the key of the issuer or subject is expressed as
+> a DID URL
+
+With these two premises, the recommendation for verifing key provenance is using
+JWK Set. A verifier must, then, get the public JKWS of the issuer for further
+check of the provided key.
+
+In order to get the issuer's JKWS, a verifier must build a well-known url with
+the `authority` part of the issuer's `id` ([[RFC3986]]):
+
+`https://{authority}/.well-known/jwks.json`
+
+A verifier must make a HTTP request to this endpoint with an accept header of
+`application/jwk-set+json`. The response of this call must a JWKS.
+
+After the request, a verifier must check that the provided key in in the
+returned set. If the key in the JOSE Header in referenced by the `kid`
+field, this `kid` must be in the set. On the other hand, if the key is
+represented by the `jwk` field, this `jwk` must be in the set with
+any specified `kid`.
+
+If the found JWT in the set contains the member `iss`, this must be equal
+to issuer's `id`.
+
+
+<div class="note">
+ The credential should  be considered invalid and not trustworthy if the
+ key provenance cannot be verified via the method described above.
+</div>
+
+### Host
+
+#### Open Badges 3.0 API recommendations
 
 Consider the following example two products using the OB 3.0 API to interact:
 
@@ -311,7 +866,7 @@ have a better chance of ensuring learners can take advantage of their digital
 credentials. No learner should be disadvantaged by poor interoperability
 experiences and dead ends.
 
-### CLR 2.0 API recommendations
+#### CLR 2.0 API recommendations
 
 As `ClrCredential`s bundle a number of individual `OpenBadgeCredentials`
 together, they sometimes offer additional information about the relationships
@@ -341,7 +896,7 @@ associations provides benefit to users.
 > Credentials within it representing the degree, the courses he took, and the
 > competencies he mastered.
 
-### Protocols for connection to Verifiable Credentials Wallets
+#### Protocols for connection to Verifiable Credentials Wallets
 
 While the OB 3.0 and CLR 2.0 APIs serve use cases for web services to verifiably
 exchange credentials on behalf of holders, the Verifiable Credentials community
@@ -427,185 +982,33 @@ connection protocols include:
     risks, such as any loss of data or verifiability that might be caused by
     losing a physical device.
 
-### Managing credential status and revocation
+### Sharing Open Badges and CLR Links as URLs and to Social Media
 
-The ability to mark a credential as revoked is an important capability for many
-organizations that make use of Open Badges and CLR. The [[[VC-DATA-MODEL]]]
-offers an extensible mechanism by which a credential status resource may be
-exposed within a credential. Various use cases and solutions have been developed
-to enable credential status checking with a range of capabilities and
-implications. OB and CLR reference optional 1EdTech extensions supporting
-verifiers in obtaining updated representations of credentials and checking for
-revocation. Issuers and verifiers need to support a common mechanism in order
-for status checking to work, and yet issuers often need to produce the
-credential without knowing which other parties might someday rely on it or what
-methods those verifiers may support. Here are some mechanisms identified by the
-implementing community for status and revocation management.
+> Gene receives an Open Badge for the completion of a certificate program and
+> wants to include it verifiably on a professional social network. He can post a
+> reference to the badge as a URL on the his profile. The social network site
+> displays a summary card showing the credential information.
 
--   The [[[VCRL-10]]] accompanies the OB and CLR specifications. This enables
-    verifiers to query for status results without revealing to the issuer which
-    specific credential's status is being checked. It does reveal to the
-    requester a list of credential IDs claimed by the issuer to be associated
-    with it, though it is not assumed to be exhaustive or accurate except to
-    indicate the status of the credential known to the requester, because
-    issuers may use multiple lists concurrently, packaged with different sets of
-    credentials and red herrings may appear in some lists. The 1EdTech
-    certification process and validator software will support this status
-    checking method. A reason for revocation may be available for a revoked
-    credential.
--   The [[[VCCR-10]]] also accompanies the OB and CLR specifications and enables
-    fetching of an updated version of a credential under inspection by a
-    verifier. The 1EdTech verifier tools will request updated version if such an
-    endpoint is indicated in the badge. There is no approach to authentication
-    or variable authorization defined in this specification, so if an issuer
-    uses it, it is presumed that any client could request the latest version of
-    the credential from this endpoint if they knew the correct URL. Future
-    versions of this specification may serve use cases that require more
-    in-depth protection of refresh endpoints.
--   Another option in the space is the [[[VC-STATUS-2021]]] specification, which
-    was adopted as a standards-track specification by the VCWG on December
-    14th 2022. This protocol enables an issuer to publish a compactly encoded
-    list of status indicator bits covering many credentials at once in an
-    unnamed order. Within each issued credential, the issuer includes a pointer
-    to a specific bit within the bulk status list. This enables verifiers to
-    efficiently query for status results without revealing which specific
-    credential's status is being checked. It does not feature the ability to
-    retrieve a revocation reason for a revoked credential, nor does it provide a
-    refreshed version of the credential consistent with the issuer's latest
-    status data, features that are sometimes bundled with revocation.
+The URL is the universal mechanism for sharing content on the web. URLs provide
+the easiest mechanism for badge recipients to share their achievements on social
+media, in resumes, and job applications. The vast majority of last-generation
+Open Badges 2.0 and CLR 1.0 credentials in production support URLs for both
+verification and sharing. Learners' need to be able to place their achievements
+verifiably into platforms via URL sharing will continue, but platforms that hold
+their data are encouraged to take advantage of new OB 3.0 and CLR 2.0
+capabilities to grant greater control over sharing to data subjects themselves
+as they implement share by URL capabilities.
 
-### Alignment with CASE items
+Recommendations for the use of share URLs include:
 
-[[[CASE-10]]] [[CASE-10]] specification defines how systems exchange and manage
-information about learning standards and/or competencies in a consistent and
-referenceable way.
-
-[[CASE-10]] defines an information model consisting in, briefly, a container
-(`CFDoc`) of a set of academic standard/competency document definitions
-(`CFItem`). These `CFItem` can have associations with others `CFItem` of another
-containers, allowing several types of relationships between learning
-objectives/competences from one institution and another.
-
-In Open Badges and Comprehensive Learner Record, the recording of related
-skills, competencies, standards, and other associations are enabled by the
-`alignment` of an `Achievement`. This field defines the fields for univocally
-establish a connection between the `Achievement` and a node in an educational
-framework, i.e `CFItem`.
-
-<pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
-    data-allowadditionalproperties="false" title="Achievement alignment (CASE)">
-{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json"
-  ],
-  "id": "http://example.edu/credentials/3732",
-  "type": ["VerifiableCredential", "OpenBadgeCredential"],
-  "issuer": {
-    "id": "https://example.edu/issuers/565049",
-    "type": "Profile",
-    "name": "Example University"
-  },
-  "issuanceDate": "2010-01-01T00:00:00Z",
-  "name": "Example University Degree",
-  "credentialSubject": {
-    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-    "type": "AchievementSubject",
-    "achievement": {
-      "id": "https://1edtech.edu/achievements/1",
-      "type": "Achievement",
-      "criteria": {
-        "narrative": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain"
-      },
-      "description": "Analyze a sample text",
-      "name": "Text analysis",
-      "alignment": [{
-        "type": "Alignment",
-        "targetCode": "74f5bb7d-d7cc-11e8-824f-0242ac160002",
-        "targetFramework": "Alabama Course of Study: English Language Arts",
-        "targetName": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain",
-        "targetType": "CFItem",
-        "targetUrl": "https://caseregistry.imsglobal.org/uri/74f5bb7d-d7cc-11e8-824f-0242ac160002"
-      }]
-    }
-  }
-}
-</pre>
-
-### Skills
-
-A Skill Assertion credential is just like a basic `OpenBadgeCredential` in how
-an `Achievement` is included, except that it makes a claim referencing an
-`Achievement` that is generic to allow for use by many possible issuers. The
-`Achievement` may describe alignment to external competency or skill
-definitions, such as a `CFItem`, but the most important aspect of the skill
-assertion pattern is the shared use of a common achievement that represents a
-skill or competency across multiple `OpenBadgeCredential` issuers.
-
-This usage of shared achievements enables consumers to describe specific
-achievements that they would like learners to hold without being particular
-about where the learner obtains a credential certifying that achievement. This
-recognizes the many pathways that lifelong learners find to attain comparable
-skills.
-
-<pre class="json example vc" data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
-    data-allowadditionalproperties="false" title="Skill Assertion (Credential Registry)">
-{
-    "@context": [
-        "https://www.w3.org/2018/credentials/v1",
-        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-        "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
-    ],
-    "id": "http://1edtech.edu/credentials/3732",
-    "type": ["VerifiableCredential", "OpenBadgeCredential"],
-    "name": "Solve and graph linear equations and inequalities",
-    "credentialSubject": {
-        "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-        "type": "AchievementSubject",
-        "achievement": {
-            "id": "https://example.com/achievements/math/linear-1",
-            "type": "Achievement",
-            "achievementType": "Competency",
-            "creator": {
-                "id": "https://example.com/issuers/123767",
-                "type": "Profile",
-                "name": "Example Industry Group",
-                "url": "https://example.com",
-                "description": "Example Industry Group is a consortium of luminaries who publish skills data for common usage.",
-                "email": "info@exammple.com"
-            },
-            "criteria": {
-                "narrative": "Learners must demonstrate understanding of linear algebra and graphic representation of linear equations."
-            },
-            "description": "This achievement represents developing capability to solve and graph linear equations and inequalities",
-            "image": {
-                "id": "https://example.com/achievements/math/linear-1/image",
-                "type": "Image",
-                "caption": "A line, sloping upward optimistically"
-            },
-            "name": "Linear equations and inequalities"
-        }
-    },
-    "issuer": {
-        "id": "https://1edtech.edu/issuers/565049",
-        "type": "Profile",
-        "name": "1EdTech University",
-        "url": "https://1edtech.edu",
-        "phone": "1-222-333-4444",
-        "description": "1EdTech University provides online degree programs.",
-        "image": {
-            "id": "https://1edtech.edu/logo.png",
-            "type": "Image",
-            "caption": "1EdTech University logo"
-        },
-        "email": "registrar@1edtech.edu"
-    },
-    "issuanceDate": "2022-07-01T00:00:00Z",
-    "credentialSchema": [
-        {
-            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
-            "type": "1EdTechJsonSchemaValidator2019"
-        }
-    ]
-}
-</pre>
+-   Give data subjects easy to use options to limit or grant access to data or
+    inclusion of their data in directories. Do not publish learner achievement
+    data in credential format on unauthenticated URLs by default. Pushing badges
+    to a dedicated backpack or wallet can enable that platform to generate and
+    appropriately protect sharing URLs with the data subject's consent in mind.
+-   If any Open Badges objects have HTTPS URLs as their `id`, such as
+    `Achievement` endpoints or Open Badges 2.0 verification endpoints are used
+    for legacy support by an issuer that also publishes objects using the
+    current version of the standard, use content negotiation on sharing URLs to
+    enable the presentation of Use [Open Graph Protocol](https://ogp.me) tags on
+    the sharing URLs to enable easy generation of card previews.

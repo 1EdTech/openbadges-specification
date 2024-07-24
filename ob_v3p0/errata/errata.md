@@ -1,5 +1,38 @@
 ## Errata for Open Badges 3.0 Specification
 
+### Data Model
+
+- Multiplicity column for the property `@context` in [AchievementCredential](https://www.imsglobal.org/spec/ob/v3p0#achievementcredential) should be `[2..*]`.
+
+- Multiplicity column for the property `@context` in [AchievementCredentialv1p1](https://www.imsglobal.org/spec/ob/v3p0#achievementcredentialv1p1) should be `[2..*]`.
+
+### Typography
+
+- Description column for the property `termsOfUse` in [AchievementCredential](https://www.imsglobal.org/spec/ob/v3p0#achievementcredential) should be:
+
+> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
+
+- Description column for the property `termsOfUse` in [EndorsementCredential](https://www.imsglobal.org/spec/ob/v3p0#endorsementcredential) should be:
+
+> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
+
+- Description column for the property `termsOfUse` in [VerifiableCredential](https://www.imsglobal.org/spec/ob/v3p0#verifiablecredential) should be:
+
+> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
+
+- Description column for the property `termsOfUse` in [AchievementCredentialv1p1](https://www.imsglobal.org/spec/ob/v3p0#achievementcredentialv1p1) should be:
+
+> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
+
+- Description column for the property `termsOfUse` in [EndrosementCredentialv1p1](https://www.imsglobal.org/spec/ob/v3p0#endorsementcredentialv1p1) should be:
+
+> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
+
+- Description column for the property `termsOfUse` in [VerifiableCredentialv1p1](https://www.imsglobal.org/spec/ob/v3p0#verifiablecredentialv1p1) should be:
+
+> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
+
+
 ### Context file
 
 The context file for Open Badges 3.0 follows a versioning as a result of https://github.com/1EdTech/openbadges-specification/issues/497. All changes to this file that may lead to invalid signatures and errors (breaking changes) must lead to a new version of the file.
@@ -24,6 +57,19 @@ According to this policy, this section recaps all the changes made to the contex
 <div class="note">
 Previous versions of the context file will remain accessible, in order to keep backwards compatibility with existing credentials. However, it's recommended to refer to the newest version of the file.
 </div>
+
+#### version 3.0.3
+- `@id` of `image` in `Achievement` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image`
+- `@id` of `achievement` in `AchievementSubject` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#achievement`
+- `@id` of `image` in `AchievementSubject` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image`
+- `@id` of `image` in `Profile` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image`
+
+#### version 3.0.2
+- Added `@protected` to all `@context`.
+- `"@type": "xsd:string"`` was removed where it appears. This is the default type, but in rare cases, processing systems handle an explicit declaration of this type differently from allowing the default. For VCs, it is considered more reliable to just allow the default to be applied.
+- `id` and `type`` aliases are redeclared in every context. This avoids a narrow type of attack where somebody might place a context that redeclares these terms in between the top layer and a class-specific layer of a credential, changing the values of these terms within the class implementation.
+- Changed `@container` of `allowedValue` from `@set` to `@list`, as `allowedValue` is an ordered list.
+-`@id` of `image` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#Image`. This prevent a redefinition of the term, since its previous value was incorrectly equals to `Achievement.image`.
 
 #### version 3.0.1
 

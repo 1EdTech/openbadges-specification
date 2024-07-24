@@ -8,8 +8,8 @@ var full=`
 >
   {
     "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+      "https://www.w3.org/ns/credentials/v2",
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
       "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
     ],
     "id": "http://1edtech.edu/credentials/3732",
@@ -27,7 +27,7 @@ var full=`
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
       "type":
-        "AchievementSubject"
+        ["AchievementSubject"]
       ,
       "activityEndDate": "2010-01-02T00:00:00Z",
       "activityStartDate": "2010-01-01T00:00:00Z",
@@ -36,7 +36,7 @@ var full=`
       "role": "Major Domo",
       "source": {
         "id": "https://school.edu/issuers/201234",
-        "type": "Profile",
+        "type": ["Profile"],
         "name": "1EdTech College of Arts"
       },
       "term": "Fall",
@@ -59,12 +59,12 @@ var full=`
       "achievement": {
         "id": "https://1edtech.edu/achievements/degree",
         "type":
-          "Achievement"
+          ["Achievement"]
         ,
         "alignment": [
           {
             "type":
-              "Alignment"
+              ["Alignment"]
             ,
             "targetCode": "degree",
             "targetDescription": "1EdTech University Degree programs.",
@@ -75,7 +75,7 @@ var full=`
           },
           {
             "type":
-              "Alignment"
+              ["Alignment"]
             ,
             "targetCode": "degree",
             "targetDescription": "1EdTech University Degree programs.",
@@ -89,7 +89,7 @@ var full=`
         "creator": {
           "id": "https://1edtech.edu/issuers/565049",
           "type":
-            "Profile"
+            ["Profile"]
           ,
           "name": "1EdTech University",
           "url": "https://1edtech.edu",
@@ -98,9 +98,8 @@ var full=`
           "endorsement": [
             {
               "@context": [
-                "https://www.w3.org/2018/credentials/v1",
-                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-                "https://w3id.org/security/suites/ed25519-2020/v1"
+                "https://www.w3.org/ns/credentials/v2",
+                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
               ],
               "id": "http://1edtech.edu/endorsementcredential/3732",
               "type": [
@@ -111,16 +110,16 @@ var full=`
               "issuer": {
                 "id": "https://accrediter.edu/issuers/565049",
                 "type":
-                  "Profile"
+                  ["Profile"]
                 ,
                 "name": "Example Accrediting Agency"
               },
-              "issuanceDate": "2010-01-01T00:00:00Z",
-              "expirationDate": "2020-01-01T00:00:00Z",
+              "validFrom": "2010-01-01T00:00:00Z",
+              "validUntil": "2020-01-01T00:00:00Z",
               "credentialSubject": {
                 "id": "https://1edtech.edu/issuers/565049",
                 "type":
-                  "EndorsementSubject"
+                  ["EndorsementSubject"]
                 ,
                 "endorsementComment": "1EdTech University is in good standing"
               },
@@ -144,7 +143,8 @@ var full=`
               },
               "proof": [
                 {
-                  "type": "Ed25519Signature2020",
+                  "type": "DataIntegrityProof",
+                "cryptosuite": "eddsa-rdf-2022",
                   "created": "2022-05-26T18:17:08Z",
                   "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
                   "proofPurpose": "assertionMethod",
@@ -154,9 +154,8 @@ var full=`
             },
             {
               "@context": [
-                "https://www.w3.org/2018/credentials/v1",
-                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-                "https://w3id.org/security/suites/ed25519-2020/v1"
+                "https://www.w3.org/ns/credentials/v2",
+                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
               ],
               "id": "http://1edtech.edu/endorsementcredential/3733",
               "type": [
@@ -167,16 +166,16 @@ var full=`
               "issuer": {
                 "id": "https://state.gov/issuers/565049",
                 "type":
-                  "Profile"
+                  ["Profile"]
                 ,
                 "name": "State Department of Education"
               },
-              "issuanceDate": "2010-01-01T00:00:00Z",
-              "expirationDate": "2020-01-01T00:00:00Z",
+              "validFrom": "2010-01-01T00:00:00Z",
+              "validUntil": "2020-01-01T00:00:00Z",
               "credentialSubject": {
                 "id": "https://1edtech.edu/issuers/565049",
                 "type":
-                  "EndorsementSubject"
+                  ["EndorsementSubject"]
                 ,
                 "endorsementComment": "1EdTech University is in good standing"
               },
@@ -200,7 +199,8 @@ var full=`
               },
               "proof": [
                 {
-                  "type": "Ed25519Signature2020",
+                  "type": "DataIntegrityProof",
+                "cryptosuite": "eddsa-rdf-2022",
                   "created": "2022-05-26T18:25:59Z",
                   "verificationMethod": "https://accrediter.edu/issuers/565049#z5bDnmSgDczXwZGya6ZjxKaxkdKxzsCMiVSsgEVWxnaWK7ZqbKnzcCd7mUKE9DQaAL2QMXP5AquPeW6W2CWrZ7jNC",
                   "proofPurpose": "assertionMethod",
@@ -248,7 +248,7 @@ var full=`
           "parentOrg": {
             "id": "did:example:123456789",
             "type":
-              "Profile"
+              ["Profile"]
             ,
             "name": "Universal Universities"
           }
@@ -262,9 +262,8 @@ var full=`
         "endorsement": [
           {
             "@context": [
-              "https://www.w3.org/2018/credentials/v1",
-              "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-              "https://w3id.org/security/suites/ed25519-2020/v1"
+              "https://www.w3.org/ns/credentials/v2",
+              "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
             ],
             "id": "http://1edtech.edu/endorsementcredential/3734",
             "type": [
@@ -275,16 +274,16 @@ var full=`
             "issuer": {
               "id": "https://accrediter.edu/issuers/565049",
               "type":
-                "Profile"
+                ["Profile"]
               ,
               "name": "Example Accrediting Agency"
             },
-            "issuanceDate": "2010-01-01T00:00:00Z",
-            "expirationDate": "2020-01-01T00:00:00Z",
+            "validFrom": "2010-01-01T00:00:00Z",
+            "validUntil": "2020-01-01T00:00:00Z",
             "credentialSubject": {
               "id": "https://1edtech.edu/issuers/565049",
               "type":
-                "EndorsementSubject"
+                ["EndorsementSubject"]
               ,
               "endorsementComment": "1EdTech University is in good standing"
             },
@@ -308,7 +307,8 @@ var full=`
             },
             "proof": [
               {
-                "type": "Ed25519Signature2020",
+                "type": "DataIntegrityProof",
+                "cryptosuite": "eddsa-rdf-2022",
                 "created": "2022-05-26T18:17:08Z",
                 "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
                 "proofPurpose": "assertionMethod",
@@ -336,12 +336,12 @@ var full=`
           {
             "id": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
             "type":
-              "ResultDescription"
+              ["ResultDescription"]
             ,
             "alignment": [
               {
                 "type":
-                  "Alignment"
+                  ["Alignment"]
                 ,
                 "targetCode": "project",
                 "targetDescription": "Project description",
@@ -364,12 +364,12 @@ var full=`
           {
             "id": "urn:uuid:a70ddc6a-4c4a-4bd8-8277-cb97c79f40c5",
             "type":
-              "ResultDescription"
+              ["ResultDescription"]
             ,
             "alignment": [
               {
                 "type":
-                  "Alignment"
+                  ["Alignment"]
                 ,
                 "targetCode": "project",
                 "targetDescription": "Project description",
@@ -392,12 +392,12 @@ var full=`
               {
                 "id": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
                 "type":
-                  "RubricCriterionLevel"
+                  ["RubricCriterionLevel"]
                 ,
                 "alignment": [
                   {
                     "type":
-                      "Alignment"
+                      ["Alignment"]
                     ,
                     "targetCode": "project",
                     "targetDescription": "Project description",
@@ -415,12 +415,12 @@ var full=`
               {
                 "id": "urn:uuid:6b84b429-31ee-4dac-9d20-e5c55881f80e",
                 "type":
-                  "RubricCriterionLevel"
+                  ["RubricCriterionLevel"]
                 ,
                 "alignment": [
                   {
                     "type":
-                      "Alignment"
+                      ["Alignment"]
                     ,
                     "targetCode": "project",
                     "targetDescription": "Project description",
@@ -440,7 +440,7 @@ var full=`
           {
             "id": "urn:uuid:b07c0387-f2d6-4b65-a3f4-f4e4302ea8f7",
             "type":
-              "ResultDescription"
+              ["ResultDescription"]
             ,
             "name": "Project Status",
             "resultType": "Status"
@@ -466,7 +466,7 @@ var full=`
           "alignment": [
             {
               "type":
-                "Alignment"
+                ["Alignment"]
               ,
               "targetCode": "project",
               "targetDescription": "Project description",
@@ -487,7 +487,7 @@ var full=`
           "alignment": [
             {
               "type":
-                "Alignment"
+                ["Alignment"]
               ,
               "targetCode": "project",
               "targetDescription": "Project description",
@@ -511,9 +511,8 @@ var full=`
     "endorsement": [
       {
         "@context": [
-          "https://www.w3.org/2018/credentials/v1",
-          "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-          "https://w3id.org/security/suites/ed25519-2020/v1"
+          "https://www.w3.org/ns/credentials/v2",
+          "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
         ],
         "id": "http://1edtech.edu/endorsementcredential/3735",
         "type": [
@@ -524,16 +523,16 @@ var full=`
         "issuer": {
           "id": "https://accrediter.edu/issuers/565049",
           "type":
-            "Profile"
+            ["Profile"]
           ,
           "name": "Example Accrediting Agency"
         },
-        "issuanceDate": "2010-01-01T00:00:00Z",
-        "expirationDate": "2020-01-01T00:00:00Z",
+        "validFrom": "2010-01-01T00:00:00Z",
+        "validUntil": "2020-01-01T00:00:00Z",
         "credentialSubject": {
           "id": "https://1edtech.edu/issuers/565049",
           "type":
-            "EndorsementSubject"
+            ["EndorsementSubject"]
           ,
           "endorsementComment": "1EdTech University is in good standing"
         },
@@ -557,7 +556,8 @@ var full=`
         },
         "proof": [
           {
-            "type": "Ed25519Signature2020",
+            "type": "DataIntegrityProof",
+            "cryptosuite": "eddsa-rdf-2022",
             "created": "2022-05-26T18:17:08Z",
             "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
             "proofPurpose": "assertionMethod",
@@ -570,7 +570,7 @@ var full=`
       {
         "id": "https://1edtech.edu/credentials/3732/evidence/1",
         "type":
-          "Evidence"
+          ["Evidence"]
         ,
         "narrative": "# Final Project Report \\n This project was ...",
         "name": "Final Project Report",
@@ -581,7 +581,7 @@ var full=`
       {
         "id": "https://github.com/somebody/project",
         "type":
-          "Evidence"
+          ["Evidence"]
         ,
         "name": "Final Project Code",
         "description": "This is the source code for the final project app.",
@@ -592,7 +592,7 @@ var full=`
     "issuer": {
       "id": "https://1edtech.edu/issuers/565049",
       "type":
-        "Profile"
+        ["Profile"]
       ,
       "name": "1EdTech University",
       "url": "https://1edtech.edu",
@@ -601,9 +601,8 @@ var full=`
       "endorsement": [
         {
           "@context": [
-            "https://www.w3.org/2018/credentials/v1",
-            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-            "https://w3id.org/security/suites/ed25519-2020/v1"
+            "https://www.w3.org/ns/credentials/v2",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
           ],
           "id": "http://1edtech.edu/endorsementcredential/3736",
           "type": [
@@ -614,16 +613,16 @@ var full=`
           "issuer": {
             "id": "https://accrediter.edu/issuers/565049",
             "type":
-              "Profile"
+              ["Profile"]
             ,
             "name": "Example Accrediting Agency"
           },
-          "issuanceDate": "2010-01-01T00:00:00Z",
-          "expirationDate": "2020-01-01T00:00:00Z",
+          "validFrom": "2010-01-01T00:00:00Z",
+          "validUntil": "2020-01-01T00:00:00Z",
           "credentialSubject": {
             "id": "https://1edtech.edu/issuers/565049",
             "type":
-              "EndorsementSubject"
+              ["EndorsementSubject"]
             ,
             "endorsementComment": "1EdTech University is in good standing"
           },
@@ -647,7 +646,8 @@ var full=`
           },
           "proof": [
             {
-              "type": "Ed25519Signature2020",
+              "type": "DataIntegrityProof",
+            "cryptosuite": "eddsa-rdf-2022",
               "created": "2022-05-26T18:17:08Z",
               "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
               "proofPurpose": "assertionMethod",
@@ -695,13 +695,13 @@ var full=`
       "parentOrg": {
         "id": "did:example:123456789",
         "type":
-          "Profile"
+          ["Profile"]
         ,
         "name": "Universal Universities"
       }
     },
-    "issuanceDate": "2010-01-01T00:00:00Z",
-    "expirationDate": "2030-01-01T00:00:00Z",
+    "validFrom": "2010-01-01T00:00:00Z",
+    "validUntil": "2030-01-01T00:00:00Z",
     "credentialSchema": [
       {
         "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",

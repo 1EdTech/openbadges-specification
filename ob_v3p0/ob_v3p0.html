@@ -27,25 +27,16 @@
       specNature: "normative", // spec nature is "normative" or "informative"
       specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
       specVersion: "3.0",
-      docVersion: "1.0.4",
-      specStatus: "Candidate Final Public",
-      specDate: "April 20, 2023",
+      docVersion: "1.0",
+      specStatus: "Final Release",
+      specDate: "May 27, 2024",
       contributors: _contributors,
       localBiblio: _localBiblio,
       iprs: _iprs,
       xref: [
         "did-core",
-        "vc-data-model"
+        "vc-data-model-2.0",
       ],
-
-      // Remove for IMS Final
-      otherLinks: [{
-        key: "Issue Tracker",
-        data: [{
-          value: "https://github.com/IMSGlobal/openbadges-specification/issues",
-          href: "https://github.com/IMSGlobal/openbadges-specification/issues"
-        }]
-      }],
 
       // Add the MPS configuration to respecConfig
       mps: _mps,
@@ -141,7 +132,7 @@
     </section>
     <section>
       <h3>Achievement Alignment (Credential Engine)</h3>
-      <script class="transclude" data-id="achievementAlignmentCase" src="examples/achievementAlignmentCe.html"></script>
+      <script class="transclude" data-id="achievementAlignmentCtdl" src="examples/achievementAlignmentCe.html"></script>
     </section>
     <section>
       <h3>Skill Assertion (CASE)</h3>
@@ -158,7 +149,7 @@
     <section>
       <h3>Context</h3>
       <pre class="json">
-        <section data-include="context-3.0.1.json" data-include-format="text"></section>
+        <section data-include="context-3.0.3.json" data-include-format="text"></section>
       </pre>
     </section>
     <section>
@@ -189,66 +180,22 @@
       </thead>
       <tbody>
         <tr>
-          <td>Base Document</td>
-          <td>1.0</td>
-          <td>May 27, 2022</td>
-          <td>IPR Review</td>
-        </tr>
-        <tr>
           <td>Candidate Final</td>
           <td>1.0</td>
           <td>July 14, 2022</td>
-          <td></td>
+          <td>Open Badges 3.0 first Candidate Final release</td>
         </tr>
         <tr>
-          <td>Candidate Final</td>
+          <td>Candidate Public Final</td>
           <td>1.0.1</td>
           <td>February 9, 2023</td>
-          <td>
-            <ul>
-              <li>Some sections now point to its corresponding document in the document set.</li>
-              <li>Model changes:
-                <ul>
-                  <li>Added requited attribute <code>type</code> to Related.</li>
-                  <li><code>credentialStatus</code> can be extended.</li>
-                </ul>
-              </li>
-              <li>Fixed some typos.</li>
-            </ul>
-          </td>
+          <td>Open Badges 3.0 first Candidate Public Final release</td>
         </tr>
         <tr>
-          <td>Candidate Final</td>
-          <td>1.0.2</td>
-          <td>March 6, 2023</td>
-          <td>
-            <ul>
-              <li>Fixed some bugs in then context.json file. See [[[OB-ERRATA-30]]] for detailed changes</li>
-              <li>Added links to  [[OB-IMPL-30]]</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>Candidate Final</td>
-          <td>1.0.3</td>
-          <td>March 30, 2023</td>
-          <td>
-            <ul>
-              <li>Better description of the `tag` property in <a href="#achievement">`Achievement`</a>.</li>
-              <li>Added property `awardedDate` to <a href="#achievementcredential">`AchievementCredential`</a>, <a href="#endorsementcredential">`EndorsementCredential`</a> and <a href="#verifiablecredential">`VerifiableCredential`</a>.</li>
-              <li>Modified property `@context`, allowing Maps as well as URI.</li>
-              <li>Reformat paragraph about JSON-LD <a href="#compacted-document-form">compacted document form</a>.</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>Candidate Final</td>
-          <td>1.0.4</td>
-          <td>April 20, 2023</td>
-          <td>
-            <ul>
-              <li>Fixed relation between Assertion and Evidence in `Figure 1` in section <a href="#conceptual-model">1.5 Conceptual Model</a>.</li>
-            </ul>
+          <td>Final</td>
+          <td>1.0</td>
+          <td>May 27, 2024</td>
+          <td>Open Badges 3.0 Final Release</td>
           </td>
         </tr>
       </tbody>

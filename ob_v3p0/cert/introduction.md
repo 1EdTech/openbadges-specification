@@ -12,7 +12,7 @@ The full set of documents is comprised of the following documents:
 -   [[[OB-CERT-30]]]
 -   [OpenAPI 3.0 JSON File for Open Badges API](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.json)
 -   [OpenAPI 3.0 YAML File for Open Badges API](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.yaml)
--   [Open Badges 3.0 JSON-LD Context File](https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json)
+-   [Open Badges 3.0 JSON-LD Context File](https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json)
 
 ### Terms
 
@@ -38,9 +38,9 @@ The following terms are used throughout this document.
 
 -   <dfn>Skill Claim</dfn>: An [=assertion=] that the learner has the specified [=skill=].
 
--   <dfn data-lt="VC">Verifiable Credential</dfn> (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [[vc-data-model]].
+-   <dfn data-lt="VC">Verifiable Credential</dfn> (VC): A tamper-evident credential whose issuer can be cryptographically verified. See [[vc-data-model-2.0]].
 
--   <dfn data-lt="VP">Verifiable Presentation</dfn> (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [[vc-data-model]]
+-   <dfn data-lt="VP">Verifiable Presentation</dfn> (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [[vc-data-model-2.0]]
 
 -   <dfn data-lt="Verifiable">Verification</dfn>: The evaluation of whether a [=verifiable credential=] or [=verifiable presentation=] is an authentic and timely statement of the issuer or presenter, respectively. This includes checking that: the credential (or presentation) conforms to the specification; the proof method is satisfied; and, if present, the status check succeeds.
 

@@ -13,8 +13,8 @@ var docformat = `
       title="Sample OpenBadgeCredential file contents">
   {
     "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+      "https://www.w3.org/ns/credentials/v2",
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
       "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
     ],
     "id": "http://example.edu/credentials/3732",
@@ -24,7 +24,7 @@ var docformat = `
       "type": ["Profile"],
       "name": "Example University"
     },
-    "issuanceDate": "2010-01-01T00:00:00Z",
+    "validFrom": "2010-01-01T00:00:00Z",
     "name": "Example University Degree",
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
@@ -56,7 +56,7 @@ If an embedded proof method is used instead, the contents of the file MUST be th
 
 If the credential is signed using the [[[#jwt-proof]]] (VC-JWT) the contents of the response MUST be the [=Compact JWS=] string formed as a result of signing the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class) with VC-JWT. The \`Content-Type\` SHOULD be \`text/plain\`.
 
-If an embedded proof method is used instead, the contents of the response MUST be the JSON representation of the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class). The \`Content-Type\` SHOULD be \`application/json\` or \`application/ld+json\`.
+If an embedded proof method is used instead, the contents of the response MUST be the JSON representation of the [OpenBadgeCredential](#org.1edtech.ob.v3p0.achievementcredential.class). The \`Content-Type\` SHOULD be \`application/vc+ld+json\`, although generic representations such \`application/ld+json\` or \`application/json\` are also allowed.
 
 ### Baked Badge
 
@@ -94,17 +94,17 @@ If an embedded proof method is used instead, the text value of the chunk MUST be
     translatedKeyword: '',
     text: '{
             "@context": [
-              "https://www.w3.org/2018/credentials/v1",
-              "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json"
+              "https://www.w3.org/ns/credentials/v2",
+              "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
             ],
             "id": "http://example.edu/credentials/3732",
             "type": ["VerifiableCredential", "OpenBadgeCredential"],
             "issuer": {
               "id": "https://example.edu/issuers/565049",
-              "type": "IssuerProfile",
+              "type": "Profile",
               "name": "Example University"
             },
-            "issuanceDate": "2010-01-01T00:00:00Z",
+            "validFrom": "2010-01-01T00:00:00Z",
             "credentialSubject": {
               "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
             },
@@ -149,17 +149,17 @@ If an embedded proof method is used instead, omit the \`verify\` attribute, and 
       &lt;![CDATA[
         {
           "@context": [
-            "https://www.w3.org/2018/credentials/v1",
-            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json"
+            "https://www.w3.org/ns/credentials/v2",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
           ],
           "id": "http://example.edu/credentials/3732",
           "type": ["VerifiableCredential", "OpenBadgeCredential"],
           "issuer": {
             "id": "https://example.edu/issuers/565049",
-            "type": "IssuerProfile",
+            "type": "Profile",
             "name": "Example University"
           },
-          "issuanceDate": "2010-01-01T00:00:00Z",
+          "validFrom": "2010-01-01T00:00:00Z",
           "credentialSubject": {
             "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
           },

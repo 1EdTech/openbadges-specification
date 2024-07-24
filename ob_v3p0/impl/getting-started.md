@@ -7,7 +7,7 @@ launch simply.
 ### Relationship between VC and CLR/OB
 
 New to this version of the specification, the data model of both CLR and OB
-adopts the convention of the [[VC-DATA-MODEL]].
+adopts the convention of the [[VC-DATA-MODEL-2.0]].
 
 Since Verifiable Credentials are extensible by design, CLR/OB defines a set of
 extensions (also called profile) for reflecting the domain both specifications
@@ -59,7 +59,7 @@ indicates with the `Accept` HTTP header.
     required properties from
     [Profile](https://www.imsglobal.org/spec/ob/v3p0#profile), and a
     representation of the public key component of the keypair this issuer uses
-    to sign credentials in selected `JWK` or `Ed25519VerificationKey2020`
+    to sign credentials in selected `JWK` or `eddsa-2022`
     format. See
     [Dereferencing the Public Key](https://www.imsglobal.org/spec/ob/v3p0#dereference)
 -   When a client requests `Accept: */*` or `application/html`, an HTML
@@ -78,15 +78,14 @@ conformance certification as shown below. See
 for a detailed discussion on the management of keys and creation of signatures.
 
 An example of a JSON-LD representation of an issuer profile follows, that uses
-the EdDSA Cryptosuite 2020 option for signing credentials:
+the EdDSA Cryptosuite 2022 option for signing credentials:
 
 ```jsonld
 {
 	"@context": [
 		"https://www.w3.org/ns/did/v1",
-		"https://www.w3.org/2018/credentials/v1",
-		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-		"https://w3id.org/security/suites/ed25519-2020/v1"
+		"https://www.w3.org/ns/credentials/v2",
+		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
 	],
 	"id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
 	"type": "Profile",
@@ -96,7 +95,8 @@ the EdDSA Cryptosuite 2020 option for signing credentials:
 	"email": "info@example.com",
 	"verificationMethod": [{
 		"id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774#key-0",
-		"type": "Ed25519VerificationKey2020",
+		"type": "DataIntegrityProof",
+        "cryptosuite": "eddsa-rdf-2022",
 		"controller": "https://example.com/issuer/123",
 		"publicKeyMultibase": "z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP"
 	}]
@@ -152,7 +152,7 @@ follows:
 
 ```jsonld
  {
- 	"@context": "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+ 	"@context": "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
  	"id": "https://example.com/achievements/c3c1ea5b-9d6b-416d-ab7f-76da1df3e8d6",
  	"type": "",
  	"name": "Advanced Shoe Tie",
@@ -270,9 +270,8 @@ which upon activation yields a signed verifiable credential like the following.
 ```jsonld
 {
 	"@context": [
-		"https://www.w3.org/2018/credentials/v1",
-		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
-		"https://w3id.org/security/suites/ed25519-2020/v1"
+		"https://www.w3.org/ns/credentials/v2",
+		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
 	],
 	"id": "urn:uuid:a9fc82eb-416f-47c3-8786-de890331d4a5",
 	"type": [
@@ -287,7 +286,7 @@ which upon activation yields a signed verifiable credential like the following.
 		"description": "An example of an educational institution, such as a University",
 		"email": "info@example.com"
 	},
-	"issuanceDate": "2010-01-01T00:00:00Z",
+	"validFrom": "2010-01-01T00:00:00Z",
 	"name": "Advanced Shoe Tie",
 	"credentialSubject": {
 		"type": "AchievementSubject",
@@ -326,7 +325,8 @@ which upon activation yields a signed verifiable credential like the following.
 		}
 	},
 	"proof": [{
-		"type": "Ed25519Signature2020",
+		"type": "DataIntegrityProof",
+        "cryptosuite": "eddsa-rdf-2022",
 		"created": "2022-12-15T16:56:16Z",
 		"verificationMethod": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774#key-0",
 		"proofPurpose": "assertionMethod",
@@ -360,6 +360,10 @@ Several things to note about this credential.
 Follow the steps in the Conformance Certification Guide for the
 [issuer role](https://www.imsglobal.org/spec/ob/v3p0#conformance-and-certification-guide)
 to submit a downloaded signed credential like the above for conformance checks.
+
+<div class="note">
+  You can review Issuer's best practices in its <a href="#issuer">own section</a>.
+</div>
 
 ### API quickstart
 
@@ -634,4 +638,4 @@ token grants, and protected resource endpoint access.
 
 -   [OpenAPI 3.0 JSON File for Open Badges API](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.json)
 -   [OpenAPI 3.0 YAML File for Open Badges API](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.yaml)
--   [Open Badges 3.0 JSON-LD Context File](https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json)
+-   [Open Badges 3.0 JSON-LD Context File](https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json)

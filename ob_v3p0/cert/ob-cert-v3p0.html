@@ -14,11 +14,6 @@
     <!-- Load the MPS configuration -->
     <script class="remove" src="../mps-config.js"></script>
 
-    <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
-    <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js"
-            integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <script class='remove'>
         var respecConfig = {
             mainSpecTitle: "Open Badges Specification",
@@ -29,24 +24,15 @@
             specType: "cert", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
             specVersion: "3.0",
             docVersion: "1.0",
-            specStatus: "Candidate Final Public",
-            specDate: "November 10, 2022",
+            specStatus: "Final Release",
+            specDate: "May 27, 2024",
             contributors: _contributors,
             localBiblio: _localBiblio,
             iprs: _iprs,
             xref: [
                 "did-core",
-                "vc-data-model"
+                "vc-data-model-2.0"
             ],
-
-            // Remove for IMS Final
-            otherLinks: [{
-                key: "Issue Tracker",
-                data: [{
-                value: "https://github.com/IMSGlobal/openbadges-specification/issues",
-                href: "https://github.com/IMSGlobal/openbadges-specification/issues"
-                }]
-            }],
 
             // Add the MPS configuration to respecConfig
             mps: _mps,
@@ -98,10 +84,17 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Version 3.0 IMS Candidate Final</td>
-                    <td>1</td>
+                    <td>Candidate Public Final</td>
+                    <td>1.0</td>
                     <td>November 10, 2022</td>
-                    <td>Covers Issuer, Displayer, and Host conformance and certification.</td>
+                    <td>Open Badges 3.0 first Candidate Public Final release</td>
+                </tr>
+                <tr>
+                    <td>Final</td>
+                    <td>1.0</td>
+                    <td>May 27, 2024</td>
+                    <td>Open Badges 3.0 Final Release</td>
+                    </td>
                 </tr>
             </tbody>
         </table>

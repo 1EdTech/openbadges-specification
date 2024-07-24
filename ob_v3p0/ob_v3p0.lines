@@ -1,4 +1,4 @@
-Model ob 2023-03-29 3.0 "s:IMS Candidate Final" "t:Open Badges" "d:Open Badges Data Model 3.0"
+Model ob 2023-06-20 3.0 "s:IMS Candidate Final" "t:Open Badges" "d:Open Badges Data Model 3.0" "i:https://purl.imsglobal.org/spec/vc/ob/vocab.html#"
 
 // Pull in common credential models (this will be converted to Includes when credential models are finalized and made part of the CDM)
 
@@ -21,13 +21,13 @@ Package ApiServiceModel ServiceModel REST /ims/ob/v3p0              "The Open Ba
             Scopes [getCredentialsAcg]
 
         Operation upsertCredential POST /credentials                "Create or replace an AchievementCredential on the [=resource server=], appending it to the list of credentials for the subject, or replacing an existing entry in that list. The [=resource server=] SHOULD use the [=credential equality and comparison=] algorithm to compare and determine initial equality. The response code makes clear whether the operation resulted in a replacement or an insertion." "n:This specification does not dictate the behavior of Hosts in the cases where the submitted credential is older than or the same as the existing one according to the [= credential equality and comparison =] algorithm."
-            Body AchievementCredential 1 application/json           "If the AchievementCredential is not signed with the VC-JWT Proof Format, the request body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
+            Body AchievementCredential 1 application/json           "If the AchievementCredential is not signed with the VC-JWT Proof Format, the request body MUST be a AchievementCredential and the `Content-Type` MUST be `application/vc+ld+json` or `application/json`."
             Body CompactJws 1 text/plain                            "If the AchievementCredential is signed with the VC-JWT Proof Format, the request body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
             Response 200                                            "The AchievementCredential was successfully replaced on the [=resource server=]. The response body MUST be the AchievementCredential in the request."
-                Body AchievementCredential 1 application/json       "If the AchievementCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
+                Body AchievementCredential 1 application/json       "If the AchievementCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AchievementCredential and the `Content-Type` MUST be `application/vc+ld+json` or `application/json`."
                 Body CompactJws 1 text/plain                        "If the AchievementCredential is signed with the VC-JWT Proof Format, the response body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
             Response 201                                            "The AchievementCredential was successfully created on the [=resource server=]. The response body MUST be the AchievementCredential in the request."
-                Body AchievementCredential 1 application/json       "If the AchievementCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AchievementCredential and the `Content-Type` MUST be `application/json`."
+                Body AchievementCredential 1 application/json       "If the AchievementCredential is not signed with the VC-JWT Proof Format, the response body MUST be a AchievementCredential and the `Content-Type` MUST be `application/vc+ld+json` or `application/json`."
                 Body CompactJws 1 text/plain                        "If the AchievementCredential is signed with the VC-JWT Proof Format, the response body MUST be a CompactJws string and the `Content-Type` MUST be `text/plain`."
             Responses PostErrorResponses
             Scopes [upsertCredentialAcg]
@@ -93,7 +93,7 @@ Package OAuth2ACG SecurityModel OAUTH2ACG
 	Url TokenURL provider.example.com/token
 	Url AuthURL provider.example.com/auth
 	Url RefreshURL provider.example.com/refresh
-	Scope getCredentialsAcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly      "Permission to read ClrCredentials for the authenticated entity."
-    Scope upsertCredentialAcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert        "Permission to create or update ClrCredentials for the authenticated entity."
+	Scope getCredentialsAcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly      "Permission to read AchievementCredentials for the authenticated entity."
+    Scope upsertCredentialAcg https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert        "Permission to create or update AchievementCredentials for the authenticated entity."
 	Scope getProfileAcg     https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly         "Permission to read the profile for the authenticated entity."
     Scope putProfileAcg    https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update 			"Permission to update the profile for the authenticated entity."

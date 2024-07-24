@@ -3,8 +3,7 @@
 
 <head>
   <meta charset='utf-8'>
-  <script src='https://purl.imsglobal.org/spec/respec-ims-default.js' async class='remove'></script>
-  <script src='localBiblio.js' class="remove"></script>
+  <script src='https://purl.imsglobal.org/respec/respec-1edtech.js' class='remove'></script>
   <script src='contributors.js' class="remove"></script>
   <script src='iprs.js' class="remove"></script>
   <script class='remove'>
@@ -13,8 +12,8 @@
       mainSpecBiblioKey: "OB-21",
       specTitle: "Open Badges Specification",
       shortName: "ob",
-      specStatus: "IMS Candidate Final Public",
-      specDate: "October 25, 2021",
+      specStatus: "Final Release",
+      specDate: "November 27, 2023",
       specVersion: "2.1",
       specNature: "normative",
       specType: "spec",
@@ -23,12 +22,6 @@
       skipCertGuideConformanceRef: false,
       contributors: _contributors,
       iprs: _iprs,
-
-      /*
-      * Define a temporary localBiblio to resolve references to spec documents that don't exist
-      * on the IMS purl server. Once the documents exist, remove this localBiblio.
-      */
-      localBiblio: _localBiblio
     };
   </script>
 </head>
@@ -43,7 +36,7 @@
 
     <section class="informative">
       <h3>Design Goals and Rationale</h3>
-      <p>Open Badges 2.1 is a specification that adds the Badge Connect&trade; API to Open Badges that allows badge
+      <p>Open Badges 2.1 is a specification that adds the Badge Connect&reg; API to Open Badges that allows badge
         recipients
         to easily move their Assertions between
         platforms to streamline the experience of earning and using Open Badges. The initial scope for this
@@ -98,11 +91,11 @@
 
   <section>
     <h2>API</h2>
-    <p>Badge Connect&trade; defines a JSON API protocol to be implemented by applications serving in the
+    <p>Badge Connect&reg; defines a JSON API protocol to be implemented by applications serving in the
       roles of Provider and Consumer. Typically Relying Parties SHOULD be certified Open Badges
       services in the Open Badges roles of Displayer or Issuer, though Providers may also be relying
       parties to serve the <a href="#usecases-host-host-transfer">Host to Host transfer use case</a>.
-      Badge Connect&trade; API uses OAuth 2.0 for authentication, granular resource-based permission
+      Badge Connect&reg; API uses OAuth 2.0 for authentication, granular resource-based permission
       scopes, and offers a number of required endpoints that MUST be implemented by Providers and
       Consumers or both.
     </p>
@@ -113,7 +106,7 @@
         <img src="images/OBC_Architecture.svg" />
         <figcaption>Architecture</figcaption>
       </figure>
-      <p>There are five key components to the Badge Connect&trade; API architecture.</p>
+      <p>There are five key components to the Badge Connect&reg; API architecture.</p>
       <dl>
         <dt>Resource Owner</dt>
         <dd>This is the user that owns the resources (badges) that are on the Provider.</dd>
@@ -328,7 +321,7 @@ Host: badge-host.example.com
         <p>All the information provided by the Consumer MUST be returned to the Consumer, including
           modifications to the properties as the Provider deems necessary. This MAY include changes to scopes that the Provider chooses to support. Consumers are encouraged to fail gracefully if a requested scope was not returned by the Provider by either supporting a subset of the intended functionality or by providing messaging to the Resource Owner.</p>
         <p>The Provider MAY reject a registration request if the value of one of the Consumer's metadata fields is invalid. The Provider MAY choose to substitute a valid value for any requested parameter of a Consumer's metadata. Implementers should take note that substitution MAY include changes to the permitted scopes.</p>
-        <p>For the purposes of registering a Consumer, a Provider MAY limit the scopes it supports to those revelant to Badge Connect&trade;.</p>
+        <p>For the purposes of registering a Consumer, a Provider MAY limit the scopes it supports to those revelant to Badge Connect&reg;.</p>
         <pre class="nohighlight">
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -416,7 +409,7 @@ Pragma: no-cache
             href="#oauth-registration">Registration</a>,
           the Consumer then MAY initiate an authorization request as described in Section 4.2
           of the IMS Security Framework [[SEC-10]] by redirecting the user to the Provider's authorizationUrl as
-          declared in the Provider's Badge Connect&trade; <a href="#api-manifest">Manifest</a>.
+          declared in the Provider's Badge Connect&reg; <a href="#api-manifest">Manifest</a>.
         </p>
         <figure id="sd-authorization">
           <img src="images/OBC_AuthenticationSequenceDiagram.svg" alt="" />
@@ -517,7 +510,7 @@ Host: www.example.com
 
         <p>With the supplied code, the Consumer SHOULD attempt to exchange the code for a
           token. The Consumer makes an authorization grant POST request to the Provider's
-          tokenUrl, as declared in the Provider's Badge Connect&trade; <a href="#api-manifest">Manifest</a>.
+          tokenUrl, as declared in the Provider's Badge Connect&reg; <a href="#api-manifest">Manifest</a>.
           The HTTP POST request MUST include a Basic authorization header with the <code>client_id</code>
           and <code>client_secret</code> provided by the response to the registrationUrl endpoint.
           The body of the request MUST include the following form fields:
@@ -615,7 +608,7 @@ grant_type=authorization_code
           to implement it, they SHOULD follow [[RFC7009]].</p>
         <h4>Revocation Request</h4>
         <p>The Consumer makes a POST request to the Provider's token revocation URL, as declared in the Provider's Badge
-          Connect&trade; <a href="#api-manifest">Manifest</a>.
+          Connect&reg; <a href="#api-manifest">Manifest</a>.
           The HTTP request entity-body MUST contain a <code>token</code> parameter containing the refresh token or
           access token.</p>
         <p>Relying Parties MAY also pass a <code>token_type_hint</code> parameter with a value of
@@ -635,12 +628,12 @@ grant_type=authorization_code
 
     <section id="api-scopes">
       <h3>Scopes</h3>
-      <p>Access to resources in the Badge Connect&trade; API require an access token. These access
+      <p>Access to resources in the Badge Connect&reg; API require an access token. These access
         tokens have a permissioned scope when they are created and inform the responding
         application which resources the entity has access to.
       </p>
-      <table title="Scopes for the Badge Connect&trade; API endpoints."
-        summary="Scopes for the Badge Connect&trade; API endpoints.">
+      <table title="Scopes for the Badge Connect&reg; API endpoints."
+        summary="Scopes for the Badge Connect&reg; API endpoints.">
         <thead>
           <tr>
             <th>Name</th>
@@ -830,7 +823,7 @@ grant_type=authorization_code
     <section id="api-envelope">
       <h3>Response Envelope</h3>
       <p>
-        Responses from all <b>Badge Connect-specific</b> APIs in this document are wrapped in a JSON envelope. All
+        Responses from all <b>Badge Connect&reg;-specific</b> APIs in this document are wrapped in a JSON envelope. All
         response envelopes have a
         <code>status</code> property and one or more result properties. The result property name(s) and data types
         are defined in the <a href="#api-responses">Responses</a> section for each endpoint.
@@ -1617,6 +1610,12 @@ Link:
             <td>1</td>
             <td>August 29, 2019</td>
             <td>First release of the Candidate Final specification.</td>
+          </tr>
+          <tr>
+            <td>v2.1 Final</td>
+            <td>1</td>
+            <td>November 27, 2023</td>
+            <td>Open Badges 2.1 Final release.</td>
           </tr>
         </tbody>
       </table>

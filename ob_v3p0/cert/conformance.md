@@ -2,10 +2,6 @@ var conformance = `
 
 ## Conformance and Certification
 
-<div class="ednote">
-   @@ TBD @@
-</div>
-
 The goal of 1EdTech certification for Open Badges [[OB-30]] is to ensure interoperable implementations of badging systems that generate and issue digital badges as well as those that host and display badges.
 
 1EdTech certification for Open Badges demands features and capabilities beyond those that are strictly required by the specification. These additional features are defined in this document. The specification is intentionally left very flexible to allow it to be used for many purposes. Gaining this certification is expected to be more difficult than simply meeting the minimum requirements for producing a valid Open Badge.
@@ -36,7 +32,7 @@ These services contain a set of required endpoints a [=candidate platform=] must
 
 The process for conformance testing role implementations of Open Badges includes the following:
 
-* First, launch the [1EdTech Conformance Test Suite](https://certification.imsglobal.org/certification/badgeconnect/launch.html) for Open Badges 3.0 and follow the onscreen instructions to run the tests.
+* First, launch the [1EdTech Conformance Test Suite](https://certification.imsglobal.org/certification/verifiable-credentials) for Open Badges 3.0 and follow the onscreen instructions to run the tests.
 * Once the tests have been successfully run, submit your test results. A copy of your test results will be sent to your email address.
 
 To pass certification, you must take the following steps:

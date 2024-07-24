@@ -7,8 +7,8 @@ var skillAssertionCtdl = `
     data-allowadditionalproperties="false" title="Skill Assertion (Credential Registry)">
 {
 	"@context": [
-		"https://www.w3.org/2018/credentials/v1",
-		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+		"https://www.w3.org/ns/credentials/v2",
+		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
 		"https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
 	],
 	"id": "http://1edtech.edu/credentials/3732",
@@ -19,12 +19,12 @@ var skillAssertionCtdl = `
 	"name": "Solve and graph linear equations and inequalities",
 	"credentialSubject": {
 		"id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-		"type": "AchievementSubject",
+		"type": ["AchievementSubject"],
 		"achievement": {
 			"id": "https://example.com/achievements/math/linear-1",
-			"type": "Achievement",
+			"type": ["Achievement"],
 			"alignment": [{
-        "type": "Alignment",
+        "type": ["Alignment"],
         "targetCode": "ce-6369c51f-4d86-4592-a761-8b32ae70a045",
         "targetFramework": "Ivy Tech Community College of Indiana, MATH 135, FINITE MATH",
         "targetName": "Solve and graph linear equations and inequalities",
@@ -34,7 +34,7 @@ var skillAssertionCtdl = `
 			"achievementType": "Competency",
 			"creator": {
 				"id": "https://example.com/issuers/123767",
-				"type": "Profile",
+				"type": ["Profile"],
 				"name": "Example Industry Group",
 				"url": "https://example.com",
 				"description": "Example Industry Group is a consortium of luminaries who publish skills data for common usage.",
@@ -54,7 +54,7 @@ var skillAssertionCtdl = `
 	},
 	"issuer": {
 		"id": "https://1edtech.edu/issuers/565049",
-		"type": "Profile",
+		"type": ["Profile"],
 		"name": "1EdTech University",
 		"url": "https://1edtech.edu",
 		"phone": "1-222-333-4444",
@@ -66,7 +66,7 @@ var skillAssertionCtdl = `
 		},
 		"email": "registrar@1edtech.edu"
 	},
-	"issuanceDate": "2022-07-01T00:00:00Z",
+	"validFrom": "2022-07-01T00:00:00Z",
 	"credentialSchema": [{
 		"id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
 		"type": "1EdTechJsonSchemaValidator2019"

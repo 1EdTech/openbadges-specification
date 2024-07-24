@@ -1,6 +1,6 @@
 # Open Badges 3.0
 
-This version aligns 1EdTech Open Badges Specification to the conventions of the [W3C Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/) for the use cases of Defined Achievement Claim and a Skill Claim.
+This version aligns 1EdTech Open Badges Specification to the conventions of the [W3C Verifiable Credentials Data Model](https://www.w3.org/TR/vc-data-model-2.0/) for the use cases of Defined Achievement Claim and a Skill Claim.
 
 This consists of several specific proposed changes to Open Badges to:
 
@@ -33,7 +33,7 @@ Currently, all content is being collected in a single Respec document: [http://i
 
 ### Artifacts
 
-JSON Schema, OpenAPI, and maybe even context files will also be generated in the future. But for now the context file is [hand written](context-3.0.1.json) and available at [http://imsglobal.github.io/openbadges-specification/context-3.0.1.json](http://imsglobal.github.io/openbadges-specification/context-3.0.1.json).
+JSON Schema, OpenAPI, and maybe even context files will also be generated in the future. But for now the context file is [hand written](context-3.0.3.json) and available at [http://imsglobal.github.io/openbadges-specification/context-3.0.3.json](http://imsglobal.github.io/openbadges-specification/context-3.0.3.json).
 
 ### Updating the Base Document
 
@@ -47,11 +47,11 @@ That process takes 1-2 minutes.
 
 ## Regenerating the context file
 
-Every commit and PR merge to the develop branch/ob_v3p0/context-3.0.1.json file will kick off a GitHub action that will:
+Every commit and PR merge to the develop branch/ob_v3p0/context-3.0.3.json file will kick off a GitHub action that will:
 
-1. Copy the file to [https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json](https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json)
+1. Copy the file to [https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json](https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json)
 
-The context file will eventually live on the 1EdTech PURL server. But please use https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json for now.
+The context file will eventually live on the 1EdTech PURL server. But please use https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json for now.
 
 ### Editing the .lines files
 
@@ -80,18 +80,18 @@ In addition to rendering a normative data model, the plugin can also validate ex
 >
   {
     "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://www.w3.org/2018/credentials/examples/v1",
-      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json"
+      "https://www.w3.org/ns/credentials/v2",
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+      "https://www.w3.org/2018/credentials/examples/v2"
     ],
     "id": "http://example.edu/credentials/3732",
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
     "issuer": {
       "id": "https://example.edu/issuers/565049",
-      "type": "IssuerProfile",
+      "type": "Profile",
       "name": "Example University"
     },
-    "issuanceDate": "2010-01-01T00:00:00Z",
+    "validFrom": "2010-01-01T00:00:00Z",
     "credentialSubject": {
       "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
     }
