@@ -60,7 +60,9 @@
     <section>
       <h3>Extendable Badge Objects</h3>
       <p><code>ResultDescription</code>, with the new type <code>AssessmentResultDescription</code></p>
-
+      <div class="issue" title="Too many categories, or incomplete tagging">
+        <code>AssessmentObject</code> from previous version of this specification allows multiple rubrics for an assessment, and multiple rubric criterion for each rubric, while `ResultDescription` is itself a rubric criterion, so it could only allow one rubric and rubric criterion per assessment.
+      </div>
     </section>
     <section id="terminology">
       <h3>Terminology</h3>
@@ -91,7 +93,7 @@
     <h2>Properties</h2>
     <p>This extension has a more deeply nested data structure than many other available extensions. At the top level is a very simple AssessmentExtension object that contains an overall description and one or more detailed assessment descriptors.</p>
     <section>
-      <h3>Assessment Extension Properties</h3>
+      <h3>AssessmentResultDescription Properties</h3>
       <table class="data">
         <tr>
           <th>Property</th>
@@ -99,11 +101,6 @@
           <th>Value Description</th>
         </tr>
 
-        <tr>
-          <td>description</td>
-          <td>string</td>
-          <td>A short overall description of the assessment(s). (required)</td>
-        </tr>
         <tr>
           <td id="assessments">assessments</td>
           <td><a href="#class-AssessmentObject">AssessmentObject</a></td>
@@ -126,8 +123,8 @@
           <td>Description of the single assessment. (required)</td>
         </tr>
         <tr>
-          <td>type</td>
-          <td>IRI</td>
+          <td>assessmentType</td>
+          <td>string</td>
           <td>One of the following type identifiers defined in the extension context: Exam, Performance or Artifact. (required)</td>
         </tr>
         <tr>
@@ -170,12 +167,6 @@
           <td><a href="#class-Section">Section</a></td>
           <td>A listing of sections, each with questions, that make up the assessment. Typically included if the issuer wishes to make available applications for the badge. (multiple allowed)</td>
         </tr>
-        <tr>
-          <td>rubrics</td>
-          <td><a href="#class-Rubric">Rubric</a></td>
-          <td>Rubrics associated with this badge that an issuer wishes to include, typically so they may be displayed across multiple platforms where the badges appear. A rubric included here may be referenced by sections or questions within those sections.
-            (multiple allowed)</td>
-        </tr>
       </table>
     </section>
 
@@ -212,11 +203,6 @@
           <td>string (URI)</td>
           <td>An external URL that represents this section.</td>
         </tr>
-        <tr>
-          <td>rubricId</td>
-          <td>string</td>
-          <td>A pointer to a Rubric or RubricCriterion related to this section, its UUID-formatted identifier. This should match the identifier property of a rubric defined elsewhere in the extension.</td>
-        </tr>
       </table>
     </section>
 
@@ -229,182 +215,28 @@
           <th>Value Description</th>
         </tr>
         <tr>
-          <td>type</td>
-          <td>IRI</td>
-          <td>The type of question. One of the following type identifiers defined in the extension context: ExternalQuestion, FileQuestion or TextQuestion. (required)</td>
+          <td>question</td>
+          <td>string</td>
+          <td>The question being asked.</td>
         </tr>
         <tr>
-          <td>text</td>
+          <td>type</td>
           <td>string</td>
-          <td>The actual text of the question. (required)</td>
+          <td>The type of question being asked. (e.g. multiple choice, short answer, etc.)</td>
         </tr>
         <tr>
           <td>required</td>
-          <td>string</td>
-          <td>Indicates whether this question is considered to be required for completion of the section. Default: true.</td>
-        </tr>
-        <tr>
-          <td id="assessmentWordLimit">wordLimit</td>
-          <td>number</td>
-          <td>For TextQuestions, specifies a maximum length in words that may be enforced as a suggestion or requirement, depending on the application.</td>
-        </tr>
-        <tr>
-          <td id="assessmentCharacterLimit">characterLimit</td>
-          <td>number</td>
-          <td>For TextQuestions, specifies a maximum length in characters that may be enforced as a suggestion or requirement, depending on the application.</td>
+          <td>boolean</td>
+          <td>Indicates whether this question is required for completion of the section. Default: true.</td>
         </tr>
         <tr>
           <td>url</td>
           <td>string (URI)</td>
           <td>An external URL that represents this question.</td>
         </tr>
-        <tr>
-          <td>rubricId</td>
-          <td>string</td>
-          <td>A pointer to a Rubric related to this question, its UUID-formatted identifier. This should match the identifier property of a rubric defined elsewhere in the extension.</td>
-        </tr>
       </table>
     </section>
 
-    <section id="class-Rubric">
-      <h3>Rubric Properties</h3>
-      <table class="data">
-        <tr>
-          <th>Property</th>
-          <th>Type</th>
-          <th>Value Description</th>
-        </tr>
-        <tr>
-          <td>identifier</td>
-          <td>string (UUID)</td>
-          <td>A unique identifier for the Rubric. The form of the GUID is a Universally Unique Identifier (UUID) of 16 hexadecimal characters (lower case) in the format 8-4-4-4-12. All permitted versions (1-5) and variants (1-2) are supported. (required)</td>
-        </tr>
-        <tr>
-          <td>title</td>
-          <td>string</td>
-          <td>The name of the Rubric. (required)</td>
-        </tr>
-        <tr>
-          <td>rubricCriteria</td>
-          <td><a href="#class-RubricCriterion">RubricCriterion</a></td>
-          <td>The objective(s) to measure with the rubric. Usually represented as a table row. (required, multiple allowed)</td>
-        </tr>
-        <tr>
-          <td>caseUri</td>
-          <td>string (URI)</td>
-          <td>An unambiguous reference to this item using a network-resolvable URI that serves CASE-compliant data.</td>
-        </tr>
-        <tr>
-          <td>lastChangeDateTime</td>
-          <td>string (DateTime)</td>
-          <td>Timestamp of last revision. Open Badges DateTime rules should be observed, requiring full datetime with timezone or UTC indicator.</td>
-        </tr>
-      </table>
-    </section>
-
-    <section id="class-RubricCriterion">
-      <h3>RubricCriterion Properties</h3>
-      <table class="data">
-        <tr>
-          <th>Property</th>
-          <th>Type</th>
-          <th>Value Description</th>
-        </tr>
-        <tr>
-          <td>identifier</td>
-          <td>string (UUID)</td>
-          <td>A unique identifier for the RubricCriterion. The form of the GUID is a Universally Unique Identifier (UUID) of 16 hexadecimal characters (lower case) in the format 8-4-4-4-12. All permitted versions (1-5) and variants (1-2) are supported. (required)</td>
-        </tr>
-        <tr>
-          <td>description</td>
-          <td>string</td>
-          <td>A short description of the criterion.</td>
-        </tr>
-        <tr>
-          <td>criterionLevels</td>
-          <td><a href="#class-RubricCriterionLevel">RubricCriterionLevel</a></td>
-          <td>A level of achievement on a particular criterion. Usually represented as a cell in a table. (required, multiple allowed)</td>
-        </tr>
-        <tr>
-          <td>caseUri</td>
-          <td>string (URI)</td>
-          <td>An unambiguous reference to this item using a network-resolvable URI that serves CASE-compliant data.</td>
-        </tr>
-        <tr>
-          <td>lastChangeDateTime</td>
-          <td>string (DateTime)</td>
-          <td>Timestamp of last revision. Open Badges DateTime rules should be observed, requiring full datetime with timezone or UTC indicator.</td>
-        </tr>
-        <tr>
-          <td>category</td>
-          <td>string</td>
-          <td>A textual label for category by which criteria may be grouped.</td>
-        </tr>
-        <tr>
-          <td>weight</td>
-          <td>number</td>
-          <td>A numeric weight assigned to this criterion, used for scored rubrics.</td>
-        </tr>
-        <tr>
-          <td>position</td>
-          <td>number (Integer)</td>
-          <td>A numeric value representing this criterion's position in the criteria list for this rubric.</td>
-        </tr>
-      </table>
-    </section>
-
-    <section id="class-RubricCriterionLevel">
-      <h3>RubricCriterionLevel Properties</h3>
-      <table class="data">
-        <tr>
-          <th>Property</th>
-          <th>Type</th>
-          <th>Value Description</th>
-        </tr>
-        <tr>
-          <td>identifier</td>
-          <td>string (UUID)</td>
-          <td>A unique identifier for the RubricCriterionLevel. The form of the GUID is a Universally Unique Identifier (UUID) of 16 hexadecimal characters (lower case) in the format 8-4-4-4-12. All permitted versions (1-5) and variants (1-2) are supported.
-            (required)</td>
-        </tr>
-        <tr>
-          <td>quality</td>
-          <td>string</td>
-          <td>A qualitative description of this degree of achievement used for column headers or row labels in tabular rubrics. This typically matches exactly across multiple criteria in a rubric to enable rendering as a unified table.</td>
-        </tr>
-        <tr>
-          <td>description</td>
-          <td>string</td>
-          <td>A human readable description of the criterion level. Typically rendered as the content of a rubric cell. (required)</td>
-        </tr>
-        <tr>
-          <td>caseUri</td>
-          <td>string (URI)</td>
-          <td>An unambiguous reference to this item using a network-resolvable URI that serves CASE-compliant data.</td>
-        </tr>
-        <tr>
-          <td>lastChangeDateTime</td>
-          <td>string (DateTime)</td>
-          <td>Timestamp of last revision. Open Badges DateTime rules should be observed, requiring full datetime with timezone or UTC indicator.</td>
-        </tr>
-        <tr>
-          <td>score</td>
-          <td>number</td>
-          <td>The number of points awarded for achieving this level.</td>
-        </tr>
-        <tr>
-          <td>position</td>
-          <td>number (Integer)</td>
-          <td>A numeric value representing this level's position in the list of levels for this criterion. Integer.</td>
-        </tr>
-        <tr>
-          <td>feedback</td>
-          <td>string</td>
-          <td>Pre-defined feedback text to be relayed to the person or organization being evaluated. This may include guidance and suggestions for improvement or development.</td>
-        </tr>
-      </table>
-    </section>
-  </section>
 
   <section class="appendix">
     <h2>Examples</h2>

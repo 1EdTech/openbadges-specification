@@ -93,6 +93,18 @@
       "description": "A set of questions that make up part of an assessment",
       "type": "object",
       "properties": {
+        "type": {
+          "type": "array",
+          "minItems": 1,
+          "contains": {
+            "enum": ["extensions:assessmentSections"]
+          },
+          "items": {
+            "description": "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'extensions:assessmentSections'",
+            "$comment": "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+            "type": "string"
+          }
+        },
         "questions": {
           "oneOf": [
             {
@@ -114,10 +126,6 @@
           "description": "A short description of the section.",
           "type": "string"
         },
-        "rubricId": {
-          "description": "A pointer to a Rubric or RubricCriterion defined elsewhere in the extension related to this section, by its UUID-formatted identifier",
-          "type": "string"
-        },
         "url": {
           "description": "An external URL that represents this section",
           "type": "string",
@@ -135,16 +143,24 @@
       "type": "object",
       "properties": {
         "type": {
+          "type": "array",
+          "minItems": 1,
+          "contains": {
+            "enum": ["extensions:assessmentQuestions"]
+          },
+          "items": {
+            "description": "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'extensions:assessmentQuestions'",
+            "$comment": "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+            "type": "string"
+          }
+        },
+        "questionType": {
           "description": "Identifies the type of question that this is, a hint for how it should be displayed. More question types may be added later.",
           "type": "string",
           "enum": ["ExternalQuestion", "FileQuestion", "TextQuestion"]
         },
         "text": {
           "description": "The actual text of the question that should be presented to the assessment subject",
-          "type": "string"
-        },
-        "rubricId": {
-          "description": "A pointer to a Rubric or RubricCriterion defined elsewhere in the extension related to this question, by its UUID-formatted identifier",
           "type": "string"
         },
         "url": {
@@ -166,7 +182,7 @@
           "type": "number"
         }
       },
-      "required": ["type", "text"]
+      "required": ["questionType", "text"]
     }
   }
 }
