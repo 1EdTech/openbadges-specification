@@ -49,6 +49,18 @@ All JSON Schema can be found in [[[#json-schema]]]. JSON Schema files for creden
   <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_imsx_statusinfo_schema.json'>Imsx_StatusInfo JSON schema</a></li>
 </ul>
 
+<div class="note">
+    The above schemas are based on the [[[VC-DATA-MODEL-2.0]]]. An issuer may also issue credentials
+    following the previous version [[[VC-DATA-MODEL]]]. JSON schema matching that version are:
+    <ul>
+        <li>
+        <a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_anyachievementcredential_schema.json'>AchievementCredential JSON schema (Verifiable Credential Data Model v1.1 compatible)</a></li>
+        <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_anyendorsementcredential_schema.json'>EndorsementCredential JSON schema (Verifiable Credential Data Model v1.1 compatible)</a></li>
+    </ul>
+    Verifiers may accept credentials following either schema using
+    <a href="#org-1edtech-ob-v3p0-model-6">Schemas for verification support</a>.
+</div>
+
 ### Conformance Statements {#conformance}
 
 ### Terminology
