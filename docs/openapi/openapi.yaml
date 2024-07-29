@@ -1534,10 +1534,10 @@ components:
             description: JSON-LD Context. Either a URI with the context definition
               or a Map with a local context definition MUST be supplied.
             oneOf:
+            - $ref: '#/components/schemas/Map'
             - type: string
               description: A `NormalizedString` that respresents a Uniform Resource
                 Identifier (URI).
-            - $ref: '#/components/schemas/Map'
           x-srcprop-pid: org.1edtech.ob.v3p0.context.class
         issuer:
           description: "A description of the individual, entity, or organization that\
@@ -1567,7 +1567,7 @@ components:
           description: "The value of the `termsOfUse` property tells the verifier\
             \ what actions it is required to perform (an obligation), not allowed\
             \ to perform (a prohibition), or allowed to perform (a permission) if\
-            \ it is to accept the verifiable credentia"
+            \ it is to accept the verifiable credential."
           items:
             $ref: '#/components/schemas/TermsOfUse'
           x-srcprop-pid: org.1edtech.ob.v3p0.termsofuse.class
@@ -1890,10 +1890,10 @@ components:
             description: JSON-LD Context. Either a URI with the context definition
               or a Map with a local context definition MUST be supplied.
             oneOf:
+            - $ref: '#/components/schemas/Map'
             - type: string
               description: A `NormalizedString` that respresents a Uniform Resource
                 Identifier (URI).
-            - $ref: '#/components/schemas/Map'
           x-srcprop-pid: org.1edtech.ob.v3p0.context.class
         issuer:
           description: "A description of the individual, entity, or organization that\
@@ -1912,7 +1912,7 @@ components:
           description: "The value of the `termsOfUse` property tells the verifier\
             \ what actions it is required to perform (an obligation), not allowed\
             \ to perform (a prohibition), or allowed to perform (a permission) if\
-            \ it is to accept the verifiable credentia"
+            \ it is to accept the verifiable credential."
           items:
             $ref: '#/components/schemas/TermsOfUse'
           x-srcprop-pid: org.1edtech.ob.v3p0.termsofuse.class
