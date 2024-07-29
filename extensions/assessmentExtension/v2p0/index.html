@@ -215,24 +215,39 @@
           <th>Value Description</th>
         </tr>
         <tr>
-          <td>question</td>
-          <td>string</td>
-          <td>The question being asked.</td>
+          <td>type</td>
+          <td>IRI</td>
+          <td>The type of question. One of the following type identifiers defined in the extension context: ExternalQuestion, FileQuestion or TextQuestion. (required)</td>
         </tr>
         <tr>
-          <td>type</td>
+          <td>text</td>
           <td>string</td>
-          <td>The type of question being asked. (e.g. multiple choice, short answer, etc.)</td>
+          <td>The actual text of the question. (required)</td>
         </tr>
         <tr>
           <td>required</td>
-          <td>boolean</td>
-          <td>Indicates whether this question is required for completion of the section. Default: true.</td>
+          <td>string</td>
+          <td>Indicates whether this question is considered to be required for completion of the section. Default: true.</td>
+        </tr>
+        <tr>
+          <td id="assessmentWordLimit">wordLimit</td>
+          <td>number</td>
+          <td>For TextQuestions, specifies a maximum length in words that may be enforced as a suggestion or requirement, depending on the application.</td>
+        </tr>
+        <tr>
+          <td id="assessmentCharacterLimit">characterLimit</td>
+          <td>number</td>
+          <td>For TextQuestions, specifies a maximum length in characters that may be enforced as a suggestion or requirement, depending on the application.</td>
         </tr>
         <tr>
           <td>url</td>
           <td>string (URI)</td>
           <td>An external URL that represents this question.</td>
+        </tr>
+        <tr>
+          <td>rubricId</td>
+          <td>string</td>
+          <td>A pointer to a Rubric related to this question, its UUID-formatted identifier. This should match the identifier property of a rubric defined elsewhere in the extension.</td>
         </tr>
       </table>
     </section>
