@@ -8,6 +8,8 @@
 
 ### Typography
 
+- Appearances of `JsonSchemaValidator2019` in description fields inside JSON Schemas should be `1EdTechJsonSchemaValidator2019`.
+
 - Description column for the property `termsOfUse` in [AchievementCredential](https://www.imsglobal.org/spec/ob/v3p0#achievementcredential) should be:
 
 > The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
