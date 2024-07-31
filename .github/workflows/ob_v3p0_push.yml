@@ -18,7 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' -F 'file=@ob_v3p0/ob_v3p0.lines' https://datamodels-staging.imsglobal.org/upload
+#      - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' -F 'file=@ob_v3p0/ob_v3p0.lines' https://datamodels-staging.imsglobal.org/upload
+      - run: echo 'Not needed for now as spec is final.'
         continue-on-error: false
 
   build:

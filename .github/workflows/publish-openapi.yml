@@ -4,16 +4,16 @@ on:
   workflow_dispatch:
 
   push:
-    branches: 
+    branches:
       - develop
-    paths: 
+    paths:
       - 'ob_v3p0/ob_v3p0.lines'
       - 'ob_v3p0/common_credentials.lines'
-  
+
   pull_request:
-    branches: 
+    branches:
       - develop
-    paths: 
+    paths:
       - 'ob_v3p0/ob_v3p0.lines'
       - 'ob_v3p0/common_credentials.lines'
 
@@ -24,9 +24,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' -F 'file=@ob_v3p0/ob_v3p0.lines' https://datamodels-staging.imsglobal.org/upload
+    #   - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' -F 'file=@ob_v3p0/ob_v3p0.lines' https://datamodels-staging.imsglobal.org/upload
+      - run: echo 'Not needed for now as spec is final.'
         continue-on-error: false
-        
+
   openapi:
     name: Generate the OpenAPI files
     needs: sideload
@@ -37,7 +38,7 @@ jobs:
       - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' https://datamodels-staging.imsglobal.org/openapischema/org.1edtech.ob.v3p0.model?binding=yaml --output openapi.yaml
       - name: Upload OpenAPI files
         uses: actions/upload-artifact@v3
-        with: 
+        with:
           name: openapi.yaml
           path: openapi.yaml
       - uses: actions/upload-artifact@v3
@@ -50,7 +51,7 @@ jobs:
           ref: gh-pages
       - name: Download the OpenAPI files
         uses: actions/download-artifact@v3
-        with: 
+        with:
           name: openapi.yaml
           path: docs/openapi
       - uses: actions/download-artifact@v3
