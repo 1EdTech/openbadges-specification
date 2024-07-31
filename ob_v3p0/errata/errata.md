@@ -8,6 +8,10 @@
 
 ### Typography
 
+- The description of the field `type` in the entity `GeoCoordinates` should be `MUST be the IRI 'GeoCoordinates'.`.
+
+- The description of the field `type` in the entity `IdentifierEntry` should be `MUST be the IRI 'IdentifierEntry'.`.
+
 - Appearances of `JsonSchemaValidator2019` in description fields inside JSON Schemas should be `1EdTechJsonSchemaValidator2019`.
 
 - Description column for the property `termsOfUse` in [AchievementCredential](https://www.imsglobal.org/spec/ob/v3p0#achievementcredential) should be:
