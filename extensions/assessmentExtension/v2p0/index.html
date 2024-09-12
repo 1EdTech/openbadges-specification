@@ -54,15 +54,15 @@
         <li>Describe an assessment so a potential recipient understands the process.</li>
         <li>Describe assessment(s) so badge consumers better know what recipients did to earn the badge.</li>
         <li>Include explicit application information to build an automated application form for the badge.</li>
-        <li>Describe rubrics related to assessment so recipients, assessors, and consumers have a consistent understanding of the criteria for passing the described assessment(s).</li>
       </ul>
+      <div class="note" title="New in OB v3.0">
+        New in Open Badges 3.0 is the ability to include a rubric for an Achievement with multiple criterion in the form of `ResultDescription`.
+        The adaptation of this extension to this new version implies the limitation of defining only one rubric and rubric criterion per assessment.
+      </div>
     </section>
     <section>
       <h3>Extendable Badge Objects</h3>
       <p><code>ResultDescription</code>, with the new type <code>AssessmentResultDescription</code></p>
-      <div class="issue" title="Too many categories, or incomplete tagging">
-        <code>AssessmentObject</code> from previous version of this specification allows multiple rubrics for an assessment, and multiple rubric criterion for each rubric, while `ResultDescription` is itself a rubric criterion, so it could only allow one rubric and rubric criterion per assessment.
-      </div>
     </section>
     <section id="terminology">
       <h3>Terminology</h3>
@@ -94,23 +94,6 @@
     <p>This extension has a more deeply nested data structure than many other available extensions. At the top level is a very simple AssessmentExtension object that contains an overall description and one or more detailed assessment descriptors.</p>
     <section>
       <h3>AssessmentResultDescription Properties</h3>
-      <table class="data">
-        <tr>
-          <th>Property</th>
-          <th>Type</th>
-          <th>Value Description</th>
-        </tr>
-
-        <tr>
-          <td id="assessments">assessments</td>
-          <td><a href="#class-AssessmentObject">AssessmentObject</a></td>
-          <td>Detailed information about the assessment(s) that may be administered. (required, multiple allowed)</td>
-        </tr>
-      </table>
-    </section>
-
-    <section id="class-AssessmentObject">
-      <h3>AssessmentObject Properties</h3>
       <table class="data">
         <tr>
           <th>Property</th>
