@@ -14,6 +14,9 @@
           integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+  <!-- Load the MPS configuration -->
+  <script class="remove" src="./respec-support/mps-config.js"></script>
+
   <script class='remove'>
     var respecConfig = {
       specTitle: "Open Badges Issuer Accreditation Extension",
@@ -27,6 +30,10 @@
       contributors: _contributors,
       localBiblio: _localBiblio,
       skipCertGuideConformanceRef : true,
+
+      // Add the MPS configuration to respecConfig
+      mps: _mps,
+
       // Add VC proof examples
       postProcess: [
         window.respecVc.createVcExamples
@@ -57,7 +64,7 @@
     </section>
     <section>
       <h2>Extendable Badge Objects</h2>
-      <p><code>Profile</code>, with the new type <code>IssuerAccreditation</code></p>
+      <p><code>Profile</code>, with the new types <code>IssuerAccreditationProfile</code> and <code>AccreditationProfile</code></p>
     </section>
 
     <section id="terminology">
@@ -84,39 +91,20 @@
   </section>
 
   <section>
-    <h2>Properties</h2>
-    <table class="data">
-      <tr>
-        <th>Property</th>
-        <th>Type</th>
-        <th>Value Description</th>
-      </tr>
-      <tr>
-        <td>contactInstructions</td>
-        <td>string</td>
-        <td>Contact instructions for an accrediting organization. (required)</td>
-      </tr>
-      <tr>
-        <td>logo</td>
-        <td>string,uri</td>
-        <td>The logo for the accrediting organization.</td>
-      </tr>
-      <tr>
-        <td>areaServed</td>
-        <td>string</td>
-        <td>The geographic area where accreditation services are targeted.</td>
-      </tr>
-      <tr>
-        <td>accreditationDate</td>
-        <td>string</td>
-        <td>The date accreditation was valid (ex: 2009-07-31).</td>
-      </tr>
-      <tr>
-        <td>educationSector</td>
-        <td>string</td>
-        <td>Focus of accreditation (ex: K12, Postsecondary, CTE, Workforce, Adult Ed).</td>
-      </tr>
-    </table>
+    <h2>Data Model</h2>
+    <section data-model="org.1edtech.ob-accred.v2p0.model" data-package="MainClasses" title="Data Models"></section>
+    </section>
+    <section data-model="org.1edtech.ob-accred.v2p0.model" data-stereotype="DerivedType" title="Derived Types">
+    <p>
+        The derived types in this section are shared by all 1EdTech specifications.
+    </p>
+    </section>
+    <section data-model="org.1edtech.ob-accred.v2p0.model" data-stereotype="PrimitiveType" title="Primitive Types">
+    <p>
+        The primitive types in this section are shared by all 1EdTech specifications.
+    </p>
+    </section>
+
   </section>
 
   <section>
@@ -125,6 +113,7 @@
         class="json example vc"
         data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
         data-allowadditionalproperties="true"
+        data-source="CORE"
         title="Sample OpenBadgeCredential with Issuer Accreditation extension"
     >
     {
@@ -137,14 +126,15 @@
         "type": ["VerifiableCredential", "OpenBadgeCredential"],
         "issuer": {
             "id": "https://example.com/issuers/876543",
-            "type": ["Profile", "IssuerAccreditation"]
+            "type": ["Profile", "IssuerAccreditationProfile"],
             "name": "Example Corp",
             "accreditations": [{
-                "type": ["Profile", "Accreditation"],
+                "type": ["Profile", "AccreditationProfile"],
                 "name": "Northwest Commission on Colleges and Universities",
                 "contactInstructions": "Call or email the Commission Office",
                 "url": "http://www.nwccu.org/index.htm",
                 "address": {
+                    "type": ["Address"],
                     "streetAddress": "8060 165th Ave. NE, Suite 100",
                     "addressLocality": "Redmond",
                     "addressRegion": "WA",
@@ -156,11 +146,12 @@
                 "educationalSector": "Postsecondary"
             },
             {
-                "type": ["Profile", "Accreditation"],
+                "type": ["Profile", "AccreditationProfile"],
                 "name": "Commission on Accreditation of Allied Health Education Programs",
                 "contactInstructions": "Contact Kathleen Megivern, Executive Director, megivern@caahep.org",
                 "url": "http://www.ncacasi.org",
                 "address": {
+                    "type": ["Address"],
                     "streetAddress": "25400 US Highway 19 N, Suite 158",
                     "addressLocality": "Clearwater",
                     "addressRegion": "FL",
@@ -175,10 +166,10 @@
         "name": "Teamwork Badge",
         "credentialSubject": {
             "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-            "type": "AchievementSubject",
+            "type": ["AchievementSubject"],
             "achievement": {
                 "id": "https://example.com/achievements/21st-century-skills/teamwork",
-                "type": "Achievement",
+                "type": ["Achievement"],
                 "criteria": {
                     "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
                 },
