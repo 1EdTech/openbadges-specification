@@ -12,6 +12,19 @@ Package MainClasses DataModel
         Property accreditationDate DateTimeZ 0..1 "d:The date accreditation was valid"
         Property educationSector String 0..1 "d:Focus of accreditation (ex: K12, Postsecondary, CTE, Workforce, Adult Ed)."
 
+// Core OB types, defined here only for JSON Schema generation
+Package OBClasses DataModel
+    Class AchievementCredential Unordered false []
+        Property issuer ProfileRef 1
+        Mixin Extensions
+
+Package OBSupportClasses DataModel
+    Class ProfileRef EmbeddedSelection false [URI, Profile]
+
+    Class Profile Unordered false [IssuerAccreditationProfile, AccreditationProfile]
+        Property parentOrg Profile 0..1
+        Mixin Extensions
+
 
 // Derived Types
 
@@ -24,4 +37,4 @@ Package DerivedTypes DataModel
 
 Package PrimitiveTypes DataModel
 
-    Includes [DateTime, DateTimeZ, NormalizedString, String]
+    Includes [DateTime, DateTimeZ, Extensions, Namespace, NormalizedString, String]
