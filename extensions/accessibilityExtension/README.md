@@ -51,8 +51,8 @@ The OB 3.0 JSON-LD context has already defined some terms that this
 extension to all entities of the specification. So, you'll need a JSON-LD
 context with the remaining terms.
 
+### Accessibility OB 3.0 JSON-LD Context
 ```json
-// Accessibility OB 3.0 JSON-LD Context
 {
     "@context": {
         "@protected": true,
@@ -70,8 +70,8 @@ doesn't work, as it defines the attributes at the root level,
 while we need to define them for the `Achievement`, `AchievementCredential`
 and `Profile` entities.
 
+### Accessibility OB 3.0 JSON Schema for AchievementCredential
 ```json
-// Accessibility OB 3.0 JSON Schema for AchievementCredential
 {
     "$schema": "https://json-schema.org/draft/2019-09/schema#",
     "$id": "https://openbadgespec.org/extensions/accessibilityExtension/schema_achievement_credential_obv3p0.json",
@@ -102,8 +102,8 @@ and `Profile` entities.
 }
 ```
 
+### Accessibility OB 3.0 JSON Schema for Achievement
 ```json
-// Accessibility OB 3.0 JSON Schema for Achievement
 {
     "$schema": "https://json-schema.org/draft/2019-09/schema#",
     "$id": "https://openbadgespec.org/extensions/accessibilityExtension/schema_achievement_obv3p0.json",
@@ -146,8 +146,8 @@ and `Profile` entities.
 }
 ```
 
+### Accessibility OB 3.0 JSON Schema for Issuer Profile
 ```json
-// Accessibility OB 3.0 JSON Schema for Issuer Profile
 {
     "$schema": "https://json-schema.org/draft/2019-09/schema#",
     "$id": "https://openbadgespec.org/extensions/accessibilityExtension/schema_profile_obv3p0.json",
@@ -199,8 +199,8 @@ in its `@context` declaration and the url of the JSON schemas in its
 > You only need to include the JSON schema of the extended entity to use.
 
 
+### Sample OpenBadgeCredential with Accessibility extension
 ```json
-// Sample OpenBadgeCredential with Accessibility extension
 {
     "@context": [
         "https://www.w3.org/ns/credentials/v2",

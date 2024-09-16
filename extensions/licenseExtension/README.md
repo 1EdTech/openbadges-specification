@@ -48,8 +48,8 @@ entity `Achievement`.
 Following the guidelines, we could define a new type `CCAchievement`.
 So, you'll need a JSON-LD context with this new type.
 
+### Creative Commons Content License OB 3.0 JSON-LD Context
 ```json
-// Creative Commons Content License OB 3.0 JSON-LD Context
 {
     "@context": {
         "@protected": true,
@@ -90,8 +90,8 @@ Also you need a JSON schema. The existing extension JSON schema doesn't
 work, as it defines the attributes at the root level, while we need to
 define them for the `Achievement` entity.
 
+### Creative Commons Content License OB 3.0 JSON Schema
 ```json
-// Creative Commons Content License OB 3.0 JSON Schema
 {
     "$schema": "https://json-schema.org/draft/2019-09/schema#",
     "$id": "https://openbadgespec.org/extensions/licenseExtension/schema_obv3p0.json",
@@ -143,8 +143,8 @@ JSON-LD context (assuming is
 in its `@context` declaration and the url of the JSON schema in its
 `credentialSchema` attribute.
 
+### Sample OpenBadgeCredential with Creative Commons Content License extension
 ```json
-// Sample OpenBadgeCredential with Creative Commons Content License extension
 {
     "@context": [
         "https://www.w3.org/ns/credentials/v2",

@@ -33,8 +33,8 @@ of the specification. However, you should follow the guidelines to extend the da
 
 So, you should create a new context link with the new type, as the example below
 
+### Apply Link OB 3.0 JSON-LD Context
 ```json
-// Apply Link OB 3.0 JSON-LD Context
 {
     "@context": {
         "@protected": true,
@@ -56,8 +56,8 @@ Also you need a JSON schema. The existing extension JSON schema doesn't
 work, as it defines the attributes at the root level, while we need to
 define them for the `Achievement` entity.
 
+### Apply Link OB 3.0 JSON Schema
 ```json
-// Apply Link OB 3.0 JSON Schema
 {
     "$schema": "https://json-schema.org/draft/2019-09/schema#",
     "$id": "https://openbadgespec.org/extensions/applyLinkExtension/schema_obv3p0.json",
@@ -91,8 +91,8 @@ JSON-LD context (assuming is
 in its `@context` declaration and the url of the JSON schema in its
 `credentialSchema` attribute.
 
+### Sample OpenBadgeCredential with Apply Link extension
 ```json
-// Sample OpenBadgeCredential with Apply Link extension
 {
     "@context": [
         "https://www.w3.org/ns/credentials/v2",

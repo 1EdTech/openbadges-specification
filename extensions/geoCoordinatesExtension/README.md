@@ -61,8 +61,8 @@ Given the fact that this extension applies to two different entities, we
 would need two different JSON schemas. The JSON-LD context, on the other
 hand, could be the same for both extensions.
 
+### GeoLocation OB 3.0 JSON-LD Context
 ```json
-// GeoLocation OB 3.0 JSON-LD Context
 {
     "@context": {
         "@protected": true,
@@ -77,8 +77,8 @@ JSON schema doesn't work, as it defines the attributes at the root level,
 while we need to define them for the `Achievement` and `AchievementCredential`
 entities.
 
+### GeoLocation OB 3.0 JSON Schema for AchievementCredential
 ```json
-// GeoLocation OB 3.0 JSON Schema for AchievementCredential
 {
     "$schema": "https://json-schema.org/draft/2019-09/schema#",
     "$id": "https://openbadgespec.org/extensions/geoCoordinatesExtension/schema_achievement_credential_obv3p0.json",
@@ -139,8 +139,8 @@ entities.
 }
 ```
 
+### GeoLocation OB 3.0 JSON Schema for Achievement
 ```json
-// GeoLocation OB 3.0 JSON Schema for Achievement
 {
     "$schema": "https://json-schema.org/draft/2019-09/schema#",
     "$id": "https://openbadgespec.org/extensions/geoCoordinatesExtension/schema_achievement_obv3p0.json",
@@ -222,8 +222,8 @@ in its `@context` declaration and the url of the JSON schemas in its
 
 > You only need to include the JSON schema of the extended entity to use.
 
+### Sample OpenBadgeCredential with Geo Location extension
 ```json
-// Sample OpenBadgeCredential with Geo Location extension
 {
     "@context": [
         "https://www.w3.org/ns/credentials/v2",
