@@ -36,6 +36,21 @@ Package Enumerations DataModel
         Property Performance Term 1
         Property Artifact Term 1
 
+// Core OB types, defined here only for JSON Schema generation
+Package OBClasses DataModel
+    Class AchievementCredential Unordered false []
+        Property credentialSubject AchievementSubject 1
+        Mixin Extensions
+
+Package OBSupportClasses DataModel
+    Class AchievementSubject Unordered false []
+        Property achievement Achievement 1
+        Mixin Extensions
+
+    Class Achievement Unordered false []
+        Property resultDescription AssessmentResultDescription 0..*
+        Mixin Extensions
+
 // Derived Types
 
 Package DerivedTypes DataModel
@@ -47,4 +62,4 @@ Package DerivedTypes DataModel
 
 Package PrimitiveTypes DataModel
 
-    Includes [Boolean, NonNegativeInteger, NormalizedString, String]
+    Includes [Boolean, Extensions, Namespace, NonNegativeInteger, NormalizedString, String]
