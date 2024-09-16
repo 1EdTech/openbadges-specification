@@ -119,7 +119,7 @@ define them for the `Achievement` entity.
         "License": {
             "type": "object",
             "properties": {
-                id": {
+                "id": {
                     "type": "string",
                     "format": "url"
                 },

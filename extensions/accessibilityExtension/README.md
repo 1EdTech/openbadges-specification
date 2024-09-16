@@ -95,10 +95,10 @@ and `Profile` entities.
         "url":{
             "type": "string",
             "format": "uri"
-        },
-    }
+        }
+    },
     "required": ["url","accessibilityFeature"],
-    "additionalProperties": true,
+    "additionalProperties": true
 }
 ```
 
@@ -133,8 +133,8 @@ and `Profile` entities.
                         "url":{
                             "type": "string",
                             "format": "uri"
-                        },
-                    }
+                        }
+                    },
                     "required": ["url","accessibilityFeature"],
                     "additionalProperties": true
                 }
