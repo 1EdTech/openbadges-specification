@@ -192,9 +192,9 @@ types (DID methods), cryptographic key or signature types, status methods, or
 other Verifiable Credentials options beyond those known to the OB/CLR spec.
 These additional components may be noted as possibilities in future updates to
 the OB/CLR specs, but for best interoperability within OB/CLR tools and
-conformance certification from 1EdTech, support for a issuer identifier, key
-type, signature type, and (if applicable) status method mentioned in these
-specifications. Consult the
+conformance certification from 1EdTech, issuers should support issuer
+identifiers, key types, signature types, and (if applicable) status methods
+mentioned in these specifications. Consult the
 [TrustEd Apps Directory](https://site.imsglobal.org/certifications) and
 participate in the 1EdTech membership community to coordinate the selection and
 rollout of these components as well as potential incorporation into
