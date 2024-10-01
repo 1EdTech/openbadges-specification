@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset='utf-8'>
+  <script src='https://purl.imsglobal.org/respec/respec-1edtech.js' async class='remove'></script>
+  <script src="./respec-support/local-biblio.js" class="remove"></script>
+  <script src="./respec-support/contributors.js" class="remove"></script>
+
+  <!-- Load VC proof add-on -->
+  <script class="remove" src="https://purl.imsglobal.org/respec/respec-vc.js"></script>
+
+  <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
+  <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js"
+          integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Load the MPS configuration -->
+  <script class="remove" src="./respec-support/mps-config.js"></script>
+
+  <script class='remove'>
+    var respecConfig = {
+      specTitle: "Open Badges Issuer Accreditation Extension",
+      shortName: "ob-accred",
+      specStatus: "Base Document",
+      specDate: "July 24th, 2024",
+      specVersion: "2.0",
+      specNature: "normative",
+      specType: "spec",
+      docVersion: "1.0",
+      contributors: _contributors,
+      localBiblio: _localBiblio,
+      skipCertGuideConformanceRef : true,
+
+      // Add the MPS configuration to respecConfig
+      mps: _mps,
+
+      // Add VC proof examples
+      postProcess: [
+        window.respecVc.createVcExamples
+      ]
+    };
+  </script>
+</head>
+
+<body>
+
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <p>This extension provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile.</p>
+  </section>
+
+  <section>
+    <h2>Overview</h2>
+    <section class="informative">
+      <h2>Introduction</h2>
+      <p>This extension provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile.</p>
+      <p>Issuers can include this information in order to convey trust to the badge viewer.</p>
+    </section>
+    <section class="informative" id="usecases">
+      <h3>Use cases</h3>
+      <ul>
+        <li>An issuer wants to include detailed information about an accrediting organization as it pertains to the program or the badge.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Extendable Badge Objects</h2>
+      <p><code>Profile</code>, with the new types <code>IssuerAccreditationProfile</code> and <code>AccreditationProfile</code></p>
+    </section>
+
+    <section id="terminology">
+      <h3>Terminology</h3>
+      <p>The terminology used in this document is consistent with the terminology established in the Open Badges 3.0 specification [[OB-30]].</p>
+    </section>
+    <section id="conformance">
+      <h3>Conformance Statements</h3>
+    </section>
+    <section id="documentset">
+      <h3>Document Set</h3>
+      <section>
+        <h4>Normative Documents</h4>
+        <dl>
+          <dt>JSON Schema</dt>
+          <dd>The JSON Schema defines the syntactical restrictions of this extension: <a href="https://purl.imsglobal.org/spec/ob-accred/v2p0/schema/" title="Open Badges Issuer Accreditation Extension v2.0 JSON Schema">https://purl.imsglobal.org/spec/ob-accred/v2p0/schema</a>.</dd>
+          <dt>JSON-LD Context</dt>
+          <dd>The JSON-LD context defines mappings for the terms used in this specification to their canonical IRIs: <a href="https://purl.imsglobal.org/spec/ob-accred/v2p0/context/" title="Open Badges Issuer Accreditation Extension v2.0 JSON-LD Context">https://purl.imsglobal.org/spec/ob-accred/v2p0/context</a>.</dd>
+          <dt>Errata</dt>
+          <dd>The errata details any erratum registered for this version of this specification since its publication [[OB-ACCRED-20-ERRATA]].</dd>
+        </dl>
+      </section>
+    </section>
+  </section>
+
+  <section>
+    <h2>Data Model</h2>
+    <section data-model="org.1edtech.ob-accred.v2p0.model" data-package="MainClasses" title="Data Models"></section>
+    </section>
+    <section data-model="org.1edtech.ob-accred.v2p0.model" data-stereotype="DerivedType" title="Derived Types">
+    <p>
+        The derived types in this section are shared by all 1EdTech specifications.
+    </p>
+    </section>
+    <section data-model="org.1edtech.ob-accred.v2p0.model" data-stereotype="PrimitiveType" title="Primitive Types">
+    <p>
+        The primitive types in this section are shared by all 1EdTech specifications.
+    </p>
+    </section>
+
+  </section>
+
+  <section>
+    <h2>Examples</h2>
+    <pre
+        class="json example vc"
+        data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+        data-allowadditionalproperties="true"
+        data-source="CORE"
+        title="Sample OpenBadgeCredential with Issuer Accreditation extension"
+    >
+    {
+        "@context": [
+            "https://www.w3.org/ns/credentials/v2",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+            "http://purl.imsglobal.org/spec/ob-accred/v3p0/context"
+        ],
+        "id": "http://example.com/credentials/3527",
+        "type": ["VerifiableCredential", "OpenBadgeCredential"],
+        "issuer": {
+            "id": "https://example.com/issuers/876543",
+            "type": ["Profile", "IssuerAccreditationProfile"],
+            "name": "Example Corp",
+            "accreditations": [{
+                "type": ["Profile", "AccreditationProfile"],
+                "name": "Northwest Commission on Colleges and Universities",
+                "contactInstructions": "Call or email the Commission Office",
+                "url": "http://www.nwccu.org/index.htm",
+                "address": {
+                    "type": ["Address"],
+                    "streetAddress": "8060 165th Ave. NE, Suite 100",
+                    "addressLocality": "Redmond",
+                    "addressRegion": "WA",
+                    "postalCode": "98052"
+                },
+                "description": "The Northwest Commission on Colleges and Universities (NWCCU) is an independent, non-profit membership organization recognized by the U.S. Department of Education as the regional authority on educational quality and institutional effectiveness of higher education institutions.",
+                "areaServed": "The US seven-state Northwest region of Alaska, Idaho, Montana, Nevada, Oregon, Utah, and Washington. US-AK, US-ID, US-MT, US-NV, US-OR, US-UT, US-WA",
+                "accreditationDate": "2010-09-01",
+                "educationalSector": "Postsecondary"
+            },
+            {
+                "type": ["Profile", "AccreditationProfile"],
+                "name": "Commission on Accreditation of Allied Health Education Programs",
+                "contactInstructions": "Contact Kathleen Megivern, Executive Director, megivern@caahep.org",
+                "url": "http://www.ncacasi.org",
+                "address": {
+                    "type": ["Address"],
+                    "streetAddress": "25400 US Highway 19 N, Suite 158",
+                    "addressLocality": "Clearwater",
+                    "addressRegion": "FL",
+                    "postalCode": "33763"
+                },
+                "description": "CAAHEP is the largest programmatic accreditor in the health sciences field. In collaboration with its Committees on Accreditation, CAAHEP reviews and accredits over 2000 educational programs in twenty-eight (28) health science occupations.",
+                "accreditationDate": "2014-04-01",
+                "educationalSector": "postsecondary"
+            }]
+        },
+        "validFrom": "2010-01-01T00:00:00Z",
+        "name": "Teamwork Badge",
+        "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+            "type": ["AchievementSubject"],
+            "achievement": {
+                "id": "https://example.com/achievements/21st-century-skills/teamwork",
+                "type": ["Achievement"],
+                "criteria": {
+                    "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+                },
+                "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+                "name": "Teamwork"
+            }
+        },
+        "credentialSchema": [{
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }, {
+            "id": "http://purl.imsglobal.org/spec/ob-accred/v3p0/schema",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }]
+    }
+    </pre>
+  </section>
+
+  <section class="appendix">
+    <h2>Schema</h2>
+    <section>
+      <h3>Context</h3>
+      <pre class="json">
+        <section data-include="context.json" data-include-format="text"></section>
+      </pre>
+    </section>
+    <section data-model="org.1edtech.ob-accred.v2p0.model" data-package="OBClasses" data-schema-format="json">
+      <h3 id="json-schema">JSON Schema</h3>
+    </section>
+  </section>
+
+   <section class="appendix informative" id="revision-history">
+        <h2>Revision History</h2>
+          <section>
+            <h3>Version History</h3>
+              <table title="Revision History" class="data"
+                summary="Publication history and revision details for this specification.">
+                <thead>
+                  <tr><th>Version No.</th><th>Release Date</th><th>Comments</th></tr>
+                </thead>
+                  <tbody>
+                      <tr>
+                          <td>Base Document 1.0</td>
+                          <td>July 24th, 2024</td>
+                          <td>Initial release.</td>
+                      </tr>
+                  </tbody>
+              </table>
+           </section>
+        </section>
+</body>
+
+</html>

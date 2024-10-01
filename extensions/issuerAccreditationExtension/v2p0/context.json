@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "@protected": true,
+    "id": "@id",
+    "type": "@type",
+    "extensions": "https://w3id.org/openbadges/extensions#",
+    "schema": "http://schema.org/",
+    "AccreditationProfile": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#AccreditationProfile",
+      "@context": {
+        "contactInstructions": "extensions:accreditationContactInstructions",
+        "logo": "schema:logo",
+        "areaServed": "schema:areaServed",
+        "accreditationDate": "extensions:accreditationDate",
+        "educationalSector": "extensions:accreditationEducationalSector"
+      }
+    },
+    "IssuerAccreditationProfile": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#IssuerAccreditationProfile",
+      "@context": {
+        "accreditations": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#accreditations",
+          "@type": "@id",
+          "@container": "@set"
+        }
+      }
+    }
+  }
+}
