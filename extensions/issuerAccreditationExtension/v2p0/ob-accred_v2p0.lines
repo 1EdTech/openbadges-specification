@@ -5,11 +5,12 @@ Package MainClasses DataModel
     Class IssuerAccreditationProfile Unordered false [] "Profile extension with accreditation information."
         Property accreditations AccreditationProfile 0..1 "d:listing of accreditations."
 
-    Class AccreditationProfile Unordered false [] "Profile extension with detailed information about an accrediting organization."
-        Property contactInstructions String 1 "d:Contact instructions for an accrediting organization."
-        Property areaServed String 0..1 "d:The geographic area where accreditation services are targeted."
-        Property accreditationDate DateTimeZ 0..1 "d:The date accreditation was valid"
-        Property educationSector String 0..1 "d:Focus of accreditation (ex: K12, Postsecondary, CTE, Workforce, Adult Ed)."
+    Class AccreditationProfile Unordered false []   "Profile extension with detailed information about an accrediting organization."
+        Property type IRI 1                         "d:MUST be the IRI 'AccreditationProfile'."
+        Property contactInstructions String 1       "d:Contact instructions for an accrediting organization."
+        Property areaServed String 0..1             "d:The geographic area where accreditation services are targeted."
+        Property accreditationDate DateTimeZ 0..1   "d:The date accreditation was valid"
+        Property educationSector String 0..1        "d:Focus of accreditation (ex: K12, Postsecondary, CTE, Workforce, Adult Ed)."
 
 // Core OB types, defined here only for JSON Schema generation
 Package OBClasses DataModel
@@ -29,7 +30,7 @@ Package OBSupportClasses DataModel
 
 Package DerivedTypes DataModel
 
-    Includes [URI]
+    Includes [IRI, URI]
 
 
 // PrimitiveTypes
