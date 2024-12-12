@@ -158,7 +158,7 @@ This standard supports the Linked Data Proof format. In order to pass conformanc
 
 #### Create the Proof
 
-Perform these steps to attach a Linked Data Proof to the credential:
+Attach a Linked Data Proof to the credential, for example by following these steps to use a proof with the [[VC-DI-EDDSA]] suite:
 
 1. Create an instance of [Multikey](#multikey) as shown in [Section 2.1.1 DataIntegrityProof](https://www.w3.org/TR/vc-di-eddsa/#multikey) of [[VC-DI-EDDSA]].
 1. Using the key material, sign the credential object as shown in [Section 7.1 Proof Algorithm](https://w3c-ccg.github.io/data-integrity-spec/#proof-algorithm) of [[DATA-INTEGRITY-SPEC]] to produce a [Proof](#proof) as shown in [Section 2.2.1 DataIntegrityProof](https://www.w3.org/TR/vc-di-eddsa/#dataintegrityproof) of [[VC-DI-EDDSA]] with a \`proofPurpose\` of "assertionMethod".
