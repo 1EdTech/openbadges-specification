@@ -1,44 +1,5 @@
 ## Errata for Open Badges 3.0 Specification
 
-### Data Model
-
-- Multiplicity column for the property `@context` in [AchievementCredential](https://www.imsglobal.org/spec/ob/v3p0#achievementcredential) should be `[2..*]`.
-
-- Multiplicity column for the property `@context` in [AchievementCredentialv1p1](https://www.imsglobal.org/spec/ob/v3p0#achievementcredentialv1p1) should be `[2..*]`.
-
-### Typography
-
-- The description of the field `type` in the entity `GeoCoordinates` should be `MUST be the IRI 'GeoCoordinates'.`.
-
-- The description of the field `type` in the entity `IdentifierEntry` should be `MUST be the IRI 'IdentifierEntry'.`.
-
-- Appearances of `JsonSchemaValidator2019` in description fields inside JSON Schemas should be `1EdTechJsonSchemaValidator2019`.
-
-- Description column for the property `termsOfUse` in [AchievementCredential](https://www.imsglobal.org/spec/ob/v3p0#achievementcredential) should be:
-
-> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
-
-- Description column for the property `termsOfUse` in [EndorsementCredential](https://www.imsglobal.org/spec/ob/v3p0#endorsementcredential) should be:
-
-> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
-
-- Description column for the property `termsOfUse` in [VerifiableCredential](https://www.imsglobal.org/spec/ob/v3p0#verifiablecredential) should be:
-
-> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
-
-- Description column for the property `termsOfUse` in [AchievementCredentialv1p1](https://www.imsglobal.org/spec/ob/v3p0#achievementcredentialv1p1) should be:
-
-> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
-
-- Description column for the property `termsOfUse` in [EndrosementCredentialv1p1](https://www.imsglobal.org/spec/ob/v3p0#endorsementcredentialv1p1) should be:
-
-> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
-
-- Description column for the property `termsOfUse` in [VerifiableCredentialv1p1](https://www.imsglobal.org/spec/ob/v3p0#verifiablecredentialv1p1) should be:
-
-> The value of the termsOfUse property tells the verifier what actions it is required to perform (an obligation), not allowed to perform (a prohibition), or allowed to perform (a permission) if it is to accept the verifiable credential.
-
-
 ### Context file
 
 The context file for Open Badges 3.0 follows a versioning as a result of https://github.com/1EdTech/openbadges-specification/issues/497. All changes to this file that may lead to invalid signatures and errors (breaking changes) must lead to a new version of the file.
@@ -100,3 +61,14 @@ Previous versions of the context file will remain accessible, in order to keep b
 - Fixed `type` attribute of `Image`.
 - Fixed `@id` attribute of `Alignment`. Now points to `https://schema.org/AlignmentObject`.
 - Added `awardedDate` attribute to `VerifiableCredential`.
+
+### Proofs (Signatures)
+
+The section about Linked Data Proof Format previously defined a format and
+algorithm to use in Open Badges. Concretely, it stated:
+
+> In order to opt for this format you MUST use the [[[VC-DI-EDDSA]]] suite.
+
+This statement may not follow the security requirements of the future as
+the securing mechanisms evolve over time. Therefore, the especific list of
+allowed proof format have been extracted out the [[[OB-CERT-30]]].

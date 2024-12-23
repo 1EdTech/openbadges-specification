@@ -2,7 +2,7 @@ var issuer = `
 
 ## Open Badges 3.0 Issuer Service Conformance {#issuer-conformance}
 
-A Open Badges **Issuer** is an application that allows for the creation of OpenBadgeCredentials and the subsequent delivery of OpenBadgeCredentials to recipients that conform to the Open Badges Specification. The candidate platform must issue a valid baked badge and demonstrate how the badge is retrieved by the recipient. The candidate platform may also meet Service Consumer (Write) requirements and can send an AchievementCredential or a Profile to a product that conforms to Service Provider (Write) requirements.
+A Open Badges **Issuer** is an application that allows for the creation of OpenBadgeCredentials and the subsequent delivery of OpenBadgeCredentials to recipients that conform to the Open Badges Specification. The candidate platform must issue a valid badge and demonstrate how the badge is retrieved by the recipient. The candidate platform may also meet Service Consumer (Write) requirements and can send an AchievementCredential or a Profile to a product that conforms to Service Provider (Write) requirements.
 
 <div class="note">
 Open Badges Issuers that only create OpenBadgeCredentials and not meet Service Consumer (Write) requirements are also known for conform to the <b>Issuer Only</b> service conformance.
@@ -14,6 +14,13 @@ Open Badges Issuers that only create OpenBadgeCredentials and not meet Service C
 1. Demonstrate through video the candidate platform's methodology for a recipient to retrieve their badge.
 
 1. (Optional) Complete tests of, at least, required endpoints of [[[#service-consumer-write]]].
+
+#### Supported Proof Mechanisms
+
+Open Badges Issuers opting for a Linked Data Proof format as the signature of
+the badge must use one of the following supported proof mechanisms:
+
+- [[[VC-DI-EDDSA]]] suite with the `eddsa-rdfc-2022` algorithm.
 
 ### Service Consumer (Write) Conformance {#service-consumer-write}
 

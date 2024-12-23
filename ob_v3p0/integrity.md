@@ -2,13 +2,13 @@ var integrity = `
 
 ## Proofs (Signatures) {#data-integrity}
 
-This section describes mechanisms for ensuring the authenticity and integrity of OpenBadgeCredentials. At least one proof mechanism, and the details necessary to evaluate that proof, MUST be expressed for a [=credential=] to be a [=verifiable credential=]; that is, to be [=verifiable=].
+This section describes mechanisms for ensuring the authenticity and integrity of OpenBadgeCredentials. At least one proof mechanism, and the details necessary to evaluate that proof, MUST be expressed for a [=credential=] to be a [=verifiable credential=]; that is, to be [=verifiable=]. In order to pass 1EdTech conformance tests, issuers MUST use a proof mechanism supported by the 1EdTech conformance test suite. See more about [Selecting proof methods and crypto algorithms](impl#selecting-proof-methods-and-crypto-algorithms) in the Implementation Guide.
 
 ### Proof Formats
 
 The proof formats included in this specification fall into two categories:
 
-- JSON Web Token Proof - Somtimes called VC-JWT, this format has a single implementation: the credential is encoded into a [=JWT=] which is then signed and encoded as a [=JWS=]. The JSON Web Token proof is called an external proof because the proof wraps the [=credential=] object.
+- JSON Web Token Proof - Sometimes called VC-JWT, this format has a single implementation: the credential is encoded into a [=JWT=] which is then signed and encoded as a [=JWS=]. The JSON Web Token proof is called an external proof because the proof wraps the [=credential=] object.
 - Linked Data Proofs - The credential is signed and the signature is used to form a [Proof](#proof) object which is appended to the credential. This format supports many different proof types. These are called embedded proofs because the proof is embedded in the data.
 
 <div class="note">
@@ -19,7 +19,7 @@ A third category of proof format called Non-Signature Proof is not covered by th
 
 ### JSON Web Token Proof Format {#jwt-proof}
 
-This proof format relies on the well established JWT (JSON Web Token) [[RFC7519]] and JWS (JSON Web Signature) [[RFC7515]] specifications. A JSON Web Token Proof is a JWT signed and encoded as a [=Compact JWS=] string. The proof format is described in detail in [[VC-JOSE-COSE]], refered from Section 5.13 "Securing Mechanism Specifications" of [[[VC-DATA-MODEL-2.0]]]. That description allows several options which may inhibit interoperability. This specification limits the options while maintaining compatibility with [[VC-DATA-MODEL-2.0]] to help ensure interoperability.
+This proof format relies on the well established JWT (JSON Web Token) [[RFC7519]] and JWS (JSON Web Signature) [[RFC7515]] specifications. A JSON Web Token Proof is a JWT signed and encoded as a [=Compact JWS=] string. The proof format is described in detail in [[VC-JOSE-COSE]], referred from Section 5.13 "Securing Mechanism Specifications" of [[[VC-DATA-MODEL-2.0]]]. That description allows several options which may inhibit interoperability. This specification limits the options while maintaining compatibility with [[VC-DATA-MODEL-2.0]] to help ensure interoperability.
 
 <div class="note">
     At the time of the completion of this specification, the JSON Web Token Proof Format of [[VC-DATA-MODEL-2.0]] was undergoing a revision process. [[VC-JOSE-COSE]] will collect and display
@@ -52,7 +52,7 @@ The JOSE Header, JWT Payload, and JWS Signature are combined to form a Compact J
 
 The resulting [=JWS=] proves that the [=issuer=] signed the [=JWT Payload=] turning the [=credential=] into a [=verifiable credential=].
 
-When using the JSON Web Token Proof Format, the \`proof\` property MAY be ommitted from the [OpenBadgeCredential](#achievementcredential). If a Linked Data Proof is also provided, it MUST be created before the JSON Web Token Proof Format is created.
+When using the JSON Web Token Proof Format, the \`proof\` property MAY be omitted from the [OpenBadgeCredential](#achievementcredential). If a Linked Data Proof is also provided, it MUST be created before the JSON Web Token Proof Format is created.
 
 #### Create the JOSE Header {#joseheader}
 
@@ -150,7 +150,7 @@ Verifiers that receive a OpenBadgeCredential in Compact JWS format MUST perform 
 
 ### Linked Data Proof Format {#lds-proof}
 
-This standard supports the Linked Data Proof format. In order to opt for this format you MUST use the [[[VC-DI-EDDSA]]] suite.
+This standard supports the Linked Data Proof format. In order to pass conformance tests for this format issuers MUST use an option supported by the 1EdTech conformance test suite, which is currently limited to the [[[VC-DI-EDDSA]]] suite.
 
 <div class="note">
   Whenever possible, you should use a library or service to create and verify a Linked Data Proof.
@@ -158,15 +158,15 @@ This standard supports the Linked Data Proof format. In order to opt for this fo
 
 #### Create the Proof
 
-Perform these steps to attach a Linked Data Proof to the credential:
+Attach a Linked Data Proof to the credential, for example by following these steps to use a proof with the [[VC-DI-EDDSA]] suite:
 
 1. Create an instance of [Multikey](#multikey) as shown in [Section 2.1.1 DataIntegrityProof](https://www.w3.org/TR/vc-di-eddsa/#multikey) of [[VC-DI-EDDSA]].
-1. Using the key material, sign the credential object as shown in [Section 7.1 Proof Algothim](https://w3c-ccg.github.io/data-integrity-spec/#proof-algorithm) of [[DATA-INTEGRITY-SPEC]] to produce a [Proof](#proof) as shown in [Section 2.2.1 DataIntegrityProof](https://www.w3.org/TR/vc-di-eddsa/#dataintegrityproof) of [[VC-DI-EDDSA]] with a \`proofPurpose\` of "assertionMethod".
+1. Using the key material, sign the credential object as shown in [Section 7.1 Proof Algorithm](https://w3c-ccg.github.io/data-integrity-spec/#proof-algorithm) of [[DATA-INTEGRITY-SPEC]] to produce a [Proof](#proof) as shown in [Section 2.2.1 DataIntegrityProof](https://www.w3.org/TR/vc-di-eddsa/#dataintegrityproof) of [[VC-DI-EDDSA]] with a \`proofPurpose\` of "assertionMethod".
 1. Add the resulting proof object to the credential \`proof\` property.
 
 #### Verify an OpenBadgeCredential Linked Data Signature {#lds-verify}
 
-Verify the Linked Data Proof signature as shown in [Section 7.2 Proof Verification Algorthim](https://w3c-ccg.github.io/data-integrity-spec/#proof-verification-algorithm) of [[DATA-INTEGRITY-SPEC]].
+Verify the Linked Data Proof signature as shown in [Section 7.2 Proof Verification Algorithm](https://w3c-ccg.github.io/data-integrity-spec/#proof-verification-algorithm) of [[DATA-INTEGRITY-SPEC]].
 
 ### Key Management
 
