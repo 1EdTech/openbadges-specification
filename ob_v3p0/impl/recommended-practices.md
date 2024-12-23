@@ -684,6 +684,54 @@ credential not accepted because the endpoint is no longer available.
 Following this recommendation, thus, implies a commitment for the issuer to
 maintain its JWK Set and publicly expose it through the endpoint.
 
+### Privacy
+
+#### Privacy of grades and evidence
+
+Results or evidence fields may contain data that should be kept confidential
+or require learner’s consent to disclose. These includes items such as grade
+data or evidence documents that may have personally identifiable information
+(PII). Unless it is protected, this data will be transmitted in a “SHARE”
+transmission of the full payload (i.e.: Baked image, API request, or Web link
+to an HTML version of a credential) or in a verified presentation request from
+a verifier application.
+
+The verified credentials data model 2.0 outlines ways that verified credentials
+[(VCs) can manage data privacy by either an enveloping proof or an embedded
+proof](https://www.w3.org/TR/vc-data-model-2.0/#dfn-securing-mechanism).
+The BBS or SD-JWT signing methods can support selective disclosure or
+encryption of the data (such as with TLS), while a Linked Data Proof does not.
+CBOR encoding can also be used within the JSON of a credential for selective
+disclosure so only parts of the specific badge data are shared and can handle
+the inclusion of zero-knowledge proofs. CBOR can be used with the SD-JWT or
+LinkedData Proof methods but only manages the selective disclosure and
+encryption of the protected data at the time of the verified presentation request.
+
+It is recommended that the issuer provide information on which fields may be
+governed by selective disclosure and the method used in the beginning of the
+credential payload.
+
+#### Context of grades
+
+In the case where an issuer is intending to implement credentials for the purpose
+of documenting all academic activity, grade data might include such use cases
+as work that is in progress, on hold, provisional, withdrawn, or failed. In this
+case, it should be required for the issuer to include the ResultStatus. Learners
+should not be able to disassociate the context of this status from their results
+if a Holder application implements selective disclosure.
+
+#### Evidence documents
+
+In the case that a link is included as evidence, it should be immutable. Links
+that a learner or another party has access to edit (i.e.: YouTube, photo sharing
+site, document sharing site, etc.) should not be used in a verified credential so
+that the file is always in the same state as when the credential was issued.
+The issuer may wish to implement some form of password access control to links
+and  a mechanism for the learner to approve access. It is advisable for Holder
+applications to implement a process for a verifying application to disclose
+their identity or reason for a verified presentation request (e.g.: “I need to
+verify that the course was completed with a passing grade”).
+
 ### Displayer
 
 #### Cryptosuites in Linked Data Proofs

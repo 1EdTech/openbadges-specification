@@ -1,0 +1,40 @@
+Model ob-accred 2024-09-12 2.0 "s:IMS Base Document" "t:Open Badges Issuer Accreditation Extension" "d:This extension of Open Badges 3.0 provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile." "i:https://purl.imsglobal.org/spec/vc/ob/vocab.html#"
+
+Package MainClasses DataModel
+
+    Class IssuerAccreditationProfile Unordered false [] "Profile extension with accreditation information."
+        Property accreditations AccreditationProfile 0..1 "d:listing of accreditations."
+
+    Class AccreditationProfile Unordered false [] "Profile extension with detailed information about an accrediting organization."
+        Property contactInstructions String 1 "d:Contact instructions for an accrediting organization."
+        Property logo URI 0..1 "d:The logo for the accrediting organization."
+        Property areaServed String 0..1 "d:The geographic area where accreditation services are targeted."
+        Property accreditationDate DateTimeZ 0..1 "d:The date accreditation was valid"
+        Property educationSector String 0..1 "d:Focus of accreditation (ex: K12, Postsecondary, CTE, Workforce, Adult Ed)."
+
+// Core OB types, defined here only for JSON Schema generation
+Package OBClasses DataModel
+    Class AchievementCredential Unordered false []
+        Property issuer ProfileRef 1
+        Mixin Extensions
+
+Package OBSupportClasses DataModel
+    Class ProfileRef EmbeddedSelection false [URI, Profile]
+
+    Class Profile Unordered false [IssuerAccreditationProfile, AccreditationProfile]
+        Property parentOrg Profile 0..1
+        Mixin Extensions
+
+
+// Derived Types
+
+Package DerivedTypes DataModel
+
+    Includes [URI]
+
+
+// PrimitiveTypes
+
+Package PrimitiveTypes DataModel
+
+    Includes [DateTime, DateTimeZ, Extensions, Namespace, NormalizedString, String]
