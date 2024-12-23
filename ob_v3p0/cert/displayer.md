@@ -43,6 +43,6 @@ the same characteristics as in Test 1. The candidate platform must verify these 
 Open Badges Verifiers must support the following supported proof mechanisms for
 Linked Data Proof format:
 
-- [[[VC-DI-EDDSA]]] suite with the `eddsa-rdfc-2022` algorithm.
+- [[[VC-DI-EDDSA]]] suite with the \`eddsa-rdfc-2022\` algorithm.
 
 `;

@@ -20,7 +20,7 @@ Open Badges Issuers that only create OpenBadgeCredentials and not meet Service C
 Open Badges Issuers opting for a Linked Data Proof format as the signature of
 the badge must use one of the following supported proof mechanisms:
 
-- [[[VC-DI-EDDSA]]] suite with the `eddsa-rdfc-2022` algorithm.
+- [[[VC-DI-EDDSA]]] suite with the \`eddsa-rdfc-2022\` algorithm.
 
 ### Service Consumer (Write) Conformance {#service-consumer-write}
 
