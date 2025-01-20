@@ -36,11 +36,11 @@ jobs:
       - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' https://datamodels-staging.imsglobal.org/openapischema/org.1edtech.ob.v3p0.model?binding=json --output openapi.json
       - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' https://datamodels-staging.imsglobal.org/openapischema/org.1edtech.ob.v3p0.model?binding=yaml --output openapi.yaml
       - name: Upload OpenAPI files
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: openapi.yaml
           path: openapi.yaml
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: openapi.json
           path: openapi.json
@@ -49,11 +49,11 @@ jobs:
         with:
           ref: gh-pages
       - name: Download the OpenAPI files
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: openapi.yaml
           path: docs/openapi
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: openapi.json
           path: docs/openapi

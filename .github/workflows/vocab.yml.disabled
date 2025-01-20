@@ -2,17 +2,17 @@ name: Publish the JSON-LD vocab file
 
 on:
   workflow_dispatch:
-  
+
   push:
-    branches: 
+    branches:
       - develop
-    paths: 
+    paths:
       - 'ob_v3p0/vocab.html'
-  
+
   pull_request:
-    branches: 
+    branches:
       - develop
-    paths: 
+    paths:
       - 'ob_v3p0/vocab.html'
 
 jobs:
@@ -26,7 +26,7 @@ jobs:
         with:
           ref: develop
       - name: Upload vocab.html from develop
-        uses: actions/upload-artifact@v2.3.1
+        uses: actions/upload-artifact@v4
         with:
           name: vocab.html
           path: ob_v3p0/vocab.html
@@ -35,7 +35,7 @@ jobs:
         with:
           ref: gh-pages
       - name: Download vocab.html to gh_pages
-        uses: actions/download-artifact@v2.1.0
+        uses: actions/download-artifact@v4
         with:
           name: vocab.html
           path: docs

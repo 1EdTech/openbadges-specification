@@ -23,7 +23,7 @@ jobs:
         with:
           ref: develop
       - name: Upload context.json from develop
-        uses: actions/upload-artifact@v2.3.1
+        uses: actions/upload-artifact@v4
         with:
           name: context.json
           path: ob_v3p0/context**.json
@@ -32,7 +32,7 @@ jobs:
         with:
           ref: gh-pages
       - name: Download context.json to gh_pages
-        uses: actions/download-artifact@v2.1.0
+        uses: actions/download-artifact@v4
         with:
           name: context.json
           path: docs
