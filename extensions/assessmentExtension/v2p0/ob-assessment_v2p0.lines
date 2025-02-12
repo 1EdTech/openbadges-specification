@@ -2,32 +2,33 @@ Model ob-assmt 2024-09-12 2.0 "s:IMS Base Document" "t:Open Badges Assessment Ex
 
 Package MainClasses DataModel
 
-    Class AssessmentResultDescription Unordered false [] "ResultDescription extension with assessment information"
-        Property description String 1 "d:Description of the single assessment."
-        Property assessmentType AssesmentTypeEnum 1 "d:Assessment type."
-        Property assessmentOutput String 1 "d:This field provides additional details about assessment type. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge."
-        Property hasGroupParticipation Boolean 1 "d:Completing the assessment activity being referenced requires two or more participants."
-        Property hasGroupEvaluation Boolean 1 "d:Participants in the assessment activity being referenced are scored as a group."
-        Property evaluationMethod String 0..1 "d:Information about how the assessment is scored. What do the scores represent in a range of scores? If a rubric was used, what are the score ranges for each criteria?."
-        Property assessmentExample URI 0..1 "d:An example based on the assessment type."
-        Property scoringMethodExampleDescription String 0..1 "d:The text of an example of the method or tool used to score the assessment."
-        Property assessmentEvaluation URI 0..1 "d:Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods."
-        Property sections Section 0..* "d:A listing of sections, each with questions, that make up the assessment. Typically included if the issuer wishes to make available applications for the badge."
+    Class AssessmentResultDescription Unordered false []       "ResultDescription extension with assessment information"
+        Property description String 1                          "d:Description of the single assessment."
+        Property assessmentType AssesmentTypeEnum 1            "d:Assessment type."
+        Property assessmentOutput String 1                     "d:This field provides additional details about assessment type. Values for assessmentOutput are expected to be words or phrases that describe the key features of the evidence that are produced in earning the badge."
+        Property hasGroupParticipation Boolean 1               "d:Completing the assessment activity being referenced requires two or more participants."
+        Property hasGroupEvaluation Boolean 1                  "d:Participants in the assessment activity being referenced are scored as a group."
+        Property evaluationMethod String 0..1                  "d:Information about how the assessment is scored. What do the scores represent in a range of scores? If a rubric was used, what are the score ranges for each criteria?."
+        Property assessmentExample URI 0..1                    "d:An example based on the assessment type."
+        Property scoringMethodExampleDescription String 0..1   "d:The text of an example of the method or tool used to score the assessment."
+        Property assessmentEvaluation URI 0..1                 "d:Link to studies or other information about research or calculations of reliability and validity for the assessment or the scoring methods."
+        Property sections Section 0..*                         "d:A listing of sections, each with questions, that make up the assessment. Typically included if the issuer wishes to make available applications for the badge."
 
     Class Section Unordered false []
-        Property title String 1 "d:The name of the section."
-        Property description String 1 "d:A short description of the section."
-        Property questions Question 0..* "d:The questions that make up this section."
-        Property required String 0..1 "d:Indicates whether this section is considered to be required for completion of the assessment. Default: true."
-        Property url URI 0..1 "d:An external URL that represents this section."
+        Property type IRI 1                 "d:MUST be the IRI 'Section'."
+        Property title String 1             "d:The name of the section."
+        Property description String 1       "d:A short description of the section."
+        Property questions Question 0..*    "d:The questions that make up this section."
+        Property required String 0..1       "d:Indicates whether this section is considered to be required for completion of the assessment. Default: true."
+        Property url URI 0..1               "d:An external URL that represents this section."
 
     Class Question Unordered false []
-        Property type IRI 1 "d:The type of question. One of the following type identifiers defined in the extension context: 'ExternalQuestion', 'FileQuestion' or 'TextQuestion'."
-        Property text String 1 "d:The actual text of the question."
-        Property required String 0..1 "d:Indicates whether this question is considered to be required for completion of the section. Default: true."
-        Property wordLimit NonNegativeInteger 0..1 "d:For TextQuestions, specifies a maximum length in words that may be enforced as a suggestion or requirement, depending on the application."
+        Property type IRI 1                             "d:The type of question. One of the following type identifiers defined in the extension context: 'ExternalQuestion', 'FileQuestion' or 'TextQuestion'."
+        Property text String 1                          "d:The actual text of the question."
+        Property required String 0..1                   "d:Indicates whether this question is considered to be required for completion of the section. Default: true."
+        Property wordLimit NonNegativeInteger 0..1      "d:For TextQuestions, specifies a maximum length in words that may be enforced as a suggestion or requirement, depending on the application."
         Property characterLimit NonNegativeInteger 0..1 "d:For TextQuestions, specifies a maximum length in characters that may be enforced as a suggestion or requirement, depending on the application."
-        Property url URI 0..1 "d:An external URL that represents this question."
+        Property url URI 0..1                           "d:An external URL that represents this question."
 
 Package Enumerations DataModel
 
