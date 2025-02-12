@@ -4,24 +4,6 @@ It may seem like an overwhelming task to implement Open Badges 3.0 or CLR 2.0,
 but there are straightforward options that can take your product to a certified
 launch simply.
 
-### Relationship between VC and CLR/OB
-
-New to this version of the specification, the data model of both CLR and OB
-adopts the convention of the [[VC-DATA-MODEL-2.0]].
-
-Since Verifiable Credentials are extensible by design, CLR/OB defines a set of
-extensions (also called profile) for reflecting the domain both specifications
-cover: learning achievements, alignment with educational/workforce frameworks,
-etc. CLR/OB also defines the verification algorithm for these credentials, as
-well as a set of services for exchanging these credentials.
-
-That means that `ClrCredential` and `AchievementCredential` are, in fact,
-Verifiable Credentials, and can be used wherever a Verifiable Credential can be.
-This assertion is not bidirectional, thus a Verifiable Credential might not be
-an CLR/OB Credential. Only those credentials with the extension set defined by
-the CLR/OB spec, and verifiable via CLR/Ob verification algorithm, can be
-treated as CLR/OB Credentials.
-
 ### Issuer quickstart
 
 Here is a quickstart tutorial to build an MVP of an Open Badges product that
@@ -59,8 +41,7 @@ indicates with the `Accept` HTTP header.
     required properties from
     [Profile](https://www.imsglobal.org/spec/ob/v3p0#profile), and a
     representation of the public key component of the keypair this issuer uses
-    to sign credentials in selected `JWK` or `eddsa-2022`
-    format. See
+    to sign credentials in selected `JWK` or `eddsa-2022` format. See
     [Dereferencing the Public Key](https://www.imsglobal.org/spec/ob/v3p0#dereference)
 -   When a client requests `Accept: */*` or `application/html`, an HTML
     representation of the `Achievement` should be presented. This should express

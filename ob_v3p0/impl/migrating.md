@@ -183,15 +183,15 @@ by any displayer that supports the concept of evidence.
     "type": ["VerifiableCredential", "OpenBadgeCredential"],
     "issuer": {
         "id": "did:web:example.com:issuers:540e388e-2735-4c3e-9709-80142801c774",
+        "type": ["Profile"],
         "alsoKnownAs": "https://example.com/issuers/v2p0/540e388e-2735-4c3e-9709-80142801c774",
         "otherIdentifier": [{
             "type": ["IdentifierEntry"],
             "identifier": "https://example.com/issuers/v2p0/540e388e-2735-4c3e-9709-80142801c774",
             "identifierType": "identifier"
         }],
-        "name": "Example Institution",
         "url": "https://example.edu",
-        "email": "info@example.edu",
+        "email": "info@example.edu"
     },
     "validFrom": "2010-01-01T00:00:00Z",
     "name": "Example Competency Badge Issued under OB 2.0",

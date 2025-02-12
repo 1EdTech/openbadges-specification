@@ -300,13 +300,13 @@ framework, i.e `CFItem`.
 
 In Open Badges and Comprehensive Learner Record, it is possible to use
 `alignment` to link an `achievement` to a resource that is described using
-non-1EdTech vocabularies. Three `targetTypes` (specifically, `ceterms:Credential`,
-`ceasn:Competency`, and `CTDL`) have been defined to link to a resource described
-using the Credential Transparency Description Language
+non-1EdTech vocabularies. Three `targetTypes` (specifically,
+`ceterms:Credential`, `ceasn:Competency`, and `CTDL`) have been defined to link
+to a resource described using the Credential Transparency Description Language
 ([CTDL](https://credreg.net/ctdl/terms)) family of schema. CTDL defines how
 credentials, competencies, and many other attributes (such as assessments,
-courses, programs, transfer value, organizations, and more) can be described
-in detail and linked to other useful information.
+courses, programs, transfer value, organizations, and more) can be described in
+detail and linked to other useful information.
 
 `ceterms:Credential` is used to establish that a connection is between an
 `achievement` and a credential offering described using CTDL. In CTDL, a
@@ -350,17 +350,17 @@ can link to the page in the Credential Finder using an `alignment` with
 
 In Open Badges and Comprehensive Learner Record, it is possible to use
 `alignment` to link an `achievement` to a resource that is described using
-non-1EdTech vocabularies. Three `targetTypes` (specifically, `ceterms:Credential`,
-`ceasn:Competency`, and `CTDL`) have been defined to link to a resource described
-using the Credential Transparency Description Language
+non-1EdTech vocabularies. Three `targetTypes` (specifically,
+`ceterms:Credential`, `ceasn:Competency`, and `CTDL`) have been defined to link
+to a resource described using the Credential Transparency Description Language
 ([CTDL](https://credreg.net/ctdl/terms)) family of schema. CTDL defines how
 credentials, competencies, and many other attributes (such as assessments,
-courses, programs, transfer value, organizations, and more) can be described
-in detail and linked to other useful information.
+courses, programs, transfer value, organizations, and more) can be described in
+detail and linked to other useful information.
 
-Achievements often align to skills or Competencies, which can be published
-to the Credential Registry. When aligning to this type of data, use the
-targetType `ceasn:Competency`.
+Achievements often align to skills or Competencies, which can be published to
+the Credential Registry. When aligning to this type of data, use the targetType
+`ceasn:Competency`.
 
 <pre class="json example"
     title="Achievement alignment to a competency (ceasn:Competency)">
@@ -390,23 +390,23 @@ targetType `ceasn:Competency`.
 
 In Open Badges and Comprehensive Learner Record, it is possible to use
 `alignment` to link an `achievement` to a resource that is described using
-non-1EdTech vocabularies. Three `targetTypes` (specifically, `ceterms:Credential`,
-`ceasn:Competency`, and `CTDL`) have been defined to link to a resource described
-using the Credential Transparency Description Language
+non-1EdTech vocabularies. Three `targetTypes` (specifically,
+`ceterms:Credential`, `ceasn:Competency`, and `CTDL`) have been defined to link
+to a resource described using the Credential Transparency Description Language
 ([CTDL](https://credreg.net/ctdl/terms)) family of schema. CTDL defines how
 credentials, competencies, and many other attributes (such as assessments,
-courses, programs, transfer value, organizations, and more) can be described
-in detail and linked to other useful information.
+courses, programs, transfer value, organizations, and more) can be described in
+detail and linked to other useful information.
 
 There are many other entity classes that can be described using the CTDL
 vocabulary. When making an alignment to an Assessment, Learning Opportunity,
-Job, Occupation, or other entity, use the generic targetType `CTDL`. This informs
-consumers to expect CTDL data of one of these other types. Some consumers may
-simply render a link to the webpage where more information can be retrieved,
-and others may support fetching the specific data to provide an even richer
-display. The following example shows how an issuer might express an alignment
-to a Learning Opportunity Course that has been published to the Credential
-Registry as CTDL-formatted open data.
+Job, Occupation, or other entity, use the generic targetType `CTDL`. This
+informs consumers to expect CTDL data of one of these other types. Some
+consumers may simply render a link to the webpage where more information can be
+retrieved, and others may support fetching the specific data to provide an even
+richer display. The following example shows how an issuer might express an
+alignment to a Learning Opportunity Course that has been published to the
+Credential Registry as CTDL-formatted open data.
 
 <pre class="json example"
     title="Achievement alignment to another type of entity (CTDL)">
@@ -431,6 +431,7 @@ Registry as CTDL-formatted open data.
     }
 
 </pre>
+
 #### Skills
 
 A Skill Assertion credential is just like a basic `OpenBadgeCredential` in how
@@ -590,8 +591,8 @@ which case viewers would be able to review this information more directly.
 
 Issuers can add a description of the work that the recipient did to earn the
 achievement via the `evidence` attribute of `AchievementCredential`. This
-description can be a page that links out to other pages if linking directly
-to the work is infeasible.
+description can be a page that links out to other pages if linking directly to
+the work is infeasible.
 
 The `id` property also can be the evidence encoded as a Data URI. However,
 embedding the evidence as Data URI as the id of the evidence has some caveats:
@@ -650,13 +651,13 @@ accessible via the well-known url:
 
 `https://{domain}/.well-known/jwks.json`
 
-The reponse of a request to this url is a JSON-serialized representation
-of the JKWS with the media type `application/jwk-set+json`.
+The reponse of a request to this url is a JSON-serialized representation of the
+JKWS with the media type `application/jwk-set+json`.
 
 > Section 6 of [[SEC-11]] contains recommendations for key management.
 
-When using the `kid` attribute, an issuer must set it to an existing key in
-its set. On the other hand, when using the `jwt` attribute, the key set in this
+When using the `kid` attribute, an issuer must set it to an existing key in its
+set. On the other hand, when using the `jwt` attribute, the key set in this
 field must be one of the keys in the set.
 
 ###### Issuing platforms with multiple issuers
@@ -664,14 +665,15 @@ field must be one of the keys in the set.
 [[RFC7517]] allows adding additional members to the JWK format:
 
 > Additional members can be present in the JWK; if not understood by
-   implementations encountering them, they MUST be ignored.  Member
-   names used for representing key parameters for different keys types
-   need not be distinct.  Any new member name should either be
-   registered in the IANA "JSON Web Key Parameters" registry established
-   by [Section 8.1](https://datatracker.ietf.org/doc/html/rfc7517#section-8.1)
-   or be a value that contains a Collision-Resistant Name.
+> implementations encountering them, they MUST be ignored. Member names used for
+> representing key parameters for different keys types need not be distinct. Any
+> new member name should either be registered in the IANA "JSON Web Key
+> Parameters" registry established by
+> [Section 8.1](https://datatracker.ietf.org/doc/html/rfc7517#section-8.1) or be
+> a value that contains a Collision-Resistant Name.
 
-We propose leverage this to add a new member `iss` in the JWK for the issuer's `id`.
+We propose leverage this to add a new member `iss` in the JWK for the issuer's
+`id`.
 
 ##### JWK Set endpoint
 
@@ -755,17 +757,24 @@ Prior (deprecated) cryptosuites identified in OB 3.0 and CLR 2.0 drafts include:
 -   `eddsa-2022`
 -   `Ed25519Signature2020`
 
-#### Key provenance
+#### Key provenance and issuer identity information
 
-Keys used in proof generation must belong to the issuer. However, there isn't an
-existing way in current standards to completely assure this provenance.
+Keys used in proof generation must belong to the issuer. However, there isn't a
+existing way in current standards to completely assure that the key that signed
+a credential proof is associated with the issuer identifier. These steps do not
+ensure that issuer metadata expressed in a credential is accurate, such as its
+name, url or contact email. Displayers may choose to authenticate the issuer
+identifier against a trusted list of issuers obtained out of band of the
+credential. When such a mechanism isn't available, the displayer should mark
+issuer data included in a credential as unverified.
 
 The following best practices establish a verification mechanism to assure that
 the issuer is the owner of the key used in a credential.
 
 ##### Linked Data proof
 
-Linked Data Proofs defines a method to get the public key (via `verificationMethod`) which, as defined by [[VC-DATA-INTEGRITY]], implies the
+Linked Data Proofs defines a method to get the public key (via
+`verificationMethod`) which, as defined by [[VC-DATA-INTEGRITY]], implies the
 dereference of a controller document.
 
 Section 2.6 of [[VC-DATA-INTEGRITY]] describes a way to verify the association
@@ -789,13 +798,13 @@ representation of the public key.
 
 Section 6.3.1 of [[VC-JOSE-COSE]] extends the definition of `kid` as
 
-> If `kid` is present in the JOSE Header or the COSE Header, a verifier can
-> use this parameter as a hint indicating which key was used to secure the
-> verifiable credential, when performing a verification process as defined
-> in [[RFC7515]].
+> If `kid` is present in the JOSE Header or the COSE Header, a verifier can use
+> this parameter as a hint indicating which key was used to secure the
+> verifiable credential, when performing a verification process as defined in
+> [[RFC7515]].
 
-> `kid` MUST be present when the key of the issuer or subject is expressed as
-> a DID URL
+> `kid` MUST be present when the key of the issuer or subject is expressed as a
+> DID URL
 
 With these two premises, the recommendation for verifying key provenance is
 using JWK Set. A verifier must, then, get the public JKWS of the issuer for
@@ -822,6 +831,100 @@ the issuer's `id`.
  The credential should  be considered invalid and not trustworthy if the
  key provenance cannot be verified via the method described above.
 </div>
+
+#### Verifiable Credentials v1.1
+
+One of the main reasons for upgrading Open Badges and Comprehensive Learner
+Record to a new major release was the alignment of the specifications with W3C's
+Verifiable Credentials Data Model.
+
+The alignment to an external specificacion require some sort of change
+management. During the development of both [[OB-30]] and [[CLR-20]], the current
+version of W3C's Verifiable Credentials Data Model was [[[VC-DATA-MODEL]]],
+version with the specificacions went to Candidate Public Final.
+
+During the time [[OB-30]] and [[CLR-20]] were in Canditate Public Final, W3C's
+Verifiable Credentials Data Model was upgraded to [[[VC-DATA-MODEL-2.0]]]. After
+an analysis of the changes the working group decided to upgrade [[OB-30]] and
+[[CLR-20]] to align with the newest version of W3C's VC.
+
+However, there were already existing issued credentials based in the older
+version of W3C's VC. These credentials, until upgraded to the newest version,
+must be valid. Therefore, the displayer certification requires validation of
+credentials issued with this old version.
+
+##### Changes
+
+In terms of data model, the main changes between versions of W3C's VC are:
+
+-   New context URI. While in version 1.1 was
+    `https://www.w3.org/2018/credentials/v1`, in version 2.0 is
+    `https://www.w3.org/ns/credentials/v2`. Also, when signing with Linked Data
+    Proofs, version 1.1 required the addition of the context
+    `https://w3id.org/security/data-integrity/v1`. In version 2.0, those terms
+    are included in the main context file.
+
+-   Validity period. `validFrom` and `validUntil`, in version 2.0, replace
+    `issuanceDate` and `expirationDate`, in version 1.1
+
+In terms of file format, version 2.0 adds the `application/vc+ld+json` content
+type, that wasn't defined in version 1.1.
+
+In terms of integrity, especially in the JSON Web Token Proof Format, version
+2.0 removes the requirement of storing the payload of the credential in the `vc`
+claim of the JWT. Instead, the whole JWT body is the payload credential.
+
+<div class="note">
+This chapter resumes the changes between versions of the W3C's VC specification
+that have impact in [[OB-30]] and [[CLR-20]]. Please refer to official
+documents for an exhausting list of changes between these versions.
+</div>
+
+##### Verification
+
+Displayers must be able to verify `OpenBadgeCredential`s and `ClrCredential`s
+built under versions 1.1 and 2.0 of W3C's VC specification.
+
+In order to successfully verify a received credential, the first step is to
+identify which version of Verifiable Credential Data Model is based on. This
+identification depends mainly of the integrity of the credential, especifically
+on the proof used.
+
+For instance, in credentials issued with the Linked Data Proof, where the
+payload received by the displayer is the JSON of the credential, the first item
+in the `@context` array will determine which version of W3C's VC the credential
+is based on:
+
+-   `https://www.w3.org/2018/credentials/v1`, for [[[VC-DATA-MODEL]]]
+-   `https://www.w3.org/ns/credentials/v2`, for [[[VC-DATA-MODEL-2.0]]]
+
+On the other hand, when the credential received by the displayer was issued with
+the JSON Web Token Proof Format, the displayer should check wheter there is a
+`vc` claim in the JWT body, as its existance may indicate that the credential is
+based on [[[VC-DATA-MODEL]]]. However, the displayer must also check the value
+of the first item in the `@context` array to match the value of each W3C's VC
+version, and mark the credential as invalid when the value in the `@context`
+array doesn't correspond to the claim within the JWT where the payload of the
+credential was stored.
+
+The specifications provide some JSON schemas supporting this duality in a way
+that succeed for valid – in terms of data schema - credentials based either on
+[[VC-DATA-MODEL]] or [[VC-DATA-MODEL-2.0]].
+
+These schemas are:
+
+-   OB 3.0:
+    https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_anyachievementcredential_schema.json
+-   CLR 2.0:
+    https://purl.imsglobal.org/spec/clr/v2p0/schema/json/clr_v2p0_anyclrcredential_schema.json
+
+The specifications also provide JSON schemas supporting this duality for
+`EndorsementCredential`'s:
+
+-   OB 3.0:
+    https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_anyendorsementcredential_schema.json
+-   CLR 2.0:
+    https://purl.imsglobal.org/spec/clr/v2p0/schema/json/clr_v2p0_anyendorsementcredential_schema.json
 
 ### Host
 
@@ -1078,3 +1181,10 @@ Recommendations for the use of share URLs include:
     current version of the standard, use content negotiation on sharing URLs to
     enable the presentation of Use [Open Graph Protocol](https://ogp.me) tags on
     the sharing URLs to enable easy generation of card previews.
+
+#### Baked badges and iOS devices
+
+Starting iOS 16, this operating system strips EXIF data from photos when saved
+in the Photos or the Files app. This means the credential is stripped, so no
+badges can be exchanged as baked images on an iPhone that has been using an
+operating system for the last few years.

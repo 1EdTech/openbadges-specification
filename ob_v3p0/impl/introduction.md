@@ -15,14 +15,14 @@ product within the ecosystem compatible with these specifications.
 ### Overview
 
 Each Open Badges `OpenBadgeCredential` is digitally signed by its issuing
-organization as Verifiable Credentials compatible with the [[[VC-DATA-MODEL-2.0]]].
-Issuers may bundle together multiple related achievement credentials into
-transcripts and other longitudinal records for an individual learner in a CLR as
-a `ClrCredential`, which is also signed using the same technique as the
-individual credentials. Additionally, credentials can be augmented with an
-`EndorsementCredential` from a third party to lend the support of another
-individual or organization to the quality or relevance of an issuer or
-credential data.
+organization as Verifiable Credentials compatible with the
+[[[VC-DATA-MODEL-2.0]]]. Issuers may bundle together multiple related
+achievement credentials into transcripts and other longitudinal records for an
+individual learner in a CLR as a `ClrCredential`, which is also signed using the
+same technique as the individual credentials. Additionally, credentials can be
+augmented with an `EndorsementCredential` from a third party to lend the support
+of another individual or organization to the quality or relevance of an issuer
+or credential data.
 
 A RESTful API, with dynamic client registration, is available to transport data
 in `OpenBadgeCredential` and `ClrCredential` format, under the control of the
@@ -147,3 +147,55 @@ Open Badges and Comprehensive Learner Record can be implemented by systems that
 use other specifications as well. For example, an Open Badges or CLR application
 be offered as a tool within an LMS using [[[LTI-13]]] to launching the OB or
 CLR-specific interfaces.
+
+### Relationship between Verifiable Credentials and OB/CLR
+
+New to this version of the specification, Open Badges and Comprehensive Learner
+Record are compatible with the [[[VC-DATA-MODEL-2.0]]] (both version 2.0 and the
+previous [[[VC-DATA-MODEL]]]). The VC Data Model describes an envelope that may
+be used to express many different types of messages, or "claims", about
+credential subjects, but credential-type-specific schemas such as OB and CLR are
+needed in the VC ecosystem to enable coordination of specific credential types
+and shared expectations for their use.
+
+Open Badges and CLR define three
+[verifiable credential types](https://www.w3.org/TR/vc-data-model-2.0/#types)
+and expectations for the claims that may be expressed using these types.
+
+-   `OpenBadgeCredential` (alias `AchievementCredential`, formerly "Assertion"
+    in OB 2.0): An assertion that an individual credentialSubject has achieved
+    the criteria of a specified "Achievement" (formerly "BadgeClass"). Metadata
+    about the achievement, its alignment to standards or competency frameworks,
+    evidence related to its attainment, and the learner and issuer's identifying
+    information may be expressed in the credential.
+-   `ClrCredential`: a container for several `AchievementCredentials` and
+    associations that link them. Capable of representing both a degree and
+    subsidiary credentials or a detailed transcript full of courses completed
+    and progress through a framework of learning outcomes.
+-   `EndorsementCredential`: An endorsement of the quality or value, this is an
+    open-ended low-level container that instead of targeting an individual
+    learner, usually makes claims about an `Achievement`, `Issuer Profile` or
+    `OpenBadgeCredential`. Endorsements may be issued by individuals or
+    organizations, potentially even badge recipients themselves.
+
+CLR and OB also define the verification algorithm for these credentials, as well
+as a set of APIs for exchanging these credentials. But they will also circulate
+within the broader Verifiable Credentials ecosystem, including through tools
+that do not apply the full range of domain-specific checks. `ClrCredential` and
+`OpenBadgeCredential` are Verifiable Credentials and may circulate through
+wallets and protocols that support other credential types as well. The validity
+status within these general tools may only show a subset of the checks needed to
+consider OB/CLR valid and fit for a particular purpose.
+
+In addition, issuers may issue these types and make use of issuer identifier
+types (DID methods), cryptographic key or signature types, status methods, or
+other Verifiable Credentials options beyond those known to the OB/CLR spec.
+These additional components may be noted as possibilities in future updates to
+the OB/CLR specs, but for best interoperability within OB/CLR tools and
+conformance certification from 1EdTech, issuers should support issuer
+identifiers, key types, signature types, and (if applicable) status methods
+mentioned in these specifications. Consult the
+[TrustEd Apps Directory](https://site.imsglobal.org/certifications) and
+participate in the 1EdTech membership community to coordinate the selection and
+rollout of these components as well as potential incorporation into
+specification updates as named options.
