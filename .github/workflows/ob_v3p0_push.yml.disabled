@@ -1,4 +1,4 @@
-name: Build Examples
+name: Build OB 3.0 Spec Preview for PUSH
 
 on:
   # Triggers the workflow on push or pull request events but only for the develop branch
@@ -6,11 +6,13 @@ on:
     branches:
       - develop
     paths:
-      - 'ob_v3p0/examples.html'
-      - '.github/workflows/examples_push.yml'
+      - 'ob_v3p0/**'
+      - '!ob_v3p0/context**.json'
+      - '!ob_v3p0/readme.md'
+      - '!ob_v3p0/examples.html'
+      - '.github/workflows/ob_v3p0_push.yml'
 
 jobs:
-
   sideload:
     name: Sideload the ob_v3p0.lines file
     runs-on: ubuntu-latest
@@ -23,6 +25,13 @@ jobs:
     name: Build a static version of the Respec document
     needs: sideload
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - source: 'ob_v3p0/ob_v3p0.html'
+            destination: 'docs/ob_v3p0.html'
+          - source: 'ob_v3p0/errata/ob_err_v3p0.html'
+            destination: 'docs/ob_err_v3p0.html'
     steps:
       - uses: actions/checkout@v2
       - name: Unlock secrets
@@ -32,8 +41,8 @@ jobs:
       # This will run the respec2html tool
       - uses: w3c/spec-prod@v2
         with:
-          SOURCE: "ob_v3p0/examples.html"
-          DESTINATION: "docs/examples.html"
+          SOURCE: ${{ matrix.source }}
+          DESTINATION: ${{ matrix.destination }}
           TOOLCHAIN: respec
           VALIDATE_MARKUP: false
           VALIDATE_WEBIDL: false
@@ -49,7 +58,7 @@ jobs:
         with:
           ref: gh-pages
       - name: Download artifact created by build job
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: spec-prod-result
           path: docs

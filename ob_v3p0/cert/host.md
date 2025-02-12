@@ -6,15 +6,6 @@ An Open Badges **Host** is an application that can aggregate and publicly host O
 
 ### Tests {#tests-host}
 
-1. Import each of the provided artifacts (see table below), verify the badge, and submit the status to the conformance test system.
-
-   | Required OpenBadgeCredential Format | Use this resource for certification |
-   | --- | --- |
-   | Baked OpenBadgeCredential (PNG) format | [https://someurl/OB30-conformance.png](https://someurl/OB30-conformance.png) |
-   | Baked OpenBadgeCredential (SVG) format | [https://someurl/OB30-conformance.svg](https://someurl/OB30-conformance.svg) |
-   | OpenBadgeCredential JSON Resource URL | [https://someurl/OB30-conformance.jws](https://someurl/OB30-conformance.jws) |
-
-1. Export the imported badge in the previous test and submit the exported badge to the conformance test system. The conformance test system will ensure that the exported badge is a valid badge and that no information is lost in the import/export operation.
 1. Complete tests of [[[#service-consumer-read]]].
 1. Complete tests of [[[#service-provider-read]]].
 1. Complete tests of, at least, required endpoints of [[[#service-provider-write]]].

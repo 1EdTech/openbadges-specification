@@ -6,7 +6,7 @@ collective experience and collaboration of implementers. Implementers are
 encouraged to join the 1EdTech community to provide feedback and discuss how we
 can collectively improve our implementations and guidance.
 
-Below are a variety of recommended practices and considertions for the
+Below are a variety of recommended practices and considerations for the
 implementation of the Open Badges and CLR specification.
 
 ### Issuer
@@ -67,22 +67,34 @@ The OB and CLR specifications define some requirements around the signing or
 proving of credentials (see
 [Proofs](https://www.imsglobal.org/spec/ob/v3p0#data-integrity)). Two formats of
 proof method are introduced, JWTs and Linked Data Proofs. Within each format,
-there are still a range of options that issuers may select for cryptographically
+there are a range of options that issuers may select for cryptographically
 signing the credentials. Notably, signing algorithm selection and its closely
 related concept of key material expression format must be considered. The best
 choices within these options sometimes depend on other parts of the issuer's
 tech stack and which options are supported among wallets and verifiers with whom
 badge recipients want to share their badges.
 
-The OB specification identifies some specific options, which are used by the
-conformance test suite to check product implementations. These identified
-algorithms will likely see the broadest early implementation within Open Badges.
+The OB 3.0 and CLR 2.0 specifications identify some specific options, which are
+used by the conformance test suite to check product implementations. In order to
+achieve conformance certification, issuers MUST produce credentials secured with
+a supported mechanism. These identified algorithms will likely see the broadest
+early implementation within Open Badges.
 
 -   Linked Data Proofs using the [[[VC-DI-EDDSA]]]. Issuers produce an
     `DataIntegrityProof` proof referencing a key URL of a public key expressed
     in `eddsa-rdf-2022` format as its verificationMethod.
 -   JWTs with `RSA256` algorithm, with key material published as JSON Web Key
     (JWK).
+
+Some issuers may experiment with or implement novel proof mechanisms, such as
+new Linked Data Proofs or JWT signing algorithms, in coordination with hosts and
+verifiers. These may be useful for specific use cases or to explore new
+capabilities. However, issuers should be aware that these may not be supported
+by all hosts, wallets and verifiers, and that interoperability may be limited
+until these new mechanisms are more widely adopted. The 1EdTech Digital
+Credentials Workgroup may periodically consider recommending new proof methods
+for inclusion in the OB and CLR specifications and the 1EdTech certification
+program.
 
 A step-by-step guide to signing an OB or CLR is provided in the OB specification
 section on [Proofs](https://www.imsglobal.org/spec/ob/v3p0#data-integrity). In
@@ -112,6 +124,10 @@ include:
         RSA and ECDSA on the non-NIST secp256k1 curve but not Ed25519.
     -   JWT signing with RSA family keys may have broader support in systems
         like this across all major cloud vendors offering a KMS.
+-   Some proof mechanisms feature additional security properties, such as a
+    capability for selective disclosure, or improved "unlinkability", the
+    resistance to correlation of credentials or verification requests from the
+    same holder.
 
 #### Publishing `Achievement` definitions and selecting `Achievement` identifiers
 
@@ -585,7 +601,7 @@ embedding the evidence as Data URI as the id of the evidence has some caveats:
     each field of the evidence with the id inside. If the id is the evidence
     itself as Data URI, the size of the payload to process grows significantly,
     moreover when evidence has 5 fields and is extensible.
--   Some libraries fails when processing this.
+-   Some libraries fail when processing this.
 
 Also attempting to embed large data in a credential JSON is not recommended. You
 should expect uneven interop performance if you do that.
@@ -598,7 +614,7 @@ Instead, the recommendation for embedding the evidence is:
 
 #### Key provenance
 
-Keys used in proof generation must belong to the issuer. However, there isn't a
+Keys used in proof generation must belong to the issuer. However, there isn't an
 existing way in current standards to completely assure this provenance.
 
 The following best practices establish a verification mechanism to assure that
@@ -630,7 +646,7 @@ to an object of type JWK representing the public key, wether `jwt` is the
 representation of the public key.
 
 In order to assure key provenance, we recommend the use of a JWK Set (JKWS)
-[[RFC7517]]. This set, following this recommmendation, should be publicly
+[[RFC7517]]. This set, following this recommendation, should be publicly
 accessible via the well-known url:
 
 `https://{domain}/.well-known/jwks.json`
@@ -661,14 +677,62 @@ We propose leverage this to add a new member `iss` in the JWK for the issuer's
 
 ##### JWK Set endpoint
 
-Following this recommendation ultimatelly means that, for an issuer to be
-trusted, the endpoint for the issuer's Json Web Key Set should be publicly
+Following this recommendation ultimately means that, for an issuer to be
+trusted, the endpoint for the issuer's JSON Web Key Set should be publicly
 available at any time a credential is verified, which can happen long after the
 issuing of the credential. If don't, there's a potential issue of a valid
 credential not accepted because the endpoint is no longer available.
 
 Following this recommendation, thus, implies a commitment for the issuer to
-maintain its JWK Set and publicly expose it throught the endpoint.
+maintain its JWK Set and publicly expose it through the endpoint.
+
+### Privacy
+
+#### Privacy of grades and evidence
+
+Results or evidence fields may contain data that should be kept confidential
+or require learner’s consent to disclose. These includes items such as grade
+data or evidence documents that may have personally identifiable information
+(PII). Unless it is protected, this data will be transmitted in a “SHARE”
+transmission of the full payload (i.e.: Baked image, API request, or Web link
+to an HTML version of a credential) or in a verified presentation request from
+a verifier application.
+
+The verified credentials data model 2.0 outlines ways that verified credentials
+[(VCs) can manage data privacy by either an enveloping proof or an embedded
+proof](https://www.w3.org/TR/vc-data-model-2.0/#dfn-securing-mechanism).
+The BBS or SD-JWT signing methods can support selective disclosure or
+encryption of the data (such as with TLS), while a Linked Data Proof does not.
+CBOR encoding can also be used within the JSON of a credential for selective
+disclosure so only parts of the specific badge data are shared and can handle
+the inclusion of zero-knowledge proofs. CBOR can be used with the SD-JWT or
+LinkedData Proof methods but only manages the selective disclosure and
+encryption of the protected data at the time of the verified presentation request.
+
+It is recommended that the issuer provide information on which fields may be
+governed by selective disclosure and the method used in the beginning of the
+credential payload.
+
+#### Context of grades
+
+In the case where an issuer is intending to implement credentials for the purpose
+of documenting all academic activity, grade data might include such use cases
+as work that is in progress, on hold, provisional, withdrawn, or failed. In this
+case, it should be required for the issuer to include the ResultStatus. Learners
+should not be able to disassociate the context of this status from their results
+if a Holder application implements selective disclosure.
+
+#### Evidence documents
+
+In the case that a link is included as evidence, it should be immutable. Links
+that a learner or another party has access to edit (i.e.: YouTube, photo sharing
+site, document sharing site, etc.) should not be used in a verified credential so
+that the file is always in the same state as when the credential was issued.
+The issuer may wish to implement some form of password access control to links
+and  a mechanism for the learner to approve access. It is advisable for Holder
+applications to implement a process for a verifying application to disclose
+their identity or reason for a verified presentation request (e.g.: “I need to
+verify that the course was completed with a passing grade”).
 
 ### Displayer
 
@@ -676,16 +740,19 @@ maintain its JWK Set and publicly expose it throught the endpoint.
 
 Linked data proofs imply the use of a cryptosuite for its generation and further
 verification. The Open Badges 3.0 and Comprehensive Learner Record 2.0
-specifications define the cryptosuite to use.
+specifications define cryptosuite(s) supported by 1EdTech conformance tests.
+Verifiers should expect to encounter credentials secured with these
+cryptosuites.
 
-The change of the cryptosuite has impact in newly issued credentials. But there
-are already issued credentials with a proof generated using a now old
-cryptosuite. Verifiers should support prior cryptosuites, specially when the
-credential doesn't define the refresh service. In that case, is argually that
-the issuer will provide a refreshed version of the credential with a proof
-computed with the current designed cryptosuite.
+Cryptosuites evolve and produce new versions occasionally. The 1EdTech
+conformance process may over time support updated version or additional
+cryptosuite options, and there are issued credentials with a proof generated
+using a cryptosuite now considered deprecated. Verifiers should consider
+supporting prior cryptosuites, especially for cases when the credential doesn't
+define the refresh service. Issuers that do support refresh services may be able
+to update the credential to use a newer cryptosuite.
 
-Prior designed cryptosuites in both OB 3.0 and CLR 2.0 were:
+Prior (deprecated) cryptosuites identified in OB 3.0 and CLR 2.0 drafts include:
 
 -   `eddsa-2022`
 -   `Ed25519Signature2020`
@@ -739,9 +806,9 @@ Section 6.3.1 of [[VC-JOSE-COSE]] extends the definition of `kid` as
 > `kid` MUST be present when the key of the issuer or subject is expressed as a
 > DID URL
 
-With these two premises, the recommendation for verifing key provenance is using
-JWK Set. A verifier must, then, get the public JKWS of the issuer for further
-check of the provided key.
+With these two premises, the recommendation for verifying key provenance is
+using JWK Set. A verifier must, then, get the public JKWS of the issuer for
+further check of the provided key.
 
 In order to get the issuer's JKWS, a verifier must build a well-known url with
 the `authority` part of the issuer's `id` ([[RFC3986]]):
@@ -752,12 +819,13 @@ A verifier must make a HTTP request to this endpoint with an accept header of
 `application/jwk-set+json`. The response of this call must a JWKS.
 
 After the request, a verifier must check that the provided key in in the
-returned set. If the key in the JOSE Header in referenced by the `kid` field,
-this `kid` must be in the set. On the other hand, if the key is represented by
-the `jwk` field, this `jwk` must be in the set with any specified `kid`.
+returned set. If the key in the JOSE Header in referenced by the `kid`
+field, this `kid` must be in the set. On the other hand, if the key is
+represented by the `jwk` field, this `jwk` must be in the set with
+any specified `kid`.
 
 If the found JWT in the set contains the member `iss`, this must be equal to
-issuer's `id`.
+the issuer's `id`.
 
 <div class="note">
  The credential should  be considered invalid and not trustworthy if the

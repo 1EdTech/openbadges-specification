@@ -39,23 +39,23 @@ jobs:
       - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' https://datamodels-staging.imsglobal.org/jsonschema/org.1edtech.ob.v3p0.imsx_statusinfo.class --output imsx_statusinfo.json
       - run: curl -H 'X-Api-Key:${{ secrets.API_KEY }}' https://datamodels-staging.imsglobal.org/jsonschema/org.1edtech.ob.v3p0.profile.class --output profile.json
       - name: Upload the JSON Schema files
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: achievementcredential.json
           path: achievementcredential.json
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: endorsementcredential.json
           path: endorsementcredential.json
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: getopenbadgecredentialsresponse.json
           path: getopenbadgecredentialsresponse.json
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: imsx_statusinfo.json
           path: imsx_statusinfo.json
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: profile.json
           path: profile.json
@@ -64,23 +64,23 @@ jobs:
         with:
           ref: gh-pages
       - name: Download the JSON Schema files
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: achievementcredential.json
           path: docs/schema
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: endorsementcredential.json
           path: docs/schema
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: getopenbadgecredentialsresponse.json
           path: docs/schema
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: imsx_statusinfo.json
           path: docs/schema
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: profile.json
           path: docs/schema

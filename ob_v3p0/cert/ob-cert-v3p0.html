@@ -23,9 +23,9 @@
             specNature: "normative", // spec nature is "normative" or "informative"
             specType: "cert", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
             specVersion: "3.0",
-            docVersion: "1.2",
-            specStatus: "Candidate Final Public",
-            specDate: "April 2, 2024",
+            docVersion: "1.1",
+            specStatus: "Final Release",
+            specDate: "Dec 23, 2024",
             contributors: _contributors,
             localBiblio: _localBiblio,
             iprs: _iprs,
@@ -33,15 +33,6 @@
                 "did-core",
                 "vc-data-model-2.0"
             ],
-
-            // Remove for IMS Final
-            otherLinks: [{
-                key: "Issue Tracker",
-                data: [{
-                value: "https://github.com/IMSGlobal/openbadges-specification/issues",
-                href: "https://github.com/IMSGlobal/openbadges-specification/issues"
-                }]
-            }],
 
             // Add the MPS configuration to respecConfig
             mps: _mps,
@@ -93,26 +84,26 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Version 3.0 IMS Candidate Final</td>
-                    <td>1</td>
+                    <td>Candidate Public Final</td>
+                    <td>1.0</td>
                     <td>November 10, 2022</td>
-                    <td>Covers Issuer, Displayer, and Host conformance and certification.</td>
+                    <td>Open Badges 3.0 first Candidate Public Final release</td>
                 </tr>
                 <tr>
-                    <td>Version 3.0 IMS Candidate Final</td>
+                    <td>Final</td>
+                    <td>1.0</td>
+                    <td>May 27, 2024</td>
+                    <td>Open Badges 3.0 Final Release</td>
+                </tr>
+                <tr>
+                    <td>Final</td>
                     <td>1.1</td>
-                    <td>July 14, 2023</td>
-                    <td>
-                        New version of the context.json (`context-3.0.3.json`) file. See [[[OB-ERRATA-30]]] for detailed changes
-                    </td>
-                </tr>
-                <tr>
-                    <td>Version 3.0 IMS Candidate Final</td>
-                    <td>1.2</td>
-                    <td>April 2, 2024</td>
+                    <td>Dec 23, 2024</td>
                     <td>
                         <ul>
-                        <li>Upgraded to [[VC-DATA-MODEL-2.0]]</li>
+                            <li>Added supported proof mechanisms for Issuer.</li>
+                            <li>Added supported proof mechanisms for Displayer.</li>
+                            <li>Removed invalid Host tests.</li>
                         </ul>
                     </td>
                 </tr>

@@ -1,22 +1,19 @@
-name: Publish the JSON-LD vocab file
+name: Publish the JSON-LD context file
 
 on:
-  workflow_dispatch:
-  
   push:
-    branches: 
+    branches:
       - develop
-    paths: 
-      - 'ob_v3p0/vocab.html'
-  
+    paths:
+      - 'ob_v3p0/context**.json'
+
   pull_request:
-    branches: 
+    branches:
       - develop
-    paths: 
-      - 'ob_v3p0/vocab.html'
+    paths:
+      - 'ob_v3p0/context**.json'
 
 jobs:
-
   publish:
     name: Publish to GH pages
     runs-on: ubuntu-latest
@@ -25,22 +22,23 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: develop
-      - name: Upload vocab.html from develop
-        uses: actions/upload-artifact@v2.3.1
+      - name: Upload context.json from develop
+        uses: actions/upload-artifact@v4
         with:
-          name: vocab.html
-          path: ob_v3p0/vocab.html
+          name: context.json
+          path: ob_v3p0/context**.json
       - name: Checkout gh-pages
         uses: actions/checkout@v2
         with:
           ref: gh-pages
-      - name: Download vocab.html to gh_pages
-        uses: actions/download-artifact@v2.1.0
+      - name: Download context.json to gh_pages
+        uses: actions/download-artifact@v4
         with:
-          name: vocab.html
+          name: context.json
           path: docs
       - name: Commit the changes
         run: |
+          git pull
           git add docs/*
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"

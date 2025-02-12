@@ -38,4 +38,11 @@ the same characteristics as in Test 1. The candidate platform must verify these 
 1. Demonstrate through video that the platform allows viewers of badges to do the following:
    - Trigger verification of the badge and retrieve results verifying that the badge credential is not expired, and not revoked
 
+#### Supported Proof Mechanisms
+
+Open Badges Verifiers must support the following supported proof mechanisms for
+Linked Data Proof format:
+
+- [[[VC-DI-EDDSA]]] suite with the \`eddsa-rdfc-2022\` algorithm.
+
 `;
