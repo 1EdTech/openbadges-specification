@@ -15,12 +15,13 @@ Package MainClasses DataModel
         Property sections Section 0..*                         "d:A listing of sections, each with questions, that make up the assessment. Typically included if the issuer wishes to make available applications for the badge."
 
     Class Section Unordered false []
-        Property type IRI 1                 "d:MUST be the IRI 'Section'."
-        Property title String 1             "d:The name of the section."
-        Property description String 1       "d:A short description of the section."
-        Property questions Question 0..*    "d:The questions that make up this section."
-        Property required String 0..1       "d:Indicates whether this section is considered to be required for completion of the assessment. Default: true."
-        Property url URI 0..1               "d:An external URL that represents this section."
+        Property type IRI 1                         "d:MUST be the IRI 'Section'."
+        Property title String 1                     "d:The name of the section."
+        Property description String 1               "d:A short description of the section."
+        Property questions Question 0..*            "d:The questions that make up this section."
+        Property required String 0..1               "d:Indicates whether this section is considered to be required for completion of the assessment. Default: true."
+        Property url URI 0..1                       "d:An external URL that represents this section."
+        Property rubricCriterionLevelId IRI 0..*    "d:A listing of RubricCriterionLevel identifiers related to this section"
 
     Class Question Unordered false []
         Property type IRI 1                             "d:The type of question. One of the following type identifiers defined in the extension context: 'ExternalQuestion', 'FileQuestion' or 'TextQuestion'."
@@ -29,6 +30,7 @@ Package MainClasses DataModel
         Property wordLimit NonNegativeInteger 0..1      "d:For TextQuestions, specifies a maximum length in words that may be enforced as a suggestion or requirement, depending on the application."
         Property characterLimit NonNegativeInteger 0..1 "d:For TextQuestions, specifies a maximum length in characters that may be enforced as a suggestion or requirement, depending on the application."
         Property url URI 0..1                           "d:An external URL that represents this question."
+        Property rubricCriterionLevelId IRI 0..*        "d:A listing of RubricCriterionLevel identifiers related to this question"
 
 Package Enumerations DataModel
 
