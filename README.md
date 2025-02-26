@@ -35,4 +35,5 @@ We use labels to track issues. The following labels are used to track the specif
 | `candidate_final` | Issues is required for Candidate Final release of specification version
 | `final` | Issue is required for Final release of specification version
 
-IMS Contributing Members may access [Spec Central](https://github.com/IMSGlobal/spec-central/blob/master/github-getting-started.md) for further details about using GitHub for IMS activities.
+
+1EdTech Contributing Members may access [Spec Central](https://github.com/1EdTech/spec-central/blob/master/github-getting-started.md) for further details about using GitHub for 1EdTech's activities.
