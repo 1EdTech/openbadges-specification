@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema#",
+  "$id": "https://openbadgespec.org/extensions/licenseExtension/schema_obv3p0.json",
+  "type": "object",
+  "properties": {
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "achievement": {
+          "type": "object",
+          "properties": {
+            "license": {
+              "$ref": "#/$defs/License"
+            }
+          },
+          "required": ["id", "name"],
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "License": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "url"
+        },
+        "name": {
+          "type": "string"
+        },
+        "http://creativecommons.org/ns#legalcode": {
+          "type": "string",
+          "format": "url"
+        }
+      },
+      "required": ["id", "name"]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema#",
+  "$id": "https://openbadgespec.org/extensions/accessibilityExtension/schema_achievement_obv3p0.json",
+  "type": "object",
+  "properties": {
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "achievement": {
+          "type": "object",
+          "properties": {
+            "accessibilityAPI": {
+              "type": "string"
+            },
+            "accessibilityControl": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "accessibilityFeature": {
+              "type": "string"
+            },
+            "accessibilityHazard": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": ["url", "accessibilityFeature"],
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

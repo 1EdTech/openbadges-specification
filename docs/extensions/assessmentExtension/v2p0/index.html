@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset='utf-8'>
+  <script src='https://purl.imsglobal.org/respec/respec-1edtech.js' async class='remove'></script>
+  <script src="./respec-support/local-biblio.js" class="remove"></script>
+  <script src="./respec-support/contributors.js" class="remove"></script>
+
+  <!-- Load VC proof add-on -->
+  <script class="remove" src="https://purl.imsglobal.org/respec/respec-vc.js"></script>
+
+  <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
+  <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js"
+          integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Load the MPS configuration -->
+  <script class="remove" src="./respec-support/mps-config.js"></script>
+
+  <script class='remove'>
+    var respecConfig = {
+      specTitle: "Open Badges Assessment Extension",
+      shortName: "ob-assessment",
+      specStatus: "Base Document",
+      specDate: "July 24th, 2024",
+      specNature: "normative",
+      specVersion: "2.0",
+      specType: "spec",
+      docVersion: "1.0",
+      contributors: _contributors,
+      localBiblio: _localBiblio,
+      skipCertGuideConformanceRef : true,
+
+      // Add the MPS configuration to respecConfig
+      mps: _mps,
+
+      // Add VC proof examples
+      postProcess: [
+        window.respecVc.createVcExamples
+      ],
+    };
+  </script>
+</head>
+
+<body>
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <p>An extension to Open Badges that allows issuers to define assessment(s) related to the award process.</p>
+  </section>
+
+  <section>
+    <h2>Overview</h2>
+    <section class="informative">
+      <h2>Introduction</h2>
+      <p>This extension provides information about single or multiple assessments that would be completed by the recipient as part of the requirements for earning an OpenBadge. There could be multiple assessments of different types for each badge earned.
+        Separate, independent evaluations of a single assessment could result in multiple assessment/evaluation records, all included in a single instance of the extension. Please note that this extension is in draft mode and may not be ready for production.</p>
+    </section>
+    <section class="informative" id="usecases">
+      <h3>Use cases</h3>
+      <ul>
+        <li>Describe an assessment so a potential recipient understands the process.</li>
+        <li>Describe assessment(s) so badge consumers better know what recipients did to earn the badge.</li>
+        <li>Include explicit application information to build an automated application form for the badge.</li>
+      </ul>
+      <div class="note" title="New in OB v3.0">
+        New in Open Badges 3.0 is the ability to include a rubric for an Achievement with multiple criterion in the form of `ResultDescription`.
+        The adaptation of this extension to this new version implies the limitation of defining only one rubric and rubric criterion per assessment.
+      </div>
+    </section>
+    <section>
+      <h3>Extendable Badge Objects</h3>
+      <p><code>ResultDescription</code>, with the new type <code>AssessmentResultDescription</code></p>
+    </section>
+    <section id="terminology">
+      <h3>Terminology</h3>
+      <p>The terminology used in this document is consistent with the terminology established in the Open Badges 3.0 specification [[OB-30]].</p>
+    </section>
+    <section id="conformance">
+      <h3>Conformance Statements</h3>
+    </section>
+    <section id="documentset">
+      <h3>Document Set</h3>
+      <section>
+        <h4>Normative Documents</h4>
+        <dl>
+          <dt>JSON Schema</dt>
+          <dd>The JSON Schema defines the syntactical restrictions of this extension: <a href="https://purl.imsglobal.org/spec/ob-assessment/v2p0/schema/" title="Open Badges Issuer Accreditation Extension v2.0 JSON Schema">https://purl.imsglobal.org/spec/ob-assessment/v2p0/schema</a>.</dd>
+          <dt>JSON-LD Context</dt>
+          <dd>The JSON-LD context defines mappings for the terms used in this specification to their canonical IRIs: <a href="https://purl.imsglobal.org/spec/ob-assessment/v2p0/context/" title="Open Badges Issuer Accreditation Extension v2.0 JSON-LD Context">https://purl.imsglobal.org/spec/ob-assessment/v2p0/context</a>.</dd>
+          <dt>Errata</dt>
+          <dd>The errata details any erratum registered for this version of this specification since its publication [[OB-ASSMT-20-ERRATA]].</dd>
+        </dl>
+      </section>
+    </section>
+
+  </section>
+
+
+  <section>
+    <h2>Data Model</h2>
+    <p>This extension has a more deeply nested data structure than many other available extensions. At the top level is a very simple AssessmentExtension object that contains an overall description and one or more detailed assessment descriptors.</p>
+    <section data-model="org.1edtech.ob-assmt.v2p0.model" data-package="MainClasses" title="Data Models"></section>
+    </section>
+    <section data-model="org.1edtech.ob-assmt.v2p0.model" data-package="Enumerations" title="Enumerations">
+    </section>
+    <section data-model="org.1edtech.ob-assmt.v2p0.model" data-stereotype="DerivedType" title="Derived Types">
+    <p>
+        The derived types in this section are shared by all 1EdTech specifications.
+    </p>
+    </section>
+    <section data-model="org.1edtech.ob-assmt.v2p0.model" data-stereotype="PrimitiveType" title="Primitive Types">
+    <p>
+        The primitive types in this section are shared by all 1EdTech specifications.
+    </p>
+    </section>
+
+  </section>
+
+
+  <section class="appendix">
+    <h2>Examples</h2>
+    <pre
+        class="json example vc"
+        data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+        data-source="CORE"
+        data-allowadditionalproperties="true"
+        title="Sample OpenBadgeCredential with Assessment extension"
+    >
+    {
+        "@context": [
+            "https://www.w3.org/ns/credentials/v2",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+            "https://purl.imsglobal.org/spec/ob-assessment/v2p0/context/"
+        ],
+        "id": "http://example.com/credentials/3527",
+        "type": ["VerifiableCredential", "OpenBadgeCredential"],
+        "issuer": {
+            "id": "https://example.com/issuers/876543",
+            "type": ["Profile"],
+            "name": "Example Corp"
+        },
+        "validFrom": "2010-01-01T00:00:00Z",
+        "name": "Teamwork Badge",
+        "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+            "type": ["AchievementSubject"],
+            "achievement": {
+            "id": "https://example.com/achievements/21st-century-skills/teamwork",
+            "type": ["Achievement"],
+            "criteria": {
+                "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+            },
+            "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+            "name": "Teamwork",
+            "resultDescription": [
+                {
+                "id": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+                "type": ["ResultDescription", "AssessmentResultDescription"],
+                "alignment": [
+                    {
+                    "type": ["Alignment"],
+                    "targetCode": "project",
+                    "targetDescription": "Project description",
+                    "targetName": "Final Project",
+                    "targetFramework": "1EdTech University Program and Course Catalog",
+                    "targetType": "CFItem",
+                    "targetUrl": "https://1edtech.edu/catalog/degree/project"
+                    }
+                ],
+                "allowedValue": ["D", "C", "B", "A"],
+                "name": "Final Project Grade",
+                "requiredValue": "C",
+                "resultType": "LetterGrade",
+                "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
+                "assessmentType": "Artifact",
+                "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
+                "hasGroupParticipation": false,
+                "hasGroupEvaluation": false,
+                "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
+                "assessmentExample": "http://placeholderurl.com",
+                "scoringMethodExampleDescription": "Placeholder text",
+                "assessmentEvaluation": "http://placeholderurl.com"
+                },
+                {
+                "id": "urn:uuid:a70ddc6a-4c4a-4bd8-8277-cb97c79f40c5",
+                "type": ["ResultDescription", "AssessmentResultDescription"],
+                "alignment": [
+                    {
+                    "type": ["Alignment"],
+                    "targetCode": "project",
+                    "targetDescription": "Project description",
+                    "targetName": "Final Project",
+                    "targetFramework": "1EdTech University Program and Course Catalog",
+                    "targetType": "CFItem",
+                    "targetUrl": "https://1edtech.edu/catalog/degree/project"
+                    }
+                ],
+                "allowedValue": ["D", "C", "B", "A"],
+                "name": "Final Project Grade",
+                "requiredLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+                "resultType": "RubricCriterionLevel",
+                "rubricCriterionLevel": [
+                    {
+                    "id": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+                    "type": ["RubricCriterionLevel"],
+                    "alignment": [
+                        {
+                        "type": ["Alignment"],
+                        "targetCode": "project",
+                        "targetDescription": "Project description",
+                        "targetName": "Final Project",
+                        "targetFramework": "1EdTech University Program and Course Catalog",
+                        "targetType": "CFRubricCriterionLevel",
+                        "targetUrl": "https://1edtech.edu/catalog/degree/project/rubric/levels/mastered"
+                        }
+                    ],
+                    "level": "Mastered",
+                    "name": "Mastery",
+                    "points": "4",
+                    "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment."
+                    },
+                    {
+                    "id": "urn:uuid:6b84b429-31ee-4dac-9d20-e5c55881f80e",
+                    "type": ["RubricCriterionLevel"],
+                    "alignment": [
+                        {
+                        "type": ["Alignment"],
+                        "targetCode": "project",
+                        "targetDescription": "Project description",
+                        "targetName": "Final Project",
+                        "targetFramework": "1EdTech University Program and Course Catalog",
+                        "targetType": "CFRubricCriterionLevel",
+                        "targetUrl": "https://1edtech.edu/catalog/degree/project/rubric/levels/basic"
+                        }
+                    ],
+                    "level": "Basic",
+                    "name": "Basic",
+                    "points": "4"
+                    }
+                ],
+                "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
+                "assessmentType": "Artifact",
+                "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
+                "hasGroupParticipation": false,
+                "hasGroupEvaluation": false,
+                "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
+                "assessmentExample": "http://placeholderurl.com",
+                "scoringMethodExampleDescription": "Placeholder text",
+                "assessmentEvaluation": "http://placeholderurl.com"
+                }
+            ]
+            }
+        },
+        "credentialSchema": [
+            {
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+            },
+            {
+            "id": "http://purl.imsglobal.org/spec/ob-assessment/v3p0/schema/",
+            "type": "1EdTechJsonSchemaValidator2019"
+            }
+        ]
+    }
+    </pre>
+  </section>
+
+  <section class="appendix">
+    <h2>Schema</h2>
+    <section>
+      <h3>Context</h3>
+      <pre class="json">
+        <section data-include="context.json" data-include-format="text"></section>
+      </pre>
+    </section>
+    <section data-model="org.1edtech.ob-assmt.v2p0.model" data-package="OBClasses" data-schema-format="json">
+      <h3 id="json-schema">JSON Schema</h3>
+    </section>
+  </section>
+
+  <section class="appendix informative" id="revision-history">
+    <h2>Revision History</h2>
+    <section>
+      <h3>Version History</h3>
+      <table title="Revision History" class="data" summary="Publication history and revision details for this specification.">
+        <thead>
+          <tr>
+            <th>Version No.</th>
+            <th>Release Date</th>
+            <th>Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Working Document 1.0</td>
+            <td>July 24th, 2024</td>
+            <td>Initial proof of concept.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
+  <!-- a footer is inserted by the script -->
+</body>
+
+</html>

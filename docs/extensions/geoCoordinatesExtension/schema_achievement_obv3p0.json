@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema#",
+  "$id": "https://openbadgespec.org/extensions/geoCoordinatesExtension/schema_achievement_obv3p0.json",
+  "type": "object",
+  "properties": {
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "achievement": {
+          "type": "object",
+          "properties": {
+            "place": {
+              "$ref": "#/$defs/Place"
+            }
+          },
+          "required": ["place"],
+
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "Place": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "geo": {
+          "$ref": "#/$defs/GeoCoordinates"
+        }
+      }
+    },
+    "GeoCoordinates": {
+      "description": "The geographic coordinates of a location.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'GeoCoordinates'.",
+          "$comment": "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+          "type": "string",
+          "enum": ["GeoCoordinates"]
+        },
+        "latitude": {
+          "description": "The latitude of the location [[WGS84]].",
+          "$comment": "Origin: Float (PrimitiveType)",
+          "type": "number"
+        },
+        "longitude": {
+          "description": "The longitude of the location [[WGS84]].",
+          "$comment": "Origin: Float (PrimitiveType)",
+          "type": "number"
+        }
+      },
+      "required": ["type", "latitude", "longitude"],
+      "additionalProperties": true
+    }
+  }
+}
