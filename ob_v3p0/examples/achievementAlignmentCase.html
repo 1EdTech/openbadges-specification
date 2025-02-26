@@ -1,0 +1,47 @@
+var achievementAlignmentCase = `
+
+<pre
+    class="json example vc"
+    data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+    data-allowadditionalproperties="false"
+    title="Achievement alignment (CASE)"
+>
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": ["VerifiableCredential", "OpenBadgeCredential"],
+  "issuer": {
+    "id": "https://example.edu/issuers/565049",
+    "type": ["Profile"],
+    "name": "Example University"
+  },
+  "validFrom": "2010-01-01T00:00:00Z",
+  "name": "Example University Degree",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": ["AchievementSubject"],
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/1",
+      "type": ["Achievement"],
+      "criteria": {
+        "narrative": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain"
+      },
+      "description": "Analyze a sample text",
+      "name": "Text analysis",
+      "alignment": [{
+        "type": ["Alignment"],
+        "targetCode": "74f5bb7d-d7cc-11e8-824f-0242ac160002",
+        "targetFramework": "Alabama Course of Study: English Language Arts",
+        "targetName": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain",
+        "targetType": "CFItem",
+        "targetUrl": "https://caseregistry.imsglobal.org/uri/74f5bb7d-d7cc-11e8-824f-0242ac160002"
+      }]
+    }
+  }
+}
+</pre>
+
+`;

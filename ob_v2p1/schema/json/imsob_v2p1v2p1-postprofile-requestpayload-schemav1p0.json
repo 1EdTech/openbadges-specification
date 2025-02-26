@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id" : "postProfile-requestpayload-schema.json",
+    "title" : "Open Badges Version 2.1 IMS Candidate Final JSON Schema Binding (postProfile-requestpayload-schema)",
+    "description" : "Author-Alexander Hripak, Nate Otto, Justin Pitcher, and Chris Houston;  Version-2.1;  Release Date-August 29, 2019. ",
+    "type" : "object",
+    "properties" : {
+        "id" : {
+            "description" : "Model Primitive Datatype = NormalizedString. Unique IRI for this object.",
+            "type" : "string"
+        },
+        "type" : {
+            "description" : "Model Primitive Datatype = String. The JSON-LD type of this object. Normally 'Profile'.",
+            "type" : "string"
+        }
+    },
+    "required" : [ "id","type" ],
+    "additionalProperties" : true
+}

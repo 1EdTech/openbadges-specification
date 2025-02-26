@@ -1,0 +1,949 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 26.16.1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  
+  
+  
+
+<style id="respec-mainstyle">
+
+@keyframes pop {
+  0% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(1.25, 1.25);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+/* Override code highlighter background */
+.hljs {
+  background: transparent !important;
+}
+
+/* --- INLINES --- */
+:is(h1, h2, h3, h4, h5, h6, a) abbr {
+  border: none;
+}
+
+dfn {
+  font-weight: bold;
+}
+
+a.internalDFN {
+  color: inherit;
+  border-bottom: 1px solid #99c;
+  text-decoration: none;
+}
+
+a.externalDFN {
+  color: inherit;
+  border-bottom: 1px dotted #ccc;
+  text-decoration: none;
+}
+
+a.bibref {
+  text-decoration: none;
+}
+
+.respec-offending-element:target {
+  animation: pop 0.25s ease-in-out 0s 1;
+}
+
+.respec-offending-element,
+a[href].respec-offending-element {
+  text-decoration: red wavy underline;
+}
+@supports not (text-decoration: red wavy underline) {
+  .respec-offending-element:not(pre) {
+    display: inline-block;
+  }
+  .respec-offending-element {
+    /* Red squiggly line */
+    background: url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=)
+      bottom repeat-x;
+  }
+}
+
+#references :target {
+  background: #eaf3ff;
+  animation: pop 0.4s ease-in-out 0s 1;
+}
+
+cite .bibref {
+  font-style: normal;
+}
+
+code {
+  color: #c63501;
+}
+
+th code {
+  color: inherit;
+}
+
+a[href].orcid {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+a[href].orcid > svg {
+  margin-bottom: -2px;
+}
+
+/* --- TOC --- */
+
+.toc a,
+.tof a {
+  text-decoration: none;
+}
+
+a .secno,
+a .figno {
+  color: #000;
+}
+
+ul.tof,
+ol.tof {
+  list-style: none outside none;
+}
+
+.caption {
+  margin-top: 0.5em;
+  font-style: italic;
+}
+
+/* --- TABLE --- */
+
+table.simple {
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-bottom: 3px solid #005a9c;
+}
+
+.simple th {
+  background: #005a9c;
+  color: #fff;
+  padding: 3px 5px;
+  text-align: left;
+}
+
+.simple th a {
+  color: #fff;
+  padding: 3px 5px;
+  text-align: left;
+}
+
+.simple th[scope="row"] {
+  background: inherit;
+  color: inherit;
+  border-top: 1px solid #ddd;
+}
+
+.simple td {
+  padding: 3px 10px;
+  border-top: 1px solid #ddd;
+}
+
+.simple tr:nth-child(even) {
+  background: #f0f6ff;
+}
+
+/* --- DL --- */
+
+.section dd > p:first-child {
+  margin-top: 0;
+}
+
+.section dd > p:last-child {
+  margin-bottom: 0;
+}
+
+.section dd {
+  margin-bottom: 1em;
+}
+
+.section dl.attrs dd,
+.section dl.eldef dd {
+  margin-bottom: 0;
+}
+
+#issue-summary > ul {
+  column-count: 2;
+}
+
+#issue-summary li {
+  list-style: none;
+  display: inline-block;
+}
+
+details.respec-tests-details {
+  margin-left: 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+details.respec-tests-details > * {
+  padding-right: 2em;
+}
+
+details.respec-tests-details[open] {
+  z-index: 999999;
+  position: absolute;
+  border: thin solid #cad3e2;
+  border-radius: 0.3em;
+  background-color: white;
+  padding-bottom: 0.5em;
+}
+
+details.respec-tests-details[open] > summary {
+  border-bottom: thin solid #cad3e2;
+  padding-left: 1em;
+  margin-bottom: 1em;
+  line-height: 2em;
+}
+
+details.respec-tests-details > ul {
+  width: 100%;
+  margin-top: -0.3em;
+}
+
+details.respec-tests-details > li {
+  padding-left: 1em;
+}
+
+a[href].self-link:hover {
+  opacity: 1;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+}
+
+aside.example .marker > a.self-link {
+  color: inherit;
+}
+
+:is(h2, h3, h4, h5, h6) > a.self-link {
+  border: none;
+  color: inherit;
+  font-size: 83%;
+  height: 2em;
+  left: -1.6em;
+  opacity: 0.5;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  top: 0;
+  transition: opacity 0.2s;
+  width: 2em;
+}
+
+:is(h2, h3, h4, h5, h6) > a.self-link::before{
+  content: "§";
+  display: block;
+}
+
+@media (max-width: 767px) {
+  dd {
+    margin-left: 0;
+  }
+
+  /* Don't position self-link in headings off-screen */
+  :is(h2, h3, h4, h5, h6) > a.self-link {
+    left: auto;
+    top: auto;
+  }
+}
+
+@media print {
+  .removeOnSave {
+    display: none;
+  }
+}
+
+</style>
+<style>
+
+dfn {
+  cursor: pointer;
+}
+
+.dfn-panel {
+  position: absolute;
+  z-index: 35;
+  min-width: 300px;
+  max-width: 500px;
+  padding: 0.5em 0.75em;
+  margin-top: 0.6em;
+  font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+  background: #fff;
+  color: black;
+  box-shadow: 0 1em 3em -0.4em rgba(0, 0, 0, 0.3),
+    0 0 1px 1px rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+}
+/* Triangle/caret */
+.dfn-panel:not(.docked) > .caret {
+  position: absolute;
+  top: -9px;
+}
+.dfn-panel:not(.docked) > .caret::before,
+.dfn-panel:not(.docked) > .caret::after {
+  content: "";
+  position: absolute;
+  border: 10px solid transparent;
+  border-top: 0;
+  border-bottom: 10px solid #fff;
+  top: 0;
+}
+.dfn-panel:not(.docked) > .caret::before {
+  border-bottom: 9px solid #a2a9b1;
+}
+
+.dfn-panel * {
+  margin: 0;
+}
+
+.dfn-panel b {
+  display: block;
+  color: #000;
+  margin-top: 0.25em;
+}
+
+.dfn-panel ul a[href] {
+  color: #333;
+}
+
+.dfn-panel > div {
+  display: flex;
+}
+
+.dfn-panel a.self-link {
+  font-weight: bold;
+  margin-right: auto;
+}
+
+.dfn-panel .marker {
+  padding: 0.1em;
+  margin-left: 0.5em;
+  border-radius: 0.2em;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 90%;
+  color: #040b1c;
+}
+
+.dfn-panel .marker.dfn-exported {
+  background: #d1edfd;
+  box-shadow: 0 0 0 0.125em #1ca5f940;
+}
+.dfn-panel .marker.idl-block {
+  background: #8ccbf2;
+  box-shadow: 0 0 0 0.125em #0670b161;
+}
+
+.dfn-panel a:not(:hover) {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.dfn-panel a[href]:hover {
+  border-bottom-width: 1px;
+}
+
+.dfn-panel ul {
+  padding: 0;
+}
+
+.dfn-panel li {
+  margin-left: 1em;
+}
+
+.dfn-panel.docked {
+  position: fixed;
+  left: 0.5em;
+  top: unset;
+  bottom: 2em;
+  margin: 0 auto;
+  /* 0.75em from padding (x2), 0.5em from left position, 0.2em border (x2) */
+  max-width: calc(100vw - 0.75em * 2 - 0.5em - 0.2em * 2);
+  max-height: 30vh;
+  overflow: auto;
+}
+
+</style>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
+<link rel="stylesheet" href="https://purl.imsglobal.org/spec/ims-base.css">
+<title>Open Badges Specification v2.1: JSON Schema Files 2.1 
+    IMS Candidate Final Public</title>
+<meta name="description" content="A list of all the JSON Schema files for this specification.">
+<link rel="canonical" href="https://www.imsglobal.org/spec/ob/v2p1/doc/">
+<style>
+
+var {
+  position: relative;
+  cursor: pointer;
+}
+
+var[data-type]::before,
+var[data-type]::after {
+  position: absolute;
+  left: 50%;
+  top: -6px;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+/* the triangle or arrow or caret or whatever */
+var[data-type]::before {
+  content: "";
+  transform: translateX(-50%);
+  border-width: 4px 6px 0 6px;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: #000;
+}
+
+/* actual text */
+var[data-type]::after {
+  content: attr(data-type);
+  transform: translateX(-50%) translateY(-100%);
+  background: #000;
+  text-align: center;
+  /* additional styling */
+  font-family: "Dank Mono", "Fira Code", monospace;
+  font-style: normal;
+  padding: 6px;
+  border-radius: 3px;
+  color: #daca88;
+  text-indent: 0;
+  font-weight: normal;
+}
+
+var[data-type]:hover::after,
+var[data-type]:hover::before {
+  opacity: 1;
+}
+
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "mainSpecTitle": "Open Badges Specification",
+  "mainSpecBiblioKey": "OB-21",
+  "specTitle": "Open Badges Specification v2.1: JSON Schema Files",
+  "shortName": "ob",
+  "specStatus": "IMS Candidate Final Public",
+  "specDate": "October 25, 2021",
+  "specVersion": "2.1",
+  "specNature": "informative",
+  "specType": "doc",
+  "maxTocLevel": "3",
+  "docVersion": "4",
+  "skipCertGuideConformanceRef": true,
+  "localBiblio": {
+    "OB-20": {
+      "title": "Open Badges v2.0",
+      "href": "https://www.imsglobal.org/spec/ob/v2p0/",
+      "publisher": "IMS Global Learning Consortium",
+      "date": "April 2018",
+      "status": "IMS Final Release",
+      "authors": [
+        "Otto, Nate",
+        "Bohrer, Jeff",
+        "Cook, Timothy",
+        "Gylling, Markus",
+        "Hripak, Alexander",
+        "Pitcher, Justin"
+      ]
+    },
+    "OB-21": {
+      "title": "Open Badges Specification v2.1",
+      "href": "https://www.imsglobal.org/spec/ob/v2p1/",
+      "date": "January 24, 2020",
+      "publisher": "IMS Global",
+      "authors": [
+        "Jeff Bohrer",
+        "Andy Miller"
+      ]
+    },
+    "OB-CERT-21": {
+      "title": "Open Badges Specification v2.1: Conformance and Certification Guide",
+      "href": "https://www.imsglobal.org/spec/ob/v2p1/cert/",
+      "date": "January 24, 2020",
+      "publisher": "IMS Global",
+      "authors": [
+        "Jeff Bohrer",
+        "Andy Miller"
+      ]
+    },
+    "OB-ERRATA-21": {
+      "title": "Open Badges Specification v2.1: Errata",
+      "href": "https://www.imsglobal.org/spec/ob/v2p1/errata/",
+      "date": "January 24, 2020",
+      "publisher": "IMS Global"
+    },
+    "OB-JSON-21": {
+      "title": "Open Badges Specification v2.1: JSON Schema Files",
+      "href": "https://purl.imsglobal.org/spec/ob/v2p1/schema/json/",
+      "date": "January 24, 2020",
+      "publisher": "IMS Global",
+      "authors": [
+        "Jeff Bohrer",
+        "Andy Miller"
+      ]
+    }
+  }
+}</script></head>
+
+<body class="informative"><header>
+    <div class="header-top">
+      <h1 class="title" id="title">Open Badges Specification v2.1: JSON Schema Files</h1>
+      <a href="https://www.imsglobal.org" id="ims-logo">
+        <img src="https://www.imsglobal.org/sites/default/files/IMSglobalreg2_2.png" alt="IMS logo">
+      </a>
+    </div>
+     
+    <table id="version-table" title="Version/Release Details" summary="Details about the version and release.">
+      <tbody>
+        <tr>
+          <td>Date Issued:</td>
+          <td>October 25, 2021</td>
+        </tr>
+        <tr>
+          <td>Status:</td>
+          <td>This is an informative IMS Global document that may be revised at any time.</td>
+        </tr>
+      </tbody>
+    </table> <div id="ipr">
+      <h2>IPR and Distribution Notice</h2>
+      <p>
+        Recipients of this document are requested to submit, with their
+        comments, notification of any relevant patent claims or other
+        intellectual property rights of which they may be aware that might be
+        infringed by any implementation of the specification set forth in this
+        document, and to provide supporting documentation.
+      </p>
+      <p>
+        IMS takes no position regarding the validity or scope of any
+        intellectual property or other rights that might be claimed to pertain
+        implementation or use of the technology described in this document or
+        the extent to which any license under such rights might or might not be
+        available; neither does it represent that it has made any effort to
+        identify any such rights. Information on IMS's procedures with respect
+        to rights in IMS specifications can be found at the IMS Intellectual
+        Property Rights webpage:
+        <a href="http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf">
+          http://www.imsglobal.org/ipr/imsipr_policyFinal.pdf </a>.
+      </p>
+    </div> <div id="disclosure">
+      <p>
+        Use of this specification to develop products or services is governed by
+        the license with IMS found on the IMS website:
+        <a href="http://www.imsglobal.org/speclicense.html">
+          http://www.imsglobal.org/speclicense.html</a>.
+      </p>
+      <p>
+        Permission is granted to all parties to use excerpts from this document
+        as needed in producing requests for proposals.
+      </p>
+      <p>
+        The limited permissions granted above are perpetual and will not be
+        revoked by IMS or its successors or assigns.
+      </p>
+      <p>
+        THIS SPECIFICATION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER, AND
+        IN PARTICULAR, ANY WARRANTY OF NONINFRINGEMENT IS EXPRESSLY DISCLAIMED.
+        ANY USE OF THIS SPECIFICATION <em class="rfc2119">SHALL</em> BE MADE ENTIRELY AT THE
+        IMPLEMENTER'S OWN RISK, AND NEITHER THE CONSORTIUM, NOR ANY OF ITS
+        MEMBERS OR SUBMITTERS, <em class="rfc2119">SHALL</em> HAVE ANY LIABILITY WHATSOEVER TO ANY
+        IMPLEMENTER OR THIRD PARTY FOR ANY DAMAGES OF ANY NATURE WHATSOEVER,
+        DIRECTLY OR INDIRECTLY, ARISING FROM THE USE OF THIS SPECIFICATION.
+      </p>
+      <p>
+        Public contributions, comments and questions can be posted here:
+        <a href="http://www.imsglobal.org/forums/ims-glc-public-forums-and-resources">
+          http://www.imsglobal.org/forums/ims-glc-public-forums-and-resources
+        </a>.
+      </p>
+    </div>
+    <div id="cpr">
+    <p>
+      © 2021 IMS Global Learning Consortium, Inc. All
+      Rights Reserved.
+    </p>
+    <p>
+      Trademark information:
+      <a href="http://www.imsglobal.org/copyright.html">http://www.imsglobal.org/copyright.html
+      </a>
+    </p>
+  </div>
+  </header>
+
+  <section id="abstract" class="introductory">
+    <h2 id="abstract-0">Abstract<a class="self-link" aria-label="§" href="#abstract"></a></h2>
+    <p>A list of all the JSON Schema files for this specification.</p>
+  </section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract-0">Abstract<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-endpoint-request-payloads"><bdi class="secno">1. </bdi>Service Endpoint Request Payloads<span class="formerLink" aria-label="§"></span></a></li><li class="tocline"><a class="tocxref" href="#service-endpoint-response-payloads"><bdi class="secno">2. </bdi>Service Endpoint Response Payloads<span class="formerLink" aria-label="§"></span></a></li></ol></nav>
+
+  
+
+
+    <section id="service-endpoint-request-payloads-0">
+      <h2 id="service-endpoint-request-payloads"><bdi class="secno">1. </bdi>Service Endpoint Request Payloads<a class="self-link" aria-label="§" href="#service-endpoint-request-payloads"></a><a class="self-link" aria-label="§" href="#service-endpoint-request-payloads"></a></h2>
+
+      <p>These JSON Schema files can be used to validate the JSON in the service endpoint request payload.</p>
+
+      <table class="standard">
+        <thead>
+          <tr>
+            <th>Operation</th>
+            <th>Request Payload JSON Schema</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>postAssertion</td>
+            <td><a href="imsob_v2p1v2p1-postassertion-requestpayload-schemav1p0.json">schema</a></td>
+          </tr>
+          <tr>
+            <td>postProfile</td>
+            <td><a href="imsob_v2p1v2p1-postprofile-requestpayload-schemav1p0.json">schema</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="service-endpoint-response-payloads-0">
+      <h2 id="service-endpoint-response-payloads"><bdi class="secno">2. </bdi>Service Endpoint Response Payloads<a class="self-link" aria-label="§" href="#service-endpoint-response-payloads"></a><a class="self-link" aria-label="§" href="#service-endpoint-response-payloads"></a></h2>
+
+      <p>These JSON Schema files can be used to validate the JSON returned by each service endpoint response payload.
+      </p>
+
+      <table class="standard">
+        <thead>
+          <tr>
+            <th>Operation</th>
+            <th>HTTP Status Codes</th>
+            <th>Response Payload JSON Schema</th>
+          </tr>
+          </thead><thead>
+          </thead><tbody>
+            <tr>
+              <td><code>getAssertions</code></td>
+              <td>200</td>
+              <td><a href="imsob_v2p1v2p1-getassertions-200-responsepayload-schemav1p0.json">schema</a></td>
+            </tr>
+            <tr>
+              <td><code>getAssertions</code></td>
+              <td>4xx, 5xx</td>
+              <td><a href="imsob_v2p1v2p1-getassertions-400-401-404-405-500-responsepayload-schemav1p0.json">schema</a>
+              </td>
+            </tr>
+            <tr>
+              <td><code>getManifest</code></td>
+              <td>200</td>
+              <td><a href="imsob_v2p1v2p1-getmanifest-200-responsepayload-schemav1p0.json">schema</a></td>
+            </tr>
+            <tr>
+              <td><code>getProfile</code></td>
+              <td>200</td>
+              <td><a href="imsob_v2p1v2p1-getprofile-200-responsepayload-schemav1p0.json">schema</a></td>
+            </tr>
+            <tr>
+              <td><code>getProfile</code></td>
+              <td>4xx, 5xx</td>
+              <td><a href="imsob_v2p1v2p1-getprofile-400-401-404-405-500-responsepayload-schemav1p0.json">schema</a>
+              </td>
+            </tr>
+            <tr>
+              <td><code>postAssertion</code></td>
+              <td>200, 4xx, 5xx</td>
+              <td><a href="imsob_v2p1v2p1-postassertion-200-400-401-404-405-500-responsepayload-schemav1p0.json">schema</a>
+              </td>
+            </tr>
+            <tr>
+              <td><code>postProfile</code></td>
+              <td>200</td>
+              <td><a href="imsob_v2p1v2p1-postprofile-200-responsepayload-schemav1p0.json">schema</a></td>
+            </tr>
+            <tr>
+              <td><code>postProfile</code></td>
+              <td>4xx, 5xx</td>
+              <td><a href="imsob_v2p1v2p1-postprofile-400-401-404-405-responsepayload-schemav1p0.json">schema</a></td>
+            </tr>
+          </tbody>
+      </table>
+    </section>
+
+
+<p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script type="text/javascript" src="https://purl.imsglobal.org/spec/fixup.js"></script><footer>
+    <div id="endWarranty">
+      <p>
+        IMS Global Learning Consortium, Inc. ("IMS Global") is publishing the
+        information contained in this document ("Specification") for purposes of
+        scientific, experimental, and scholarly collaboration only.
+      </p>
+      <p>
+        IMS Global makes no warranty or representation regarding the accuracy or
+        completeness of the Specification.
+      </p>
+      <p>This material is provided on an "As Is" and "As Available" basis.</p>
+      <p>
+        The Specification is at all times subject to change and revision without
+        notice.
+      </p>
+      <p>
+        It is your sole responsibility to evaluate the usefulness, accuracy, and
+        completeness of the Specification as it relates to you.
+      </p>
+      <p>
+        IMS Global would appreciate receiving your comments and suggestions.
+      </p>
+      <p>
+        Please contact IMS Global through our website at
+        http://www.imsglobal.org.
+      </p>
+      <p>
+        Please refer to Document Name: Open Badges Specification v2.1: JSON Schema Files
+        2.1
+      </p>
+      <p>Date: October 25, 2021</p>
+      <div></div>
+    </div>
+  </footer></body></html>

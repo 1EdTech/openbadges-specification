@@ -1,0 +1,41 @@
+name: Publish Extenssions
+
+on:
+  # Triggers the workflow on push or pull request events but only for the develop branch
+  push:
+    branches:
+      - develop
+    paths:
+      - 'extensions/**'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: Publish to GH pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v2
+        with:
+          ref: develop
+      - name: Upload extensions from develop
+        uses: actions/upload-artifact@v4
+        with:
+          name: extensions
+          path: extensions
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - name: Download artifact created by build job
+        uses: actions/download-artifact@v4
+        with:
+          name: extensions
+          path: docs/extensions
+      - name: Commit the new/updated doc
+        run: |
+          git pull
+          git add docs/extensions*
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git commit --allow-empty -m "Automated build"
+          git push origin

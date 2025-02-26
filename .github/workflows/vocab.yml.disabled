@@ -1,0 +1,48 @@
+name: Publish the JSON-LD vocab file
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - develop
+    paths:
+      - 'ob_v3p0/vocab.html'
+
+  pull_request:
+    branches:
+      - develop
+    paths:
+      - 'ob_v3p0/vocab.html'
+
+jobs:
+
+  publish:
+    name: Publish to GH pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v2
+        with:
+          ref: develop
+      - name: Upload vocab.html from develop
+        uses: actions/upload-artifact@v4
+        with:
+          name: vocab.html
+          path: ob_v3p0/vocab.html
+      - name: Checkout gh-pages
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - name: Download vocab.html to gh_pages
+        uses: actions/download-artifact@v4
+        with:
+          name: vocab.html
+          path: docs
+      - name: Commit the changes
+        run: |
+          git add docs/*
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git commit --allow-empty -m "Automated build"
+          git push origin

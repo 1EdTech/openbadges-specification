@@ -1,0 +1,55 @@
+var endorsement = `
+
+<pre
+    class="json example vc"
+    data-schema="org.1edtech.ob.v3p0.endorsementcredential.class"
+    data-allowadditionalproperties="false"
+    title="Sample EndorsementCredential"
+>
+    {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+        "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
+      ],
+      "id": "http://1edtech.edu/endorsementcredential/3732",
+      "type": [
+        "VerifiableCredential",
+        "EndorsementCredential"
+      ],
+      "name": "SDE endorsement",
+      "issuer": {
+        "id": "https://state.gov/issuers/565049",
+        "type": ["Profile"],
+        "name": "State Department of Education"
+      },
+      "validFrom": "2010-01-01T00:00:00Z",
+      "validUntil": "2030-01-01T00:00:00Z",
+      "credentialSubject": {
+        "id": "https://1edtech.edu/issuers/565049",
+        "type": ["EndorsementSubject"],
+        "endorsementComment": "1EdTech University is in good standing"
+      },
+      "credentialSchema": [
+        {
+          "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json",
+          "type": "1EdTechJsonSchemaValidator2019"
+        },
+        {
+          "id": "https://state.gov/schema/endorsementcredential.json",
+          "type": "1EdTechJsonSchemaValidator2019"
+        }
+      ],
+      "credentialStatus": {
+        "id": "https://state.gov/credentials/3732/revocations",
+        "type": "1EdTechRevocationList"
+      },
+      "refreshService": {
+        "id": "http://state.gov/credentials/3732",
+        "type": "1EdTechCredentialRefresh"
+      }
+    }
+    </pre
+>
+
+`;

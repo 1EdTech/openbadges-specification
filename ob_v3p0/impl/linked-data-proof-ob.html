@@ -1,0 +1,288 @@
+var ldpob = `
+
+<section class="informative">
+    <h2 id="ob-linked-data-proof">
+        Linked Data Proof Test Vector for Open Badges 3.0
+    </h2>
+
+    This chapter is an example of the signing process of a given credential with
+    an Linked Data Proof producing a <code>DataIntegrityProof</code> of a public
+    key expressed in <code>eddsa-rdf-2022</code> format.
+
+    <section>
+        <h3 id="ob-key-pair">Key pair & Multikey</h3>
+
+        For this example we are using the following keypair:
+        <ul>
+            <li>
+                Public key (hex):
+                <code
+                    >4bdeafde2ea8beefadd8c699b5c7e0704cf51154d52e17b20b71337ca04cc5a5</code
+                >
+            </li>
+            <li>
+                Private key (hex):
+                <code
+                    >6241a409e6707bb640a0140a8a32bc3d193c33a661747284d6adfa4ed4180be44bdeafde2ea8beefadd8c699b5c7e0704cf51154d52e17b20b71337ca04cc5a5</code
+                >
+            </li>
+        </ul>
+
+        The <code>MultiKey</code> used in this example is as follows:
+
+        <pre class="example js" title="Multikey">
+    {
+      id: 'https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi',
+      controller: 'https://example.edu/issuers/565049',
+      publicKey: Uint8Array(32) [
+         75, 222, 175, 222,  46, 168, 190,
+        239, 173, 216, 198, 153, 181, 199,
+        224, 112,  76, 245,  17,  84, 213,
+         46,  23, 178,  11, 113,  51, 124,
+        160,  76, 197, 165
+      ],
+      secretKey: Uint8Array(64) [
+         98,  65, 164,   9, 230, 112, 123, 182,  64, 160,  20,
+         10, 138,  50, 188,  61,  25,  60,  51, 166,  97, 116,
+        114, 132, 214, 173, 250,  78, 212,  24,  11, 228,  75,
+        222, 175, 222,  46, 168, 190, 239, 173, 216, 198, 153,
+        181, 199, 224, 112,  76, 245,  17,  84, 213,  46,  23,
+        178,  11, 113,  51, 124, 160,  76, 197, 165
+      ],
+      publicKeyMultibase: 'z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi',
+      secretKeyMultibase: 'zrv2bqTbNwCTsRrHFcJCPjVAduh4Ezcnoq1A3ZxH1GWTNkxipLVuaAoMFmze2gFN9oNXfJjufxSHWVZzsJiUsMHFMcx',
+      revoked: undefined,
+      export: [AsyncFunction: export],
+      signer: [Function: signer],
+      verifier: [Function: verifier]
+    }
+    </pre
+        >
+    </section>
+
+    <section>
+        <h3 id="ob-test-data">Test data</h3>
+
+        The credential used in the example is:
+
+        <pre class="example json" title="Credential">
+        {
+            "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+            ],
+            "id": "http://example.com/credentials/3527",
+            "type": [
+                "VerifiableCredential",
+                "OpenBadgeCredential"
+            ],
+            "issuer": {
+                "id": "https://example.edu/issuers/565049",
+                "type": [
+                "Profile"
+                ],
+                "url": "https://www.imsglobal.org",
+                "name": "Example Corp"
+            },
+            "validFrom": "2010-01-01T00:00:00Z",
+            "name": "Teamwork Badge",
+            "credentialSubject": {
+                "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+                "type": [
+                "AchievementSubject"
+                ],
+                "achievement": {
+                "id": "https://example.com/achievements/21st-century-skills/teamwork",
+                "type": [
+                    "Achievement"
+                ],
+                "criteria": {
+                    "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+                },
+                "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+                "name": "Teamwork"
+                }
+            }
+        }
+    </pre
+        >
+    </section>
+
+    <section>
+        <h3 id="ob-document-before">Document before signing</h3>
+
+        <pre class="example json" title="Document before signing">
+        {
+            '@context': [
+                'https://www.w3.org/ns/credentials/v2',
+                'https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json'
+            ],
+            id: 'http://example.com/credentials/3527',
+            type: [ 'VerifiableCredential', 'OpenBadgeCredential' ],
+            issuer: {
+                id: 'https://example.edu/issuers/565049',
+                type: [ 'Profile' ],
+                url: 'https://www.imsglobal.org',
+                name: 'Example Corp'
+            },
+            validFrom: '2010-01-01T00:00:00Z',
+            name: 'Teamwork Badge',
+            credentialSubject: {
+                id: 'did:example:ebfeb1f712ebc6f1c276e12ec21',
+                type: [ 'AchievementSubject' ],
+                achievement: {
+                id: 'https://example.com/achievements/21st-century-skills/teamwork',
+                type: [
+                    "Achievement"
+                ],
+                criteria: {
+                    "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+                },
+                description: 'This badge recognizes the development of the capacity to collaborate within a group environment.',
+                name: 'Teamwork'
+                }
+            }
+        }
+    </pre
+        >
+    </section>
+
+    <section>
+        <h3 id="ob-proof-before">Proof before signing</h3>
+        <pre class="example json" title="Proof before signing">
+        {
+            type: 'DataIntegrityProof',
+            created: '2010-01-01T19:23:24Z',
+            verificationMethod: 'https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi',
+            cryptosuite: 'eddsa-rdfc-2022',
+            proofPurpose: 'assertionMethod'
+        }
+    </pre
+        >
+    </section>
+
+    <section>
+        <h3 id="ob-proof-normalized">Proof normalized</h3>
+        <pre
+            class="example nohighlight"
+            title="Proof normalized"
+            data-include="test-vectors/obv3p0/proof-canon.txt"
+            data-include-format="text"
+        ></pre>
+    </section>
+
+    <section>
+        <h3 id="ob-document-normalized">Document normalized</h3>
+        <pre
+            class="example nohighlight"
+            title="Document normalized"
+            data-include="test-vectors/obv3p0/document-canon.txt"
+            data-include-format="text"
+        ></pre>
+    </section>
+
+    <section>
+        <h3 id="ob-document-hash">Document hash (hex)</h3>
+        <code
+            >87f65a76d40146205e3b3e06cb0fbd153f97f9ce70372390f52566bb7f9e0773</code
+        >
+    </section>
+
+    <section>
+        <h3 id="ob-proof-hash">Proof hash (hex)</h3>
+        <code
+            >d34009cea0dbc1ca941e09dc01c8c9d3e3ce3c5b853f67ee44698dcea10f5d19</code
+        >
+    </section>
+
+    <section>
+        <h3 id="ob-data">Data to sign (hex)</h3>
+        <code
+            >d34009cea0dbc1ca941e09dc01c8c9d3e3ce3c5b853f67ee44698dcea10f5d1987f65a76d40146205e3b3e06cb0fbd153f97f9ce70372390f52566bb7f9e0773</code
+        >
+    </section>
+
+    <section>
+        <h3 id="ob-signature">Signature (hex)</h3>
+        <code
+            >f7a017acf7d27983267ec362657c0fb08e955549f49dac5bf36a03c4f2c3a4f1e3738a6c5ecd7ffba7135cb9cd754e6196f4b73082ea8df8e703c8ecd4333503</code
+        >
+    </section>
+
+    <section>
+        <h3 id="ob-proof-value">Proof value (hex)</h3>
+        <code
+            >z5x9aCBYovW3CQCbKdNyhEm7ffYSw1YpEdPywQJoNbzDD2gkzQDKJ1sYKJaWvqZtkMtSbz35HcbgXVEDYHxCzgkCr</code
+        >
+    </section>
+
+    <section>
+        <h3 id="ob-proof">Proof</h3>
+
+        <pre class="example json" title="Proof">
+        {
+            "type": "DataIntegrityProof",
+            "created": "2010-01-01T19:23:24Z",
+            "verificationMethod": "https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
+            "cryptosuite": "eddsa-rdfc-2022",
+            "proofPurpose": "assertionMethod",
+            "proofValue": "z5x9aCBYovW3CQCbKdNyhEm7ffYSw1YpEdPywQJoNbzDD2gkzQDKJ1sYKJaWvqZtkMtSbz35HcbgXVEDYHxCzgkCr"
+        }
+    </pre
+        >
+    </section>
+
+    <section>
+        <h3 id="ob-signed-credential">Signed credential</h3>
+
+        <pre class="example json" title="Signed credential">
+    {
+        "@context": [
+            "https://www.w3.org/ns/credentials/v2",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+        ],
+        "id": "http://example.com/credentials/3527",
+        "type": [
+            "VerifiableCredential",
+            "OpenBadgeCredential"
+        ],
+        "issuer": {
+            "id": "https://example.edu/issuers/565049",
+            "type": [
+            "Profile"
+            ],
+            "url": "https://www.imsglobal.org",
+            "name": "Example Corp"
+        },
+        "validFrom": "2010-01-01T00:00:00Z",
+        "name": "Teamwork Badge",
+        "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+            "type": [
+            "AchievementSubject"
+            ],
+            "achievement": {
+            "id": "https://example.com/achievements/21st-century-skills/teamwork",
+            "type": [
+                "Achievement"
+            ],
+            "criteria": {
+                "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+            },
+            "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+            "name": "Teamwork"
+            }
+        },
+        "proof": {
+            "type": "DataIntegrityProof",
+            "created": "2010-01-01T19:23:24Z",
+            "verificationMethod": "https://example.edu/issuers/565049#z6MkjZRZv3aez3r18pB1RBFJR1kwUVJ5jHt92JmQwXbd5hwi",
+            "cryptosuite": "eddsa-rdfc-2022",
+            "proofPurpose": "assertionMethod",
+            "proofValue": "z5x9aCBYovW3CQCbKdNyhEm7ffYSw1YpEdPywQJoNbzDD2gkzQDKJ1sYKJaWvqZtkMtSbz35HcbgXVEDYHxCzgkCr"
+        }
+    }
+    </pre>
+    </section>
+</section>
+`;

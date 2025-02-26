@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script
+            src="https://purl.imsglobal.org/spec/respec-dev/respec-ims-default.js"
+            class="remove"
+        ></script>
+        <script src="respec-support/local-biblio.js" class="remove"></script>
+
+        <!-- Load VC proof add-on -->
+        <script
+            class="remove"
+            src="https://purl.imsglobal.org/spec/respec-dev/respec-vc.js"
+        ></script>
+
+        <!-- Load the CDM configuration -->
+        <script class="remove" src="cdm-config.js"></script>
+
+        <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
+        <script
+            class="remove"
+            src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.8.2/ajv2019.bundle.min.js"
+            integrity="sha512-9CfeXrjdW9wxGntWtQ4wE0k9RD8avpYxoPEKAGu+EP87RyqXYVQjed0l872XkNtQeIyYavZeqY+jzm69pmjEDw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+
+        <script class="remove">
+            var respecConfig = {
+                mainSpecTitle: "Open Badges Specification",
+                mainSpecBiblioKey: "OB-30",
+                specTitle: "Open Badges Examples",
+                shortName: "ob",
+                specNature: "informative", // spec nature is "normative" or "informative"
+                specType: "doc", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
+                specVersion: "3.0",
+                docVersion: "0",
+                specStatus: "IMS Base Document", // specStatus: IMS Base Document, IMS Candidate Final (Public) or IMS Final Release
+                localBiblio: _localBiblio,
+
+                // Add the CDM configuration to respecConfig
+                cdm: _cdm,
+
+                // Add VC proof examples
+                postProcess: [window.respecVc.createVcExamples],
+            };
+        </script>
+    </head>
+
+    <body>
+        <section id="abstract">
+            <h2>Overview</h2>
+            <p>This document contains informative examples.</p>
+            <p>A basic example with no special processing is coded like this:</p>
+            <pre class="html">
+      &lt;pre class="example json">
+        { ... }
+      &lt;/pre>
+    </pre
+            >
+            <p>If you want to add a title to the example:</p>
+            <pre class="html">
+      &lt;pre class="example json" title="Sample">
+        { ... }
+      &lt;/pre>
+    </pre
+            >
+            <p>
+                If you want to add schema validation, add the
+                <code>data-schema</code> attribute:
+            </p>
+            <p class="note">
+                Data schema validation requires the model to be loaded in the CDM. Schema
+                validation errors will appear above the example. See, for example,
+                [[[#schema-validation]]].
+            </p>
+            <pre class="html">
+      &lt;pre class="example json" title="Sample"
+         data-schema="org.1edtech.ob.v3p0.address.class">
+        { ... }
+      &lt;/pre>
+    </pre
+            >
+            <p>
+                If you want to add proofs, add the <code>vc</code> or
+                <code>vp</code> class and optionally a <code>data-vc-vm</code> attribute
+                with the verification method (public key).
+            </p>
+            <p class="note">
+                If there is an error generating the proof, the proof tabs will not appear
+                and the error will appear in the browser console.
+            </p>
+            <pre class="html">
+      &lt;pre class="example json vc" title="Sample">
+        { ... }
+      &lt;/pre>
+    </pre
+            >
+            <p>
+                Each example should be in its own
+                <code>&lt;section>&lt;/section></code> so it appears in the TOC.
+            </p>
+            <pre class="html">
+      &lt;section>
+        &lt;h3>My Sample&lt;/h3>
+        &lt;pre class="example json vc" title="Sample"
+          data-schema="org.1edtech.ob.v3p0.address.class">
+          { ... }
+        &lt;/pre>
+      &lt;/section>
+    </pre
+            >
+        </section>
+
+        <section>
+            <h2>Examples</h2>
+
+            <!-- Examples go here -->
+        </section>
+
+        <section class="appendix">
+            <h2>Sample Examples</h2>
+            <section>
+                <h2>Sample with no special processing</h2>
+                <pre class="example json">
+        {
+          "@context": [
+            "https://www.w3.org/ns/credentials/v2",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+            "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
+          ],
+          "id": "http://example.edu/credentials/3732",
+          "type": ["VerifiableCredential", "OpenBadgeCredential"],
+          "issuer": {
+            "id": "https://example.edu/issuers/565049",
+            "name": "Example University"
+          },
+          "validFrom": "2010-01-01T00:00:00Z",
+          "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+          },
+          "credentialSchema": [{
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+          }]
+        }
+      </pre
+                >
+            </section>
+
+            <section>
+                <h2>Sample with proofs applied</h2>
+                <pre class="example json vc">
+        {
+          "@context": [
+            "https://www.w3.org/ns/credentials/v2",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+            "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
+          ],
+          "id": "http://example.edu/credentials/3732",
+          "type": ["VerifiableCredential", "OpenBadgeCredential"],
+          "issuer": {
+            "id": "https://example.edu/issuers/565049",
+            "name": "Example University"
+          },
+          <span class="comment">// typo</span>
+          "issuanceData": "2010-01-01T00:00:00Z",
+          "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+          },
+          "credentialSchema": [{
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+          }]
+        }
+      </pre>
+            </section>
+
+            <section>
+                <h2 id="schema-validation">Sample with schema validation</h2>
+                <pre
+                    class="example json"
+                    data-schema="org.1edtech.ob.v3p0.achievementcredential.class"
+                >
+        {
+          "@context": [
+            "https://www.w3.org/ns/credentials/v2",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+            "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
+          ],
+          "id": "http://example.edu/credentials/3732",
+          "type": ["VerifiableCredential", "OpenBadgeCredential"],
+          "issuer": {
+            "id": "https://example.edu/issuers/565049",
+            "name": "Example University"
+          },
+          "validFrom": "2010-01-01T00:00:00Z",
+          "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
+          },
+          "credentialSchema": [{
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+          }]
+        }
+      </pre>
+            </section>
+        </section>
+    </body>
+</html>

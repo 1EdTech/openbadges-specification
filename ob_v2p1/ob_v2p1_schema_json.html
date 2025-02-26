@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <script src='https://purl.imsglobal.org/respec/respec-1edtech.js' class='remove'></script>
+  <script class='remove'>
+    var respecConfig = {
+      mainSpecTitle: "Open Badges Specification",
+      mainSpecBiblioKey: "OB-21",
+      specTitle: "Open Badges Specification v2.1: JSON Schema Files",
+      shortName: "ob",
+      specStatus: "Final Release",
+      specDate: "November 27, 2023",
+      specVersion: "2.1",
+      specNature: "informative",
+      specType: "doc",
+      maxTocLevel: "3",
+      docVersion: "4",
+      skipCertGuideConformanceRef: true
+    };
+  </script>
+</head>
+
+<body>
+
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <p>A list of all the JSON Schema files for the specification [[[OB-21]]].</p>
+    <section id="conformance">
+      <h3>Conformance and Certification</h3>
+    </section>
+  </section>
+
+
+  <section>
+    <h3>Service Endpoint Request Payloads</h3>
+
+    <p>These JSON Schema files can be used to validate the JSON in the service endpoint request payload.</p>
+
+    <table class="standard">
+      <thead>
+        <tr>
+          <th>Operation</th>
+          <th>Request Payload JSON Schema</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>postAssertion</td>
+          <td><a href="imsob_v2p1v2p1-postassertion-requestpayload-schemav1p0.json">schema</a></td>
+        </tr>
+        <tr>
+          <td>postProfile</td>
+          <td><a href="imsob_v2p1v2p1-postprofile-requestpayload-schemav1p0.json">schema</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h3>Service Endpoint Response Payloads</h3>
+
+    <p>These JSON Schema files can be used to validate the JSON returned by each service endpoint response payload.
+    </p>
+
+    <table class="standard">
+      <thead>
+        <tr>
+          <th>Operation</th>
+          <th>HTTP Status Codes</th>
+          <th>Response Payload JSON Schema</th>
+        </tr>
+        <thead>
+        <tbody>
+          <tr>
+            <td><code>getAssertions</code></td>
+            <td>200</td>
+            <td><a href="imsob_v2p1v2p1-getassertions-200-responsepayload-schemav1p0.json">schema</a></td>
+          </tr>
+          <tr>
+            <td><code>getAssertions</code></td>
+            <td>4xx, 5xx</td>
+            <td><a href="imsob_v2p1v2p1-getassertions-400-401-404-405-500-responsepayload-schemav1p0.json">schema</a>
+            </td>
+          </tr>
+          <tr>
+            <td><code>getManifest</code></td>
+            <td>200</td>
+            <td><a href="imsob_v2p1v2p1-getmanifest-200-responsepayload-schemav1p0.json">schema</a></td>
+          </tr>
+          <tr>
+            <td><code>getProfile</code></td>
+            <td>200</td>
+            <td><a href="imsob_v2p1v2p1-getprofile-200-responsepayload-schemav1p0.json">schema</a></td>
+          </tr>
+          <tr>
+            <td><code>getProfile</code></td>
+            <td>4xx, 5xx</td>
+            <td><a href="imsob_v2p1v2p1-getprofile-400-401-404-405-500-responsepayload-schemav1p0.json">schema</a>
+            </td>
+          </tr>
+          <tr>
+            <td><code>postAssertion</code></td>
+            <td>200, 4xx, 5xx</td>
+            <td><a
+                href="imsob_v2p1v2p1-postassertion-200-400-401-404-405-500-responsepayload-schemav1p0.json">schema</a>
+            </td>
+          </tr>
+          <tr>
+            <td><code>postProfile</code></td>
+            <td>200</td>
+            <td><a href="imsob_v2p1v2p1-postprofile-200-responsepayload-schemav1p0.json">schema</a></td>
+          </tr>
+          <tr>
+            <td><code>postProfile</code></td>
+            <td>4xx, 5xx</td>
+            <td><a href="imsob_v2p1v2p1-postprofile-400-401-404-405-responsepayload-schemav1p0.json">schema</a></td>
+          </tr>
+        </tbody>
+    </table>
+  </section>
+</body>
+
+</html>
