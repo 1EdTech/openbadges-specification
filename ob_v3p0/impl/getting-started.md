@@ -349,8 +349,8 @@ to submit a downloaded signed credential like the above for conformance checks.
 ### API quickstart
 
 The API of Open Badges 3.0 and Comprehensive Learner Record 2.0 is divided into
-four groups, wether the OB / CLR tool is a consumer or a provider of the API and
-wether the operations it consumes / provides are read operations or write
+four groups, whether the OB / CLR tool is a consumer or a provider of the API and
+whether the operations it consumes / provides are read operations or write
 operations.
 
 <div class="note">
