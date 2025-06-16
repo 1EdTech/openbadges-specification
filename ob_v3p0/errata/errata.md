@@ -70,5 +70,5 @@ algorithm to use in Open Badges. Concretely, it stated:
 > In order to opt for this format you MUST use the [[[VC-DI-EDDSA]]] suite.
 
 This statement may not follow the security requirements of the future as
-the securing mechanisms evolve over time. Therefore, the especific list of
-allowed proof format have been extracted out the [[[OB-CERT-30]]].
+the securing mechanisms evolve over time. Therefore, the specific list of
+allowed proof formats have been extracted out the [[[OB-CERT-30]]].
