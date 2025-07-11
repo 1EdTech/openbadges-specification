@@ -44,5 +44,6 @@ Open Badges Verifiers must support the following supported proof mechanisms for
 Linked Data Proof format:
 
 - [[[VC-DI-EDDSA]]] suite with the \`eddsa-rdfc-2022\` algorithm.
+- [[[VC-DI-ECDSA]]] suite with the \`ecdsa-sd-2023\` algorithm.
 
 `;
