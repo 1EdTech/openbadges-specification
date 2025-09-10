@@ -206,17 +206,6 @@ credential without knowing which other parties might someday rely on it or what
 methods those verifiers may support. Here are some mechanisms identified by the
 implementing community for status and revocation management.
 
--   The [[[VCRL-10]]] accompanies the OB and CLR specifications. This enables
-    verifiers to query for status results without revealing to the issuer which
-    specific credential's status is being checked. It does reveal to the
-    requester a list of credential IDs claimed by the issuer to be associated
-    with it, though it is not assumed to be exhaustive or accurate except to
-    indicate the status of the credential known to the requester, because
-    issuers may use multiple lists concurrently, packaged with different sets of
-    credentials and red herrings may appear in some lists. The 1EdTech
-    certification process and validator software will support this status
-    checking method. A reason for revocation may be available for a revoked
-    credential.
 -   The [[[VCCR-10]]] also accompanies the OB and CLR specifications and enables
     fetching of an updated version of a credential under inspection by a
     verifier. The 1EdTech verifier tools will request updated version if such an
@@ -226,17 +215,18 @@ implementing community for status and revocation management.
     the credential from this endpoint if they knew the correct URL. Future
     versions of this specification may serve use cases that require more
     in-depth protection of refresh endpoints.
--   Another option in the space is the [[[VC-STATUS-2021]]] specification, which
-    was adopted as a standards-track specification by the VCWG on December
-    14th 2022. This protocol enables an issuer to publish a compactly encoded
-    list of status indicator bits covering many credentials at once in an
-    unnamed order. Within each issued credential, the issuer includes a pointer
-    to a specific bit within the bulk status list. This enables verifiers to
-    efficiently query for status results without revealing which specific
-    credential's status is being checked. It does not feature the ability to
-    retrieve a revocation reason for a revoked credential, nor does it provide a
-    refreshed version of the credential consistent with the issuer's latest
-    status data, features that are sometimes bundled with revocation.
+-   The recommended option for checkinn revocation is the
+    [[[vc-bitstring-status-list]]] specification, which was adopted as a
+    standards-track specification by the VCWG on December 14th 2022. This
+    protocol enables an issuer to publish a compactly encoded list of status
+    indicator bits covering many credentials at once in an unnamed order.
+    Within each issued credential, the issuer includes a pointer to a specific
+    bit within the bulk status list. This enables verifiers to efficiently
+    query for status results without revealing which specific credential's
+    status is being checked. It does not feature the ability to retrieve a
+    revocation reason for a revoked credential, nor does it provide a refreshed
+    version of the credential consistent with the issuer's latest status data,
+    features that are sometimes bundled with revocation.
 
 #### Alignment with CASE items
 
