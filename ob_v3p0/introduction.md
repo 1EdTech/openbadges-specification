@@ -42,11 +42,12 @@ The Open Badges Specification has several related documents and artifacts shown 
 All JSON Schema can be found in [[[#json-schema]]]. JSON Schema files for credential and API schema verification are available online:
 
 <ul>
-  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json'>AchievementCredential JSON schema</a></li>
-  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json'>EndorsementCredential JSON schema</a></li>
-  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_getopenbadgecredentialsresponse_schema.json'>GetOpenBadgeCredentialsResponse JSON schema</a></li>
-  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_profile_schema.json'>Profile JSON schema</a></li>
-  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_imsx_statusinfo_schema.json'>Imsx_StatusInfo JSON schema</a></li>
+  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json-ld/ob_v3p0_achievementcredential_schema.json'>AchievementCredential JSON schema</a></li>
+  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json-ld/ob_v3p0_endorsementcredential_schema.json'>EndorsementCredential JSON schema</a></li>
+  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json-ld/ob_v3p0_getopenbadgecredentialsresponse_schema.json'>GetOpenBadgeCredentialsResponse JSON schema</a></li>
+  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json-ld/ob_v3p0_profile_schema.json'>Profile JSON schema</a></li>
+  <li><a href='https://purl.imsglobal.org/spec/ob/v3p0/schema/json-ld/ob_v3p0_imsx_statusinfo_schema.json'>Imsx_StatusInfo JSON schema</a></li>
+
 </ul>
 
 <div class="note">
