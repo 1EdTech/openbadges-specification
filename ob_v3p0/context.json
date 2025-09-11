@@ -195,7 +195,15 @@
       "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#Criteria"
     },
     "EndorsementCredential": {
-      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#EndorsementCredential"
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#EndorsementCredential",
+      "issuanceDate": {
+        "@id": "https://www.w3.org/2018/credentials#validFrom",
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+      },
+      "expirationDate": {
+        "@id": "https://www.w3.org/2018/credentials#validUntil",
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
     },
     "EndorsementSubject": {
       "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#EndorsementSubject",
