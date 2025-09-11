@@ -6,7 +6,15 @@
     "xsd": "https://www.w3.org/2001/XMLSchema#",
 
     "OpenBadgeCredential": {
-      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#OpenBadgeCredential"
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#OpenBadgeCredential",
+      "issuanceDate": {
+        "@id": "https://www.w3.org/2018/credentials#validFrom",
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+      },
+      "expirationDate": {
+        "@id": "https://www.w3.org/2018/credentials#validUntil",
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
     },
     "Achievement": {
       "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#Achievement",
