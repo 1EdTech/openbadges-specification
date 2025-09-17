@@ -215,7 +215,7 @@ implementing community for status and revocation management.
     the credential from this endpoint if they knew the correct URL. Future
     versions of this specification may serve use cases that require more
     in-depth protection of refresh endpoints.
--   The recommended option for checkinn revocation is the
+-   The recommended option for checking revocation is the
     [[[vc-bitstring-status-list]]] specification, which was adopted as a
     standards-track specification by the VCWG on December 14th 2022. This
     protocol enables an issuer to publish a compactly encoded list of status
