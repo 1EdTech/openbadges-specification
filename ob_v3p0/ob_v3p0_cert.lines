@@ -1,0 +1,126 @@
+// TODO - it's slightly different from the current test model, so check it when deploying
+Package SharedCertification TestModel
+	Capability issuer "t:Open Badges Issuer" "d:A Open Badges Issuer is an application that allows for the creation of OpenBadgeCredentials and the subsequent delivery of OpenBadgeCredentials to recipients that conform to the Open Badges Specification" []
+	Capability displayer "t:Open Badges Displayer" "d:An Open Badges Displayer is an application that displays and verifies badges for viewers" []
+	Capability consumer-read "t:Service Consumer read" "d:A product that conforms to Service Consumer (Read) requirements can request credentials and profiles from a product that conforms to Service Provider (Read) requirements." []
+	Capability consumer-write "t:Service Consumer Write" "d:A product that conforms to Service Consumer (Write) requirements can send an OpenBadgeCredential or a Profile to a product that conforms to Service Provider (Write) requirements." []
+    Capability provider-read "t:Service Provider read" "d:A product that conforms to Service Provider (Read) requirements can provide badges to a product that conforms to Service Consumer (Read) requirements." []
+    Capability provider-write "t:Service Provider Write" "d:A product that conforms to Service Provider (Write) requirements can accept an OpenBadgeCredential or a Profile from a product that conforms to Service Consumer (Write) requirements." []
+
+    Actors [OBIssuer, OBDisplayer, OBHost]
+
+    VariableList sharedConsumerVariables
+        Variable registrationUrl URI false "d:OAuth Dynamic Client Registration url"
+
+    TestList sharedOAuthConsumerTests
+        Test registration [] true automatic "t:Register your client to use the API" "d:Exchange of endpoint information and client registration"
+			ServiceCall discovery getServiceDescription provider OBIssuer OBHost 200 "d:"
+
+            Message registration OBIssuer OBHost request false ${registrationUrl} POST "d:OAuth Dynamic Client Registration"
+                Validation registration custom "d:"
+
+        Test setup [registration] true automatic "t:OAuth authorization flow for consumer calls" "d:Exchange of endpoint information and OAuth tokens"
+			AuthToken consumerToken OAuth2ACG provider "d:The tool has acquired an access token from the conformance test system using certification platform's access_token_url. Ensure that the right scopes are sent."
+				Scopes [upsertCredentialAcg, putProfileAcg]
+
+            Message authorization OBIssuer OBHost request true ${AuthURL} GET "d:OAuth 2.0 Authorization"
+
+Package IssuerCertification TestModel Certification "t:Open Badges Issuer" "d:A Open Badges Issuer is an application that allows for the creation of OpenBadgeCredentials and the subsequent delivery of OpenBadgeCredentials to recipients that conform to the Open Badges Specification"
+	CertificationRequirement [issuer] true "t:Issue a valid Open Badge" "d:Create a valid baked 3.0 badge is required"
+	CertificationRequirement [consumer-write] false "t:Optional Service Consumer (Write)" "d:Support for sending OpenBadgeCredentials and Profiles to a Service Provider is optional"
+
+    Suite issuer true [issuer] "t:Open Badges Issuer" "d:A Open Badges Issuer is an application that allows for the creation of OpenBadgeCredentials and the subsequent delivery of OpenBadgeCredentials to recipients that conform to the Open Badges Specification. The candidate platform must issue a valid baked badge and demonstrate how the badge is retrieved by the recipient"
+        Test issue [] true manual [certifier] "t:Issue a valid Open Badge" "d:Create a valid baked 3.0 badge and issue it to the recipient conformance@imsglobal.org and submit the issued badge to the conformance test system." "https://imsglobal.org/spec/ob/v3p0/cert#issuer-tests"
+            Artifact badge [url] "t:Badge" "d:The uploaded badge must be valid an verifiable"
+                Validation ob30 inspector [OB30inspector] error  "d:The uploaded badge must be valid against OB30inspector"
+
+            Artifact video [url] "t:Video" "d:Demonstrate through video the candidate platform's methodology for a recipient to retrieve their badge"
+                Validation url custom "d:It must be a valid URI"
+
+
+    Suite consumer-write true [consumer-write] "t:Open Badges Service Consumer Write" "d:A product that conforms to Service Consumer (Write) requirements can send an OpenBadgeCredential or a Profile to a product that conforms to Service Provider (Write) requirements."
+
+        Tests sharedOAuthConsumerTests
+
+        OperationTests upsertCredential [setup] provider true OBIssuer OBHost "t:Consumer call to upsertCredential" "d:Create a valid AchivementCredential and issue it to the recipient conformance@imsglobal.org. Call the conformance test endpoint upsertCredential, with the AchivementCredential."
+            TestResponses [200]
+
+        OperationTests putProfile [setup] provider true OBIssuer OBHost "t:Consumer call to putProfile" "d:Call the conformance test endpoint putProfile, with a Profile."
+            TestResponses [200]
+
+Package DisplayerCertification TestModel Certification "t:Open Badges Displayer" "d:An Open Badges Displayer is an application that displays and verifies badges for viewers"
+	CertificationRequirement [displayer] true "t:Display of a badge" "d:Display and verify a badge is required"
+
+    Suite displayer true [displayer] "t:Open Badges Displayer" "d:An Open Badges Displayer is an application that displays and verifies badges for viewers. The candidate platform must support viewer-initiated verification of a badge."
+        Test displayer [] true manual [certifier] "t:Display of a badge" "Td:he candidate platform must verify these badges and submit the status in the conformance test system. Among these badges there should be a valid one, an expired one and a revoked one."
+            Artifact first-video [url] "t:Video of first badge" "d:Demonstrate through separate video that the platform allows viewers of badges to see the following data in provided badge."
+                Validation url custom "d:It must be a valid URI"
+
+            Artifact second-video [url] "t:Video of second badge" "d:Demonstrate through separate video that the platform allows viewers of badges to see the following data in provided badge."
+                Validation url custom "d:It must be a valid URI"
+
+            Artifact third-video [url] "t:Video of third badge" "d:Demonstrate through separate video that the platform allows viewers of badges to see the following data in provided badge."
+                Validation url custom "d:It must be a valid URI"
+
+        Test displayerv1 [] true manual [certifier] "t:Display of a badge issued with Verifiable Credentials Data Model 1.1" "Td:he candidate platform must verify these badges and submit the status in the conformance test system. Among these badges there should be a valid one, an expired one and a revoked one."
+            Artifact first-video [url] "t:Video of first badge" "d:Demonstrate through separate video that the platform allows viewers of badges to see the following data in provided badge."
+                Validation url custom "d:It must be a valid URI"
+
+            Artifact second-video [url] "t:Video of second badge" "d:Demonstrate through separate video that the platform allows viewers of badges to see the following data in provided badge."
+                Validation url custom "d:It must be a valid URI"
+
+            Artifact third-video [url] "t:Video of third badge" "d:Demonstrate through separate video that the platform allows viewers of badges to see the following data in provided badge."
+                Validation url custom "d:It must be a valid URI"
+
+Package HostCertification TestModel Certification "t:Host Service Conformance" "d:An Open Badges Host is an application that can aggregate and publicly host OpenBadgeCredential for recipients. It also supports export of badges at user request."
+	CertificationRequirement [consumer-read, provider-read, provider-write] true "t:Service Consumer (Read) and Service Provider (Read) and Service Provider (Write)" "d:Support for requesting OpenBadgeCredentials and Profiles from a Service Provider and providing OpenBadgeCredentials and Profiles to a Service Consumer is required"
+
+    Suite consumer-read true [consumer-read] "t:Service Consumer Read" "d:A product that conforms to Service Consumer (Read) requirements can request credentials and profiles from a product that conforms to Service Provider (Read) requirements."
+        Variable limit PositiveInteger false "d:The maximum number of OpenBadgeCredentials to return per page."
+        Variable offset NonNegativeInteger false "d:The index of the first AchievementCredential to return. (zero indexed)"
+        Variable since DateTime false "d:Only include OpenBadgeCredentials issued after this timestamp."
+
+        Tests sharedOAuthConsumerTests
+
+
+        OperationTests getCredentials [setup] provider true OBHost OBHost "t:Consumer call to getCredentials" "d:Call the conformance test endpoint getCredentials"
+            TestParameters [limit, offset, since]
+            TestResponses [200]
+
+        OperationTests getProfile [setup] provider true OBIssuer OBHost "t:Consumer call to getProfile" "d:Call the conformance test endpoint getProfile"
+            TestResponses [200]
+
+    Suite provider true [provider-read, provider-write] "t:Service Provider" "A product that conforms to Service Prover (Read) or Service Provider (Write) requirements can request credentials and profiles from a product that conforms to Service Provider (Read) or Service Provider (Write) requirements, respectively."
+        Variable apiBaseUrl URI true "d:Base Path of your API endpoints. It MUST end in /ims/ob/v3p0"
+        Validation url custom "d:It must be a valid URI"
+
+        Variable registrationUrl URI false "d:OAuth Dynamic Client Registration url"
+        Variable scopes String false "d:Scopes provided by the OAuth provider"
+        Variable limit PositiveInteger false "d:The maximum number of OpenBadgeCredentials to return per page."
+        Variable offset NonNegativeInteger false "d:The index of the first AchievementCredential to return. (zero indexed)"
+        Variable since DateTime false "d:Only include OpenBadgeCredentials issued after this timestamp."
+
+        Test registration [] true automatic "t:OAuth client registration" "d:Registration of a client for making API calls"
+			ServiceCall discovery getServiceDescription consumer OBIssuer OBHost 200 "d:"
+
+            Message registration OBIssuer OBHost request false ${registrationUrl} POST "d:OAuth Dynamic Client Registration"
+                Validation registration custom "d:"
+
+        Test setup [registration] true automatic "t:OAuth authorization flow for provider calls" "d:Exchange of endpoint information and OAuth tokens"
+			AuthToken consumerToken OAuth2ACG consumer "d:Authorize the conformance test system with the provided login credentials. Ensure that the right scopes are sent back to the conformance test system."
+				Scopes [${scopes}]
+
+            Message authorization OBHost OBHost request true ${AuthURL} GET "d:OAuth 2.0 Authorization"
+
+        OperationTests getCredentials [setup] consumer true OBHost OBHost "t:Provider call to getCredentials" "d:The certification suite will call your endpoint getCredentials"
+            TestParameters [limit, offset, since]
+            TestResponses [200]
+
+        OperationTests getProfile [setup] consumer true OBHost OBHost "t:Provider call to getProfile" "d:The certification suite will call your endpoint getProfile"
+            TestResponses [200]
+
+        OperationTests upsertCredential [setup] consumer true OBHost OBHost "t:Provider call to upsertCredential" "d:The certification suite will call your endpoint upsertCredential"
+            TestResponses [200]
+
+        OperationTests putProfile [setup] consumer true OBHost OBHost "t:Provider call to putProfile" "d:The certification suite will call your endpoint putProfile"
+            TestResponses [200]
