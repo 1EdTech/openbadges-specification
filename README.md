@@ -1,6 +1,6 @@
 # openbadges-specification
 ## Specification documents related to Open Badges
-The published version of Open Badges 2.0 is in main and develop. Version 2.1 is only in develop until Final.
+The published version of Open Badges 3.0 is in main and develop. Version 2.1 is only in develop until Final. Version 2.0 is in main and develop.
 
 ## Proposals
 For information about how to propose a new feature or material change to the specification, please see `proposals/README.md`.
