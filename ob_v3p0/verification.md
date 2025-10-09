@@ -41,7 +41,7 @@ This section applies to Verifiable Credentials with a \`type\` of "OpenBadgeCred
       Only perform Refresh once. That is, do not complete Refresh a second time even if the refreshed OpenBadgeCredential also has a \`refreshService\` defined.
    </div>
 1. Check the status:
-   - A Credential is revoked if the \`credentialStatus\` property is present, and the \`type\` of the [CredentialStatus](#credentialstatus) object is "1EdTechRevocationList", and if the ClrCredential has been revoked as shown in [[[VCRL-10]]].
+   - A Credential is revoked if the \`credentialStatus\` property is present, and the \`type\` of the [CredentialStatus](#credentialstatus) object is "BitstringStatusListEntry", and if the Credential has been revoked as shown in [[[vc-bitstring-status-list]]].
    - If the current date and time is before the \`validFrom\`, the OpenBadgeCredential is not yet valid.
    - If the current date and time is after the \`validUntil\`, the OpenBadgeCredential is expired.
 
@@ -94,7 +94,7 @@ This section applies to Verifiable Credentials with a \`type\` of "EndorsementCr
       Only perform Refresh once. That is, do not complete Refresh a second time even if the refreshed EndorsementCredential also has a \`refreshService\` defined.
    </div>
 1. Check the status:
-   1. If the \`credentialStatus\` property is present, and the \`type\` of the [CredentialStatus](#credentialstatus) object is "1EdTechRevocationList", determine if the EndorsementCredential has been revoked as shown in [[[VCRL-10]]].
+   1. If the \`credentialStatus\` property is present, and the \`type\` of the [CredentialStatus](#credentialstatus) object is "BitstringStatusListEntry", and determine if the EndorsementCredential has been revoked as shown in  [[[vc-bitstring-status-list]]].
    1. If the current date and time is before the \`validFrom\`, the EndorsementCredential is not yet valid.
    1. If the current date and time is after the \`validUntil\`, the EndorsementCredential is expired.
 
