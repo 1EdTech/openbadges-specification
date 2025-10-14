@@ -27,9 +27,9 @@
       specNature: "normative", // spec nature is "normative" or "informative"
       specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
       specVersion: "3.0",
-      docVersion: "1.3",
+      docVersion: "1.4",
       specStatus: "Final Release",
-      specDate: "Oct 9, 2025",
+      specDate: "Oct 14, 2025",
       contributors: _contributors,
       localBiblio: _localBiblio,
       iprs: _iprs,
@@ -148,7 +148,7 @@
     <h2>Schema</h2>
     <section>
       <h3>Context</h3>
-      <pre class="json">
+      <pre class="json user-select">
         <section data-include="context-3.0.3.json" data-include-format="text"></section>
       </pre>
     </section>
@@ -227,6 +227,16 @@
             <ul>
                 <li>Updated JSON Schemas with support for [[JSON-LD11-API]] compaction process</li>
                 <li>Deprecated [[VCRL-10]] in favour of [[vc-bitstring-status-list]]</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Final</td>
+          <td>1.4</td>
+          <td>October 14, 2025</td>
+          <td>
+            <ul>
+                <li>Credential Status' id is an optional field as defined at  [[vc-data-model-2.0]]</li>
             </ul>
           </td>
         </tr>
