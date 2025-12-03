@@ -5,6 +5,14 @@ var issuer = `
 A Open Badges **Issuer** is an application that allows for the creation of OpenBadgeCredentials and the subsequent delivery of OpenBadgeCredentials to recipients that conform to the Open Badges Specification. The candidate platform must issue a valid badge and demonstrate how the badge is retrieved by the recipient. The candidate platform may also meet Service Consumer (Write) requirements and can send an AchievementCredential or a Profile to a product that conforms to Service Provider (Write) requirements.
 
 <div class="note">
+A badge is deemed valid if it successfully passes JSON-LD validation in safe
+mode and meets the verification requirements specified in [[[OB-30]]].
+
+JSON-LD safe mode is defined as a processing mode in which an error is raised
+whenever a term in the document is not defined by any of its associated contexts.
+</div>
+
+<div class="note">
 Open Badges Issuers that only create OpenBadgeCredentials and not meet Service Consumer (Write) requirements are also known for conform to the <b>Issuer Only</b> service conformance.
 </div>
 
