@@ -1,5 +1,5 @@
 ---
-name: User Case
+name: Use Case
 about: Template for documenting use cases with actors, flows, and conditions
 title: "[USE CASE] "
 labels: use-case
