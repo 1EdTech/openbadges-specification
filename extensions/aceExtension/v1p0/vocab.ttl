@@ -1,0 +1,296 @@
+@prefix ob-ace: <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Ontology definition
+ob-ace: a owl:Ontology ;
+dc:title """Open Badges ACE Extension 1.0"""@en ;
+dc:description """RDFS [[RDF-SCHEMA]] vocabulary used by the An extension to Open Badges 3.0 that allows endorsers to add American Council of Education (ACE) credit recommendations to badges."""@en ;
+dc:date "2025-10-09"^^xsd:date ;
+.
+
+# Class definitions
+ob-ace:ACECreditRecommendation a rdfs:Class ;
+rdfs:label "ACECreditRecommendation" ;
+rdfs:comment """ACECreditRecommendation"""@en ;
+.
+
+ob-ace:ACEEndorsementSubject a rdfs:Class ;
+rdfs:label "ACEEndorsementSubject" ;
+rdfs:comment """ACEEndorsementSubject"""@en ;
+.
+
+ob-ace:Alignment a rdfs:Class ;
+rdfs:label "Alignment" ;
+rdfs:comment """Describes an alignment between an achievement and a node in an educational framework."""@en ;
+.
+
+ob-ace:EndorsementCredential a rdfs:Class ;
+rdfs:label "EndorsementCredential" ;
+rdfs:comment """EndorsementCredential"""@en ;
+.
+
+ob-ace:IdentityObject a rdfs:Class ;
+rdfs:label "IdentityObject" ;
+rdfs:comment """A collection of information about the recipient of an achievement."""@en ;
+.
+
+ob-ace:ResultDescription a rdfs:Class ;
+rdfs:label "ResultDescription" ;
+rdfs:comment """Describes a possible achievement result."""@en ;
+.
+
+ob-ace:RubricCriterionLevel a rdfs:Class ;
+rdfs:label "RubricCriterionLevel" ;
+rdfs:comment """Describes a rubric criterion level."""@en ;
+.
+
+
+# Property definitions
+ob-ace:alignment a rdf:Property ;
+rdfs:label "alignment" ;
+rdfs:comment """In ACEEndorsementSubject:set of competency statements associated with this learning evaluation by the ACE."""@en ;
+rdfs:comment """In ResultDescription:Alignments between this result description and nodes in external frameworks."""@en ;
+rdfs:comment """In RubricCriterionLevel:Alignments between this rubric criterion level and a rubric criterion levels defined in external frameworks."""@en ;
+rdfs:range ob-ace:Alignment ;
+rdfs:domain [ owl:unionOf ( ob-ace:ACEEndorsementSubject ob-ace:ResultDescription ob-ace:RubricCriterionLevel ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:allowedValue a rdf:Property ;
+rdfs:label "allowedValue" ;
+rdfs:comment """An ordered list of allowed values. The values should be ordered from low to high as determined by the achievement creator."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob-ace:ResultDescription ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:credentialSubject a rdf:Property ;
+rdfs:label "credentialSubject" ;
+rdfs:comment """Can't find any description."""@en ;
+rdfs:range ob-ace:ACEEndorsementSubject ;
+rdfs:domain ob-ace:EndorsementCredential ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:creditRecommendationId a rdf:Property ;
+rdfs:label "creditRecommendationId" ;
+rdfs:comment """The ID for each set of elements that make up a single credit recommendation."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob-ace:ACECreditRecommendation ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:creditRecommendations a rdf:Property ;
+rdfs:label "creditRecommendations" ;
+rdfs:comment """A set of credit recommendations associated with this learning evaluation by the ACE."""@en ;
+rdfs:range ob-ace:ACECreditRecommendation ;
+rdfs:domain ob-ace:ACEEndorsementSubject ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:description a rdf:Property ;
+rdfs:label "description" ;
+rdfs:comment """Description of the rubric criterion level."""@en ;
+rdfs:range <https://schema.org/description> ;
+rdfs:domain ob-ace:RubricCriterionLevel ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:hashed a rdf:Property ;
+rdfs:label "hashed" ;
+rdfs:comment """Whether or not the `identityHash` value is hashed."""@en ;
+rdfs:range xsd:boolean ;
+rdfs:domain ob-ace:IdentityObject ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:identifier a rdf:Property ;
+rdfs:label "identifier" ;
+rdfs:comment """Other identifiers for the recipient of the endorsement"""@en ;
+rdfs:range ob-ace:IdentityObject ;
+rdfs:domain ob-ace:ACEEndorsementSubject ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:identityHash a rdf:Property ;
+rdfs:label "identityHash" ;
+rdfs:comment """Either the IdentityHash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information where there is an expectation of privacy, it is strongly recommended that an IdentityHash be used."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob-ace:IdentityObject ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:identityType a rdf:Property ;
+rdfs:label "identityType" ;
+rdfs:comment """The identity type."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob-ace:IdentityObject ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:level a rdf:Property ;
+rdfs:label "level" ;
+rdfs:comment """In ACECreditRecommendation:The level represents the educational level of the evaluated learning. One exhibit version may have credit recommendations at different levels, based on the depth, breadth, rigor, and scope of the material covered and assessed learning."""@en ;
+rdfs:comment """In RubricCriterionLevel:The rubric performance level in terms of success."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain [ owl:unionOf ( ob-ace:ACECreditRecommendation ob-ace:RubricCriterionLevel ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:minimumPassingScore a rdf:Property ;
+rdfs:label "minimumPassingScore" ;
+rdfs:comment """Can't find any description."""@en ;
+rdfs:range ob-ace:ResultDescription ;
+rdfs:domain ob-ace:ACEEndorsementSubject ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:name a rdf:Property ;
+rdfs:label "name" ;
+rdfs:comment """In ResultDescription:The name of the result."""@en ;
+rdfs:comment """In RubricCriterionLevel:The name of the rubric criterion level."""@en ;
+rdfs:range <https://schema.org/name> ;
+rdfs:domain [ owl:unionOf ( ob-ace:ResultDescription ob-ace:RubricCriterionLevel ) ] ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:points a rdf:Property ;
+rdfs:label "points" ;
+rdfs:comment """The points associated with this rubric criterion level."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob-ace:RubricCriterionLevel ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:requiredLevel a rdf:Property ;
+rdfs:label "requiredLevel" ;
+rdfs:comment """The `id` of the rubric criterion level required to pass as determined by the achievement creator."""@en ;
+rdfs:range xsd:anyURI ;
+rdfs:domain ob-ace:ResultDescription ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:requiredValue a rdf:Property ;
+rdfs:label "requiredValue" ;
+rdfs:comment """A value from `allowedValue` or within the range of `valueMin` to `valueMax` required to pass as determined by the achievement creator."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob-ace:ResultDescription ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:resultType a rdf:Property ;
+rdfs:label "resultType" ;
+rdfs:comment """The type of result this description represents. This is an extensible enumerated vocabulary."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob-ace:ResultDescription ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:rubricCriterionLevel a rdf:Property ;
+rdfs:label "rubricCriterionLevel" ;
+rdfs:comment """An ordered array of rubric criterion levels that may be asserted in the linked result. The levels should be ordered from low to high as determined by the achievement creator."""@en ;
+rdfs:range ob-ace:RubricCriterionLevel ;
+rdfs:domain ob-ace:ResultDescription ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:salt a rdf:Property ;
+rdfs:label "salt" ;
+rdfs:comment """If the `identityHash` is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob-ace:IdentityObject ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:semesterHours a rdf:Property ;
+rdfs:label "semesterHours" ;
+rdfs:comment """The number of semester hours that the evaluation team determined the experience to be equivalent to. It is a result of the review process by ACE."""@en ;
+rdfs:range xsd:float ;
+rdfs:domain ob-ace:ACECreditRecommendation ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:subject a rdf:Property ;
+rdfs:label "subject" ;
+rdfs:comment """The Subject of a credit recommendation is a free text field agreed upon by the faculty reviewers that identifies the academic disciplinary area for that credit recommendation. It is designed to help institutions align prior learning with courses in their catalog, and corresponds roughly to a college course."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob-ace:ACECreditRecommendation ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:targetCode a rdf:Property ;
+rdfs:label "targetCode" ;
+rdfs:comment """If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob-ace:Alignment ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:targetDescription a rdf:Property ;
+rdfs:label "targetDescription" ;
+rdfs:comment """Short description of the alignment target."""@en ;
+rdfs:range <https://schema.org/targetDescription> ;
+rdfs:domain ob-ace:Alignment ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:targetFramework a rdf:Property ;
+rdfs:label "targetFramework" ;
+rdfs:comment """Name of the framework the alignment target."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob-ace:Alignment ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:targetName a rdf:Property ;
+rdfs:label "targetName" ;
+rdfs:comment """Name of the alignment."""@en ;
+rdfs:range <https://schema.org/targetName> ;
+rdfs:domain ob-ace:Alignment ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:targetType a rdf:Property ;
+rdfs:label "targetType" ;
+rdfs:comment """The type of the alignment target node."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob-ace:Alignment ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:targetUrl a rdf:Property ;
+rdfs:label "targetUrl" ;
+rdfs:comment """URL linking to the official description of the alignment target, for example an individual standard within an educational framework."""@en ;
+rdfs:range xsd:anyURI ;
+rdfs:domain ob-ace:Alignment ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:valueMax a rdf:Property ;
+rdfs:label "valueMax" ;
+rdfs:comment """The maximum possible `value` that may be asserted in a linked result."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob-ace:ResultDescription ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:valueMin a rdf:Property ;
+rdfs:label "valueMin" ;
+rdfs:comment """The minimum possible `value` that may be asserted in a linked result."""@en ;
+rdfs:range xsd:string ;
+rdfs:domain ob-ace:ResultDescription ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
+ob-ace:version a rdf:Property ;
+rdfs:label "version" ;
+rdfs:comment """Each Exhibit has a version number. The first time a course, exam, or apprenticeship is evaluated it is given the Version Number 1, and each subsequent re-evaluation is given a new number that corresponds with a new start and end date. Learners are issued credentials for the version that is active when they complete the experience."""@en ;
+rdfs:range xsd:integer ;
+rdfs:domain ob-ace:ACEEndorsementSubject ;
+rdfs:isDefinedBy <https://purl.imsglobal.org/spec/vc/ob/vocab.html#> ;
+.
+
