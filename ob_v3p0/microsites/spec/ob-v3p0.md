@@ -1,0 +1,2591 @@
+---
+author: 1Edtech Consortium
+category: Specification
+title: Open Badges Specification
+shortcode: OB-30
+status: Final
+lastUpdated: November 6, 2025
+version: '3.0'
+nature: normative
+docType: specification
+specTitle: Open Badges Specification
+contributors:
+  - name: Nate Otto
+    affiliation: Concentric Sky, Skybridge Skills
+    companyUrl: ''
+    role: Invited Expert
+  - name: Kerri Lemoie
+    affiliation: Digital Credentials Consortium (MIT)
+    companyUrl: ''
+    role: Editor
+  - name: Phillip Long
+    affiliation: T3 Innovation Network
+    companyUrl: ''
+    role: Invited Expert
+  - name: Marty Reed
+    affiliation: RANDA Solutions
+    companyUrl: ''
+    role: Co-chair, CLR
+  - name: Justin Pitcher
+    affiliation: Anthology
+    companyUrl: ''
+    role: Co-chair, OB
+  - name: Brent Capriotti
+    affiliation: Western Governors University (WGU)
+    companyUrl: ''
+    role: Co-chair, CLR
+  - name: Sherri Braxton
+    affiliation: Bowdoin College
+    companyUrl: ''
+    role: Co-chair, OB
+  - name: Jock Wright
+    affiliation: VerifyEd
+    companyUrl: ''
+    role: ''
+  - name: Jen Schreiber
+    affiliation: Workday
+    companyUrl: ''
+    role: ''
+  - name: Viktor Haag
+    affiliation: D2L
+    companyUrl: ''
+    role: ''
+  - name: Alex Hripak
+    affiliation: Credly
+    companyUrl: ''
+    role: ''
+  - name: David Ward
+    affiliation: PCG
+    companyUrl: ''
+    role: ''
+  - name: Laura Janusek
+    affiliation: D2L
+    companyUrl: ''
+    role: ''
+  - name: John Kuo
+    affiliation: Arizona State University
+    companyUrl: ''
+    role: ''
+  - name: Sara Arjona
+    affiliation: Moodle HQ
+    companyUrl: ''
+    role: ''
+  - name: Mark McConahay
+    affiliation: AACRAO
+    companyUrl: ''
+    role: ''
+  - name: Dmitri Zagidulin
+    affiliation: DCC
+    companyUrl: ''
+    role: Invited Expert
+  - name: Tracy Korsmo
+    affiliation: North Dakota IT (NDIT)
+    companyUrl: ''
+    role: ''
+  - name: Kate Giovacchini
+    affiliation: Arizona State University
+    companyUrl: ''
+    role: ''
+  - name: Andy Miller
+    affiliation: 1Edtech
+    companyUrl: ''
+    role: Editor
+  - name: Markus Gylling
+    affiliation: 1Edtech
+    companyUrl: ''
+    role: Editor
+  - name: Dan Blickensderfer
+    affiliation: 1Edtech
+    companyUrl: ''
+    role: Editor
+  - name: Xavi Aracil
+    affiliation: 1Edtech
+    companyUrl: ''
+    role: Editor
+ipDisclosures:
+  - organization: Concentric Sky
+    date: October 24, 2019
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: Arizona State University
+    date: June 21, 2022
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: Temple University
+    date: June 10, 2022
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: Credly
+    date: October 3, 2019
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: Workday, Inc.
+    date: June 10, 2022
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: RANDA Solutions
+    date: June 9, 2022
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: Anthology
+    date: April 16, 2024
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: Unicon
+    date: April 22, 2024
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: Bowdoin College
+    date: June 11, 2022
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: American Association of Collegiate Registrars and Admissions Officers (AACARO)
+    date: April 15, 2024
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: Desire to Learn (D2L)
+    date: April 16, 2024
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: Digital Knowledge EdTech Lab Inc.
+    date: April 24, 2024
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: IQC Italian Quality Company
+    date: April 19, 2024
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: Skybridge Skills
+    date: April 16, 2024
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: Navigatr
+    date: April 25, 2024
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: T3 Innovation Network, US Chamber of Commerce Foundation
+    date: April 25, 2024
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: Territorium
+    date: April 23, 2024
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+  - organization: 'Western Governors University (WGU) '
+    date: June 11, 2022
+    claim: false
+    type: RF RAND (Required & Optional Elements)
+releases:
+  - version: "Candidate Final"
+    docVersion: "1.0"
+    date: July 14, 2022"
+    comments: "Open Badges 3.0 first Candidate Final release"
+  - version: "Candidate Public Final"
+    docVersion: "1.0.1"
+    date: "February 9, 2023"
+    comments: "Open Badges 3.0 first Candidate Public Final release"
+  - version: "Final"
+    docVersion: "1.0"
+    date: "May 27, 2024"
+    comments: "Open Badges 3.0 Final Release"
+  - version: "Final"
+    docVersion: "1.1"
+    date: "July 26, 2024"
+    comments: "Fixed some typos. See [[OB-ERRATA-30]]\nAdded [[VC-DATA-MODEL-1.1]] compatible JSON schema in Document Set"
+  - version: "Final"
+    docVersion: "1.2"
+    date: "Dec 23, 2024"
+    comments: "Clarified proof mechanism and algorithm selection. See [[OB-ERRATA-30]]"
+  - version: "Final"
+    docVersion: "1.3"
+    date: "October 9, 2025"
+    comments: "Updated JSON Schemas with support for [[JSON-LD11-API]] compaction process\nDeprecated [[VCRL-10]] in favour of [[vc-bitstring-status-list]]"
+  - version: "Final"
+    docVersion: "1.4"
+    date: "October 14, 2025"
+    comments: "Credential Status' id is an optional field as defined at  [[vc-data-model-2.0]]"
+  - version: "Final"
+    docVersion: "1.4.1"
+    date: "November 6, 2025"
+    comments: "Updated JSON-LD Context, adding the term `jti`"
+---
+
+@spec/abstract.md
+
+@spec/introduction.md
+
+@spec/overview.md
+
+@spec/usecases.md
+
+@spec/gettingstarted.md
+
+@spec/docformat.md
+
+# Open Badges API
+
+[=Open Badges=] can be exchanged using the API (application programming interface) defined here, or as [documents](#docformat).
+
+This specification defines a [=RESTful API=] protocol to be implemented by applications serving in the roles of [=Client=] and [=Resource Server=]. The API uses OAuth 2.0 for authentication and granular resource-based permission scopes. Please see the [[OB-CERT-30]] for a list of which endpoints must be implemented for certification.
+
+The API defined here is intended for [=Clients=] and [=servers=] that give individual users control over access to their resources. While system-to-system bulk transfers using OAuth 2.0 Client-Credentials Grant are expected to occur, it is out of scope for this version of the specification to define. Future versions of this specification may add explicit support for OAuth 2.0 Client-Credentials Grant.
+
+In addition to the documentation in this section, there are [OpenAPI](#docs-openapi) files for the Open Badges API in both JSON and YAML format:
+
+* [JSON OpenAPI File](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/imsob_v3p0.json)
+* [YAML OpenAPI File](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/imsob_v3p0.yaml)
+
+## Architecture
+
+![Diagram showing the major components of the Open Badges API](/standards/images/OB3_Architecture.svg)
+
+There are five key components to the API architecture.
+
+User{data-lt="Resource Owner"}
+: This is the user that owns the resources ([=badges=]) that are on the [=resource server=]. Also called a Resource Owner.
+
+Web Browser
+: This is the web browser the [=user=] interacts with.
+
+[=Client=]
+: This is the web application that interacts with the [=resource server=] on behalf of the [=user=]. Also called Consumer in the [[SEC-11]].
+
+Authorization Server
+: This is a [=server=] that implements the OAuth 2.0 endpoints on behalf of the [=resource server=]. In many systems, the [=authorization server=] and the [=resource server=] are combined.
+
+Resource Server{data-lt="Provider"}
+: This is the [=server=] that has the protected resources ([=badges=]). Also called Provider in the [[SEC-11]].
+
+The role of each component during Registration, Obtaining Tokens, and Authenticating with Tokens are described below.
+
+## Secure REST Endpoints
+
+All secure endpoint requests MUST be made over secure TLS 1.2 or 1.3 protocol.
+
+All of the Secure REST Endpoints are protected by OAuth 2.0 access tokens as described in [[[#open-badges-api-security]]].
+
+### Scopes
+
+Each endpoint requires an access token with a specific Open Badges scope as shown below.
+
+| Operation | Scope |
+| --- | --- |
+| getCredentials | `https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly` - Permission to read OpenBadgeCredentials for the authenticated entity. |
+| upsertCredential | `https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert` - Permission to create or update OpenBadgeCredentials for the authenticated entity. |
+| getProfile | `https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly` - Permission to read the profile for the authenticated entity. |
+| putProfile | `https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update` - Permission to update the profile for the authenticated entity. |
+
+```mps service-model
+modelId: org.1edtech.ob.v3p0.model
+serviceModelId: org.1edtech.ob.v3p0.rest.servicemodel
+interface: org.1edtech.ob.v3p0.rest.openbadgecredentials.interface
+operation: org.1edtech.ob.v3p0.rest.getcredentials.operation
+heading: 2
+```
+
+#### Example: Sample getCredentials Request
+
+```http
+GET /ims/ob/v3p0/credentials=2&offset=0 HTTP/1.1
+        Host: example.edu
+        Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
+        Accept: application/json
+```
+
+#### Example: Sample getCredentials Response (line breaks for clarity)
+
+```http
+HTTP/1.1 200 OK
+        Content-Type: application/ld+json
+        X-Total-Count: 1
+        Link: <https://www.imsglobal.org/ims/ob/v3p0/credentials?limit=2&offset=1>; rel="next",
+              <https://www.imsglobal.org/ims/ob/v3p0/credentials?limit=2&offset=0>; rel="last",
+              <https://www.imsglobal.org/ims/ob/v3p0/credentials?limit=2&offset=0>; rel="first",
+              <https://www.imsglobal.org/ims/ob/v3p0/credentials?limit=2&offset=0>; rel="prev"
+
+        {
+          "compactJwsStrings": [
+            "header.payload.signature",
+            "header.payload.signature"
+          ]
+        }
+```
+
+```mps service-model
+modelId: org.1edtech.ob.v3p0.model
+serviceModelId: org.1edtech.ob.v3p0.rest.servicemodel
+interface: org.1edtech.ob.v3p0.rest.openbadgecredentials.interface
+operation: org.1edtech.ob.v3p0.rest.upsertcredential.operation
+heading: 2
+```
+
+#### Example: Sample upsertCredential Request
+
+```http
+POST /ims/ob/v3p0/credentials HTTP/1.1
+        Host: example.edu
+        Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
+        Accept: text/plain
+        Content-Type: text/plain
+
+        header.payload.signature
+```
+
+#### Example: Sample upsertCredential Response
+
+```http
+HTTP/1.1 200 OK
+        Content-Type: text/plain
+
+        header.payload.signature
+```
+
+```mps service-model
+modelId: org.1edtech.ob.v3p0.model
+serviceModelId: org.1edtech.ob.v3p0.rest.servicemodel
+interface: org.1edtech.ob.v3p0.rest.openbadgecredentials.interface
+operation: org.1edtech.ob.v3p0.rest.getprofile.operation
+heading: 2
+```
+
+#### Example: Sample getProfile Request
+
+```http
+GET /ims/ob/v3p0/profile HTTP/1.1
+        Host: example.edu
+        Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
+        Accept: application/json
+```
+
+#### Example: Sample getProfile Response
+
+```http
+HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        {
+          "@context": [
+             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+          ],
+          "type": "Profile",
+          "id": "https://example.edu/issuers/565049",
+          "name": "Example University"
+        }
+```
+
+```mps service-model
+modelId: org.1edtech.ob.v3p0.model
+serviceModelId: org.1edtech.ob.v3p0.rest.servicemodel
+operation: org.1edtech.ob.v3p0.rest.putprofile.operation
+heading: 2
+```
+
+#### Example: Sample putProfile Request
+
+```http
+PUT /ims/ob/v3p0/profile HTTP/1.1
+        Host: example.edu
+        Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
+        Accept: application/json
+        Content-Type: application/json
+
+        {
+          "@context": [
+             "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+          ],
+          "type": "Profile",
+          "id": "https://example.edu/issuers/565049",
+          "name": "Example University",
+          "phone": "111-222-3333"
+        }
+```
+
+#### Example: Sample putProfile Response
+
+```http
+{
+          "@context": [
+               "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+          ],
+          "type": "Profile",
+          "id": "https://example.edu/issuers/565049",
+          "name": "Example University",
+          "phone": "111-222-3333"
+        }
+```
+
+## Service Discovery Endpoint
+
+Access to the discovery endpoint MUST NOT be protected. The Service Description Document (SDD) MUST be provided over HTTPS with TLS 1.2 or 1.3.
+
+```mps service-model
+modelId: org.1edtech.ob.v3p0.model
+serviceModelId: org.1edtech.ob.v3p0.rest.servicemodel
+interface: org.1edtech.ob.v3p0.rest.discovery.interface
+operation: org.1edtech.ob.v3p0.rest.getservicedescription.operation
+```
+
+#### Example: Sample getServiceDescription request
+
+```http
+GET /ims/ob/v3p0/discovery HTTP/1.1
+        Host: example.edu
+        Accept: application/json
+```
+
+##### Example: Sample getServiceDescription response
+
+```http
+HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        ...
+        "components": {
+            "securitySchemes": {
+                "OAuth2ACG": {
+                    "type": "oauth2",
+                    "description": "OAuth 2.0 Authorization Code Grant authorization",
+                    "x-imssf-name": "Example Provider",
+                    "x-imssf-privacyPolicyUrl": "provider.example.com/privacy",
+                    "x-imssf-registrationUrl": "provider.example.com/registration",
+                    "x-imssf-termsOfServiceUrl": "provider.example.com/terms",
+                    "flows": {
+                        "authorizationCode": {
+                            "tokenUrl": "provider.example.com/token",
+                            "authorizationUrl": "provider.example.com/authorize",
+                            "refreshUrl": "provider.example.com/token",
+                            "scopes": {
+                                "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly" : "...",
+                                "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert" : "...",
+                                "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly" : "...",
+                                "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update" : "..."
+                            }
+                        }
+                    }
+                }
+            },
+            "schemas": {
+                ...
+            }
+        }
+        ...
+```
+
+## Paging
+
+Pagination of `getCredentials` results is controlled by two query string parameters appended to the request. The response includes the following pagination headers.
+
+| Response Header | Description | Required |
+| --- | --- | --- |
+| X-Total-Count: <total_count> | The [=resource server=] MUST include an X-Total-Count response header if the total result count is known. If the total result count is not known, the total count header MUST be ommitted. | Conditionally Required for 200 OK Response |
+| Link: <pagination_links> | The [=resource server=] MUST include a Link response header if the list of credentials in the response is incomplete; and MAY include the Link header if the response is complete. | Conditionally Required for 200 OK Response |
+
+If present, the `Link` header MUST support all of the following link relations (`rel` values):
+
+| Relation | Description |
+| --- | --- |
+| next | The link relation for the immediate next page of results. This MUST appear when the current list response is incomplete. |
+| last | The link relation for the last page of results. This MUST always appear. |
+| first | The link relation for the first page of results. This MUST always appear. |
+| prev | The link relation for the immediate previous page of results. This MUST appear when the offset is greater than zero. |
+
+## Retry Behavior
+
+[=Resource Servers=] MAY implement a `Retry-After` header to indicate a period of time to wait before attempting the request again.
+
+If no `Retry-After` header is present and the response is non-2XX, it is recommended to retry the request in 30 minutes for an additional two attempts. After which, it MAY be desirable to alert the [=user=] that there is an issue with the connection (e.g. perhaps they need to reauthenticate or manually trigger the request when they believe services are back up).
+
+
+
+# Open Badges API Security
+
+The [Open Badges API](#api) endpoints use the methods outlined in Section 4, "Securing Web Services" of the [[SEC-11]]. [=Clients=] and [=servers=] that give individual users control over access to their resources MUST use the OAuth 2.0 Authorization Code Grant method.
+
+The API defined here is intended for [=Clients=] and [=servers=] that give individual users control over access to their resources. While system-to-system bulk transfers using OAuth 2.0 Client-Credentials Grant are expected to occur, it is out of scope for this version of the specification to define. Future versions of this specification may add explicit support for OAuth 2.0 Client-Credentials Grant.
+
+## Using OAuth 2.0 Authorization Code Grant
+
+Making a secured Open Badges API request using authorization code grant comprises three steps:
+
+1. [[[#dynamic-client-registration]]] - Share configuration information between the [=client=] and the [=server=]. This is typically done only once unless the registration is revoked.
+2. [[[#obtaining-tokens]]] - Obtain an authorization code using a choreography between the [=client=], [=web browser=], [=user=], and [=authorization server=]. Then request an access token by sending a request, using the previously obtained authorization code, to the Access Token service endpoint.
+3. [[[#authenticating-with-tokens]]] - Use the access token in the Authorization header of the API request.
+
+### Dynamic Client Registration
+
+To get started, the [=client=] and [=authorization server=] MUST share the four pieces of information shown below using the OAuth 2.0 Dynamic Client Registration Protocol [[RFC7591]] as described in this section.
+
+**client_id**
+: This is the public identifier for the communication exchange. Also called a Secret in the [[SEC-11]].
+
+**client_secret**
+: This is the shared secret for the communication exchange. Also called a Secret in the [[SEC-11]].
+
+**List of Scopes**
+: The list of scopes that identify the set of endpoints for which access permission is being requested.
+
+**OAuth 2.0 Access Token Service Endpoint**
+: The endpoint from which the approved, requesting [=client=] can obtain an access token.
+
+If the [=client=] and [=authorization server=] support Token Revocation, they should also share:
+
+**OAuth 2.0 Revocation Service Endpoint**
+: The endpoint a [=client=] can use to revoke an access token.
+
+There are two steps to dynamic client registration:
+
+1. Request a Service Description Document (SDD) from the [=resource server=]
+2. Register with the [=authorization server=]
+
+![Sequence diagram for registration](/standards/images/OB3_ACG_DynamicClientRegistration.svg)
+
+The [=client=] only needs to register a `client_id` with the [=authorization server=] once. Each [=user=] will use the same `client_id` when they request their own authorization code.
+
+#### Request the Service Description Document
+
+To start the registration process, the [=user=] supplies the [=client=] with the [=resource server=]'s base URL. When presented with an unknown [=resource server=] the [=client=] MUST request the [=resource server=]'s Service Description Document (SDD) at the path `{baseUrl}/ims/ob/v3p0/discovery`. Rate-limited access to this endpoint is RECOMMENDED. An example request for an SDD takes the form of:
+
+##### Example: Sample request for a service description document
+
+```http
+GET /tenant/ims/ob/v3p0/discovery HTTP/1.1
+        Host: 1edtech.org
+        Accept: application/json
+```
+
+Access to the discovery endpoint MUST NOT be protected. The SDD MUST be provided over HTTPS with TLS 1.2 or 1.3.
+
+The response to this request is the SDD supplied as a JSON encoded payload. The structure and format of this payload MUST follow that of the OpenAPI 3.0 Specification [[OPENAPIS]]. The SDD supplied MUST be a profiled version of the OpenAPI 3.0 (JSON) file provided with this specification (see [[[#openapi-30-files]]]). The profiled version contains all of the details about the supported set of service end-points, the supported optional data fields, definitions of the proprietary data fields supplied using the permitted extension mechanisms, definitions of the available proprietary endpoints, and information about the security mechanisms.
+
+The `x-imssf-privacyPolicyUrl` property is inserted into the `securitySchemes` within the `components` section of the OpenAPI file structure. This is an 1EdTech controlled extension to the OpenAPI specification.
+
+| Property Name | Type | Description | Required |
+| --- | --- | --- | --- |
+| x-imssf-privacyPolicyUrl | URL | A fully qualified URL to the [=resource server=]'s privacy policy. | Required |
+
+The `x-imssf-image` and `x-imssf-privacyPolicy` properties are inserted into the `info` section of the OpenAPI file structure. These are also 1EdTech controlled extensions to the OpenAPI specification. Also note that the standard `title` and `termsOfService` property is required in a Service Description Document. These may be displayed to the [=user=] during the registration process.
+
+| Property Name | Type | Description | Required |
+| --- | --- | --- | --- |
+| x-imssf-image | URI | An image representing the [=resource server=]. May be a Data URI or the URL where the image may be found. | Optional |
+| x-imssf-privacyPolicyUrl | URL | A fully qualified URL to the [=resource server=]'s privacy policy. | Required |
+| title | String | The name of the [=resource server=]. | Required |
+| termsOfService | URL | A fully qualified URL to the [=resource server=]'s terms of service. | Required |
+
+##### Example: Sample response with a Service Discovery Document
+
+```http
+HTTP/1.1 200 OK
+        Content-Type: application/json; charset=utf-8
+
+        ...
+        "info": {
+          "x-imssf-image": "https://1edtech.org/logo",
+          "x-imssf-privacyPolicyUrl": "https://1edtech.org/privacy",
+          "title": "Example",
+          "termsOfService": "https://1edtech.org/tos",
+          ...
+        },
+        ...
+        "components": {
+          "securitySchemes": {
+            "OAuth2ACG": {
+              "type": "oauth2",
+              "description": "OAuth 2.0 Authorization Code Grant authorization",
+              "x-imssf-registrationUrl": "1edtech.org/registration",
+              "flows": {
+                "authorizationCode": {
+                  "tokenUrl": "1edtech.org/token",
+                  "authorizationUrl": "1edtech.org/authorize",
+                  "refreshUrl": "1edtech.org/token",
+                  "scopes": {
+                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert" : "...",
+                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly" : "...",
+                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.readonly" : "...",
+                    "https://purl.imsglobal.org/spec/ob/v3p0/scope/profile.update" : "..."
+                  }
+                }
+              }
+            }
+          },
+          "schemas": {
+            ...
+          }
+        }
+        ...
+```
+
+Upon receiving a SDD from a [=resource server=], the [=client=] SHOULD respect the Cache-Control and Expires headers if present in the response and configure local cache to match the directives it declares. If directives include one of `no-cache`, `no-store`, the [=client=] SHOULD NOT cache the data for future interactions. If directives include `max-age` or if an Expires header is present, the [=client=] SHOULD cache the SDD data, if valid, up to the expiration indicated, either at the time indicated by the Expires header or max-age seconds from request time.
+
+An Etag header MAY be offered with the SDD response. If so, after a resource's declared expiration, a [=client=] MAY include an `If-None-Match header` containing the value of the Etag to check if the resource is still fresh. If so the [=resource server=] may return a `304 Not Modified` response status code, and a new `Expires` or `Cache-Control` header MAY be included, which the [=client=] SHOULD use to update the cache expiration.
+
+#### Register with Authorization Server
+
+With the Registration URL in hand (the value of the `x-imssf-registrationUrl` property of the SDD), the [=client=] SHOULD post a registration request to the [=authorization server=]. The registration request MUST comply with OAuth 2.0 Dynamic Client Registration Protocol [[RFC7591]]. The registration request MUST NOT require an Initial Access Token. Use of the 'Software Statement' is NOT RECOMMENDED. The client registration request is sent to the Client Registration URL. The request MUST be sent using HTTPS with TLS 1.2 or 1.3 protocol.
+
+The properties of the JSON body MUST be implemented as described in the following table. All URLs MUST use HTTPS (e.g. https://1edtech.org/logo.png) and all URLs MUST have the same hostname. All required properties MUST be present in the registration request in order for it to be accepted by the [=authorization server=]. Arrays MUST be used even when a single value is to be sent.
+
+| Name | Type | Description | Required |
+| --- | --- | --- | --- |
+| client_name | String | The human-readable name of the [=client=] application. | Required |
+| client_uri | URL | A page that which describes the [=client=] application. | Required |
+| logo_uri | URL | The logo of the [=client=] application. If present, the [=authorization server=] SHOULD display this image to the end-user during approval. The value of this field MUST point to a valid image file. | Required |
+| tos_uri | URL | The human-readable Terms of Service for the [=client=] application that describes a contractural relationship between the end-user and the client that the end-user accepts when authorizing the [=client=]. | Required |
+| policy_uri | URL | The human-readable Privacy Policy for the [=client=] application that describes how the deployment organization collects, uses, retains, and discloses personal data. | Required |
+| software_id | String | A unique idenfitier assigned by the [=client=] application developer or software published used by registration endpoints to identify the [=client=] application to be dynamically registered. As described in [rfc7591], it SHOULD remain the same for all instances of the [=client=] application software. | Required |
+| software_version | String | A version identifier string for the [=client=] application software identifies by software_id. The value of software_version SHOULD change on any update to the [=client=] application software identified by the same software_id. | Required |
+| redirect_uris | URL[] | Array of redirection URI strings for use in the OAuth 2.0 flow. | Required |
+| scope | String | In the registration request, this is a string containing a space-separated list of scope values that this [=client=] application may include when requesting access tokens. If omitted, the [=authorization server=] MAY register a [=client=] application with a default set of scopes. In the registration response, this is a list of scopes the [=authorization server=] supports. The list of scopes that can be requested are shown in [[[#scopes]]]. | Required |
+| token_endpoint_auth_method | String | String indicator of the requested authentication method for the token endpoint. In this specification only "client_secret_basic" is allowed: <br/>"client_secret_basic": The [=client=] application uses the HTTP Basic authentication method as defined in OAuth 2.0.<br/> If omitted, the default is "client_secret_basic". | Optional |
+| grant_types | String[] | Array of OAuth 2.0 grant type strings. In this specification only "authorization_code" and refresh_token" are allowed:<br/>"authorization_code": The authorization code grant type defined in OAuth 2.0.<br/>"refresh_token": The refresh token grant type defined in OAuth 2.0.<br/> If omitted, the default behavior is that the client will use only the "authorization_code" grant type. | Optional |
+| response_types | String[] | Array of OAuth 2.0 response type strings. In this specification only "code" is allowed:<br/>"code": The authorization code response type defined in OAuth 2.0.<br/>If omitted, the default is that the client will use only the "code" response type. | Optional |
+| contacts | String[] | Array of strings representing ways to contact people responsible for this [=client=], typically email addresses. The [=authorization server=] MAY make these contact addresses available to end-users for support requests for the [=client=] application. Privacy constraints MUST be supported as applicable. | Optional |
+
+##### Example: Sample registration request
+
+```http
+POST /connect/register HTTP/1.1
+        Host: auth.1edtech.org
+        Accept: application/json
+        Content-Type: application/json; charset=utf-8
+
+        {
+          "client_name": "Example Client Application",
+          "client_uri": "https://client.1edtech.org/",
+          "logo_uri": "https://client.1edtech.org/logo.png",
+          "tos_uri": "https://client.1edtech.org/terms",
+          "policy_uri": "https://client.1edtech.org/privacy",
+          "software_id": "c88b6ed8-269e-448e-99be-7e2ff47167d1",
+          "software_version": "v4.0.30319",
+          "redirect_uris": [
+            "https://client.1edtech.org/Authorize"
+          ],
+          "token_endpoint_auth_method": "client_secret_basic",
+          "grant_types": [
+            "authorization_code",
+            "refresh_token"
+          ],
+          "response_types": [
+            "code"
+          ],
+          "scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert offline_access"
+      }
+```
+
+If the [=authorization server=] accepts the registration request, it will store the information provided in the request and respond `HTTP 201 Created` with a registration response that includes a set of client credentials for the [=client=] application to use when requesting access tokens. All the information provided by the [=client=] application MUST be returned to the [=client=] application, including modifications to the properties as the [=authorization server=] deems necessary. An example response looks like this:
+
+##### Example: Sample registration response
+
+```http
+HTTP/1.1 201 Created
+        Content-Type: application/json; charset=utf-8
+
+        {
+          "client_id": "4ad36680810420ed",
+          "client_secret": "af7aa0d679778e12",
+          "client_id_issued_at": 1565715850,
+          "client_secret_expires_at": 1597338250,
+          "client_name": "Example Client Application",
+          "client_uri": "https://client.1edtech.org/",
+          "logo_uri": "https://client.1edtech.org/logo.png",
+          "tos_uri": "https://client.1edtech.org/terms",
+          "policy_uri": "https://client.1edtech.org/privacy",
+          "software_id": "c88b6ed8-269e-448e-99be-7e2ff47167d1",
+          "software_version": "v4.0.30319",
+          "redirect_uris": [
+            "https://client.1edtech.org/Authorize"
+          ],
+          "token_endpoint_auth_method": "client_secret_basic",
+          "grant_types": [
+            "authorization_code",
+            "refresh_token"
+          ],
+          "response_types": [
+            "code"
+          ],
+          "scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.upsert offline_access"
+        }
+```
+
+The following table describes the properties present in the client registration response that were not included in the request. These are all REQUIRED properties.
+
+| Name | Type | Description | Required |
+| --- | --- | --- | --- |
+| client_id | String | An OAuth 2.0 client identifier string. The value SHOULD NOT be currently valid for any other registered client. | Required |
+| client_secret | String | An OAuth 2.0 client secret string. | Required |
+| client_id_issued_at | NonNegativeInteger | The time at which the client_id was issued. The time is represented as the number of seconds from 1970-01-01T00:00:00Z as measured in UTC until the date/time of issuance. | Required |
+| client_secret_expires_at | NonNegativeInteger | The time at which the client_secret will expire. MAY be 0 for no expiration. The time is represented as the number of seconds from 1970-01-01T00:00:00Z as measured in UTC until the date/time of expiration. | Required |
+
+When a registration error condition occurs, the authorization server returns an HTTP 400 status code (unless otherwise specified) with content type "application/json" consisting of a JSON object describing the error in the response body. The properties used are:
+
+| Name | Type | Description | Required |
+| --- | --- | --- | --- |
+| error | RegistrationError | The error. | Required |
+| error | ASCII String | Human-readable ASCII text description of the error used for debugging. | Optional |
+
+### Obtaining Tokens
+
+![Sequence diagram for obtaining access tokens when using the ACG flow](/standards/images/OB3_ACG_ObtainingTokens.svg)
+
+Obtaining an access token using an authorization code has two steps:
+
+* First obtain an authorization code using a choreography between the [=client=], [=web browser=], [=user=], and [=authorization server=] - [[[#authorization-request]]]
+* Then request an access token using the authorization code - [[[#access-token-request]]]
+
+Once obtained, the [=client=] can freely re-use the access token up until the token's expiry time, so that the [=client=] need not repeat steps of obtaining an authorization code and requesting an access token for every API request. Token refresh is also available (see [[[#token-refresh-request]]]).
+
+#### Authorization Request
+
+After the [=client=] application is registered with the [=authorization server=] as described in [[[#dynamic-client-registration]]], the [=client=] application then MAY initiate an authorization request as described in Section 4.2 of the IMS Security Framework [[SEC-11]] by redirecting the user to the `authorizationUrl` as declared in the [=resource server=]'s Service Description Document (SDD).
+
+In the OAuth 2.0 Security Best Practices document [[RFC9700]] the use of Proof Key for Code Exchange (PKCE) [[RFC7636]] is recommended in order to (with the help of the [=authorization server=]) detect and prevent attempts to inject (replay) authorization codes into the authorization response. When using 1EdTech specifications, PKCE MUST be used to protect Authorization Code Grant based access. The PKCE has two stages:
+
+* First the [=client=] MUST supply a `code_challenge` and `code_challenge_method` in the request for an authorization code. The [=authorization server=] is responsible for associating the `code_challenge` with the issued authorization code.
+* Then the [=client=] MUST supply the `code_verifier` in the Access Token Request, and the [=authorization server=] verifies the `code_verifier`.
+
+| Parameter Name | Type | Description | Required |
+| --- | --- | --- | --- |
+| response_type | String | Value MUST be set to "code". | Required |
+| client_id | String | The [=client=] application identifier. MUST be the client_id provided in the Dynamic Client Registration [[[#register-with-authorization-server]]] response. | Required |
+| redirect_uri | URL | The [=client=] application's redirection endpoint. MUST match one of the redirect_uris in the [[[#dynamic-client-registration]]] request. Although this is optional in the IMS Security Framework [[SEC-11]], it is REQUIRED by this specification. | Required |
+| scope | String | The scope of the authorization request. The [=authorization server=] is responsible for validating the scopes identified in the request and the response MUST include a scope parameter which confirms this list or comprises a subset of the services requested. | Required |
+| state | String | An opaque value used by the [=client=] application to maintain state between the request and callback. The [=authorization server=] includes this value when redirecting the [=web browser=] back to the [=client=]. This parameter MUST be used for preventing cross-site request forgery. | Required |
+| code_challenge | String | This is BASE64URL-ENCODE(SHA256(ASCII(code_verifier))). | Required |
+| code_challenge_method | String | This MUST have a value of "S256" to indicate the SHA256 code verifier transformation method is used. | Required |
+
+All of the authorization request parameters are encoded in the authorization request as query string parameters. The request MUST be made by redirecting the browser to the OAuth 2.0 Authorization endpoint. The request MUST use HTTPS with TLS 1.2 or 1.3 protocol.
+
+##### Example: Sample ACG authorization request (line breaks for clarity)
+
+```http
+HTTP/1.1 302 Found
+        Location: https://auth.1edtech.org/authorize?
+          client_id=4ad36680810420ed
+          &response_type=code
+          &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%ob%2Fv3p0%2Fscope%2Fcredential.readonly%20offline_access
+          &redirect_uri=https%3A%2F%client.1edtech.org%2FAuthorize
+          &state=26357667-94df-4a14-bcb1-f55449ddd98d
+          &code_challenge=XeDw66i9FLjn7XaecT_xaFyUWWfUub02Kw118n-jbEs
+          &code_challenge_method=S256
+```
+
+#### Authorization Response
+
+If the `redirect_uri` matches a known `client_id`, the [=authorization server=] SHOULD present a UI asking the [=user=] to authenticate themself and grant the access request. The [=authorization server=] SHOULD display the `client_name`, `client_uri`, `logo_uri`, `tos_uri`, and `policy_uri` collected during Dynamic Client Registration to the [=user=] to help them decide whether to grant the access request.
+
+If the [=user=] authorizes the [=client=] application to access their resources with the requested scopes, the [=authorization server=] MUST redirect the browser back to the `redirect_uri` with the `code`, `scope`, and `state` query string parameters.
+
+The Authorization Code MUST be used only once. A lifetime for the authorization code of 600 seconds (10 minutes) is RECOMMENDED. If an authorization code is used more than once, the [=authorization server=] MUST deny the request and SHOULD revoke (when possible) all tokens previously issued based on that authorization code. The authorization code is bound to the [=client=] identifier and redirection URI.
+
+| Parameter Name | Type | Description | Required |
+| --- | --- | --- | --- |
+| code | String | The authorization code. | Required |
+| scope | String | The authorized scope for the access request (this MAY be a subset of the scopes in the request). The value is a space delimited set of scopes. | Required |
+| state | String | The opaque value supplied by the client to maintain state between the request and callback. | Required |
+
+##### Example: Sample ACG authorization response (line breaks for clarity)
+
+```http
+HTTP/1.1 302 Found
+        Location https://client.1edtech.org/Authorize?
+          code=dcf95d196ae04d60aad7e19d18b9af755a7b593b680055158b8ad9c2975f0d86
+          &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%ob%2Fv3p0%2Fscope%2Fcredential.readonly%20offline_access
+          &state=26357667-94df-4a14-bcb1-f55449ddd98d
+```
+
+##### Authorization Error Response
+
+If the [=authorization server=] does not recognize the [=client=] applications's redirection endpoint from a prior connection with this [=client=] application, the [=authorization server=] SHOULD inform the [=user=] of the error and MUST NOT automatically redirect to the [=web browser=] to the invalid redirection URI.
+
+If the [=user=] denies the authorization request or if the request fails for reasons other than a missing or invalid redirection URI, the [=authorization server=] informs the [=client=] by adding the following parameters to the query component of the redirection URI.
+
+| Parameter Name | Type | Description | Required |
+| --- | --- | --- | --- |
+| error | AuthorizationError | A single ASCII [[RFC20]] error code from the AuthorizationError vocabulary. | Required |
+| error_description | String | Human-readable ASCII [[RFC20]] text providing additional information, used to assist the client developer in understanding the error that occurred. Values for the "error_description" parameter MUST NOT include characters outside the set %x20-21 / %x23-5B / %x5D-7E. |
+| error_uri | URI | A URI identifying a human-readable web page with information about the error, used to provide the client developer with additional information about the error. Values for the "error_uri" parameter MUST conform to the URI-reference syntax and thus MUST NOT include characters outside the set %x21 / %x23-5B / %x5D-7E. |
+| state | String | The opaque value supplied by the client to maintain state between the request and callback. | Required |
+
+###### Example: Sample authorization error response
+
+```http
+HTTP/1.1 302 Found
+        Location: https://client.1edtech.org/cb?error=access_denied&state=xyz
+```
+
+#### Access Token Request
+
+With the supplied `code`, the [=client=] application SHOULD attempt to exchange the `code` for an `access_token`. The [=client=] application makes an authorization grant POST request to the `tokenUrl` as declared in the [=resource server=]'s Discovery Document. The HTTP POST request MUST include a Basic authorization header with the `client_id` and `client_secret` provided in the registration response. The body of the token request MUST include the following form fields:
+
+| Field Name | Type | Description | Required |
+| --- | --- | --- | --- |
+| grant_type | String | Value MUST be set to "authorization_code". | Required |
+| code | String | The authorization code received from the [=authorization server=]. | Required |
+| redirect_uri | URL | The [=client=] application's redirection endpoint. | Required |
+| scope | String | The scope of the access request. | Required |
+| code_verifier | String | The PKCE code verifier. | Required |
+
+##### Example: Sample ACG token request (line breaks for clarity)
+
+```http
+POST /token HTTP/1.1
+        Host: auth.1edtech.org
+        Authorization: Basic NDE2ZjI1YjhjMWQ5OThlODoxNWQ5MDA4NTk2NDdkZDlm
+        Content-Type: application/x-www-form-urlencoded
+
+        grant_type=authorization_code
+          &code=7c7a73263ee14b2b48073d0615f286ec74f6636689046cb8dbede0b5e87a1338
+          &redirect_uri=https%3A%2F%client.1edtech.org%2FAuthorize
+          &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%2Fob%2Fv3p0%2Fscope%2Fcredential.readonly+offline_access
+          &code_verifier=mYUQfKNgI1lSbY8EqtvNHLPzu0x%2FcVKO3fpWnX4VE5I%3D
+```
+
+#### Access Token Response
+
+If the [=authorization server=] grants this request (see Section 5.1 in [[RFC6749]] for the detailed description), it returns `HTTP 200 OK` status code with content type "application/json" consisting of a JSON object containing the access token and its expiry lifetime (1EdTech recommends a default expiry lifetime of 3600 seconds, one hour, for access tokens), optionally a refresh token, and confirms the set of scopes supported by the access token:
+
+| Property Name | Type | Description | Required |
+| --- | --- | --- | --- |
+| access_token | String | The access token issued by the [=authorization server=]. | Required |
+| token_type | String | The type of the token issued. The case insensitive value MUST be "bearer". | Required |
+| scope | String | The scope of the access token. This is a space-separated list of scopes. | Required |
+| expires_in | PositiveInteger | The lifetime in seconds of the access token. For example, the value "3600" denotes that the access token will expire in one hour from the time the response was generated. 1EdTech recommends a default expiry lifetime of 3600 seconds, one hour, for access tokens. If omitted, the authorization server SHOULD provide the expiration time via other means or document the default value. | Optional |
+| refresh_token | String | The refresh token, which can be used to obtain new access tokens using the same authorization grant as described in [[[#token-refresh-request]]]. | Optional |
+
+##### Example: Sample ACG token response
+
+```http
+HTTP/1.1 200 OK
+        Cache-Control: no-store, no-cache, max-age=0
+        Pragma: no-cache
+        Content-Type: application/json; charset=UTF-8
+
+        {
+          "access_token": "863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92",
+          "refresh_token": "tGzv3JOkF0XG5Qx2TlKWIA",
+          "expires_in": 3600,
+          "token_type": "Bearer",
+          "scope": "https://purl.imsglobal.org/spec/ob/v3p0/scope/credential.readonly offline_access"
+        }
+```
+
+##### Access Token Error Response
+
+The [=authorization server=] MAY decide not to issue an access token. This could be because the request scopes are invalid, the credentials from the client may be invalid, etc. In this case the [=authorization server=] MUST return an `HTTP 400 Bad Request` status code with content type "application/json" consisting of a JSON object describing the error in the response body. The properties used to describe the error are:
+
+| Property Name | Type | Description | Required |
+| --- | --- | --- | --- |
+| error | TokenError | A single ASCII [[RFC20]] error code]. See Section 5.2 of [[RFC6749]]. | Required |
+| error_description | ASCIIString | Human-readable ASCII [RFC20] text providing additional information, used to assist the client developer in understanding the error that occurred. Values for the "error_description" parameter MUST NOT include characters outside the set %x20-21 / %x23-5B / %x5D-7E. | Optional |
+| error_uri | URI | A URI identifying a human-readable web page with information about the error, used to provide the client developer with additional information about the error. Values for the "error_uri" parameter MUST conform to the URI-reference syntax and thus MUST NOT include characters outside the set %x21 / %x23-5B / %x5D-7E. | Optional |
+
+###### Example: Sample access token error response
+
+```http
+HTTP/1.1 400 Bad Request
+        Content-Type: application/json;charset=UTF-8
+        Cache-Control: no-store
+        Pragma: no-cache
+
+        {
+          "error": "invalid_request"
+        }
+```
+
+### Authenticating with Tokens
+
+After obtaining an `access_token` and optionally a `refresh_token` using the method above, a [=client=] application MAY issue request that access resources controlled by the [=user=] on the [=resource server=] using the `access_token` in the HTTP Authorization header [[RFC2617]] with a Bearer Token [[RFC6750]]. For example, a [getCredentials](#getcredentials) request would look like this:
+
+#### Example: Sample getCredentials request
+
+```http
+GET /ims/ob/v3p0/credentials HTTP/1.1
+        Host: example.edu
+        Authorization: Bearer 863DF0B10F5D432EB2933C2A37CD3135A7BB7B07A68F65D92
+        Accept: application/json
+```
+
+## Token Refresh
+
+The recommended value of the access token's `expires_in` attribute is 3600 i.e. one hour. This means that the validity of the access token expires one hour after the time it was issued.
+
+When requesting an access token as part of the Authorization Code Grant process, an [=authorization server=] MAY return a 'Refresh Token'. The refresh token can be used to obtain an access token using the same authorization grant: this is described in Section 6 of [[RFC6749]]. The use of the Refresh Token avoids the choreography for obtaining the credentials to gain access to the [=authorization server=].
+
+An Authorization Server is NOT REQUIRED to support token refresh.
+
+### Token Refresh Request
+
+If the `access_token` is expired or about to expire, and the [=client=] application received a `refresh_token`, the [=client=] application can use OAuth 2.0 Token Refresh to get a new `access_token` and `refresh_token`.
+
+The [=client=] makes a refresh POST request to the token endpoint by adding the following parameters using the "application/x-www-form-urlencoded" format in the HTTP request entity-body:
+
+| Parameter Name | Type | Description | Required |
+| --- | --- | --- | --- |
+| grant_type | String | Value MUST be set to "refresh_token". | Required |
+| refresh_token | String | The refresh token issued to the [=client=]. | Required |
+| scope | String | The scope of the access request. The requested scope MUST NOT include any scope not originally granted by the [=user=], and if omitted is treated as equal to the scope originally granted by the [=user=]. | Required |
+
+#### Example: Sample ACG token refresh request (line breaks for clarity)
+
+```http
+POST /token HTTP/1.1
+      Host: auth.1edtech.org
+      Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+      Content-Type: application/x-www-form-urlencoded
+
+      grant_type=refresh_token
+        &refresh_token=tGzv3JOkF0XG5Qx2TlKWIA
+        &scope=https%3A%2F%2Fpurl.imsglobal.org%2Fspec%2Fob%2Fv3p0%2Fscope%2credential.readonly
+```
+
+### Token Refresh Response
+
+If valid and authorized, the [=authorization server=] issues a new access token and optionally a new refresh token as described earlier in [[[#access-token-response]]]. If the request failed verification or is invalid, the [=authorization server=] returns an error response as described earlier in [[[#access-token-error-response]]].
+
+## Token Revocation
+
+There may be deployments in which revocation of an access token is useful. The Token Revocation process is based upon [[RFC7009]]. The [=client=] requests the revocation of a particular token by making an HTTP POST request (using TLS) to the token revocation endpoint URL. Note that [[RFC7009]] states that implementations MUST support the revocation of refresh tokens and SHOULD support the revocation of access tokens.
+
+### Token Revocation Request
+
+The [=client=] constructs the request by including the following parameters using the "application/x-www-form-urlencoded" format in the HTTP request entity-body:
+
+| Parameter Name | Type | Description | Required |
+| --- | --- | --- | --- |
+| token | String | The token that the [=client=] wants to get revoked. | Required |
+| token_type_hint | String | MUST be set to either "access_token" or "refresh_token". | Required |
+
+#### Example: Sample token revocation request
+
+```http
+POST /revoke HTTP/1.1
+      Host: auth.1edtech.org
+      Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+      Content-Type: application/x-www-form-urlencoded
+
+      token=45ghiukldjahdnhzdauz&token_type_hint=refresh_token
+```
+
+### Token Revocation Response
+
+The [=authorization server=] responds with `HTTP 200 OK` status code if the token has been revoked successfully or if the client submitted an invalid token.
+
+When the request for revocation is rejected, the [=authorization server=] returns an error response as described earlier in [[[#access-token-error-response]]] with an `error` code of "unsupported_token_type".
+
+
+
+@spec/integrity.md
+
+@spec/verification.md
+
+@spec/equality-and-comparison.md
+
+# Verifiable Credentials Extensions
+
+The [[VC-DATA-MODEL-2.0]] standard defines several types of extensions to enable "permissionless innovation". Conformant extensions are tracked in the [[VC-EXTENSION-REGISTRY]].
+
+This standard references four VC Extensions:
+
+* A Proof Method called `DataIntegrityProof` defined at [[VC-DI-EDDSA]]
+* A Refresh Method called [[VCCR-10]]
+* A Data Schema Validation Method called [[VCCS-10]]
+
+> **Note**: The 1EdTech extensions are designed to work with any [=verifiable credential=] and may be contributed to the [[VC-EXTENSION-REGISTRY]] in the future.
+
+
+@spec/serialization.md
+
+# Data Models
+
+```mps data-model
+modelId: org.1edtech.ob.v3p0.model
+package: SharedCredentialDataModels
+title: Credential Data Models
+```
+
+The data models in this section are shared by [[OB-30]] and [[CLR-20]].
+
+```mps data-model
+modelId: org.1edtech.ob.v3p0.model
+package: ApiDataModels
+title: Open Badges API Data Models
+```
+
+The data models in this section are used by the [[[#open-badges-api]]].
+
+```mps data-model
+modelId: org.1edtech.ob.v3p0.model
+package: SharedApiDataModels
+title: Shared API Data Models
+```
+
+The data models in this section are shared by all 1EdTech service specifications.
+
+```mps data-model
+modelId: org.1edtech.ob.v3p0.model
+package: SharedApiSecurityDataModels
+title: Shared API Security Data Models
+```
+
+The data models in this section are shared by all 1EdTech service specifications.
+
+```mps data-model
+modelId: org.1edtech.ob.v3p0.model
+package: SharedOAuthDataModels
+title: Shared OAuth 2.0 Data Models
+```
+
+The data models in this section are shared by all 1EdTech service specifications.
+
+```mps data-model
+modelId: org.1edtech.ob.v3p0.model
+package: SharedProofDataModels
+title: Shared Proof Data Models
+```
+
+Data models for the JSON Web Token Proof Format (VC-JWT) [[VC-DATA-MODEL-2.0]] shared by [[OB-30]] and [[CLR-20]].
+
+```mps data-model
+modelId: org.1edtech.ob.v3p0.model
+stereotype: DerivedType
+title: Derived Types
+```
+
+The derived types in this section are shared by all 1EdTech specifications.
+
+
+```mps data-model
+modelId: org.1edtech.ob.v3p0.model
+stereotype: PrimitiveType
+title: Primitive Types
+```
+
+The primitive types in this section are shared by all 1EdTech specifications.
+
+```mps data-model
+modelId: org.1edtech.ob.v3p0.model
+package: SharedLegacyCredentialsDataModels
+title: Verification Support Data Models
+```
+
+The data models in this section are used by the [[[#verification-and-validation]]] process for supporting older credentials created with [[VC-DATA-MODEL-1.1]].
+
+@spec/extending.md
+
+# Examples
+
+## Basic OpenBadgeCredential
+
+> **Note**: The following Credential is a minimal achievement assertion. The Achievement
+> definition here is assumed
+
+```obv3p0 org.1edtech.ob.v3p0.achievementcredential.class
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+  ],
+  "id": "http://example.com/credentials/3527",
+  "type": ["VerifiableCredential", "OpenBadgeCredential"],
+  "issuer": {
+    "id": "https://example.com/issuers/876543",
+    "type": ["Profile"],
+    "name": "Example Corp"
+  },
+  "validFrom": "2010-01-01T00:00:00Z",
+  "name": "Teamwork Badge",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": ["AchievementSubject"],
+    "achievement": {
+  			"id": "https://example.com/achievements/21st-century-skills/teamwork",
+  			"type": ["Achievement"],
+  			"criteria": {
+  				"narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+  			},
+  			"description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+  			"name": "Teamwork"
+  		}
+  }
+}
+```
+
+## Complete OpenBadgeCredential
+
+In this example, all required and optional properties are populated.
+
+> **Note**: The endorsements were signed by different issuers and provided to the issuer of this OpenBadgeCredential.
+
+```obv3p0 org.1edtech.ob.v3p0.achievementcredential.class
+{
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+      "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
+    ],
+    "id": "http://1edtech.edu/credentials/3732",
+    "type": [
+      "VerifiableCredential",
+      "OpenBadgeCredential"
+    ],
+    "name": "1EdTech University Degree for Example Student",
+    "description": "1EdTech University Degree Description",
+    "image": {
+      "id": "https://1edtech.edu/credentials/3732/image",
+      "type": "Image",
+      "caption": "1EdTech University Degree for Example Student"
+    },
+    "credentialSubject": {
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+      "type":
+        ["AchievementSubject"]
+      ,
+      "activityEndDate": "2010-01-02T00:00:00Z",
+      "activityStartDate": "2010-01-01T00:00:00Z",
+      "creditsEarned": 42.0,
+      "licenseNumber": "A-9320041",
+      "role": "Major Domo",
+      "source": {
+        "id": "https://school.edu/issuers/201234",
+        "type": ["Profile"],
+        "name": "1EdTech College of Arts"
+      },
+      "term": "Fall",
+      "identifier": [
+        {
+          "type": "IdentityObject",
+          "identityHash": "student@1edtech.edu",
+          "identityType": "emailAddress",
+          "hashed": false,
+          "salt": "not-used"
+        },
+        {
+          "type": "IdentityObject",
+          "identityHash": "somebody@gmail.com",
+          "identityType": "emailAddress",
+          "hashed": false,
+          "salt": "not-used"
+        }
+      ],
+      "achievement": {
+        "id": "https://1edtech.edu/achievements/degree",
+        "type":
+          ["Achievement"]
+        ,
+        "alignment": [
+          {
+            "type":
+              ["Alignment"]
+            ,
+            "targetCode": "degree",
+            "targetDescription": "1EdTech University Degree programs.",
+            "targetName": "1EdTech University Degree",
+            "targetFramework": "1EdTech University Program and Course Catalog",
+            "targetType": "CFItem",
+            "targetUrl": "https://1edtech.edu/catalog/degree"
+          },
+          {
+            "type":
+              ["Alignment"]
+            ,
+            "targetCode": "degree",
+            "targetDescription": "1EdTech University Degree programs.",
+            "targetName": "1EdTech University Degree",
+            "targetFramework": "1EdTech University Program and Course Catalog",
+            "targetType": "CTDL",
+            "targetUrl": "https://credentialengineregistry.org/resources/ce-98cb027b-95ef-4494-908d-6f7790ec6b6b"
+          }
+        ],
+        "achievementType": "Degree",
+        "creator": {
+          "id": "https://1edtech.edu/issuers/565049",
+          "type":
+            ["Profile"]
+          ,
+          "name": "1EdTech University",
+          "url": "https://1edtech.edu",
+          "phone": "1-222-333-4444",
+          "description": "1EdTech University provides online degree programs.",
+          "endorsement": [
+            {
+              "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+              ],
+              "id": "http://1edtech.edu/endorsementcredential/3732",
+              "type": [
+                "VerifiableCredential",
+                "EndorsementCredential"
+              ],
+              "name": "SDE endorsement",
+              "issuer": {
+                "id": "https://accrediter.edu/issuers/565049",
+                "type":
+                  ["Profile"]
+                ,
+                "name": "Example Accrediting Agency"
+              },
+              "validFrom": "2010-01-01T00:00:00Z",
+              "validUntil": "2020-01-01T00:00:00Z",
+              "credentialSubject": {
+                "id": "https://1edtech.edu/issuers/565049",
+                "type":
+                  ["EndorsementSubject"]
+                ,
+                "endorsementComment": "1EdTech University is in good standing"
+              },
+              "credentialSchema": [
+                {
+                  "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json",
+                  "type": "1EdTechJsonSchemaValidator2019"
+                },
+                {
+                  "id": "https://accrediter.edu/schema/endorsementcredential.json",
+                  "type": "1EdTechJsonSchemaValidator2019"
+                }
+              ],
+              "credentialStatus": {
+                "id": "https://1edtech.edu/credentials/3732/revocations",
+                "type": "1EdTechRevocationList"
+              },
+              "refreshService": {
+                "id": "http://1edtech.edu/credentials/3732",
+                "type": "1EdTechCredentialRefresh"
+              },
+              "proof": [
+                {
+                  "type": "DataIntegrityProof",
+                "cryptosuite": "eddsa-rdf-2022",
+                  "created": "2022-05-26T18:17:08Z",
+                  "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
+                  "proofPurpose": "assertionMethod",
+                  "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+                }
+              ]
+            },
+            {
+              "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+              ],
+              "id": "http://1edtech.edu/endorsementcredential/3733",
+              "type": [
+                "VerifiableCredential",
+                "EndorsementCredential"
+              ],
+              "name": "SDE endorsement",
+              "issuer": {
+                "id": "https://state.gov/issuers/565049",
+                "type":
+                  ["Profile"]
+                ,
+                "name": "State Department of Education"
+              },
+              "validFrom": "2010-01-01T00:00:00Z",
+              "validUntil": "2020-01-01T00:00:00Z",
+              "credentialSubject": {
+                "id": "https://1edtech.edu/issuers/565049",
+                "type":
+                  ["EndorsementSubject"]
+                ,
+                "endorsementComment": "1EdTech University is in good standing"
+              },
+              "credentialSchema": [
+                {
+                  "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json",
+                  "type": "1EdTechJsonSchemaValidator2019"
+                },
+                {
+                  "id": "https://state.gov/schema/endorsementcredential.json",
+                  "type": "1EdTechJsonSchemaValidator2019"
+                }
+              ],
+              "credentialStatus": {
+                "id": "https://state.gov/credentials/3732/revocations",
+                "type": "1EdTechRevocationList"
+              },
+              "refreshService": {
+                "id": "http://state.gov/credentials/3732",
+                "type": "1EdTechCredentialRefresh"
+              },
+              "proof": [
+                {
+                  "type": "DataIntegrityProof",
+                "cryptosuite": "eddsa-rdf-2022",
+                  "created": "2022-05-26T18:25:59Z",
+                  "verificationMethod": "https://accrediter.edu/issuers/565049#z5bDnmSgDczXwZGya6ZjxKaxkdKxzsCMiVSsgEVWxnaWK7ZqbKnzcCd7mUKE9DQaAL2QMXP5AquPeW6W2CWrZ7jNC",
+                  "proofPurpose": "assertionMethod",
+                  "proofValue": "z5bDnmSgDczXwZGya6ZjxKaxkdKxzsCMiVSsgEVWxnaWK7ZqbKnzcCd7mUKE9DQaAL2QMXP5AquPeW6W2CWrZ7jNC"
+                }
+              ]
+            }
+          ],
+          "image": {
+            "id": "https://1edtech.edu/logo.png",
+            "type": "Image",
+            "caption": "1EdTech University logo"
+          },
+          "email": "registrar@1edtech.edu",
+          "address": {
+            "type": [
+              "Address"
+            ],
+            "addressCountry": "USA",
+            "addressCountryCode": "US",
+            "addressRegion": "TX",
+            "addressLocality": "Austin",
+            "streetAddress": "123 First St",
+            "postOfficeBoxNumber": "1",
+            "postalCode": "12345",
+            "geo": {
+              "type": "GeoCoordinates",
+              "latitude": 1.0,
+              "longitude": 1.0
+            }
+          },
+          "otherIdentifier": [
+            {
+              "type": "IdentifierEntry",
+              "identifier": "12345",
+              "identifierType": "sourcedId"
+            },
+            {
+              "type": "IdentifierEntry",
+              "identifier": "67890",
+              "identifierType": "nationalIdentityNumber"
+            }
+          ],
+          "official": "Horace Mann",
+          "parentOrg": {
+            "id": "did:example:123456789",
+            "type":
+              ["Profile"]
+            ,
+            "name": "Universal Universities"
+          }
+        },
+        "creditsAvailable": 36.0,
+        "criteria": {
+          "id": "https://1edtech.edu/achievements/degree",
+          "narrative": "# Degree Requirements\\nStudents must complete..."
+        },
+        "description": "1EdTech University Degree Description",
+        "endorsement": [
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+            ],
+            "id": "http://1edtech.edu/endorsementcredential/3734",
+            "type": [
+              "VerifiableCredential",
+              "EndorsementCredential"
+            ],
+            "name": "EAA endorsement",
+            "issuer": {
+              "id": "https://accrediter.edu/issuers/565049",
+              "type":
+                ["Profile"]
+              ,
+              "name": "Example Accrediting Agency"
+            },
+            "validFrom": "2010-01-01T00:00:00Z",
+            "validUntil": "2020-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://1edtech.edu/issuers/565049",
+              "type":
+                ["EndorsementSubject"]
+              ,
+              "endorsementComment": "1EdTech University is in good standing"
+            },
+            "credentialSchema": [
+              {
+                "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json",
+                "type": "1EdTechJsonSchemaValidator2019"
+              },
+              {
+                "id": "https://accrediter.edu/schema/endorsementcredential.json",
+                "type": "1EdTechJsonSchemaValidator2019"
+              }
+            ],
+            "credentialStatus": {
+              "id": "https://1edtech.edu/credentials/3732/revocations",
+              "type": "1EdTechRevocationList"
+            },
+            "refreshService": {
+              "id": "http://1edtech.edu/credentials/3732",
+              "type": "1EdTechCredentialRefresh"
+            },
+            "proof": [
+              {
+                "type": "DataIntegrityProof",
+                "cryptosuite": "eddsa-rdf-2022",
+                "created": "2022-05-26T18:17:08Z",
+                "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
+                "proofPurpose": "assertionMethod",
+                "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+              }
+            ]
+          }
+        ],
+        "fieldOfStudy": "Research",
+        "humanCode": "R1",
+        "image": {
+          "id": "https://1edtech.edu/achievements/degree/image",
+          "type": "Image",
+          "caption": "1EdTech University Degree"
+        },
+        "name": "1EdTech University Degree",
+        "otherIdentifier": [
+          {
+            "type": "IdentifierEntry",
+            "identifier": "abde",
+            "identifierType": "identifier"
+          }
+        ],
+        "resultDescription": [
+          {
+            "id": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+            "type":
+              ["ResultDescription"]
+            ,
+            "alignment": [
+              {
+                "type":
+                  ["Alignment"]
+                ,
+                "targetCode": "project",
+                "targetDescription": "Project description",
+                "targetName": "Final Project",
+                "targetFramework": "1EdTech University Program and Course Catalog",
+                "targetType": "CFItem",
+                "targetUrl": "https://1edtech.edu/catalog/degree/project"
+              }
+            ],
+            "allowedValue": [
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "name": "Final Project Grade",
+            "requiredValue": "C",
+            "resultType": "LetterGrade"
+          },
+          {
+            "id": "urn:uuid:a70ddc6a-4c4a-4bd8-8277-cb97c79f40c5",
+            "type":
+              ["ResultDescription"]
+            ,
+            "alignment": [
+              {
+                "type":
+                  ["Alignment"]
+                ,
+                "targetCode": "project",
+                "targetDescription": "Project description",
+                "targetName": "Final Project",
+                "targetFramework": "1EdTech University Program and Course Catalog",
+                "targetType": "CFItem",
+                "targetUrl": "https://1edtech.edu/catalog/degree/project"
+              }
+            ],
+            "allowedValue": [
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "name": "Final Project Grade",
+            "requiredLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+            "resultType": "RubricCriterionLevel",
+            "rubricCriterionLevel": [
+              {
+                "id": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+                "type":
+                  ["RubricCriterionLevel"]
+                ,
+                "alignment": [
+                  {
+                    "type":
+                      ["Alignment"]
+                    ,
+                    "targetCode": "project",
+                    "targetDescription": "Project description",
+                    "targetName": "Final Project",
+                    "targetFramework": "1EdTech University Program and Course Catalog",
+                    "targetType": "CFRubricCriterionLevel",
+                    "targetUrl": "https://1edtech.edu/catalog/degree/project/rubric/levels/mastered"
+                  }
+                ],
+                "description": "The author demonstrated...",
+                "level": "Mastered",
+                "name": "Mastery",
+                "points": "4"
+              },
+              {
+                "id": "urn:uuid:6b84b429-31ee-4dac-9d20-e5c55881f80e",
+                "type":
+                  ["RubricCriterionLevel"]
+                ,
+                "alignment": [
+                  {
+                    "type":
+                      ["Alignment"]
+                    ,
+                    "targetCode": "project",
+                    "targetDescription": "Project description",
+                    "targetName": "Final Project",
+                    "targetFramework": "1EdTech University Program and Course Catalog",
+                    "targetType": "CFRubricCriterionLevel",
+                    "targetUrl": "https://1edtech.edu/catalog/degree/project/rubric/levels/basic"
+                  }
+                ],
+                "description": "The author demonstrated...",
+                "level": "Basic",
+                "name": "Basic",
+                "points": "4"
+              }
+            ]
+          },
+          {
+            "id": "urn:uuid:b07c0387-f2d6-4b65-a3f4-f4e4302ea8f7",
+            "type":
+              ["ResultDescription"]
+            ,
+            "name": "Project Status",
+            "resultType": "Status"
+          }
+        ],
+        "specialization": "Computer Science Research",
+        "tag": [
+          "research",
+          "computer science"
+        ]
+      },
+      "image": {
+        "id": "https://1edtech.edu/credentials/3732/image",
+        "type": "Image",
+        "caption": "1EdTech University Degree for Example Student"
+      },
+      "narrative": "There is a final project report and source code evidence.",
+      "result": [
+        {
+          "type": [
+            "Result"
+          ],
+          "alignment": [
+            {
+              "type":
+                ["Alignment"]
+              ,
+              "targetCode": "project",
+              "targetDescription": "Project description",
+              "targetName": "Final Project",
+              "targetFramework": "1EdTech University Program and Course Catalog",
+              "targetType": "CFItem",
+              "targetUrl": "https://1edtech.edu/catalog/degree/project/result/1"
+            }
+          ],
+          "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+          "value": "A"
+        },
+        {
+          "type": [
+            "Result"
+          ],
+          "achievedLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+          "alignment": [
+            {
+              "type":
+                ["Alignment"]
+              ,
+              "targetCode": "project",
+              "targetDescription": "Project description",
+              "targetName": "Final Project",
+              "targetFramework": "1EdTech University Program and Course Catalog",
+              "targetType": "CFItem",
+              "targetUrl": "https://1edtech.edu/catalog/degree/project/result/1"
+            }
+          ],
+          "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c"
+        },
+        {
+          "type": [
+            "Result"
+          ],
+          "resultDescription": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+          "status": "Completed"
+        }
+      ]
+    },
+    "endorsement": [
+      {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+        ],
+        "id": "http://1edtech.edu/endorsementcredential/3735",
+        "type": [
+          "VerifiableCredential",
+          "EndorsementCredential"
+        ],
+        "name": "EAA endorsement",
+        "issuer": {
+          "id": "https://accrediter.edu/issuers/565049",
+          "type":
+            ["Profile"]
+          ,
+          "name": "Example Accrediting Agency"
+        },
+        "validFrom": "2010-01-01T00:00:00Z",
+        "validUntil": "2020-01-01T00:00:00Z",
+        "credentialSubject": {
+          "id": "https://1edtech.edu/issuers/565049",
+          "type":
+            ["EndorsementSubject"]
+          ,
+          "endorsementComment": "1EdTech University is in good standing"
+        },
+        "credentialSchema": [
+          {
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+          },
+          {
+            "id": "https://accrediter.edu/schema/endorsementcredential.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+          }
+        ],
+        "credentialStatus": {
+          "id": "https://1edtech.edu/credentials/3732/revocations",
+          "type": "1EdTechRevocationList"
+        },
+        "refreshService": {
+          "id": "http://1edtech.edu/credentials/3732",
+          "type": "1EdTechCredentialRefresh"
+        },
+        "proof": [
+          {
+            "type": "DataIntegrityProof",
+            "cryptosuite": "eddsa-rdf-2022",
+            "created": "2022-05-26T18:17:08Z",
+            "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
+            "proofPurpose": "assertionMethod",
+            "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "id": "https://1edtech.edu/credentials/3732/evidence/1",
+        "type":
+          ["Evidence"]
+        ,
+        "narrative": "# Final Project Report \\n This project was ...",
+        "name": "Final Project Report",
+        "description": "This is the final project report.",
+        "genre": "Research",
+        "audience": "Department"
+      },
+      {
+        "id": "https://github.com/somebody/project",
+        "type":
+          ["Evidence"]
+        ,
+        "name": "Final Project Code",
+        "description": "This is the source code for the final project app.",
+        "genre": "Research",
+        "audience": "Department"
+      }
+    ],
+    "issuer": {
+      "id": "https://1edtech.edu/issuers/565049",
+      "type":
+        ["Profile"]
+      ,
+      "name": "1EdTech University",
+      "url": "https://1edtech.edu",
+      "phone": "1-222-333-4444",
+      "description": "1EdTech University provides online degree programs.",
+      "endorsement": [
+        {
+          "@context": [
+            "https://www.w3.org/ns/credentials/v2",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+          ],
+          "id": "http://1edtech.edu/endorsementcredential/3736",
+          "type": [
+            "VerifiableCredential",
+            "EndorsementCredential"
+          ],
+          "name": "EAA endorsement",
+          "issuer": {
+            "id": "https://accrediter.edu/issuers/565049",
+            "type":
+              ["Profile"]
+            ,
+            "name": "Example Accrediting Agency"
+          },
+          "validFrom": "2010-01-01T00:00:00Z",
+          "validUntil": "2020-01-01T00:00:00Z",
+          "credentialSubject": {
+            "id": "https://1edtech.edu/issuers/565049",
+            "type":
+              ["EndorsementSubject"]
+            ,
+            "endorsementComment": "1EdTech University is in good standing"
+          },
+          "credentialSchema": [
+            {
+              "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json",
+              "type": "1EdTechJsonSchemaValidator2019"
+            },
+            {
+              "id": "https://accrediter.edu/schema/endorsementcredential.json",
+              "type": "1EdTechJsonSchemaValidator2019"
+            }
+          ],
+          "credentialStatus": {
+            "id": "https://1edtech.edu/credentials/3732/revocations",
+            "type": "1EdTechRevocationList"
+          },
+          "refreshService": {
+            "id": "http://1edtech.edu/credentials/3732",
+            "type": "1EdTechCredentialRefresh"
+          },
+          "proof": [
+            {
+              "type": "DataIntegrityProof",
+            "cryptosuite": "eddsa-rdf-2022",
+              "created": "2022-05-26T18:17:08Z",
+              "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
+              "proofPurpose": "assertionMethod",
+              "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+            }
+          ]
+        }
+      ],
+      "image": {
+        "id": "https://1edtech.edu/logo.png",
+        "type": "Image",
+        "caption": "1EdTech University logo"
+      },
+      "email": "registrar@1edtech.edu",
+      "address": {
+        "type": [
+          "Address"
+        ],
+        "addressCountry": "USA",
+        "addressCountryCode": "US",
+        "addressRegion": "TX",
+        "addressLocality": "Austin",
+        "streetAddress": "123 First St",
+        "postOfficeBoxNumber": "1",
+        "postalCode": "12345",
+        "geo": {
+          "type": "GeoCoordinates",
+          "latitude": 1.0,
+          "longitude": 1.0
+        }
+      },
+      "otherIdentifier": [
+        {
+          "type": "IdentifierEntry",
+          "identifier": "12345",
+          "identifierType": "sourcedId"
+        },
+        {
+          "type": "IdentifierEntry",
+          "identifier": "67890",
+          "identifierType": "nationalIdentityNumber"
+        }
+      ],
+      "official": "Horace Mann",
+      "parentOrg": {
+        "id": "did:example:123456789",
+        "type":
+          ["Profile"]
+        ,
+        "name": "Universal Universities"
+      }
+    },
+    "validFrom": "2010-01-01T00:00:00Z",
+    "validUntil": "2030-01-01T00:00:00Z",
+    "credentialSchema": [
+      {
+        "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+        "type": "1EdTechJsonSchemaValidator2019"
+      }
+    ],
+    "credentialStatus": {
+      "id": "https://1edtech.edu/credentials/3732/revocations",
+      "type": "1EdTechRevocationList"
+    },
+    "refreshService": {
+      "id": "http://1edtech.edu/credentials/3732",
+      "type": "1EdTechCredentialRefresh"
+    }
+  }
+```
+
+## EndorsementCredential
+
+```ob3vp0 org.1edtech.ob.v3p0.endorsementcredential.class
+{
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+        "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
+      ],
+      "id": "http://1edtech.edu/endorsementcredential/3732",
+      "type": [
+        "VerifiableCredential",
+        "EndorsementCredential"
+      ],
+      "name": "SDE endorsement",
+      "issuer": {
+        "id": "https://state.gov/issuers/565049",
+        "type": ["Profile"],
+        "name": "State Department of Education"
+      },
+      "validFrom": "2010-01-01T00:00:00Z",
+      "validUntil": "2030-01-01T00:00:00Z",
+      "credentialSubject": {
+        "id": "https://1edtech.edu/issuers/565049",
+        "type": ["EndorsementSubject"],
+        "endorsementComment": "1EdTech University is in good standing"
+      },
+      "credentialSchema": [
+        {
+          "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json",
+          "type": "1EdTechJsonSchemaValidator2019"
+        },
+        {
+          "id": "https://state.gov/schema/endorsementcredential.json",
+          "type": "1EdTechJsonSchemaValidator2019"
+        }
+      ],
+      "credentialStatus": {
+        "id": "https://state.gov/credentials/3732/revocations",
+        "type": "1EdTechRevocationList"
+      },
+      "refreshService": {
+        "id": "http://state.gov/credentials/3732",
+        "type": "1EdTechCredentialRefresh"
+      }
+    }
+```
+
+## Achievement Alignment (CASE)
+
+```obv3p0 org.1edtech.ob.v3p0.achievementcredential.class
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": ["VerifiableCredential", "OpenBadgeCredential"],
+  "issuer": {
+    "id": "https://example.edu/issuers/565049",
+    "type": ["Profile"],
+    "name": "Example University"
+  },
+  "validFrom": "2010-01-01T00:00:00Z",
+  "name": "Example University Degree",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": ["AchievementSubject"],
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/1",
+      "type": ["Achievement"],
+      "criteria": {
+        "narrative": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain"
+      },
+      "description": "Analyze a sample text",
+      "name": "Text analysis",
+      "alignment": [{
+        "type": ["Alignment"],
+        "targetCode": "74f5bb7d-d7cc-11e8-824f-0242ac160002",
+        "targetFramework": "Alabama Course of Study: English Language Arts",
+        "targetName": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain",
+        "targetType": "CFItem",
+        "targetUrl": "https://caseregistry.imsglobal.org/uri/74f5bb7d-d7cc-11e8-824f-0242ac160002"
+      }]
+    }
+  }
+}
+```
+
+## Achievement Alignment (Credential Engine)
+
+```obv3p0 org.1edtech.ob.v3p0.achievementcredential.class
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": ["VerifiableCredential", "OpenBadgeCredential"],
+  "issuer": {
+    "id": "https://example.edu/issuers/565049",
+    "type": ["Profile"],
+    "name": "Example University"
+  },
+  "validFrom": "2010-01-01T00:00:00Z",
+  "name": "Example University Degree",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "type": ["AchievementSubject"],
+    "achievement": {
+      "id": "https://1edtech.edu/achievements/1",
+      "type": ["Achievement"],
+      "criteria": {
+        "narrative": "Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain"
+      },
+      "description": "Analyze a sample text",
+      "name": "Text analysis",
+      "alignment": [{
+        "type": ["Alignment"],
+        "targetCode": "ce-cf4dee18-7cea-443a-b920-158a0762c6bf",
+        "targetFramework": "Edmonds College Course Catalog",
+        "targetName": "Requirements Analysis",
+        "targetType": "ceterms:Credential",
+        "targetUrl": "https://credentialfinder.org/credential/20229/Requirements_Analysis"
+      }]
+    }
+  }
+}
+```
+
+## Skill Assertion (CASE)
+
+> **Note**: A Skill Assertion credential is just like a <a href=""#basic-openbadgecredential">basic OpenBadgeCredential</a> in how an Achievement is included, except that it makes a claim referencing an Achievement that is generic to allow for use by many possible issuers. The Achievement here is aligned to a CASE CFItem.
+
+```obv3p0 org.1edtech.ob.v3p0.achievementcredential.class
+{
+	"@context": [
+		"https://www.w3.org/ns/credentials/v2",
+		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+		"https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
+	],
+	"id": "http://1edtech.edu/credentials/3732",
+	"type": [
+		"VerifiableCredential",
+		"OpenBadgeCredential"
+	],
+	"name": "Robot Programming Skill Credential",
+	"description": "A badge recognizing the development of skills in robot implementation, specifically the software",
+	"credentialSubject": {
+		"id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+		"type": ["AchievementSubject"],
+		"achievement": {
+			"id": "https://example.com/achievements/robotics/robot-programming",
+			"type": ["Achievement"],
+			"alignment": [{
+				"type": ["Alignment"],
+				"targetDescription": "Robot software is a set of commands and procedures robots use to respond to input and perform autonomous tasks.",
+				"targetName": "Robot Programming",
+				"targetFramework": "Example Robotics Framework",
+				"targetType": "CFItem",
+				"targetUrl": "https://robotics-competencies.example.com/competencies/robot-programming"
+			}],
+			"achievementType": "Competency",
+			"creator": {
+				"id": "https://example.com/issuers/123767",
+				"type": ["Profile"],
+				"name": "Example Industry Group",
+				"url": "https://example.com",
+				"description": "Example Industry Group is a consortium of luminaries who publish skills data for common usage.",
+				"email": "info@exammple.com"
+			},
+			"criteria": {
+				"narrative": "Learners must present source code showing the ability for a robot to accept manual or sensor input and perform conditional actions in response."
+			},
+			"description": "This achievement represents developing capability to develop software for robotic applications.",
+			"image": {
+				"id": "https://example.com/achievements/robotics/robot-programming/image",
+				"type": "Image",
+				"caption": "A robot filled with ones and zeroes representing its programming"
+			},
+			"name": "Robot Programming"
+		}
+	},
+	"evidence": [{
+		"id": "https://github.com/somebody/project",
+		"type": ["Evidence"],
+		"name": "Final Project Code",
+		"description": "The source code for the 'Beeper 1.0' robot project. It responds by saying 'beep' when the 'beep' button is pressed."
+	}],
+	"issuer": {
+		"id": "https://1edtech.edu/issuers/565049",
+		"type": ["Profile"],
+		"name": "1EdTech University",
+		"url": "https://1edtech.edu",
+		"phone": "1-222-333-4444",
+		"description": "1EdTech University provides online degree programs.",
+		"image": {
+			"id": "https://1edtech.edu/logo.png",
+			"type": "Image",
+			"caption": "1EdTech University logo"
+		},
+		"email": "registrar@1edtech.edu"
+	},
+	"validFrom": "2022-07-01T00:00:00Z",
+	"credentialSchema": [{
+		"id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+		"type": "1EdTechJsonSchemaValidator2019"
+	}]
+}
+```
+
+## Skill Assertion (Credential Engine)
+
+> **Note**: A Skill Assertion credential is just like a [basic OpenBadgeCredential](#basic-openbadgecredential) in how an Achievement is included, except that it makes a claim referencing an Achievement that is generic to allow for use by many possible issuers. The Achievement here is aligned to a Competency registered on the Credential Registry and described in CTDL.
+
+```obv3p0 org.1edtech.ob.v3p0.achievementcredential.class
+{
+	"@context": [
+		"https://www.w3.org/ns/credentials/v2",
+		"https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+		"https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
+	],
+	"id": "http://1edtech.edu/credentials/3732",
+	"type": [
+		"VerifiableCredential",
+		"OpenBadgeCredential"
+	],
+	"name": "Solve and graph linear equations and inequalities",
+	"credentialSubject": {
+		"id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+		"type": ["AchievementSubject"],
+		"achievement": {
+			"id": "https://example.com/achievements/math/linear-1",
+			"type": ["Achievement"],
+			"alignment": [{
+        "type": ["Alignment"],
+        "targetCode": "ce-6369c51f-4d86-4592-a761-8b32ae70a045",
+        "targetFramework": "Ivy Tech Community College of Indiana, MATH 135, FINITE MATH",
+        "targetName": "Solve and graph linear equations and inequalities",
+        "targetType": "ceasn:Competency",
+        "targetUrl": "https://credentialfinder.org/competency/ce-6369c51f-4d86-4592-a761-8b32ae70a045"
+      }],
+			"achievementType": "Competency",
+			"creator": {
+				"id": "https://example.com/issuers/123767",
+				"type": ["Profile"],
+				"name": "Example Industry Group",
+				"url": "https://example.com",
+				"description": "Example Industry Group is a consortium of luminaries who publish skills data for common usage.",
+				"email": "info@exammple.com"
+			},
+			"criteria": {
+				"narrative": "Learners must demonstrate understanding of linear algebra and graphic representation of linear equations."
+			},
+			"description": "This achievement represents developing capability to solve and graph linear equations and inequalities",
+			"image": {
+				"id": "https://example.com/achievements/math/linear-1/image",
+				"type": "Image",
+				"caption": "A line, sloping upward optimistically"
+			},
+			"name": "Linear equations and inequalities"
+		}
+	},
+	"issuer": {
+		"id": "https://1edtech.edu/issuers/565049",
+		"type": ["Profile"],
+		"name": "1EdTech University",
+		"url": "https://1edtech.edu",
+		"phone": "1-222-333-4444",
+		"description": "1EdTech University provides online degree programs.",
+		"image": {
+			"id": "https://1edtech.edu/logo.png",
+			"type": "Image",
+			"caption": "1EdTech University logo"
+		},
+		"email": "registrar@1edtech.edu"
+	},
+	"validFrom": "2022-07-01T00:00:00Z",
+	"credentialSchema": [{
+		"id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+		"type": "1EdTechJsonSchemaValidator2019"
+	}]
+}
+```
+
+# Schema
+
+## Context
+
+```json
+{
+  "@context": {
+    "@protected": true,
+    "id": "@id",
+    "type": "@type",
+    "OpenBadgeCredential": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#OpenBadgeCredential"
+    },
+    "Achievement": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#Achievement",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "achievementType": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#achievementType"
+        },
+        "alignment": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#alignment",
+          "@container": "@set"
+        },
+        "creator": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#creator"
+        },
+        "creditsAvailable": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#creditsAvailable",
+          "@type": "https://www.w3.org/2001/XMLSchema#float"
+        },
+        "criteria": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#Criteria",
+          "@type": "@id"
+        },
+        "fieldOfStudy": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#fieldOfStudy"
+        },
+        "humanCode": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#humanCode"
+        },
+        "image": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#image",
+          "@type": "@id"
+        },
+        "otherIdentifier": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#otherIdentifier",
+          "@container": "@set"
+        },
+        "related": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#related",
+          "@container": "@set"
+        },
+        "resultDescription": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#resultDescription",
+          "@container": "@set"
+        },
+        "specialization": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#specialization"
+        },
+        "tag": {
+          "@id": "https://schema.org/keywords",
+          "@container": "@set"
+        },
+        "version": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#version"
+        },
+        "inLanguage": {
+          "@id": "https://schema.org/inLanguage"
+        }
+      }
+    },
+    "AchievementCredential": {
+      "@id": "OpenBadgeCredential"
+    },
+    "AchievementSubject": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#AchievementSubject",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "achievement": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#achievement"
+        },
+        "activityEndDate": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#activityEndDate",
+          "@type": "https://www.w3.org/2001/XMLSchema#date"
+        },
+        "activityStartDate": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#activityStartDate",
+          "@type": "https://www.w3.org/2001/XMLSchema#date"
+        },
+        "creditsEarned": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#creditsEarned",
+          "@type": "https://www.w3.org/2001/XMLSchema#float"
+        },
+        "identifier": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#identifier",
+          "@container": "@set"
+        },
+        "image": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#image",
+          "@type": "@id"
+        },
+        "licenseNumber": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#licenseNumber"
+        },
+        "result": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#result",
+          "@container": "@set"
+        },
+        "role": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#role"
+        },
+        "source": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#source",
+          "@type": "@id"
+        },
+        "term": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#term"
+        }
+      }
+    },
+    "Address": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#Address",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "addressCountry": {
+          "@id": "https://schema.org/addressCountry"
+        },
+        "addressCountryCode": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#CountryCode"
+        },
+        "addressLocality": {
+          "@id": "https://schema.org/addressLocality"
+        },
+        "addressRegion": {
+          "@id": "https://schema.org/addressRegion"
+        },
+        "geo": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#GeoCoordinates"
+        },
+        "postOfficeBoxNumber": {
+          "@id": "https://schema.org/postOfficeBoxNumber"
+        },
+        "postalCode": {
+          "@id": "https://schema.org/postalCode"
+        },
+        "streetAddress": {
+          "@id": "https://schema.org/streetAddress"
+        }
+      }
+    },
+    "Alignment": {
+      "@id": "https://schema.org/AlignmentObject",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "targetCode": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#targetCode"
+        },
+        "targetDescription": {
+          "@id": "https://schema.org/targetDescription"
+        },
+        "targetFramework": {
+          "@id": "https://schema.org/targetFramework"
+        },
+        "targetName": {
+          "@id": "https://schema.org/targetName"
+        },
+        "targetType": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#targetType"
+        },
+        "targetUrl": {
+          "@id": "https://schema.org/targetUrl",
+          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+        }
+      }
+    },
+    "Criteria": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#Criteria"
+    },
+    "EndorsementCredential": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#EndorsementCredential"
+    },
+    "EndorsementSubject": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#EndorsementSubject",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "endorsementComment": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#endorsementComment"
+        }
+      }
+    },
+    "Evidence": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#Evidence",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "audience": {
+          "@id": "https://schema.org/audience"
+        },
+        "genre": {
+          "@id": "https://schema.org/genre"
+        }
+      }
+    },
+    "GeoCoordinates": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#GeoCoordinates",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "latitude": {
+          "@id": "https://schema.org/latitude"
+        },
+        "longitude": {
+          "@id": "https://schema.org/longitude"
+        }
+      }
+    },
+    "IdentifierEntry": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#IdentifierEntry",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "identifier": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#identifier"
+        },
+        "identifierType": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#identifierType"
+        }
+      }
+    },
+    "IdentityObject": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#IdentityObject",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "hashed": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#hashed",
+          "@type": "https://www.w3.org/2001/XMLSchema#boolean"
+        },
+        "identityHash": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#identityHash"
+        },
+        "identityType": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#identityType"
+        },
+        "salt": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#salt"
+        }
+      }
+    },
+    "Image": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#Image",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "caption": {
+          "@id": "https://schema.org/caption"
+        }
+      }
+    },
+    "Profile": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#Profile",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "additionalName": {
+          "@id": "https://schema.org/additionalName"
+        },
+        "address": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#address",
+          "@type": "@id"
+        },
+        "dateOfBirth": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#dateOfBirth",
+          "@type": "https://www.w3.org/2001/XMLSchema#date"
+        },
+        "email": {
+          "@id": "https://schema.org/email"
+        },
+        "familyName": {
+          "@id": "https://schema.org/familyName"
+        },
+        "familyNamePrefix": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#familyNamePrefix"
+        },
+        "givenName": {
+          "@id": "https://schema.org/givenName"
+        },
+        "honorificPrefix": {
+          "@id": "https://schema.org/honorificPrefix"
+        },
+        "honorificSuffix": {
+          "@id": "https://schema.org/honorificSuffix"
+        },
+        "image": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#image",
+          "@type": "@id"
+        },
+        "otherIdentifier": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#otherIdentifier",
+          "@container": "@set"
+        },
+        "parentOrg": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#parentOrg",
+          "@type": "@id"
+        },
+        "patronymicName": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#patronymicName"
+        },
+        "phone": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#phone"
+        },
+        "official": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#official"
+        }
+      }
+    },
+    "Related": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#Related",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "version": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#version"
+        },
+        "inLanguage": {
+          "@id": "https://schema.org/inLanguage"
+        }
+      }
+    },
+    "Result": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#Result",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "achievedLevel": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#achievedLevel",
+          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+        },
+        "resultDescription": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#resultDescription",
+          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+        },
+        "status": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#status"
+        },
+        "value": {
+          "@id": "https://schema.org/value"
+        }
+      }
+    },
+    "ResultDescription": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#ResultDescription",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "allowedValue": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#allowedValue",
+          "@container": "@list"
+        },
+        "requiredLevel": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#requiredLevel",
+          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+        },
+        "requiredValue": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#requiredValue"
+        },
+        "resultType": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#resultType"
+        },
+        "rubricCriterionLevel": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#rubricCriterionLevel",
+          "@container": "@set"
+        },
+        "valueMax": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#valueMax"
+        },
+        "valueMin": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#valueMin"
+        }
+      }
+    },
+    "RubricCriterionLevel": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#RubricCriterionLevel",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "level": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#level"
+        },
+        "points": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#points"
+        }
+      }
+    },
+    "alignment": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#alignment",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "https://schema.org/description"
+    },
+    "endorsement": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#endorsement",
+      "@container": "@set"
+    },
+    "image": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#image",
+      "@type": "@id"
+    },
+    "inLanguage": {
+      "@id": "https://schema.org/inLanguage"
+    },
+    "name": {
+      "@id": "https://schema.org/name"
+    },
+    "narrative": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#narrative"
+    },
+    "url": {
+      "@id": "https://schema.org/url",
+      "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+    },
+    "awardedDate": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#awardedDate",
+      "@type": "xsd:dateTime"
+    },
+    "jti": {
+      "@id": "https://www.iana.org/assignments/jwt#jti",
+      "@type": "@id"
+    }
+  }
+}
+```
+
+```mps json-schema
+modelId: org.1edtech.ob.v3p0.model
+format: json-ld
+title: JSON Schema
+```
+
+## OpenAPI Schema
+
+```mps oas
+modelId: org.1edtech.ob.v3p0.model
+binding: json
+title: OpenAPI (JSON)
+```
+
+```mps oas
+modelId: org.1edtech.ob.v3p0.model
+binding: yaml
+title: OpenAPI (YAML)
+```

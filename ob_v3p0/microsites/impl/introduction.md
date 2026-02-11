@@ -16,7 +16,7 @@ product within the ecosystem compatible with these specifications.
 
 Each Open Badges `OpenBadgeCredential` is digitally signed by its issuing
 organization as Verifiable Credentials compatible with the
-[[[VC-DATA-MODEL-2.0]]]. Issuers may bundle together multiple related
+[[VC-DATA-MODEL-2.0]]. Issuers may bundle together multiple related
 achievement credentials into transcripts and other longitudinal records for an
 individual learner in a CLR as a `ClrCredential`, which is also signed using the
 same technique as the individual credentials. Additionally, credentials can be
@@ -35,10 +35,10 @@ roles
 
 The full set of documents is comprised of the following documents:
 
--   [[[OB-30]]]
--   [[[OB-CERT-30]]]
--   [[[CLR-20]]]
--   [[[CLR-CERT-20]]]
+-   [[OB-30]]
+-   [[OB-CERT-30]]
+-   [[CLR-20]]
+-   [[CLR-CERT-20]]
 
 #### Audiences
 
@@ -72,7 +72,7 @@ Use cases are outlined in each the Open Badges and Comprehensive Learner Record
 specifications. Use cases outline how each specification is intended to provide
 value to end users through interoperability between products.
 
-[Open Badges use cases](https://www.imsglobal.org/spec/ob/v3p0#use-cases)
+[Open Badges use cases](/ob/specifications/ob-v3p0#use-cases)
 include:
 
 -   Assertion Issuance to Wallet
@@ -89,7 +89,7 @@ include:
 -   Revocation of an Issued Credential
 -   Badge Class Status
 
-[Comprehensive Learner Record use cases](https://www.imsglobal.org/spec/clr/v2p0#use-cases)
+[Comprehensive Learner Record use cases](/clr/specifications/clr-v2p0/v2p0#use-cases)
 include:
 
 -   Recent graduate wants to hold a copy of their own official transcript
@@ -111,7 +111,7 @@ include:
 ### OB/CLR in the 1EdTech Ecosystem
 
 The core of both Open Badges and Comprehensive Learner Record is an assertion
-about an achievement. As defined in [[[OB-30]]] and [[[CLR-20]]], an assertion
+about an achievement. As defined in [[OB-30]] and [[CLR-20]], an assertion
 is specific to one learner. It contains a claim that the learner has made a
 particular achievement and metadata about the achievement, the issuer, and the
 learner, including possible evidence that provides support for the claim.
@@ -119,20 +119,17 @@ learner, including possible evidence that provides support for the claim.
 These concepts are also present in some way in other specifications within
 1EdTech, enabling connections between specifications.
 
-<div class="note">
-This section is purely informative. The scenarios described here does not define
+> **Note**: This section is purely informative. The scenarios described here does not define
 any additional requirements of the specification to conform to.
-</div>
 
 A clear connection to other specifications occurs through the alignment of
-achievements. An alignment of an `Achievement` to can refer to a [[[CASE-10]]]'s
+achievements. An alignment of an `Achievement` to can refer to a [[CASE-10]]'s
 `CFItem` for linking the achievement to a learning object in a CASE's Competency
 Framework Package.
 
 Another possible connection with other 1EdTech's specifications is the issuer of
 the credential. Since it can be an organization or entity it can represent the
-same entity described as an `Org` in [[[OR-11]]] [[OR-11]] or [[[EDUAPI-10]]]
-[[EDUAPI-10]].
+same entity described as an `Org` in [[OR-11]] or [[EDUAPI-10]].
 
 Moreover, the learner who the credential is issued to can have a relationship
 with the `User` entity in [[OR-11]] or the `Person` entity in [[EDUAPI-10]], as
@@ -145,14 +142,14 @@ assignment vi the `Result` entity. This can be related with the
 
 Open Badges and Comprehensive Learner Record can be implemented by systems that
 use other specifications as well. For example, an Open Badges or CLR application
-be offered as a tool within an LMS using [[[LTI-13]]] to launching the OB or
+be offered as a tool within an LMS using [[LTI-13]] to launching the OB or
 CLR-specific interfaces.
 
 ### Relationship between Verifiable Credentials and OB/CLR
 
 New to this version of the specification, Open Badges and Comprehensive Learner
-Record are compatible with the [[[VC-DATA-MODEL-2.0]]] (both version 2.0 and the
-previous [[[VC-DATA-MODEL]]]). The VC Data Model describes an envelope that may
+Record are compatible with the [[VC-DATA-MODEL-2.0]] (both version 2.0 and the
+previous [[VC-DATA-MODEL-1.1]]). The VC Data Model describes an envelope that may
 be used to express many different types of messages, or "claims", about
 credential subjects, but credential-type-specific schemas such as OB and CLR are
 needed in the VC ecosystem to enable coordination of specific credential types
