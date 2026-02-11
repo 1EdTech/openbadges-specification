@@ -1,0 +1,300 @@
+---
+author: 1Edtech Consortium
+category: Extension
+title: Open Badges Assessment Extension
+shortcode: OB-ASSESSMENT-20
+status: Candidate Final Public
+lastUpdated: 2025-07-08
+version: '2.0'
+nature: normative
+docType: spec
+contributors:
+  - name: Nate Otto
+    affiliation: Skybridge Skills
+    companyUrl: ''
+    role: Invited Expert
+  - name: Justin Pitcher
+    affiliation: Anthology
+    companyUrl: ''
+    role: Co-chair, OB
+  - name: Xavi Aracil
+    affiliation: 1Edtech
+    companyUrl: ''
+    role: Editor
+  - name: Rob Coyle
+    affiliation: 1Edtech
+    companyUrl: ''
+    role: Editor
+releases:
+  - version: Working Document
+    docVersion: 1.0
+    date: 2024-07-24
+    comments: Initial proof of concept
+  - version: Candidate Final Public
+    docVersion: 1.0
+    date: 2025-07-08
+    comments: Candidate Final Public version.
+---
+
+## Abstract
+
+An extension to Open Badges that allows issuers to define assessment(s) related to the award process.
+
+## Overview
+
+## Introduction{.informative}
+
+This extension provides information about single or multiple assessments that would be completed by the recipient as part of the requirements for earning an OpenBadge. There could be multiple assessments of different types for each badge earned. Separate, independent evaluations of a single assessment could result in multiple assessment/evaluation records, all included in a single instance of the extension. Please note that this extension is in draft mode and may not be ready for production.
+
+### Use cases{.informative}
+
+* Describe an assessment so a potential recipient understands the process.
+* Describe assessment(s) so badge consumers better know what recipients did to earn the badge.
+* Include explicit application information to build an automated application form for the badge.
+
+> **Note**: New in Open Badges 3.0 is the ability to include a rubric for an Achievement with multiple criterion in the form of `ResultDescription`.
+> The adaptation of this extension to this new version implies the limitation of defining only one rubric and rubric criterion per assessment.
+
+### Extendable Badge Objects
+
+`ResultDescription`, with the new type `AssessmentResultDescription`
+
+### Terminology
+
+The terminology used in this document is consistent with the terminology established in the Open Badges 3.0 specification [[OB-30]].
+
+### Document Set
+
+#### Normative Documents
+
+JSON Schema
+: The JSON Schema defines the syntactical restrictions of this extension: https://purl.imsglobal.org/spec/ob-assessment/v2p0/schema.
+
+JSON-LD Context
+: The JSON-LD context defines mappings for the terms used in this specification to their canonical IRIs: https://purl.imsglobal.org/spec/ob-assessment/v2p0/context.
+
+Errata
+: The errata details any erratum registered for this version of this specification since its publication [[OB-ASSMT-20-ERRATA]].
+
+## Data Model
+
+This extension has a more deeply nested data structure than many other available extensions. At the top level is a very simple AssessmentExtension object that contains an overall description and one or more detailed assessment descriptors.
+
+```mps data-model
+modelId: org.1edtech.ob-assmt.v2p0.model
+package: MainClasses
+title: Data Models
+```
+
+```mps data-model
+modelId: org.1edtech.ob-assmt.v2p0.model
+package: Enumerations
+title: Enumerations
+```
+
+```mps data-model
+modelId: org.1edtech.ob-assmt.v2p0.model
+stereotype: DerivedType
+title: Derived Types
+```
+
+The derived types in this section are shared by all 1EdTech specifications.
+
+```mps data-model
+modelId: org.1edtech.ob-assmt.v2p0.model
+stereotype: PrimitiveType
+title: Primitive Types
+```
+
+The primitive types in this section are shared by all 1EdTech specifications.
+
+## Examples
+
+### Sample OpenBadgeCredential with Assessment extension
+
+```obv3p0 org.1edtech.ob.v3p0.achievementcredential.class
+{
+        "@context": [
+            "https://www.w3.org/ns/credentials/v2",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+            "https://purl.imsglobal.org/spec/ob-assessment/v2p0/context/"
+        ],
+        "id": "http://example.com/credentials/3527",
+        "type": ["VerifiableCredential", "OpenBadgeCredential"],
+        "issuer": {
+            "id": "https://example.com/issuers/876543",
+            "type": ["Profile"],
+            "name": "Example Corp"
+        },
+        "validFrom": "2010-01-01T00:00:00Z",
+        "name": "Teamwork Badge",
+        "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+            "type": ["AchievementSubject"],
+            "achievement": {
+            "id": "https://example.com/achievements/21st-century-skills/teamwork",
+            "type": ["Achievement"],
+            "criteria": {
+                "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+            },
+            "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+            "name": "Teamwork",
+            "resultDescription": [
+                {
+                "id": "urn:uuid:f6ab24cd-86e8-4eaf-b8c6-ded74e8fd41c",
+                "type": ["ResultDescription", "AssessmentResultDescription"],
+                "alignment": [
+                    {
+                    "type": ["Alignment"],
+                    "targetCode": "project",
+                    "targetDescription": "Project description",
+                    "targetName": "Final Project",
+                    "targetFramework": "1EdTech University Program and Course Catalog",
+                    "targetType": "CFItem",
+                    "targetUrl": "https://1edtech.edu/catalog/degree/project"
+                    }
+                ],
+                "allowedValue": ["D", "C", "B", "A"],
+                "name": "Final Project Grade",
+                "requiredValue": "C",
+                "resultType": "LetterGrade",
+                "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
+                "assessmentType": "Artifact",
+                "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
+                "hasGroupParticipation": false,
+                "hasGroupEvaluation": false,
+                "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
+                "assessmentExample": "http://placeholderurl.com",
+                "scoringMethodExampleDescription": "Placeholder text",
+                "assessmentEvaluation": "http://placeholderurl.com"
+                },
+                {
+                "id": "urn:uuid:a70ddc6a-4c4a-4bd8-8277-cb97c79f40c5",
+                "type": ["ResultDescription", "AssessmentResultDescription"],
+                "alignment": [
+                    {
+                    "type": ["Alignment"],
+                    "targetCode": "project",
+                    "targetDescription": "Project description",
+                    "targetName": "Final Project",
+                    "targetFramework": "1EdTech University Program and Course Catalog",
+                    "targetType": "CFItem",
+                    "targetUrl": "https://1edtech.edu/catalog/degree/project"
+                    }
+                ],
+                "allowedValue": ["D", "C", "B", "A"],
+                "name": "Final Project Grade",
+                "requiredLevel": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+                "resultType": "RubricCriterionLevel",
+                "rubricCriterionLevel": [
+                    {
+                    "id": "urn:uuid:d05a0867-d0ad-4b03-bdb5-28fb5d2aab7a",
+                    "type": ["RubricCriterionLevel"],
+                    "alignment": [
+                        {
+                        "type": ["Alignment"],
+                        "targetCode": "project",
+                        "targetDescription": "Project description",
+                        "targetName": "Final Project",
+                        "targetFramework": "1EdTech University Program and Course Catalog",
+                        "targetType": "CFRubricCriterionLevel",
+                        "targetUrl": "https://1edtech.edu/catalog/degree/project/rubric/levels/mastered"
+                        }
+                    ],
+                    "level": "Mastered",
+                    "name": "Mastery",
+                    "points": "4",
+                    "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment."
+                    },
+                    {
+                    "id": "urn:uuid:6b84b429-31ee-4dac-9d20-e5c55881f80e",
+                    "type": ["RubricCriterionLevel"],
+                    "alignment": [
+                        {
+                        "type": ["Alignment"],
+                        "targetCode": "project",
+                        "targetDescription": "Project description",
+                        "targetName": "Final Project",
+                        "targetFramework": "1EdTech University Program and Course Catalog",
+                        "targetType": "CFRubricCriterionLevel",
+                        "targetUrl": "https://1edtech.edu/catalog/degree/project/rubric/levels/basic"
+                        }
+                    ],
+                    "level": "Basic",
+                    "name": "Basic",
+                    "points": "4"
+                    }
+                ],
+                "description": "The assessment presents a hypertension scenario with simulated lab results. It is administered to pathophysiology students in an undergraduate nursing program. Completing the assessment requires analytical writing describing and justifying the diagnoses and eliminating alternative diagnoses. See the Pathology of High Blood Pressure assignment and the hypertension scenario used for this assessment.",
+                "assessmentType": "Artifact",
+                "assessmentOutput": "Written responses to the questions posed in the hypertension scenario",
+                "hasGroupParticipation": false,
+                "hasGroupEvaluation": false,
+                "evaluationMethod": "No studies have been done on reliability or validity but the hypertension scenario is consistent with scenarios encountered in nursing clinical practice.",
+                "assessmentExample": "http://placeholderurl.com",
+                "scoringMethodExampleDescription": "Placeholder text",
+                "assessmentEvaluation": "http://placeholderurl.com"
+                }
+            ]
+            }
+        },
+        "credentialSchema": [
+            {
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+            },
+            {
+            "id": "http://purl.imsglobal.org/spec/ob-assessment/v3p0/schema/",
+            "type": "1EdTechJsonSchemaValidator2019"
+            }
+        ]
+    }
+```
+
+## Schema
+
+### Context
+
+```json
+{
+  "@context": {
+    "@protected": true,
+    "id": "@id",
+    "type": "@type",
+    "extensions": "https://w3id.org/openbadges/extensions#",
+    "schema": "http://schema.org/",
+    "AssessmentResultDescription": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#AssessmentResultDescription",
+      "@context": {
+        "schema": "http://schema.org/",
+        "Artifact": "extensions:AssessmentExtensionArtifact",
+        "Exam": "extensions:AssessmentExtensionExam",
+        "ExternalQuestion": "extensions:AssessmentExtensionExternalQuestion",
+        "FileQuestion": "extensions:AssessmentExtensionFileQuestion",
+        "Performance": "extensions:AssessmentExtensionPerformance",
+        "TextQuestion": "extensions:AssessmentExtensionTextQuestion",
+        "assessmentEvaluation": "extensions:assessmentEvaluation",
+        "assessmentType": "extensions:assessmentType",
+        "assessmentExample": "extensions:assessmentExample",
+        "assessmentOutput": "extensions:assessmentOutput",
+        "characterLimit": "extensions:assessmentCharacterLimit",
+        "evaluationMethod": "extensions:assessmentEvaluationMethod",
+        "hasGroupEvaluation": "extensions:assessmentHasGroupEvaluation",
+        "hasGroupParticipation": "extensions:assessmentHasGroupParticipation",
+        "questions": "extensions:assessmentQuestions",
+        "sections": "extensions:assessmentSections",
+        "scoringMethodExampleDescription": "extensions:assessmentScoringMethodExampleDescription",
+        "text": "schema:text",
+        "wordLimit": "extensions:assessmentWordLimit"
+      }
+    }
+  }
+}
+```
+
+```mps json-schema
+modelId: org.1edtech.ob-assmt.v2p0.model
+package: OBClasses
+format: json
+title: JSON Schema
+```
