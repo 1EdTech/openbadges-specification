@@ -1,0 +1,129 @@
+Model ob-ace 2025-10-09 1.0 "s:Candidate Final" "t:Open Badges ACE Extension" "d:An extension to Open Badges 3.0 that allows endorsers to add American Council of Education (ACE) credit recommendations to badges." "i:https://purl.imsglobal.org/spec/vc/ob/vocab.html#"
+
+Package MainClasses DataModel
+
+    Class ACEEndorsementSubject Unordered false []
+        Property type IRI 1..* array-compacted                      "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'EndorsementSubject', and one of the items MUST be the URI 'ACEEndorsementSubject'"
+            Constraint contains EndorsementSubject
+            Constraint contains ACEEndorsementSubject
+        Property identifier IdentityObject 0..*                     "d:Other identifiers for the recipient of the endorsement"
+        Property version NonNegativeInteger 0..1                       "d:Each Exhibit has a version number.  The first time a course, exam, or apprenticeship is evaluated it is given the Version Number 1, and each subsequent re-evaluation is given a new number that corresponds with a new start and end date. Learners are issued credentials for the version that is active when they complete the experience."
+        Property minimumPassingScore ResultDescription 0..1         "d:Result description required for a learner to earn the credential. This helps institutions align the credit recommendations with their policies for transfer courses, which might require "a C or better" or similar language in order to accept a credential for credit"
+        Property creditRecommendations ACECreditRecommendation 0..*    "d:A set of credit recommendations associated with this learning evaluation by the ACE."
+        Property alignment Alignment 0..*                           "d: set of competency statements associated with this learning evaluation by the ACE."
+        Mixin Extensions
+
+    Class ACECreditRecommendation Unordered false []
+        Property type IRI 1..* array-compacted                      "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'ACECreditRecommendation'"
+            Constraint contains ACECreditRecommendation
+        Property creditRecommendationId UUID 1                                  "d:The ID for each set of elements that make up a single credit recommendation."
+        Property semesterHours Float 0..1      "d:The number of semester hours that the evaluation team determined the experience to be equivalent to.  It is a result of the review process by ACE."
+        Property level CreditRecommendationLevelEnum 0..1   "d:The level represents the educational level of the evaluated learning. One exhibit version may have credit recommendations at different levels, based on the depth, breadth, rigor, and scope of the material covered and assessed learning."
+        Property subject String 0..1                        "d: The Subject of a credit recommendation is a free text field agreed upon by the faculty reviewers that identifies the academic disciplinary area for that credit recommendation.  It is designed to help institutions align prior learning with courses in their catalog, and corresponds roughly to a college course."
+
+    // Copied from OB
+    Class Alignment Unordered false []                      "Describes an alignment between an achievement and a node in an educational framework."
+        Property type IRI 1..* array-compacted              "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Alignment'."
+            Constraint contains Alignment
+        Property targetCode String 0..1                     "If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl."
+        Property targetDescription String 0..1              "Short description of the alignment target." "i:https://schema.org/targetDescription"
+        Property targetName String 1                        "Name of the alignment." "i:https://schema.org/targetName"
+        Property targetFramework String 0..1                "Name of the framework the alignment target."
+        Property targetType AlignmentTargetType 0..1        "The type of the alignment target node."
+        Property targetUrl URL 1                            "URL linking to the official description of the alignment target, for example an individual standard within an educational framework."
+        Mixin Extensions
+
+    Class IdentityObject Unordered false []                 "A collection of information about the recipient of an achievement."
+        Property type IRI 1                                 "MUST be the IRI 'IdentityObject'."
+            Constraint equals IdentityObject
+        Property hashed Boolean 1                           "Whether or not the `identityHash` value is hashed."
+        Property identityHash IdentityHash 1                "Either the IdentityHash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information where there is an expectation of privacy, it is strongly recommended that an IdentityHash be used."
+        Property identityType IdentifierTypeEnum 1          "The identity type."
+        Property salt String 0..1                           "If the `identityHash` is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted."
+
+    Class ResultDescription Unordered false []                      "Describes a possible achievement result."
+        Property id URI 1                                           "The unique URI for this result description. Required so a result can link to this result description."
+        Property type IRI 1..* array-compacted                      "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'ResultDescription'."
+            Constraint contains ResultDescription
+        Property alignment Alignment 0..*                           "Alignments between this result description and nodes in external frameworks."
+        Property allowedValue String 0..*                           "An ordered list of allowed values. The values should be ordered from low to high as determined by the achievement creator."
+        Property name String 1                                      "The name of the result." "i:https://schema.org/name"
+        Property requiredLevel URI 0..1                             "The `id` of the rubric criterion level required to pass as determined by the achievement creator."
+        Property requiredValue String 0..1                          "A value from `allowedValue` or within the range of `valueMin` to `valueMax` required to pass as determined by the achievement creator."
+        Property resultType ResultType 1                            "The type of result this description represents. This is an extensible enumerated vocabulary."
+        Property rubricCriterionLevel RubricCriterionLevel 0..*     "An ordered array of rubric criterion levels that may be asserted in the linked result. The levels should be ordered from low to high as determined by the achievement creator."
+        Property valueMax String 0..1                               "The maximum possible `value` that may be asserted in a linked result."
+        Property valueMin String 0..1                               "The minimum possible `value` that may be asserted in a linked result."
+        Mixin Extensions
+
+    Class RubricCriterionLevel Unordered false []                   "Describes a rubric criterion level."
+        Property id URI 1                                           "The unique URI for this rubric criterion level. Required so a result can link to this rubric criterion level."
+        Property type IRI 1..* array-compacted                      "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'RubricCriterionLevel'."
+            Constraint contains RubricCriterionLevel
+        Property alignment Alignment 0..*                           "Alignments between this rubric criterion level and a rubric criterion levels defined in external frameworks."
+        Property description String 0..1                            "Description of the rubric criterion level." "i:https://schema.org/description"
+        Property level String 0..1                                  "The rubric performance level in terms of success."
+        Property name String 1                                      "The name of the rubric criterion level." "i:https://schema.org/name"
+        Property points String 0..1                                 "The points associated with this rubric criterion level."
+        Mixin Extensions
+
+Package Enumerations DataModel
+
+    Class CreditRecommendationLevelEnum Enum false []
+        Property VocationalCertificate Term 1       "d:Vocational-Certificate"
+        Property LowerDivisionBaccalaureate Term 1  "d:Lower Division Baccalaureate"
+        Property UpperDivisionBaccalaureate Term 1  "d:Upper Division Baccalaureate"
+        Property Graduate Term 1                    "d:Graduate"
+
+    // Copied from OB
+    Class AlignmentTargetType EnumExt false []       "d:The type of the alignment target node in the target framework."
+        Property ceasn:Competency Term 1             "d:An alignment to a CTDL-ASN/CTDL competency published by Credential Engine."
+        Property ceterms:Credential Term 1           "d:An alignment to a CTDL Credential published by Credential Engine."
+        Property CFItem Term 1                       "d:An alignment to a CASE Framework Item."
+        Property CFRubric Term 1                     "d:An alignment to a CASE Framework Rubric."
+        Property CFRubricCriterion Term 1            "d:An alignment to a CASE Framework Rubric Criterion."
+        Property CFRubricCriterionLevel Term 1       "d:An alignment to a CASE Framework Rubric Criterion Level."
+        Property CTDL Term 1                         "d:An alignment to a Credential Engine Item."
+        Property ext:ACENationalGuide Term 0..1      "d:An alignment to a ACE's National Guide Client."
+
+    Include IdentifierTypeEnum                                      // From CDM
+        Property ext:ACEId Term 0..1                    "d:ACE identifier of the recipient of the endorsement."
+        Property ext:CTId Term 0..1                     "d:CTID of the recipient of the endorsement."
+
+    Class ResultType EnumExt false []                               "The type of result. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention."
+        Property GradePointAverage Term 1                           "The result is a grade point average."
+        Property LetterGrade Term 1                                 "The result is a letter grade."
+        Property Percent Term 1                                     "The result is a percent score."
+        Property PerformanceLevel Term 1                            "The result is a performance level."
+        Property PredictedScore Term 1                              "The result is a predicted score."
+        Property RawScore Term 1                                    "The result is a raw score."
+        Property Result BaseTerm 1                                  "A generic result."
+        Property RubricCriterion Term 1                             "The result is from a rubric criterion."
+        Property RubricCriterionLevel Term 1                        "The result is a rubric criterion level."
+        Property RubricScore Term 1                                 "The result represents a rubric score with both a name and a numeric value."
+        Property ScaledScore Term 1                                 "The result is a scaled score."
+        Property Status Term 1                                      "The result conveys the status of the achievement."
+
+// Core OB types, defined here only for JSON Schema generation
+Package OBClasses DataModel
+    Class EndorsementCredential Unordered false []
+        Property credentialSubject ACEEndorsementSubject 1
+        Mixin Extensions
+
+
+// Derived Types
+
+Package DerivedTypes DataModel
+
+
+    Includes [BaseTerm, Term, IRI, URL, URI, UUID, Identifier]
+
+    // Copied from OB
+    Class IdentityHash DerivedType false [String]                   "A `String` consisting of an algorithm identifier, a `$` separator, and a hash across an identifier and an optionally appended salt string. The only supported algorithms are MD5 [[RFC1321]] and SHA-256 [[FIPS-180-4]], identified by the strings 'md5' and 'sha256' respectively. Identifiers and salts MUST be encoded in UTF-8 prior to hashing, and the resulting hash MUST be expressed in hexadecimal using uppercase (A-F, 0-9) or lowercase character (a-f, 0-9) sets. For example: 'sha256$b5809d8a92f8858436d7e6b87c12ebc0ae1eac4baecc2c0b913aee2c922ef399' represents the result of calculating a SHA-256 hash on the string 'a@example.comKosher'. in which the email identifier 'a@example.com' is salted with 'Kosher'"
+
+
+// PrimitiveTypes
+
+Package PrimitiveTypes DataModel
+
+    Includes [Boolean, Extensions, Namespace, NonNegativeInteger, NormalizedString, String, Date, Float]

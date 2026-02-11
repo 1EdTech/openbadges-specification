@@ -1,0 +1,87 @@
+    <h3>EndorsementCredential</h3>
+    <pre
+        class="json example vc"
+        data-schema="org.1edtech.ob.v3p0.endorsementcredential.class"
+        data-source="CORE"
+        data-allowadditionalproperties="true"
+        title="Sample EndorsementCredential with ACE extension"
+    >
+    {
+        "@context": [
+            "https://www.w3.org/ns/credentials/v2",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+            "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
+            "https://purl.imsglobal.org/spec/ob-ace/v1p0/context/context-1.0.0.json"
+        ],
+        "id": "http://example.com/credentials/3527",
+        "type": [
+            "VerifiableCredential",
+            "EndorsementCredential"
+        ],
+        "name": "SDE endorsement",
+        "issuer": {
+            "id": "https://state.gov/issuers/565049",
+            "type": ["Profile"],
+            "name": "State Department of Education"
+        },
+        "validFrom": "2010-01-01T00:00:00Z",
+        "validUntil": "2030-01-01T00:00:00Z",
+        "credentialSubject": {
+            "id": "https://1edtech.edu/issuers/565049",
+            "type": ["EndorsementSubject", "ACEEndorsementSubject"],
+            "endorsementComment": "Some notes about the credit recommendations.",
+            "identifier": [{
+                "type": ["IdentityObject"],
+                "hashed": false,
+                "identityType": "ext:ACEId",
+                "identityHash": "ACE-123456"
+            }],
+            "minimumPassingScore": {
+                "type": ["ResultDescription"],
+                "name": "Passing Score",
+                "resultType": "Percent",
+                "requiredValue": "80"
+            },
+            "version": 1,
+            "creditRecommendations": [
+                {
+                    "type": ["ACECreditRecommendation"],
+                    "creditRecommendationId": "b7e8c2a1-4f3d-4e2b-9d6f-8a1c2e3f4b5a",
+                    "semesterHours": 12.0,
+                    "level": "LowerDivisionBaccalaureate",
+                    "subject": "Computer networking"
+                },
+                {
+                    "type": ["ACECreditRecommendation"],
+                    "creditRecommendationId": "a3f9d7c4-2b1e-4a6f-9e8d-7c6b5a4e3f2d",
+                    "semesterHours": 24.0,
+                    "level": "VocationalCertificate",
+                    "subject": "Computer networking"
+                }
+            ],
+            "alignment": [{
+				"type": ["Alignment"],
+				"targetDescription": "Robot software is a set of commands and procedures robots use to respond to input and perform autonomous tasks.",
+				"targetName": "Robot Programming",
+				"targetFramework": "Example Robotics Framework",
+				"targetType": "CFItem",
+				"targetUrl": "https://robotics-competencies.example.com/competencies/robot-programming"
+			}, {
+                "type": ["Alignment"],
+                "targetName": "National Guide Link",
+                "targetType": "ext:ACENationalGuideLink",
+                "targetUrl": "https://example.com"
+            }]
+        },
+        "credentialSchema": [
+            {
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+            },
+            {
+            "id": "https://purl.imsglobal.org/spec/ob-ace/v1p0/schema/ob_ace_v1p0_endorsementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+            }
+        ]
+    }
+    </pre>

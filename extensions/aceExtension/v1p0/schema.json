@@ -1,0 +1,400 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema#",
+  "$id": "https://purl.imsglobal.org/spec/ob-ace/v1p0/ob_ace_v1p0_endorsementcredential_schema.json",
+  "title": "JSON Schema for an EndorsementCredential with an ACEEndorsementSubject credentialSubject.",
+  "description": "No description supplied.",
+  "type": "object",
+  "properties": {
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "allOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "contains": {
+                "enum": ["EndorsementSubject"]
+              },
+              "items": {
+                "description": "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'EndorsementSubject', and one of the items MUST be the URI 'ACEEndorsementSubject'",
+                "$comment": "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+                "type": "string"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 1,
+              "contains": {
+                "enum": ["ACEEndorsementSubject"]
+              },
+              "items": {
+                "description": "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'EndorsementSubject', and one of the items MUST be the URI 'ACEEndorsementSubject'",
+                "$comment": "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "identifier": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/IdentityObject"
+          }
+        },
+        "version": {
+          "description": "Each Exhibit has a version number. The first time a course, exam, or apprenticeship is evaluated it is given the Version Number 1, and each subsequent re-evaluation is given a new number that corresponds with a new start and end date. Learners are issued credentials for the version that is active when they complete the experience.",
+          "$comment": "Origin: NonNegativeInteger (PrimitiveType)",
+          "type": "integer"
+        },
+        "minimumPassingScore": {
+          "$ref": "#/$defs/ResultDescription"
+        },
+        "creditRecommendations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ACECreditRecommendation"
+          }
+        },
+        "alignment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Alignment"
+          }
+        }
+      },
+      "required": ["type"],
+      "additionalProperties": true
+    },
+    "additionalProperties": true
+  },
+  "$defs": {
+    "ACECreditRecommendation": {
+      "description": "No description supplied.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "array",
+          "minItems": 1,
+          "contains": {
+            "enum": ["ACECreditRecommendation"]
+          },
+          "items": {
+            "description": "The value of the type property MUST be an unordered set. One of the items MUST be the URI 'ACECreditRecommendation'",
+            "$comment": "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+            "type": "string"
+          }
+        },
+        "creditRecommendationId": {
+          "description": "The ID for each set of elements that make up a single credit recommendation.",
+          "$comment": "Origin: UUID (DerivedType); An `Identifier` with the lexical restrictions of a UUID [[RFC4122]]",
+          "type": "string",
+          "format": "uuid"
+        },
+        "semesterHours": {
+          "description": "The number of semester hours that the evaluation team determined the experience to be equivalent to. It is a result of the review process by ACE.",
+          "$comment": "Origin: Float (PrimitiveType)",
+          "type": "number"
+        },
+        "level": {
+          "description": "The level represents the educational level of the evaluated learning. One exhibit version may have credit recommendations at different levels, based on the depth, breadth, rigor, and scope of the material covered and assessed learning.",
+          "$comment": "Origin: CreditRecommendationLevelEnum (Enum)",
+          "type": "string",
+          "enum": [
+            "VocationalCertificate",
+            "LowerDivisionBaccalaureate",
+            "UpperDivisionBaccalaureate",
+            "Graduate"
+          ]
+        },
+        "subject": {
+          "description": "The Subject of a credit recommendation is a free text field agreed upon by the faculty reviewers that identifies the academic disciplinary area for that credit recommendation. It is designed to help institutions align prior learning with courses in their catalog, and corresponds roughly to a college course.",
+          "$comment": "Origin: String (PrimitiveType); Character strings.",
+          "type": "string"
+        }
+      },
+      "required": ["type", "creditRecommendationId"],
+      "additionalProperties": false
+    },
+    "ResultDescription": {
+      "description": "Describes a possible achievement result.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The unique URI for this result description. Required so a result can link to this result description.",
+          "$comment": "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
+          "type": "string"
+        },
+        "type": {
+          "type": "array",
+          "minItems": 1,
+          "contains": {
+            "enum": ["ResultDescription"]
+          },
+          "items": {
+            "description": "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'ResultDescription'.",
+            "$comment": "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+            "type": "string"
+          }
+        },
+        "alignment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Alignment"
+          }
+        },
+        "allowedValue": {
+          "type": "array",
+          "items": {
+            "description": "An ordered list of allowed values. The values should be ordered from low to high as determined by the achievement creator.",
+            "$comment": "Origin: String (PrimitiveType); Character strings.",
+            "type": "string"
+          }
+        },
+        "name": {
+          "description": "The name of the result.",
+          "$comment": "Origin: String (PrimitiveType); Character strings.",
+          "type": "string"
+        },
+        "requiredLevel": {
+          "description": "The `id` of the rubric criterion level required to pass as determined by the achievement creator.",
+          "$comment": "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
+          "type": "string"
+        },
+        "requiredValue": {
+          "description": "A value from `allowedValue` or within the range of `valueMin` to `valueMax` required to pass as determined by the achievement creator.",
+          "$comment": "Origin: String (PrimitiveType); Character strings.",
+          "type": "string"
+        },
+        "resultType": {
+          "description": "The type of result this description represents. This is an extensible enumerated vocabulary.",
+          "$comment": "Origin: ResultType (EnumExt); The type of result. This is an extensible enumerated vocabulary. Extending the vocabulary makes use of a naming convention.",
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "GradePointAverage",
+                "LetterGrade",
+                "Percent",
+                "PerformanceLevel",
+                "PredictedScore",
+                "RawScore",
+                "Result",
+                "RubricCriterion",
+                "RubricCriterionLevel",
+                "RubricScore",
+                "ScaledScore",
+                "Status"
+              ]
+            },
+            {
+              "type": "string",
+              "pattern": "(ext:)[a-z|A-Z|0-9|.|-|_]+"
+            }
+          ]
+        },
+        "rubricCriterionLevel": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RubricCriterionLevel"
+          }
+        },
+        "valueMax": {
+          "description": "The maximum possible `value` that may be asserted in a linked result.",
+          "$comment": "Origin: String (PrimitiveType); Character strings.",
+          "type": "string"
+        },
+        "valueMin": {
+          "description": "The minimum possible `value` that may be asserted in a linked result.",
+          "$comment": "Origin: String (PrimitiveType); Character strings.",
+          "type": "string"
+        }
+      },
+      "required": ["id", "type", "name", "resultType"],
+      "additionalProperties": true
+    },
+    "IdentityObject": {
+      "description": "A collection of information about the recipient of an achievement.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "MUST be the IRI 'IdentityObject'.",
+          "$comment": "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+          "type": "string",
+          "enum": ["IdentityObject"]
+        },
+        "hashed": {
+          "description": "Whether or not the `identityHash` value is hashed.",
+          "$comment": "Origin: Boolean (PrimitiveType); A boolean, expressed as `true` or `false`",
+          "type": "boolean"
+        },
+        "identityHash": {
+          "description": "Either the IdentityHash of the identity or the plaintext value. If it's possible that the plaintext transmission and storage of the identity value would leak personally identifiable information where there is an expectation of privacy, it is strongly recommended that an IdentityHash be used.",
+          "$comment": "Origin: IdentityHash (DerivedType); A `String` consisting of an algorithm identifier, a `$` separator, and a hash across an identifier and an optionally appended salt string. The only supported algorithms are MD5 [[RFC1321]] and SHA-256 [[FIPS-180-4]], identified by the strings 'md5' and 'sha256' respectively. Identifiers and salts MUST be encoded in UTF-8 prior to hashing, and the resulting hash MUST be expressed in hexadecimal using uppercase (A-F, 0-9) or lowercase character (a-f, 0-9) sets. For example: 'sha256$b5809d8a92f8858436d7e6b87c12ebc0ae1eac4baecc2c0b913aee2c922ef399' represents the result of calculating a SHA-256 hash on the string 'a@example.comKosher'. in which the email identifier 'a@example.com' is salted with 'Kosher'",
+          "type": "string"
+        },
+        "identityType": {
+          "description": "The identity type.",
+          "$comment": "Origin: IdentifierTypeEnum (EnumExt)",
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ext:ACEId",
+                "ext:CTId",
+                "sourcedId",
+                "systemId",
+                "productId",
+                "userName",
+                "accountId",
+                "emailAddress",
+                "nationalIdentityNumber",
+                "isbn",
+                "issn",
+                "lisSourcedId",
+                "oneRosterSourcedId",
+                "sisSourcedId",
+                "ltiContextId",
+                "ltiDeploymentId",
+                "ltiToolId",
+                "ltiPlatformId",
+                "ltiUserId",
+                "identifier"
+              ]
+            },
+            {
+              "type": "string",
+              "pattern": "(ext:)[a-z|A-Z|0-9|.|-|_]+"
+            }
+          ]
+        },
+        "salt": {
+          "description": "If the `identityHash` is hashed, this should contain the string used to salt the hash. If this value is not provided, it should be assumed that the hash was not salted.",
+          "$comment": "Origin: String (PrimitiveType); Character strings.",
+          "type": "string"
+        }
+      },
+      "required": ["type", "hashed", "identityHash", "identityType"],
+      "additionalProperties": false
+    },
+    "Alignment": {
+      "description": "Describes an alignment between an achievement and a node in an educational framework.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "array",
+          "minItems": 1,
+          "contains": {
+            "enum": ["Alignment"]
+          },
+          "items": {
+            "description": "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'Alignment'.",
+            "$comment": "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+            "type": "string"
+          }
+        },
+        "targetCode": {
+          "description": "If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl.",
+          "$comment": "Origin: String (PrimitiveType); Character strings.",
+          "type": "string"
+        },
+        "targetDescription": {
+          "description": "Short description of the alignment target.",
+          "$comment": "Origin: String (PrimitiveType); Character strings.",
+          "type": "string"
+        },
+        "targetName": {
+          "description": "Name of the alignment.",
+          "$comment": "Origin: String (PrimitiveType); Character strings.",
+          "type": "string"
+        },
+        "targetFramework": {
+          "description": "Name of the framework the alignment target.",
+          "$comment": "Origin: String (PrimitiveType); Character strings.",
+          "type": "string"
+        },
+        "targetType": {
+          "description": "The type of the alignment target node.",
+          "$comment": "Origin: AlignmentTargetType (EnumExt); The type of the alignment target node in the target framework.",
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ceasn:Competency",
+                "ceterms:Credential",
+                "CFItem",
+                "CFRubric",
+                "CFRubricCriterion",
+                "CFRubricCriterionLevel",
+                "CTDL",
+                "ext:ACENationalGuide"
+              ]
+            },
+            {
+              "type": "string",
+              "pattern": "(ext:)[a-z|A-Z|0-9|.|-|_]+"
+            }
+          ]
+        },
+        "targetUrl": {
+          "description": "URL linking to the official description of the alignment target, for example an individual standard within an educational framework.",
+          "$comment": "Origin: URL (DerivedType); A `URI` that represents a Uniform Resource Locator (URL).",
+          "type": "string"
+        }
+      },
+      "required": ["type", "targetName", "targetUrl"],
+      "additionalProperties": true
+    },
+    "RubricCriterionLevel": {
+      "description": "Describes a rubric criterion level.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The unique URI for this rubric criterion level. Required so a result can link to this rubric criterion level.",
+          "$comment": "Origin: URI (DerivedType); A `NormalizedString` that respresents a Uniform Resource Identifier (URI).",
+          "type": "string"
+        },
+        "type": {
+          "type": "array",
+          "minItems": 1,
+          "contains": {
+            "enum": ["RubricCriterionLevel"]
+          },
+          "items": {
+            "description": "The value of the type property MUST be an unordered set. One of the items MUST be the IRI 'RubricCriterionLevel'.",
+            "$comment": "Origin: IRI (DerivedType); A `NormalizedString` that represents an Internationalized Resource Identifier (IRI), which extends the ASCII characters subset of the Uniform Resource Identifier (URI).",
+            "type": "string"
+          }
+        },
+        "alignment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Alignment"
+          }
+        },
+        "description": {
+          "description": "Description of the rubric criterion level.",
+          "$comment": "Origin: String (PrimitiveType); Character strings.",
+          "type": "string"
+        },
+        "level": {
+          "description": "The rubric performance level in terms of success.",
+          "$comment": "Origin: String (PrimitiveType); Character strings.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the rubric criterion level.",
+          "$comment": "Origin: String (PrimitiveType); Character strings.",
+          "type": "string"
+        },
+        "points": {
+          "description": "The points associated with this rubric criterion level.",
+          "$comment": "Origin: String (PrimitiveType); Character strings.",
+          "type": "string"
+        }
+      },
+      "required": ["id", "type", "name"],
+      "additionalProperties": true
+    }
+  }
+}

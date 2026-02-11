@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "@protected": true,
+    "id": "@id",
+    "type": "@type",
+    "ACEEndorsementSubject": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob-ace/vocab.html#ACEEndorsementSubject",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "identifier": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#identifier",
+          "@container": "@set"
+        },
+        "version": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#version"
+        },
+        "minimumPassingScore": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob-ace/vocab.html#minimumPassingScore",
+          "@container": "@set"
+        },
+        "creditRecommendations": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob-ace/vocab.html#creditRecommendations",
+          "@container": "@set"
+        }
+      }
+    },
+    "ACECreditRecommendation": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob-ace/vocab.html#CreditRecommendation",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "creditRecommendationId": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob-ace/vocab.html#creditRecommendationId"
+        },
+        "semesterHours": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob-ace/vocab.html#semesterHours",
+          "@type": "https://www.w3.org/2001/XMLSchema#float"
+        },
+        "level": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob-ace/vocab.html#level"
+        },
+        "subject": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob-ace/vocab.html#subject",
+          "@type": "https://www.w3.org/2001/XMLSchema#string"
+        }
+      }
+    }
+  }
+}
