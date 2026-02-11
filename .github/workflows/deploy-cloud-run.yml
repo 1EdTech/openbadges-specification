@@ -1,0 +1,103 @@
+name: Build and Deploy to Cloud Run
+
+on:
+  push:
+    branches: [ "publish" ]
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy from'
+        required: false
+        default: 'publish'
+        type: choice
+        options:
+          - publish
+
+env:
+  PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+  REGION: ${{ vars.GCP_REGION }}
+  SERVICE: ${{ vars.CLOUD_RUN_SERVICE }}
+  REPOSITORY: ${{ vars.ARTIFACT_REPO }}
+  IMAGE_NAME: ${{ vars.IMAGE_NAME }}
+  ASTRO_BASE_PATH: ${{ vars.PATH }}
+  # Auth-related variables (from repo variables and secrets)
+  AUTH0_DOMAIN: ${{ vars.AUTH0_DOMAIN }}
+  AUTH0_CLIENT_ID: ${{ vars.AUTH0_CLIENT_ID }}
+  AUTH0_AUDIENCE: ${{ vars.AUTH0_AUDIENCE }}
+  AUTH_REDIRECT_URI: ${{ vars.AUTH_REDIRECT_URI }}
+  AUTH_POST_LOGIN_REDIRECT: ${{ vars.AUTH_POST_LOGIN_REDIRECT }}
+
+  # Secrets
+  AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
+  AUTH_COOKIE_SECRET: ${{ secrets.AUTH_COOKIE_SECRET }}
+  MPS_API_KEY: ${{ secrets.MPS_API_KEY }}
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    # Only run on upstream repository, not on forks
+    if: github.repository == '1edtech/openbadges-specification' && github.event_name != 'pull_request'
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch || github.ref }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Set up gcloud auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+      - name: Configure gcloud
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+
+      - name: Configure Artifact Registry Docker auth
+        run: gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
+
+      - name: Set IMAGE_URI
+        id: vars
+        run: echo "IMAGE_URI=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}" >> $GITHUB_OUTPUT
+
+      - name: Build and push image (linux/amd64)
+        run: |
+          docker buildx build \
+            --platform linux/amd64 \
+            --build-arg ASTRO_BASE_PATH=${{ env.ASTRO_BASE_PATH }} \
+            -t ${{ steps.vars.outputs.IMAGE_URI }} \
+            --push .
+
+      - name: Deploy to Cloud Run
+        id: deploy
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: ${{ env.SERVICE }}
+          region: ${{ env.REGION }}
+          image: ${{ steps.vars.outputs.IMAGE_URI }}
+          flags: |
+            --allow-unauthenticated
+            --ingress=internal-and-cloud-load-balancing
+            --port=4321
+            --set-env-vars ASTRO_BASE_PATH=${{ env.ASTRO_BASE_PATH }}
+            --set-env-vars AUTH0_DOMAIN=${{ env.AUTH0_DOMAIN }}
+            --set-env-vars AUTH0_CLIENT_ID=${{ env.AUTH0_CLIENT_ID }}
+            --set-env-vars AUTH0_CLIENT_SECRET=${{ env.AUTH0_CLIENT_SECRET }}
+            --set-env-vars AUTH0_AUDIENCE=${{ env.AUTH0_AUDIENCE }}
+            --set-env-vars AUTH_COOKIE_SECRET=${{ env.AUTH_COOKIE_SECRET }}
+            --set-env-vars AUTH_REDIRECT_URI=${{ env.AUTH_REDIRECT_URI }}
+            --set-env-vars AUTH_POST_LOGIN_REDIRECT=${{ env.AUTH_POST_LOGIN_REDIRECT }}
+            --set-env-vars MPS_API_KEY=${{ env.MPS_API_KEY }}
+
+
+      - name: Output URL
+        run: echo "Deployed to ${{ steps.deploy.outputs.url }}"
+
