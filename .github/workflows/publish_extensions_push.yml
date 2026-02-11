@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - id: set-files
         run: |
-          files=$(find ob_v3p0/ -type f -name "*.lines" | jq -R . | jq -s .)
+          files=$(find extensions/ -type f -name "*.lines" | jq -R . | jq -s .)
           echo "files=$files" >> $GITHUB_OUTPUT
 
   process-lines-files:
