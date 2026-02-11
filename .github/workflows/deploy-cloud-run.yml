@@ -87,7 +87,7 @@ jobs:
             --allow-unauthenticated
             --ingress=internal-and-cloud-load-balancing
             --port=4321
-            --startup-probe=initialDelaySeconds=10,timeoutSeconds=10,periodSeconds=120,failureThreshold=10
+            --startup-probe=httpGet.port=4321,initialDelaySeconds=10,timeoutSeconds=10,periodSeconds=120,failureThreshold=10
             --memory=1Gi
             --timeout=60
             --min-instances=1
