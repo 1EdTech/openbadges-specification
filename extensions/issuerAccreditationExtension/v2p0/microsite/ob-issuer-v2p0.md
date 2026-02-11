@@ -1,0 +1,214 @@
+---
+author: 1Edtech Consortium
+category: Extension
+title: Open Badges Issuer Accreditation Extension
+shortcode: OB-ACCRED-20
+status: Base Document
+lastUpdated: 2024-07-24
+version: '2.0'
+nature: normative
+docType: spec
+contributors:
+  - name: Nate Otto
+    affiliation: Skybridge Skills
+    companyUrl: ''
+    role: Invited Expert
+  - name: Justin Pitcher
+    affiliation: Anthology
+    companyUrl: ''
+    role: Co-chair, OB
+  - name: Xavi Aracil
+    affiliation: 1Edtech
+    companyUrl: ''
+    role: Editor
+  - name: Rob Coyle
+    affiliation: 1Edtech
+    companyUrl: ''
+    role: Editor
+releases:
+  - version: Base Document
+    docVersion: 1.0
+    date: 2024-07-24
+    comments: Initial release.
+
+---
+
+## Abstract
+
+This extension provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile.
+
+## Overview
+
+## Introduction{.informative}
+
+This extension provides a reference to a single or to an array of multiple accreditation bodies as related to the Issuer Profile.
+
+Issuers can include this information in order to convey trust to the badge viewer.
+
+### Use cases{.informative}
+
+* An issuer wants to include detailed information about an accrediting organization as it pertains to the program or the badge.
+
+## Extendable Badge Objects
+
+`Profile`, with the new types `IssuerAccreditationProfile` and `AccreditationProfile`
+
+### Terminology
+
+The terminology used in this document is consistent with the terminology established in the Open Badges 3.0 specification [[OB-30]].
+
+### Document Set
+
+#### Normative Documents
+
+JSON Schema
+: The JSON Schema defines the syntactical restrictions of this extension: https://purl.imsglobal.org/spec/ob-accred/v2p0/schema.
+
+JSON-LD Context
+: The JSON-LD context defines mappings for the terms used in this specification to their canonical IRIs: https://purl.imsglobal.org/spec/ob-accred/v2p0/context.
+
+Errata
+: The errata details any erratum registered for this version of this specification since its publication [[OB-ACCRED-20-ERRATA]].
+
+## Data Model
+
+```mps data-model
+modelId: org.1edtech.ob-accred.v2p0.model
+package: MainClasses
+title: Data Models
+```
+
+```mps data-model
+modelId: org.1edtech.ob-accred.v2p0.model
+stereotype: DerivedType
+title: Derived Types
+```
+
+The derived types in this section are shared by all 1EdTech specifications.
+
+```mps data-model
+modelId: org.1edtech.ob-accred.v2p0.model
+stereotype: PrimitiveType
+title: Primitive Types
+```
+
+The primitive types in this section are shared by all 1EdTech specifications.
+
+## Examples
+
+### Sample OpenBadgeCredential with Issuer Accreditation extension
+
+```obv3p0 org.1edtech.ob.v3p0.achievementcredential.class
+{
+        "@context": [
+            "https://www.w3.org/ns/credentials/v2",
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
+            "http://purl.imsglobal.org/spec/ob-accred/v3p0/context"
+        ],
+        "id": "http://example.com/credentials/3527",
+        "type": ["VerifiableCredential", "OpenBadgeCredential"],
+        "issuer": {
+            "id": "https://example.com/issuers/876543",
+            "type": ["Profile", "IssuerAccreditationProfile"],
+            "name": "Example Corp",
+            "accreditations": [{
+                "type": ["Profile", "AccreditationProfile"],
+                "name": "Northwest Commission on Colleges and Universities",
+                "contactInstructions": "Call or email the Commission Office",
+                "url": "http://www.nwccu.org/index.htm",
+                "address": {
+                    "type": ["Address"],
+                    "streetAddress": "8060 165th Ave. NE, Suite 100",
+                    "addressLocality": "Redmond",
+                    "addressRegion": "WA",
+                    "postalCode": "98052"
+                },
+                "description": "The Northwest Commission on Colleges and Universities (NWCCU) is an independent, non-profit membership organization recognized by the U.S. Department of Education as the regional authority on educational quality and institutional effectiveness of higher education institutions.",
+                "areaServed": "The US seven-state Northwest region of Alaska, Idaho, Montana, Nevada, Oregon, Utah, and Washington. US-AK, US-ID, US-MT, US-NV, US-OR, US-UT, US-WA",
+                "accreditationDate": "2010-09-01",
+                "educationalSector": "Postsecondary"
+            },
+            {
+                "type": ["Profile", "AccreditationProfile"],
+                "name": "Commission on Accreditation of Allied Health Education Programs",
+                "contactInstructions": "Contact Kathleen Megivern, Executive Director, megivern@caahep.org",
+                "url": "http://www.ncacasi.org",
+                "address": {
+                    "type": ["Address"],
+                    "streetAddress": "25400 US Highway 19 N, Suite 158",
+                    "addressLocality": "Clearwater",
+                    "addressRegion": "FL",
+                    "postalCode": "33763"
+                },
+                "description": "CAAHEP is the largest programmatic accreditor in the health sciences field. In collaboration with its Committees on Accreditation, CAAHEP reviews and accredits over 2000 educational programs in twenty-eight (28) health science occupations.",
+                "accreditationDate": "2014-04-01",
+                "educationalSector": "postsecondary"
+            }]
+        },
+        "validFrom": "2010-01-01T00:00:00Z",
+        "name": "Teamwork Badge",
+        "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+            "type": ["AchievementSubject"],
+            "achievement": {
+                "id": "https://example.com/achievements/21st-century-skills/teamwork",
+                "type": ["Achievement"],
+                "criteria": {
+                    "narrative": "Team members are nominated for this badge by their peers and recognized upon review by Example Corp management."
+                },
+                "description": "This badge recognizes the development of the capacity to collaborate within a group environment.",
+                "name": "Teamwork"
+            }
+        },
+        "credentialSchema": [{
+            "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }, {
+            "id": "http://purl.imsglobal.org/spec/ob-accred/v3p0/schema",
+            "type": "1EdTechJsonSchemaValidator2019"
+        }]
+    }
+```
+
+## Schema
+
+### Context
+
+```json
+{
+  "@context": {
+    "@protected": true,
+    "id": "@id",
+    "type": "@type",
+    "extensions": "https://w3id.org/openbadges/extensions#",
+    "schema": "http://schema.org/",
+    "AccreditationProfile": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#AccreditationProfile",
+      "@context": {
+        "contactInstructions": "extensions:accreditationContactInstructions",
+        "logo": "schema:logo",
+        "areaServed": "schema:areaServed",
+        "accreditationDate": "extensions:accreditationDate",
+        "educationalSector": "extensions:accreditationEducationalSector"
+      }
+    },
+    "IssuerAccreditationProfile": {
+      "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#IssuerAccreditationProfile",
+      "@context": {
+        "accreditations": {
+          "@id": "https://purl.imsglobal.org/spec/vc/ob/vocab.html#accreditations",
+          "@type": "@id",
+          "@container": "@set"
+        }
+      }
+    }
+  }
+}
+```
+
+```mps json-schema
+modelId: org.1edtech.ob-accred.v2p0.model
+package: OBClasses
+format: json
+title: JSON Schema
+```

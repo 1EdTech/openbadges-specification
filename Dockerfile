@@ -17,6 +17,15 @@ RUN if [ -f /app/src/content/content.config.ts ]; then \
 COPY --chown=astro:nodejs ob_v3p0/microsites /app/src/content/standards/
 COPY --chown=astro:nodejs .microsite /app/src/content/
 
+# ACE Extension
+COPY --chown=astro:nodejs extensions/aceExtension/v1p0/microsite /app/src/content/standards/ace-extension
+
+# Assessment Extension
+COPY --chown=astro:nodejs extensions/assessmentExtension/v2p0/microsite /app/src/content/standards/assessment-extension
+
+# Issuer Accreditation Extension
+COPY --chown=astro:nodejs extensions/issuerAccreditationExtension/v2p0/microsite /app/src/content/standards/issuer-accreditation-extension
+
 # The base image handles everything:
 # 1. Runtime processes the assets (transforms paths, copies assets)
 # 2. Starts the Astro server
