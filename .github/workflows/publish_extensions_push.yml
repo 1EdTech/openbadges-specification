@@ -19,7 +19,7 @@ jobs:
       - id: set-files
         run: |
           files=$(find extensions/ -type f -name "*.lines" | paste -sd "," -)
-          echo "files=$files" >> $GITHUB_OUTPUT
+          echo "files=[$files]" >> $GITHUB_OUTPUT
 
   process-lines-files:
     needs: find-lines-files
