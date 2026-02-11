@@ -15,6 +15,7 @@ RUN if [ -f /app/src/content/content.config.ts ]; then \
 
 
 COPY --chown=astro:nodejs ob_v3p0/microsites /app/src/content/standards/
+COPY --chown=astro:nodejs .microsite /app/src/content/
 
 # The base image handles everything:
 # 1. Runtime processes the assets (transforms paths, copies assets)
