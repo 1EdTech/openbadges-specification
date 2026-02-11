@@ -1,6 +1,6 @@
 ---
 author: 1Edtech Consortium
-category: Specification
+category: Certification
 title: Open Badges Specification Conformance and Certification Guide
 shortcode: OB-CERT-30
 status: Final

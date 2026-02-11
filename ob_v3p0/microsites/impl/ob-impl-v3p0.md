@@ -1,6 +1,6 @@
 ---
 author: 1Edtech Consortium
-category: Specification
+category: Guide
 title: Open Badges Implementation Guide
 shortcode: OB-IMPL-30
 status: Final
