@@ -10,12 +10,34 @@ on:
   workflow_dispatch:
 
 jobs:
+  find-lines-files:
+    runs-on: ubuntu-latest
+    outputs:
+      files: ${{ steps.set-files.outputs.files }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: set-files
+        run: |
+          files=$(find ob_v3p0/ -type f -name "*.lines" | jq -R . | jq -s .)
+          echo "files=$files" >> $GITHUB_OUTPUT
+
+  process-lines-files:
+    needs: find-lines-files
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        file: ${{ fromJson(needs.find-lines-files.outputs.files) }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sideload the lines file
+        run: curl -H 'X-Api-Key:${{ secrets.MPS_API_KEY }}' -F 'file=@${{ matrix.file }}' https://mps.1edtech.org/upload
+        continue-on-error: false
   publish:
     name: Publish to GH pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout develop
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: develop
       - name: Upload extensions from develop
