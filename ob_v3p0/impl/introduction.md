@@ -89,7 +89,7 @@ include:
 -   Revocation of an Issued Credential
 -   Badge Class Status
 
-[Comprehensive Learner Record use cases (not yet published)](https://github.com/1EdTech/ComprehensiveLearnerRecord/blob/develop/clr_v2p0/usecases.md)
+[Comprehensive Learner Record use cases](https://www.imsglobal.org/spec/clr/v2p0#use-cases)
 include:
 
 -   Recent graduate wants to hold a copy of their own official transcript
