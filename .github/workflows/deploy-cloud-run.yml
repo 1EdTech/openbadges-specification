@@ -87,7 +87,9 @@ jobs:
             --allow-unauthenticated
             --ingress=internal-and-cloud-load-balancing
             --port=4321
-            --timeout=240
+            --startup-probe=initialDelaySeconds=10,timeoutSeconds=10,periodSeconds=120,successThreshold=1,failureThreshold=10
+            --memory=1Gi
+            --timeout=60
             --min-instances=1
             --set-env-vars ASTRO_BASE_PATH=${{ env.ASTRO_BASE_PATH }}
             --set-env-vars AUTH0_DOMAIN=${{ env.AUTH0_DOMAIN }}
