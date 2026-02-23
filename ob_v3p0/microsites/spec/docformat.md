@@ -8,7 +8,7 @@
 
 ## Example: Sample OpenBadgeCredential file contents
 
-```obv3p0 org.1edtech.ob.v3p0.achievementcredential.class preventAdditionalProperties=true"
+```obv3p0 org.1edtech.ob.v3p0.achievementcredential.class preventAdditionalProperties=true
   {
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
