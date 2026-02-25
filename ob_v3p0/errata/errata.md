@@ -26,12 +26,14 @@ Previous versions of the context file will remain accessible, in order to keep b
 </div>
 
 #### version 3.0.3
+
 - `@id` of `image` in `Achievement` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image`
 - `@id` of `achievement` in `AchievementSubject` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#achievement`
 - `@id` of `image` in `AchievementSubject` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image`
 - `@id` of `image` in `Profile` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image`
 
 #### version 3.0.2
+
 - Added `@protected` to all `@context`.
 - `"@type": "xsd:string"`` was removed where it appears. This is the default type, but in rare cases, processing systems handle an explicit declaration of this type differently from allowing the default. For VCs, it is considered more reliable to just allow the default to be applied.
 - `id` and `type`` aliases are redeclared in every context. This avoids a narrow type of attack where somebody might place a context that redeclares these terms in between the top layer and a class-specific layer of a credential, changing the values of these terms within the class implementation.
@@ -72,3 +74,10 @@ algorithm to use in Open Badges. Concretely, it stated:
 This statement may not follow the security requirements of the future as
 the securing mechanisms evolve over time. Therefore, the specific list of
 allowed proof formats have been extracted out the [[[OB-CERT-30]]].
+
+### Typography Errors
+
+Section [B.4.1 Service Description Document](https://www.imsglobal.org/spec/ob/v3p0#servicedescriptiondocument)
+contains an extra `provided` in its description:
+
+> ...profiled version of the OpenAPI 3.0 (JSON) file _provided provided_ with this specification...
