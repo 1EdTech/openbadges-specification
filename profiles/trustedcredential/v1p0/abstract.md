@@ -2,6 +2,8 @@ var abstract = `
 
 ## Abstract
 
-This specification is a new version of the [1EdTech Open Badges Specification](https://www.imsglobal.org/activity/digital-badges) that aligns with the conventions of the [[[VC-DATA-MODEL-2.0]]] for the use cases of [=Defined Achievement Claim=] and a [=Skill Claim=]. The credentials that are produced are easily be bundled into [=Comprehensive Learner Records=] and [=Verifiable Presentations=]. Portability and learner data privacy are improved by expanding the usage of cryptographic proofs/signatures, because this format will be compatible with a growing array of proof schemas that are developed for the Verifiable Credentials Data Model.
+This is the TrustEd Credentials profile of the[1EdTech Open Badges Specification](https://www.1edtech.org/standards/open-badges) that aligns with [Open Badges 3.0](https://www.imsglobal.org/spec/ob/v3p0), the [TrustEd Credentials Framework](https://www.1edtech.org/program/trusted-credentials#framework), and the conventions of the [[[VC-DATA-MODEL-2.0]]]. In the TrustEd Credentials Open Badges 3.0 Profile, some metadata fields that are optional in Open Badges 3.0 are required, such as Skills and Critera, as are some Open Badges 3.0 extensions such as [Assessments](https://www.imsglobal.org/spec/ob-assessment/v2p0/).
+
+Like Open Badges 3.0,the credentials that are produced that ahread to the TrustEd Credentials Framework are easily be bundled into [=Comprehensive Learner Records=] and [=Verifiable Presentations=].
 
 `;
