@@ -3,7 +3,7 @@ Model ob-accred 2024-09-12 2.0 "s:IMS Base Document" "t:Open Badges Issuer Accre
 Package MainClasses DataModel
 
     Class IssuerAccreditationProfile Unordered false [] "Profile extension with accreditation information."
-        Property accreditations AccreditationProfile 0..1 "d:listing of accreditations."
+        Property accreditations AccreditationProfile 0..* "d:listing of accreditations."
 
     Class AccreditationProfile Unordered false []   "Profile extension with detailed information about an accrediting organization."
         Property type IRI 1                         "d:MUST be the IRI 'AccreditationProfile'."
