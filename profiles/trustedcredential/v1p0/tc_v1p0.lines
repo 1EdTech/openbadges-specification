@@ -1,4 +1,18 @@
 ModelExtension obtc ob 3.0
 Profile obtc ob 3.0 2026-04-07 1.0 "s:1EdTech Base Document" "t:TrustEd Credential Profile for Open Badges 3.0" "a:Digital Credentials Project Group"
+
 Modify AchievementCredential Class
 Adapt cardinality awardedDate 1
+Adapt cardinality evidence 1..*
+
+
+Modify Achievement Class
+Adapt cardinality achievementType 1..*
+Adapt cardinality alignment 1..*
+
+Modify AchievementSubject Class
+Adapt cardinality result 1.**
+
+Modify Result Class
+Adapt cardinality resultDescription 1
+
