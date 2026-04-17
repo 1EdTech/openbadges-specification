@@ -1117,7 +1117,7 @@ In this example, all required and optional properties are populated.
 > **Note**: The endorsements were signed by different issuers and provided to the issuer of this OpenBadgeCredential.
 
 ```obv3p0 org.1edtech.ob.v3p0.achievementcredential.class
-{
+  {
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
       "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
@@ -1210,7 +1210,8 @@ In this example, all required and optional properties are populated.
             {
               "@context": [
                 "https://www.w3.org/ns/credentials/v2",
-                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+                "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
               ],
               "id": "http://1edtech.edu/endorsementcredential/3732",
               "type": [
@@ -1245,28 +1246,30 @@ In this example, all required and optional properties are populated.
                 }
               ],
               "credentialStatus": {
-                "id": "https://1edtech.edu/credentials/3732/revocations",
-                "type": "1EdTechRevocationList"
+                "id": "https://1edtech.edu/credentials/revocationList#23",
+                "type": "BitstringStatusListEntry",
+                "statusPurpose": "revocation",
+                "statusListIndex": 23,
+                "statusListCredential": "https://1edtech.edu/credentials/revocationList"
               },
               "refreshService": {
                 "id": "http://1edtech.edu/credentials/3732",
                 "type": "1EdTechCredentialRefresh"
               },
-              "proof": [
-                {
-                  "type": "DataIntegrityProof",
-                "cryptosuite": "eddsa-rdf-2022",
-                  "created": "2022-05-26T18:17:08Z",
-                  "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
-                  "proofPurpose": "assertionMethod",
-                  "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
-                }
-              ]
+              "proof": [{
+                "type": "DataIntegrityProof",
+                "created": "2010-01-01T19:23:24Z",
+                "verificationMethod": "https://accrediter.edu/issuers/565049#z6MkqHLdLYHwKr169xzu9qvH1cq94pUjeQpfrPU5Xv3MtNzt",
+                "cryptosuite": "eddsa-rdfc-2022",
+                "proofPurpose": "assertionMethod",
+                "proofValue": "z27zr9VnabHMVwHsrqu9j8mSmm6Yp2cJCrMcg4Cownc8h7kw4qwMkxFHdg8h4CVYVK1TGd1vgoPBgFkQodMtjWQ8f"
+             }]
             },
             {
               "@context": [
                 "https://www.w3.org/ns/credentials/v2",
-                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+                "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+                "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
               ],
               "id": "http://1edtech.edu/endorsementcredential/3733",
               "type": [
@@ -1301,8 +1304,11 @@ In this example, all required and optional properties are populated.
                 }
               ],
               "credentialStatus": {
-                "id": "https://state.gov/credentials/3732/revocations",
-                "type": "1EdTechRevocationList"
+                "id": "https://1edtech.edu/credentials/revocationList#23",
+                "type": "BitstringStatusListEntry",
+                "statusPurpose": "revocation",
+                "statusListIndex": 23,
+                "statusListCredential": "https://1edtech.edu/credentials/revocationList"
               },
               "refreshService": {
                 "id": "http://state.gov/credentials/3732",
@@ -1310,12 +1316,12 @@ In this example, all required and optional properties are populated.
               },
               "proof": [
                 {
-                  "type": "DataIntegrityProof",
-                "cryptosuite": "eddsa-rdf-2022",
-                  "created": "2022-05-26T18:25:59Z",
-                  "verificationMethod": "https://accrediter.edu/issuers/565049#z5bDnmSgDczXwZGya6ZjxKaxkdKxzsCMiVSsgEVWxnaWK7ZqbKnzcCd7mUKE9DQaAL2QMXP5AquPeW6W2CWrZ7jNC",
-                  "proofPurpose": "assertionMethod",
-                  "proofValue": "z5bDnmSgDczXwZGya6ZjxKaxkdKxzsCMiVSsgEVWxnaWK7ZqbKnzcCd7mUKE9DQaAL2QMXP5AquPeW6W2CWrZ7jNC"
+                    "type": "DataIntegrityProof",
+                    "created": "2010-01-01T19:23:24Z",
+                    "verificationMethod": "https://accrediter.edu/issuers/565049#z6MkqHLdLYHwKr169xzu9qvH1cq94pUjeQpfrPU5Xv3MtNzt",
+                    "cryptosuite": "eddsa-rdfc-2022",
+                    "proofPurpose": "assertionMethod",
+                    "proofValue": "z4TUqPBaJx7Ld3QMxMy25dRU29fAPEwemPEUEZSRDS979nUKtfon7zu6ocgRyRCniXE9heY46NKPzwbFdqmKbUhkG"
                 }
               ]
             }
@@ -1374,7 +1380,8 @@ In this example, all required and optional properties are populated.
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+              "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+                "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
             ],
             "id": "http://1edtech.edu/endorsementcredential/3734",
             "type": [
@@ -1409,8 +1416,11 @@ In this example, all required and optional properties are populated.
               }
             ],
             "credentialStatus": {
-              "id": "https://1edtech.edu/credentials/3732/revocations",
-              "type": "1EdTechRevocationList"
+                "id": "https://1edtech.edu/credentials/revocationList#23",
+                "type": "BitstringStatusListEntry",
+                "statusPurpose": "revocation",
+                "statusListIndex": 23,
+                "statusListCredential": "https://1edtech.edu/credentials/revocationList"
             },
             "refreshService": {
               "id": "http://1edtech.edu/credentials/3732",
@@ -1419,11 +1429,11 @@ In this example, all required and optional properties are populated.
             "proof": [
               {
                 "type": "DataIntegrityProof",
-                "cryptosuite": "eddsa-rdf-2022",
-                "created": "2022-05-26T18:17:08Z",
-                "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
+                "created": "2010-01-01T19:23:24Z",
+                "verificationMethod": "https://accrediter.edu/issuers/565049#z6MkqHLdLYHwKr169xzu9qvH1cq94pUjeQpfrPU5Xv3MtNzt",
+                "cryptosuite": "eddsa-rdfc-2022",
                 "proofPurpose": "assertionMethod",
-                "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+                "proofValue": "z3R4NfPDo67k5AXBqCLcqsFo9grbWND3zkQYSvBRFwYZ1JjZE5z4FBnpFNrckzSvDHPekBsyy5z8RL4H3J9r5VUGF"
               }
             ]
           }
@@ -1623,7 +1633,8 @@ In this example, all required and optional properties are populated.
       {
         "@context": [
           "https://www.w3.org/ns/credentials/v2",
-          "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+          "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+          "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
         ],
         "id": "http://1edtech.edu/endorsementcredential/3735",
         "type": [
@@ -1658,8 +1669,11 @@ In this example, all required and optional properties are populated.
           }
         ],
         "credentialStatus": {
-          "id": "https://1edtech.edu/credentials/3732/revocations",
-          "type": "1EdTechRevocationList"
+            "id": "https://1edtech.edu/credentials/revocationList#23",
+            "type": "BitstringStatusListEntry",
+            "statusPurpose": "revocation",
+            "statusListIndex": 23,
+            "statusListCredential": "https://1edtech.edu/credentials/revocationList"
         },
         "refreshService": {
           "id": "http://1edtech.edu/credentials/3732",
@@ -1668,11 +1682,11 @@ In this example, all required and optional properties are populated.
         "proof": [
           {
             "type": "DataIntegrityProof",
-            "cryptosuite": "eddsa-rdf-2022",
-            "created": "2022-05-26T18:17:08Z",
-            "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
+            "created": "2010-01-01T19:23:24Z",
+            "verificationMethod": "https://accrediter.edu/issuers/565049#z6MkqHLdLYHwKr169xzu9qvH1cq94pUjeQpfrPU5Xv3MtNzt",
+            "cryptosuite": "eddsa-rdfc-2022",
             "proofPurpose": "assertionMethod",
-            "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+            "proofValue": "z3PbutAvPaLRfYRqSex4XcAcpBqj3Vhx5vxpCxtngeTuXoutFUx3yRf7J7yrc1vL8oksMWt7FVAa4ryd9XLpnKdQA"
           }
         ]
       }
@@ -1713,7 +1727,8 @@ In this example, all required and optional properties are populated.
         {
           "@context": [
             "https://www.w3.org/ns/credentials/v2",
-            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+            "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+            "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json"
           ],
           "id": "http://1edtech.edu/endorsementcredential/3736",
           "type": [
@@ -1748,8 +1763,11 @@ In this example, all required and optional properties are populated.
             }
           ],
           "credentialStatus": {
-            "id": "https://1edtech.edu/credentials/3732/revocations",
-            "type": "1EdTechRevocationList"
+            "id": "https://1edtech.edu/credentials/revocationList#23",
+            "type": "BitstringStatusListEntry",
+            "statusPurpose": "revocation",
+            "statusListIndex": 23,
+            "statusListCredential": "https://1edtech.edu/credentials/revocationList"
           },
           "refreshService": {
             "id": "http://1edtech.edu/credentials/3732",
@@ -1757,12 +1775,12 @@ In this example, all required and optional properties are populated.
           },
           "proof": [
             {
-              "type": "DataIntegrityProof",
-            "cryptosuite": "eddsa-rdf-2022",
-              "created": "2022-05-26T18:17:08Z",
-              "verificationMethod": "https://accrediter.edu/issuers/565049#zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA",
-              "proofPurpose": "assertionMethod",
-              "proofValue": "zvPkQiUFfJrgnCRhyPkTSkgrGXbnLR15pHH5HZVYNdM4TCAwQHqG7fMeMPLtYNRnEgoV1aJdR5E61eWu5sWRYgtA"
+                "type": "DataIntegrityProof",
+                "created": "2010-01-01T19:23:24Z",
+                "verificationMethod": "https://accrediter.edu/issuers/565049#z6MkqHLdLYHwKr169xzu9qvH1cq94pUjeQpfrPU5Xv3MtNzt",
+                "cryptosuite": "eddsa-rdfc-2022",
+                "proofPurpose": "assertionMethod",
+                "proofValue": "z3KqayPvBkJ196JzwYTgjuxZTYd7XQFSCauLg3Lo2xZKCcQTewydijTwfTouadyf2jBVYqAZg1CWXnug5JZkivUP6"
             }
           ]
         }
@@ -1820,8 +1838,11 @@ In this example, all required and optional properties are populated.
       }
     ],
     "credentialStatus": {
-      "id": "https://1edtech.edu/credentials/3732/revocations",
-      "type": "1EdTechRevocationList"
+        "id": "https://1edtech.edu/credentials/revocationList#23",
+        "type": "BitstringStatusListEntry",
+        "statusPurpose": "revocation",
+        "statusListIndex": 23,
+        "statusListCredential": "https://1edtech.edu/credentials/revocationList"
     },
     "refreshService": {
       "id": "http://1edtech.edu/credentials/3732",
@@ -1868,8 +1889,11 @@ In this example, all required and optional properties are populated.
         }
       ],
       "credentialStatus": {
-        "id": "https://state.gov/credentials/3732/revocations",
-        "type": "1EdTechRevocationList"
+        "id": "https://1edtech.edu/credentials/revocationList#23",
+        "type": "BitstringStatusListEntry",
+        "statusPurpose": "revocation",
+        "statusListIndex": 23,
+        "statusListCredential": "https://1edtech.edu/credentials/revocationList"
       },
       "refreshService": {
         "id": "http://state.gov/credentials/3732",
