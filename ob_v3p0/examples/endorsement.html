@@ -3,7 +3,7 @@ var endorsement = `
 <pre
     class="json example vc"
     data-schema="org.1edtech.ob.v3p0.endorsementcredential.class"
-    data-allowadditionalproperties="false"
+    data-allowadditionalproperties="true"
     title="Sample EndorsementCredential"
 >
     {
@@ -41,15 +41,17 @@ var endorsement = `
         }
       ],
       "credentialStatus": {
-        "id": "https://state.gov/credentials/3732/revocations",
-        "type": "1EdTechRevocationList"
+        "id": "https://1edtech.edu/credentials/revocationList#23",
+        "type": "BitstringStatusListEntry",
+        "statusPurpose": "revocation",
+        "statusListIndex": 23,
+        "statusListCredential": "https://1edtech.edu/credentials/revocationList"
       },
       "refreshService": {
         "id": "http://state.gov/credentials/3732",
         "type": "1EdTechCredentialRefresh"
       }
     }
-    </pre
->
+</pre>
 
 `;
