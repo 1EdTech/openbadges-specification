@@ -178,36 +178,44 @@ ipDisclosures:
 releases:
   - version: "Candidate Final"
     docVersion: "1.0"
-    date: July 14, 2022"
+    date: 2022/07/14
     comments: "Open Badges 3.0 first Candidate Final release"
   - version: "Candidate Public Final"
     docVersion: "1.0.1"
-    date: "February 9, 2023"
+    date: 2023/02/09
     comments: "Open Badges 3.0 first Candidate Public Final release"
   - version: "Final"
     docVersion: "1.0"
-    date: "May 27, 2024"
+    date: 2024/05/27
     comments: "Open Badges 3.0 Final Release"
   - version: "Final"
     docVersion: "1.1"
-    date: "July 26, 2024"
+    date: 2024/07/26
     comments: "Fixed some typos. See [[OB-ERRATA-30]]\nAdded [[VC-DATA-MODEL-1.1]] compatible JSON schema in Document Set"
   - version: "Final"
     docVersion: "1.2"
-    date: "Dec 23, 2024"
+    date: 2024/12/23
     comments: "Clarified proof mechanism and algorithm selection. See [[OB-ERRATA-30]]"
   - version: "Final"
     docVersion: "1.3"
-    date: "October 9, 2025"
+    date: 2025/10/09
     comments: "Updated JSON Schemas with support for [[JSON-LD11-API]] compaction process\nDeprecated [[VCRL-10]] in favour of [[vc-bitstring-status-list]]"
   - version: "Final"
     docVersion: "1.4"
-    date: "October 14, 2025"
+    date: 2025/10/14
     comments: "Credential Status' id is an optional field as defined at  [[vc-data-model-2.0]]"
   - version: "Final"
     docVersion: "1.4.1"
-    date: "November 6, 2025"
+    date: 2025/11/06
     comments: "Updated JSON-LD Context, adding the term `jti`"
+  - version: "Final"
+    docVersion: "1.4.2"
+    date: 2026/04/17
+    comments: "Updated <code>CredentialStatus</code> of all examples to <code>BitstringStatusListEntry</code>"
+  - version: "Final"
+    docVersion: "1.4.3"
+    date: 2026/04/22
+    comments: "Fixed links to OpenAPI files in <a href=\"#api\">Open Badges API</a> section"
 ---
 
 @spec/abstract.md
@@ -232,8 +240,8 @@ The API defined here is intended for [=Clients=] and [=servers=] that give indiv
 
 In addition to the documentation in this section, there are [OpenAPI](#docs-openapi) files for the Open Badges API in both JSON and YAML format:
 
-* [JSON OpenAPI File](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/imsob_v3p0.json)
-* [YAML OpenAPI File](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/imsob_v3p0.yaml)
+* [JSON OpenAPI File](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.json)
+* [YAML OpenAPI File](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.yaml)
 
 ## Architecture
 
