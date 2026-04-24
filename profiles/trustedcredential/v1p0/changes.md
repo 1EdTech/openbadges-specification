@@ -4,14 +4,13 @@ var changes=`
 
 ### Summary of Changes
 
-The TrustEd Credential Profile defines additional requirements and guidance for the use of existing Open Badges 3.0 properties to support consistent representation of credential quality and achievement. This includes structured use of achievementType to distinguish knowledge and application credentials, and strengthened expectations for properties such as criteria, alignment, result, and evidence.
+The TrustEd Credential Profile defines additional requirements and guidance for the use of existing Open Badges 3.0 properties to support consistent representation of credential quality and achievement. This includes structured use of \`achievementType\` to describe the nature of the achievement, and strengthened expectations for properties such as criteria, alignment, result, and evidence.
 
 The profile also introduces guidance for representing assessment information, including use of rubrics, validated assessments, and outcome data, as well as expectations for accreditation and endorsement metadata. These changes enhance clarity, comparability, and interoperability while remaining fully compatible with the core OB3 specification.
 
 ### Changes to the Data Model
 
-This profile specializes the Open Badges 3.0 Data model by defining a set of changes, mainly
-modifying the cardinality of some properties to make them required.
+This profile specializes the Open Badges 3.0 Data model by defining a set of changes, mainly modifying the cardinality of some properties to make them required.
 
 #### Changes to Achievement
 
@@ -20,6 +19,8 @@ The existing following optional properties in [Achievement](#achievement) are MA
 - \`achievementType\`
 - \`alignment\`
 - \`resultDescription\`
+
+The value of \`achievementType\` MUST identify the nature of the achievement using the Open Badges 3.0 \`achievementType\`vocabulary or another conformant term from an allowed extensible vocabulary.
 
 #### Changes to AchievementCredential
 
@@ -50,7 +51,7 @@ The existing following optional properties in [Result](#result) are MANDATORY:
 #### Skills and Framework Alignment
 
 - A TrustEd Credential MUST include at least one \`alignment\`.
-- The alignment MUST reference an external skills framework via URI.
+- Each alignment MUST reference an external skills framework via URI.
 
 #### Evidence
 
@@ -80,7 +81,8 @@ The existing following optional properties in [Result](#result) are MANDATORY:
 
 #### Accreditor
 
-- Accreditor information MUST be included when available.
-- If not available, the field MAY be empty.
+- Accreditor information MUST be included using the applicable [Open Badges Issuer Accreditation Extension version 2.0](https://www.imsglobal.org/spec/ob-accred/v2p0/) for accreditor information.
+- The accreditor property MUST support multiple accreditor organizations.
+- Organizations that are not accredited MAY include an empty list of accreditors.
 
 `;

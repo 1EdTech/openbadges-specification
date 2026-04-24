@@ -8,7 +8,7 @@ The use cases below drive the design of Open Badges 3.0 TrustEd Credential Profi
 
 An issuing organization awards a TrustEd Knowledge Credential to a learner upon successful completion of an assessment that validates foundational knowledge.
 
-The issuing system creates an Open Badges 3.0 credential conforming to the TrustEd Profile, including required metadata such as criteria, result, and alignment to skills or frameworks. Recommended metadata such as evidence and assessment details may also be included.
+The issuing system creates an Open Badges 3.0 credential conforming to the TrustEd Profile, including required metadata such as criteria, result, evidence, and alignment to skills or frameworks. Assessment details may also be included to clarify how the learner’s knowledge was evaluated.
 
 The credential is delivered to the learner and can be stored in a wallet or profile system. Any conformant receiving system can interpret the credential, understand the level of achievement, and verify its validity.
 
@@ -18,7 +18,7 @@ The credential is delivered to the learner and can be stored in a wallet or prof
 
 An issuing organization awards a TrustEd Application Credential to a learner who demonstrates the ability to apply knowledge through a project, lab, or performance-based assessment.
 
-The issuing system generates a credential that includes detailed metadata such as rubric, evidence, and assessment method, in addition to required fields. The credential clearly communicates that the learner has demonstrated applied competence.
+The issuing system generates a credential that includes the required metadata for the TrustEd Profile, such as criteria, result, evidence, and alignment to skills or frameworks. Assessment details, such as rubric-based or performance-based evaluation information, may also be included to clarify how the learner demonstrated applied competence.
 
 A receiving system, such as an employer platform, consumes the credential and can evaluate both the outcome and supporting evidence, enabling more informed decision-making.
 
@@ -28,7 +28,7 @@ A receiving system, such as an employer platform, consumes the credential and ca
 
 A receiving organization, such as an employer or another institution, receives a TrustEd Credential issued under the OB3 profile.
 
-The receiving system validates the credential using OB3 verification mechanisms and interprets the TrustEd metadata fields. It distinguishes between Knowledge and Application credentials and evaluates the included evidence, results, and endorsements.
+The receiving system validates the credential using OB3 verification mechanisms and interprets the TrustEd metadata fields. It evaluates the included achievementType, criteria, evidence, results, endorsements, and any available assessment details to understand the nature and rigor of the credential.
 
 The organization uses this information to assess the learner’s level of competency without needing additional clarification from the issuer.
 
