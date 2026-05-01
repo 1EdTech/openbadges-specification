@@ -195,7 +195,7 @@ In the diagram below, the concepts are shown in gray boxes (e.g. Assertion). Ple
 Starting with this version of the Open Badges Specification, an Assertion is also a Verifiable Credential (VC) as defined by the [[vc-data-model-2.0]] specification. The diagram includes labels that show the relationships between VC terminology and Open Badges terminology (e.g. Issuer is identified by the VC "issuer").
 
 
-![Diagram shows the major conceptual components of an Open Badge Verifiable Credential](/standards/images/ob30-concept.png)
+![Diagram shows the major conceptual components of an Open Badge Verifiable Credential](../images/ob30-concept.png)
 
 *Diagram shows the major conceptual components of an Open Badge Verifiable Credential*
 
