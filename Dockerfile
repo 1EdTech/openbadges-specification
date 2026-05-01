@@ -1,6 +1,6 @@
 FROM us-central1-docker.pkg.dev/specautomation-458709/microsites/microsites-base:dev
-ARG ASTRO_BASE_PATH=/case/
-ENV ASTRO_BASE_PATH=/case/
+ARG ASTRO_BASE_PATH=/openbadges/
+ENV ASTRO_BASE_PATH=/openbadges/
 
 # This clears some test upstream content bundled in the base image, preserving content.config.ts
 RUN if [ -f /app/src/content/content.config.ts ]; then \
