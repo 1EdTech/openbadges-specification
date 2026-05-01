@@ -13,11 +13,11 @@ This specification changes the structure of the Open Badges [Assertion](#achieve
 Previous versions of an Open Badges Assertion, illustrated in the graphic below, structures its objects like this:
 An Assertion identifies a recipient with a "recipient" relationship to an IdentityObject that contains identifying properties. It identifies which badge it represents with a "badge" relationship to a BadgeClass. It identifies its verification information with a "verification" relationship to a VerificationObject. It identifies its issuer with an "issuer" relationship between the BadgeClass and the Issuer.
 
-![Open Badges 2.0 Diagram](/standards/images/figure01-openbadges-2.0-diagram.png)
+![Open Badges 2.0 Diagram](../images/figure01-openbadges-2.0-diagram.png)
 
 The Verifiable Credentials structure in this specification depicted below offers the same information with a slightly different structure: A Verifiable Credential identifies its recipient with a "credentialSubject" relationship to a subject class that is identified by an identifier. It identifies its issuer with an "issuer" relationship directly to an Issuer. The Credential claims the subject has met the criteria of a specific Achievement (also known as the BadgeClass in previous versions) with an "achievement" relationship to that defined achievement. And it identifies its verification information with a proof.
 
-![Diagram show the major conceptual components of an Open Badge Verifiable Credential](/standards/images/ob30-concept.png)
+![Diagram show the major conceptual components of an Open Badge Verifiable Credential](../images/ob30-concept.png)
 
 ## Benefits and Opportunities
 
