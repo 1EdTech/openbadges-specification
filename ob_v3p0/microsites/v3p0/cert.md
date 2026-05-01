@@ -198,14 +198,14 @@ releases:
     comments: Added JSON-LD Safe mode requirement for issuer certification profile.
 ---
 
-@cert/abstract.md
+@v3p0/cert/abstract.md
 
-@cert/introduction.md
+@v3p0/cert/introduction.md
 
-@cert/conformance.md
+@v3p0/cert/conformance.md
 
-@cert/issuer.md
+@v3p0/cert/issuer.md
 
-@cert/displayer.md
+@v3p0/cert/displayer.md
 
-@cert/host.md
+@v3p0/cert/host.md

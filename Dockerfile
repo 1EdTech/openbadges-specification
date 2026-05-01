@@ -18,13 +18,13 @@ COPY --chown=astro:nodejs ob_v3p0/microsites /app/src/content/standards/
 COPY --chown=astro:nodejs .microsite /app/src/content/
 
 # ACE Extension
-COPY --chown=astro:nodejs extensions/aceExtension/v1p0/microsite /app/src/content/standards/ace-extension
+COPY --chown=astro:nodejs extensions/aceExtension/v1p0/microsite /app/src/content/standards/ob-ace
 
 # Assessment Extension
-COPY --chown=astro:nodejs extensions/assessmentExtension/v2p0/microsite /app/src/content/standards/assessment-extension
+COPY --chown=astro:nodejs extensions/assessmentExtension/v2p0/microsite /app/src/content/standards/ob-assessment
 
 # Issuer Accreditation Extension
-COPY --chown=astro:nodejs extensions/issuerAccreditationExtension/v2p0/microsite /app/src/content/standards/issuer-accreditation-extension
+COPY --chown=astro:nodejs extensions/issuerAccreditationExtension/v2p0/microsite /app/src/content/standards/ob-accred
 
 # The base image handles everything:
 # 1. Runtime processes the assets (transforms paths, copies assets)
