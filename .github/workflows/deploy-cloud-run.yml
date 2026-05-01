@@ -26,6 +26,7 @@ env:
   AUTH0_AUDIENCE: ${{ vars.AUTH0_AUDIENCE }}
   AUTH_REDIRECT_URI: ${{ vars.AUTH_REDIRECT_URI }}
   AUTH_POST_LOGIN_REDIRECT: ${{ vars.AUTH_POST_LOGIN_REDIRECT }}
+  LATEST_SPEC_VERSION: ${{ vars.LATEST_SPEC_VERSION }}
 
   # Secrets
   AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
@@ -100,6 +101,7 @@ jobs:
             --set-env-vars AUTH_REDIRECT_URI=${{ env.AUTH_REDIRECT_URI }}
             --set-env-vars AUTH_POST_LOGIN_REDIRECT=${{ env.AUTH_POST_LOGIN_REDIRECT }}
             --set-env-vars MPS_API_KEY=${{ env.MPS_API_KEY }}
+            --set-env-vars LATEST_SPEC_VERSION=${{ env.LATEST_SPEC_VERSION }}
 
 
       - name: Output URL
