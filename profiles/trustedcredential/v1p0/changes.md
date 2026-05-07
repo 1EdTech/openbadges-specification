@@ -38,6 +38,7 @@ The existing following optional properties in [AchievementSubject](#achievements
 #### Changes to Result
 
 The existing following optional properties in [Result](#result) are MANDATORY:
+A new property in [Result](#result) \'resultDate\' is MANDATORY
 
 - \`resultDescription\`
 
@@ -46,7 +47,7 @@ The existing following optional properties in [Result](#result) are MANDATORY:
 #### Achievement Type
 
 - A TrustEd Credential MUST include \`achievementType\`.
-- The value MUST distinguish between Knowledge and Application credentials.
+- The value MUST identify the nature of the achievement using the Open Badges 3.0 achievementType vocabulary or another conformant term from an allowed extensible vocabulary.
 
 #### Skills and Framework Alignment
 
@@ -60,6 +61,7 @@ The existing following optional properties in [Result](#result) are MANDATORY:
 #### Result
 
 - A TrustEd Credential MUST include a \`result\`.
+- A TrustEd Credential MUST include \'result.resultDate\'
 - If \`resultDescription.rubricCriterionLevel\` is present, \`result.achievedLevel\` MUST be included.
 
 #### Criteria
