@@ -61,7 +61,7 @@ A new property in [Result](#result) \'resultDate\' is MANDATORY
 #### Result
 
 - A TrustEd Credential MUST include a \`result\`.
-- A TrustEd Credential MUST include \'result.resultDate\'
+- A TrustEd Credential MUST include \`result.resultDate\`.
 - If \`resultDescription.rubricCriterionLevel\` is present, \`result.achievedLevel\` MUST be included.
 
 #### Criteria
