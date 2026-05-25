@@ -4,7 +4,7 @@ category: Specification
 title: Open Badges Errata
 shortcode: OB-ERRATA-30
 status: Final
-lastUpdated: July 17, 2024
+lastUpdated: 2024-07-17
 version: '3.0'
 nature: informative
 docType: errata
@@ -105,23 +105,23 @@ contributors:
 releases:
   - version: Version 3.0 Candidate Final
     docVersion: 1.0
-    date: March 6, 2023
+    date: 2023-03-06
     comments: Added changes in context.json file
   - version: Version 3.0 Final
     docVersion: 1.0
-    date: June 17, 2024
+    date: 2024-06-17
     comments: Added typography errors
   - version: Version 3.0 Final
     docVersion: 1.1
-    date: July 26, 2024
+    date: 2024-07-26
     comments: Added typography errors
   - version: Version 3.0 Final
     docVersion: 1.2
-    date: Dec 23, 2024
+    date: 2024-12-23
     comments: Consolidated with version 1.2 of the specification.\nClarified proof mechanism and algorithm selection.
   - version: Version 3.0 Final
     docVersion: 1.3
-    date: June 16, 2025
+    date: 2025-06-16
     comments: Fixed typography errors in the errata document.
 ---
 

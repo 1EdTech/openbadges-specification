@@ -27,11 +27,21 @@ env:
   AUTH_REDIRECT_URI: ${{ vars.AUTH_REDIRECT_URI }}
   AUTH_POST_LOGIN_REDIRECT: ${{ vars.AUTH_POST_LOGIN_REDIRECT }}
   LATEST_SPEC_VERSION: ${{ vars.LATEST_SPEC_VERSION }}
-
+  # Image service (diagram rendering at startup build)
+  IMAGE_SERVICE_URL: ${{ vars.IMAGE_SERVICE_URL }}
+  IMAGE_SERVICE_AUTH0_DOMAIN: ${{ vars.IMAGE_SERVICE_AUTH0_DOMAIN }}
+  IMAGE_SERVICE_AUTH0_AUDIENCE: ${{ vars.IMAGE_SERVICE_AUTH0_AUDIENCE }}
+  IMAGE_SERVICE_M2M_CLIENT_ID: ${{ vars.IMAGE_SERVICE_M2M_CLIENT_ID }}
+  # FastComments (discussion)
+  FASTCOMMENTS_TENANT_ID: ${{ vars.FASTCOMMENTS_TENANT_ID }}
+  FASTCOMMENTS_ENABLED: ${{ vars.FASTCOMMENTS_ENABLED }}
+  COMMENTS_SITE_KEY: ${{ vars.COMMENTS_SITE_KEY }}
   # Secrets
   AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
   AUTH_COOKIE_SECRET: ${{ secrets.AUTH_COOKIE_SECRET }}
   MPS_API_KEY: ${{ secrets.MPS_API_KEY }}
+  IMAGE_SERVICE_M2M_CLIENT_SECRET: ${{ secrets.IMAGE_SERVICE_M2M_CLIENT_SECRET }}
+  FASTCOMMENTS_API_SECRET: ${{ secrets.FASTCOMMENTS_API_SECRET }}
 
 jobs:
   deploy:
@@ -102,8 +112,15 @@ jobs:
             --set-env-vars AUTH_POST_LOGIN_REDIRECT=${{ env.AUTH_POST_LOGIN_REDIRECT }}
             --set-env-vars MPS_API_KEY=${{ env.MPS_API_KEY }}
             --set-env-vars LATEST_SPEC_VERSION=${{ env.LATEST_SPEC_VERSION }}
-
+            --set-env-vars IMAGE_SERVICE_URL=${{ env.IMAGE_SERVICE_URL }}
+            --set-env-vars IMAGE_SERVICE_AUTH0_DOMAIN=${{ env.IMAGE_SERVICE_AUTH0_DOMAIN }}
+            --set-env-vars IMAGE_SERVICE_AUTH0_AUDIENCE=${{ env.IMAGE_SERVICE_AUTH0_AUDIENCE }}
+            --set-env-vars IMAGE_SERVICE_M2M_CLIENT_ID=${{ env.IMAGE_SERVICE_M2M_CLIENT_ID }}
+            --set-env-vars IMAGE_SERVICE_M2M_CLIENT_SECRET=${{ env.IMAGE_SERVICE_M2M_CLIENT_SECRET }}
+            --set-env-vars FASTCOMMENTS_TENANT_ID=${{ env.FASTCOMMENTS_TENANT_ID }}
+            --set-env-vars FASTCOMMENTS_ENABLED=${{ env.FASTCOMMENTS_ENABLED }}
+            --set-env-vars FASTCOMMENTS_API_SECRET=${{ env.FASTCOMMENTS_API_SECRET }}
+            --set-env-vars COMMENTS_SITE_KEY=${{ env.COMMENTS_SITE_KEY }}
 
       - name: Output URL
         run: echo "Deployed to ${{ steps.deploy.outputs.url }}"
-
