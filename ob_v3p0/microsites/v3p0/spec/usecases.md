@@ -1,4 +1,13 @@
-# Use Cases{.informative}
+---
+title: "Use Cases"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Use cases for the Open Badges 3.0 specification"
+---
+
+## Use Cases{.informative}
 
 The use cases below drive the design of Open Badges 3.0 specification.
 

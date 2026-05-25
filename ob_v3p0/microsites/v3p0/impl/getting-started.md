@@ -1,3 +1,12 @@
+---
+title: "Getting Started (for Developers)"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Getting started guide for Open Badges 3.0 developers"
+---
+
 ## Getting Started (for Developers){.informative}
 
 It may seem like an overwhelming task to implement Open Badges 3.0 or CLR 2.0,

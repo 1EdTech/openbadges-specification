@@ -1,4 +1,13 @@
-# Verification and Validation
+---
+title: "Verification and Validation"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Verification and validation for Open Badges 3.0 credentials"
+---
+
+## Verification and Validation
 
 [=Verification=] is the process to determine whether a [=verifiable credential=] or [=verifiable presentation=] is an authentic and timely statement of the issuer or presenter respectively. This includes checking that: the credential (or presentation) conforms to the specification; the proof method is satisfied; and, if present, the status check succeeds. Verification of a credential does not imply evaluation of the truth of claims encoded in the credential.
 

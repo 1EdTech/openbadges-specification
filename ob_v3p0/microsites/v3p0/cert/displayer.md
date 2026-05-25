@@ -1,3 +1,12 @@
+---
+title: "Open Badges 3.0 Displayer Service Conformance"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Displayer service conformance requirements for Open Badges 3.0 certification"
+---
+
 ## Open Badges 3.0 Displayer Service Conformance {#displayer-conformance}
 
 An Open Badges Displayer is an application that displays and verifies badges for viewers. The candidate platform must support viewer-initiated verification of a badge.

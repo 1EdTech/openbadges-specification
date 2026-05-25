@@ -1,3 +1,12 @@
+---
+title: "Open Badges 3.0 Issuer Service Conformance"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Issuer service conformance requirements for Open Badges 3.0 certification"
+---
+
 ## Open Badges 3.0 Issuer Service Conformance {#issuer-conformance}
 
 A Open Badges **Issuer** is an application that allows for the creation of OpenBadgeCredentials and the subsequent delivery of OpenBadgeCredentials to recipients that conform to the Open Badges Specification. The candidate platform must issue a valid badge and demonstrate how the badge is retrieved by the recipient. The candidate platform may also meet Service Consumer (Write) requirements and can send an AchievementCredential or a Profile to a product that conforms to Service Provider (Write) requirements.

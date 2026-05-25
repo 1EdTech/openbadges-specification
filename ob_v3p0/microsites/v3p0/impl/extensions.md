@@ -1,3 +1,12 @@
+---
+title: "Open Badges Extensions"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Open Badges 3.0 extensions"
+---
+
 ## Open Badges Extensions{#informative}
 
 [Open Badges 3.0](/ob/specifications/ob-v3p0#extending) and [Comprehensive Learner Record 2.0](http://www.imsglobal.org/spec/clr/v2p0#extending) allows extensibility in several ways: data model, extensible enumerated vocabularies and API.

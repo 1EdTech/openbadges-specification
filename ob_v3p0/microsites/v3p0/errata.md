@@ -125,4 +125,4 @@ releases:
     comments: Fixed typography errors in the errata document.
 ---
 
-@v3p0/errata/errata.md
+@standards/v3p0/errata/errata.md

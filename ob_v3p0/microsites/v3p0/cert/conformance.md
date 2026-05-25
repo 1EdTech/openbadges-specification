@@ -1,3 +1,12 @@
+---
+title: "Conformance and Certification"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Overview of Open Badges 3.0 conformance and certification requirements"
+---
+
 ## Conformance and Certification
 
 The goal of 1EdTech certification for Open Badges [[OB-30]] is to ensure interoperable implementations of badging systems that generate and issue digital badges as well as those that host and display badges.

@@ -1,3 +1,12 @@
+---
+title: "Getting Help"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Getting help with Open Badges 3.0 implementations"
+---
+
 ## Getting Help{.informative}
 
 If you have questions or need help with implementing Open Badges 3.0 or

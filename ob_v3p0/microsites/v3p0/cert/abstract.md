@@ -1,3 +1,12 @@
+---
+title: "Abstract"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Abstract for the Open Badges 3.0 certification document"
+---
+
 ## Abstract
 
 Open Badges are visual symbols of accomplishments packed with verifiable metadata according to the Open Badges specification. The Open Badges 3.0 specification [[OB-30]] defines the properties necessary to define an achievement and award it to a recipient, as well as procedures for verifying badge authenticity and “baking” badge information into portable image files. It includes term definitions for representations of data in Open Badges and defines an API for exchanging badge information. These term definitions appear in the current Open Badges JSON-LD Context File.

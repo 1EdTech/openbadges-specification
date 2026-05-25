@@ -1,3 +1,12 @@
+---
+title: "Using Reference Implementations"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Reference implementations for Open Badges 3.0"
+---
+
 ## Using Reference Implementations{.informative}
 
 The Reference Implementation is an 1EdTech implementation of Open Badges 3.0 and

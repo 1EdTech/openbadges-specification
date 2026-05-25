@@ -1,3 +1,12 @@
+---
+title: "Conformance and Certification"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Conformance and certification for Open Badges 3.0 implementations"
+---
+
 ## Conformance and Certification{.informative}
 
 The [[OB-CERT-30]] covers the specific requirements that implementers must cover

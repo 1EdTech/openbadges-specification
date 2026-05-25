@@ -1,4 +1,13 @@
-# Open Badges Document Formats {#docformat}
+---
+title: "Open Badges Document Formats"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Document formats for Open Badges 3.0 credentials"
+---
+
+## Open Badges Document Formats {#docformat}
 
 [OpenBadgeCredentials](#org.1edtech.ob.v3p0.achievementcredential.class) can be exchanged as documents as defined in this section, or by using the [Open Badges API](#api). Documents can be exchanged as a text file, a web resource, or embedded in an image. The contents of an Open Badge document MUST meet the following criteria:
 
