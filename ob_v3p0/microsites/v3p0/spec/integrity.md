@@ -1,4 +1,13 @@
-# Proofs (Signatures) {#data-integrity}
+---
+title: "Proofs (Signatures)"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Data integrity proofs and signatures for Open Badges 3.0"
+---
+
+## Proofs (Signatures) {#data-integrity}
 
 This section describes mechanisms for ensuring the authenticity and integrity of OpenBadgeCredentials. At least one proof mechanism, and the details necessary to evaluate that proof, MUST be expressed for a [=credential=] to be a [=verifiable credential=]; that is, to be [=verifiable=]. In order to pass 1EdTech conformance tests, issuers MUST use a proof mechanism supported by the 1EdTech conformance test suite. See more about [Selecting proof methods and crypto algorithms](impl#selecting-proof-methods-and-crypto-algorithms) in the Implementation Guide.
 

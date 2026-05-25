@@ -1,3 +1,12 @@
+---
+title: "Errata for Open Badges 3.0 Specification"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Errata for the Open Badges 3.0 specification"
+---
+
 ## Errata for Open Badges 3.0 Specification
 
 ### Context file

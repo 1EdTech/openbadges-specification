@@ -1,4 +1,13 @@
-# Overview{.informative}
+---
+title: "Overview"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Overview of the Open Badges 3.0 specification"
+---
+
+## Overview{.informative}
 
 ## What is the problem this solves for?
 

@@ -1,4 +1,13 @@
-# Credential equality and comparison algorithm{#credential-equality-and-comparison}
+---
+title: "Credential equality and comparison algorithm"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Credential equality and comparison for Open Badges 3.0"
+---
+
+## Credential equality and comparison algorithm{#credential-equality-and-comparison}
 
 Credential equality and comparison is the process to determine whether a [=verifiable credential=] is semantically equivalent to another one.
 

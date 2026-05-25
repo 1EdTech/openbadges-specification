@@ -1,3 +1,12 @@
+---
+title: "Introduction"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Introduction to the Open Badges 3.0 implementation guide"
+---
+
 ## Introduction
 
 The 1EdTech digital credentials specifications, Open Badges and Comprehensive

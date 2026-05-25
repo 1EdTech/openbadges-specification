@@ -1,3 +1,12 @@
+---
+title: "Extending and Profiling the Standard"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Extending and profiling the Open Badges 3.0 standard"
+---
+
 ## Extending and Profiling the Standard {#extending}
 
 This standard can be extended in three ways:

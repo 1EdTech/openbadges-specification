@@ -1,3 +1,12 @@
+---
+title: "Migrating from OB 2.0, OB 2.1, and CLR 1.0"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Migration guide for Open Badges 3.0"
+---
+
 ## Migrating from OB 2.0, OB 2.1, and CLR 1.0{#informative}
 
 Open Badges 3.0 and Comprehensive Learner Record 2.0 are major releases, and

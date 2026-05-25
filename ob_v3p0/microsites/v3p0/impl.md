@@ -158,21 +158,21 @@ releases:
     comments: Fixed some typos.
 ---
 
-@v3p0/impl/introduction.md
+@standards/v3p0/impl/introduction.md
 
-@v3p0/impl/getting-started.md
+@standards/v3p0/impl/getting-started.md
 
-@v3p0/impl/recommended-practices.md
+@standards/v3p0/impl/recommended-practices.md
 
-@v3p0/impl/reference-impls.md
+@standards/v3p0/impl/reference-impls.md
 
-@v3p0/impl/conformance.md
+@standards/v3p0/impl/conformance.md
 
-@v3p0/impl/migrating.md
+@standards/v3p0/impl/migrating.md
 
-@v3p0/impl/extensions.md
+@standards/v3p0/impl/extensions.md
 
-@v3p0/impl/help.md
+@standards/v3p0/impl/help.md
 
 ## Linked Data Proof Test Vector for Open Badges 3.0
 

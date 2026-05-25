@@ -1,3 +1,12 @@
+---
+title: "Open Badges 3.0 Host Service Conformance"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Host service conformance requirements for Open Badges 3.0 certification"
+---
+
 ## Open Badges 3.0 Host Service Conformance {#host-conformance}
 
 An Open Badges **Host** is an application that can aggregate and publicly host OpenBadgeCredential for recipients. It also supports export of badges at user request. The candidate platform must be able to import all formats of Open Badges as well as prove that badge metadata is not lost upon export of the badge. The candidate platform must also meet [[[#service-provider-write]]] requirements and accept an AchievementCredential or a Profile from an Issuer application. And meet [[[#service-consumer-read]]] and [[[#service-provider-read]]] requirements for exchanging AchievementCredentials with other Host applications.

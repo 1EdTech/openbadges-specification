@@ -1,4 +1,13 @@
-# Getting Started
+---
+title: "Getting Started"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Getting started with the Open Badges 3.0 specification"
+---
+
+## Getting Started
 
 ## Implementation Guide
 
