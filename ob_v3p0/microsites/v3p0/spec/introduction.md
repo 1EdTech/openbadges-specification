@@ -1,4 +1,13 @@
-# Introduction
+---
+title: "Introduction"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Introduction for the Open Badges 3.0 specification"
+---
+
+## Introduction
 
 ## Audiences
 

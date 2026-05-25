@@ -1,4 +1,13 @@
-# Serialization
+---
+title: "Serialization"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Serialization formats for Open Badges 3.0"
+---
+
+## Serialization
 
 The data model as described in Appendix [[[#data-models]]] is the canonical structural representation of an Open Badges [=verifiable credential=] ([AchievementCredential](#org.1edtech.ob.v3p0.achievementcredential.class)). All serializations are representations of that data model in a specific format. This section specifies how the data model is realized in JSON-LD and plain JSON.
 

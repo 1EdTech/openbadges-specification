@@ -1,3 +1,12 @@
+---
+title: "Recommended Practices"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Recommended practices for Open Badges 3.0 implementations"
+---
+
 ## Recommended Practices{.informative}
 
 Conformance certification ensures consistency across an important but focused

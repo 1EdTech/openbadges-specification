@@ -1,3 +1,12 @@
+---
+title: "Introduction"
+docType: "segment"
+status: "Final"
+author: "1Edtech Consortium"
+lastUpdated: 2023-08-10
+description: "Introduction for Open Badges 3.0 certification"
+---
+
 ## Introduction
 
 ### Conformance Statements {#conformance}
