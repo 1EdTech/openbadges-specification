@@ -4,7 +4,7 @@ category: Certification
 title: Open Badges Specification Conformance and Certification Guide
 shortcode: OB-CERT-30
 status: Final
-lastUpdated: December 12, 2025
+lastUpdated: 2025-12-12
 version: '3.0'
 nature: normative
 docType: conformance
@@ -104,97 +104,97 @@ contributors:
     role: Editor
 ipDisclosures:
   - organization: Concentric Sky
-    date: October 24, 2019
+    date: 2019-10-24
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Arizona State University
-    date: June 21, 2022
+    date: 2022-06-21
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Temple University
-    date: June 10, 2022
+    date: 2022-06-10
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Credly
-    date: October 3, 2019
+    date: 2019-10-03
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Workday, Inc.
-    date: June 10, 2022
+    date: 2022-06-10
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: RANDA Solutions
-    date: June 9, 2022
+    date: 2022-06-09
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Anthology
-    date: April 16, 2024
+    date: 2024-04-16
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Unicon
-    date: April 22, 2024
+    date: 2024-04-22
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Bowdoin College
-    date: June 11, 2022
+    date: 2022-06-11
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: American Association of Collegiate Registrars and Admissions Officers (AACARO)
-    date: April 15, 2024
+    date: 2024-04-15
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Desire to Learn (D2L)
-    date: April 16, 2024
+    date: 2024-04-16
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Digital Knowledge EdTech Lab Inc.
-    date: April 24, 2024
+    date: 2024-04-24
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: IQC Italian Quality Company
-    date: April 19, 2024
+    date: 2024-04-19
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Skybridge Skills
-    date: April 16, 2024
+    date: 2024-04-16
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Navigatr
-    date: April 25, 2024
+    date: 2024-04-25
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: T3 Innovation Network, US Chamber of Commerce Foundation
-    date: April 25, 2024
+    date: 2024-04-25
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Territorium
-    date: April 23, 2024
+    date: 2024-04-23
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: 'Western Governors University (WGU) '
-    date: June 11, 2022
+    date: 2022-06-11
     claim: false
     type: RF RAND (Required & Optional Elements)
 releases:
   - version: Candidate Public Final
     docVersion: 1.0
-    date: November 10, 2022
+    date: 2022-11-10
     comments: Open Badges 3.0 first Candidate Public Final release
   - version: Final
     docVersion: 1.0
-    date: May 27, 2024
+    date: 2024-05-27
     comments: Open Badges 3.0 Final Release
   - version: Final
     docVersion: 1.1
-    date: Dec 23, 2024
+    date: 2024-12-23
     comments: Added supported proof mechanisms for Issuer.\nAdded supported proof mechanisms for Displayer. Removed invalid Host tests.
   - version: Final
     docVersion: 1.2
-    date: July 11, 2025
+    date: 2025-07-11
     comments: Added ECDSA Cryptosuite ecdsa-sd-2023 to Issuer and Displayer supported proof mechanisms.
   - version: Final
     docVersion: 1.3
-    date: December 12, 2025
+    date: 2025-12-12
     comments: Added JSON-LD Safe mode requirement for issuer certification profile.
 ---
 
