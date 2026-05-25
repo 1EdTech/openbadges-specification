@@ -1,0 +1,48 @@
+services:
+  image-service:
+    image: us-central1-docker.pkg.dev/specautomation-458709/microsites/microsites-image-service:dev
+    platform: linux/amd64
+    container_name: ob-image-service-dev
+    ports:
+      - "8080:8080"
+    environment:
+      NODE_ENV: development
+      IN_DOCKER: "true"
+      IMAGE_SERVICE_AUTH_DISABLED: "true"
+      CACHE_DIR: /cache
+      CACHE_PUBLIC_HOST: http://image-service:8080
+    volumes:
+      - diagram-cache:/cache
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ASTRO_BASE_PATH: "/open-badges/"
+    platform: linux/amd64
+    image: ob-microsite:local
+    container_name: ob-microsite-dev
+    ports:
+      - "4321:4321"
+    depends_on:
+      - image-service
+    environment:
+      NODE_ENV: development
+      IN_DOCKER: "true"
+      ASTRO_BASE_PATH: "/open-badges/"
+      MICROSITE_CONTENT_ROOT: "/app/content"
+      DISABLE_AUTH: "true"
+      HOST: "0.0.0.0"
+      IMAGE_SERVICE_URL: http://image-service:8080
+      IMAGE_SERVICE_AUTH_DISABLED: "true"
+      LATEST_SPEC_VERSION: "v3p0"
+      # Optional: uncomment and set for MPS blocks or FastComments local testing
+      # MPS_API_KEY: ""
+      # MPS_HOST: "https://mps.1edtech.org"
+      # FASTCOMMENTS_TENANT_ID: ""
+      # FASTCOMMENTS_ENABLED: "true"
+      # COMMENTS_SITE_KEY: "open-badges"
+
+volumes:
+  diagram-cache:

@@ -4,7 +4,7 @@ category: Guide
 title: Open Badges Implementation Guide
 shortcode: OB-IMPL-30
 status: Final
-lastUpdated: Apr 7th, 2025
+lastUpdated: 2025-04-07
 version: '3.0'
 nature: informative
 docType: guide
@@ -28,133 +28,133 @@ contributors:
     role: Editor
 ipDisclosures:
   - organization: Concentric Sky
-    date: October 24, 2019
+    date: 2019-10-24
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Arizona State University
-    date: June 21, 2022
+    date: 2022-06-21
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Temple University
-    date: June 10, 2022
+    date: 2022-06-10
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Credly
-    date: October 3, 2019
+    date: 2019-10-03
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Workday, Inc.
-    date: June 10, 2022
+    date: 2022-06-10
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: RANDA Solutions
-    date: June 9, 2022
+    date: 2022-06-09
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Anthology
-    date: April 16, 2024
+    date: 2024-04-16
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Unicon
-    date: April 22, 2024
+    date: 2024-04-22
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Bowdoin College
-    date: June 11, 2022
+    date: 2022-06-11
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: American Association of Collegiate Registrars and Admissions Officers (AACARO)
-    date: April 15, 2024
+    date: 2024-04-15
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Desire to Learn (D2L)
-    date: April 16, 2024
+    date: 2024-04-16
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Digital Knowledge EdTech Lab Inc.
-    date: April 24, 2024
+    date: 2024-04-24
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: IQC Italian Quality Company
-    date: April 19, 2024
+    date: 2024-04-19
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Skybridge Skills
-    date: April 16, 2024
+    date: 2024-04-16
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Navigatr
-    date: April 25, 2024
+    date: 2024-04-25
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: T3 Innovation Network, US Chamber of Commerce Foundation
-    date: April 25, 2024
+    date: 2024-04-25
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: Territorium
-    date: April 23, 2024
+    date: 2024-04-23
     claim: false
     type: RF RAND (Required & Optional Elements)
   - organization: 'Western Governors University (WGU) '
-    date: June 11, 2022
+    date: 2022-06-11
     claim: false
     type: RF RAND (Required & Optional Elements)
 releases:
   - version: Version 3.0 IMS Candidate Final
     docVersion: 1.0
-    date: November 10, 2022
+    date: 2022-11-10
     comments: Covers Issuer, Displayer, and Host conformance and certification.
   - version: Version 3.0 IMS Candidate Final
     docVersion: 1.1
-    date: June 20, 2023
+    date: 2023-06-20
     comments: Updated Linked Data Proof to the new EdDSA Cryptosuite v2022 [[VC-DI-EDDSA]].
   - version: Version 3.0 IMS Candidate Final
     docVersion: 1.2
-    date: July 14, 2023
+    date: 2023-07-14
     comments: New version of the context.json (`context-3.0.2.json`) file. See [[OB-ERRATA-30]] for detailed changes
   - version: Version 3.0 IMS Candidate Final
     docVersion: 1.3
-    date: September 8, 2023
+    date: 2023-09-08
     comments: Reorganized some sections of the document to highlight Issuer, Displayer and Host roles.\nAdded recommended practice for including additional info of the recipient of a credential.\nAdded recommended practice for supporting old cryptosuites.\nAdded test vector data for signing Open Badges and Comprehensive Learner Record.
   - version: Version 3.0 IMS Candidate Final
     docVersion: 1.4
-    date: September 22, 2023
+    date: 2023-09-22
     comments: Added a section about including older Open Badges in CLR 2.0.
   - version: Version 3.0 IMS Candidate Final
     docVersion: 1.5
-    date: November 9, 2023
+    date: 2023-11-09
     comments: Added a section about issuer's key provenance.
   - version: Version 3.0 IMS Candidate Final
     docVersion: 1.6
-    date: December 13, 2023
+    date: 2023-12-13
     comments: New version of the context.json (`context-3.0.3.json`) file. See [[OB-ERRATA-30]] for detailed changes
   - version: Version 3.0 IMS Candidate Final
     docVersion: 1.7
-    date: December 15, 2023
+    date: 2023-12-15
     comments: Added sections about alignment of achievements with non-1EdTech vocabularies, such Credential Engine.
   - version: Version 3.0 IMS Candidate Final
     docVersion: 1.8
-    date: January 26, 2023
+    date: 2023-01-26
     comments: Language of related achievement now uses the new attribute `inLanguage` instead of `@language`.
   - version: Version 3.0 IMS Candidate Final
     docVersion: 1.9
-    date: April 2, 2024
+    date: 2024-04-02
     comments: Upgraded to [[VC-DATA-MODEL-2.0]]
   - version: Version 3.0 IMS Candidate Final
     docVersion: 1.10
-    date: October 1, 2024
+    date: 2024-10-01
     comments: Added section about extensions.\nAdded section about privacy.
   - version: Final Release
     docVersion: 1.0
-    date: December 23, 2024
+    date: 2024-12-23
     comments: Clarified proof mechanism and algorithm selection.
   - version: Final Release
     docVersion: 1.1
-    date: February 12, 2025
+    date: 2025-02-12
     comments: Reorganization.\nClarified some paragraphs.
   - version: Final Release
     docVersion: 2.0
-    date: April 7, 2025
+    date: 2025-04-07
     comments: Fixed some typos.
 ---
 
