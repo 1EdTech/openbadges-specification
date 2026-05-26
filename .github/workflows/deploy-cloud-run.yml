@@ -87,6 +87,16 @@ jobs:
             -t ${{ steps.vars.outputs.IMAGE_URI }} \
             --push .
 
+      - name: Set health probe path
+        run: |
+          BASE="${ASTRO_BASE_PATH:-/}"
+          BASE="${BASE%/}"
+          if [ -z "$BASE" ] || [ "$BASE" = "/" ]; then
+            echo "HEALTHZ_PATH=/healthz" >> "$GITHUB_ENV"
+          else
+            echo "HEALTHZ_PATH=${BASE}/healthz" >> "$GITHUB_ENV"
+          fi
+
       - name: Deploy to Cloud Run
         id: deploy
         uses: google-github-actions/deploy-cloudrun@v2
@@ -98,10 +108,10 @@ jobs:
             --allow-unauthenticated
             --ingress=internal-and-cloud-load-balancing
             --port=4321
-            --startup-probe=httpGet.port=4321,initialDelaySeconds=10,timeoutSeconds=10,periodSeconds=120,failureThreshold=10
+            --startup-probe=httpGet.path=${{ env.HEALTHZ_PATH }},httpGet.port=4321,initialDelaySeconds=10,timeoutSeconds=10,periodSeconds=120,failureThreshold=10
+            --memory=2Gi
             --timeout=60
             --min-instances=1
-            --memory=1Gi
             --concurrency=10
             --cpu=2
             --set-env-vars ASTRO_BASE_PATH=${{ env.ASTRO_BASE_PATH }}
