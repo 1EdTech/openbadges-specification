@@ -35,6 +35,6 @@ The service model is available as an OpenAPI document at the following URL:
 
 The skill model is available as a JSON file at the following URL:
 
-- [https://purl.imsglobal.org/spec/ob/v3p0/skill/ob_v3p0_skill.zip](https://purl.imsglobal.org/spec/ob/v3p0/skill/ob_v3p0_skill.zip)
+- [https://purl.imsglobal.org/spec/ob/v3p0/skill/ob-v3p0.zip](https://purl.imsglobal.org/spec/ob/v3p0/skill/ob-v3p0.zip)
 
 
