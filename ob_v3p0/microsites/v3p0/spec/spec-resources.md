@@ -16,20 +16,21 @@ description: >
 
 | Class | JSON Schema |
 | --- | --- |
-| AchievementCredential | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential-jsonschema1.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential-jsonschema1.json) |
-| EndorsementCredential | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential-jsonschema1.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential-jsonschema1.json) |
-| Profile | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_profile-jsonschema1.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_profile-jsonschema1.json) |
-| AnyAchievementCredential | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_anyachievementcredential-jsonschema1.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_anyachievementcredential-jsonschema1.json) |
-| AnyEndorsementCredential | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_anyendorsementcredential-jsonschema1.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_anyendorsementcredential-jsonschema1.json) |
-| Imsx_StatusInfo | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_imsx_statusinfo-jsonschema1.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_imsx_statusinfo-jsonschema1.json) |
-| ServiceDescriptionDocument | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_servicedescriptiondocument-jsonschema1.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_servicedescriptiondocument-jsonschema1.json) |
-| GetOpenBadgeCredentialsResponse | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_getopenbadgecredentialsresponse-jsonschema1.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_getopenbadgecredentialsresponse-jsonschema1.json) |
+| AchievementCredential | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json) |
+| EndorsementCredential | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_endorsementcredential_schema.json) |
+| Profile | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_profile_schema.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_profile_schema.json) |
+| AnyAchievementCredential | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_anyachievementcredential_schema.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_anyachievementcredential_schema.json) |
+| AnyEndorsementCredential | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_anyendorsementcredential_schema.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_anyendorsementcredential_schema.json) |
+| Imsx_StatusInfo | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_imsx_statusinfo_schema.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_imsx_statusinfo_schema.json) |
+| ServiceDescriptionDocument | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_servicedescriptiondocument_schema.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_servicedescriptiondocument_schema.json) |
+| GetOpenBadgeCredentialsResponse | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_getopenbadgecredentialsresponse_schema.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/ob_v3p0_getopenbadgecredentialsresponse_schema.json) |
 
 ### Service Model
 
 The service model is available as an OpenAPI document at the following URL:
 
-- [https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_openapi3.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_openapi3.json)
+- [https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.json)
+- [https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.yaml](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.yaml)
 
 ### Skill
 
