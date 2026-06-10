@@ -11,7 +11,7 @@ description: "Use cases for the Open Badges 3.0 specification"
 
 The use cases below drive the design of Open Badges 3.0 specification.
 
-## Assertion Issuance to Wallet
+### Assertion Issuance to Wallet
 
 Maya has completed an online course for an "Introduction to Web QA" at her local community college. The community college issues a course completion assertion. When Maya is ready to accept the assertion, she presents her wallet's location to the community college, which generates a request that Maya approves to receive the credential. Maya stores the assertion in her Verifiable Credentials enabled digital wallet with her other credentials.
 
@@ -44,7 +44,7 @@ Maya has completed an online course for an "Introduction to Web QA" at her local
   1. The school issues an assertion to the parent or guardian identifier
   1. The parent or guardian accepts the credential into their wallet
 
-## Assertion Issuance Without a Wallet
+### Assertion Issuance Without a Wallet
 
 A professional development/training vendor Training, Inc. recognizes Dawson's mastery of a competency by issuing an assertion to Dawson's email address.
 
@@ -70,7 +70,7 @@ A professional development/training vendor Training, Inc. recognizes Dawson's ma
 - Training, Inc. bakes the assertion into a PNG or SVG image file and transmits the image to Dawson who imports the baked badge into his backpack
 - Training, Inc. encodes the assertion into a QR code transmits the QR code to Dawson who uses the backpack to scan the QR code and import the assertion
 
-## Recipient Presentation of Assertion
+### Recipient Presentation of Assertion
 
 Maya registers for an advanced course and she is asked to provide proof that she completed a prerequisite course. From her wallet, Maya presents the course assertion as a verifiable presentation to the MOOC, which cryptographically verifies the issuer of the assertion, that Maya is the recipient, and that the assertion data has not been altered since it was issued. Upon verification, she is registered for the MOOC.
 
@@ -102,45 +102,45 @@ Maya registers for an advanced course and she is asked to provide proof that she
 - The MOOC platform must be capable of expressing a request for a credential that matches the assertion that Maya holds.
 - There must be a mutual capability between the wallet and the MOOC platform to prove Maya's is represented by recipient identifier
 
-## License Issuance
+### License Issuance
 
 After Jeremy takes his electrician licensure exam, he accesses the online system for his state's licensure department to see his results and download his license. After he proves his identity by presenting his government issued ID from his digital wallet, he is informed that he passed the exam. The electrician license badge is issued to the DID Jeremy provided and is stored in his digital wallet with his other digital credentials.
 
 > **Editorial Note**: *New to v3.0*: Similar to Maya's course completion badge, Jeremy's electrician license badge is also issued to a DID that Jeremy provides from his wallet and can also be cryptographically verified following the Verifiable Credentials model. The government issued ID in this use case is not an Open Badge but because it is a Verifiable Credential it can be stored in the same wallet as the electrician's license badge demonstrating interoperability of the verification models.
 
-## Single Skill Assertion
+### Single Skill Assertion
 
 From her school's LMS, Dr. Cara chooses which skills and competencies will be taught in her class. These skills and competencies are aligned with the rubric in the syllabus that is presented to her students. Once the students have successfully completed the course, Dr. Cara assesses each student's assignments and participation and selects which skills and competencies were met and at what level. The selection of skills and competencies triggers an issuing of a skill assertion for each one and includes the assessment results in the evidence and results. The skill assertions are associated with the student's IDs, the students are notified and informed how they can use these skill assessments to inform their choice of classes in the future.
 
 > **Editorial Note**: *New to v3.0*: Single skill assertions are new to 3.0.
 
-## Mapping Skills
+### Mapping Skills
 
 Syd is shifting careers after many years working in construction. In their digital wallet they had several skill badges describing their mastery of skills in construction but also in teamwork, communication, and organizational skills. Syd also had badges from some courses they'd taken in science and math over the last few years. After they uploaded the skill and course badges from their wallet to a career planning site, they were offered several opportunities to apply for work in software sales and cybersecurity.
 
-## Verifying Continuing Education
+### Verifying Continuing Education
 
 Denise was offered a new job at a hospital as a physician's assistant. Before starting, her continuing education training and license to practice needed to be verified. The last time she switched hospitals, the verification process took three weeks. This time, she was able to provide her badges to prove her training and license. Within minutes her credentials were verified and she was issued a new digital staff credential.
 
 > **Editorial Note**: *New to v3.0*: As with the other use case, this use case emphasizes that Open Badges v3.0 can recognize many different achievement types and be cryptographically verified following the Verifiable Credentials model.
 
-## Self-assertion
+### Self-assertion
 
 Stacy has created a mobile app that demonstrates her abilities as a coder, designer, and product manager. She creates an account on a badging platform and designs the badge to include alignments to the skills that the badge recognizes. With her digital wallet app, she connects to the badging platform and issues this badge to herself which includes screenshots and a link to the mobile app as evidence. Stacy uses this badge and others like it as verifiable portfolio items.
 
 > **Editorial Note**: *New to v3.0*: In previous versions of Open Badges, it was possible to make self-assertion badges and issue badges to peers, however the issuer profile properties were organization specific. With 3.0, the issue properties can be modified to reference either an organization or an individual. It could be considered that both the issuer and recipient profile have similar optional properties so that there is flexibility in describing both profiles. This way, an organization could also be described as the recipient.
 
-## Endorsement
+### Endorsement
 
 Ralph has been issued a verifiable credential badge for his most recent position at the hospital where he works by the hospital. The badge contains alignments to the skills related to his role. He requests that his peers endorse the skills he has acquired. A platform is able to communicate this request to peers,  facilitate review of the skills, and process the issuance of endorsement VC badges that reference the original badge, colleagues as endorsers, and Ralph as the recipient.
 
 > **Editorial Note**: *New to v3.0*: In 2.0, an endorsement is its own type of assertion. In 3.0, an endorsement is its own type of credential. In the example above, the platform verifies the badge data and then acts as an issuer of endorsements on behalf of its users. It could also be that the platform uses AI to process the badge and sends an endorsement back to Ralph as a proof of acceptance and an evaluation of his badge.
 
-## Re-issue a <= 3.0 Badge to a 3.0 Badge
+### Re-issue a <= 3.0 Badge to a 3.0 Badge
 
 Leo earned several badges while in highschool and graduates soon. The email address used as the recipient identity for these badges was an email address provided by his high school and he will no longer have access to it. Leo downloads a digital wallet and requests that the school reissue the badges to the identifier he created in the wallet.
 
-## Authorization to Issue Given by Creator to Issuer
+### Authorization to Issue Given by Creator to Issuer
 
 The data model attributes the issuer of a VC and the creator of the badge class separately.
 
@@ -148,7 +148,7 @@ Standards Organization X (SOX) has created a number of badges related to compete
 
 Employer receives a credential from a graduate. Employer, in addition to verifying the VC in general, can review and verify that SOX did in fact authorize CTO to issue this badge.
 
-## Revocation of an Issued Credential
+### Revocation of an Issued Credential
 
 Gigantic State University is a badge issuer. It has awarded a badge to a student in the form of a verifiable credential. Some time after issuing the credential, GSU discovers academic misconduct on the part of the student and needs to revoke the credential's status. GSU updates a list of revoked credential IDs, noting the reason why it was revoked. Future verifications of the issued badge by consumers detect that the credential is now revoked and do not erroneously accept it.
 
@@ -166,6 +166,6 @@ Gigantic State University is a badge issuer. It has awarded a badge to a student
 - Issuer has access to a revocation list to update
 - Verification process of badge credentials checks associated list
 
-## Badge Class Status
+### Badge Class Status
 
 An institution has issued hundreds of badges in the form of VCs. A situation has arisen that requires the badge class to be effectively deleted or purged from the ecosystem. It is impractical (and arguably inaccurate) to revoke each assertion with individual records in perpetuity. The institution would like to set a status such that the badge class itself is treated as invalid.
