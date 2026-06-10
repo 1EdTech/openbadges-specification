@@ -15,13 +15,13 @@ A Host SHOULD treat a credential as the same as another when both the [issuer](#
 
 If the two credentials are equal according to the above, then the credential with the newer `validFrom` is the more up-to-date representation and could be interpreted as a replacement of the prior issued credential.
 
-## Examples
+### Examples
 
-### Equality
+#### Equality
 
 Credentials [A](#example-sample-credential-a) and [B](#example-sample-credential-b) are equal since they have the same [`id`](#achievement-credential) and the same [`issuer.id`](#org.1edtech.ob.v3p0.profile.class).
 
-#### Example: Sample credential A
+##### Example: Sample credential A
 
 ```json org.1edtech.ob.v3p0.achievementcredential.class
   {
@@ -57,7 +57,7 @@ Credentials [A](#example-sample-credential-a) and [B](#example-sample-credential
   }
 ```
 
-#### Example: Sample credential B
+##### Example: Sample credential B
 
 ```json org.1edtech.ob.v3p0.achievementcredential.class
   {
@@ -95,11 +95,11 @@ Credentials [A](#example-sample-credential-a) and [B](#example-sample-credential
 
 Since they also have the same `validFrom` both are up-to-date.
 
-### Comparison
+#### Comparison
 
 Credentials [C](#example-sample-credential-c) and [D](#example-sample-credential-d) are equal since they have the same [`id`](#achievement-credential) and the same [`issuer.id`](#org.1edtech.ob.v3p0.profile.class).
 
-#### Example: Sample credential C
+##### Example: Sample credential C
 
 ```json org.1edtech.ob.v3p0.achievementcredential.class
   {
@@ -135,7 +135,7 @@ Credentials [C](#example-sample-credential-c) and [D](#example-sample-credential
   }
 ```
 
-#### Example: Sample credential D
+##### Example: Sample credential D
 
 ```json org.1edtech.ob.v3p0.achievementcredential.class
   {

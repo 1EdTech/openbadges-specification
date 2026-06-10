@@ -15,7 +15,7 @@ description: "Verification and validation for Open Badges 3.0 credentials"
 
 > **Note**: The 1EdTech Validator performs [=verification=] as described here.
 
-## OpenBadgeCredential Verification {#verification}
+### OpenBadgeCredential Verification {#verification}
 
 This section applies to Verifiable Credentials with a `type` of "OpenBadgeCredential" or "AchievementCredential".
 
@@ -65,7 +65,7 @@ This section applies to Verifiable Credentials with a `type` of "OpenBadgeCreden
 
 If all the above steps pass, the OpenBadgeCredential may be treated as verified.
 
-## EndorsementCredential Verification {#endorsement-verification}
+### EndorsementCredential Verification {#endorsement-verification}
 
 This section applies to Verifiable Credentials with a `type` of "EndorsementCredential".
 
@@ -102,7 +102,7 @@ This section applies to Verifiable Credentials with a `type` of "EndorsementCred
 
 If all the above steps pass, the EndorsementCredential may be treated as verified.
 
-## Verify the Recipient Using an Identifier {#verify-identifier}
+### Verify the Recipient Using an Identifier {#verify-identifier}
 
 The known identifier MUST be a plaintext string value. The known identifier type MUST be one of the types in [IdentifierTypeEnum](#org.1edtech.ob.v3p0.identifiertypeenum.class) or an extension type. For example, if the known identifier is an email address, the known identifier type is `emailAddress`.
 

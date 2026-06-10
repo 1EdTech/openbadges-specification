@@ -11,7 +11,7 @@ description: "Data integrity proofs and signatures for Open Badges 3.0"
 
 This section describes mechanisms for ensuring the authenticity and integrity of OpenBadgeCredentials. At least one proof mechanism, and the details necessary to evaluate that proof, MUST be expressed for a [=credential=] to be a [=verifiable credential=]; that is, to be [=verifiable=]. In order to pass 1EdTech conformance tests, issuers MUST use a proof mechanism supported by the 1EdTech conformance test suite. See more about [Selecting proof methods and crypto algorithms](impl#selecting-proof-methods-and-crypto-algorithms) in the Implementation Guide.
 
-## Proof Formats
+### Proof Formats
 
 The proof formats included in this specification fall into two categories:
 
@@ -22,14 +22,14 @@ The proof formats included in this specification fall into two categories:
 
 A third category of proof format called Non-Signature Proof is not covered by this specification. This category includes proofs such as proof of work.
 
-## JSON Web Token Proof Format {#jwt-proof}
+### JSON Web Token Proof Format {#jwt-proof}
 
 This proof format relies on the well established JWT (JSON Web Token) [[RFC7519]] and JWS (JSON Web Signature) [[RFC7515]] specifications. A JSON Web Token Proof is a JWT signed and encoded as a [=Compact JWS=] string. The proof format is described in detail in [[VC-JOSE-COSE]], referred from Section 5.13 "Securing Mechanism Specifications" of [[VC-DATA-MODEL-2.0]]. That description allows several options which may inhibit interoperability. This specification limits the options while maintaining compatibility with [[VC-DATA-MODEL-2.0]] to help ensure interoperability.
 
 > **Note**: At the time of the completion of this specification, the JSON Web Token Proof Format of [[VC-DATA-MODEL-2.0]] was undergoing a revision process. [[VC-JOSE-COSE]] will collect and display
 > the result of this revision. The modifications resulting from the incompatibility of the revision with what is contained in this document will be added in future revisions.
 
-### Terminology {#jwt-terminology}
+#### Terminology {#jwt-terminology}
 
 Some of the terms used in this section include:
 
@@ -45,7 +45,7 @@ JWK
 Compact JWS
 : "A compact representation of a JWS." [[RFC7515]]
 
-### Overview {#jwt-overview}
+#### Overview {#jwt-overview}
 
 A [=JWS=] is a signed [=JWT=] with three parts separated by period (".") characters. Each part contains a base64url-encoded value.
 
@@ -69,7 +69,7 @@ The resulting [=JWS=] proves that the [=issuer=] signed the [=JWT Payload=] turn
 
 When using the JSON Web Token Proof Format, the `proof` property MAY be omitted from the [OpenBadgeCredential](#achievement-credential). If a Linked Data Proof is also provided, it MUST be created before the JSON Web Token Proof Format is created.
 
-### Create the JOSE Header {#joseheader}
+#### Create the JOSE Header {#joseheader}
 
 The [=JOSE Header=] is a JSON object with the following properties (also called JOSE Headers). Additional JOSE Headers are NOT allowed.
 
@@ -80,7 +80,7 @@ The [=JOSE Header=] is a JSON object with the following properties (also called 
 | `jwk` | [JWK](#jwk) | A JWK representing the public key used to verify the signature. If you do not include a `jwk` property in the header, you MUST include the `kid` property. <div class="advisement">Be careful not to accidentally expose the JWK representation of a private key. See [RFC7517](https://tools.ietf.org/html/rfc7517#appendix-A.2) for examples of private key representations. The `JWK` MUST never contain `"d"`.</div> | Optional |
 | `typ` | [String](#string) | If present, MUST be set to "JWT". | Optional |
 
-#### Example: Sample JOSE Header with reference to a public key in a JWKS
+##### Example: Sample JOSE Header with reference to a public key in a JWKS
 
 ```json
   {
@@ -90,11 +90,11 @@ The [=JOSE Header=] is a JSON object with the following properties (also called 
   }
 ```
 
-### Create the JWT Payload
+#### Create the JWT Payload
 
 If you are going to use both external and embedded proof formats, add the embedded proofs prior to creating the JWT Payload.
 
-#### JWT Payload Format
+##### JWT Payload Format
 
 The JWT Payload is the JSON object of the [OpenBadgeCredential](#achievement-credential) with the following properties (JWT Claims). Additional standard JWT Claims Names are allowed, but their relationship to the credential is not defined.
 
@@ -106,7 +106,7 @@ The JWT Payload is the JSON object of the [OpenBadgeCredential](#achievement-cre
 | `nbf` | [NumericDate](#numericdate) | The `validFrom` property of the OpenBadgeCredential. | Required |
 | `sub` | [URI](#uri) | The `credentialSubject.id` property of the OpenBadgeCredential. | Required |
 
-### Create the Proof {#jwt-signing}
+#### Create the Proof {#jwt-signing}
 
 > **Note**: 1EdTech strongly recommends using an existing, stable library for this step.
 
@@ -131,7 +131,7 @@ The steps to sign and encode the credential as a Compact JWS are shown below:
 
 The resulting string is the Compact JWS representation of the credential. The Compact JWS includes the credential AND acts as the proof for the credential.
 
-### Verify a Credential {#jwt-verify}
+#### Verify a Credential {#jwt-verify}
 
 Verifiers that receive a OpenBadgeCredential in Compact JWS format MUST perform the following steps to verify the embedded credential.
 
@@ -149,7 +149,7 @@ Verifiers that receive a OpenBadgeCredential in Compact JWS format MUST perform 
     > contents of the `vc` claim must be converted to an <a href="#achievement-credential">OpenBadgeCredential</a>
     > and continue with [[[#jwt-verify-credential]]].
 
-#### Verify a Credential VC-JWT Signature {#jwt-verify-credential}
+##### Verify a Credential VC-JWT Signature {#jwt-verify-credential}
 
 - The JSON object MUST have the `iss` claim, and the value MUST match the `issuer.id` of the [OpenBadgeCredential](#achievement-credential) object. If they do not match, the credential is not valid.
 - The JSON object MUST have the `sub` claim, and the value MUST match the `credentialSubject.id` of the [OpenBadgeCredential](#achievement-credential) object. If they do not match, the credential is not valid.
@@ -159,13 +159,13 @@ Verifiers that receive a OpenBadgeCredential in Compact JWS format MUST perform 
 
 > **Note**: Credentials created following [[VC-DATA-MODEL-1.1]] have different names for attributes used in this process. Concretely, they have `issuanceDate` and `expirationDate` instead of `validFrom` and `validUntil`, respectively
 
-## Linked Data Proof Format {#lds-proof}
+### Linked Data Proof Format {#lds-proof}
 
 This standard supports the Linked Data Proof format. In order to pass conformance tests for this format issuers MUST use an option supported by the 1EdTech conformance test suite, which is currently limited to the [[VC-DI-EDDSA]] suite.
 
 > **Note**: Whenever possible, you should use a library or service to create and verify a Linked Data Proof.
 
-### Create the Proof
+#### Create the Proof
 
 Attach a Linked Data Proof to the credential, for example by following these steps to use a proof with the [[VC-DI-EDDSA]] suite:
 
@@ -173,14 +173,14 @@ Attach a Linked Data Proof to the credential, for example by following these ste
 1. Using the key material, sign the credential object as shown in [Section 7.1 Proof Algorithm](https://w3c-ccg.github.io/data-integrity-spec/#proof-algorithm) of [[DATA-INTEGRITY-SPEC]] to produce a [Proof](#proof) as shown in [Section 2.2.1 DataIntegrityProof](https://www.w3.org/TR/vc-di-eddsa/#dataintegrityproof) of [[VC-DI-EDDSA]] with a `proofPurpose` of "assertionMethod".
 1. Add the resulting proof object to the credential `proof` property.
 
-### Verify an OpenBadgeCredential Linked Data Signature {#lds-verify}
+#### Verify an OpenBadgeCredential Linked Data Signature {#lds-verify}
 
 Verify the Linked Data Proof signature as shown in [Section 7.2 Proof Verification Algorithm](https://w3c-ccg.github.io/data-integrity-spec/#proof-verification-algorithm) of [[DATA-INTEGRITY-SPEC]].
 
-## Key Management
+### Key Management
 
 [=Issuers=] will need to manage asymmetric keys. The mechanisms by which keys are minted and distributed is outside the scope of this specification. See Section 6. Key Management of the [[SEC-11]].
 
-## Dereferencing the Public Key {#dereference}
+### Dereferencing the Public Key {#dereference}
 
 All the proof formats in this specification, and all Digital Integrity proofs in general, require the [=verifier=] to "dereference" the public key from a URI. Dereferencing means using the URI to get the public key in [JWK](#jwk) format. This specification allows the use of an HTTP URL (e.g. `https://1edtech.org/keys/1`) or a DID URL (e.g. `did:key:123`), but only requires HTTP URL support.
