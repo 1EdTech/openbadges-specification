@@ -4,7 +4,7 @@ category: Specification
 title: Open Badges Errata
 shortcode: OB-ERRATA-30
 status: Final
-lastUpdated: 2024-07-17
+lastUpdated: 2026-06-12
 version: '3.0'
 nature: informative
 docType: errata
@@ -123,6 +123,14 @@ releases:
     docVersion: 1.3
     date: 2025-06-16
     comments: Fixed typography errors in the errata document.
+  - version: Version 3.0 Final
+    docVersion: 1.4
+    date: 2026-02-25
+    comments: Fixed typography errors in the errata document.
+  - version: Version 3.0 Final
+    docVersion: 1.5
+    date: 2026-06-12
+    comments: Added OpenAPI definition errors.
 ---
 
 @standards/v3p0/errata/errata.md
