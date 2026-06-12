@@ -29,8 +29,8 @@ description: >
 
 The service model is available as an OpenAPI document at the following URL:
 
-- [https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.json)
-- [https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.yaml](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.yaml)
+- [https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_openapi3_v1p0p1.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_openapi3_v1p0p1.json)
+- [https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_openapi3_v1p0p1.yaml](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_openapi3_v1p0p1.yaml)
 
 ### Skill
 
