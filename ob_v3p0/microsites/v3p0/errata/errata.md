@@ -81,3 +81,15 @@ algorithm to use in Open Badges. Concretely, it stated:
 This statement may not follow the security requirements of the future as
 the securing mechanisms evolve over time. Therefore, the specific list of
 allowed proof formats have been extracted out the [[OB-CERT-30]].
+
+### Open API definition Errors
+
+The inital version of the Open API definition file contained several errors:
+
+- Pagination link expressions use `$request.path` instead of `$request.query`
+- Schema for `@context` items uses oneOf with two string branches.
+
+These error were fixed at the new version of the documents:
+
+- [OpenAPI 3.0 JSON File for Open Badges API](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_openapi3_v1p0p1.json)
+- [OpenAPI 3.0 YAML File for Open Badges API](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_openapi3_v1p0p1.yaml)

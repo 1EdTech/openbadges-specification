@@ -24,8 +24,8 @@ The Open Badges Specification has several related documents and artifacts shown 
 >
 > -- [[[OPENAPIS]]]
 
--   [JSON OpenAPI File](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.json)
--   [YAML OpenAPI File](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_oas.yaml)
+-   [JSON OpenAPI File](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_openapi3_v1p0p1.json)
+-   [YAML OpenAPI File](https://purl.imsglobal.org/spec/ob/v3p0/schema/openapi/ob_v3p0_openapi3_v1p0p1.yaml)
 
 #### JSON-LD Context File
 

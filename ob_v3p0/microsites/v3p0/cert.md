@@ -4,7 +4,7 @@ category: Certification
 title: Open Badges Specification Conformance and Certification Guide
 shortcode: OB-CERT-30
 status: Final
-lastUpdated: 2025-12-12
+lastUpdated: 2026-06-15
 version: '3.0'
 nature: normative
 docType: conformance
@@ -196,6 +196,14 @@ releases:
     docVersion: 1.3
     date: 2025-12-12
     comments: Added JSON-LD Safe mode requirement for issuer certification profile.
+  - version: Final
+    docVersion: 1.4
+    date: 2026-04-17
+    comments: Updated revocation mechanism in Displayer certification profile.
+  - version: Final
+    docVersion: 1.5
+    date: 2026-06-15
+    comments: Fixed errors in OpenAPI files.
 ---
 
 @standards/v3p0/cert/abstract.md

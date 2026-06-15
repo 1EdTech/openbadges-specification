@@ -4,7 +4,7 @@ category: Guide
 title: Open Badges Implementation Guide
 shortcode: OB-IMPL-30
 status: Final
-lastUpdated: 2025-04-07
+lastUpdated: 2026-06-15
 version: '3.0'
 nature: informative
 docType: guide
@@ -156,6 +156,10 @@ releases:
     docVersion: 2.0
     date: 2025-04-07
     comments: Fixed some typos.
+  - version: Final Release
+    docVersion: 2.1
+    date: 2026-06-15
+    comments: Fixed errors in OpenAPI files.
 ---
 
 @standards/v3p0/impl/introduction.md
