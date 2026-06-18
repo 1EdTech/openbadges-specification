@@ -172,14 +172,15 @@ TBD
 
 ### Assessment Transparency Practices
 
-<p class="issue" title="Add more detial">
-    Include reference to <a href="https://www.imsglobal.org/spec/ob-assessment/v1p0">Assessment Extension</a>.
-    Include direct assessment approach as minimal example.
-</p>
+<div class="issue" title="Add more detial">
+    <ul>
+        <li>Include direct assessment approach as minimal example.</li>
+    </ul>
+</div>
 
 Assessment metadata may provide additional information about how achievement was evaluated.
 
-Assessment metadata may include:
+Assessment metadata, as defined by [[[OB-ASSMT-20]]], may include:
 
 - assessment modality;
 - validation methodology;
