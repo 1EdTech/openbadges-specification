@@ -327,7 +327,7 @@ When duration or effort metadata is included in a TrustEd Credential, issuers SH
 
 ### Endorsement and Accreditation Practices
 
-`Endorsement` and accreditation metadata may provide additional trust signals regarding the quality, recognition, or external validation of a credential.
+`Endorsement` and accreditation metadata, defined by [[[OB-ACCRED-10]]] may provide additional trust signals regarding the quality, recognition, or external validation of a credential.
 
 `AchivementCredential.endorsement` (As an EndorsementCredential) may communicate support from:
 

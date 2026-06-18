@@ -9,7 +9,12 @@ var _localBiblio = {
     title: "Open Badges Assessment Extension v2.0",
     href: "https://www.imsglobal.org/spec/ob-assessment/v2p0/",
     publisher: "1EdTech",
+    status: "Candidate Final Public",
+  },
+  "OB-ACCRED-10": {
+    title: "Open Badges Issuer Accreditation Extension v2.0",
+    href: "https://www.imsglobal.org/spec/ob-accred/v2p0/",
+    publisher: "1EdTech",
     status: "Base Document",
   },
-
 };
