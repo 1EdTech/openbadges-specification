@@ -1,17 +1,13 @@
 ## Recommended Practices
 
-<p class="issue" title="Update `Property` fields">
-Update `property` fields to include location in data model. 
-Example: `achievementType` and `Achivement.achievementType`.
-</p>
-
 ### Achievement Type Practices
 
-`achievementType` values help identify the nature of the achievement being recognized.
+`Achievement.achievementType` values help identify the nature of the achievement being recognized.
 
 Using standardized achievement types improves interoperability and helps receiving systems distinguish between different forms of achievement, such as participation, knowledge attainment, applied competency, certification, licensure, or demonstrated performance.
 
 TrustEd Credentials include `Achievement.achievementType` metadata to identify the nature of the achievement being recognized. Issuers SHOULD:
+
 - use the most specific applicable achievement type available;
 - maintain consistency in achievement type usage across credentials;
 - map locally defined terms to recognized vocabularies when possible; and
@@ -162,7 +158,7 @@ Issuers SHOULD avoid including scores or assessment levels without sufficient co
 ### Assessment Transparency Practices
 
 <p class="issue" title="Add more detial">
-    Include reference to <a href="https://www.imsglobal.org/spec/ob-assessment/v1p0">Assessment Extension</a>. 
+    Include reference to <a href="https://www.imsglobal.org/spec/ob-assessment/v1p0">Assessment Extension</a>.
     Include direct assessment approach as minimal example.
 </p>
 
