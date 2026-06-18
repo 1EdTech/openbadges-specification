@@ -202,7 +202,7 @@ Providing assessment transparency may improve confidence in the rigor and reliab
 
 #### Direct Assessment Example
 
-<pre class="example json">
+<pre class="example json" title="Direct Assessment Example">
 </pre>
 
 <div class="note">
