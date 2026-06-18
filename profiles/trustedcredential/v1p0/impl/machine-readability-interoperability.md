@@ -3,6 +3,7 @@
 Structured and consistent metadata improves the ability of wallets, learner records, talent systems, and verification services to interpret credentials accurately.
 
 Issuers implementing TrustEd Credentials are encouraged to:
+
 - use stable identifiers and URIs;
 - avoid embedding critical semantics exclusively in free text;
 - use structured vocabularies where possible;

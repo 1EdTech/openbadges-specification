@@ -24,6 +24,7 @@ Issuers SHOULD avoid using generic or institution-specific terminology that cann
 Alignment metadata supports portability and comparability of credentials across educational institutions, employers, and workforce systems.
 
 TrustEd Credentials use alignment metadata to support portability and comparability across educational institutions, employers, and workforce systems. Issuers SHOULD:
+
 - use stable, resolvable URIs where possible;
 - align credentials to the most granular applicable competency or skill statement;
 - use recognized framework formats such as CASE, Credential Engine CTDL, ASN, ESCO, or O*NET where appropriate; and
@@ -36,6 +37,7 @@ Issuers SHOULD avoid using only free-text skills descriptions without associated
 Criteria metadata describes the requirements necessary to earn the credential.
 
 TrustEd Credentials include criteria metadata describing the requirements necessary to earn the credential. Issuers SHOULD:
+
 - describe expected outcomes or performance requirements clearly;
 - identify assessment or evaluation expectations where appropriate;
 - ensure criteria are understandable to audiences outside the issuing organization; and
@@ -53,6 +55,7 @@ Minimal or ambiguous criteria statements such as “completed the course” may 
 Evidence metadata may help demonstrate learner achievement, competency, or performance.
 
 Evidence may include:
+
 - work products;
 - portfolios;
 - projects;
@@ -61,6 +64,7 @@ Evidence may include:
 - links to externally hosted materials.
 
 TrustEd Credentials include evidence metadata that may help demonstrate learner achievement, competency, or performance. Issuers SHOULD:
+
 - ensure evidence is directly related to the achievement criteria or outcomes;
 - provide sufficient contextual information for interpretation;
 - maintain evidence accessibility for an appropriate duration; and
@@ -68,8 +72,8 @@ TrustEd Credentials include evidence metadata that may help demonstrate learner 
 
 Issuers SHOULD avoid including evidence links that are inaccessible, temporary, or unrelated to the achievement being asserted.
 
-
 #### Evidence Example
+
 <pre class="example json" title="Evidence Exmaple">
 
 {
@@ -122,7 +126,6 @@ Issuers SHOULD avoid including evidence links that are inaccessible, temporary, 
 }
 </pre>
 
-
 ### Result and Rubric Practices
 
 <p class="issue" title="Add clarity">
@@ -132,6 +135,7 @@ Issuers SHOULD avoid including evidence links that are inaccessible, temporary, 
 Result metadata may provide additional transparency regarding assessment outcomes or demonstrated levels of achievement.
 
 Result metadata may include:
+
 - rubric criterion achieved level;
 - proficiency levels;
 - competency achievement levels;
@@ -140,6 +144,7 @@ Result metadata may include:
 - narrative assessment outcomes.
 
 TrustEd Credentials include result metadata to provide additional transparency regarding assessment outcomes or demonstrated levels of achievement. Issuers SHOULD:
+
 - include sufficient contextual information for external interpretation;
 - define rubric criteria clearly when rubrics are used;
 - include stable identifiers or references for rubric levels where possible; and
@@ -148,6 +153,7 @@ TrustEd Credentials include result metadata to provide additional transparency r
 Issuers SHOULD avoid including scores or assessment levels without sufficient contextual explanation.
 
 #### Result as Grade Example
+
 <pre class="example json" title="Credential with Grades Example">
 </pre>
 
@@ -297,18 +303,19 @@ When duration or effort metadata is included in a TrustEd Credential, issuers SH
 }
 </pre>
 
-
 ### Endorsement and Accreditation Practices
 
 `Endorsement` and accreditation metadata may provide additional trust signals regarding the quality, recognition, or external validation of a credential.
 
 `AchivementCredential.endorsement` (As an EndorsementCredential) may communicate support from:
+
 - employers;
 - professional associations;
 - licensing authorities; or
 - other recognized third parties.
 
 When accreditation or endorsement metadata is included in a TrustEd Credential, issuers SHOULD:
+
 - clearly distinguish endorsements from formal accreditation or regulatory approval;
 - identify accrediting or endorsing organizations using stable identifiers where available;
 - include sufficient contextual information describing the scope of the endorsement or accreditation; and
@@ -317,24 +324,35 @@ When accreditation or endorsement metadata is included in a TrustEd Credential, 
 Issuers SHOULD avoid presenting informal affiliations or partnerships as formal accreditation.
 
 #### Endorsement Example
+
 <pre class="example json" title="Endorsement Example">
 </pre>
 
 #### Accredidation Examples
+
 1. Example Institutional Accredidation
 2. Institution and Program Accredidation Exmaple
 
 <pre class="example json" title="Institution Accredidation Example">
 </pre>
 
+<div class="note">
+TBD
+</div>
+
 <pre class="example json" title="Instition and Program Accredidation Example">
 </pre>
+
+<div class="note">
+TBD
+</div>
 
 ### Achievement Creator Practices
 
 The `creator` property on an `Achievement` may be used to identify the individual, organization, or entity responsible for defining, developing, authoring, or maintaining the achievement. For example, an instituion might administer state-defined teacher licensure requirements, such that the institution is issuing the credential, but the state is the creator of the requirements. Or a centralized Registrar's office is issuing a credential on behalf of a deparment or school of the institution.
 
 In TrustEd Credentials, the `Achievement.creator` property may help provide additional transparency regarding:
+
 - subject matter expertise;
 - assessment authorship;
 - curriculum or competency ownership;
@@ -342,6 +360,7 @@ In TrustEd Credentials, the `Achievement.creator` property may help provide addi
 - external collaboration in development of the credential.
 
 When creator metadata is included, issuers SHOULD:
+
 - clearly distinguish between the issuing organization and the creator of the achievement definition;
 - identify creators using stable identifiers where possible;
 - include creator metadata when external organizations, employers, faculty, or industry experts contributed significantly to the achievement definition or assessment design; and
@@ -350,8 +369,13 @@ When creator metadata is included, issuers SHOULD:
 Issuers SHOULD avoid using the `Achievement.creator`property to represent the learner earning the credential.
 
 #### Achievement Creator Example
+
 <pre class="example json" title="Achievement Creator Example">
 </pre>
+
+<div class="note">
+TBD
+</div>
 
 ### Achievement Subject Source Practices
 
@@ -360,6 +384,7 @@ The `source` property of `AchievementSubject` may be used when a person, organiz
 In TrustEd Credentials, `AchievementSubject.source` metadata may improve traceability, verification, and interoperability by identifying the originating organization, system or process associated with learner achievement data.
 
 When `AchievementSubject.source` metadata is included, issuers SHOULD:
+
 - identify the originating system or source using stable identifiers where possible;
 - include sufficient contextual information to support verification or audit processes;
 - maintain consistency between source metadata and related assessment, evidence, and result information; and
@@ -368,6 +393,11 @@ When `AchievementSubject.source` metadata is included, issuers SHOULD:
 Issuers SHOULD avoid exposing sensitive internal identifiers or personally identifiable information through source metadata.
 
 #### Source Example
+
 <pre class="example json" title="Source Example">
-Provide minimal example, such as testing center, not a whole profile
+
 </pre>
+
+<div class="note">
+TBD: Provide minimal example, such as testing center, not a whole profile
+</div>
