@@ -74,7 +74,7 @@ Issuers SHOULD avoid including evidence links that are inaccessible, temporary, 
 
 #### Evidence Example
 
-<pre class="example json" title="Evidence Exmaple">
+<pre class="example json vc" title="Evidence Exmaple">
 
 {
   "@context": [
@@ -230,7 +230,7 @@ When duration or effort metadata is included in a TrustEd Credential, issuers SH
 
 #### Credit Hour Example
 
-<pre class="example json" title="Credit Hour Example">
+<pre class="example vc json" title="Credit Hour Example">
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -274,7 +274,7 @@ When duration or effort metadata is included in a TrustEd Credential, issuers SH
 
 #### Clinial Hours Example
 
-<pre class="example json" title="Clinical Hours Example">
+<pre class="example vc json" title="Clinical Hours Example">
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -354,19 +354,19 @@ Issuers SHOULD avoid presenting informal affiliations or partnerships as formal 
 TBD
 </div>
 
-#### Accredidation Examples
+#### Accreditation Examples
 
-1. Example Institutional Accredidation
-2. Institution and Program Accredidation Exmaple
+1. Example Institutional Accreditation
+2. Institution and Program Accreditation Exmaple
 
-<pre class="example json" title="Institution Accredidation Example">
+<pre class="example json" title="Institution Accreditation Example">
 </pre>
 
 <div class="note">
 TBD
 </div>
 
-<pre class="example json" title="Instition and Program Accredidation Example">
+<pre class="example json" title="Institution and Program Accreditation Example">
 </pre>
 
 <div class="note">
