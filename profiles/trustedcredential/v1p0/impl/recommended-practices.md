@@ -157,9 +157,18 @@ Issuers SHOULD avoid including scores or assessment levels without sufficient co
 <pre class="example json" title="Credential with Grades Example">
 </pre>
 
+<div class="note">
+TBD
+</div>
+
 #### Rubric Example
+
 </pre class="example json" title="Credential with Rubric Example">
 </pre>
+
+<div class="note">
+TBD
+</div>
 
 ### Assessment Transparency Practices
 
@@ -171,6 +180,7 @@ Issuers SHOULD avoid including scores or assessment levels without sufficient co
 Assessment metadata may provide additional information about how achievement was evaluated.
 
 Assessment metadata may include:
+
 - assessment modality;
 - validation methodology;
 - evaluator roles;
@@ -181,6 +191,7 @@ Assessment metadata may include:
 - psychometric validation information when available.
 
 When assessment metadata is included in a TrustEd Credential, issuers SHOULD:
+
 - clearly describe the methods used to determine achievement;
 - distinguish participation-based recognition from assessed achievement;
 - provide sufficient context to support independent interpretation; and
@@ -189,13 +200,20 @@ When assessment metadata is included in a TrustEd Credential, issuers SHOULD:
 Providing assessment transparency may improve confidence in the rigor and reliability of the credential.
 
 #### Direct Assessment Example
+
 <pre class="example json">
 </pre>
 
+<div class="note">
+TBD
+</div>
+
 ### Duration and Effort Practices
+
 Duration and effort metadata may help communicate the approximate level of learner engagement associated with earning a credential.
 
 This information may include:
+
 - instructional hours;
 - learner effort;
 - academic credit;
@@ -204,11 +222,13 @@ This information may include:
 - competency equivalencies.
 
 When duration or effort metadata is included in a TrustEd Credential, issuers SHOULD:
+
 - clearly distinguish between estimated learner effort, instructional time, and formally awarded academic credit;
 - use recognized credit or workload systems where appropriate; and
 - provide sufficient contextual explanation for interpretation by external audiences.
 
 #### Credit Hour Example
+
 <pre class="example json" title="Credit Hour Example">
 {
   "@context": [
@@ -252,6 +272,7 @@ When duration or effort metadata is included in a TrustEd Credential, issuers SH
 </pre>
 
 #### Clinial Hours Example
+
 <pre class="example json" title="Clinical Hours Example">
 {
   "@context": [
@@ -327,6 +348,10 @@ Issuers SHOULD avoid presenting informal affiliations or partnerships as formal 
 
 <pre class="example json" title="Endorsement Example">
 </pre>
+
+<div class="note">
+TBD
+</div>
 
 #### Accredidation Examples
 
