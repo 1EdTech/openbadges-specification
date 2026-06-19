@@ -375,7 +375,7 @@ TBD
 
 ### Achievement Creator Practices
 
-The `creator` property on an `Achievement` may be used to identify the individual, organization, or entity responsible for defining, developing, authoring, or maintaining the achievement. For example, an instituion might administer state-defined teacher licensure requirements, such that the institution is issuing the credential, but the state is the creator of the requirements. Or a centralized Registrar's office is issuing a credential on behalf of a deparment or school of the institution.
+The `creator` property on an `Achievement` may be used to identify the individual, organization, or entity responsible for defining, developing, authoring, or maintaining the achievement. For example, an instituion might administer state-defined teacher licensure requirements, such that the institution is issuing the credential, but the state is the creator of the requirements. Or a centralized Registrar's office is issuing a credential on behalf of a deparment or school of the institution. See the [Differentiating Credential Issuers and Achievement Creators](https://www.imsglobal.org/spec/ob/v3p0#differentiating-issuers-and-achievement-creators) use case from the Open Badges Specification for more information.
 
 In TrustEd Credentials, the `Achievement.creator` property may help provide additional transparency regarding:
 
@@ -389,10 +389,15 @@ When creator metadata is included, issuers SHOULD:
 
 - clearly distinguish between the issuing organization and the creator of the achievement definition;
 - identify creators using stable identifiers where possible;
-- include creator metadata when external organizations, employers, faculty, or industry experts contributed significantly to the achievement definition or assessment design; and
 - maintain consistency in creator metadata practices across credentials.
+- include creator metadata when external organizations, employers, faculty, or industry experts contributed significantly to the achievement definition or assessment design; and
 
-Issuers SHOULD avoid using the `Achievement.creator`property to represent the learner earning the credential.
+<div class="issue">
+<ul>
+<li>We can clarify the file <code>identify creators using stable identifiers where possible;</code>, i.e use the same identifier for an institution in issuer.id and creator.id.</li>
+<li>Or suggest that an institution should have an use the same Profile information</li>
+<li>Write an example. Point to example here: https://www.imsglobal.org/spec/ob/v3p0#differentiating-issuers-and-achievement-creators</li>
+</div>
 
 #### Achievement Creator Example
 
@@ -412,11 +417,17 @@ In TrustEd Credentials, `AchievementSubject.source` metadata may improve traceab
 When `AchievementSubject.source` metadata is included, issuers SHOULD:
 
 - identify the originating system or source using stable identifiers where possible;
-- include sufficient contextual information to support verification or audit processes;
-- maintain consistency between source metadata and related assessment, evidence, and result information; and
+- include sufficient contextual information to support verification or audit processes; and
 - ensure source references remain stable and accessible over time when feasible.
 
 Issuers SHOULD avoid exposing sensitive internal identifiers or personally identifiable information through source metadata.
+
+<div class="issue">
+<ul>
+<li>Distinguish between institutions and persons</li>
+<li>Suggest the minimum data here to allow the compromise of consumption described in previous chapter</li>
+<li>Unnecessary qualifier</li>
+</div>
 
 #### Source Example
 
