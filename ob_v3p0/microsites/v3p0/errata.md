@@ -131,6 +131,10 @@ releases:
     docVersion: 1.5
     date: 2026-06-12
     comments: Added OpenAPI definition errors.
+  - version: Version 3.0 Final
+    docVersion: 1.6
+    date: 2026-06-29
+    comments: Added `endorsementJwt` to JSON-LD context
 ---
 
 @standards/v3p0/errata/errata.md
