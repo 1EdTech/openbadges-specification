@@ -38,6 +38,7 @@ According to this policy, this section recaps all the changes made to the contex
 - `@id` of `achievement` in `AchievementSubject` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#achievement`
 - `@id` of `image` in `AchievementSubject` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image`
 - `@id` of `image` in `Profile` now points to `https://purl.imsglobal.org/spec/vc/ob/vocab.html#image`
+- Added `endorsementJwt`.
 
 #### version 3.0.2
 
