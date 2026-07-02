@@ -63,6 +63,46 @@
                 postProcess: [window.respecVc.createVcExamples],
             }
         </script>
+
+        <script class="remove">
+            // TODO: this may not work when rendering the CMS version of the document.
+            window.addEventListener("DOMContentLoaded", () => {
+                document.respec?.ready?.then(() => {
+                    document
+                        .querySelectorAll("section:not(#abstract):not(#sotd)")
+                        .forEach(section => {
+                            const heading = section.querySelector(".header-wrapper h2, .header-wrapper h3, .header-wrapper h4, .header-wrapper h5, .header-wrapper h6");
+                            if (!heading) return;
+                            heading.classList.add("collapsible-heading");
+                            heading.addEventListener("click", () => {
+                                section.classList.toggle("collapsed");
+                            });
+                    });
+                });
+            });
+        </script>
+
+        <style>
+
+        section .header-wrapper .collapsible-heading {
+            cursor: pointer;
+        }
+
+        section .header-wrapper .collapsible-heading::after {
+            content: " ▼";
+            font-size: 0.6em;
+        }
+
+        section.collapsed .header-wrapper .collapsible-heading::after {
+            content: " ▶";
+            font-size: 0.6em;
+        }
+
+        section.collapsed > :not(.header-wrapper) {
+            display: none;
+        }
+
+        </style>
     </head>
 
     <body>
