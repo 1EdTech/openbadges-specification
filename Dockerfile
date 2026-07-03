@@ -17,3 +17,6 @@ COPY --chown=astro:nodejs extensions/assessmentExtension/v2p0/microsite /app/con
 
 # Issuer Accreditation Extension
 COPY --chown=astro:nodejs extensions/issuerAccreditationExtension/v2p0/microsite /app/content/docs/standards/ob-accred
+
+# Trusted Credential Profile
+COPY --chown=astro:nodejs profiles/trustedcredential /app/content/docs/standards/ob-trustedcredential
