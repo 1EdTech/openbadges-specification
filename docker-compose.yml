@@ -45,8 +45,9 @@ services:
       FASTCOMMENTS_TENANT_ID: ${FASTCOMMENTS_TENANT_ID}
       FASTCOMMENTS_ENABLED: ${FASTCOMMENTS_ENABLED}
       COMMENTS_SITE_KEY: ${COMMENTS_SITE_KEY}
-    volumes:
-      - ./profiles/trustedcredential/v1p0:/app/content/docs/standards/development
+    # Uncomment for local development.
+    # volumes:
+    #   - ./profiles/trustedcredential/v1p0:/app/content/docs/standards/development
 
 volumes:
   diagram-cache:
