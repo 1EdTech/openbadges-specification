@@ -1,4 +1,11 @@
-var usecases = `
+---
+title: "Use Cases"
+docType: "segment"
+status: "PublicDraft"
+author: "1Edtech Consortium"
+lastUpdated: 2026-07-12
+description: "Use Cases for TrustEd Credential 1.0 Profile"
+---
 
 ### Use Cases
 
@@ -40,4 +47,3 @@ A learner earns a TrustEd Credential from one platform and shares it with anothe
 The credential, structured according to the OB3 TrustEd Profile, is transferred without loss of meaning or required metadata. The receiving platform correctly parses and displays key fields such as skills, criteria, evidence, and results.
 
 This enables seamless portability and supports learner mobility across systems, institutions, and employment contexts.
-`;

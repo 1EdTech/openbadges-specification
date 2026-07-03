@@ -1,4 +1,11 @@
-var changes=`
+---
+title: "Changes"
+docType: "segment"
+status: "PublicDraft"
+author: "1Edtech Consortium"
+lastUpdated: 2026-07-12
+description: "Changes for TrustEd Credential 1.0 Profile"
+---
 
 ## Changes to Open Badges 3.0 Specification
 
@@ -86,5 +93,3 @@ A new property in [Result](#result) \'resultDate\' is MANDATORY
 - Accreditor information MUST be included using the applicable [Open Badges Issuer Accreditation Extension version 2.0](https://www.imsglobal.org/spec/ob-accred/v2p0/) for accreditor information.
 - The accreditor property MUST support multiple accreditor organizations.
 - Organizations that are not accredited MAY include an empty list of accreditors.
-
-`;

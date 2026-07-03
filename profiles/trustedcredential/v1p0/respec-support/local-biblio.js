@@ -17,4 +17,24 @@ var _localBiblio = {
     publisher: "1EdTech",
     status: "Base Document",
   },
+  "CTDL-TERMS": {
+    title: "Credential Transparency Description Language Terms",
+    href: "https://credreg.net/ctdl/terms",
+    publisher: "Credential Engine",
+  },
+  "CTDL-ASN-TERMS": {
+    title: "Credential Transparency Description Language ASN Terms",
+    href: "https://credreg.net/ctdlasn/terms",
+    publisher: "Credential Engine",
+  },
+  MULTIBASE: {
+    title: "The Multibase Data Format",
+    href: "https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-01",
+    status: "Internet-Draft",
+    publisher: "IETF",
+  },
+  MULTICODEC: {
+    title: "MULTICODEC",
+    href: "https://github.com/multiformats/multicodec/",
+  },
 };

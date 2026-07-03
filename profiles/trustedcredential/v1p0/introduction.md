@@ -1,4 +1,11 @@
-var introduction = `
+---
+title: "Introduction"
+docType: "segment"
+status: "PublicDraft"
+author: "1Edtech Consortium"
+lastUpdated: 2026-07-12
+description: "Introduction for TrustEd Credential 1.0 Profile"
+---
 
 ## Introduction
 
@@ -57,5 +64,3 @@ The key words MAY, MUST, MUST NOT, OPTIONAL, RECOMMENDED, REQUIRED, SHALL, SHALL
 An implementation of this specification that fails to implement a MUST/REQUIRED/SHALL requirement or fails to abide by a MUST NOT/SHALL NOT prohibition is considered nonconformant. SHOULD/SHOULD NOT/RECOMMENDED statements constitute a best practice. Ignoring a best practice does not violate conformance but a decision to disregard such guidance should be carefully considered. MAY/OPTIONAL statements indicate that implementers are entirely free to choose whether or not to implement the option.
 
 The Conformance and Certification Guide for this specification may introduce greater normative constraints than those defined here for specific service or implementation categories.
-
-`;
