@@ -1,3 +1,12 @@
+---
+title: "Machine Readability and Interoperability"
+docType: "segment"
+status: "PublicDraft"
+author: "1Edtech Consortium"
+lastUpdated: 2026-07-12
+description: "Machine Readability and Interoperability for TrustEd Credential 1.0 implementations"
+---
+
 ## Machine Readability and Interoperability
 
 Structured and consistent metadata improves the ability of wallets, learner records, talent systems, and verification services to interpret credentials accurately.

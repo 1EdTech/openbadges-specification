@@ -1,3 +1,12 @@
+---
+title: "Recommended Practices"
+docType: "segment"
+status: "PublicDraft"
+author: "1Edtech Consortium"
+lastUpdated: 2026-07-12
+description: "Recommended Practices for TrustEd Credential 1.0 implementations"
+---
+
 ## Recommended Practices
 
 ### Achievement Type Practices
@@ -72,59 +81,7 @@ TrustEd Credentials include evidence metadata that may help demonstrate learner 
 
 Issuers SHOULD avoid including evidence links that are inaccessible, temporary, or unrelated to the achievement being asserted.
 
-#### Evidence Example
-
-<pre class="example json vc" title="Evidence Exmaple">
-
-{
-  "@context": [
-    "https://www.w3.org/ns/credentials/v2",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
-  ],
-  "id": "https://example.com/credentials/3732f4b0-8c4a-4f95-8e3c-0f8c1b6f5a1d",
-  "type": [
-    "VerifiableCredential",
-    "OpenBadgeCredential"
-  ],
-  "name": "Research Methods Foundations",
-  "description": "Awarded for demonstrating foundational research methods skills.",
-  "issuer": {
-    "id": "https://example.com/issuers/540e388e-2735-4c3e-9709-80142801c774",
-    "type": "Profile",
-    "name": "Example Institution",
-    "url": "https://example.com",
-    "description": "An example educational institution.",
-    "email": "info@example.com"
-  },
-  "validFrom": "2026-05-22T00:00:00Z",
-  "awardedDate": "2026-05-22T00:00:00Z",
-  "credentialSubject": {
-    "id": "did:example:learner-123",
-    "type": "AchievementSubject",
-    "achievement": {
-      "id": "https://example.com/achievements/research-methods-foundations",
-      "type": "Achievement",
-      "name": "Research Methods Foundations",
-      "description": "The learner can design a basic research question, select an appropriate method, and summarize findings.",
-      "achievementType": "Competency",
-      "criteria": {
-        "narrative": "Learners must submit a research plan and a short analysis of findings."
-      }
-    }
-  },
-  "evidence": [
-    {
-      "id": "https://example.com/evidence/research-plan-123",
-      "type": "Evidence",
-      "name": "Research Plan and Findings Summary",
-      "description": "A submitted research plan with a short summary of findings and reflection on methodology.",
-      "genre": "Research report",
-      "audience": "Instructor and assessment reviewers",
-      "narrative": "The learner developed a research question, selected a survey method, collected sample responses, and summarized the findings in a short written report."
-    }
-  ]
-}
-</pre>
+@standards/development/impl/examples/exam.md
 
 ### Result and Rubric Practices
 

@@ -1,3 +1,12 @@
+---
+title: "TrustEd Credential Metadata Practices"
+docType: "segment"
+status: "PublicDraft"
+author: "1Edtech Consortium"
+lastUpdated: 2026-07-12
+description: "TrustEd Credential Metadata Practices for TrustEd Credential 1.0 implementations"
+---
+
 ## TrustEd Credential Metadata Practices
 
 The [[[OB-30]]] supports rich metadata that enables learners, employers, educational institutions, workforce systems, and other third parties to better understand the purpose, rigor, and quality of an achievement credential.
