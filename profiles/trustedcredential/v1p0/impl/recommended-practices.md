@@ -123,12 +123,7 @@ Issuers SHOULD avoid including scores or assessment levels without sufficient co
 
 #### Rubric Example
 
-</pre class="example json" title="Credential with Rubric Example">
-</pre>
-
-<div class="note">
-TBD
-</div>
+@standards/ob-trustedcredential/v1p0/impl/examples/grades/rubric.md
 
 ### Assessment Transparency Practices
 
