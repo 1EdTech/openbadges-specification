@@ -113,12 +113,13 @@ Issuers SHOULD avoid including scores or assessment levels without sufficient co
 
 #### Result as Grade Example
 
-<pre class="example json" title="Credential with Grades Example">
-</pre>
+@standards/ob-trustedcredential/v1p0/impl/examples/grades/numeric.md
 
-<div class="note">
-TBD
-</div>
+@standards/ob-trustedcredential/v1p0/impl/examples/grades/letters.md
+
+@standards/ob-trustedcredential/v1p0/impl/examples/grades/gpa.md
+
+@standards/ob-trustedcredential/v1p0/impl/examples/grades/mastery.md
 
 #### Rubric Example
 
