@@ -221,12 +221,7 @@ TBD
 1. Example Institutional Accreditation
 2. Institution and Program Accreditation Exmaple
 
-<pre class="example json" title="Institution Accreditation Example">
-</pre>
-
-<div class="note">
-TBD
-</div>
+@standards/ob-trustedcredential/v1p0/impl/examples/accreditation/institution.md
 
 <pre class="example json" title="Institution and Program Accreditation Example">
 </pre>
