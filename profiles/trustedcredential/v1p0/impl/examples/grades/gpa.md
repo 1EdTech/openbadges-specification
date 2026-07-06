@@ -7,7 +7,7 @@ lastUpdated: 2026-07-06
 description: "GPA Credential example for TrustEd Credential 1.0 implementations"
 ---
 
-#### GPA
+##### GPA
 
 This example describes a TrustEd Credential of a learner that has passed the Degree
 `Bachelor of Science in Computer Science`, issued by the `Example University` institution.

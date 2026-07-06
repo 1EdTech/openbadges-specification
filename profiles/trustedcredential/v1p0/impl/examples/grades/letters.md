@@ -7,7 +7,7 @@ lastUpdated: 2026-07-06
 description: "Letter Grades Credential example for TrustEd Credential 1.0 implementations"
 ---
 
-#### Letter Grades
+##### Letter Grades
 
 This example describes a TrustEd Credential of a learner that has passed the Course
 `Introduction to Data Science`, issued by the `Example University` institution.

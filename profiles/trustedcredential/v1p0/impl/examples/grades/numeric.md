@@ -7,7 +7,7 @@ lastUpdated: 2026-07-12
 description: "Numeric Grades Credential example for TrustEd Credential 1.0 implementations"
 ---
 
-#### Numeric Grades
+##### Numeric Grades
 
 This example describes a TrustEd Credential of a learner that has passed the Course
 `Introduction to Data Science`, issued by the `Example University` institution.

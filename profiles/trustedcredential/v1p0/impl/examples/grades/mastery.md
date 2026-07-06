@@ -7,7 +7,7 @@ lastUpdated: 2026-07-06
 description: "Mastery Levels example for TrustEd Credential 1.0 implementations"
 ---
 
-#### Mastery Levels
+##### Mastery Levels
 
 This example describes a TrustEd Credential of a learner that has passed the Course
 `General English Language Course`, issued by the
