@@ -3,7 +3,7 @@ title: "Exam"
 docType: "segment"
 status: "PublicDraft"
 author: "1Edtech Consortium"
-lastUpdated: 2026-07-12
+lastUpdated: 2026-07-02
 description: "Evidence Exam example for TrustEd Credential 1.0 implementations"
 ---
 
@@ -79,7 +79,8 @@ links to the report, located at `https://example.org/evidence/exam-completion-re
       "narrative": "The recipient completed the exam on 2026-06-28 and achieved a letter grade of A, exceeding the required passing grade of C."
     }
   ]
-}```
+}
+```
 
 In this example:
 

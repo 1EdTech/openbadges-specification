@@ -81,7 +81,9 @@ TrustEd Credentials include evidence metadata that may help demonstrate learner 
 
 Issuers SHOULD avoid including evidence links that are inaccessible, temporary, or unrelated to the achievement being asserted.
 
-@standards/development/impl/examples/exam.md
+@standards/ob-trustedcredential/v1p0/impl/examples/evidence/exam.md
+
+@standards/ob-trustedcredential/v1p0/impl/examples/evidence/course.md
 
 ### Result and Rubric Practices
 
