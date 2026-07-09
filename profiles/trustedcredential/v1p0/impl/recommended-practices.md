@@ -85,6 +85,8 @@ Issuers SHOULD avoid including evidence links that are inaccessible, temporary, 
 
 @standards/ob-trustedcredential/v1p0/impl/examples/evidence/course.md
 
+
+
 ### Result and Rubric Practices
 
 <p class="issue" title="Add clarity">
