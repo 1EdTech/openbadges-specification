@@ -9,7 +9,7 @@ description: "Institution Accreditation example for TrustEd Credential 1.0 imple
 
 ##### Institution Accreditation Example
 
-This example describe a Profile of the institution `ACME Institution`,
+This example describes a Profile of the institution `Example Institution`,
 accredited by the `International Association of Universities (IAU) / UNESCO World Higher Education Database (WHED)`.
 
 > **Note**: `International Association of Universities (IAU) / UNESCO World Higher Education Database (WHED)` is used in this example for learning purposes.
