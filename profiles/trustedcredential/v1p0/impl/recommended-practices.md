@@ -211,12 +211,9 @@ Issuers SHOULD avoid presenting informal affiliations or partnerships as formal 
 
 #### Endorsement Example
 
-<pre class="example json" title="Endorsement Example">
-</pre>
+@standards/ob-trustedcredential/v1p0/impl/examples/endorsement/institution.md
 
-<div class="note">
-TBD
-</div>
+@standards/ob-trustedcredential/v1p0/impl/examples/endorsement/achievement.md
 
 #### Accreditation Examples
 
