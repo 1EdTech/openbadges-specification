@@ -243,12 +243,11 @@ When creator metadata is included, issuers SHOULD:
 - maintain consistency in creator metadata practices across credentials.
 - include creator metadata when external organizations, employers, faculty, or industry experts contributed significantly to the achievement definition or assessment design; and
 
-<div class="issue">
-<ul>
-<li>We can clarify the file <code>identify creators using stable identifiers where possible;</code>, i.e use the same identifier for an institution in issuer.id and creator.id.</li>
-<li>Or suggest that an institution should have an use the same Profile information</li>
-<li>Write an example. Point to example here: https://www.imsglobal.org/spec/ob/v3p0#differentiating-issuers-and-achievement-creators</li>
-</div>
+> **Issue**:
+>
+> - We can clarify the file <code>identify creators using stable identifiers where possible;</code>, i.e use the same identifier for an institution in issuer.id and creator.id.
+> - Or suggest that an institution should have an use the same Profile information
+> - Write an example. Point to example here: https://www.imsglobal.org/spec/ob/v3p0#differentiating-issuers-and-achievement-creators
 
 #### Achievement Creator Example
 
@@ -274,19 +273,10 @@ When `AchievementSubject.source` metadata is included, issuers SHOULD:
 
 Issuers SHOULD avoid exposing sensitive internal identifiers or personally identifiable information through source metadata.
 
-<div class="issue">
-<ul>
-<li>Distinguish between institutions and persons</li>
-<li>Suggest the minimum data here to allow the compromise of consumption described in previous chapter</li>
-<li>Unnecessary qualifier</li>
-</div>
+> **Issue**:
+>
+> - Distinguish between institutions and persons
+> - Suggest the minimum data here to allow the compromise of consumption described in previous chapter
+> - Unnecessary qualifier
 
-#### Source Example
-
-<pre class="example json" title="Source Example">
-
-</pre>
-
-<div class="note">
-TBD: Provide minimal example, such as testing center, not a whole profile
-</div>
+@standards/ob-trustedcredential/v1p0/impl/examples/source/testing-center.md
