@@ -222,12 +222,7 @@ Issuers SHOULD avoid presenting informal affiliations or partnerships as formal 
 
 @standards/ob-trustedcredential/v1p0/impl/examples/accreditation/institution.md
 
-<pre class="example json" title="Institution and Program Accreditation Example">
-</pre>
-
-<div class="note">
-TBD
-</div>
+> **Note**: TBD: Institution and Program Accreditation Example
 
 ### Achievement Creator Practices
 
@@ -257,12 +252,13 @@ When creator metadata is included, issuers SHOULD:
 
 #### Achievement Creator Example
 
-<pre class="example json" title="Achievement Creator Example">
-</pre>
+@standards/ob-trustedcredential/v1p0/impl/examples/creator/institution.md
 
-<div class="note">
-TBD
-</div>
+> **Note**: TBD: Highligh PII
+
+@standards/ob-trustedcredential/v1p0/impl/examples/creator/person.md
+
+> **Note**: TBD: Highligh PII
 
 ### Achievement Subject Source Practices
 
