@@ -26,9 +26,8 @@ Issuers SHOULD avoid using generic or institution-specific terminology that cann
 
 ### Skills and Framework Alignment Practices
 
-<p class="issue" title="Revise Text">
-  This is kinda junk text. We aren't clear here that the requirement is to use ResultDescription.alignment. This should talk about why that enables more precision.
-</p>
+> **Issue**:
+> This is kinda junk text. We aren't clear here that the requirement is to use ResultDescription.alignment. This should talk about why that enables more precision.
 
 Alignment metadata supports portability and comparability of credentials across educational institutions, employers, and workforce systems.
 
@@ -58,9 +57,9 @@ Minimal or ambiguous criteria statements such as “completed the course” may 
 
 ### Evidence Practices
 
-<p class="issue" title="Add Additional Info">
-  Add details about where to host, privacy considerations, etc.
-</p>
+> **Issue**: Add Additional Info
+> Add details about where to host, privacy considerations, etc.
+
 Evidence metadata may help demonstrate learner achievement, competency, or performance.
 
 Evidence may include:
@@ -85,13 +84,10 @@ Issuers SHOULD avoid including evidence links that are inaccessible, temporary, 
 
 @standards/ob-trustedcredential/v1p0/impl/examples/evidence/course.md
 
-
-
 ### Result and Rubric Practices
 
-<p class="issue" title="Add clarity">
-  What does it mean to add a rubric with critera levels? When do you do grads/pass/fail, etc, and when do you do rubric.
-</p>
+> **Issue**: Add clarity
+> What does it mean to add a rubric with critera levels? When do you do grads/pass/fail, etc, and when do you do rubric.
 
 Result metadata may provide additional transparency regarding assessment outcomes or demonstrated levels of achievement.
 
@@ -129,11 +125,8 @@ Issuers SHOULD avoid including scores or assessment levels without sufficient co
 
 ### Assessment Transparency Practices
 
-<div class="issue" title="Add more detial">
-    <ul>
-        <li>Include direct assessment approach as minimal example.</li>
-    </ul>
-</div>
+> **Issue**: Add more detail
+> Include direct assessment approach as minimal example.
 
 Assessment metadata may provide additional information about how achievement was evaluated.
 
@@ -159,12 +152,7 @@ Providing assessment transparency may improve confidence in the rigor and reliab
 
 #### Direct Assessment Example
 
-<pre class="example json" title="Direct Assessment Example">
-</pre>
-
-<div class="note">
-TBD
-</div>
+> **Note**: TBD: Direct Assessment Example
 
 ### Duration and Effort Practices
 
@@ -280,3 +268,4 @@ Issuers SHOULD avoid exposing sensitive internal identifiers or personally ident
 > - Unnecessary qualifier
 
 @standards/ob-trustedcredential/v1p0/impl/examples/source/testing-center.md
+

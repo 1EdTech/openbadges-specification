@@ -21,6 +21,5 @@ Issuers implementing TrustEd Credentials are encouraged to:
 
 Implementers SHOULD consider both human readability and machine readability when designing credential metadata structures.
 
-<div class="issue">
-This last sentence is hard to understand. What would somebody actually do to implement this recommendation? Add Examples
-</div>
+> **Issue**
+> This last sentence is hard to understand. What would somebody actually do to implement this recommendation? Add Examples
