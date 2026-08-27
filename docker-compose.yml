@@ -37,12 +37,13 @@ services:
       IMAGE_SERVICE_URL: http://image-service:8080
       IMAGE_SERVICE_AUTH_DISABLED: "true"
       LATEST_SPEC_VERSION: "v3p0"
-      # Optional: uncomment and set for MPS blocks or FastComments local testing
-      # MPS_API_KEY: ""
-      # MPS_HOST: "https://mps.1edtech.org"
-      # FASTCOMMENTS_TENANT_ID: ""
-      # FASTCOMMENTS_ENABLED: "true"
-      # COMMENTS_SITE_KEY: "open-badges"
+      # These should be set in a .env file and not committed to source control.
+      # Use the .env.example file as a template for the required variables.
+      MPS_API_KEY: ${MPS_API_KEY}
+      MPS_HOST: ${MPS_HOST}
+      FASTCOMMENTS_TENANT_ID: ${FASTCOMMENTS_TENANT_ID}
+      FASTCOMMENTS_ENABLED: ${FASTCOMMENTS_ENABLED}
+      COMMENTS_SITE_KEY: ${COMMENTS_SITE_KEY}
 
 volumes:
   diagram-cache:
