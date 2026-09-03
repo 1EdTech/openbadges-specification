@@ -220,7 +220,7 @@ Issuers SHOULD avoid presenting informal affiliations or partnerships as formal 
 
 ### Achievement Creator Practices
 
-The `creator` property on an `Achievement` may be used to identify the individual, organization, or entity responsible for defining, developing, authoring, or maintaining the achievement. For example, an instituion might administer state-defined teacher licensure requirements, such that the institution is issuing the credential, but the state is the creator of the requirements. Or a centralized Registrar's office is issuing a credential on behalf of a deparment or school of the institution. See the [Differentiating Credential Issuers and Achievement Creators](https://www.imsglobal.org/spec/ob/v3p0#differentiating-issuers-and-achievement-creators) use case from the Open Badges Specification for more information.
+The `creator` property on an `Achievement` may be used to identify the individual, organization, or entity responsible for defining, developing, authoring, or maintaining the achievement. For example, an instituion might administer state-defined teacher licensure requirements, such that the institution is issuing the credential, but the state is the creator of the requirements. Or a centralized Registrar's office is issuing a credential on behalf of a deparment or school of the institution. See the [Differentiating Credential Issuers and Achievement Creators](https://standards.1edtech.org/open-badges/specifications/standards/v3p0#differentiating-issuers-and-achievement-creators) use case from the Open Badges Specification for more information.
 
 In TrustEd Credentials, the `Achievement.creator` property may help provide additional transparency regarding:
 
@@ -233,15 +233,9 @@ In TrustEd Credentials, the `Achievement.creator` property may help provide addi
 When creator metadata is included, issuers SHOULD:
 
 - clearly distinguish between the issuing organization and the creator of the achievement definition;
-- identify creators using stable identifiers where possible;
+- identify creators using stable identifiers where possible, using the same identifier for an instituion in `issuer.id` and `creator.id`. Institutions should use the same `Profile` information in `issuer` and `creator`.
 - maintain consistency in creator metadata practices across credentials.
 - include creator metadata when external organizations, employers, faculty, or industry experts contributed significantly to the achievement definition or assessment design; and
-
-> **Issue**:
->
-> - We can clarify the file <code>identify creators using stable identifiers where possible;</code>, i.e use the same identifier for an institution in issuer.id and creator.id.
-> - Or suggest that an institution should have an use the same Profile information
-> - Write an example. Point to example here: https://www.imsglobal.org/spec/ob/v3p0#differentiating-issuers-and-achievement-creators
 
 #### Achievement Creator Example
 
@@ -274,4 +268,3 @@ Issuers SHOULD avoid exposing sensitive internal identifiers or personally ident
 > - Unnecessary qualifier
 
 @standards/ob-trustedcredential/v1p0/impl/examples/source/testing-center.md
-
