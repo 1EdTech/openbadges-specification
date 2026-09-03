@@ -158,6 +158,8 @@ Providing assessment transparency may improve confidence in the rigor and reliab
 
 @standards/ob-trustedcredential/v1p0/impl/examples/direct/official.md
 
+@standards/ob-trustedcredential/v1p0/impl/examples/direct/clep.md
+
 ### Duration and Effort Practices
 
 Duration and effort metadata may help communicate the approximate level of learner engagement associated with earning a credential.
