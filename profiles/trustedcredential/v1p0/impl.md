@@ -9,6 +9,8 @@ version: '1.0'
 nature: normative
 docType: guide
 specTitle: Open Badges Specification
+discussion:
+  enabled: true
 contributors:
   - name: Mary Gwozdz
     affiliation: UNICON
