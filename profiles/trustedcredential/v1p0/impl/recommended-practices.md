@@ -86,6 +86,8 @@ Issuers SHOULD avoid including evidence links that are inaccessible, temporary, 
 
 @standards/ob-trustedcredential/v1p0/impl/examples/evidence/degree.md
 
+@standards/ob-trustedcredential/v1p0/impl/examples/evidence/professional-degree.md
+
 ### Result and Rubric Practices
 
 > **Issue**: Add clarity
