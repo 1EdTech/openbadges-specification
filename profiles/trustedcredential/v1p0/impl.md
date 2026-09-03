@@ -3,7 +3,7 @@ author: 1Edtech Consortium
 category: Guide
 title: Open Badges 3.0 TrustEd Credential Profile Implementation Guide
 shortcode: OB-TCP-IMPL-10
-status: PublicDraft
+status: Draft
 lastUpdated: 2026-07-02
 version: '1.0'
 nature: normative
