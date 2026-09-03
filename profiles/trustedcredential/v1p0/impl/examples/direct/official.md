@@ -165,6 +165,7 @@ A candidate is certified only if:
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
     "https://purl.imsglobal.org/spec/ob-assessment/v2p0/context/"
   ],
   "id": "https://northbridge-cyber.example.org/credentials/e7270d68-9c49-4ef7-a2a4-74cdb458af27",
