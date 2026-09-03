@@ -29,7 +29,7 @@ The learned received 3.0 credits from the completion of this course.
   "description": "Awarded for successful completion of a credit-bearing introductory data analysis course.",
   "issuer": {
     "id": "https://example.edu/issuers/registrar",
-    "type": "Profile",
+    "type": ["Profile"],
     "name": "Example University",
     "url": "https://example.edu",
     "description": "An example postsecondary institution.",
@@ -39,11 +39,11 @@ The learned received 3.0 credits from the completion of this course.
   "awardedDate": "2026-05-22T00:00:00Z",
   "credentialSubject": {
     "id": "did:example:learner-456",
-    "type": "AchievementSubject",
+    "type": ["AchievementSubject"],
     "creditsEarned": 3.0,
     "achievement": {
       "id": "https://example.edu/achievements/introduction-to-data-analysis",
-      "type": "Achievement",
+      "type": ["Achievement"],
       "name": "Introduction to Data Analysis",
       "description": "The learner can organize, analyze, and interpret data using introductory statistical methods and spreadsheet tools.",
       "achievementType": "Course",

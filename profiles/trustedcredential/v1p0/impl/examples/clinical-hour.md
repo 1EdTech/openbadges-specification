@@ -30,7 +30,7 @@ The learned received 120.0 credits from the completion of this achievement.
   "description": "Awarded for completing supervised clinical practice hours in patient care settings.",
   "issuer": {
     "id": "https://example.org/issuers/health-sciences-program",
-    "type": "Profile",
+    "type": ["Profile"],
     "name": "Example Health Sciences Program",
     "url": "https://example.org",
     "description": "An example clinical education provider.",
@@ -40,13 +40,13 @@ The learned received 120.0 credits from the completion of this achievement.
   "awardedDate": "2026-05-22T00:00:00Z",
   "credentialSubject": {
     "id": "did:example:learner-789",
-    "type": "AchievementSubject",
+    "type": ["AchievementSubject"],
     "creditsEarned": 120.0,
     "activityStartDate": "2026-01-12T00:00:00Z",
     "activityEndDate": "2026-05-08T00:00:00Z",
     "achievement": {
       "id": "https://example.org/achievements/supervised-clinical-practice-patient-care-foundations",
-      "type": "Achievement",
+      "type": ["Achievement"],
       "name": "Supervised Clinical Practice: Patient Care Foundations",
       "description": "The learner completed supervised clinical practice demonstrating foundational patient care skills.",
       "achievementType": "Fieldwork",
@@ -57,7 +57,7 @@ The learned received 120.0 credits from the completion of this achievement.
     },
     "source": {
       "id": "https://example.org/profiles/clinical-supervisor-office",
-      "type": "Profile",
+      "type": ["Profile"],
       "name": "Clinical Supervisor Office",
       "url": "https://example.org/clinical-supervision",
       "description": "The office responsible for verifying supervised clinical practice hours."

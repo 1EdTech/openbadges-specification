@@ -38,7 +38,7 @@ links to the completion report, located at
   "awardedDate": "2026-06-15T00:00:00Z",
   "issuer": {
     "id": "https://example.edu/issuers/1",
-    "type": "Profile",
+    "type": ["Profile"],
     "name": "Example University",
     "url": "https://example.edu",
     "email": "credentials@example.edu"
@@ -46,7 +46,7 @@ links to the completion report, located at
   "validFrom": "2026-06-15T00:00:00Z",
   "credentialSubject": {
     "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-    "type": "AchievementSubject",
+    "type": ["AchievementSubject"],
     "achievement": {
       "id": "https://example.edu/achievements/intro-data-science",
       "type": ["Achievement"],
