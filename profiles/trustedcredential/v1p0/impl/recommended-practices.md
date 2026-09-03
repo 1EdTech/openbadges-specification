@@ -154,9 +154,9 @@ When assessment metadata is included in a TrustEd Credential, issuers SHOULD:
 
 Providing assessment transparency may improve confidence in the rigor and reliability of the credential.
 
-#### Direct Assessment Example
+#### Direct Assessment Examples
 
-> **Note**: TBD: Direct Assessment Example
+@standards/ob-trustedcredential/v1p0/impl/examples/direct/official.md
 
 ### Duration and Effort Practices
 
