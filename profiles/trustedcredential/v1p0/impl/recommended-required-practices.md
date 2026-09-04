@@ -9,6 +9,4 @@ description: "Recommended vs required practices for TrustEd Credential 1.0 imple
 
 ## Recommended vs required practices
 
-<div class="note">
-TBD: Add a chapter about the implications of Recommended and Required. Include related metadata - with its implication - in every section through the document
-</div>
+> **Note**: TBD: Add a chapter about the implications of Recommended and Required. Include related metadata - with its implication - in every section through the document
