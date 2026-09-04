@@ -2,7 +2,6 @@
 title: "Open Badges TrustEd Credential Profile Conformance and Certification Guide"
 shorttitle: "TrustEd Credential Certification Guide"
 docType: "conformance"
-category: Certification
 shortcode: "obtc-cert"
 version: "1.0.0"
 status: "Draft"
@@ -11,7 +10,7 @@ lastUpdated: 2026-09-03
 description: >
   Conformance requirements and certification process for implementations
   of the Open Badges TrustEd Credential Profile 1.0.
-category: "[PLACEHOLDER: valid .microsite category]"
+category: Certification
 releases:
   - version: "1.0.0"
     date: 2026-09-03
