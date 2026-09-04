@@ -11,6 +11,8 @@ description: >
   Conformance requirements and certification process for implementations
   of the Open Badges TrustEd Credential Profile 1.0.
 category: Certification
+discussion:
+  enabled: true
 releases:
   - version: "1.0.0"
     date: 2026-09-03
