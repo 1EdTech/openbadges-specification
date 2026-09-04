@@ -2,7 +2,7 @@
 title: "Open Badges TrustEd Credential Profile Conformance and Certification Guide"
 shorttitle: "TrustEd Credential Certification Guide"
 docType: "conformance"
-shortcode: "obtc-cert"
+shortcode: "OB-TCP-10-CERT"
 version: "1.0.0"
 status: "Draft"
 author: "1EdTech Consortium"
@@ -13,6 +13,8 @@ description: >
 category: Certification
 discussion:
   enabled: true
+  inline: true
+  topicId: OB-TCP-10-CERT
 releases:
   - version: "1.0.0"
     date: 2026-09-03

@@ -11,6 +11,8 @@ docType: guide
 specTitle: Open Badges Specification
 discussion:
   enabled: true
+  inline: true
+  topicId: OB-TCP-IMPL-10
 contributors:
   - name: Mary Gwozdz
     affiliation: UNICON
