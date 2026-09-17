@@ -25,6 +25,10 @@ description: >
 | ServiceDescriptionDocument | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_servicedescriptiondocument_schema.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_servicedescriptiondocument_schema.json) |
 | GetOpenBadgeCredentialsResponse | [https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_getopenbadgecredentialsresponse_schema.json](https://purl.imsglobal.org/spec/ob/v3p0/schema/ob_v3p0_getopenbadgecredentialsresponse_schema.json) |
 
+### JSON-LD Context
+
+- [https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json](https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json)
+
 ### Service Model
 
 The service model is available as an OpenAPI document at the following URL:
