@@ -13,8 +13,6 @@ description: >
 category: Certification
 discussion:
   enabled: true
-  inline: true
-  topicId: OB-TCP-10-CERT
 releases:
   - version: "1.0.0"
     date: 2026-09-03
