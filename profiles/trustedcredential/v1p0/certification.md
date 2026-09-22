@@ -90,7 +90,7 @@ TrustEd Credential
 TrustEd Credential Issuer
 : An application that enables an issuing organization to create and issue OpenBadgeCredentials conforming to the TrustEd Credential Profile.
 
-TrustEd Credential Receiver
+TrustEd Credential Verifier
 : An application that receives, validates, stores, processes, transfers, exports, shares, or otherwise consumes OpenBadgeCredentials conforming to the TrustEd Credential Profile.
 
 TrustEd Credential Profile
@@ -120,9 +120,9 @@ In particular, certification verifies that candidate platforms can:
 Certification may be achieved in one or more of the following proposed categories:
 
 - TrustEd Credential Issuer
-- TrustEd Credential Receiver
+- TrustEd Credential Verifier
 
-> **Working Group Question:** Confirm that TrustEd Credential Issuer and TrustEd Credential Receiver are the appropriate certification categories. Determine whether display requirements should be included within Receiver certification or whether a separate TrustEd Credential Displayer certification category is needed.
+> **Working Group Question:** Confirm that TrustEd Credential Issuer and TrustEd Credential Verifier are the appropriate certification categories. Determine whether display requirements should be included within Verifier certification or whether a separate TrustEd Credential Displayer certification category is needed.
 
 ### 2.1 Certification Categorization
 
@@ -135,7 +135,7 @@ A candidate platform MUST hold current Open Badges 3.0 certification appropriate
 | TrustEd Credential Certification | Required Open Badges 3.0 Certification |
 |---|---|
 | TrustEd Credential Issuer | [PLACEHOLDER] |
-| TrustEd Credential Receiver | [PLACEHOLDER] |
+| TrustEd Credential Verifier | [PLACEHOLDER] |
 
 TrustEd Credential certification does not repeat the full Open Badges 3.0 certification process. It tests the additional requirements and capabilities necessary to support the TrustEd Credential Profile.
 
@@ -352,19 +352,19 @@ The candidate platform MUST successfully complete the following tests:
 
 [PLACEHOLDER: Determine which Issuer tests require automated validation, uploaded artifacts, video evidence, or another certification-evidence mechanism.]
 
-## 4. TrustEd Credential Receiver Conformance
+## 4. TrustEd Credential Verifier Conformance
 
 This section is non-normative.
 
-A TrustEd Credential Receiver is an application that receives, validates, stores, processes, transfers, exports, shares, or otherwise consumes OpenBadgeCredentials conforming to the TrustEd Credential Profile.
+A TrustEd Credential Verifier is an application that receives, validates, stores, processes, transfers, exports, shares, or otherwise consumes OpenBadgeCredentials conforming to the TrustEd Credential Profile.
 
 The candidate platform MUST demonstrate that it recognizes and validates TrustEd Credentials and preserves TrustEd Credential metadata.
 
 The candidate platform MUST distinguish TrustEd Credential Profile conformance from underlying Open Badges 3.0 validity.
 
-### 4.1 TrustEd Credential Receiver Compliance
+### 4.1 TrustEd Credential Verifier Compliance
 
-The functional capabilities of a TrustEd Credential Receiver are:
+The functional capabilities of a TrustEd Credential Verifier are:
 
 - It MUST hold the applicable Open Badges 3.0 certification.
 - It MUST recognize when a credential claims conformance to the TrustEd Credential Profile.
@@ -382,7 +382,7 @@ A receiving platform MUST NOT silently discard valid TrustEd Credential metadata
 
 ### 4.2 Validation and TrustEd Credential Status
 
-A certified TrustEd Credential Receiver MUST distinguish among the following conditions.
+A certified TrustEd Credential Verifier MUST distinguish among the following conditions.
 
 #### 4.2.1 Invalid Open Badge
 
@@ -462,7 +462,7 @@ The candidate platform MUST successfully complete the following tests:
 
 6. **Demonstrate applicable recommended and optional metadata processing.**
 
-   Demonstrate that applicable TrustEd Credential Profile metadata required for receiver certification is processed and preserved when present.
+   Demonstrate that applicable TrustEd Credential Profile metadata required for verifier certification is processed and preserved when present.
 
 7. **Demonstrate multiple-value support.**
 
@@ -478,11 +478,11 @@ The candidate platform MUST successfully complete the following tests:
 
    The resulting credential MUST preserve applicable TrustEd Credential metadata and MUST remain conformant to the applicable TrustEd Credential Profile.
 
-[PLACEHOLDER: Determine which Receiver tests require automated validation, uploaded artifacts, video evidence, or another certification-evidence mechanism.]
+[PLACEHOLDER: Determine which Verifier tests require automated validation, uploaded artifacts, video evidence, or another certification-evidence mechanism.]
 
 ## 5. TrustEd Credential Displayer Conformance
 
-> **Working Group Question:** Determine whether a separate TrustEd Credential Displayer certification category is required or whether applicable display requirements should be incorporated into TrustEd Credential Receiver certification.
+> **Working Group Question:** Determine whether a separate TrustEd Credential Displayer certification category is required or whether applicable display requirements should be incorporated into TrustEd Credential Verifier certification.
 
 If a separate TrustEd Credential Displayer certification category is adopted, this section should define requirements for applicable capabilities such as:
 
@@ -493,7 +493,7 @@ If a separate TrustEd Credential Displayer certification category is adopted, th
 - presenting verification status; and
 - presenting applicable achievement, alignment, criteria, evidence, result, assessment, endorsement, and accreditation information.
 
-[PLACEHOLDER: Remove this section if display requirements are incorporated into Receiver certification.]
+[PLACEHOLDER: Remove this section if display requirements are incorporated into Verifier certification.]
 
 ## 6. Implementation Guidance and Certification
 
@@ -526,16 +526,16 @@ Confirm that `credentialSchema` is the canonical machine-readable mechanism for:
 Confirm that the initial TrustEd Credential certification categories are:
 
 - TrustEd Credential Issuer; and
-- TrustEd Credential Receiver.
+- TrustEd Credential Verifier.
 
-Determine whether display requirements should be included within Receiver certification or whether a separate TrustEd Credential Displayer certification category is required.
+Determine whether display requirements should be included within Verifier certification or whether a separate TrustEd Credential Displayer certification category is required.
 
 ### 7.3 Open Badges 3.0 Certification Prerequisites
 
 Define the exact Open Badges 3.0 certification prerequisite or prerequisites for:
 
 - TrustEd Credential Issuer certification; and
-- TrustEd Credential Receiver certification.
+- TrustEd Credential Verifier certification.
 
 ### 7.4 Certification Evidence
 
