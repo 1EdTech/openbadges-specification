@@ -57,9 +57,6 @@ Minimal or ambiguous criteria statements such as “completed the course” may 
 
 ### Evidence Practices
 
-> **Issue**: Add Additional Info
-> Add details about where to host, privacy considerations, etc.
-
 Evidence metadata may help demonstrate learner achievement, competency, or performance.
 
 Evidence may include:
