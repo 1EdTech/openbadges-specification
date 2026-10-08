@@ -37,6 +37,7 @@ services:
       IMAGE_SERVICE_URL: http://image-service:8080
       IMAGE_SERVICE_AUTH_DISABLED: "true"
       LATEST_SPEC_VERSION: "v3p0"
+      # Environment variables for MPS and FastComments.
       # These should be set in a .env file and not committed to source control.
       # Use the .env.example file as a template for the required variables.
       MPS_API_KEY: ${MPS_API_KEY}
@@ -44,6 +45,9 @@ services:
       FASTCOMMENTS_TENANT_ID: ${FASTCOMMENTS_TENANT_ID}
       FASTCOMMENTS_ENABLED: ${FASTCOMMENTS_ENABLED}
       COMMENTS_SITE_KEY: ${COMMENTS_SITE_KEY}
+    # Uncomment for local development.
+    # volumes:
+    #   - ./profiles/trustedcredential/v1p0:/app/content/docs/standards/development
 
 volumes:
   diagram-cache:

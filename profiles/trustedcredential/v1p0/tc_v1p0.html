@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <script src='https://purl.imsglobal.org/respec/respec-1edtech.js' class='remove'></script>
+  <script src='respec-support/local-biblio.js' class='remove'></script>
+  <script src='respec-support/contributors.js' class='remove'></script>
+
+  <!-- Load VC proof add-on -->
+  <script class="remove" src="https://purl.imsglobal.org/respec/respec-vc.js"></script>
+
+  <!-- Load the MPS configuration -->
+  <script class="remove" src="mps-config.js"></script>
+
+  <!-- Load ajv2019 (Another JSON Schema Validator) if you want your examples validated -->
+  <script class="remove" src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.11.0/ajv2019.bundle.min.js"
+          integrity="sha512-C+5LzjYlC8qhPFniPXiod8efyXJ3fDRCUS87L8o8z5CGt/1LHflMozW6py7s16Z+TJy52C9teuDUq6iq2Nft7A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script class='remove'>
+    var respecConfig = {
+      mainSpecTitle: "Open Badges 3.0 TrustEd Credential Profile",
+      mainSpecBiblioKey: "OB-TCP-10",
+      specTitle: "Open Badges TrustEd Credential Profile",
+      shortName: "obtc",
+      specNature: "normative", // spec nature is "normative" or "informative"
+      specType: "main", // spec type is "main", "cert", "impl", "errata" or other agreed upon string
+      specVersion: "1.0",
+      docVersion: "1",
+      specStatus: "Base Document",
+      specDate: "May 7, 2026",
+      contributors: _contributors,
+      localBiblio: _localBiblio,
+      xref: [
+        "did-core",
+        "vc-data-model-2.0",
+      ],
+
+      // Add the MPS configuration to respecConfig
+      mps: _mps,
+
+      // Add VC proof examples
+      postProcess: [
+        window.respecVc.createVcExamples
+      ],
+    };
+
+    // fucntion
+    function stripFrontmatter(respec, content, funcArgs) {
+        // Remove frontmatter from the content
+        console.log("Stripping frontmatter from content:", content);
+        return content.replace(/^---[\s\S]*?---\s*/, '');
+    }
+  </script>
+</head>
+
+<body>
+
+  <section id="abstract" data-format="markdown" data-include="abstract.md" data-oninclude="stripFrontmatter"></section>
+
+  <section data-format="markdown" data-include="introduction.md" data-oninclude="stripFrontmatter"></section>
+
+  <section data-format="markdown" class="informative" data-include="overview.md" data-oninclude="stripFrontmatter"></section>
+
+  <section data-format="markdown" class="informative" data-include="usecases.md" data-oninclude="stripFrontmatter"></section>
+
+ <section data-format="markdown" class="informative" data-include="changes.md" data-oninclude="stripFrontmatter"></section>
+
+   <section class="appendix" id="datamodels">
+    <h1>Data Models</h1>
+    <script class="transclude" data-id="datamodel" src="datamodel.html"></script>
+  </section>
+
+ <section id="history" class="appendix">
+    <h1>Revision History</h1>
+    <table title="Revision History">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Doc Version</th>
+          <th>Release Date</th>
+          <th>Comments</th>
+        </tr>
+      </thead>
+       <tr>
+          <td>Base Document</td>
+          <td>1.0</td>
+          <td>March 02, 2026</td>
+          <td>Created Base document</td>
+        </tr>
+   </table>
+</section>
+
+</body>
+
+</html>
