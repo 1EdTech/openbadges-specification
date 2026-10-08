@@ -65,7 +65,6 @@ The following documents are relevant to TrustEd Credential implementation and ce
 - Open Badges TrustEd Credential Profile v1.0 [OB-TC-10]
 - Open Badges TrustEd Credential Profile Conformance and Certification Guide v1.0 [OB-TC-CERT-10]
 - Open Badges TrustEd Credential Profile Implementation Guide [OB-TC-IMPL-10]
-- TrustEd Credential Profile JSON Schema [OB-TC-SCHEMA-10]
 - Open Badges Issuer Accreditation Extension v2.0 [OB-ACCRED-20]
 
 [PLACEHOLDER: Add any additional contexts, schemas, or extension documents required for certification.]
@@ -210,8 +209,6 @@ The functional capabilities of a TrustEd Credential Issuer are:
 - It MUST enforce applicable conditional TrustEd Credential Profile requirements.
 - It MUST correctly serialize TrustEd Credential metadata.
 - It MUST include the applicable TrustEd Credential Profile `credentialSchema` reference.
-- It MUST NOT issue or represent a credential as a TrustEd Credential when TrustEd Credential Profile validation fails.
-- It MAY issue such a credential as a standard Open Badges 3.0 credential if the user is clearly informed that TrustEd Credential requirements have not been met.
 
 A property that is optional or recommended for inclusion in an individual TrustEd Credential is not necessarily optional for implementation by a certified TrustEd Credential Issuer.
 
@@ -262,9 +259,9 @@ If the applicable `ResultDescription` includes `rubricCriterionLevel`, the corre
 
 ### 3.3 Recommended and Optional Property Support
 
-Properties that are RECOMMENDED or OPTIONAL for inclusion in an individual TrustEd Credential MAY nevertheless be required platform capabilities for TrustEd Credential certification.
+Properties that are RECOMMENDED for inclusion in an individual TrustEd Credential MAY nevertheless be required platform capabilities for TrustEd Credential certification.
 
-A certified TrustEd Credential Issuer MUST make the applicable TrustEd Credential Profile capabilities identified for certification available to issuing organizations.
+A certified TrustEd Credential Issuer MUST make all the applicable TrustEd Credential Profile capabilities identified for certification available to issuing organizations.
 
 These capabilities include, where applicable:
 
@@ -282,6 +279,7 @@ Failure of a candidate platform to support a capability explicitly required for 
 > **Certification Scope Note:** The requirement to support recommended and optional properties applies to applicable TrustEd Credential Profile certification capabilities. It does not require implementation of every optional property defined anywhere in the complete Open Badges 3.0 data model.
 
 ### 3.4 Accreditation Support
+## 3.3 Accreditation Support
 
 The candidate platform MUST support accreditor information as required by the TrustEd Credential Profile using the applicable Open Badges Issuer Accreditation Extension v2.0.
 
@@ -303,52 +301,13 @@ The candidate platform MUST successfully complete the following tests:
 
    The resulting credential MUST satisfy the applicable Open Badges 3.0 and TrustEd Credential Profile requirements.
 
-2. **Demonstrate TrustEd Profile identification.**
 
-   Issue a TrustEd Credential containing the applicable TrustEd Credential Profile `credentialSchema`.
-
-3. **Demonstrate required property support.**
-
-   Demonstrate that the candidate platform supports the properties required by the TrustEd Credential Profile.
-
-4. **Demonstrate applicable recommended and optional property support.**
-
-   Demonstrate that the candidate platform makes the TrustEd Credential Profile capabilities required for platform certification available to the issuing organization.
-
-5. **Demonstrate multiple-value support.**
-
-   Demonstrate support for representative properties whose TrustEd Credential Profile cardinality permits multiple values, including alignment, evidence, result, and accreditor information.
-
-6. **Demonstrate failed TrustEd issuance handling.**
-
-   Attempt to issue a credential that does not satisfy one or more required TrustEd Credential Profile requirements.
-
-   The candidate platform MUST NOT issue or represent the credential as a TrustEd Credential.
-
-   The candidate platform MAY:
-
-   - prevent issuance; or
-   - allow the credential to be issued as a standard Open Badges 3.0 credential.
-
-   If standard Open Badges 3.0 issuance is permitted, the platform MUST clearly inform the user that TrustEd Credential requirements have not been met and that the credential will not be issued as a TrustEd Credential.
-
-7. **Demonstrate conditional requirement enforcement.**
+2. **Demonstrate conditional requirement enforcement.**
 
    Demonstrate that applicable conditional TrustEd Credential requirements are correctly enforced.
 
    This MUST include the applicable relationship between `rubricCriterionLevel` and `achievedLevel`.
 
-8. **Demonstrate accreditation support.**
-
-   Demonstrate creation of TrustEd Credential data containing applicable accreditation information.
-
-9. **Demonstrate multiple accreditor support.**
-
-   Demonstrate support for more than one accreditor organization.
-
-10. **Demonstrate the non-accredited issuing organization case.**
-
-    Demonstrate creation of a TrustEd Credential for an issuing organization that is not accredited using the representation permitted by the TrustEd Credential Profile.
 
 [PLACEHOLDER: Determine which Issuer tests require automated validation, uploaded artifacts, video evidence, or another certification-evidence mechanism.]
 
@@ -357,6 +316,7 @@ The candidate platform MUST successfully complete the following tests:
 This section is non-normative.
 
 A TrustEd Credential Verifier is an application that receives, validates, stores, processes, transfers, exports, shares, or otherwise consumes OpenBadgeCredentials conforming to the TrustEd Credential Profile.
+A TrustEd Credential Receiver is an application that receives, validates, stores, processes, or otherwise consumes OpenBadgeCredentials conforming to the TrustEd Credential Profile.
 
 The candidate platform MUST demonstrate that it recognizes and validates TrustEd Credentials and preserves TrustEd Credential metadata.
 
