@@ -21,11 +21,6 @@ A third category of proof format called Non-Signature Proof is not covered by th
 
 This proof format relies on the well established JWT (JSON Web Token) [[RFC7519]] and JWS (JSON Web Signature) [[RFC7515]] specifications. A JSON Web Token Proof is a JWT signed and encoded as a [=Compact JWS=] string. The proof format is described in detail in [[VC-JOSE-COSE]], referred from Section 5.13 "Securing Mechanism Specifications" of [[[VC-DATA-MODEL-2.0]]]. That description allows several options which may inhibit interoperability. This specification limits the options while maintaining compatibility with [[VC-DATA-MODEL-2.0]] to help ensure interoperability.
 
-<div class="note">
-    At the time of the completion of this specification, the JSON Web Token Proof Format of [[VC-DATA-MODEL-2.0]] was undergoing a revision process. [[VC-JOSE-COSE]] will collect and display
-    the result of this revision. The modifications resulting from the incompatibility of the revision with what is contained in this document will be added in future revisions.
-</div>
-
 #### Terminology {#jwt-terminology}
 
 Some of the terms used in this section include:
@@ -63,7 +58,8 @@ The [=JOSE Header=] is a JSON object with the following properties (also called 
 | \`alg\` | [String](#string) | The signing algorithm MUST be "RS256" as a minimum as defined in [[RFC7518]]. Support for other algorithms is permitted but their use limits interoperability. Later versions of this specification MAY add OPTIONAL support for other algorithms. See Section 6.1 RSA Key of the [[[SEC-11]]]. | Required |
 | \`kid\` | [URI](#uri) | A URI that can be [dereferenced](#dereference) to an object of type [JWK](#jwk) representing the public key used to verify the signature. If you do not include a \`kid\` property in the header, you MUST include the public key in the \`jwk\` property. <div class="advisement">Be careful not to accidentally expose the JWK representation of a private key. See [RFC7517](https://tools.ietf.org/html/rfc7517#appendix-A.2) for examples of private key representations. The \`JWK\` MUST never contain \`"d"\`.</div> | Optional |
 | \`jwk\` | [JWK](#jwk) | A JWK representing the public key used to verify the signature. If you do not include a \`jwk\` property in the header, you MUST include the \`kid\` property. <div class="advisement">Be careful not to accidentally expose the JWK representation of a private key. See [RFC7517](https://tools.ietf.org/html/rfc7517#appendix-A.2) for examples of private key representations. The \`JWK\` MUST never contain \`"d"\`.</div> | Optional |
-| \`typ\` | [String](#string) | If present, MUST be set to "JWT". | Optional |
+| \`typ\` | [String](#string) | If present, MUST be set to \`vc+ld+json+jwt\`. | Optional |
+| \`cty\` | [String](#string) | If present, MUST be set to \`vc+ld+json\`. | Optional |
 
 <pre class="example json" title="Sample JOSE Header with reference to a public key in a JWKS">
   {
@@ -83,7 +79,7 @@ The JWT Payload is the JSON object of the [OpenBadgeCredential](#achievementcred
 
 | Property / Claim Name | Type | Description | Required? |
 | ---------------------- | ---- | ----------- | --------- |
-| \`exp\` | [NumericDate](#numericdate) | The \`validUntil\` property of the OpenBadgeCredential. Required if the OpenBadgeCredential has an \`validUntil\`. | Optional |
+| \`exp\` | [NumericDate](#numericdate) | The expiration time of the  signature. | Optional |
 | \`iss\` | [URI](#uri) | The \`issuer.id\` property of the OpenBadgeCredential. | Required |
 | \`jti\` | [URI](#uri) | The \`id\` property of the OpenBadgeCredential. | Required |
 | \`nbf\` | [NumericDate](#numericdate) | The \`validFrom\` property of the OpenBadgeCredential. | Required |
@@ -142,10 +138,11 @@ Verifiers that receive a OpenBadgeCredential in Compact JWS format MUST perform 
 - The JSON object MUST have the \`sub\` claim, and the value MUST match the \`credentialSubject.id\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
 - The JSON object MUST have the \`nbf\` claim, and the [NumericDate](#numericdate) value MUST be converted to a [DateTime](#datetime), and MUST equal the \`validFrom\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match or if the \`validFrom\` has not yet occurred, the credential is not valid.
 - The JSON object MUST have the \`jti\` claim, and the value MUST match the \`id\` of the [OpenBadgeCredential](#achievementcredential) object. If they do not match, the credential is not valid.
-- If the JSON object has the \`exp\` claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime), and MUST be used to set the value of the \`validUntil\` of the [OpenBadgeCredential](#achievementcredential) object. If the credential has expired, the credential is not valid.
+- If the JSON object has the \`exp\` claim, the [NumericDate](#numericdate) MUST be converted to a [DateTime](#datetime). If the resulting DateTime is before the current time, the signature has expired and the verification MUST be made using linked data proofs of the credential. If the credential doesn't have linked data proofs, the credential is not valid.
 
 <div class="note">
-    Credentials created following [[[VC-DATA-MODEL]]] ([[VC-DATA-MODEL]]) have different names for attributes used in this process. Concretely, they have \`issuanceDate\` and \`expirationDate\` instead of \`validFrom\` and \`validUntil\`, respectively
+    Credentials created following [[[VC-DATA-MODEL]]] ([[VC-DATA-MODEL]]) have different names for attributes used in this process. Concretely, they have \`issuanceDate\` instead of \`validFrom\`.
+    Also, the resulted DateTime from the conversion of the \`exp\` claim MUST be set to the value of the \`expirationDate\` of the [OpenBadgeCredential](#achievementcredential) object. If the credential has expired, the credential is not valid.
 </div>
 
 ### Linked Data Proof Format {#lds-proof}
