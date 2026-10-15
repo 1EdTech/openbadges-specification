@@ -141,7 +141,7 @@ The process for conformance testing TrustEd Credential implementations includes 
 
 1. Launch the 1EdTech Conformance Test Suite for the TrustEd Credential Profile and follow the onscreen instructions.
 
-   [PLACEHOLDER: TrustEd Credential Conformance Test Suite URL]
+   > **Note**: TDB: TrustEd Credential Conformance Test Suite URL
 
 2. Select the TrustEd Credential certification category or categories for which certification is sought.
 
