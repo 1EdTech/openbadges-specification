@@ -72,13 +72,13 @@ MAY and OPTIONAL statements indicate capabilities that implementers are free to 
 
 The following documents are relevant to TrustEd Credential implementation and certification:
 
-- [[[OB-30]]]
-- [[[OB-CERT-30]]]
-- [[[OB-TC-10]]]
+- [[[!OB-30]]]
+- [[[!OB-CERT-30]]]
+- [[[!OB-TC-10]]]
 - [[[OB-TC-CERT-10]]] - This Document.
 - [[[OB-TC-IMPL-10]]]
-- [[[OB-ACCRED-20]]]
-- [[[OB-ASSESSMENT-20]]]
+- [[[!OB-ACCRED-20]]]
+- [[[!OB-ASSESSMENT-20]]]
 
 ### 1.3 Terms
 
