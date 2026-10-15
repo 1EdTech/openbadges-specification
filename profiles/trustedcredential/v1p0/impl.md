@@ -2,7 +2,7 @@
 author: 1Edtech Consortium
 category: Guide
 title: Open Badges 3.0 TrustEd Credential Profile Implementation Guide
-shortcode: OB-TCP-IMPL-10
+shortcode: OB-TC-IMPL-10
 status: Draft
 lastUpdated: 2026-07-02
 version: '1.0'
@@ -12,7 +12,7 @@ specTitle: Open Badges Specification
 discussion:
   enabled: true
   inline: true
-  topicId: OB-TCP-IMPL-10
+  topicId: OB-TC-IMPL-10
 contributors:
   - name: Mary Gwozdz
     affiliation: UNICON

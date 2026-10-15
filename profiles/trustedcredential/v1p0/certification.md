@@ -2,7 +2,7 @@
 title: "Open Badges TrustEd Credential Profile Conformance and Certification Guide"
 shorttitle: "TrustEd Credential Certification Guide"
 docType: "conformance"
-shortcode: "OB-TCP-10-CERT"
+shortcode: "OB-TC-CERT-10"
 version: "1.1"
 status: "Draft"
 author: "1EdTech Consortium"
@@ -13,6 +13,7 @@ description: >
 category: Certification
 discussion:
   enabled: true
+  topicId: OB-TC-CERT-10
 releases:
   - version: "1.0"
     date: 2026-09-03
@@ -71,13 +72,13 @@ MAY and OPTIONAL statements indicate capabilities that implementers are free to 
 
 The following documents are relevant to TrustEd Credential implementation and certification:
 
-- [Open Badges Specification v3.0](https://standards.1edtech.org/open-badges/specifications/standards/v3p0) [OB-30]
-- [Open Badges Specification Conformance and Certification Guide v3.0](https://standards.1edtech.org/open-badges/specifications/standards/v3p0/cert) [OB-CERT-30]
-- [Open Badges TrustEd Credential Profile v1.0](https://standards.1edtech.org/open-badges/specifications/standards/ob-trustedcredential/v1p0) [OB-TC-10]
-- Open Badges TrustEd Credential Profile Conformance and Certification Guide v1.0 [OB-TC-CERT-10] - This Document
-- [Open Badges TrustEd Credential Profile Implementation Guide](https://standards.1edtech.org/open-badges/guides/standards/ob-trustedcredential/v1p0/impl) [OB-TC-IMPL-10]
-- [Open Badges Issuer Accreditation Extension v2.0](https://standards.1edtech.org/open-badges/specifications/standards/ob-accred/v2p0) [OB-ACCRED-20]
-- [Open Badges Assessment Extension v2.0](https://standards.1edtech.org/open-badges/specifications/standards/ob-assessment/v2p0) [OB-ASSESSMENT-20]
+- [[[OB-30]]]
+- [[[OB-CERT-30]]]
+- [[[OB-TC-10]]]
+- [[[OB-TC-CERT-10]]] - This Document.
+- [[[OB-TC-IMPL-10]]]
+- [[[OB-ACCRED-20]]]
+- [[[OB-ASSESSMENT-20]]]
 
 ### 1.3 Terms
 
@@ -343,39 +344,19 @@ The candidate platform MUST successfully complete the following tests:
 
    The candidate platform MUST NOT represent the credential as a TrustEd Credential.
 
-3. **Receive a credential that fails Open Badges validation.**
-
-   The candidate platform MUST identify the credential as invalid and MUST NOT represent it as a TrustEd Credential.
-
-4. **Receive a valid Open Badge that fails TrustEd Credential Profile validation.**
+3. **Receive a valid Open Badge that fails TrustEd Credential Profile validation.**
 
    Receive a credential that satisfies Open Badges 3.0 requirements and claims TrustEd Credential Profile conformance but fails one or more TrustEd Credential Profile requirements.
 
-   The candidate platform MUST distinguish the TrustEd conformance failure from an underlying Open Badges validation failure.
+   The candidate platform MUST distinguish the TrustEd conformance failure.
 
-5. **Demonstrate required metadata processing.**
-
-   Demonstrate correct processing of required TrustEd Credential metadata.
-
-6. **Demonstrate applicable recommended and optional metadata processing.**
+4. **Demonstrate applicable recommended and optional metadata processing.**
 
    Demonstrate that applicable TrustEd Credential Profile metadata required for verifier certification is processed and preserved when present.
 
-7. **Demonstrate multiple-value support.**
+The certification suite will shuffle the order of the tests and ask for the relevant data to ensure a test has been passed.
 
-   Demonstrate correct processing and preservation of representative TrustEd Credential properties whose cardinality permits multiple values.
-
-8. **Demonstrate accreditation processing.**
-
-   Demonstrate correct processing and preservation of accreditation information, including multiple accreditors and the permitted non-accredited issuing organization case.
-
-9. **Demonstrate TrustEd Credential preservation.**
-
-   Receive and store a conformant TrustEd Credential and subsequently export, transfer, or share it.
-
-   The resulting credential MUST preserve applicable TrustEd Credential metadata and MUST remain conformant to the applicable TrustEd Credential Profile.
-
-[PLACEHOLDER: Determine which Verifier tests require automated validation, uploaded artifacts, video evidence, or another certification-evidence mechanism.]
+> **Note**: TDB complete
 
 ## 5. TrustEd Credential Displayer Conformance
 
@@ -394,7 +375,7 @@ If a separate TrustEd Credential Displayer certification category is adopted, th
 
 ## 6. Implementation Guidance and Certification
 
-The Open Badges TrustEd Credential Profile Implementation Guide provides non-normative recommended practices for populating TrustEd Credential metadata to improve transparency, portability, machine readability, interoperability, and trust.
+The [[]] provides non-normative recommended practices for populating TrustEd Credential metadata to improve transparency, portability, machine readability, interoperability, and trust.
 
 The Implementation Guide does not independently define TrustEd Credential Profile conformance.
 
@@ -406,94 +387,3 @@ Certification tests MAY use recommendations from the Implementation Guide to:
 - demonstrate recommended implementation patterns.
 
 Failure to follow a recommendation contained only in the Implementation Guide MUST NOT result in certification failure unless that requirement is explicitly identified as normative for the applicable certification category in this Conformance and Certification Guide or the TrustEd Credential Profile.
-
-## 7. Working Group Questions
-
-This section is non-normative and should be removed before final publication once all questions are resolved.
-
-### 7.1 TrustEd Credential Profile Identification
-
-Confirm that `credentialSchema` is the canonical machine-readable mechanism for:
-
-- identifying that an AchievementCredential claims conformance to the TrustEd Credential Profile; and
-- identifying the applicable TrustEd Credential Profile version.
-
-### 7.2 Certification Categories
-
-Confirm that the initial TrustEd Credential certification categories are:
-
-- TrustEd Credential Issuer; and
-- TrustEd Credential Verifier.
-
-Determine whether display requirements should be included within Verifier certification or whether a separate TrustEd Credential Displayer certification category is required.
-
-### 7.3 Open Badges 3.0 Certification Prerequisites
-
-Define the exact Open Badges 3.0 certification prerequisite or prerequisites for:
-
-- TrustEd Credential Issuer certification; and
-- TrustEd Credential Verifier certification.
-
-### 7.4 Certification Evidence
-
-Determine which TrustEd Credential certification tests require:
-
-- automated conformance testing;
-- credential artifact submission;
-- video demonstration;
-- attestation; or
-- another form of certification evidence.
-
-## 8. Items to Complete Before Publication
-
-This section is non-normative and should be removed before final publication.
-
-- [ ] Confirm the valid `.microsite` category.
-- [ ] Confirm the final document shortcode.
-- [ ] Confirm the final TrustEd Credential Profile JSON Schema URI.
-- [ ] Confirm the TrustEd Credential Conformance Test Suite URL.
-- [ ] Confirm the exact Open Badges 3.0 prerequisite certification mapping.
-- [ ] Confirm final certification membership and submission language.
-- [ ] Confirm certification evidence requirements.
-- [ ] Confirm whether separate Displayer certification is required.
-- [ ] Resolve the `credentialSchema` Working Group Question.
-- [ ] Add final normative and informative reference URLs.
-- [ ] Add contributors.
-- [ ] Remove Working Group Questions and publication placeholders as decisions are finalized.
-
-## References
-
-### Normative References
-
-[RFC2119]
-: *Key words for use in RFCs to Indicate Requirement Levels*. S. Bradner. IETF. March 1997.
-
-[OB-30]
-: *Open Badges Specification v3.0*. 1EdTech Consortium.
-  [PLACEHOLDER: canonical URL]
-
-[OB-TC-10]
-: *Open Badges TrustEd Credential Profile v1.0*. 1EdTech Consortium.
-  [PLACEHOLDER: canonical URL]
-
-[OB-TC-SCHEMA-10]
-: *Open Badges TrustEd Credential Profile JSON Schema v1.0*. 1EdTech Consortium.
-  [PLACEHOLDER: canonical URL]
-
-[OB-ACCRED-20]
-: *Open Badges Issuer Accreditation Extension v2.0*. 1EdTech Consortium.
-  [PLACEHOLDER: canonical URL]
-
-### Informative References
-
-[OB-CERT-30]
-: *Open Badges Specification Conformance and Certification Guide v3.0*. 1EdTech Consortium.
-  https://www.imsglobal.org/spec/ob/v3p0/cert/
-
-[OB-TC-IMPL-10]
-: *Open Badges TrustEd Credential Profile Implementation Guide*. 1EdTech Consortium.
-  [PLACEHOLDER: canonical URL]
-
-[VC-DATA-MODEL-20]
-: *Verifiable Credentials Data Model v2.0*. W3C.
-  [PLACEHOLDER: canonical URL]
