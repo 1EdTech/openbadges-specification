@@ -251,8 +251,6 @@ The candidate platform MUST successfully complete the following tests:
 
    This MUST include the applicable relationship between `rubricCriterionLevel` and `achievedLevel`.
 
-[PLACEHOLDER: Determine which Issuer tests require automated validation, uploaded artifacts, video evidence, or another certification-evidence mechanism.]
-
 ## 4. TrustEd Credential Verifier Conformance
 
 This section is non-normative.
