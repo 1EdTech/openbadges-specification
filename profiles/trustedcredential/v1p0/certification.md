@@ -255,7 +255,6 @@ The candidate platform MUST successfully complete the following tests:
 
 This section is non-normative.
 
-A TrustEd Credential Verifier is an application that receives, validates, stores, processes, transfers, exports, shares, or otherwise consumes OpenBadgeCredentials conforming to the TrustEd Credential Profile.
 A TrustEd Credential Receiver is an application that receives, validates, stores, processes, or otherwise consumes OpenBadgeCredentials conforming to the TrustEd Credential Profile.
 
 The candidate platform MUST demonstrate that it recognizes and validates TrustEd Credentials and preserves TrustEd Credential metadata.
