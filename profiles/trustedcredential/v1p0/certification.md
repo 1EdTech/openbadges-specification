@@ -274,8 +274,6 @@ The functional capabilities of a TrustEd Credential Verifier are:
 - It MUST support the cardinality defined by the TrustEd Credential Profile.
 - It MUST preserve TrustEd Credential metadata during receipt and storage.
 - It MUST preserve TrustEd Credential metadata during subsequent export, transfer, or sharing.
-- It MUST distinguish Open Badges 3.0 validity from TrustEd Credential Profile conformance.
-- It MUST NOT represent a credential as a conformant TrustEd Credential when TrustEd Credential Profile validation fails.
 
 A receiving platform MUST NOT silently discard valid TrustEd Credential metadata solely because the platform does not actively use or display that information.
 
