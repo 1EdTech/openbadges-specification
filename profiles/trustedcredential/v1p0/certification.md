@@ -234,13 +234,11 @@ The candidate platform MUST successfully complete the following tests:
 
    The resulting credential MUST satisfy the applicable Open Badges 3.0 and TrustEd Credential Profile requirements.
 
-
 2. **Demonstrate conditional requirement enforcement.**
 
-   Demonstrate that applicable conditional TrustEd Credential requirements are correctly enforced.
+   Demonstrate that applicable conditional TrustEd Credential requirements are correctly enforced, by creating a TrustEd Credential containing all the recommended TrustEd Credential Profile data and issue the credential using the candidate platform.
 
    This MUST include the applicable relationship between `rubricCriterionLevel` and `achievedLevel`.
-
 
 [PLACEHOLDER: Determine which Issuer tests require automated validation, uploaded artifacts, video evidence, or another certification-evidence mechanism.]
 
