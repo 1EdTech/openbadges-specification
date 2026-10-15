@@ -20,7 +20,7 @@ releases:
     comments: Initial working draft.
   - version: "1.1"
     date: 2026-10-15
-    comments:
+    comments: Corrections to Issuer certification.
 contributors:
   - name: "Rob Coyle"
     affiliation: "1EdTech Consortium"
