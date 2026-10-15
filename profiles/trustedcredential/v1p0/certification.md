@@ -375,7 +375,7 @@ If a separate TrustEd Credential Displayer certification category is adopted, th
 
 ## 6. Implementation Guidance and Certification
 
-The [[]] provides non-normative recommended practices for populating TrustEd Credential metadata to improve transparency, portability, machine readability, interoperability, and trust.
+The [[[OB-TC-IMPL-10]]] provides non-normative recommended practices for populating TrustEd Credential metadata to improve transparency, portability, machine readability, interoperability, and trust.
 
 The Implementation Guide does not independently define TrustEd Credential Profile conformance.
 
