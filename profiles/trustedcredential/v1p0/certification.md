@@ -182,6 +182,8 @@ The functional capabilities of a TrustEd Credential Issuer are:
 - It MUST enforce applicable conditional TrustEd Credential Profile requirements.
 - It MUST correctly serialize TrustEd Credential metadata.
 - It MUST include the applicable TrustEd Credential Profile `credentialSchema` reference.
+- It MUST support the [[OB-ACCRED-20]].
+- It MUST support the [[OB-ASSESSMENT-20]].
 
 A property that is optional or recommended for inclusion in an individual TrustEd Credential is not necessarily optional for implementation by a certified TrustEd Credential Issuer.
 
