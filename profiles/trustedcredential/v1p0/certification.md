@@ -3,10 +3,10 @@ title: "Open Badges TrustEd Credential Profile Conformance and Certification Gui
 shorttitle: "TrustEd Credential Certification Guide"
 docType: "conformance"
 shortcode: "OB-TCP-10-CERT"
-version: "1.0.0"
+version: "1.1"
 status: "Draft"
 author: "1EdTech Consortium"
-lastUpdated: 2026-09-03
+lastUpdated: 2026-10-15
 description: >
   Conformance requirements and certification process for implementations
   of the Open Badges TrustEd Credential Profile 1.0.
@@ -14,14 +14,25 @@ category: Certification
 discussion:
   enabled: true
 releases:
-  - version: "1.0.0"
+  - version: "1.0"
     date: 2026-09-03
     comments: Initial working draft.
+  - version: "1.1"
+    date: 2026-10-15
+    comments:
 contributors:
   - name: "Rob Coyle"
     affiliation: "1EdTech Consortium"
     role: "Editor"
     companyUrl: "https://www.1edtech.org"
+  - name: "Xavi Aracil"
+    affiliation: "1EdTech Consortium"
+    role: "Editor"
+    companyUrl: "https://www.1edtech.org"
+  - name: "Nate Otto"
+    affiliation: "Skybridge Skills"
+    role: "Co-Chair, Open Badges"
+    companyUrl: ""
 ---
 
 ## Abstract
