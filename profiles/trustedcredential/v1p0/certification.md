@@ -128,12 +128,10 @@ TrustEd Credential certification builds upon applicable Open Badges 3.0 certific
 
 A candidate platform MUST hold current Open Badges 3.0 certification appropriate to the TrustEd Credential certification category for which certification is sought.
 
-[PLACEHOLDER: Confirm the exact Open Badges 3.0 prerequisite certification mapping.]
-
 | TrustEd Credential Certification | Required Open Badges 3.0 Certification |
-|---|---|
-| TrustEd Credential Issuer | [PLACEHOLDER] |
-| TrustEd Credential Verifier | [PLACEHOLDER] |
+| --- | --- |
+| TrustEd Credential Issuer | [Open Badge Issuer (Only)](https://standards.1edtech.org/open-badges/specifications/standards/v3p0/cert#issuer-conformance) |
+| TrustEd Credential Verifier | [Open Badge Displayer](https://standards.1edtech.org/open-badges/specifications/standards/v3p0/cert#displayer-conformance) |
 
 TrustEd Credential certification does not repeat the full Open Badges 3.0 certification process. It tests the additional requirements and capabilities necessary to support the TrustEd Credential Profile.
 
