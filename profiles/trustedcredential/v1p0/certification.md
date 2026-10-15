@@ -187,54 +187,9 @@ The functional capabilities of a TrustEd Credential Issuer are:
 
 A property that is optional or recommended for inclusion in an individual TrustEd Credential is not necessarily optional for implementation by a certified TrustEd Credential Issuer.
 
-### 3.2 Required TrustEd Credential Data Support
+### 3.2 Recommended and Optional Property Support
 
-The candidate platform MUST support the additional data requirements defined by the TrustEd Credential Profile.
-
-#### 3.2.1 Achievement
-
-The candidate platform MUST support:
-
-- `achievementType`;
-- one or more `alignment` objects;
-- `criteria`; and
-- one or more `resultDescription` objects.
-
-The value of `achievementType` MUST satisfy the requirements of the TrustEd Credential Profile.
-
-At least one `alignment` MUST be included.
-
-Each required alignment MUST reference an external skills or competency framework using the URI-based mechanism defined by the TrustEd Credential Profile.
-
-The candidate platform MUST support multiple alignment objects.
-
-#### 3.2.2 AchievementCredential
-
-The candidate platform MUST support:
-
-- `awardedDate`; and
-- one or more `evidence` objects.
-
-The candidate platform MUST support multiple evidence objects.
-
-#### 3.2.3 AchievementSubject
-
-The candidate platform MUST support one or more `result` objects.
-
-The candidate platform MUST support multiple result objects.
-
-#### 3.2.4 Result
-
-The candidate platform MUST support:
-
-- `resultDescription`; and
-- `resultDate`.
-
-If the applicable `ResultDescription` includes `rubricCriterionLevel`, the corresponding `Result` MUST include `achievedLevel` as required by the TrustEd Credential Profile.
-
-### 3.3 Recommended and Optional Property Support
-
-Properties that are RECOMMENDED for inclusion in an individual TrustEd Credential MAY nevertheless be required platform capabilities for TrustEd Credential certification.
+Properties that are RECOMMENDED for inclusion in an individual TrustEd Credential MAY nevertheless be required platform capabilities for TrustEd Credential certification. Therefore, in order to pass certification, candidate platforms MUST show that they're capable of producing TrustEd Credentials with all of the RECOMMENDED fields. It MAY be possible that institutions using these candidate platforms produce TrustEd credentials wihout all those RECOMMENDED fields sometimes.
 
 A certified TrustEd Credential Issuer MUST make all the applicable TrustEd Credential Profile capabilities identified for certification available to issuing organizations.
 
