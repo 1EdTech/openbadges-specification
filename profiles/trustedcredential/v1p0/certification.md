@@ -60,14 +60,13 @@ MAY and OPTIONAL statements indicate capabilities that implementers are free to 
 
 The following documents are relevant to TrustEd Credential implementation and certification:
 
-- Open Badges Specification v3.0 [OB-30]
-- Open Badges Specification Conformance and Certification Guide v3.0 [OB-CERT-30]
-- Open Badges TrustEd Credential Profile v1.0 [OB-TC-10]
-- Open Badges TrustEd Credential Profile Conformance and Certification Guide v1.0 [OB-TC-CERT-10]
-- Open Badges TrustEd Credential Profile Implementation Guide [OB-TC-IMPL-10]
-- Open Badges Issuer Accreditation Extension v2.0 [OB-ACCRED-20]
-
-[PLACEHOLDER: Add any additional contexts, schemas, or extension documents required for certification.]
+- [Open Badges Specification v3.0](https://standards.1edtech.org/open-badges/specifications/standards/v3p0) [OB-30]
+- [Open Badges Specification Conformance and Certification Guide v3.0](https://standards.1edtech.org/open-badges/specifications/standards/v3p0/cert) [OB-CERT-30]
+- [Open Badges TrustEd Credential Profile v1.0](https://standards.1edtech.org/open-badges/specifications/standards/ob-trustedcredential/v1p0) [OB-TC-10]
+- Open Badges TrustEd Credential Profile Conformance and Certification Guide v1.0 [OB-TC-CERT-10] - This Document
+- [Open Badges TrustEd Credential Profile Implementation Guide](https://standards.1edtech.org/open-badges/guides/standards/ob-trustedcredential/v1p0/impl) [OB-TC-IMPL-10]
+- [Open Badges Issuer Accreditation Extension v2.0](https://standards.1edtech.org/open-badges/specifications/standards/ob-accred/v2p0) [OB-ACCRED-20]
+- [Open Badges Assessment Extension v2.0](https://standards.1edtech.org/open-badges/specifications/standards/ob-assessment/v2p0) [OB-ASSESSMENT-20]
 
 ### 1.3 Terms
 
