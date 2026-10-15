@@ -163,21 +163,6 @@ The 1EdTech Global Certified Products Directory will list the product's applicab
 
 [PLACEHOLDER: Confirm final membership, submission, renewal, and certification-directory language against current 1EdTech certification policy.]
 
-### 2.3 Identifying a TrustEd Credential
-
-A TrustEd Credential MUST identify the applicable TrustEd Credential Profile schema using the `credentialSchema` property.
-
-The schema reference enables a receiving implementation to determine that the credential claims conformance to the TrustEd Credential Profile and to identify the applicable TrustEd Credential Profile version.
-
-The applicable `CredentialSchema` MUST conform to the requirements defined by the TrustEd Credential Profile.
-
-> **Working Group Question:** Confirm that `credentialSchema` is the canonical machine-readable mechanism for:
->
-> - identifying that an AchievementCredential claims conformance to the TrustEd Credential Profile; and
-> - identifying the applicable TrustEd Credential Profile version.
-
-[PLACEHOLDER: Insert the final TrustEd Credential Profile JSON Schema URI.]
-
 ## 3. TrustEd Credential Issuer Conformance
 
 This section is non-normative.
@@ -185,15 +170,6 @@ This section is non-normative.
 A TrustEd Credential Issuer is an application that enables an issuing organization to create and issue OpenBadgeCredentials conforming to the TrustEd Credential Profile.
 
 The candidate platform MUST demonstrate that it can create and issue a conformant TrustEd Credential.
-
-The candidate platform MUST also demonstrate that a credential that fails TrustEd Credential Profile requirements is not issued or represented as a TrustEd Credential.
-
-A credential that does not satisfy TrustEd Credential Profile requirements MAY be issued as a standard Open Badges 3.0 credential if it otherwise satisfies Open Badges 3.0 requirements.
-
-If the platform permits such issuance, it MUST clearly inform the person issuing the credential that:
-
-- the credential does not meet TrustEd Credential requirements; and
-- the credential will be issued as a standard Open Badges 3.0 credential rather than as a TrustEd Credential.
 
 ### 3.1 TrustEd Credential Issuer Compliance
 
