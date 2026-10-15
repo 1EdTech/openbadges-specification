@@ -208,10 +208,9 @@ Failure of a candidate platform to support a capability explicitly required for 
 
 > **Certification Scope Note:** The requirement to support recommended and optional properties applies to applicable TrustEd Credential Profile certification capabilities. It does not require implementation of every optional property defined anywhere in the complete Open Badges 3.0 data model.
 
-### 3.4 Accreditation Support
-## 3.3 Accreditation Support
+### 3.2 Accreditation Support
 
-The candidate platform MUST support accreditor information as required by the TrustEd Credential Profile using the applicable Open Badges Issuer Accreditation Extension v2.0.
+The candidate platform MUST support accreditor information as required by the TrustEd Credential Profile using the applicable [[OB-ACCRED-20]].
 
 The candidate platform MUST:
 
@@ -221,7 +220,11 @@ The candidate platform MUST:
 
 The candidate platform MUST NOT require an issuing organization to provide false accreditation information in order to issue a TrustEd Credential.
 
-### 3.5 TrustEd Credential Issuer Tests
+### 3.3 Assessment Support
+
+The candidate platform MUST support assessment information as required by the TrustEd Credential Profile using the applicable [[OB-ASSESSMENT-20]].
+
+### 3.4 TrustEd Credential Issuer Tests
 
 The candidate platform MUST successfully complete the following tests:
 
