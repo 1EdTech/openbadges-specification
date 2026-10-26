@@ -1,3 +1,29 @@
+---
+title: "Proposal for Open Badges 3.1 Charter"
+shorttitle: "Proposal for Open Badges 3.1 Charter"
+docType: "publication"
+shortcode: "OB-CHARTER-31"
+version: "1.0"
+status: "Draft"
+author: "1EdTech Consortium"
+lastUpdated: 2026-10-19
+description: >
+  Public Proposal for the Charter for the next version of Open Badges and CLR.
+category: Specification
+discussion:
+  enabled: true
+  topicId: OB-CHARTER-31
+releases:
+  - version: "1.0"
+    date: 2026-10-19
+    comments: Initial proposal.
+contributors:
+  - name: "Nate Otto"
+    affiliation: "Skybridge Skills"
+    role: "Co-Chair, Open Badges"
+    companyUrl: ""
+---
+
 # What's next for Open Badges and CLR
 
 *A proposal to recharter the 1EdTech Digital Credentials Workgroup. Chair's draft
