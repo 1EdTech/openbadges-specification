@@ -8,7 +8,7 @@ status: "Draft"
 author: "1EdTech Consortium"
 lastUpdated: 2026-10-19
 description: >
-  Public Proposal for the Charter for the next version of Open Badges and CLR.
+  Public A proposal to recharter the 1EdTech Digital Credentials Workgroup. Chair's draft for discussion.
 category: Specification
 discussion:
   enabled: true
@@ -25,9 +25,6 @@ contributors:
 ---
 
 # What's next for Open Badges and CLR
-
-*A proposal to recharter the 1EdTech Digital Credentials Workgroup. Chair's draft
-for discussion at Tech Congress, October 2026. Proposed by Nate Otto.*
 
 The workgroup would produce Open Badges 3.1, a minor release, with CLR 2.1
 alongside and one credential transfer API shared by both. We don't rewrite
