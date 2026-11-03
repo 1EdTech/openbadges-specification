@@ -22,4 +22,4 @@ COPY --chown=astro:nodejs extensions/issuerAccreditationExtension/v2p0/microsite
 COPY --chown=astro:nodejs profiles/trustedcredential /app/content/docs/standards/ob-trustedcredential
 
 # 3.1 Proposal
-COPY --chown=astro:nodejs proposals/OBv3p1/chater.md /app/content/docs/standards/proposals/obv3p1.md
+COPY --chown=astro:nodejs proposals/OBv3p1/charter.md /app/content/docs/standards/proposals/obv3p1.md
