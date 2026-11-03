@@ -4,12 +4,12 @@ shorttitle: "Proposal for Open Badges 3.1 Charter"
 docType: "publication"
 shortcode: "OB-CHARTER-31"
 version: "1.0"
-status: "Draft"
+status: "PublicDraft"
 author: "1EdTech Consortium"
 lastUpdated: 2026-10-19
 description: >
   Public A proposal to recharter the 1EdTech Digital Credentials Workgroup. Chair's draft for discussion.
-category: Specification
+category: Proposal
 discussion:
   enabled: true
   topicId: OB-CHARTER-31
