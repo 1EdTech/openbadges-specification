@@ -228,6 +228,47 @@ implementing community for status and revocation management.
     version of the credential consistent with the issuer's latest status data,
     features that are sometimes bundled with revocation.
 
+#### General Guidance for Achievement Alignment
+
+The `alignment` property on an `Achievement` is used to connect the achievement
+to an external framework, standard, competency, skill, occupation, credential,
+assessment, course, or other referenceable resource. Alignment helps consumers
+understand what the achievement is intended to represent beyond the issuer's own
+description.
+
+Issuers should use alignment when an achievement is intended to be interpreted in
+relation to a shared framework or other externally defined resource. This may
+include academic standards, competency frameworks, skills frameworks,
+occupational frameworks, credential registries, course catalogs, assessment
+frameworks, or other public reference points.
+
+Each `Alignment` should provide enough information for a consuming system or
+human reviewer to understand both the target resource and the nature of the
+connection. At minimum, issuers should include a human-readable `targetName`, a
+durable `targetUrl` when one is available, and an appropriate `targetType`.
+Issuers should also include `targetFramework`, `targetCode`, and
+`targetDescription` when that information is available and useful for display,
+search, filtering, or verification.
+
+The `targetUrl` should point to the most stable available identifier or
+description of the aligned resource. When the aligned resource is part of a
+managed framework or registry, issuers should prefer the canonical URL or URI
+assigned by that framework or registry over a general web page. When no stable
+URL is available, issuers may still include the alignment using the other target
+properties, but consuming systems may have less ability to verify, dereference,
+or compare the alignment.
+
+Alignment should not be used as a substitute for the issuer's own achievement
+description, criteria, result, or evidence. The achievement should still describe
+what the learner did or demonstrated. Alignment provides additional context by
+connecting that achievement to an external reference point.
+
+Issuers may include more than one alignment when an achievement maps to multiple
+standards, competencies, skills, or other resources. When doing so, issuers
+should avoid overly broad or weakly related alignments. Consumers may treat each
+alignment as a signal that the issuer intended the achievement to be understood
+in relation to that specific target.
+
 #### Alignment with CASE items
 
 [[[CASE-10]]] [[CASE-10]] specification defines how systems exchange and manage
