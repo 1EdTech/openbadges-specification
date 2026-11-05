@@ -3,7 +3,7 @@ author: 1Edtech Consortium
 category: Guide
 title: Open Badges 3.0 TrustEd Credential Profile Implementation Guide
 shortcode: OB-TC-IMPL-10
-status: Draft
+status: PublicCandidateFinal
 lastUpdated: 2026-07-02
 version: '1.0'
 nature: normative
@@ -39,10 +39,10 @@ contributors:
     companyUrl: https://www.1edtech.org
     role: Editor
 releases:
-  - version: "Base Document"
+  - version: "Public Candidate Final"
     docVersion: "1.0"
-    date: 2026-07-02
-    comments: "Created Base document"
+    date: 2026-11-05
+    comments: First Candidate Public Final release
 ---
 
 @standards/ob-trustedcredential/v1p0/impl/trusted-metadata-practices.md
