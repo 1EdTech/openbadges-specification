@@ -1,9 +1,9 @@
 ---
 title: "Overview"
 docType: "segment"
-status: "PublicDraft"
+status: "PublicCandidateFinal"
 author: "1Edtech Consortium"
-lastUpdated: 2026-07-12
+lastUpdated: 2026-11-05
 description: "Overview for TrustEd Credential 1.0 Profile"
 ---
 
