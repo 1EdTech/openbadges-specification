@@ -1,17 +1,17 @@
 ---
 title: "Use Cases"
 docType: "segment"
-status: "PublicDraft"
+status: "PublicCandidateFinal"
 author: "1Edtech Consortium"
-lastUpdated: 2026-07-12
+lastUpdated: 2026-11-05
 description: "Use Cases for TrustEd Credential 1.0 Profile"
 ---
 
-### Use Cases
+## Use Cases
 
 The use cases below drive the design of Open Badges 3.0 TrustEd Credential Profile specification.
 
-#### Use Case 1: Issuing a TrustEd Knowledge Credential
+### Use Case 1: Issuing a TrustEd Knowledge Credential
 
 An issuing organization awards a TrustEd Credential to a learner upon successful completion of an assessment that validates foundational knowledge.
 
@@ -20,7 +20,7 @@ The credential is delivered to the learner and can be stored in a wallet or prof
 
 ⸻
 
-#### Use Case 2: Issuing a TrustEd Application Credential
+### Use Case 2: Issuing a TrustEd Application Credential
 
 An issuing organization awards a TrustEd Credential to a learner who demonstrates the ability to apply knowledge through a project, lab, or performance-based assessment.
 
@@ -30,7 +30,7 @@ A receiving system, such as an employer platform, consumes the credential and ca
 
 ⸻
 
-#### Use Case 3: Verifying and Interpreting a TrustEd Credential
+### Use Case 3: Verifying and Interpreting a TrustEd Credential
 
 A receiving organization, such as an employer or another institution, receives a TrustEd Credential issued under the OB3 profile.
 
@@ -40,7 +40,7 @@ The organization uses this information to assess the learner’s level of compet
 
 ⸻
 
-#### Use Case 4: Cross-Platform Credential Portability
+### Use Case 4: Cross-Platform Credential Portability
 
 A learner earns a TrustEd Credential from one platform and shares it with another platform or system.
 
