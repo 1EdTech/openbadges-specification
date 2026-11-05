@@ -4,9 +4,9 @@ shorttitle: "TrustEd Credential Certification Guide"
 docType: "conformance"
 shortcode: "OB-TC-CERT-10"
 version: "1.1"
-status: "Draft"
+status: "PublicCandidateFinal"
 author: "1EdTech Consortium"
-lastUpdated: 2026-10-15
+lastUpdated: 2026-11-05
 description: >
   Conformance requirements and certification process for implementations
   of the Open Badges TrustEd Credential Profile 1.0.
@@ -16,13 +16,27 @@ discussion:
   topicId: OB-TC-CERT-10
 showSectionNumbers: true
 releases:
-  - version: "1.0"
-    date: 2026-09-03
-    comments: Initial working draft.
-  - version: "1.1"
-    date: 2026-10-15
-    comments: Corrections to Issuer certification.
+  - version: "Public Candidate Final"
+    docVersion: "1.0"
+    date: 2026-11-05
+    comments: First Candidate Public Final release
 contributors:
+  - name: "Nate Otto"
+    affiliation: "Skybridge Skills"
+    role: "Co-Chair, Open Badges"
+    companyUrl: ""
+  - name: "Crystal Thomas"
+    affiliation: "Georgia Tech"
+    role: ""
+    companyUrl: ""
+  - name: Sonja Strahl
+    affiliation: University of Maryland Global Campus
+    companyUrl: https://www.umgc.edu
+    role: Editor
+  - name: Emilie Rafal
+    affiliation: 1Edtech
+    companyUrl: https://www.1edtech.org
+    role: Editor
   - name: "Rob Coyle"
     affiliation: "1EdTech Consortium"
     role: "Editor"
@@ -31,10 +45,6 @@ contributors:
     affiliation: "1EdTech Consortium"
     role: "Editor"
     companyUrl: "https://www.1edtech.org"
-  - name: "Nate Otto"
-    affiliation: "Skybridge Skills"
-    role: "Co-Chair, Open Badges"
-    companyUrl: ""
 ---
 
 ## Abstract
