@@ -14,21 +14,36 @@ discussion:
   inline: true
   topicId: OB-TC-IMPL-10
 contributors:
-  - name: Trevor Cox
+  - name: Trever Cox
     affiliation: University of Central Oklahoma
-    compannyURL: https://www.uco.edu/
-    role: Editor
+    companyUrl: https://www.uco.edu/
+    role:
   - name: Mary Gwozdz
     affiliation: UNICON
     companyUrl: https://www.unicon.net
-    role: Editor
+    role:
+  - name: Melissa Marsh Lockhart
+    affiliation: Georgia Institute of Technology (GA Tech)
+    companyUrl: https://https://www.gatech.edu
+    role:
   - name: Nate Otto
     affiliation: SkyBridge Skills
     companyUrl: https://skybridgeskills.com
-    role: Editor
+    role: Chair, Open Badges
+  - name: Deanna Parker
+    affiliation: Solutions for Information Design (SOLID)
+    companyUrl: https://www.solidinfodesign.com/
+    role:
   - name: Sonja Strahl
     affiliation: University of Maryland Global Campus
     companyUrl: https://www.umgc.edu
+    role:
+  - name: Crystal Thomas
+    affiliation: Georgia Institute of Technology (GA Tech)
+    role: https://https://www.gatech.edu
+  - name: Susan Haught
+    affiliation: 1Edtech
+    companyUrl: https://www.1edtech.org
     role: Editor
   - name: Emilie Rafal
     affiliation: 1Edtech
