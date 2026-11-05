@@ -14,6 +14,7 @@ category: Certification
 discussion:
   enabled: true
   topicId: OB-TC-CERT-10
+showSectionNumbers: true
 releases:
   - version: "1.0"
     date: 2026-09-03
@@ -48,7 +49,7 @@ TrustEd Credential certification builds on Open Badges 3.0 certification. Candid
 
 Certification requirements MAY introduce greater constraints than the minimum conformance requirements defined by the TrustEd Credential Profile for specific implementation or certification categories.
 
-## 1. Introduction
+## Introduction
 
 The Open Badges TrustEd Credential Profile defines additional requirements and guidance for the use of Open Badges 3.0 metadata to support consistent representation and interpretation of credentials, achievement, assessment, skills, evidence, and outcomes.
 
@@ -56,7 +57,7 @@ This Conformance and Certification Guide defines the additional capabilities tha
 
 Open Badges 3.0 certification is a prerequisite for TrustEd Credential certification.
 
-### 1.1 Conformance Statements
+### Conformance Statements
 
 As well as sections marked as non-normative, all examples, notes, placeholders, and Working Group Questions in this document are non-normative. Everything else is normative unless otherwise stated.
 
@@ -68,7 +69,7 @@ SHOULD, SHOULD NOT, and RECOMMENDED statements constitute best practices. Failur
 
 MAY and OPTIONAL statements indicate capabilities that implementers are free to choose whether or not to implement unless this Conformance and Certification Guide explicitly establishes support as a requirement for a certification category.
 
-### 1.2 Documents
+### Documents
 
 The following documents are relevant to TrustEd Credential implementation and certification:
 
@@ -80,7 +81,7 @@ The following documents are relevant to TrustEd Credential implementation and ce
 - [[[!OB-ACCRED-20]]]
 - [[[!OB-ASSESSMENT-20]]]
 
-### 1.3 Terms
+### Terms
 
 Achievement
 : The description of the accomplishment represented by an OpenBadgeCredential.
@@ -112,7 +113,7 @@ TrustEd Profile validation
 Verification
 : Evaluation of whether a credential is authentic and valid according to the applicable Open Badges 3.0 verification mechanisms.
 
-## 2. Conformance and Certification
+## Conformance and Certification
 
 This section is non-normative.
 
@@ -132,9 +133,7 @@ Certification may be achieved in one or more of the following proposed categorie
 - TrustEd Credential Issuer
 - TrustEd Credential Verifier
 
-> **Working Group Question:** Confirm that TrustEd Credential Issuer and TrustEd Credential Verifier are the appropriate certification categories. Determine whether display requirements should be included within Verifier certification or whether a separate TrustEd Credential Displayer certification category is needed.
-
-### 2.1 Certification Categorization
+### Certification Categorization
 
 TrustEd Credential certification builds upon applicable Open Badges 3.0 certification.
 
@@ -147,19 +146,19 @@ A candidate platform MUST hold current Open Badges 3.0 certification appropriate
 
 TrustEd Credential certification does not repeat the full Open Badges 3.0 certification process. It tests the additional requirements and capabilities necessary to support the TrustEd Credential Profile.
 
-### 2.2 The Conformance Process
+### The Conformance Process
 
 The process for conformance testing TrustEd Credential implementations includes the following:
 
-1. Launch the 1EdTech Conformance Test Suite for the TrustEd Credential Profile and follow the onscreen instructions.
+1. Set up your product in the [Build Portal](https://build.1edtech.org)
 
-   > **Note**: TDB: TrustEd Credential Conformance Test Suite URL
+2. Start a new testing session for Open Badges.
 
-2. Select the TrustEd Credential certification category or categories for which certification is sought.
+3. Select the TrustEd Credential certification category or categories for which certification is sought.
 
-3. Complete all required tests for the selected certification category.
+4. Complete all required tests for the selected certification category.
 
-4. Submit the test results according to the instructions provided by the conformance test system.
+5. Submit the test results according to the instructions provided by the conformance test system.
 
 To pass certification:
 
@@ -175,7 +174,7 @@ The 1EdTech Global Certified Products Directory will list the product's applicab
 
 [PLACEHOLDER: Confirm final membership, submission, renewal, and certification-directory language against current 1EdTech certification policy.]
 
-## 3. TrustEd Credential Issuer Conformance
+## TrustEd Credential Issuer Conformance
 
 This section is non-normative.
 
@@ -183,7 +182,7 @@ A TrustEd Credential Issuer is an application that enables an issuing organizati
 
 The candidate platform MUST demonstrate that it can create and issue a conformant TrustEd Credential.
 
-### 3.1 TrustEd Credential Issuer Compliance
+### TrustEd Credential Issuer Compliance
 
 The functional capabilities of a TrustEd Credential Issuer are:
 
@@ -199,7 +198,7 @@ The functional capabilities of a TrustEd Credential Issuer are:
 
 A property that is optional or recommended for inclusion in an individual TrustEd Credential is not necessarily optional for implementation by a certified TrustEd Credential Issuer.
 
-### 3.2 Recommended and Optional Property Support
+### Recommended and Optional Property Support
 
 Properties that are RECOMMENDED for inclusion in an individual TrustEd Credential MAY nevertheless be required platform capabilities for TrustEd Credential certification. Therefore, in order to pass certification, candidate platforms MUST show that they're capable of producing TrustEd Credentials with all of the RECOMMENDED fields. It MAY be possible that institutions using these candidate platforms produce TrustEd credentials wihout all those RECOMMENDED fields sometimes.
 
@@ -220,7 +219,7 @@ Failure of a candidate platform to support a capability explicitly required for 
 
 > **Certification Scope Note:** The requirement to support recommended and optional properties applies to applicable TrustEd Credential Profile certification capabilities. It does not require implementation of every optional property defined anywhere in the complete Open Badges 3.0 data model.
 
-### 3.2 Accreditation Support
+### Accreditation Support
 
 The candidate platform MUST support accreditor information as required by the TrustEd Credential Profile using the applicable [[OB-ACCRED-20]].
 
@@ -232,11 +231,11 @@ The candidate platform MUST:
 
 The candidate platform MUST NOT require an issuing organization to provide false accreditation information in order to issue a TrustEd Credential.
 
-### 3.3 Assessment Support
+### Assessment Support
 
 The candidate platform MUST support assessment information as required by the TrustEd Credential Profile using the applicable [[OB-ASSESSMENT-20]].
 
-### 3.4 TrustEd Credential Issuer Tests
+### TrustEd Credential Issuer Tests
 
 The candidate platform MUST successfully complete the following tests:
 
@@ -252,7 +251,7 @@ The candidate platform MUST successfully complete the following tests:
 
    This MUST include the applicable relationship between `rubricCriterionLevel` and `achievedLevel`.
 
-## 4. TrustEd Credential Verifier Conformance
+## TrustEd Credential Verifier Conformance
 
 This section is non-normative.
 
@@ -262,7 +261,7 @@ The candidate platform MUST demonstrate that it recognizes and validates TrustEd
 
 The candidate platform MUST distinguish TrustEd Credential Profile conformance from underlying Open Badges 3.0 validity.
 
-### 4.1 TrustEd Credential Verifier Compliance
+### TrustEd Credential Verifier Compliance
 
 The functional capabilities of a TrustEd Credential Verifier are:
 
@@ -278,17 +277,11 @@ The functional capabilities of a TrustEd Credential Verifier are:
 
 A receiving platform MUST NOT silently discard valid TrustEd Credential metadata solely because the platform does not actively use or display that information.
 
-### 4.2 Validation and TrustEd Credential Status
+### Validation and TrustEd Credential Status
 
 A certified TrustEd Credential Verifier MUST distinguish among the following conditions.
 
-#### 4.2.1 Invalid Open Badge
-
-The credential fails applicable Open Badges 3.0 validation.
-
-The candidate platform MUST NOT represent the credential as a TrustEd Credential.
-
-#### 4.2.2 Valid Open Badge Without TrustEd Credential Claim
+#### Valid Open Badge Without TrustEd Credential Claim
 
 The credential satisfies applicable Open Badges 3.0 requirements but does not identify the TrustEd Credential Profile.
 
@@ -296,7 +289,7 @@ The candidate platform MAY process the credential as a valid Open Badge.
 
 The candidate platform MUST NOT represent the credential as a TrustEd Credential.
 
-#### 4.2.3 Valid Open Badge With Failed TrustEd Credential Conformance
+#### Valid Open Badge With Failed TrustEd Credential Conformance
 
 The credential:
 
@@ -308,7 +301,7 @@ The candidate platform MUST distinguish this condition from an invalid Open Badg
 
 The candidate platform MUST NOT represent the credential as a conformant TrustEd Credential.
 
-#### 4.2.4 Valid TrustEd Credential
+#### Valid TrustEd Credential
 
 The credential:
 
@@ -318,7 +311,7 @@ The credential:
 
 The candidate platform MAY represent the credential as a valid TrustEd Credential.
 
-### 4.3 Data Preservation
+### Data Preservation
 
 A certified TrustEd Credential Receiver MUST preserve the original TrustEd Credential data necessary to maintain credential meaning and conformance.
 
@@ -330,7 +323,7 @@ A candidate platform is not required to expose every TrustEd Credential property
 
 A subsequent export, transfer, or sharing operation MUST preserve applicable TrustEd Credential metadata and cardinality.
 
-### 4.4 TrustEd Credential Receiver Tests
+### TrustEd Credential Receiver Tests
 
 The candidate platform MUST successfully complete the following tests:
 
@@ -354,26 +347,9 @@ The candidate platform MUST successfully complete the following tests:
 
    Demonstrate that applicable TrustEd Credential Profile metadata required for verifier certification is processed and preserved when present.
 
-The certification suite will shuffle the order of the tests and ask for the relevant data to ensure a test has been passed.
+The certification suite will present certain credentials without details and request the necessary data to confirm a test has been passed. Specifically, it will ask for each credential whether your platform marked it as valid and, if so, the reason it was considered invalid.
 
-> **Note**: TDB complete
-
-## 5. TrustEd Credential Displayer Conformance
-
-> **Working Group Question:** Determine whether a separate TrustEd Credential Displayer certification category is required or whether applicable display requirements should be incorporated into TrustEd Credential Verifier certification.
-
-If a separate TrustEd Credential Displayer certification category is adopted, this section should define requirements for applicable capabilities such as:
-
-- recognizing TrustEd Credential status;
-- distinguishing TrustEd Credentials from standard Open Badges;
-- distinguishing failed TrustEd Credential conformance from invalid Open Badges;
-- presenting applicable TrustEd Credential metadata;
-- presenting verification status; and
-- presenting applicable achievement, alignment, criteria, evidence, result, assessment, endorsement, and accreditation information.
-
-[PLACEHOLDER: Remove this section if display requirements are incorporated into Verifier certification.]
-
-## 6. Implementation Guidance and Certification
+## Implementation Guidance and Certification
 
 The [[[OB-TC-IMPL-10]]] provides non-normative recommended practices for populating TrustEd Credential metadata to improve transparency, portability, machine readability, interoperability, and trust.
 
