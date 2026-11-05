@@ -5,6 +5,7 @@ var _contributors = [
   {name: "Nate Otto", company: "SkyBridge Skills", companyURL: "https://skybridgeskills.com", role: "Editor"},
   {name: "Deanna Parker", company: "Solutions for Information Design (SOLID)", companyURL: "https://www.solidinfodesign.com/", role: "Editor"},
   {name: "Sonja Strahl", company: "University of Maryland Global Campus", companyURL: "https://www.umgc.edu", role: "Editor"},
+  {name: "Crystal Thomas", company: "Georgia Institute of Technology (GA Tech)", companyURL: "https://https://www.gatech.edu/", role: "Editor"},
   {name: "Susan Haught", company: "1Edtech", companyURL: "https://www.1edtech.org", role: "Editor"},
   {name: "Emilie Rafal", company: "1Edtech", companyURL: "https://www.1edtech.org", role: "Editor"},
   {name: "Rob Coyle", company: "1Edtech", companyURL: "https://www.1edtech.org", role: "Editor"},

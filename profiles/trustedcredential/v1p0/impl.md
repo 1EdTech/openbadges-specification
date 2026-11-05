@@ -14,6 +14,10 @@ discussion:
   inline: true
   topicId: OB-TC-IMPL-10
 contributors:
+  - name: Trevor Cox
+    affiliation: University of Central Oklahoma
+    compannyURL: https://www.uco.edu/
+    role: Editor
   - name: Mary Gwozdz
     affiliation: UNICON
     companyUrl: https://www.unicon.net
