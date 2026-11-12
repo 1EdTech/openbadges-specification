@@ -45,9 +45,10 @@ The existing following optional properties in [AchievementSubject](#org.1edtech.
 #### Changes to Result
 
 The existing following optional properties in [Result](#org.1edtech.ob.v3p0.result.class) are MANDATORY:
-A new property in [Result](#org.1edtech.ob.v3p0.result.class) \'resultDate\' is MANDATORY
 
-- `resultDescription`
+- `resultDescription`.
+
+A new property in [Result](#org.1edtech.ob.v3p0.result.class) \'resultDate\' is MANDATORY
 
 ### TrustEd Credential Profile Requirements
 
