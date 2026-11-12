@@ -20,3 +20,9 @@ description: >
 | AchievementCredential | [https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json](https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json) |
 | AchievementSubject | [https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementsubject-jsonschema1.json](https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementsubject-jsonschema1.json) |
 | Result | [https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_result-jsonschema1.json](https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_result-jsonschema1.json) |
+
+### JSON-LD Context
+
+| Resource | URL |
+| --- | --- |
+| JSON-LD Context | [https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json](https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json) |
