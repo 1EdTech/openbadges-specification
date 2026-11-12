@@ -40,7 +40,8 @@ contributors:
     role: ""
   - name: Crystal Thomas
     affiliation: Georgia Institute of Technology (GA Tech)
-    role: https://https://www.gatech.edu
+    role: ""
+    companyUrl: https://https://www.gatech.edu
   - name: Susan Haught
     affiliation: 1Edtech
     companyUrl: https://www.1edtech.org
