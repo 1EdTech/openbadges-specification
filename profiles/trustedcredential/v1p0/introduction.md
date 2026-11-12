@@ -31,9 +31,14 @@ The Open Badges Specification has several related documents and artifacts shown 
 
 ### Terminology
 
-- <dfn data-lt="open badge">Badge</dfn>: A single assertion of an achievement that is packaged as a verifiable credential.
-- <dfn data-lt="CLR|Comprehensive Learner Records">Comprehensive Learner Record</dfn> (CLR): Set of assertions that can be packaged as a verifiable credential.
-- <dfn data-lt="VP">Verifiable Presentation</dfn> (VP): A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [[vc-data-model-2.0]]
+Badge {data-lt=open badge}
+: A single assertion of an achievement that is packaged as a verifiable credential.
+
+Comprehensive Learner Record (CLR){data-lt="CLR|Comprehensive Learner Record|Comprehensive Learner Records"}
+: Set of assertions that can be packaged as a verifiable credential.
+
+Verifiable Presentation{data-lt="VP"}
+: A tamper-evident presentation of one or more Verifiable Credentials of which cryptographic verification can be used to determine the trustworthiness of the authorship of the data. [[vc-data-model-2.0]]
 
 #### Conformance Statements
 
