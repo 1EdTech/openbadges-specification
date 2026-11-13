@@ -52,7 +52,17 @@ The learned received 3.0 credits from the completion of this course.
       "creditsAvailable": 3.0,
       "criteria": {
         "narrative": "Learners must complete all required coursework and assessments for this 3-credit academic course. The credit value represents formally awarded academic credit under Example University's semester credit hour system."
-      }
+      },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "Analyze and interpret data using introductory statistical methods",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/5b1c2d3e-0001-4f6a-8b7c-data-analysis-intro",
+          "targetFramework": "Example State Data Literacy Framework",
+          "targetType": "CFItem",
+          "targetCode": "DA-1"
+        }
+      ]
     }
   },
   "credentialSchema": [

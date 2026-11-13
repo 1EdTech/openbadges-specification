@@ -219,6 +219,15 @@ A candidate is certified only if:
       "criteria": {
         "narrative": "A candidate is certified only if: (1) the passing scaled score of 720 (on a 100–900 scale) is achieved on the CNSP examination; (2) no examination integrity violations are detected during delivery; and (3) identity verification is completed successfully. The examination is a closed-book, computer-based test administered either at an authorized testing center or via remote online proctoring (live or AI-assisted), with mandatory candidate identity verification. Certification is valid for 3 years and may be renewed through continuing professional development (CPD), retesting, or a combination of both."
       },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "Secure enterprise network infrastructure",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/9f1e4c30-0001-4d2a-8b6e-secure-network-infrastructure",
+          "targetFramework": "CNSP Competency Map",
+          "targetType": "CFItem"
+        }
+      ],
       "resultDescription": [
         {
           "id": "urn:uuid:eb780ead-bbd2-46a7-af20-91c995f7a739",
@@ -234,24 +243,24 @@ A candidate is certified only if:
               "targetName": "Configure firewall policies",
               "targetDescription": "12 of 90 exam questions map to this competency statement.",
               "targetFramework": "CNSP Competency Map",
-              "targetType": "ceasn:Competency",
-              "targetUrl": "https://northbridge-cyber.example.org/competencies/configure-firewall-policies"
+              "targetType": "CFItem",
+              "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/9f1e4c30-0002-4d2a-8b6e-configure-firewall-policies"
             },
             {
               "type": ["Alignment"],
               "targetName": "Detect network attacks",
               "targetDescription": "18 of 90 exam questions map to this competency statement.",
               "targetFramework": "CNSP Competency Map",
-              "targetType": "ceasn:Competency",
-              "targetUrl": "https://northbridge-cyber.example.org/competencies/detect-network-attacks"
+              "targetType": "CFItem",
+              "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/9f1e4c30-0003-4d2a-8b6e-detect-network-attacks"
             },
             {
               "type": ["Alignment"],
               "targetName": "Secure remote access",
               "targetDescription": "10 of 90 exam questions map to this competency statement.",
               "targetFramework": "CNSP Competency Map",
-              "targetType": "ceasn:Competency",
-              "targetUrl": "https://northbridge-cyber.example.org/competencies/secure-remote-access"
+              "targetType": "CFItem",
+              "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/9f1e4c30-0004-4d2a-8b6e-secure-remote-access"
             }
           ],
           "description": "A 90-question, 120-minute proctored examination covering network fundamentals, security technologies, threat analysis, and troubleshooting scenarios. Delivered as a closed-book, computer-based exam at an authorized testing center or via live/AI-assisted remote online proctoring, with mandatory candidate identity verification. Question types include single-answer multiple choice, multiple response, drag-and-drop configuration, performance-based simulation, and case study items (e.g., diagnosing why a firewall rule blocks outbound HTTPS traffic while allowing DNS queries, and selecting the configuration change that restores secure web access without weakening the security policy).",
@@ -316,7 +325,7 @@ of an assessment with questions.
 - `resultDescription` uses the combined type `["ResultDescription", "AssessmentResultDescription"]`, following the pattern in [[OB-ASSMT-20]] — this lets a single object carry both the standard scoring fields (`resultType`, `valueMin`/`valueMax`, `requiredValue`) and the assessment-specific fields (`assessmentType`, `evaluationMethod`, `sections`, etc.) in one place.
 - `resultType`: `ScaledScore` (not `RawScore`) — the `100–900` range is a converted/scaled score, not a raw question count, which is the correct semantic distinction per the ResultType enum.
 - `evaluationMethod` carries the full validation methodology — JTA, item development/review, pilot testing, psychometric validation (CTT/IRT/Cronbach's alpha/SEM), standard-setting (Angoff family), and ongoing QA. This is the field the extension spec designates for "how the assessment is scored" and reliability/validity information, so it's the natural home for everything under your doc's "Validation Methodology" heading.
-- Competency mapping is expressed as alignment entries on the ResultDescription, using `targetType`: `"ceasn:Competency"` and putting the question counts in `targetDescription`, rather than inventing a non-spec field.
+- Competency mapping is expressed as alignment entries on the ResultDescription, using `targetType`: `"CFItem"` and putting the question counts in `targetDescription`, rather than inventing a non-spec field.
 - Modality/delivery details is expressed in `criteria.narrative` (certification decision) and the `ResultDescription.description`/`assessmentOutput` — the extension has no dedicated "modality" field, so delivery format (testing center vs. remote proctoring, closed-book, identity verification, AI-assisted proctoring) is folded into narrative text rather than a fabricated property.
 - Security controls (secure browser, randomized items, encrypted delivery, audit logging, misconduct investigation) were not separately modeled — they're operational/security controls rather than assessment-result or achievement-definition data, so adding them as invented fields would overreach the spec. Let me know if you'd like these captured via `credentialStatus`/`termsOfUse` or a separate extension instead.
 - Result.`value`: `"742"` on the AchievementSubject is an illustrative passing score, included so the example shows a fully wired assertion (not just the definition-level `resultDescription`).

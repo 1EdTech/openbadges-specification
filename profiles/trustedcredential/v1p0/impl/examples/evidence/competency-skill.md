@@ -52,6 +52,16 @@ links to a portfolio, located at `https://example.org/evidence/learner123/data-a
       "criteria": {
         "narrative": "The learner must demonstrate proficiency across all dimensions of the Data Literacy rubric: data collection, data cleaning, analysis, and communication of findings. A minimum level of **Proficient** is required."
       },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "Data Literacy and Analysis",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/5b1c2d3e-0002-4f6a-8b7c-data-literacy-analysis",
+          "targetFramework": "Example State Data Literacy Framework",
+          "targetType": "CFItem",
+          "targetCode": "DA-2"
+        }
+      ],
       "resultDescription": [
         {
           "id": "https://example.org/achievements/data-literacy/rubric/rd-01",

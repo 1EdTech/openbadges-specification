@@ -53,6 +53,16 @@ The learned passed the degree with an GPA of `5.8`.
       "criteria": {
         "narrative": "Completion of all required coursework with a minimum cumulative GPA of 4.0 out of 7.0."
       },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "Computer Science undergraduate program outcomes",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/2d8b5a40-0001-4e7c-b3f9-cs-undergraduate-outcomes",
+          "targetFramework": "Example Computing Curricula Competency Framework",
+          "targetType": "CFItem",
+          "targetCode": "CS-UG"
+        }
+      ],
       "resultDescription": [
         {
           "id": "https://university.example.edu/achievements/bsc-cs/results/gpa",

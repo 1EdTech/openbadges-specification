@@ -56,6 +56,16 @@ the `AchievementSubject`.
       "criteria": {
         "narrative": "Complete all course modules and pass the final assessment, which places the learner at one of three mastery levels: First, Advanced, or Proficiency."
       },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "General English language proficiency",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/4b9a1f60-0001-4a5d-c7e3-english-general-proficiency",
+          "targetFramework": "Example English Language Proficiency Framework",
+          "targetType": "CFItem",
+          "targetCode": "ENG-GEN"
+        }
+      ],
       "resultDescription": [
         {
           "id": "https://example.org/achievements/general-english-course/results/mastery-level",

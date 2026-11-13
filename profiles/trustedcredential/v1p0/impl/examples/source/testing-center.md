@@ -52,6 +52,16 @@ The following `AchievementCredential` describes the awarding of the `Advanced Ca
       "criteria": {
         "narrative": "Earners must complete the 90-minute proctored exam at an approved testing center and achieve a scaled score of 70 or higher, as scored by the administering testing center and reported to the issuing institution."
       },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "Calculus I: limits, derivatives, integrals, and series",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/3a6f2b10-0002-4c8e-9d1a-calculus-i",
+          "targetFramework": "Example Postsecondary Mathematics Competency Framework",
+          "targetType": "CFItem",
+          "targetCode": "MATH-CALC-1"
+        }
+      ],
       "fieldOfStudy": "Mathematics",
       "tag": ["mathematics", "calculus", "placement-exam"]
     }

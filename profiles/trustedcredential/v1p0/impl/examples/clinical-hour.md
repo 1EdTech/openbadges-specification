@@ -55,7 +55,17 @@ The learned received 120.0 credits from the completion of this achievement.
       "creditsAvailable": 120.0,
       "criteria": {
         "narrative": "Learners must complete 120 supervised clinical clock hours in an approved patient care setting. The value in creditsAvailable and creditsEarned represents clinical clock hours, not academic credit hours. Hours are verified by an approved clinical supervisor."
-      }
+      },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "Provide safe, patient-centered foundational care",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/7c4d9e20-0001-4b3f-a1d2-patient-care-foundations",
+          "targetFramework": "Example Allied Health Clinical Competency Framework",
+          "targetType": "CFItem",
+          "targetCode": "PCF-1"
+        }
+      ]
     },
     "source": {
       "id": "https://example.org/profiles/clinical-supervisor-office",

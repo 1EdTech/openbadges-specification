@@ -63,6 +63,16 @@ The learner's result for this achievement was the Rubric Criterion Level `Profic
       "criteria": {
         "narrative": "Recipient submitted a persuasive essay that was scored against the 'Argument Development' rubric criterion and achieved at least the 'Proficient' level."
       },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "Write arguments to support claims using valid reasoning and relevant evidence",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/8e2f1a10-0000-4a2e-9c3a-argument-writing",
+          "targetFramework": "Example State ELA Writing Rubric Framework",
+          "targetType": "CFItem",
+          "targetCode": "W.1"
+        }
+      ],
       "resultDescription": [
         {
           "id": "https://example.edu/achievements/persuasive-essay-writing/results/argument-development",

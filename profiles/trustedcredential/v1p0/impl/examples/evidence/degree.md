@@ -70,6 +70,16 @@ links to the report, located at `https://example.edu/registrar/degree-conferral/
       "criteria": {
         "narrative": "Awarded to students who complete a minimum of 120 credit hours, including all required computer science core courses, mathematics requirements, general education requirements, and a capstone project, while maintaining the university's minimum cumulative GPA standard."
       },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "Computer Science undergraduate program outcomes",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/2d8b5a40-0001-4e7c-b3f9-cs-undergraduate-outcomes",
+          "targetFramework": "Example Computing Curricula Competency Framework",
+          "targetType": "CFItem",
+          "targetCode": "CS-UG"
+        }
+      ],
       "fieldOfStudy": "Computer Science",
       "resultDescription": [
         {
@@ -174,6 +184,16 @@ the degree.
       "criteria": {
         "narrative": "Awarded to students who complete a minimum of 120 credit hours, including all required computer science core courses, mathematics requirements, general education requirements, and a capstone project."
       },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "Computer Science undergraduate program outcomes",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/2d8b5a40-0001-4e7c-b3f9-cs-undergraduate-outcomes",
+          "targetFramework": "Example Computing Curricula Competency Framework",
+          "targetType": "CFItem",
+          "targetCode": "CS-UG"
+        }
+      ],
       "fieldOfStudy": "Computer Science",
       "resultDescription": [
         {

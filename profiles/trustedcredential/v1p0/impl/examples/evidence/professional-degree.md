@@ -50,7 +50,17 @@ links to the report, located at `https://example.org/evidence/exam-completion-re
       "description": "The PMP certification recognizes demonstrated competency in leading and directing projects, validated through a combination of eligible experience and a formal examination.",
       "criteria": {
         "narrative": "Successfully pass the PMP certification examination after satisfying the eligibility requirements for project management education and experience."
-      }
+      },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "Lead and direct projects",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/6e3c7d50-0001-4f1b-a2c8-lead-and-direct-projects",
+          "targetFramework": "Example Project Management Competency Framework",
+          "targetType": "CFItem",
+          "targetCode": "PM-1"
+        }
+      ]
     }
   },
   "evidence": [

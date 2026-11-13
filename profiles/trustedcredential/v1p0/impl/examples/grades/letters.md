@@ -55,6 +55,16 @@ The learned did well, because it passed the exam with an `A`.
       "criteria": {
         "narrative": "Recipients must complete all course assignments, exams, and the final project, earning a passing letter grade of D or higher."
       },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "Collect, clean, analyze, and visualize data",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/5b1c2d3e-0003-4f6a-8b7c-data-science-foundations",
+          "targetFramework": "Example State Data Literacy Framework",
+          "targetType": "CFItem",
+          "targetCode": "DS-1"
+        }
+      ],
       "creditsAvailable": 3.0,
       "fieldOfStudy": "Data Science",
       "resultDescription": [

@@ -45,6 +45,16 @@ as it only describes three questions.
       "criteria": {
         "narrative": "Achieved by completing the CLEP College Algebra examination and earning a scaled score that meets or exceeds the score required by the receiving institution for credit."
       },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "College Algebra: algebraic operations, equations, inequalities, and functions",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/3a6f2b10-0001-4c8e-9d1a-college-algebra",
+          "targetFramework": "Example Postsecondary Mathematics Competency Framework",
+          "targetType": "CFItem",
+          "targetCode": "MATH-ALG-1"
+        }
+      ],
       "resultDescription": [
         {
           "id": "urn:uuid:2c9d4d6a-6f4e-4a7c-8f8b-3e6b5d1a9c02",

@@ -27,6 +27,16 @@ internship applicants.
   "criteria": {
     "narrative": "Complete all weekly programming assignments, pass the midterm and final exams with a combined average of 70% or higher, and complete a capstone project implementing a graph-based pathfinding algorithm."
   },
+  "alignment": [
+    {
+      "type": ["Alignment"],
+      "targetName": "Design and analyze algorithms using fundamental data structures",
+      "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/2d8b5a40-0002-4e7c-b3f9-data-structures-algorithms",
+      "targetFramework": "Example Computing Curricula Competency Framework",
+      "targetType": "CFItem",
+      "targetCode": "CS-DSA"
+    }
+  ],
   "endorsement": [
     {
       "@context": [

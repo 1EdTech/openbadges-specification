@@ -58,6 +58,16 @@ links to the completion report, located at
       "criteria": {
         "narrative": "To earn this badge, the learner must complete all course modules, pass a midterm exam, pass a final exam, and achieve an overall final grade of C or higher."
       },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "Collect, clean, analyze, and visualize data",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/5b1c2d3e-0003-4f6a-8b7c-data-science-foundations",
+          "targetFramework": "Example State Data Literacy Framework",
+          "targetType": "CFItem",
+          "targetCode": "DS-1"
+        }
+      ],
       "fieldOfStudy": "Data Science",
       "creditsAvailable": 3.0,
       "resultDescription": [

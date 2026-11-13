@@ -51,6 +51,16 @@ links to the report, located at `https://example.org/evidence/exam-completion-re
       "criteria": {
         "narrative": "Recipient must complete the Assignment 3 exam and receive a passing letter grade of C or higher."
       },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "Summarize data using descriptive statistics",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/5b1c2d3e-0004-4f6a-8b7c-descriptive-statistics",
+          "targetFramework": "Example State Data Literacy Framework",
+          "targetType": "CFItem",
+          "targetCode": "SR-1"
+        }
+      ],
       "resultDescription": [
         {
           "id": "https://example.org/achievements/assignment-3/results/exam-grade",

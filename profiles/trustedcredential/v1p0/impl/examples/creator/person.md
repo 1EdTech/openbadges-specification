@@ -28,6 +28,16 @@ contains all optional fields - except `official`, `parentOrg`, `endorsement`, an
   "criteria": {
     "narrative": "Recipients must complete all four course modules and pass the final assessment with a score of 80% or higher."
   },
+  "alignment": [
+    {
+      "type": ["Alignment"],
+      "targetName": "Apply data privacy principles and privacy-by-design practices",
+      "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/1f7e3b70-0001-4a9c-d5b2-data-privacy-fundamentals",
+      "targetFramework": "Example Information Privacy Competency Framework",
+      "targetType": "CFItem",
+      "targetCode": "PRIV-1"
+    }
+  ],
   "image": {
     "id": "https://example.edu/images/achievements/data-privacy-fundamentals.png",
     "type": "Image",

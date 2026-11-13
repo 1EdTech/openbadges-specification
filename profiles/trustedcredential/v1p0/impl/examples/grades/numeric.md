@@ -48,6 +48,16 @@ The learned did well, because it passed the course with an `8.5`.
       "criteria": {
         "narrative": "Complete all course modules and score at least 5 on the final exam (0–10 scale)."
       },
+      "alignment": [
+        {
+          "type": ["Alignment"],
+          "targetName": "Collect, clean, analyze, and visualize data",
+          "targetUrl": "https://case.example.org/ims/case/v1p0/CFItems/5b1c2d3e-0003-4f6a-8b7c-data-science-foundations",
+          "targetFramework": "Example State Data Literacy Framework",
+          "targetType": "CFItem",
+          "targetCode": "DS-1"
+        }
+      ],
       "resultDescription": [
         {
           "id": "https://example.edu/achievements/intro-data-science/results/final-grade",
