@@ -3,7 +3,7 @@ title: "Changes"
 docType: "segment"
 status: "PublicCandidateFinal"
 author: "1Edtech Consortium"
-lastUpdated: 2026-11-05
+lastUpdated: 2026-11-12
 description: "Changes for TrustEd Credential 1.0 Profile"
 ---
 
@@ -94,3 +94,18 @@ A new property in [Result](#org.1edtech.ob.v3p0.result.class) \'resultDate\' is 
 - Accreditor information MUST be included using the applicable [[[!OB-ACCRED-20]]] for accreditor information.
 - The accreditor property MUST support multiple accreditor organizations.
 - Organizations that are not accredited MAY include an empty list of accreditors.
+
+### JSON-LD Context
+
+Because `resultDate` is not defined in the Open Badges 3.0 JSON-LD context, this profile publishes an additional JSON-LD context that defines it. The URL of this context is listed in the Resources section of this document.
+
+- A TrustEd Credential MUST include this context in its `@context` array, after the Open Badges 3.0 context.
+- Without it, `resultDate` is an undefined term and the credential will fail JSON-LD processing, including Data Integrity proof verification.
+
+```json
+"@context": [
+  "https://www.w3.org/ns/credentials/v2",
+  "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+  "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
+]
+```
