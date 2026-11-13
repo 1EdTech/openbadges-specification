@@ -167,7 +167,7 @@ A candidate is certified only if:
     "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
     "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
     "https://purl.imsglobal.org/spec/ob-assessment/v2p0/context/",
-    "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
+    "https://purl.imsglobal.org/spec/ob/v3p0/obtc/v1p0/context.json"
   ],
   "id": "https://northbridge-cyber.example.org/credentials/e7270d68-9c49-4ef7-a2a4-74cdb458af27",
   "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -296,7 +296,7 @@ A candidate is certified only if:
       "type": "1EdTechJsonSchemaValidator2019"
     },
     {
-      "id": "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
       "type": "1EdTechJsonSchemaValidator2019"
     },
     {

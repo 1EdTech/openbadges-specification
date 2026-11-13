@@ -25,7 +25,7 @@ the `AchievementSubject`.
     "https://www.w3.org/ns/credentials/v2",
     "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
     "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
-    "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
+    "https://purl.imsglobal.org/spec/ob/v3p0/obtc/v1p0/context.json"
   ],
   "id": "urn:uuid:8f3b2e1a-6d4c-4a2f-9b1e-2c7d5f9a1b3e",
   "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -105,7 +105,7 @@ the `AchievementSubject`.
       "type": "1EdTechJsonSchemaValidator2019"
     },
     {
-      "id": "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
       "type": "1EdTechJsonSchemaValidator2019"
     }
   ]

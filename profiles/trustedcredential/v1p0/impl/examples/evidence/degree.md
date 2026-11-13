@@ -25,7 +25,7 @@ links to the report, located at `https://example.edu/registrar/degree-conferral/
     "https://www.w3.org/ns/credentials/v2",
     "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
     "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
-    "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
+    "https://purl.imsglobal.org/spec/ob/v3p0/obtc/v1p0/context.json"
   ],
   "id": "https://example.edu/credentials/3732",
   "type": [
@@ -90,7 +90,7 @@ links to the report, located at `https://example.edu/registrar/degree-conferral/
       "type": "1EdTechJsonSchemaValidator2019"
     },
     {
-      "id": "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
       "type": "1EdTechJsonSchemaValidator2019"
     }
   ]
@@ -119,7 +119,7 @@ the degree.
     "https://www.w3.org/ns/credentials/v2",
     "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
     "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
-    "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
+    "https://purl.imsglobal.org/spec/ob/v3p0/obtc/v1p0/context.json"
   ],
   "id": "https://example.edu/credentials/3732",
   "type": [
@@ -196,7 +196,7 @@ the degree.
       "type": "1EdTechJsonSchemaValidator2019"
     },
     {
-      "id": "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
       "type": "1EdTechJsonSchemaValidator2019"
     }
   ]

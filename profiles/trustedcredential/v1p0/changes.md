@@ -97,12 +97,12 @@ A new property in [Result](#org.1edtech.ob.v3p0.result.class) \'resultDate\' is 
 
 #### JSON Schema
 
-- A TrustEd Credential MUST include a `credentialSchema` entry with `id` `https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json` and `type` `1EdTechJsonSchemaValidator2019`.
+- A TrustEd Credential MUST include a `credentialSchema` entry with `id` `https://purl.imsglobal.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json` and `type` `1EdTechJsonSchemaValidator2019`.
 
 ```json
 "credentialSchema": [
   {
-    "id": "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
+    "id": "https://purl.imsglobal.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
     "type": "1EdTechJsonSchemaValidator2019"
   }
 ]
@@ -122,6 +122,6 @@ Because the `1EdTechJsonSchemaValidator2019` type required by the [JSON Schema](
   "https://www.w3.org/ns/credentials/v2",
   "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
   "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
-  "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
+  "https://purl.imsglobal.org/spec/ob/v3p0/obtc/v1p0/context.json"
 ]
 ```
