@@ -3,7 +3,7 @@ title: "Institution Accreditation"
 docType: "segment"
 status: "PublicDraft"
 author: "1Edtech Consortium"
-lastUpdated: 2026-07-06
+lastUpdated: 2026-11-13
 description: "Institution Accreditation example for TrustEd Credential 1.0 implementations"
 ---
 
@@ -16,11 +16,6 @@ accredited by the `International Association of Universities (IAU) / UNESCO Worl
 
 ```json
 {
-  "@context": [
-    "https://www.w3.org/ns/credentials/v2",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
-    "https://purl.imsglobal.org/spec/ob-accred/v2p0/context"
-  ],
   "id": "https://acme.edu/issuers/1",
   "type": [
     "Profile",

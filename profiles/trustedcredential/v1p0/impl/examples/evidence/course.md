@@ -3,7 +3,7 @@ title: "Course"
 docType: "segment"
 status: "PublicDraft"
 author: "1Edtech Consortium"
-lastUpdated: 2026-07-02
+lastUpdated: 2026-11-13
 description: "Evidence Course example for TrustEd Credential 1.0 implementations"
 ---
 
@@ -24,7 +24,9 @@ links to the completion report, located at
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
+    "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
   ],
   "id": "https://example.edu/credentials/3732",
   "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -112,6 +114,16 @@ links to the completion report, located at
       "name": "Course Completion Record",
       "description": "A signed record confirming successful completion of Introduction to Data Science, including exam scores and final grade.",
       "genre": "Transcript"
+    }
+  ],
+  "credentialSchema": [
+    {
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    },
+    {
+      "id": "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
+      "type": "1EdTechJsonSchemaValidator2019"
     }
   ]
 }

@@ -3,7 +3,7 @@ title: "Direct assessment - offical"
 docType: "segment"
 status: "PublicDraft"
 author: "1Edtech Consortium"
-lastUpdated: 2026-07-06
+lastUpdated: 2026-11-13
 description: "Direct Assessment - Official example for TrustEd Credential 1.0 implementations"
 ---
 
@@ -166,7 +166,8 @@ A candidate is certified only if:
     "https://www.w3.org/ns/credentials/v2",
     "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
     "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
-    "https://purl.imsglobal.org/spec/ob-assessment/v2p0/context/"
+    "https://purl.imsglobal.org/spec/ob-assessment/v2p0/context/",
+    "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
   ],
   "id": "https://northbridge-cyber.example.org/credentials/e7270d68-9c49-4ef7-a2a4-74cdb458af27",
   "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -292,6 +293,10 @@ A candidate is certified only if:
   "credentialSchema": [
     {
       "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    },
+    {
+      "id": "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
       "type": "1EdTechJsonSchemaValidator2019"
     },
     {

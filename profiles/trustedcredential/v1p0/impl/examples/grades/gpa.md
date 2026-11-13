@@ -3,7 +3,7 @@ title: "GPA"
 docType: "segment"
 status: "PublicDraft"
 author: "1Edtech Consortium"
-lastUpdated: 2026-07-06
+lastUpdated: 2026-11-13
 description: "GPA Credential example for TrustEd Credential 1.0 implementations"
 ---
 
@@ -21,7 +21,9 @@ The learned passed the degree with an GPA of `5.8`.
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
+    "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
   ],
   "id": "urn:uuid:a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d",
   "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -70,6 +72,16 @@ The learned passed the degree with an GPA of `5.8`.
         "value": "5.8"
       }
     ]
-  }
+  },
+  "credentialSchema": [
+    {
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    },
+    {
+      "id": "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    }
+  ]
 }
 ```

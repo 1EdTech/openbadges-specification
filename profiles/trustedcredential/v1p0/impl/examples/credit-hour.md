@@ -3,7 +3,7 @@ title: "Credit Hour"
 docType: "segment"
 status: "PublicDraft"
 author: "1Edtech Consortium"
-lastUpdated: 2026-07-06
+lastUpdated: 2026-11-13
 description: "Credit Hour example for TrustEd Credential 1.0 implementations"
 ---
 
@@ -18,7 +18,9 @@ The learned received 3.0 credits from the completion of this course.
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
+    "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
   ],
   "id": "https://example.edu/credentials/academic-credit-001",
   "type": [
@@ -52,6 +54,16 @@ The learned received 3.0 credits from the completion of this course.
         "narrative": "Learners must complete all required coursework and assessments for this 3-credit academic course. The credit value represents formally awarded academic credit under Example University's semester credit hour system."
       }
     }
-  }
+  },
+  "credentialSchema": [
+    {
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    },
+    {
+      "id": "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    }
+  ]
 }
 ```

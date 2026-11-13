@@ -3,7 +3,7 @@ title: "Numeric Grades"
 docType: "segment"
 status: "PublicDraft"
 author: "1Edtech Consortium"
-lastUpdated: 2026-07-12
+lastUpdated: 2026-11-13
 description: "Numeric Grades Credential example for TrustEd Credential 1.0 implementations"
 ---
 
@@ -21,7 +21,9 @@ The learned did well, because it passed the course with an `8.5`.
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
+    "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
   ],
   "id": "urn:uuid:a1b2c3d4-1234-5678-9abc-def012345678",
   "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -65,6 +67,16 @@ The learned did well, because it passed the course with an `8.5`.
         "value": "8.5"
       }
     ]
-  }
+  },
+  "credentialSchema": [
+    {
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    },
+    {
+      "id": "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    }
+  ]
 }
 ```

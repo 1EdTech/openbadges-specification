@@ -3,7 +3,7 @@ title: "Competency - Skill"
 docType: "segment"
 status: "PublicDraft"
 author: "1Edtech Consortium"
-lastUpdated: 2026-07-09
+lastUpdated: 2026-11-13
 description: "Evidence Competency - Skill example for TrustEd Credential 1.0 implementations"
 ---
 
@@ -25,7 +25,9 @@ links to a portfolio, located at `https://example.org/evidence/learner123/data-a
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
+    "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
   ],
   "id": "https://example.org/credentials/data-literacy-badge-001",
   "type": ["VerifiableCredential", "AchievementCredential"],
@@ -108,6 +110,16 @@ links to a portfolio, located at `https://example.org/evidence/learner123/data-a
       "type": ["Evidence"],
       "name": "Data Analysis Portfolio",
       "description": "A portfolio document containing the learner's annotated data analysis project, including data collection methodology, cleaning scripts, analysis outputs, and a written summary of findings."
+    }
+  ],
+  "credentialSchema": [
+    {
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    },
+    {
+      "id": "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
+      "type": "1EdTechJsonSchemaValidator2019"
     }
   ]
 }

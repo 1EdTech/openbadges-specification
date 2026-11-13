@@ -3,7 +3,7 @@ title: "Person Creator"
 docType: "segment"
 status: "PublicDraft"
 author: "1Edtech Consortium"
-lastUpdated: 2026-07-13
+lastUpdated: 2026-11-13
 description: "Person Creator example for TrustEd Credential 1.0 implementations"
 ---
 
@@ -17,12 +17,8 @@ contains all optional fields - except `official`, `parentOrg`, `endorsement`, an
 
 ```json
 {
-  "@context": [
-    "https://www.w3.org/ns/credentials/v2",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
-  ],
   "id": "https://example.edu/achievements/data-privacy-fundamentals",
-  "type": ["Course"],
+  "type": ["Achievement"],
   "name": "Data Privacy Fundamentals",
   "description": "Awarded to learners who demonstrate foundational competency in data privacy principles, regulatory frameworks, and privacy-by-design practices.",
   "achievementType": "Certificate",

@@ -3,7 +3,7 @@ title: "Mastery Levels"
 docType: "segment"
 status: "PublicDraft"
 author: "1Edtech Consortium"
-lastUpdated: 2026-07-06
+lastUpdated: 2026-11-13
 description: "Mastery Levels example for TrustEd Credential 1.0 implementations"
 ---
 
@@ -23,7 +23,9 @@ the `AchievementSubject`.
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
+    "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
   ],
   "id": "urn:uuid:8f3b2e1a-6d4c-4a2f-9b1e-2c7d5f9a1b3e",
   "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -96,6 +98,16 @@ the `AchievementSubject`.
         "achievedLevel": "https://example.org/achievements/general-english-course/levels/advanced"
       }
     ]
-  }
+  },
+  "credentialSchema": [
+    {
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    },
+    {
+      "id": "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    }
+  ]
 }
 ```

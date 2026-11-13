@@ -3,7 +3,7 @@ title: "Testing Center Creator"
 docType: "segment"
 status: "PublicDraft"
 author: "1Edtech Consortium"
-lastUpdated: 2026-07-13
+lastUpdated: 2026-11-13
 description: "Testing Center Creator example for TrustEd Credential 1.0 implementations"
 ---
 
@@ -15,7 +15,9 @@ The following `AchievementCredential` describes the awarding of the `Advanced Ca
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+    "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
+    "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
   ],
   "id": "urn:uuid:8f14e45f-ceea-467f-9d4c-92e0f9a2b1a1",
   "type": ["VerifiableCredential", "OpenBadgeCredential"],
@@ -53,6 +55,16 @@ The following `AchievementCredential` describes the awarding of the `Advanced Ca
       "fieldOfStudy": "Mathematics",
       "tag": ["mathematics", "calculus", "placement-exam"]
     }
-  }
+  },
+  "credentialSchema": [
+    {
+      "id": "https://purl.imsglobal.org/spec/ob/v3p0/schema/json/ob_v3p0_achievementcredential_schema.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    },
+    {
+      "id": "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
+      "type": "1EdTechJsonSchemaValidator2019"
+    }
+  ]
 }
 ```
