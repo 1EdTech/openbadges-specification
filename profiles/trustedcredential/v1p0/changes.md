@@ -95,6 +95,19 @@ A new property in [Result](#org.1edtech.ob.v3p0.result.class) \'resultDate\' is 
 - The accreditor property MUST support multiple accreditor organizations.
 - Organizations that are not accredited MAY include an empty list of accreditors.
 
+#### JSON Schema
+
+- A TrustEd Credential MUST include a `credentialSchema` entry with `id` `https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json` and `type` `1EdTechJsonSchemaValidator2019`.
+
+```json
+"credentialSchema": [
+  {
+    "id": "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/schema/json/ob_v3p0_obtc_v1p0_achievementcredential-jsonschema1.json",
+    "type": "1EdTechJsonSchemaValidator2019"
+  }
+]
+```
+
 ### JSON-LD Context
 
 Because `resultDate` is not defined in the Open Badges 3.0 JSON-LD context, this profile publishes an additional JSON-LD context that defines it. The URL of this context is listed in the Resources section of this document.
@@ -102,10 +115,13 @@ Because `resultDate` is not defined in the Open Badges 3.0 JSON-LD context, this
 - A TrustEd Credential MUST include this context in its `@context` array, after the Open Badges 3.0 context.
 - Without it, `resultDate` is an undefined term and the credential will fail JSON-LD processing, including Data Integrity proof verification.
 
+Because the `1EdTechJsonSchemaValidator2019` type required by the [JSON Schema](#data-model) requirement is defined in the Open Badges 3.0 extensions context, a TrustEd Credential MUST also include `https://purl.imsglobal.org/spec/ob/v3p0/extensions.json` in its `@context` array.
+
 ```json
 "@context": [
   "https://www.w3.org/ns/credentials/v2",
   "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+  "https://purl.imsglobal.org/spec/ob/v3p0/extensions.json",
   "https://purl.1edtech.org/spec/ob/v3p0/obtc/v1p0/context.json"
 ]
 ```
