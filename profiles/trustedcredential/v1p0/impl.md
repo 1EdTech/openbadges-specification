@@ -4,7 +4,7 @@ category: Guide
 title: Open Badges 3.0 TrustEd Credential Profile Implementation Guide
 shortcode: OB-TC-IMPL-10
 status: PublicCandidateFinal
-lastUpdated: 2026-07-02
+lastUpdated: 2026-11-13
 version: '1.0'
 nature: normative
 docType: guide
@@ -63,6 +63,10 @@ releases:
     docVersion: "1.0"
     date: 2026-11-05
     comments: First Candidate Public Final release
+  - version: "Public Candidate Final"
+    docVersion: "1.1"
+    date: 2026-11-13
+    comments: Updated examples with the TrustEd Credential JSON-LD context and JSON Schema
 ---
 
 @standards/ob-trustedcredential/v1p0/impl/trusted-metadata-practices.md
